@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+coverage/
+
+# Framework / tooling
+.next/
+.turbo/
+.vite/
+.cache/
+
+# Generated files
+*.min.js
+*.bundle.js
+*.map
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Config & tooling outputs
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Static assets
+public/
+static/
+
+
+
+# Scripts & one-off tools
+scripts/
+
+components/ui/**/*.tsx
+**/*.d.ts
