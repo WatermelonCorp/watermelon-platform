@@ -24,4 +24,26 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom", "react-router-dom", "react-helmet-async"],
+          "ui-vendor": [
+            "@radix-ui/react-slot",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-separator",
+            "@radix-ui/react-tooltip",
+            "framer-motion",
+            "lucide-react",
+            "@hugeicons/react",
+            "clsx",
+            "tailwind-merge"
+          ],
+          "syntax-highlighter": ["react-syntax-highlighter"],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Increase limit slightly as syntax highlighter is naturally large
+  },
 })
