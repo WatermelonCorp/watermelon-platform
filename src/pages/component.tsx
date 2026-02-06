@@ -281,7 +281,7 @@ export default function ComponentPage() {
                     <h3 className="font-medium text-lg">How to use</h3>
                     <CodeCollapsibleWrapper>
                       {demoCode ? (
-                        <CodeBlock maxHeight="none" showLineNumbers title='demo'>
+                        <CodeBlock showLineNumbers title='demo'>
                           {demoCode}
                         </CodeBlock>
                       ) : (

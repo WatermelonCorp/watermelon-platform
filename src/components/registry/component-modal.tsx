@@ -209,7 +209,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 </h4>
 
                 {demoCode ? (
-                  <CodeBlock language="tsx" maxHeight="250px">
+                  <CodeBlock language="tsx">
                     {demoCode}
                   </CodeBlock>
                 ) : (
@@ -222,7 +222,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
               {/* Full source */}
               <CodeCollapsibleWrapper title="View full component source">
                 {componentCode ? (
-                  <CodeBlock maxHeight="300px" showLineNumbers>
+                  <CodeBlock showLineNumbers>
                     {componentCode}
                   </CodeBlock>
                 ) : (
@@ -361,7 +361,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 <h3 className="font-medium text-lg">How to use</h3>
                 <CodeCollapsibleWrapper>
                   {demoCode ? (
-                    <CodeBlock maxHeight="none" showLineNumbers title='demo'>
+                    <CodeBlock showLineNumbers title='demo'>
                       {demoCode}
                     </CodeBlock>
                   ) : (
@@ -409,7 +409,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           </div>
 
           {/* Content */}
-          <div className="flex-1 overflow-hidden relative">
+          <div className="flex-1 overflow-y-auto relative">
             {/* Preview Panel */}
             <TabsContent value="preview">
               <div className="h-full flex items-center justify-center p-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-muted/50 via-transparent to-transparent">
@@ -455,6 +455,23 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                           handleCopyInstall={handleCopyInstall}
                         />
                       </LayoutGroup>
+                      {/* Import & use */}
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">
+                          Import & use
+                        </h4>
+                        <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+
+                        {demoCode ? (
+                          <CodeBlock language="tsx" title='demo'>
+                            {demoCode}
+                          </CodeBlock>
+                        ) : (
+                          <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                            Loading usage example…
+                          </div>
+                        )}
+                      </div>
                     </TabsContent>
                     <TabsContent value="manual">
                       {/* Manual install (dependencies-driven) */}
@@ -463,42 +480,37 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                         setActivePackageManager={setActivePackageManager}
                         dependencies={item.dependencies}
                       />
+                      <CodeCollapsibleWrapper title="View full component source">
+                        {componentCode ? (
+                          <CodeBlock showLineNumbers>
+                            {componentCode}
+                          </CodeBlock>
+                        ) : (
+                          <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
+                            Loading source code…
+                          </div>
+                        )}
+                      </CodeCollapsibleWrapper>
+                      {/* Import & use */}
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">
+                          Import & use
+                        </h4>
+                        <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
 
+                        {demoCode ? (
+                          <CodeBlock language="tsx" title='demo'>
+                            {demoCode}
+                          </CodeBlock>
+                        ) : (
+                          <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                            Loading usage example…
+                          </div>
+                        )}
+                      </div>
                     </TabsContent>
                   </TabsContents>
                 </Tabs>
-
-
-                {/* Import & use */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-muted-foreground">
-                    Import & use
-                  </h4>
-                  <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-
-                  {demoCode ? (
-                    <CodeBlock language="tsx" title='demo'>
-                      {demoCode}
-                    </CodeBlock>
-                  ) : (
-                    <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
-                      Loading usage example…
-                    </div>
-                  )}
-                </div>
-
-                {/* Full source */}
-                <CodeCollapsibleWrapper title="View full component source">
-                  {componentCode ? (
-                    <CodeBlock showLineNumbers title={`components/ui/${item.slug}`}>
-                      {componentCode}
-                    </CodeBlock>
-                  ) : (
-                    <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
-                      Loading source code…
-                    </div>
-                  )}
-                </CodeCollapsibleWrapper>
               </div>
             </TabsContent>
 

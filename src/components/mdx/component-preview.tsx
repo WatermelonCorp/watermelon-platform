@@ -113,7 +113,7 @@ export function ComponentPreview({
         {/* Code Panel */}
         {activeTab === "code" && code && (
           <div className="max-h-[400px] overflow-auto">
-            <CodeBlock maxHeight="400px" showLineNumbers={true}>
+            <CodeBlock showLineNumbers={true}>
               {code}
             </CodeBlock>
           </div>
