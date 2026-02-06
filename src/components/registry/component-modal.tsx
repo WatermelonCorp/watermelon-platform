@@ -1,14 +1,22 @@
 import { Suspense, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import type { RegistryItem } from '@/data/registry';
 import { CodeBlock } from '@/components/mdx/code-block';
+import { CodeCollapsibleWrapper } from '@/components/mdx/code-collapsible';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, CodeIcon, ReloadIcon } from '@hugeicons/core-free-icons';
+import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
 import { ThemeToggle } from '../layout/theme-toggle';
 import { PromptItems } from '@/components/prompt-items';
-import { cn } from '@/lib/utils';
 import type { ComponentFile } from '@/lib/types';
-import { CopyButton } from '../animate-ui/components/buttons/copy';
+import { ScrollFadeEffect } from '../scroll-fade-effect';
+import { InstallationCmd } from '../mdx/installation-cmd';
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '../ui/drawer';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { ProgressiveBlur } from '../ui/progressive-blur';
+import { ManualInstallationCmd } from '../mdx/manual-installation';
+import { LayoutGroup } from 'motion/react';
+import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 
 interface ComponentModalProps {
   item: RegistryItem | null;
@@ -18,8 +26,9 @@ interface ComponentModalProps {
 type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun';
 
 export function ComponentModal({ item, onClose }: ComponentModalProps) {
+  // ALL HOOKS MUST BE CALLED BEFORE ANY EARLY RETURNS
+  const isMobile = useIsMobile();
   const [hasCopiedInstall, setHasCopiedInstall] = useState(false);
-  const [activeTab, setActiveTab] = useState<'preview' | 'code'>('preview');
   const [demoCode, setDemoCode] = useState<string>('');
   const [componentCode, setComponentCode] = useState<string>('');
   const [reloadKey, setReloadKey] = useState(0);
@@ -28,13 +37,11 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   // Load code when item changes
   useEffect(() => {
     if (!item) return;
-
-    // Load demo code
     item.demoCode().then(setDemoCode);
-    // Load component code
     item.code().then(setComponentCode);
   }, [item]);
 
+  // Early return AFTER all hooks
   if (!item) return null;
 
   const handleCopyInstall = async (cmd: string) => {
@@ -51,189 +58,342 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
     setReloadKey(prev => prev + 1);
   };
 
-  const getInstallCommand = (pm: PackageManager, baseCommand: string) => {
-    // Check if it's a shadcn add command
-    if (baseCommand.startsWith('npx shadcn') || baseCommand.includes('shadcn@latest add')) {
-      const parts = baseCommand.split(' ');
-      const componentName = parts[parts.length - 1];
-      switch (pm) {
-        case 'npm':
-          return `npx shadcn@latest add ${componentName}`;
-        case 'yarn':
-          return `npx shadcn@latest add ${componentName}`;
-        case 'pnpm':
-          return `pnpm dlx shadcn@latest add ${componentName}`;
-        case 'bun':
-          return `bunx --bun shadcn@latest add ${componentName}`;
-        default:
-          return baseCommand;
-      }
-    }
-    // For npm install commands
-    if (baseCommand.startsWith('npm install') || baseCommand.startsWith('npm i ')) {
-      const packages = baseCommand.replace(/^npm (install|i) /, '');
-      switch (pm) {
-        case 'npm':
-          return `npm install ${packages}`;
-        case 'yarn':
-          return `yarn add ${packages}`;
-        case 'pnpm':
-          return `pnpm add ${packages}`;
-        case 'bun':
-          return `bun add ${packages}`;
-        default:
-          return baseCommand;
-      }
-    }
-    return baseCommand;
-  };
-
   // Prepare files for PromptItems
   const componentFiles: ComponentFile[] = [
     ...(demoCode ? [{ name: 'demo.tsx', content: demoCode }] : []),
     ...(componentCode ? [{ name: `${item.slug}.tsx`, content: componentCode }] : []),
   ];
 
+  // Mobile View - Drawer with preview on top
+  if (isMobile) {
+    return (
+      <Drawer open={!!item} onOpenChange={(o) => !o && onClose()}>
+        <DrawerContent className="h-[95dvh] p-0 rounded-t-2xl overflow-hidden flex flex-col">
+          {/* Header */}
+          <DrawerHeader className="px-4 py-3 border-b shrink-0">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                {item.componentNumber && (
+                  <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-sm">
+                    {item.componentNumber}
+                  </span>
+                )}
+                <span className="capitalize">{item.category}</span>
+              </div>
+              <Link
+                to={`/components/${item.slug}`}
+                onClick={onClose}
+                className="flex items-center gap-1 text-xs font-medium text-primary"
+              >
+                Full Page
+                <HugeiconsIcon icon={ArrowRight01Icon} size={12} />
+              </Link>
+            </div>
+            <DrawerTitle className="text-xl font-medium mt-1">{item.name}</DrawerTitle>
+          </DrawerHeader>
+
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto">
+            {/* Preview Section - On Top for Mobile */}
+            <div className="p-4 border-b bg-muted/20">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium">Preview</span>
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <button
+                    className="p-1.5 rounded-md border bg-background hover:bg-accent transition-colors"
+                    onClick={handleReload}
+                  >
+                    <HugeiconsIcon icon={ReloadIcon} size={14} />
+                  </button>
+                </div>
+              </div>
+              <div className="rounded-xl border bg-background p-6 flex items-center justify-center min-h-[200px]" >
+                <Suspense fallback={
+                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                    Loading...
+                  </div>
+                }>
+                  <item.component key={reloadKey} />
+                </Suspense>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="p-4 border-b">
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {item.description}
+              </p>
+
+              {/* Dependencies */}
+              {item.dependencies && item.dependencies.length > 0 && (
+                <div className="mt-4">
+                  <h4 className="text-xs font-medium mb-2 text-muted-foreground">Dependencies</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.dependencies.map((dep) => (
+                      <span
+                        key={dep}
+                        className="px-2 py-0.5 rounded bg-muted text-xs flex items-center gap-1"
+                      >
+                        {dep}
+                        <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Inspired By */}
+              {item.inspiredByName && (
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-xs text-muted-foreground">Inspired by</span>
+                  {item.inspiredByLink ? (
+                    <a
+                      href={item.inspiredByLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-primary"
+                    >
+                      {item.inspiredByName}
+                    </a>
+                  ) : (
+                    <span className="text-xs">{item.inspiredByName}</span>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Installation */}
+            <div className="p-4 border-b">
+              <InstallationCmd
+                activePackageManager={activePackageManager}
+                setActivePackageManager={setActivePackageManager}
+                item={item}
+                hasCopiedInstall={hasCopiedInstall}
+                handleCopyInstall={handleCopyInstall}
+              />
+            </div>
+
+            {/* Copy for AI */}
+            <div className="p-4 border-b">
+              <h3 className="font-medium text-sm mb-3">Copy for AI</h3>
+              <PromptItems
+                files={componentFiles}
+                dependencies={item.dependencies || []}
+                componentName={item.name}
+              />
+            </div>
+
+            {/* Code - Updated to match desktop right side */}
+            <div className="p-4 space-y-6">
+              {/* Usage header */}
+              <div className="space-y-1">
+                <h3 className="text-sm font-medium">Usage</h3>
+                <p className="text-xs text-muted-foreground">
+                  Install and use this component in your project
+                </p>
+              </div>
+
+              {/* Manual install (dependencies-driven) */}
+              <ManualInstallationCmd
+                activePackageManager={activePackageManager}
+                setActivePackageManager={setActivePackageManager}
+                dependencies={item.dependencies}
+              />
+
+              {/* Import & use */}
+              <div className="space-y-2">
+                <h4 className="text-sm font-medium text-muted-foreground">
+                  Import & use
+                </h4>
+
+                {demoCode ? (
+                  <CodeBlock language="tsx" maxHeight="250px">
+                    {demoCode}
+                  </CodeBlock>
+                ) : (
+                  <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
+                    Loading usage example…
+                  </div>
+                )}
+              </div>
+
+              {/* Full source */}
+              <CodeCollapsibleWrapper title="View full component source">
+                {componentCode ? (
+                  <CodeBlock maxHeight="300px" showLineNumbers>
+                    {componentCode}
+                  </CodeBlock>
+                ) : (
+                  <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
+                    Loading source code…
+                  </div>
+                )}
+              </CodeCollapsibleWrapper>
+            </div>
+          </div>
+        </DrawerContent>
+      </Drawer>
+    );
+  }
+
+  // Desktop View - Dialog
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-none sm:max-w-none w-[90vw] h-[90vh] p-0 gap-0 overflow-hidden flex flex-row bg-background border rounded-xl">
 
         {/* Left Side: Documentation & Code */}
         <div className="w-[40%] flex flex-col h-full border-r bg-background">
-          <div className="flex-1 overflow-y-auto p-6 space-y-8">
-            {/* Header */}
-            <div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                <span>Components</span>
-                <span>/</span>
-                <span>{item.category}</span>
-                <span>/</span>
-                <span className="text-foreground font-medium">{item.name}</span>
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight mb-2">{item.name}</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                {item.description}
-              </p>
-
-              {/* Creator Info */}
-              <div className="flex items-center gap-3 mt-6">
-                <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center font-bold text-muted-foreground">
-                  {item.name?.[0] || '?'}
-                </div>
-                <div>
-                  <div className="font-medium text-sm">Created by</div>
-                  <div className="text-sm text-muted-foreground">Watermelon UI</div>
-                </div>
-              </div>
-            </div>
+          <ScrollFadeEffect className='w-full'>
+            <div className="flex-1 overflow-y-auto p-6 space-y-8 pt-20">
+              <ProgressiveBlur className='w-full absolute top-0 h-26 left-0'
+                direction="top"
+                blurLayers={8}
+                blurIntensity={1.2}
+              />
 
 
-
-            {/* Installation */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Installation</h3>
-
-              {/* Package Manager Tabs */}
-              <div className="flex items-center gap-1 p-1 bg-muted/50 rounded-lg w-fit border">
-                {(['npm', 'pnpm', 'yarn', 'bun'] as PackageManager[]).map((pm) => (
-                  <button
-                    key={pm}
-                    onClick={() => setActivePackageManager(pm)}
-                    className={cn(
-                      "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200",
-                      activePackageManager === pm
-                        ? "bg-background text-foreground shadow-sm"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    {pm}
-                  </button>
-                ))}
-              </div>
-
-              {/* Install Commands */}
-              {item.install.map((cmd, idx) => {
-                const command = getInstallCommand(activePackageManager, cmd);
-                return (
-                  <div key={idx} className="relative group">
-                    <div className="bg-muted/50 p-4 rounded-lg font-mono text-sm pr-12 overflow-x-auto whitespace-nowrap border">
-                      {command}
+              {/* Header */}
+              <div>
+                <div className="flex items-center left-0 pl-6 justify-between bg-background absolute top-0 pt-8 w-full z-10">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground ">
+                    <div className="flex items-center gap-2">
+                      {item.componentNumber && (
+                        <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-sm">
+                          {item.componentNumber}
+                        </span>
+                      )}
+                      <span className="hidden lg:block">Components</span>
+                      <span className="hidden lg:block">/</span>
+                      <span className='capitalize hidden lg:block'>{item.category}</span>
+                      <span className="hidden lg:block">/</span>
+                      <span className="text-foreground font-medium">{item.name}</span>
                     </div>
-                    <CopyButton
-                      variant="secondary"
-                      size="sm"
-                      content={command}
-                      copied={hasCopiedInstall}
-                      onCopiedChange={() => handleCopyInstall(command)}
-                      className="absolute right-2 top-2 p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors"
-                    />
-                  </div>
-                );
-              })}
-            </div>
 
-            {/* Copy for AI Platforms */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Copy for AI</h3>
-              <div className="flex items-center gap-4 p-4 rounded-lg border bg-muted/30">
-                <span className="text-sm text-muted-foreground">Generate prompt for:</span>
+                    <Link
+                      to={`/components/${item.slug}`}
+                      onClick={onClose}
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
+                      View Full Page
+                      <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
+                    </Link>
+                  </div>
+
+                </div>
+                <h2 className="text-3xl font-medium tracking-tight mb-2 mt-5 lg:mt-0">{item.name}</h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {item.description}
+                </p>
+
+                {/* Dependencies */}
+                {item.dependencies && item.dependencies.length > 0 && (
+                  <div className="mt-6">
+                    <h4 className="text-sm font-medium mb-2">Dependencies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {item.dependencies.map((dep) => (
+                        <span
+                          key={dep}
+                          className="px-3 py-1 rounded-md bg-muted text-sm flex items-center gap-1.5"
+                        >
+                          {dep}
+                          <img
+                            src="/brand/npm-icon.png"
+                            alt="npm"
+                            width={12}
+                            height={12}
+                            className="inline-block"
+                          />
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Inspired By */}
+                {item.inspiredByName && (
+                  <div className="mt-6 flex items-center gap-2 group/inspired-by">
+                    <h4 className="text-sm">Inspired By</h4>
+                    {item.inspiredByLink ? (
+                      <a
+                        href={item.inspiredByLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm text-primary"
+                      >
+                        {item.inspiredByName}
+                        <HugeiconsIcon icon={ArrowRight01Icon} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
+                      </a>
+                    ) : (
+                      <span className="text-sm text-muted-foreground">
+                        {item.inspiredByName}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Installation */}
+              <LayoutGroup id={`install-cli-left-${item.slug}`}>
+                <InstallationCmd
+                  activePackageManager={activePackageManager}
+                  setActivePackageManager={setActivePackageManager}
+                  item={item}
+                  hasCopiedInstall={hasCopiedInstall}
+                  handleCopyInstall={handleCopyInstall}
+                />
+              </LayoutGroup>
+
+
+              {/* Copy for AI Platforms */}
+              <div className="space-y-4">
+                <h3 className="font-medium text-lg">Copy for AI</h3>
                 <PromptItems
                   files={componentFiles}
                   dependencies={item.dependencies || []}
                   componentName={item.name}
                 />
               </div>
-            </div>
 
-            {/* How to use - with CodeBlock */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">How to use</h3>
-              {demoCode ? (
-                <CodeBlock maxHeight="300px" showLineNumbers>
-                  {demoCode}
-                </CodeBlock>
-              ) : (
-                <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse">
-                  Loading code...
-                </div>
-              )}
+              {/* How to use - with Collapsible CodeBlock */}
+              <div className="space-y-4">
+                <h3 className="font-medium text-lg">How to use</h3>
+                <CodeCollapsibleWrapper>
+                  {demoCode ? (
+                    <CodeBlock maxHeight="none" showLineNumbers title='demo'>
+                      {demoCode}
+                    </CodeBlock>
+                  ) : (
+                    <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse">
+                      Loading code...
+                    </div>
+                  )}
+                </CodeCollapsibleWrapper>
+              </div>
             </div>
-          </div>
+          </ScrollFadeEffect>
         </div>
 
         {/* Right Side: Preview with Tabs */}
-        <div className="flex-1 flex flex-col h-full bg-muted/10">
+        <Tabs defaultValue="preview" className="flex-1 min-w-0 flex flex-col h-full bg-muted/10">
+
           {/* Toolbar with tabs */}
           <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/30">
-            <div className="flex items-center gap-1">
-              {/* Preview Tab */}
-              <button
-                onClick={() => setActiveTab('preview')}
-                className={cn(
-                  "flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200",
-                  activeTab === 'preview'
-                    ? "bg-background text-foreground shadow-sm border"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                )}
-              >
+            <TabsList>
+
+              <TabsTrigger value="preview">
                 <HugeiconsIcon icon={ViewIcon} size={14} />
                 Preview
-              </button>
+              </TabsTrigger>
 
               {/* Code Tab */}
-              <button
-                onClick={() => setActiveTab('code')}
-                className={cn(
-                  "flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200",
-                  activeTab === 'code'
-                    ? "bg-background text-foreground shadow-sm border"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                )}
-              >
-                <HugeiconsIcon icon={CodeIcon} size={14} />
+              <TabsTrigger value="code">
+                <HugeiconsIcon icon={SourceCodeIcon} size={14} />
                 Code
-              </button>
-            </div>
+              </TabsTrigger>
+            </TabsList>
+
 
             {/* Actions */}
             <div className="flex items-center gap-2 mr-8">
@@ -251,38 +411,99 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           {/* Content */}
           <div className="flex-1 overflow-hidden relative">
             {/* Preview Panel */}
-            {activeTab === 'preview' && (
+            <TabsContent value="preview">
               <div className="h-full flex items-center justify-center p-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-muted/50 via-transparent to-transparent">
-                <div className="w-full max-w-4xl rounded-xl border bg-background shadow-sm flex items-center justify-center overflow-hidden p-8" key={reloadKey}>
+                <div className="w-full max-w-4xl rounded-xl border bg-background shadow-sm flex items-center justify-center overflow-hidden p-8 min-h-[400px]">
                   <Suspense fallback={
                     <div className="flex items-center gap-2 text-muted-foreground text-sm">
                       <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                       Loading component...
                     </div>
                   }>
-                    <item.component />
+                    <item.component key={reloadKey} />
                   </Suspense>
                 </div>
               </div>
-            )}
+            </TabsContent>
 
             {/* Code Panel */}
-            {activeTab === 'code' && (
-              <div className="h-full overflow-auto p-4">
-                {componentCode ? (
-                  <CodeBlock maxHeight="calc(90vh - 120px)" showLineNumbers>
-                    {componentCode}
-                  </CodeBlock>
-                ) : (
-                  <div className="flex items-center justify-center h-full text-muted-foreground animate-pulse">
-                    Loading source code...
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
+            <TabsContent value="code">
+              <div className="h-full overflow-auto p-4 space-y-8">
 
+                {/* Usage header */}
+                <div className="space-y-1">
+                  <h3 className="text-sm font-medium">Usage</h3>
+                  <p className="text-xs text-muted-foreground">
+                    Install and use this component in your project
+                  </p>
+                </div>
+                <h3 className="font-medium text-lg">Installation</h3>
+
+                <Tabs defaultValue="cli" className="w-full">
+                  <TabsList>
+                    <TabsTrigger value="cli">CLI</TabsTrigger>
+                    <TabsTrigger value="manual">Manual</TabsTrigger>
+                  </TabsList>
+                  <TabsContents>
+                    <TabsContent value="cli">
+                      <LayoutGroup id={`install-cli-right-${item.slug}`}>
+                        <InstallationCmd
+                          activePackageManager={activePackageManager}
+                          setActivePackageManager={setActivePackageManager}
+                          item={item}
+                          hasCopiedInstall={hasCopiedInstall}
+                          handleCopyInstall={handleCopyInstall}
+                        />
+                      </LayoutGroup>
+                    </TabsContent>
+                    <TabsContent value="manual">
+                      {/* Manual install (dependencies-driven) */}
+                      <ManualInstallationCmd
+                        activePackageManager={activePackageManager}
+                        setActivePackageManager={setActivePackageManager}
+                        dependencies={item.dependencies}
+                      />
+
+                    </TabsContent>
+                  </TabsContents>
+                </Tabs>
+
+
+                {/* Import & use */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground">
+                    Import & use
+                  </h4>
+                  <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+
+                  {demoCode ? (
+                    <CodeBlock language="tsx" title='demo'>
+                      {demoCode}
+                    </CodeBlock>
+                  ) : (
+                    <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                      Loading usage example…
+                    </div>
+                  )}
+                </div>
+
+                {/* Full source */}
+                <CodeCollapsibleWrapper title="View full component source">
+                  {componentCode ? (
+                    <CodeBlock showLineNumbers title={`components/ui/${item.slug}`}>
+                      {componentCode}
+                    </CodeBlock>
+                  ) : (
+                    <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                      Loading source code…
+                    </div>
+                  )}
+                </CodeCollapsibleWrapper>
+              </div>
+            </TabsContent>
+
+          </div>
+        </Tabs>
       </DialogContent>
     </Dialog>
   );
