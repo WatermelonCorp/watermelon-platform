@@ -1,6 +1,14 @@
 import { SEOHead } from "@/components/seo-head";
 import { CodeBlock } from "@/components/mdx";
 
+import {
+  DocPage,
+  DocHeader,
+  DocSection,
+  DocText,
+  DocCard,
+} from "@/components/docs";
+
 export default function InstallationPage() {
   return (
     <>
@@ -10,88 +18,68 @@ export default function InstallationPage() {
         keywords="install, setup, npm, tailwind, react components, shadcn cli"
       />
 
-      <article className="relative w-full max-w-4xl">
-        <header className="pb-8 w-full border-b border-border md:px-16 px-6">
-          <h1 className="md:text-3xl text-2xl font-semibold tracking-tight mb-4 font-chivo-mono">
-            Installation
-          </h1>
-          <p className="text-muted-foreground text-md tracking-tight leading-relaxed font-geist-mono">
-            Get started with Watermelon UI to build modern, responsive, and
-            customizable interfaces with ease. With simple installation and a
-            developer-friendly setup, you can quickly integrate powerful
-            components into your project and create polished, consistent user
-            experiences.
-          </p>
-        </header>
+      <DocPage>
+        <DocHeader
+          title="Installation"
+          description="Get started with Watermelon UI to build modern, responsive, and customizable interfaces with ease. With a simple installation and developer-friendly setup, you can quickly integrate powerful components into your project and create polished, consistent user experiences."
+        />
 
-        <section className="py-8 md:px-16 border-b border-border px-6">
-          <h2 className="text-2xl font-medium mb-4">Prerequisites</h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
+        {/* Prerequisites */}
+        <DocSection title="Prerequisites">
+          <DocText>
             Ensure your project meets the following requirements before
             installing Watermelon UI:
-          </p>
-          <ul className="space-y-2 text-muted-foreground font-medium font-geist-mono">
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              Node.js 18.0 or later
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              React 18 or later
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              Tailwind CSS 3.4 or later
-            </li>
-          </ul>
-        </section>
+          </DocText>
 
-        <section className="py-8 md:px-16 border-b border-border px-6">
-          <h2 className="text-2xl font-medium mb-4">
-            Quick Install with CLI
-          </h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
+          <DocCard>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• Node.js 18.0 or later</li>
+              <li>• React 18 or later</li>
+              <li>• Tailwind CSS 3.4 or later</li>
+            </ul>
+          </DocCard>
+        </DocSection>
+
+        {/* Quick Install */}
+        <DocSection title="Quick Install with CLI">
+          <DocText>
             The fastest way to add components is using our CLI powered by
             shadcn:
-          </p>
+          </DocText>
+
           <CodeBlock language="bash">
             {`npx shadcn@latest add https://registry.watermelon.sh/r/[component].json`}
           </CodeBlock>
-        </section>
+        </DocSection>
 
-        <section className="py-8 md:px-16 border-b border-border px-6">
-          <h2 className="text-2xl font-medium mb-4">Manual Installation</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-medium mb-2">1. Install dependencies</h3>
-              <CodeBlock language="bash">
-                {`npm install tailwindcss motion clsx tailwind-merge`}
-              </CodeBlock>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">2. Copy the component code</h3>
-              <p className="text-muted-foreground font-geist-mono">
-                Browse our components, click the copy button, and paste the code
-                into your project.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">3. Import and use</h3>
-              <CodeBlock language="tsx">
-                {`import { Component } from "@/components/ui/component";`}
-              </CodeBlock>
-            </div>
+        {/* Manual Installation */}
+        <DocSection title="Manual Installation">
+          <div className="space-y-6">
+            <h3 className="font-medium mb-2">1. Install dependencies</h3>
+            <CodeBlock language="bash">
+              {`npm install tailwindcss motion clsx tailwind-merge`}
+            </CodeBlock>
+
+            <h3 className="font-medium mb-2">2. Copy the component code</h3>
+            <DocText>
+              Browse the components, click the copy button, and paste the code
+              into your project.
+            </DocText>
+
+            <h3 className="font-medium mb-2">3. Import and use</h3>
+            <CodeBlock language="tsx">
+              {`import { Component } from "@/components/ui/component";`}
+            </CodeBlock>
           </div>
-        </section>
+        </DocSection>
 
-        <section className="py-8 md:px-16 px-6 border-b border-border">
-          <h2 className="text-2xl font-medium mb-4">
-            Tailwind Configuration
-          </h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
-            Add the following to your tailwind.config.js for optimal
+        {/* Tailwind Configuration */}
+        <DocSection title="Tailwind Configuration">
+          <DocText>
+            Add the following configuration to your Tailwind setup for optimal
             compatibility:
-          </p>
+          </DocText>
+
           <CodeBlock language="js">
             {`module.exports = {
   darkMode: "class",
@@ -104,8 +92,8 @@ export default function InstallationPage() {
   plugins: [],
 }`}
           </CodeBlock>
-        </section>
-      </article>
+        </DocSection>
+      </DocPage>
     </>
   );
 }

@@ -1,49 +1,55 @@
 import { SEOHead } from "@/components/seo-head";
 import { CodeBlock } from "@/components/mdx";
 
+import {
+  DocPage,
+  DocHeader,
+  DocSection,
+  DocText,
+  DocCard,
+} from "@/components/docs";
+
 export default function BasicUsagePage() {
   return (
     <>
       <SEOHead
         title="Basic Usage"
-        description="Learn how to use Watermelon UI components in your React projects. Copy-paste ready components with AI-powered prompts for Claude, Cursor, and Copilot."
+        description="Learn how to use Watermelon UI components in your React projects. Copy-paste ready components with AI-powered prompts."
         keywords="react components, usage, copy-paste, tailwind, AI prompts, cursor, copilot"
       />
 
-      <article className="relative w-full max-w-4xl">
-        <header className="pb-8 w-full border-b border-border md:px-16 px-6">
-          <h1 className="md:text-3xl text-2xl font-semibold tracking-tight mb-4 font-chivo-mono">
-            Basic Usage
-          </h1>
-          <p className="text-muted-foreground text-md tracking-tight leading-relaxed font-geist-mono">
-            Learn how to use Watermelon UI components in your projects.
-          </p>
-        </header>
+      <DocPage>
+        <DocHeader
+          title="Basic Usage"
+          description="Learn how to use Watermelon UI components in your projects."
+        />
 
-        <section className="py-8 md:px-16 px-6 border-b border-border">
-          <h2 className="text-2xl font-medium mb-4">Using Components</h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
+        {/* Using Components */}
+        <DocSection title="Using Components">
+          <DocText>
             Watermelon UI components are designed to be copy-paste ready.
-            Simply browse our library, find a component you like, and add it
+            Browse the library, preview variants, and add components directly
             to your project.
-          </p>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-medium mb-2">Step 1: Find a component</h3>
-              <p className="text-muted-foreground font-geist-mono">
-                Browse the components section and preview different variants.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">Step 2: Install via CLI</h3>
-              <CodeBlock language="bash">
-                {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
-              </CodeBlock>
-            </div>
-            <div>
-              <h3 className="font-medium mb-2">Step 3: Import and use</h3>
-              <CodeBlock language="tsx">
-                {`import { Button } from "@/components/ui/button";
+          </DocText>
+
+          <div className="space-y-6">
+
+            <h3 className="font-medium mb-1">Step 1: Find a component</h3>
+            <DocText>
+              Browse the components section and preview different variants.
+            </DocText>
+
+
+
+            <h3 className="font-medium mb-2">Step 2: Install via CLI</h3>
+            <CodeBlock language="bash">
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+            </CodeBlock>
+
+
+            <h3 className="font-medium mb-2">Step 3: Import and use</h3>
+            <CodeBlock language="tsx">
+              {`import { Button } from "@/components/ui/button";
 
 export default function MyComponent() {
   return (
@@ -52,19 +58,19 @@ export default function MyComponent() {
     </Button>
   );
 }`}
-              </CodeBlock>
-            </div>
+            </CodeBlock>
           </div>
-        </section>
+        </DocSection>
 
-        <section className="py-8 md:px-16 px-6 border-b border-border">
-          <h2 className="text-2xl font-medium mb-4">AI-Powered Prompts</h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
+        {/* AI-Powered Prompts */}
+        <DocSection title="AI-Powered Prompts">
+          <DocText>
             Every component includes optimized prompts for popular AI coding
-            assistants. Click the AI icon to copy a prompt tailored for:
-          </p>
+            assistants. Click the AI icon to copy a tailored prompt for:
+          </DocText>
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-card border border-border text-center">
+            <DocCard className="text-center">
               <img
                 src="/brand/claude-logo.webp"
                 className="size-10 mx-auto"
@@ -73,12 +79,13 @@ export default function MyComponent() {
                 width={40}
                 height={40}
               />
-              <h3 className="font-medium">Claude</h3>
+              <h3 className="mt-2 font-medium">Claude</h3>
               <p className="text-sm text-muted-foreground">
                 Anthropic&apos;s AI
               </p>
-            </div>
-            <div className="p-4 rounded-xl bg-card border border-border text-center">
+            </DocCard>
+
+            <DocCard className="text-center">
               <img
                 src="/brand/cursor-logo-icon.png"
                 className="size-10 mx-auto"
@@ -87,10 +94,13 @@ export default function MyComponent() {
                 width={40}
                 height={40}
               />
-              <h3 className="font-medium">Cursor</h3>
-              <p className="text-sm text-muted-foreground">AI-first editor</p>
-            </div>
-            <div className="p-4 rounded-xl bg-card border border-border text-center">
+              <h3 className="mt-2 font-medium">Cursor</h3>
+              <p className="text-sm text-muted-foreground">
+                AI-first editor
+              </p>
+            </DocCard>
+
+            <DocCard className="text-center">
               <img
                 src="/brand/githubcopilot.png"
                 className="size-10 mx-auto"
@@ -99,46 +109,36 @@ export default function MyComponent() {
                 width={40}
                 height={40}
               />
-              <h3 className="font-medium">Copilot</h3>
+              <h3 className="mt-2 font-medium">Copilot</h3>
               <p className="text-sm text-muted-foreground">
                 GitHub&apos;s assistant
               </p>
-            </div>
+            </DocCard>
           </div>
-        </section>
+        </DocSection>
 
-        <section className="py-8 md:px-16 px-6 border-b border-border">
-          <h2 className="text-2xl font-medium mb-4">Customization</h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
+        {/* Customization */}
+        <DocSection title="Customization">
+          <DocText>
             All components are built with Tailwind CSS and are fully
-            customizable. Common customization patterns:
-          </p>
-          <ul className="space-y-2 text-muted-foreground font-geist-mono">
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              Override styles using className prop
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              Modify CSS variables for theming
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              Extend component props for additional functionality
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              Compose multiple components together
-            </li>
-          </ul>
-        </section>
+            customizable. Common patterns include:
+          </DocText>
 
-        <section className="py-8 md:px-16 px-6 border-b border-border">
-          <h2 className="text-2xl font-medium mb-4">Dark Mode</h2>
-          <p className="text-muted-foreground mb-4 font-geist-mono">
-            All components support dark mode out of the box. Enable dark mode
-            in your app:
-          </p>
+          <ul className="space-y-2 text-sm text-muted-foreground max-w-2xl">
+            <li>• Override styles using the <code>className</code> prop</li>
+            <li>• Modify CSS variables for theming</li>
+            <li>• Extend component props for extra behavior</li>
+            <li>• Compose multiple components together</li>
+          </ul>
+        </DocSection>
+
+        {/* Dark Mode */}
+        <DocSection title="Dark Mode">
+          <DocText>
+            All components support dark mode out of the box. Enable it in
+            your app using one of the following approaches:
+          </DocText>
+
           <CodeBlock language="tsx">
             {`// Add dark class to html element
 <html className="dark">
@@ -150,8 +150,8 @@ import { ThemeProvider } from "next-themes";
   <App />
 </ThemeProvider>`}
           </CodeBlock>
-        </section>
-      </article>
+        </DocSection>
+      </DocPage>
     </>
   );
 }
