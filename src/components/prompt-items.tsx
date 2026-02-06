@@ -1,38 +1,57 @@
-import { useState } from 'react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Tick02Icon } from '@hugeicons/core-free-icons';
+"use client";
+
+import { useState } from "react";
 import {
   generateAllPrompts,
   PLATFORM_INFO,
   PLATFORMS,
   type PlatformType,
-} from '@/lib/prompt-template';
-import type { ComponentFile } from '@/lib/types';
+} from "@/lib/prompt-template";
+import type { ComponentFile } from "@/lib/types";
+import { cn } from "@/lib/utils";
+
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
-import { cn } from '@/lib/utils';
+} from "@/components/animate-ui/components/animate/tooltip";
+import { AnimatePresence, motion } from "motion/react";
+import { AnimatedCheck } from "./animated-check";
 
 interface PromptItemsProps {
   className?: string;
   files?: ComponentFile[];
   dependencies?: string[];
   componentName?: string;
+
+  /** optional – same as demo */
+  openDelay?: number;
+  closeDelay?: number;
+  side?: "top" | "bottom" | "left" | "right";
+  sideOffset?: number;
+  align?: "start" | "center" | "end";
+  alignOffset?: number;
 }
 
 export function PromptItems({
-  className = '',
+  className = "",
   files = [],
   dependencies = [],
-  componentName = 'Component',
+  componentName = "Component",
+  openDelay = 200,
+  closeDelay = 100,
+  side = "top",
+  sideOffset = 6,
+  align = "center",
+  alignOffset = 0,
 }: PromptItemsProps) {
-  const [copiedPlatform, setCopiedPlatform] = useState<PlatformType | null>(null);
+  const [copiedPlatform, setCopiedPlatform] =
+    useState<PlatformType | null>(null);
 
   const handleCopyPrompt = async (platform: PlatformType) => {
-    if (files.length === 0 || !files.some((f) => f.content?.trim())) {
-      console.error('No component files available to generate prompt');
+    if (!files.some((f) => f.content?.trim())) {
+      console.error("No component files available to generate prompt");
       return;
     }
 
@@ -47,47 +66,69 @@ export function PromptItems({
       setCopiedPlatform(platform);
       setTimeout(() => setCopiedPlatform(null), 2000);
     } catch (error) {
-      console.error('Failed to copy prompt:', error);
+      console.error("Failed to copy prompt:", error);
     }
   };
 
   return (
-    <div className={cn('flex items-center gap-1', className)}>
-      {PLATFORMS.map((platform) => {
-        const info = PLATFORM_INFO[platform];
-        const isCopied = copiedPlatform === platform;
+    <TooltipProvider
+      openDelay={openDelay}
+      closeDelay={closeDelay}
+      key={`${side}-${align}-${sideOffset}-${alignOffset}-${openDelay}-${closeDelay}`}
+    >
+      <div className={cn("flex items-center gap-1", className)}>
+        {PLATFORMS.map((platform) => {
+          const info = PLATFORM_INFO[platform];
+          const isCopied = copiedPlatform === platform;
 
-        return (
-          <Tooltip key={platform}>
-            <TooltipTrigger asChild>
-              <button
-                onClick={() => handleCopyPrompt(platform)}
-                className={cn(
-                  'flex items-center justify-center bg-neutral-950 w-8 h-8 rounded-md text-sm font-medium transition-all duration-200 border',
-                  isCopied && 'ring-2 ring-green-500'
-                )}
-              >
-                {isCopied ? (
-                  <HugeiconsIcon icon={Tick02Icon} size={14} className="text-green-500" />
-                ) : (
-                  <img
-                    src={info.icon}
-                    alt={info.name}
-                    className={cn(
-                      "h-4 w-4 object-contain",
+          return (
+            <Tooltip
+              key={platform}
+              side={side}
+              sideOffset={sideOffset}
+              align={align}
+              alignOffset={alignOffset}
+            >
+              <TooltipTrigger asChild>
+                <button
+                  onClick={() => handleCopyPrompt(platform)}
+                  className={cn(
+                    "flex items-center justify-center cursor-pointer w-8 h-8 rounded-md bg-neutral-950 transition-all",
+                    isCopied && "ring-1 ring-primary"
+                  )}
+                >
+                  <AnimatePresence mode="wait">
+                    {isCopied ? (
+                      <AnimatedCheck
+                        key="check"
+                        className="h-4 w-4 text-primary"
+                      />
+                    ) : (
+                      <motion.img
+                        key="icon"
+                        src={info.icon}
+                        alt={info.name}
+                        className="h-4 w-4 object-contain"
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.85 }}
+                        transition={{ duration: 0.15 }}
+                      />
                     )}
-                  />
-                )}
-              </button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p className="text-xs font-mono">
-                {isCopied ? 'Copied!' : `Copy for ${info.name}`}
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        );
-      })}
-    </div>
+                  </AnimatePresence>
+
+                </button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p className="text-xs font-mono">
+                  {isCopied ? "Copied!" : `Copy for ${info.name}`}
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          );
+        })}
+      </div>
+    </TooltipProvider>
   );
 }

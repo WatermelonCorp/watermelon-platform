@@ -14,6 +14,9 @@ export interface RegistryItem {
   dependencies?: string[];
   featured?: boolean;
   featuredOrder?: number;
+  componentNumber?: number;
+  inspiredByName?: string;
+  inspiredByLink?: string;
 }
 
 // Load all MDX files (metadata)

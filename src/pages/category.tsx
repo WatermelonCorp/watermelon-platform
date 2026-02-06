@@ -16,8 +16,9 @@ export default function CategoryPage() {
       .sort((a, b) => a.name.localeCompare(b.name));
   }, [category]);
 
+  const title = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Category';
+
   if (filteredItems.length === 0) {
-    // Option: Redirect to home or show 404. For now, empty state.
     return (
       <div className="p-10 text-center">
         <h2 className="text-xl font-semibold">Category not found</h2>
@@ -25,8 +26,6 @@ export default function CategoryPage() {
       </div>
     )
   }
-
-  const title = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Category';
 
   return (
     <>

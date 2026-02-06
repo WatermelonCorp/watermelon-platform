@@ -109,7 +109,7 @@ function CopyButton({
           exit={{ scale: 0, opacity: 0.4, filter: 'blur(4px)' }}
           transition={{ duration: 0.25 }}
         >
-          <Icon />
+          <Icon className={cn(isCopied ? 'text-primary' : 'text-muted-foreground')} strokeWidth='3' />
         </motion.span>
       </AnimatePresence>
     </ButtonPrimitive>

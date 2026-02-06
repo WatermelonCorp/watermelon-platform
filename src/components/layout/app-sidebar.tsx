@@ -14,17 +14,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Moon02Icon,
-  Sun01Icon,
   ArrowDown01Icon,
 } from "@hugeicons/core-free-icons";
-import { useTheme } from "next-themes";
 import { allCategories } from "@/data/registry";
 import { Link, useLocation } from "react-router-dom";
 import { memo, useMemo } from "react";
+import { Logo } from "./logo";
+import { ThemeToggle } from "./theme-toggle";
+import { Socials } from "./socials";
 
 // Memoized menu item to prevent unnecessary re-renders
 const NavItem = memo(function NavItem({
@@ -69,12 +70,12 @@ const NavSection = memo(function NavSection({
       <Collapsible defaultOpen={defaultOpen}>
         <CollapsibleTrigger className="w-full">
           {titleLink ? (
-            <Link to={titleLink}>
-              <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1">
-                <span className="font-semibold">{title}</span>
-                <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="transition-transform" />
-              </SidebarGroupLabel>
-            </Link>
+            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1">
+              <Link to={titleLink} className="w-full text-start">
+                <span className="font-semibold inline-block py-1 w-[80%]">{title}</span>
+              </Link>
+              <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="transition-transform" />
+            </SidebarGroupLabel>
           ) : (
             <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1">
               <span className="font-semibold">{title}</span>
@@ -105,7 +106,6 @@ function formatCategoryName(category: string): string {
 }
 
 export function AppSidebar() {
-  const { theme, setTheme } = useTheme();
   const location = useLocation();
 
   const quickStart = [
@@ -147,11 +147,11 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="inset">
-      <SidebarHeader className="p-4 border-b">
-        <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
-          <span className="text-2xl">🍉</span>
-          <span>Watermelon UI</span>
-        </Link>
+      <SidebarHeader className="p-4 border-b -mx-2">
+        <div className="flex items-center justify-between">
+          <Logo />
+          <SidebarTrigger />
+        </div>
       </SidebarHeader>
       <SidebarContent className="scrollbar-hide">
         <NavSection
@@ -183,18 +183,11 @@ export function AppSidebar() {
           pathname={location.pathname}
         />
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t">
-        <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="w-full flex items-center gap-2 p-2 rounded-md border bg-background hover:bg-accent transition-colors text-sm"
-        >
-          {theme === "dark" ? (
-            <HugeiconsIcon icon={Sun01Icon} size={16} />
-          ) : (
-            <HugeiconsIcon icon={Moon02Icon} size={16} />
-          )}
-          <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-        </button>
+      <SidebarFooter className="p-4 border-t -mx-2">
+        <div className="flex items-center justify-between">
+          <ThemeToggle />
+          <Socials />
+        </div>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
