@@ -1,0 +1,323 @@
+import { Suspense, useState, useEffect } from 'react';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import { dashboards } from '@/data/dashboards';
+import { SEOHead } from '@/components/seo-head';
+import { CodeBlock } from '@/components/mdx/code-block';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ReloadIcon, ViewIcon, SourceCodeIcon } from '@hugeicons/core-free-icons';
+import { ThemeToggle } from '@/components/layout/theme-toggle';
+import { PromptItems } from '@/components/prompt-items';
+import { Drawer, DrawerContent } from '@/components/ui/drawer';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
+import { PageHeader } from '@/components/layout/page-header';
+import type { ComponentFile } from '@/lib/types';
+
+export default function DashboardPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const [reloadKey, setReloadKey] = useState(0);
+  const [fileCodes, setFileCodes] = useState<Record<string, string>>({});
+  const [loadingFiles, setLoadingFiles] = useState(true);
+  const [isCodeOpen, setIsCodeOpen] = useState(false);
+  const isMobile = useIsMobile();
+
+  const item = dashboards.find((d) => d.slug === slug);
+
+  // Load file codes
+  useEffect(() => {
+    if (!item) return;
+    setLoadingFiles(true);
+
+    Promise.all(
+      item.files.map(async (file) => {
+        const code = await file.code();
+        return { name: file.name, code };
+      })
+    ).then((results) => {
+      const codeMap: Record<string, string> = {};
+      results.forEach(({ name, code }) => {
+        codeMap[name] = code;
+      });
+      setFileCodes(codeMap);
+      setLoadingFiles(false);
+    });
+  }, [item]);
+
+  if (!item) {
+    return <Navigate to="/dashboards" replace />;
+  }
+
+  // Prepare files for PromptItems
+  const componentFiles: ComponentFile[] = item.files.map((file) => ({
+    name: file.name,
+    content: fileCodes[file.name] || '',
+  }));
+
+  return (
+    <>
+      <SEOHead
+        title={`${item.name} - Dashboard Template`}
+        description={item.description}
+      />
+
+      {/* ================= MOBILE ================= */}
+      {isMobile && (
+        <>
+          {/* Header */}
+          <div className="relative px-4 pt-4 pb-3 bg-background">
+            <div className="text-xs text-muted-foreground flex gap-2 mb-2">
+              <Link to="/dashboards">Dashboards</Link>
+              <span>/</span>
+              <span className="text-foreground font-medium">{item.name}</span>
+            </div>
+
+            <h1 className="text-xl font-semibold">{item.name}</h1>
+            <p className="text-sm text-muted-foreground">
+              {item.description}
+            </p>
+          </div>
+
+          {/* Preview */}
+          <div className="relative min-h-[60dvh] border-y bg-muted/5 overflow-auto">
+            <div className="absolute top-3 right-3 z-10 flex gap-2">
+              <button
+                onClick={() => setIsCodeOpen(true)}
+                className="px-3 py-1.5 text-xs rounded-md border bg-background"
+              >
+                <HugeiconsIcon icon={SourceCodeIcon} size={14} />
+              </button>
+              <ThemeToggle />
+            </div>
+
+            <div className="origin-top-left scale-50 min-w-[1440px] w-fit p-4">
+              <Suspense fallback={<div>Loading preview…</div>}>
+                <item.component key={reloadKey} />
+              </Suspense>
+            </div>
+          </div>
+
+          {/* Docs */}
+          <div className="p-4 space-y-6">
+            {/* Dependencies */}
+            {item.dependencies && item.dependencies.length > 0 && (
+              <div>
+                <h4 className="text-sm font-medium mb-2">Dependencies</h4>
+                <div className="flex flex-wrap gap-2">
+                  {item.dependencies.map((dep) => (
+                    <span
+                      key={dep}
+                      className="px-3 py-1 rounded-md bg-muted text-sm flex items-center gap-1.5"
+                    >
+                      {dep}
+                      <img
+                        src="/brand/npm-icon.png"
+                        alt="npm"
+                        width={12}
+                        height={12}
+                        className="inline-block"
+                      />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Copy for AI */}
+            {!loadingFiles && (
+              <div className="space-y-2">
+                <h3 className="font-medium">Copy for AI</h3>
+                <PromptItems
+                  files={componentFiles}
+                  dependencies={item.dependencies || []}
+                  componentName={item.name}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* MOBILE BOTTOM DRAWER */}
+          <Drawer open={isCodeOpen} onOpenChange={setIsCodeOpen}>
+            <DrawerContent className="h-[85dvh] max-h-[85dvh] overflow-hidden p-0">
+              {/* Sticky header */}
+              <div className="sticky top-0 z-10 bg-background border-b px-4 py-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-medium">Source Code ({item.files.length} files)</h3>
+                  <button
+                    onClick={() => setIsCodeOpen(false)}
+                    className="text-sm text-muted-foreground"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+
+              {/* Scroll container */}
+              <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
+                {loadingFiles ? (
+                  <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse text-sm">
+                    Loading files...
+                  </div>
+                ) : (
+                  item.files.map((file) => (
+                    <CodeBlock
+                      key={file.name}
+                      mobile
+                      showLineNumbers={false}
+                      title={file.name}
+                    >
+                      {fileCodes[file.name] || '// Loading...'}
+                    </CodeBlock>
+                  ))
+                )}
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </>
+      )}
+
+      {/* ================= DESKTOP ================= */}
+      {!isMobile && (
+        <div className="flex flex-col h-full">
+          {/* Header - Outside tabs, always visible */}
+          <div className="px-6 py-4 border-b bg-background shrink-0">
+            <PageHeader
+              items={[
+                { label: 'Dashboards', href: '/dashboards' },
+                { label: item.name },
+              ]}
+            />
+
+            <div className="mt-3 flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-1">
+                  <h1 className="text-2xl font-semibold">{item.name}</h1>
+                  {item.dependencies && item.dependencies.length > 0 && (
+                    <div className="flex items-center gap-1.5">
+                      {item.dependencies.slice(0, 3).map((dep) => (
+                        <span
+                          key={dep}
+                          className="px-2 py-0.5 rounded bg-muted text-xs"
+                          title={dep}
+                        >
+                          {dep}
+                        </span>
+                      ))}
+                      {item.dependencies.length > 3 && (
+                        <span className="text-xs text-muted-foreground">
+                          +{item.dependencies.length - 3}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <p className="text-sm text-muted-foreground line-clamp-2">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Tabs - Take remaining space */}
+          <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0">
+            <div className="flex items-center justify-between px-6 py-2 border-b bg-muted/30 shrink-0">
+              <TabsList>
+                <TabsTrigger value="preview">
+                  <HugeiconsIcon icon={ViewIcon} size={14} />
+                  Preview
+                </TabsTrigger>
+                <TabsTrigger value="code">
+                  <HugeiconsIcon icon={SourceCodeIcon} size={14} />
+                  Source Code
+                </TabsTrigger>
+              </TabsList>
+
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground mr-2">
+                  {item.files.length} files
+                </span>
+                <ThemeToggle />
+                <button
+                  className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
+                  onClick={() => setReloadKey(k => k + 1)}
+                  title="Reload preview"
+                >
+                  <HugeiconsIcon icon={ReloadIcon} size={16} />
+                </button>
+              </div>
+            </div>
+
+            {/* Tab Contents */}
+            <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
+              {/* Preview Tab */}
+              <TabsContent value="preview" className="absolute inset-0 overflow-auto">
+                <div className="w-full h-full">
+                  <Suspense fallback={
+                    <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+                      <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+                      Loading dashboard...
+                    </div>
+                  }>
+                    <item.component key={reloadKey} />
+                  </Suspense>
+                </div>
+              </TabsContent>
+
+              {/* Source Code Tab */}
+              <TabsContent value="code" className="absolute inset-0 overflow-auto">
+                <div className="max-w-5xl mx-auto p-8 space-y-6">
+                  {/* Dependencies */}
+                  {item.dependencies && item.dependencies.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-medium mb-3">Dependencies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {item.dependencies.map((dep) => (
+                          <span
+                            key={dep}
+                            className="px-3 py-1.5 rounded-md bg-muted text-sm flex items-center gap-1.5"
+                          >
+                            {dep}
+                            <img src="/brand/npm-icon.png" alt="npm" width={12} height={12} />
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Copy for AI */}
+                  {!loadingFiles && (
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-medium">Copy for AI</h4>
+                      <PromptItems
+                        files={componentFiles}
+                        dependencies={item.dependencies || []}
+                        componentName={item.name}
+                      />
+                    </div>
+                  )}
+
+                  {/* Files */}
+                  <div className="space-y-6">
+                    <h3 className="font-medium text-lg">Files ({item.files.length})</h3>
+                    {loadingFiles ? (
+                      <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse">
+                        Loading files...
+                      </div>
+                    ) : (
+                      item.files.map((file) => (
+                        <div key={file.name}>
+                          <CodeBlock showLineNumbers title={file.name}>
+                            {fileCodes[file.name] || '// Loading...'}
+                          </CodeBlock>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              </TabsContent>
+            </TabsContents>
+          </Tabs>
+        </div>
+      )}
+    </>
+  );
+}

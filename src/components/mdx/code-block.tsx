@@ -38,7 +38,7 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        "group relative rounded-xl border bg-muted/20",
+        "group relative rounded-xl border bg-muted/20 overflow-hidden",
         className
       )}
     >
@@ -82,7 +82,7 @@ export function CodeBlock({
           fontSize: "13px",
           lineHeight: "1.6",
           background: "transparent",
-          overflow: "visible",
+          overflow: "auto",
         }}
         codeTagProps={{
           style: {

@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react';
 import { ScrollProgress, ScrollProgressContainer } from '@/components/animate-ui/primitives/animate/scroll-progress';
-import { Footer } from './footer';
 import { Navbar } from './navbar';
 
 interface PageLayoutProps {
@@ -13,7 +12,6 @@ interface PageLayoutProps {
 export function PageLayout({
   children,
   showNavbar = true,
-  showFooter = true,
   showScrollProgress = true,
 }: PageLayoutProps) {
   return (
@@ -26,12 +24,11 @@ export function PageLayout({
           {children}
         </main>
 
-        {showFooter && <Footer />}
       </ScrollProgressContainer>
       {/* Scroll progress bar - sticky at bottom */}
       {showScrollProgress && (
         <ScrollProgress
-          className="sticky bottom-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
+          className="fixed bottom-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
           mode="scaleX"
         />
       )}

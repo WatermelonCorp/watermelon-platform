@@ -5,7 +5,6 @@ import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
-import { Socials } from './socials';
 import { registry } from '@/data/registry';
 import { LogoIcon } from './logo';
 import { motion } from 'framer-motion';
@@ -81,7 +80,7 @@ export const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2"
             >
-              <SidebarTrigger className="-ml-1" />
+              <SidebarTrigger className="-ml-1 size-9 bg-background border border-input/50 hover:bg-accent" />
               <LogoIcon />
             </motion.div>
           )}
@@ -104,7 +103,6 @@ export const Navbar = () => {
 
         {/* Right: Socials + Theme */}
         <div className="flex items-center gap-2 shrink-0">
-          <Socials />
           <ThemeToggle />
         </div>
       </nav>

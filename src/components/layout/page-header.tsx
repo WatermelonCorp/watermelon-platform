@@ -18,7 +18,7 @@ export const PageHeader = ({ items, className }: PageHeaderProps) => {
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
       className={cn(
-        "inline-flex items-center gap-3 px-2 md:px-4 py-px md:py-2 rounded-sm md:rounded-lg bg-background/80 backdrop-blur-sm border shadow-sm",
+        "inline-flex items-center gap-3 h-9 rounded-md px-2 bg-background",
         className
       )}
     >
@@ -30,7 +30,7 @@ export const PageHeader = ({ items, className }: PageHeaderProps) => {
           {item.href ? (
             <Link
               to={item.href}
-              className="text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 ease-in-out"
             >
               {item.label}
             </Link>

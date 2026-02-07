@@ -12,6 +12,7 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/registry';
+import { dashboards } from '@/data/dashboards';
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
   Home01Icon,
@@ -21,6 +22,7 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
+  SidebarLeft01Icon,
 } from '@hugeicons/core-free-icons';
 
 // Page navigation items
@@ -69,7 +71,7 @@ export function CommandPalette() {
       {/* Trigger Button */}
       <button
         onClick={() => setOpen(true)}
-        className="group flex h-9 items-center justify-between gap-2 rounded-xl border border-input/50 bg-muted/30 px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
+        className="group flex h-10 items-center lg:w-90 justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
       >
         <div className="flex items-center gap-2">
           <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4" />
@@ -122,6 +124,26 @@ export function CommandPalette() {
                 ))}
               </CommandGroup>
             ))}
+
+            <CommandSeparator />
+
+            {/* Dashboards */}
+            <CommandGroup heading="Dashboards">
+              {dashboards.map((dashboard) => (
+                <CommandItem
+                  key={dashboard.slug}
+                  onSelect={() =>
+                    runCommand(() => navigate(`/dashboard/${dashboard.slug}`))
+                  }
+                >
+                  <HugeiconsIcon icon={SidebarLeft01Icon} strokeWidth={2} className="size-4" />
+                  <span>{dashboard.name}</span>
+                  {dashboard.comingSoon && (
+                    <span className="ml-2 text-xs text-muted-foreground">(Coming Soon)</span>
+                  )}
+                </CommandItem>
+              ))}
+            </CommandGroup>
           </CommandList>
         </Command>
       </CommandDialog>

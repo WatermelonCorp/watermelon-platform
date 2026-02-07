@@ -17,17 +17,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
+        default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
         accent: 'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90',
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:
           'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
-        secondary:
-          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
-        ghost:
-          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+        secondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
@@ -44,12 +41,17 @@ const buttonVariants = cva(
   },
 );
 
+type IconProp =
+  | React.ElementType // CopyIcon
+  | React.ReactNode; // <CopyIcon />
+
 type CopyButtonProps = Omit<ButtonPrimitiveProps, 'children'> &
   VariantProps<typeof buttonVariants> & {
     content: string;
     copied?: boolean;
     onCopiedChange?: (copied: boolean, content?: string) => void;
     delay?: number;
+    icon?: IconProp;
   };
 
 function CopyButton({
@@ -60,6 +62,7 @@ function CopyButton({
   onClick,
   variant,
   size,
+  icon,
   delay = 3000,
   ...props
 }: CopyButtonProps) {
@@ -71,32 +74,57 @@ function CopyButton({
   const handleCopy = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       onClick?.(e);
-      if (copied) return;
+      if (isCopied) return;
+
       if (content) {
         navigator.clipboard
           .writeText(content)
           .then(() => {
             setIsCopied(true);
             onCopiedChange?.(true, content);
+
             setTimeout(() => {
               setIsCopied(false);
               onCopiedChange?.(false);
             }, delay);
           })
           .catch((error) => {
-            console.error('Error copying command', error);
+            console.error('Error copying content', error);
           });
       }
     },
-    [onClick, copied, content, setIsCopied, onCopiedChange, delay],
+    [onClick, isCopied, content, setIsCopied, onCopiedChange, delay],
   );
 
-  const Icon = isCopied ? CheckIcon : CopyIcon;
+  /* ------------------------------------------------------------------ */
+  /* Icon resolution logic (THIS IS THE FIX) */
+  /* ------------------------------------------------------------------ */
+
+  const renderIcon = () => {
+    // Copied state always wins
+    if (isCopied) {
+      return <CheckIcon strokeWidth={3} className="text-primary" />;
+    }
+
+    // Custom icon passed as JSX
+    if (React.isValidElement(icon)) {
+      return icon;
+    }
+
+    // Custom icon passed as component
+    if (typeof icon === 'function') {
+      const IconComp = icon;
+      return <IconComp strokeWidth={3} className="text-muted-foreground" />;
+    }
+
+    // Fallback
+    return <CopyIcon strokeWidth={3} className="text-muted-foreground" />;
+  };
 
   return (
     <ButtonPrimitive
       data-slot="copy-button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size }), className)}
       onClick={handleCopy}
       {...props}
     >
@@ -109,7 +137,7 @@ function CopyButton({
           exit={{ scale: 0, opacity: 0.4, filter: 'blur(4px)' }}
           transition={{ duration: 0.25 }}
         >
-          <Icon className={cn(isCopied ? 'text-primary' : 'text-muted-foreground')} strokeWidth='3' />
+          {renderIcon()}
         </motion.span>
       </AnimatePresence>
     </ButtonPrimitive>

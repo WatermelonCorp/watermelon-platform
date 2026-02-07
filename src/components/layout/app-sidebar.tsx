@@ -21,6 +21,8 @@ import {
   ArrowDown01Icon,
 } from "@hugeicons/core-free-icons";
 import { allCategories } from "@/data/registry";
+import { dashboards } from "@/data/dashboards";
+import { blocks } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
 import { memo, useMemo } from "react";
 import { Logo } from "./logo";
@@ -124,12 +126,14 @@ export function AppSidebar() {
     []
   );
 
-  const blocks = [
-    { title: "Hero Sections", url: "/blocks/hero" },
-    { title: "Feature Sections", url: "/blocks/features" },
-    { title: "Pricing Sections", url: "/blocks/pricing" },
-    { title: "CTA Sections", url: "/blocks/cta" },
-  ];
+  // Generate block items from registry
+  const blockItems = useMemo(() =>
+    blocks.map((block) => ({
+      title: block.name,
+      url: `/block/${block.slug}`,
+    })),
+    []
+  );
 
   const templates = [
     { title: "React", url: "/templates/react" },
@@ -138,17 +142,19 @@ export function AppSidebar() {
     { title: "Svelte", url: "/templates/svelte" },
   ];
 
-  const dashboard = [
-    { title: "Analytics", url: "/dashboard/analytics" },
-    { title: "E-commerce", url: "/dashboard/ecommerce" },
-    { title: "CRM", url: "/dashboard/crm" },
-    { title: "Project Management", url: "/dashboard/projects" },
-  ];
+  // Generate dashboard items from registry
+  const dashboardItems = useMemo(() =>
+    dashboards.map((dashboard) => ({
+      title: dashboard.name,
+      url: `/dashboard/${dashboard.slug}`,
+    })),
+    []
+  );
 
   return (
     <Sidebar variant="inset">
-      <SidebarHeader className="p-4 border-b -mx-2">
-        <div className="flex items-center justify-between">
+      <SidebarHeader className="p-4">
+        <div className="flex items-center justify-between rounded-lg px-2 py-1 hover:bg-accent dark:hover:bg-accent/20 transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
         </div>
@@ -169,8 +175,9 @@ export function AppSidebar() {
         />
         <NavSection
           title="Blocks"
-          items={blocks}
+          items={blockItems}
           pathname={location.pathname}
+          titleLink="/blocks"
         />
         <NavSection
           title="Templates"
@@ -178,9 +185,10 @@ export function AppSidebar() {
           pathname={location.pathname}
         />
         <NavSection
-          title="Dashboard"
-          items={dashboard}
+          title="Dashboards"
+          items={dashboardItems}
           pathname={location.pathname}
+          titleLink="/dashboards"
         />
       </SidebarContent>
       <SidebarFooter className="p-4 border-t -mx-2">
@@ -188,6 +196,7 @@ export function AppSidebar() {
           <ThemeToggle />
           <Socials />
         </div>
+        <span className="text-[10px] mt-2 text-muted-foreground">© {new Date().getFullYear()} Watermelon. All rights reserved.</span>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

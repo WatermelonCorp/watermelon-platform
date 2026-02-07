@@ -5,15 +5,11 @@ import { useParams, Link } from "react-router-dom";
 import { registry } from "@/data/registry";
 import { SEOHead } from "@/components/seo-head";
 import { CodeBlock } from "@/components/mdx/code-block";
-import { CodeCollapsibleWrapper } from "@/components/mdx/code-collapsible";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   SourceCodeIcon,
   ReloadIcon,
-  BookmarkIcon,
-  MoreVerticalIcon,
-  X,
-  ArrowRight01Icon,
+  ArrowUpRight01FreeIcons,
 } from "@hugeicons/core-free-icons";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { PromptItems } from "@/components/prompt-items";
@@ -22,11 +18,8 @@ import { InstallationCmd } from "@/components/mdx/installation-cmd";
 import { ManualInstallationCmd } from "@/components/mdx/manual-installation";
 import { LayoutGroup } from "motion/react";
 import { ScrollFadeEffect } from "@/components/scroll-fade-effect";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "motion/react";
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 
 
@@ -194,153 +187,84 @@ export default function ComponentPage() {
 
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
-        <div className="flex w-full h-[76dvh] overflow-hidden">
+        <div className="relative flex w-full h-screen">
 
-          {/* LEFT DOCS */}
-          <div className="relative w-[40%] xl:w-[38%] bg-background overflow-y-auto">
+          {/* LEFT DOCS - Scrollable */}
+          <div className="relative w-[40%] xl:w-[38%] h-screen overflow-y-auto">
             <ScrollFadeEffect>
-              <div className="p-6 space-y-8 relative">
-                <div className="overflow-y-auto">
-
+              <div className="px-6 space-y-4 py-6 pb-12">
+                <div className="flex items-center justify-between pt-2">
                   <h1 className="text-2xl font-semibold">{item.name}</h1>
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                  {/* Dependencies */}
-                  {item.dependencies && item.dependencies.length > 0 && (
-                    <div className="mt-6">
-                      <h4 className="text-sm font-medium mb-2">Dependencies</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {item.dependencies.map((dep) => (
-                          <span
-                            key={dep}
-                            className="px-3 py-1 rounded-md bg-muted text-sm flex items-center gap-1.5"
-                          >
-                            {dep}
-                            <img
-                              src="/brand/npm-icon.png"
-                              alt="npm"
-                              width={12}
-                              height={12}
-                              className="inline-block"
-                            />
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+
+                  {item.componentNumber && (
+                    <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-sm">
+                      {item.componentNumber}
+                    </span>
                   )}
-
-                  {/* Inspired By */}
-                  {item.inspiredByName && (
-                    <div className="mt-6 flex items-center gap-2 group/inspired-by">
-                      <h4 className="text-sm">Inspired By</h4>
-                      {item.inspiredByLink ? (
-                        <a
-                          href={item.inspiredByLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm text-primary"
-                        >
-                          {item.inspiredByName}
-                          <HugeiconsIcon icon={ArrowRight01Icon} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
-                        </a>
-                      ) : (
-                        <span className="text-sm text-muted-foreground">
-                          {item.inspiredByName}
-                        </span>
-                      )}
-                    </div>
-                  )}
-
-                  <LayoutGroup id={`install-desktop-${item.slug}`}>
-                    <InstallationCmd
-                      activePackageManager={activePackageManager}
-                      setActivePackageManager={setActivePackageManager}
-                      item={item}
-                      hasCopiedInstall={hasCopiedInstall}
-                      handleCopyInstall={async (cmd) => {
-                        await navigator.clipboard.writeText(cmd);
-                        setHasCopiedInstall(true);
-                        setTimeout(() => setHasCopiedInstall(false), 2000);
-                      }}
-                    />
-                  </LayoutGroup>
-
-                  {/* Copy for AI */}
-                  <div className="p-4 border-b">
-                    <h3 className="font-medium text-sm mb-3">Copy for AI</h3>
-                    <PromptItems
-                      files={componentFiles}
-                      dependencies={item.dependencies || []}
-                      componentName={item.name}
-                    />
-                  </div>
-
-                  {/* How to use - with Collapsible CodeBlock */}
-                  <div className="space-y-4">
-                    <h3 className="font-medium text-lg">How to use</h3>
-                    <CodeCollapsibleWrapper>
-                      {demoCode ? (
-                        <CodeBlock showLineNumbers title='demo'>
-                          {demoCode}
-                        </CodeBlock>
-                      ) : (
-                        <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse">
-                          Loading code...
-                        </div>
-                      )}
-                    </CodeCollapsibleWrapper>
-                  </div>
                 </div>
-              </div>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
+                {/* Dependencies */}
+                {item.dependencies && item.dependencies.length > 0 && (
+                  <div className="mt-6">
+                    <h4 className="text-sm font-medium mb-2">Dependencies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {item.dependencies.map((dep) => (
+                        <span
+                          key={dep}
+                          className="px-3 py-1 rounded-md bg-muted text-sm flex items-center gap-1.5"
+                        >
+                          {dep}
+                          <img
+                            src="/brand/npm-icon.png"
+                            alt="npm"
+                            width={12}
+                            height={12}
+                            className="inline-block"
+                          />
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
-            </ScrollFadeEffect>
-
-            {/* DESKTOP LEFT PANEL DRAWER */}
-            <AnimatePresence>
-              {isCodeOpen && (
-                <motion.div
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "100%", opacity: 0 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 30,
-                    mass: 0.9,
-                  }}
-                  className="absolute inset-y-0 left-0 w-full bg-background border rounded-t-2xl z-30"
-                >
-                  <ProgressiveBlur
-                    direction="top"
-                    blurLayers={8}
-                    blurIntensity={1.2}
-                    className="absolute inset-x-0 h-16 top-0 pointer-events-none rounded-t-2xl z-20"
-                  />
-                  <div className="h-full overflow-y-auto p-6 space-y-4 relative">
-
-                    {/* iOS-style grabber */}
-                    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-muted-foreground/30" />
-                    <div className="sticky top-2 right-2 w-full flex justify-end z-40">
-                      <Button
-                        onClick={() => setIsCodeOpen(false)}
-                        variant="ghost"
-                        size="icon"
+                {/* Inspired By */}
+                {item.inspiredByName && (
+                  <div className="flex items-center gap-2 group/inspired-by">
+                    <h4 className="text-sm">Inspired By</h4>
+                    {item.inspiredByLink ? (
+                      <a
+                        href={item.inspiredByLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-sm text-primary"
                       >
-                        <HugeiconsIcon icon={X} size={14} />
-                      </Button>
-                    </div>
+                        {item.inspiredByName}
+                        <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
+                      </a>
+                    ) : (
+                      <span className="text-sm text-muted-foreground">
+                        {item.inspiredByName}
+                      </span>
+                    )}
+                  </div>
+                )}
 
+                {/* Copy for AI Platforms */}
+                <div className="space-y-2">
+                  <h3 className="font-medium">Copy for AI</h3>
+                  <PromptItems
+                    files={componentFiles}
+                    dependencies={item.dependencies || []}
+                    componentName={item.name}
+                  />
+                </div>
 
-
-                    {/* Usage header */}
-                    <div className="space-y-1">
-                      <h3 className="text-sm font-medium">Usage</h3>
-                      <p className="text-xs text-muted-foreground">
-                        Install and use this component in your project
-                      </p>
-                    </div>
-                    <h3 className="font-medium text-sm">Installation</h3>
+                {/* How to use - with Collapsible CodeBlock */}
+                <div className="space-y-4">
+                  <div className="space-y-3">
+                    <h3 className="font-medium">Installation</h3>
 
                     <Tabs defaultValue="cli" className="w-full">
                       <TabsList>
@@ -358,68 +282,69 @@ export default function ComponentPage() {
                               handleCopyInstall={handleCopyInstall}
                             />
                           </LayoutGroup>
+                          {/* Import & use */}
+                          <div className="space-y-4 my-4">
+                            <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+                            <h3 className="font-medium">How to use</h3>
+
+                            {demoCode ? (
+                              <CodeBlock language="tsx" title='demo'>
+                                {demoCode}
+                              </CodeBlock>
+                            ) : (
+                              <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                                Loading usage example…
+                              </div>
+                            )}
+                          </div>
                         </TabsContent>
-                        <TabsContent value="manual">
+                        <TabsContent value="manual" className='space-y-6'>
                           {/* Manual install (dependencies-driven) */}
                           <ManualInstallationCmd
                             activePackageManager={activePackageManager}
                             setActivePackageManager={setActivePackageManager}
                             dependencies={item.dependencies}
                           />
+                          {componentCode ? (
+                            <CodeBlock showLineNumbers>
+                              {componentCode}
+                            </CodeBlock>
+                          ) : (
+                            <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
+                              Loading source code…
+                            </div>
+                          )}
+                          {/* Import & use */}
+                          <div className="space-y-2">
+                            <h4 className="text-sm font-medium text-muted-foreground">
+                              Import & use
+                            </h4>
+                            <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
 
+                            {demoCode ? (
+                              <CodeBlock language="tsx" title='demo'>
+                                {demoCode}
+                              </CodeBlock>
+                            ) : (
+                              <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                                Loading usage example…
+                              </div>
+                            )}
+                          </div>
                         </TabsContent>
                       </TabsContents>
                     </Tabs>
-
-
-                    {/* Import & use */}
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-muted-foreground">
-                        Import & use
-                      </h4>
-                      <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-
-                      {demoCode ? (
-                        <CodeBlock language="tsx" title='demo'>
-                          {demoCode}
-                        </CodeBlock>
-                      ) : (
-                        <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
-                          Loading usage example…
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Full source */}
-                    <CodeCollapsibleWrapper title="View full component source">
-                      {componentCode ? (
-                        <CodeBlock showLineNumbers title={`components/ui/${item.slug}`}>
-                          {componentCode}
-                        </CodeBlock>
-                      ) : (
-                        <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
-                          Loading source code…
-                        </div>
-                      )}
-                    </CodeCollapsibleWrapper>
                   </div>
-
-                </motion.div>
-              )}
-            </AnimatePresence>
+                </div>
+              </div>
+            </ScrollFadeEffect>
           </div>
 
 
-          {/* RIGHT PREVIEW */}
-          <div className="flex-1">
-            <div className="sticky top-0 h-dvh flex flex-col bg-muted/5 border rounded-2xl overflow-hidden">
-              <div className="flex justify-end gap-2 px-4 py-2 border-b bg-background/80 backdrop-blur">
-                <button
-                  onClick={() => setIsCodeOpen(!isCodeOpen)}
-                  className="px-3 py-1.5 text-xs rounded-md border bg-background"
-                >
-                  <HugeiconsIcon icon={SourceCodeIcon} size={14} />
-                </button>
+          {/* RIGHT PREVIEW - Fixed */}
+          <div className="flex-1 h-screen p-6">
+            <div className="h-full flex flex-col bg-muted/5 border rounded-2xl overflow-hidden">
+              <div className="flex justify-end gap-2 px-4 py-2 border-b bg-background/80 backdrop-blur rounded-t-2xl">
                 <ThemeToggle />
                 <button
                   onClick={() => setReloadKey((k) => k + 1)}
@@ -427,15 +352,9 @@ export default function ComponentPage() {
                 >
                   <HugeiconsIcon icon={ReloadIcon} size={16} />
                 </button>
-                <button className="p-2 rounded-md hover:bg-accent">
-                  <HugeiconsIcon icon={BookmarkIcon} size={16} />
-                </button>
-                <button className="p-2 rounded-md hover:bg-accent">
-                  <HugeiconsIcon icon={MoreVerticalIcon} size={16} />
-                </button>
               </div>
 
-              <div className="flex-1 overflow-auto p-12 flex justify-center">
+              <div className="flex-1 overflow-auto p-12 flex justify-center items-center">
                 <Suspense fallback={<div>Loading preview…</div>}>
                   <item.component key={reloadKey} />
                 </Suspense>

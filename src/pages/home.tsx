@@ -42,7 +42,7 @@ export default function HomePage() {
       <div className="space-y-12">
         <section id="components" className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-3xl font-bold tracking-tight">Featured Components</h2>
+            <h2 className="tracking-tight">Featured Components</h2>
             <p className="text-muted-foreground">{featuredItems.length} components available</p>
           </div>
 

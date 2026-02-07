@@ -15,6 +15,10 @@ const BasicUsagePage = lazy(() => import("@/pages/basic-usage"));
 const InstallationPage = lazy(() => import("@/pages/installation"));
 const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
 const CLIPage = lazy(() => import("@/pages/cli"));
+const DashboardsPage = lazy(() => import("@/pages/dashboards"));
+const DashboardPage = lazy(() => import("@/pages/dashboard"));
+const BlocksPage = lazy(() => import("@/pages/blocks"));
+const BlockPage = lazy(() => import("@/pages/block"));
 
 export function AppRoutes() {
   const isComponentPage = useMatch("/components/:slug");
@@ -82,6 +86,42 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DocPageSkeleton />}>
               <CLIPage />
+            </Suspense>
+          }
+        />
+
+        {/* Dashboard pages */}
+        <Route
+          path="/dashboards"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <DashboardsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/dashboard/:slug"
+          element={
+            <Suspense fallback={<ComponentPageSkeleton />}>
+              <DashboardPage />
+            </Suspense>
+          }
+        />
+
+        {/* Block pages */}
+        <Route
+          path="/blocks"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <BlocksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/block/:slug"
+          element={
+            <Suspense fallback={<ComponentPageSkeleton />}>
+              <BlockPage />
             </Suspense>
           }
         />
