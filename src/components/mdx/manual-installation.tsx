@@ -35,9 +35,6 @@ export function ManualInstallationCmd({
 
   return (
     <div className="space-y-3">
-      <h4 className="text-sm font-medium text-muted-foreground">
-        Manual installation
-      </h4>
 
       {/* PM Switcher */}
       <div className="relative w-fit">

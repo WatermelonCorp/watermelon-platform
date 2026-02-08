@@ -91,7 +91,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                   </div>
                   <div className="flex flex-col justify-start items-end gap-2">
                     {item.componentNumber && (
-                      <span className="px-2 py-0.5 bg-primary/10 text-primary rounded-sm font-medium">
+                      <span className="px-2 py-0.5 bg-muted text-muted-foreground rounded-sm font-medium">
                         {item.componentNumber}
                       </span>
                     )}
@@ -204,7 +204,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
               </p>
 
               {demoCode ? (
-                <CodeBlock language="tsx" title="demo">
+                <CodeBlock language="tsx" title="demo.tsx">
                   {demoCode}
                 </CodeBlock>
               ) : (
@@ -219,7 +219,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
               <h3 className="text-sm font-medium">Source</h3>
 
               {componentCode ? (
-                <CodeBlock showLineNumbers>
+                <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
                   {componentCode}
                 </CodeBlock>
               ) : (
@@ -240,189 +240,188 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   // Desktop View - Dialog
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-none sm:max-w-none w-[90vw] h-[90vh] p-0 gap-0 overflow-hidden flex flex-row bg-background border rounded-xl">
+      <DialogContent onOpenAutoFocus={(e) => e.preventDefault()} className="max-w-none sm:max-w-none w-[90vw] h-[90vh] p-0 gap-0 overflow-hidden flex flex-row bg-background border rounded-xl">
 
         {/* Left Side: Documentation & Code */}
-        <div className="w-[40%] flex flex-col h-full border-r bg-background">
-          <ScrollFadeEffect className='w-full'>
-            <div className="flex-1 overflow-y-auto p-6 space-y-4 pt-20">
-              <ProgressiveBlur className='w-full absolute top-0 h-26 left-0'
-                direction="top"
-                blurLayers={8}
-                blurIntensity={1.2}
-              />
-              {/* Header */}
-              <div>
-                <div className="flex items-center left-0 pl-6 justify-between bg-background absolute top-0 pt-8 w-full z-10">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <span className="hidden lg:block">Components</span>
-                      <span className="hidden lg:block">/</span>
-                      <span className='capitalize hidden lg:block'>{item.category}</span>
-                      <span className="hidden lg:block">/</span>
-                      <span className="text-foreground font-medium">{item.name}</span>
-                    </div>
+        <div className="w-[40%] flex flex-col h-full border-r bg-background relative">
+          <div className="flex-1 flex flex-col p-6 overflow-hidden">
 
-                    <Link
-                      to={`/components/${item.slug}`}
-                      onClick={onClose}
-                      className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                    >
-                      View Full Page
-                      <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
-                    </Link>
-
-                  </div>
-                  <div className='flex-1 w-full justify-end items-end pl-20'>
-
-                    {item.componentNumber && (
-                      <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-sm">
-                        {item.componentNumber}
-                      </span>
-                    )}
-                  </div>
-
+            {/* Header */}
+            <div className='shrink-0 mb-4'>
+              <div className="flex items-center justify-between left-0 z-50">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground overflow-hidden">
+                  <span className="hidden md:inline shrink-0">Components</span>
+                  <span className="hidden md:inline shrink-0">/</span>
+                  <span className="capitalize hidden md:inline shrink-0">{item.category}</span>
+                  <span className="hidden md:inline shrink-0">/</span>
+                  <span className="text-foreground font-medium truncate">{item.name}</span>
+                  <Link
+                    to={`/components/${item.slug}`}
+                    onClick={onClose}
+                    className="flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors shrink-0 ml-2"
+                  >
+                    <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
+                  </Link>
                 </div>
-                <h2 className="text-3xl font-medium tracking-tight mb-2 mt-5 lg:mt-0">{item.name}</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {item.description}
-                </p>
 
-                {/* Dependencies */}
-                {item.dependencies && item.dependencies.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="text-sm font-medium mb-2">Dependencies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {item.dependencies.map((dep) => (
-                        <span
-                          key={dep}
-                          className="px-3 py-1 rounded-md bg-muted text-sm flex items-center gap-1.5"
-                        >
-                          {dep}
-                          <img
-                            src="/brand/npm-icon.png"
-                            alt="npm"
-                            width={12}
-                            height={12}
-                            className="inline-block"
-                          />
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                {item.componentNumber && (
+                  <span className="px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground rounded-sm shrink-0">
+                    {item.componentNumber}
+                  </span>
                 )}
               </div>
-
-
-              {/* Inspired By */}
-              {item.inspiredByName && (
-                <div className="flex items-center gap-2 group/inspired-by">
-                  <h4 className="text-sm">Inspired By</h4>
-                  {item.inspiredByLink ? (
-                    <a
-                      href={item.inspiredByLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-primary"
-                    >
-                      {item.inspiredByName}
-                      <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
-                    </a>
-                  ) : (
-                    <span className="text-sm text-muted-foreground">
-                      {item.inspiredByName}
-                    </span>
-                  )}
-                </div>
-              )}
-
-              {/* Copy for AI Platforms */}
-              <div className="space-y-2">
-                <h3 className="font-medium">Copy for AI</h3>
-                <PromptItems
-                  files={componentFiles}
-                  dependencies={item.dependencies || []}
-                  componentName={item.name}
-                />
-              </div>
-
-              {/* How to use */}
-              <div className="space-y-2">
-                <div className="h-full overflow-auto space-y-3">
-                  <h3 className="font-medium">Installation</h3>
-
-                  <Tabs defaultValue="cli" className="w-full">
-                    <TabsList>
-                      <TabsTrigger value="cli">CLI</TabsTrigger>
-                      <TabsTrigger value="manual">Manual</TabsTrigger>
-                    </TabsList>
-                    <TabsContents>
-                      <TabsContent value="cli">
-                        <LayoutGroup id={`install-cli-right-${item.slug}`}>
-                          <InstallationCmd
-                            activePackageManager={activePackageManager}
-                            setActivePackageManager={setActivePackageManager}
-                            item={item}
-                            hasCopiedInstall={hasCopiedInstall}
-                            handleCopyInstall={handleCopyInstall}
-                          />
-                        </LayoutGroup>
-                        {/* Import & use */}
-                        <div className="space-y-4 my-4">
-                          <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-                          <h3 className="font-medium">How to use</h3>
-
-                          {demoCode ? (
-                            <CodeBlock language="tsx" title='demo'>
-                              {demoCode}
-                            </CodeBlock>
-                          ) : (
-                            <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
-                              Loading usage example…
-                            </div>
-                          )}
-                        </div>
-                      </TabsContent>
-                      <TabsContent value="manual" className='space-y-6'>
-                        {/* Manual install (dependencies-driven) */}
-                        <ManualInstallationCmd
-                          activePackageManager={activePackageManager}
-                          setActivePackageManager={setActivePackageManager}
-                          dependencies={item.dependencies}
-                        />
-                        {componentCode ? (
-                          <CodeBlock showLineNumbers>
-                            {componentCode}
-                          </CodeBlock>
-                        ) : (
-                          <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
-                            Loading source code…
-                          </div>
-                        )}
-                        {/* Import & use */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">
-                            Import & use
-                          </h4>
-                          <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-
-                          {demoCode ? (
-                            <CodeBlock language="tsx" title='demo'>
-                              {demoCode}
-                            </CodeBlock>
-                          ) : (
-                            <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
-                              Loading usage example…
-                            </div>
-                          )}
-                        </div>
-                      </TabsContent>
-                    </TabsContents>
-                  </Tabs>
-                </div>
-              </div>
             </div>
-          </ScrollFadeEffect>
+
+            <div className='h-full overflow-y-auto px-4'>
+              <ScrollFadeEffect className='w-full flex-1 min-h-0'>
+                <ProgressiveBlur className='w-full absolute top-12 h-10 left-0'
+                  direction="top"
+                  blurLayers={8}
+                  blurIntensity={1.2}
+                />
+                <div className=' space-y-4 pt-4 mb-8'>
+
+                  <h2 className="text-xl font-medium tracking-tight mb-2">{item.name}</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  {/* Dependencies */}
+                  {item.dependencies && item.dependencies.length > 0 && (
+                    <div className="">
+                      <h4 className="text-sm font-medium mb-2">Dependencies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {item.dependencies.map((dep) => (
+                          <span
+                            key={dep}
+                            className="px-3 py-1 rounded-md bg-muted text-sm flex items-center gap-1.5"
+                          >
+                            {dep}
+                            <img
+                              src="/brand/npm-icon.png"
+                              alt="npm"
+                              width={12}
+                              height={12}
+                              className="inline-block"
+                            />
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+
+                  {/* Inspired By */}
+                  {item.inspiredByName && (
+                    <div className="flex items-center gap-2 group/inspired-by">
+                      <h4 className="text-sm">Inspired By</h4>
+                      {item.inspiredByLink ? (
+                        <a
+                          href={item.inspiredByLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-sm text-primary"
+                        >
+                          {item.inspiredByName}
+                          <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
+                        </a>
+                      ) : (
+                        <span className="text-sm text-muted-foreground">
+                          {item.inspiredByName}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Copy for AI Platforms */}
+                  <div className="space-y-2">
+                    <h3 className="font-medium">Copy for AI</h3>
+                    <PromptItems
+                      files={componentFiles}
+                      dependencies={item.dependencies || []}
+                      componentName={item.name}
+                    />
+                  </div>
+
+                  {/* How to use */}
+                  <div className="space-y-2">
+                    <div className="h-full overflow-auto space-y-3">
+                      <h3 className="font-medium">Installation</h3>
+
+                      <Tabs defaultValue="cli" className="w-full">
+                        <TabsList>
+                          <TabsTrigger value="cli">CLI</TabsTrigger>
+                          <TabsTrigger value="manual">Manual</TabsTrigger>
+                        </TabsList>
+                        <TabsContents>
+                          <TabsContent value="cli">
+                            <LayoutGroup id={`install-cli-right-${item.slug}`}>
+                              <InstallationCmd
+                                activePackageManager={activePackageManager}
+                                setActivePackageManager={setActivePackageManager}
+                                item={item}
+                                hasCopiedInstall={hasCopiedInstall}
+                                handleCopyInstall={handleCopyInstall}
+                              />
+                            </LayoutGroup>
+                            {/* Import & use */}
+                            <div className="space-y-4 my-4">
+                              <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+                              <h3 className="font-medium">How to use</h3>
+
+                              {demoCode ? (
+                                <CodeBlock language="tsx" title='demo.tsx'>
+                                  {demoCode}
+                                </CodeBlock>
+                              ) : (
+                                <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                                  Loading usage example…
+                                </div>
+                              )}
+                            </div>
+                          </TabsContent>
+                          <TabsContent value="manual" className='space-y-6'>
+                            {/* Manual install (dependencies-driven) */}
+                            <ManualInstallationCmd
+                              activePackageManager={activePackageManager}
+                              setActivePackageManager={setActivePackageManager}
+                              dependencies={item.dependencies}
+                            />
+                            {componentCode ? (
+                              <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
+                                {componentCode}
+                              </CodeBlock>
+                            ) : (
+                              <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
+                                Loading source code…
+                              </div>
+                            )}
+                            {/* Import & use */}
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-muted-foreground">
+                                Import & use
+                              </h4>
+                              <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+
+                              {demoCode ? (
+                                <CodeBlock language="tsx" title='demo.tsx'>
+                                  {demoCode}
+                                </CodeBlock>
+                              ) : (
+                                <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse">
+                                  Loading usage example…
+                                </div>
+                              )}
+                            </div>
+                          </TabsContent>
+                        </TabsContents>
+                      </Tabs>
+                    </div>
+                  </div>
+                </div>
+              </ScrollFadeEffect>
+            </div>
+          </div>
         </div>
 
         {/* Right Side: Preview with Tabs */}
@@ -447,6 +446,14 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
 
             {/* Actions */}
             <div className="flex items-center gap-2 mr-8">
+              <Link
+                to={`/components/${item.slug}`}
+                onClick={onClose}
+                className="flex items-center gap-1.5 px-3 py-2 text-sm tracking-tight text-primary rounded-md group transition-colors"
+              >
+                Open Full Page
+                <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className='group-hover:translate-x-1 transition-transform duration-300' />
+              </Link>
               <ThemeToggle />
               <button
                 className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
@@ -480,7 +487,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             <TabsContent value="code">
               <div className="h-full overflow-y-auto p-4 space-y-8">
                 {componentCode ? (
-                  <CodeBlock showLineNumbers title={item.slug}>
+                  <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
                     {componentCode}
                   </CodeBlock>
                 ) : (
@@ -490,7 +497,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 )}
 
                 {demoCode ? (
-                  <CodeBlock language="tsx" title='demo'>
+                  <CodeBlock language="tsx" title='demo.tsx'>
                     {demoCode}
                   </CodeBlock>
                 ) : (
@@ -505,7 +512,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
 
           </div>
         </Tabs>
-      </DialogContent>
-    </Dialog>
+      </DialogContent >
+    </Dialog >
   );
 }

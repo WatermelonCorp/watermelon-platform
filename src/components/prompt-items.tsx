@@ -74,7 +74,6 @@ export function PromptItems({
     <TooltipProvider
       openDelay={openDelay}
       closeDelay={closeDelay}
-      key={`${side}-${align}-${sideOffset}-${alignOffset}-${openDelay}-${closeDelay}`}
     >
       <div className={cn("flex items-center gap-1", className)}>
         {PLATFORMS.map((platform) => {
@@ -83,7 +82,6 @@ export function PromptItems({
 
           return (
             <Tooltip
-              key={platform}
               side={side}
               sideOffset={sideOffset}
               align={align}
@@ -93,7 +91,7 @@ export function PromptItems({
                 <button
                   onClick={() => handleCopyPrompt(platform)}
                   className={cn(
-                    "flex items-center justify-center cursor-pointer w-8 h-8 rounded-md bg-neutral-950 transition-all",
+                    "flex items-center justify-center cursor-pointer w-8 h-8 rounded-md bg-neutral-950 dark:bg-neutral-50 transition-all",
                     isCopied && "ring-1 ring-primary"
                   )}
                 >
@@ -108,7 +106,7 @@ export function PromptItems({
                         key="icon"
                         src={info.icon}
                         alt={info.name}
-                        className="h-4 w-4 object-contain"
+                        className={cn("h-4 w-4 object-contain", info.name !== "Lovable" ? "dark:invert" : "")}
                         initial={{ opacity: 0, scale: 0.85 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.85 }}

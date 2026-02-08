@@ -4,11 +4,13 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import type { DashboardItem } from '@/data/dashboards';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon } from '@hugeicons/core-free-icons';
+import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons } from '@hugeicons/core-free-icons';
 import { ThemeToggle } from '../layout/theme-toggle';
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '../ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
+import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
+import { motion } from 'framer-motion';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -20,6 +22,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
   const [reloadKey, setReloadKey] = useState(0);
   const [fileCodes, setFileCodes] = useState<Record<string, string>>({});
   const [loadingFiles, setLoadingFiles] = useState(true);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
   // Load file codes when item changes
   useEffect(() => {
@@ -38,6 +41,10 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
       });
       setFileCodes(codeMap);
       setLoadingFiles(false);
+      // Auto-select first file
+      if (results.length > 0 && !selectedFile) {
+        setSelectedFile(results[0].name);
+      }
     });
   }, [item]);
 
@@ -104,7 +111,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
             </div>
 
             {/* Tab Contents - Use layout mode for fixed height with scroll */}
-            <TabsContents mode="layout" className="flex-1 min-h-0" style={{ overflow: 'hidden' }}>
+            <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
               <TabsContent value="preview" className="absolute inset-0 overflow-auto">
                 <div className="min-h-full bg-muted/5">
                   <div className="origin-top-left scale-50 min-w-[1440px] w-fit p-4">
@@ -120,38 +127,38 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 </div>
               </TabsContent>
 
-              <TabsContent value="code" className="absolute inset-0 overflow-auto">
-                <div className="p-4 space-y-4 bg-background">
+              <TabsContent value="code" className="absolute inset-0 flex flex-col">
+                {/* File Explorer - Horizontal on mobile */}
+                {/* File Explorer - Horizontal on mobile */}
+                <FileExplorer
+                  files={item.files.map((f): FileItem => ({ name: f.name, type: 'file' }))}
+                  selectedFile={selectedFile}
+                  onFileSelect={setSelectedFile}
+                  orientation="horizontal"
+                  className="shrink-0"
+                />
+
+                {/* Code Content */}
+                <div className="flex-1 overflow-auto p-4 bg-background">
                   {loadingFiles ? (
                     <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse text-sm">
                       Loading files...
                     </div>
+                  ) : selectedFile ? (
+                    <motion.div
+                      key={selectedFile}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <CodeBlock mobile showLineNumbers={false} title={selectedFile}>
+                        {fileCodes[selectedFile] || '// No content'}
+                      </CodeBlock>
+                    </motion.div>
                   ) : (
-                    <>
-                      {item.dependencies && item.dependencies.length > 0 && (
-                        <div>
-                          <h4 className="text-xs font-medium mb-2 text-muted-foreground">Dependencies</h4>
-                          <div className="flex flex-wrap gap-1.5">
-                            {item.dependencies.map((dep) => (
-                              <span key={dep} className="px-2 py-0.5 rounded bg-muted text-xs">
-                                {dep}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {item.files.map((file) => (
-                        <div key={file.name}>
-                          <CodeBlock
-                            mobile
-                            showLineNumbers={false}
-                            title={file.name}
-                          >
-                            {fileCodes[file.name] || '// Loading...'}
-                          </CodeBlock>
-                        </div>
-                      ))}
-                    </>
+                    <div className="flex items-center justify-center h-32 text-muted-foreground text-sm">
+                      Select a file to view
+                    </div>
                   )}
                 </div>
               </TabsContent>
@@ -169,49 +176,27 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
         showCloseButton={false}
         className="max-w-none sm:max-w-none w-[95vw] h-[90vh] p-0 gap-0 flex flex-col bg-background border overflow-hidden"
       >
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b bg-background shrink-0">
-          <div className="flex items-center gap-6 flex-1 min-w-0">
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-1">
-                <h2 className="text-lg font-semibold truncate">{item.name}</h2>
-                {item.dependencies && item.dependencies.length > 0 && (
-                  <div className="flex items-center gap-1.5">
-                    {item.dependencies.slice(0, 3).map((dep) => (
-                      <span
-                        key={dep}
-                        className="px-2 py-0.5 rounded bg-muted text-xs"
-                        title={dep}
-                      >
-                        {dep}
-                      </span>
-                    ))}
-                    {item.dependencies.length > 3 && (
-                      <span className="text-xs text-muted-foreground">
-                        +{item.dependencies.length - 3}
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
-              <p className="text-sm text-muted-foreground truncate max-w-2xl">
-                {item.description}
-              </p>
+        {/* Header with Breadcrumb */}
+        <div className="flex items-center justify-between px-6 py-3 border-b bg-background shrink-0">
+          <div className="flex items-center gap-4 flex-1 min-w-0">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="shrink-0">Dashboards</span>
+              <span className="shrink-0">/</span>
+              <span className="text-foreground font-medium truncate">{item.name}</span>
+              <Link
+                to={`/dashboard/${item.slug}`}
+                onClick={onClose}
+                className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors shrink-0 ml-1"
+              >
+                <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
+              </Link>
             </div>
-
-            <Link
-              to={`/dashboard/${item.slug}`}
-              onClick={onClose}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors shrink-0"
-            >
-              Full Page
-              <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
-            </Link>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-md hover:bg-accent transition-colors ml-4"
+            className="p-2 rounded-md hover:bg-accent transition-colors"
           >
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
           </button>
@@ -262,41 +247,58 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
               </div>
             </TabsContent>
 
-            <TabsContent value="code" className="absolute inset-0 overflow-auto">
-              <div className="max-w-7xl mx-auto p-8 space-y-6">
-                {/* Dependencies */}
-                {item.dependencies && item.dependencies.length > 0 && (
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">All Dependencies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {item.dependencies.map((dep) => (
+            <TabsContent value="code" className="absolute inset-0 flex">
+              {/* File Explorer Sidebar */}
+              <FileExplorer
+                files={item.files.map((f): FileItem => ({ name: f.name, type: 'file' }))}
+                selectedFile={selectedFile}
+                onFileSelect={setSelectedFile}
+                className="w-56 shrink-0"
+              />
+
+              {/* Code Preview Panel */}
+              <div className="flex-1 flex flex-col min-w-0 relative">
+                {/* File Header */}
+                <div className="px-4 py-2 border-b bg-muted/30 backdrop-blur-sm flex items-center justify-between shrink-0 h-12.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium">{selectedFile || 'Select a file'}</span>
+                  </div>
+                  {item.dependencies && item.dependencies.length > 0 && (
+                    <div className="flex items-center gap-1.5">
+                      {item.dependencies.slice(0, 4).map((dep) => (
                         <span
                           key={dep}
-                          className="px-3 py-1.5 rounded-md bg-muted text-sm flex items-center gap-1.5"
+                          className="px-2 py-0.5 rounded bg-muted text-xs flex items-center gap-1"
                         >
                           {dep}
-                          <img src="/brand/npm-icon.png" alt="npm" width={12} height={12} />
+                          <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
                         </span>
                       ))}
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
 
-                {/* Files */}
-                <div className="space-y-6">
-                  <h3 className="font-medium text-lg">Files ({item.files.length})</h3>
+                {/* Code Content */}
+                <div className="flex-1 overflow-auto p-4">
                   {loadingFiles ? (
-                    <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse">
+                    <div className="flex items-center justify-center h-full text-muted-foreground animate-pulse">
                       Loading files...
                     </div>
+                  ) : selectedFile ? (
+                    <motion.div
+                      key={selectedFile}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <CodeBlock showLineNumbers title={selectedFile}>
+                        {fileCodes[selectedFile] || '// No content'}
+                      </CodeBlock>
+                    </motion.div>
                   ) : (
-                    item.files.map((file) => (
-                      <div key={file.name}>
-                        <CodeBlock showLineNumbers title={file.name}>
-                          {fileCodes[file.name] || '// Loading...'}
-                        </CodeBlock>
-                      </div>
-                    ))
+                    <div className="flex items-center justify-center h-full text-muted-foreground">
+                      Select a file to view its contents
+                    </div>
                   )}
                 </div>
               </div>

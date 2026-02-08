@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import type { ReactNode } from "react";
 
 interface PageHeaderProps {
   items: {
@@ -8,39 +9,70 @@ interface PageHeaderProps {
     href?: string;
   }[];
   className?: string;
+  variant?: "default" | "pill";
+  action?: ReactNode;
 }
 
-export const PageHeader = ({ items, className }: PageHeaderProps) => {
+export const PageHeader = ({
+  items,
+  className,
+  variant = "default",
+  action
+}: PageHeaderProps) => {
+  const isPill = variant === "pill";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      whileTap={isPill ? { scale: 0.98 } : undefined}
       className={cn(
-        "inline-flex items-center gap-3 h-9 rounded-md px-2 bg-background",
+        "inline-flex items-center gap-2",
+        isPill ? [
+          "bg-background/80 backdrop-blur-md border px-3 py-1.5 rounded-full shadow-sm",
+          "pointer-events-auto"
+        ] : [
+          "h-9 rounded-md px-2 bg-background"
+        ],
         className
       )}
     >
       {items.map((item, index) => (
-        <div key={index} className="flex items-center gap-3">
+        <div key={index} className="flex items-center gap-2">
           {index > 0 && (
-            <span className="text-muted-foreground/50 text-base md:text-lg">/</span>
+            <span className={cn(
+              "text-muted-foreground/30",
+              isPill ? "mx-0.5" : "text-base md:text-lg mx-1"
+            )}>
+              /
+            </span>
           )}
           {item.href ? (
             <Link
               to={item.href}
-              className="text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 ease-in-out"
+              className={cn(
+                "font-medium hover:text-foreground transition-colors duration-200 ease-in-out",
+                isPill ? "text-xs text-muted-foreground" : "text-xs md:text-sm text-muted-foreground"
+              )}
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-xs md:text-sm font-medium text-foreground">
+            <span className={cn(
+              "font-medium text-foreground",
+              isPill ? "text-xs" : "text-xs md:text-sm"
+            )}>
               {item.label}
             </span>
           )}
         </div>
       ))}
+      {action && (
+        <div className="ml-1 pl-1 border-l border-border/50 flex items-center">
+          {action}
+        </div>
+      )}
     </motion.div>
   );
 };

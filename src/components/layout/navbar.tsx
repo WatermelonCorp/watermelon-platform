@@ -6,6 +6,8 @@ import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/registry';
+import { dashboards } from '@/data/dashboards';
+import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
 import { motion } from 'framer-motion';
 
@@ -16,6 +18,8 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
   '/installation': { label: 'Installation' },
   '/framework-support': { label: 'Framework Support' },
   '/cli': { label: 'CLI' },
+  '/dashboards': { label: 'Dashboards' },
+  '/blocks': { label: 'Blocks' },
 };
 
 export const Navbar = () => {
@@ -55,12 +59,36 @@ export const Navbar = () => {
       ];
     }
 
+    // Dashboard detail page: /dashboard/:slug
+    if (path.startsWith('/dashboard/')) {
+      const slug = params.slug || path.split('/').pop();
+      const item = dashboards.find(d => d.slug === slug);
+      if (item) {
+        return [
+          { label: 'Dashboards', href: '/dashboards' },
+          { label: item.name }
+        ];
+      }
+    }
+
+    // Block detail page: /block/:slug
+    if (path.startsWith('/block/')) {
+      const slug = params.slug || path.split('/').pop();
+      const item = blocks.find(b => b.slug === slug);
+      if (item) {
+        return [
+          { label: 'Blocks', href: '/blocks' },
+          { label: item.name }
+        ];
+      }
+    }
+
     // Default fallback
     return [{ label: 'Components' }];
   }, [location.pathname, params]);
 
   return (
-    <header className="sticky top-0 z-20 h-20">
+    <header className="sticky top-0 z-20 h-14">
       {/* Progressive blur effect - fades from top (blurry) to bottom (clear) */}
       <ProgressiveBlur
         direction="top"
@@ -70,7 +98,7 @@ export const Navbar = () => {
       />
 
       {/* Navbar content */}
-      <nav className="relative z-10 flex h-16 items-center justify-between gap-2 px-4">
+      <nav className="relative z-10 flex h-14 items-center justify-between gap-2 px-4">
         {/* Left: Sidebar trigger + logo on mobile/collapsed */}
         <div className="flex items-center gap-2 shrink-0">
           {(state === "collapsed" || isMobile) && (

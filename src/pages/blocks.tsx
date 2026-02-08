@@ -4,14 +4,12 @@ import { DashboardCard } from '@/components/registry/dashboard-card';
 import { BlockModal } from '@/components/registry/block-modal';
 import type { BlockItem } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
-import { PageHeader } from '@/components/layout/page-header';
+
 
 export default function BlocksPage() {
   const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
 
-  const breadcrumbs = [
-    { label: 'Blocks' },
-  ];
+
 
   return (
     <>
@@ -20,11 +18,11 @@ export default function BlocksPage() {
         description="Browse our collection of pre-built UI blocks. Copy and paste beautiful hero sections, features, pricing, and more."
       />
 
-      <div className="p-6 space-y-8">
+      <div className="px-2 md:px-6 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <PageHeader items={breadcrumbs} />
-          <p className="text-muted-foreground max-w-2xl">
+          <h2 className="text-xl md:text-2xl font-medium tracking-tight">UI Blocks</h2>
+          <p className="text-muted-foreground max-w-2xl text-sm md:text-base">
             Pre-built UI sections ready to drop into your projects. Each block is fully customizable and responsive.
           </p>
         </div>

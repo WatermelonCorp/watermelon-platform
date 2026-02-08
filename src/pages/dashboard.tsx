@@ -10,8 +10,9 @@ import { PromptItems } from '@/components/prompt-items';
 import { Drawer, DrawerContent } from '@/components/ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
-import { PageHeader } from '@/components/layout/page-header';
 import type { ComponentFile } from '@/lib/types';
+import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
+import { motion } from 'framer-motion';
 
 export default function DashboardPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,6 +20,7 @@ export default function DashboardPage() {
   const [fileCodes, setFileCodes] = useState<Record<string, string>>({});
   const [loadingFiles, setLoadingFiles] = useState(true);
   const [isCodeOpen, setIsCodeOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const isMobile = useIsMobile();
 
   const item = dashboards.find((d) => d.slug === slug);
@@ -40,6 +42,10 @@ export default function DashboardPage() {
       });
       setFileCodes(codeMap);
       setLoadingFiles(false);
+      // Auto-select first file
+      if (results.length > 0 && !selectedFile) {
+        setSelectedFile(results[0].name);
+      }
     });
   }, [item]);
 
@@ -177,17 +183,12 @@ export default function DashboardPage() {
 
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-screen overflow-hidden">
           {/* Header - Outside tabs, always visible */}
-          <div className="px-6 py-4 border-b bg-background shrink-0">
-            <PageHeader
-              items={[
-                { label: 'Dashboards', href: '/dashboards' },
-                { label: item.name },
-              ]}
-            />
 
-            <div className="mt-3 flex items-start justify-between gap-4">
+
+          <div className="px-6 py-4 border-b bg-background shrink-0">
+            <div className="flex items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-1">
                   <h1 className="text-2xl font-semibold">{item.name}</h1>
@@ -263,61 +264,63 @@ export default function DashboardPage() {
               </TabsContent>
 
               {/* Source Code Tab */}
-              <TabsContent value="code" className="absolute inset-0 overflow-auto">
-                <div className="max-w-5xl mx-auto p-8 space-y-6">
-                  {/* Dependencies */}
-                  {item.dependencies && item.dependencies.length > 0 && (
-                    <div>
-                      <h4 className="text-sm font-medium mb-3">Dependencies</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {item.dependencies.map((dep) => (
-                          <span
-                            key={dep}
-                            className="px-3 py-1.5 rounded-md bg-muted text-sm flex items-center gap-1.5"
-                          >
-                            {dep}
-                            <img src="/brand/npm-icon.png" alt="npm" width={12} height={12} />
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+              <TabsContent value="code" className="absolute inset-0 flex">
+                {/* File Explorer Sidebar */}
+                <FileExplorer
+                  files={item.files.map((f): FileItem => ({ name: f.name, type: 'file' }))}
+                  selectedFile={selectedFile}
+                  onFileSelect={setSelectedFile}
+                  className="w-56 shrink-0"
+                />
 
-                  {/* Copy for AI */}
-                  {!loadingFiles && (
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium">Copy for AI</h4>
+                {/* Code Preview Panel */}
+                <div className="flex-1 flex flex-col min-w-0 relative">
+                  {/* File Header */}
+                  <div className="px-4 py-2 border-b bg-muted/30 backdrop-blur-sm flex items-center justify-between shrink-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium">{selectedFile || 'Select a file'}</span>
+
+                    </div>
+                    {/* Copy for AI */}
+                    {!loadingFiles && (
                       <PromptItems
                         files={componentFiles}
                         dependencies={item.dependencies || []}
                         componentName={item.name}
                       />
-                    </div>
-                  )}
+                    )}
+                  </div>
 
-                  {/* Files */}
-                  <div className="space-y-6">
-                    <h3 className="font-medium text-lg">Files ({item.files.length})</h3>
+                  {/* Code Content */}
+                  <div className="flex-1 overflow-auto p-4">
                     {loadingFiles ? (
-                      <div className="flex items-center justify-center h-32 text-muted-foreground animate-pulse">
+                      <div className="flex items-center justify-center h-full text-muted-foreground animate-pulse">
                         Loading files...
                       </div>
+                    ) : selectedFile ? (
+                      <motion.div
+                        key={selectedFile}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <CodeBlock showLineNumbers title={selectedFile}>
+                          {fileCodes[selectedFile] || '// No content'}
+                        </CodeBlock>
+                      </motion.div>
                     ) : (
-                      item.files.map((file) => (
-                        <div key={file.name}>
-                          <CodeBlock showLineNumbers title={file.name}>
-                            {fileCodes[file.name] || '// Loading...'}
-                          </CodeBlock>
-                        </div>
-                      ))
+                      <div className="flex items-center justify-center h-full text-muted-foreground">
+                        Select a file to view its contents
+                      </div>
                     )}
                   </div>
                 </div>
               </TabsContent>
             </TabsContents>
           </Tabs>
-        </div>
-      )}
+        </div >
+      )
+      }
     </>
   );
 }

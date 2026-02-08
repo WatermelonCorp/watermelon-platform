@@ -45,7 +45,7 @@ export function CodeBlock({
       {/* Header */}
       <div
         className={cn(
-          "flex items-center justify-between px-4 py-2 border-b rounded-t-xl",
+          "flex items-center justify-between pl-4 pr-2 py-2 border-b rounded-t-xl",
           "bg-background/80 backdrop-blur",
           mobile ? "relative" : "sticky top-0 z-10"
         )}
@@ -56,8 +56,8 @@ export function CodeBlock({
             size={20}
             className="p-1 border rounded-sm text-primary"
           />
-          <span className="text-[11px] font-medium tracking-wide text-muted-foreground">
-            {title ? `${title}.${language}` : language}
+          <span className="text-sm font-medium tracking-wide text-muted-foreground">
+            {title || language}
           </span>
         </div>
 
@@ -83,14 +83,17 @@ export function CodeBlock({
           lineHeight: "1.6",
           background: "transparent",
           overflow: "auto",
+          whiteSpace: "pre", // Add this
+          wordBreak: "normal", // Add this
         }}
         codeTagProps={{
           style: {
             fontFamily:
               "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+            whiteSpace: "pre", // Add this
           },
         }}
-        wrapLongLines
+        wrapLongLines={false} // Change to false
       >
         {children?.trim() || ""}
       </SyntaxHighlighter>

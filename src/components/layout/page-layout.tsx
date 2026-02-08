@@ -20,7 +20,7 @@ export function PageLayout({
       <ScrollProgressContainer className="flex-1 overflow-y-auto rounded-xl m-2 bg-background border md:border-none md:m-0">
         {showNavbar && <Navbar />}
 
-        <main className="flex flex-col gap-4 p-4 min-h-[calc(100vh-10.5rem)]">
+        <main className="flex flex-col gap-4 px-2 md:px-3 min-h-[calc(100vh-10.5rem)]">
           {children}
         </main>
 
