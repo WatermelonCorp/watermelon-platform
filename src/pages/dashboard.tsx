@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/compon
 import type { ComponentFile } from '@/lib/types';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
+import { MobileRestriction } from '@/components/mobile-restriction';
 
 export default function DashboardPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -95,10 +96,8 @@ export default function DashboardPage() {
               <ThemeToggle />
             </div>
 
-            <div className="origin-top-left scale-50 min-w-[1440px] w-fit p-4">
-              <Suspense fallback={<div>Loading preview…</div>}>
-                <item.component key={reloadKey} />
-              </Suspense>
+            <div className="min-h-full bg-muted/5 p-4 flex items-center justify-center">
+              <MobileRestriction />
             </div>
           </div>
 

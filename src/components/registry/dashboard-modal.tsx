@@ -11,6 +11,8 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
+import { MobileRestriction } from '../mobile-restriction';
+import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@hugeicons/core-free-icons';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -23,6 +25,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
   const [fileCodes, setFileCodes] = useState<Record<string, string>>({});
   const [loadingFiles, setLoadingFiles] = useState(true);
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
   // Load file codes when item changes
   useEffect(() => {
@@ -114,16 +117,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
             <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
               <TabsContent value="preview" className="absolute inset-0 overflow-auto">
                 <div className="min-h-full bg-muted/5">
-                  <div className="origin-top-left scale-50 min-w-[1440px] w-fit p-4">
-                    <Suspense fallback={
-                      <div className="flex items-center justify-center h-64 text-muted-foreground text-sm scale-[2]">
-                        <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-                        Loading...
-                      </div>
-                    }>
-                      <item.component key={reloadKey} />
-                    </Suspense>
-                  </div>
+                  <MobileRestriction />
                 </div>
               </TabsContent>
 
@@ -217,6 +211,30 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
             </TabsList>
 
             <div className="flex items-center gap-2">
+              <div className="flex items-center bg-muted/50 rounded-md p-1 mr-2 border">
+                <button
+                  onClick={() => setViewMode('desktop')}
+                  className={`p-1.5 rounded-sm transition-all ${viewMode === 'desktop' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                  title="Desktop view"
+                >
+                  <HugeiconsIcon icon={LaptopIcon} size={14} />
+                </button>
+                <button
+                  onClick={() => setViewMode('tablet')}
+                  className={`p-1.5 rounded-sm transition-all ${viewMode === 'tablet' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                  title="Tablet view"
+                >
+                  <HugeiconsIcon icon={TabletIcon} size={14} />
+                </button>
+                <button
+                  onClick={() => setViewMode('mobile')}
+                  className={`p-1.5 rounded-sm transition-all ${viewMode === 'mobile' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                  title="Mobile view"
+                >
+                  <HugeiconsIcon icon={SmartPhoneIcon} size={14} />
+                </button>
+              </div>
+
               <span className="text-sm text-muted-foreground mr-4">
                 {item.files.length} files
               </span>
@@ -233,16 +251,21 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
 
           {/* Tab Contents - Use layout mode with relative positioning for absolute children */}
           <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
-            <TabsContent value="preview" className="absolute inset-0 overflow-auto">
-              {/* Preview takes full available size */}
-              <div className="w-full h-full">
+            <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
+              {/* Preview takes full available size or constraint */}
+              <div
+                className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
+                  viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
+                    'w-[375px] h-[812px] rounded-[2.5rem] border-4'
+                  }`}
+              >
                 <Suspense fallback={
                   <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                     <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
                     Loading dashboard...
                   </div>
                 }>
-                  <item.component key={reloadKey} />
+                  <item.component key={`${reloadKey}-${viewMode}`} />
                 </Suspense>
               </div>
             </TabsContent>

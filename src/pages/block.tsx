@@ -14,6 +14,7 @@ import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/compon
 import type { ComponentFile } from '@/lib/types';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
+import { MobileRestriction } from '@/components/mobile-restriction';
 
 export default function BlockPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -96,9 +97,9 @@ export default function BlockPage() {
               <ThemeToggle />
             </div>
 
-            <Suspense fallback={<div>Loading preview…</div>}>
-              <item.component key={reloadKey} />
-            </Suspense>
+            <div className="min-h-full bg-muted/5 p-4 flex items-center justify-center">
+              <MobileRestriction />
+            </div>
           </div>
 
           {/* Docs */}
