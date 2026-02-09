@@ -325,6 +325,21 @@ bun run build
 
 ---
 
+## Branching Strategy
+
+- **`main`**: Production-ready code. Only merged from `dev` after verification.
+- **`dev`**: Primary development branch. All feature branches target this branch.
+- **`feature/*`**: Individual component or feature development.
+
+### Workflow
+
+1.  Sync with `dev`: `git checkout dev && git pull`
+2.  Create feature branch: `git checkout -b feature/my-feature`
+3.  Develop and test locally.
+4.  Open PR targeting `dev`.
+
+---
+
 ## Key Features
 
 - **Auto-discovery**: Components and dashboards are automatically loaded from MDX files
