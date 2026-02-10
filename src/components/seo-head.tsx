@@ -8,7 +8,11 @@ interface SEOHeadProps {
   image?: string;
   type?: 'website' | 'article';
   schema?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
 }
+
+import { useEffect } from 'react';
 
 export function SEOHead({
   title,
@@ -17,7 +21,9 @@ export function SEOHead({
   canonical,
   image,
   type = 'website',
-  schema
+  schema,
+  ogImageAlt,
+  noindex = false
 }: SEOHeadProps) {
   const fullTitle = title.includes('Watermelon UI') ? title : `${title} | Watermelon UI`;
   const envSiteUrl = (import.meta as any).env?.VITE_SITE_URL as string | undefined;
@@ -26,14 +32,29 @@ export function SEOHead({
   const absoluteUrl = canonical || (typeof window !== "undefined" ? window.location.href : siteUrl);
   const absoluteImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.png`;
 
+  // Manage canonical link manually to avoid data-rh attribute from react-helmet-async
+  useEffect(() => {
+    let link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
+    }
+    link.href = absoluteUrl;
+  }, [absoluteUrl]);
+
   return (
     <Helmet>
       {/* Basic SEO */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={absoluteUrl} />
-      <meta name="robots" content="index, follow, max-image-preview:large" />
+      {/* Removed rel="canonical" from Helmet to manage it manually without data-rh */}
+      {/* <link rel="canonical" href={absoluteUrl} /> */}
+      <link rel="alternate" hrefLang="en-us" href={absoluteUrl} />
+      <link rel="alternate" hrefLang="x-default" href={absoluteUrl} />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="content-language" content="en-us" />
       <meta name="theme-color" content="#FF5112" />
 
@@ -43,13 +64,18 @@ export function SEOHead({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={absoluteUrl} />
       <meta property="og:image" content={absoluteImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={ogImageAlt || fullTitle} />
       <meta property="og:site_name" content="Watermelon UI" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImage} />
+      <meta name="twitter:site" content="@watermelonui" />
 
       {/* Schema.org JSON-LD */}
       {schema && (

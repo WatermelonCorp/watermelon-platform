@@ -232,7 +232,9 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
               "transition-opacity duration-500 ease-out",
               isHovered ? "opacity-100" : "opacity-0"
             )}
-          />
+          >
+            <track kind="captions" />
+          </video>
         )}
 
         {/* Bottom fade overlay */}

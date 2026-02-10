@@ -182,6 +182,7 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
         showCloseButton={false}
+        aria-describedby={undefined}
         className="max-w-none sm:max-w-none w-[95vw] h-[90vh] p-0 gap-0 flex flex-col bg-background border overflow-hidden"
       >
         <DialogTitle className="sr-only">{item.name}</DialogTitle>

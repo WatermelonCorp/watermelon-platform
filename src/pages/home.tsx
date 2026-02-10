@@ -54,6 +54,7 @@ export default function HomePage() {
       />
 
       <div className="space-y-12">
+        <h1 className="sr-only">Watermelon UI - High-Quality React Components Registry</h1>
         {/* Components Section */}
         <section id="components" className="space-y-6">
           <div className="flex items-center justify-between">
@@ -147,21 +148,21 @@ export default function HomePage() {
         <footer className="border-t py-2 sr-only">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-muted-foreground">
             <section id="about" className="space-y-2">
-              <h2 className="font-semibold text-foreground">About</h2>
+              <h3 className="font-semibold text-foreground">About</h3>
               <p>
                 Watermelon UI is a comprehensive component registry improving developer experience with accessible, performant, and beautiful UI blocks.
               </p>
             </section>
 
             <section id="team" className="space-y-2">
-              <h2 className="font-semibold text-foreground">Team</h2>
+              <h3 className="font-semibold text-foreground">Team</h3>
               <p>
                 Maintained by a dedicated team of open-source contributors.
               </p>
             </section>
 
             <section id="contact" className="space-y-2">
-              <h2 className="font-semibold text-foreground">Contact</h2>
+              <h3 className="font-semibold text-foreground">Contact</h3>
               <p>
                 For support and inquiries, please reach out via GitHub issues or email <a href="mailto:support@watermelon-ui.com" className="hover:text-foreground underline underline-offset-4">support@watermelon-ui.com</a>.
               </p>

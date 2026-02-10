@@ -21,7 +21,7 @@ export default function BlocksPage() {
       <div className="px-2 md:px-6 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h2 className="text-xl md:text-2xl font-medium tracking-tight">UI Blocks</h2>
+          <h1 className="text-xl md:text-2xl font-medium tracking-tight">UI Blocks</h1>
           <p className="text-muted-foreground max-w-2xl text-sm md:text-base">
             Pre-built UI sections ready to drop into your projects. Each block is fully customizable and responsive.
           </p>
