@@ -36,7 +36,7 @@ dependencies: ['framer-motion', 'lucide-react']
 inspiredByName: Vercel
 inspiredByLink: https://vercel.com
 install:
-  - npx shadcn@latest add https://registry.watermelonui.com/components/animated-button.json
+  - npx shadcn@latest add https://registry.watermelon.sh/animated-button.json
 ---
 ```
 
