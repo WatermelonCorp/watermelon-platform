@@ -18,7 +18,7 @@ export default function DashboardsPage() {
         <section id="dashboards" className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl md:text-2xl font-medium tracking-tight">Dashboards</h2>
+              <h1 className="text-xl md:text-2xl font-medium tracking-tight">Dashboards</h1>
               <p className="text-muted-foreground mt-1 text-sm md:text-base">
                 Pre-built dashboard templates with full source code
               </p>
