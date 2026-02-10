@@ -91,7 +91,7 @@ export const ActivitiesCard: FC<ActivitiesCardProps> = ({
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         className="relative flex shrink-0 items-center justify-center sm:rounded-xl rounded-lg border border-gray-100/50 dark:border-zinc-700 bg-gradient-to-b from-[#f4f4f7] via-[#efeef2] to-[#E9EAF0] dark:from-zinc-700 dark:via-zinc-800 dark:to-zinc-900 shadow-sm overflow-hidden"
                     >
-                        <motion.span className="absolute rounded-[inherit] pointer-events-none inset-0 shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),_inset_-1px_-1px_2px_rgba(165,172,190,0.2)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,0.1),_inset_-1px_-1px_3px_rgba(0,0,0,0.6)]" />
+                        <motion.span className="absolute rounded-[inherit] pointer-events-none inset-0 shadow-[inset_1px_1px_2px_rgba(255,255,255,0.8),_inset_-1px_-1px_2px_rgba(165,172,190,0.2)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,0.1),inset_-1px_-1px_3px_rgba(0,0,0,0.6)]" />
                         <motion.div animate={{ scale: open ? 0.7 : 1 }}>
                             {headerIcon}
                         </motion.div>
