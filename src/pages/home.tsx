@@ -53,8 +53,8 @@ export default function HomePage() {
         image="/og-image.png"
       />
 
+      <h1 className="sr-only">Watermelon UI - High-Quality React Components Registry</h1>
       <div className="space-y-12">
-        <h1 className="sr-only">Watermelon UI - High-Quality React Components Registry</h1>
         {/* Components Section */}
         <section id="components" className="space-y-6">
           <div className="flex items-center justify-between">
@@ -145,7 +145,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer with Semantic Sections */}
-        <footer className="border-t py-2 sr-only">
+        <footer className="border-t py-6 mt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-muted-foreground">
             <section id="about" className="space-y-2">
               <h3 className="font-semibold text-foreground">About</h3>

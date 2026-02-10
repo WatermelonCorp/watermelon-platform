@@ -81,6 +81,7 @@ export default function ComponentPage() {
         title={item.name}
         description={item.description}
         image={item.image}
+        category={item.category}
       />
 
       {/* ================= MOBILE ================= */}

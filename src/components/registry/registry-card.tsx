@@ -241,7 +241,7 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-16
-          bg-gradient-to-t from-black/20 to-transparent
+          bg-linear-to-t from-black/20 to-transparent
           dark:from-black/40
           pointer-events-none z-10"
         />

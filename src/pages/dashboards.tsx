@@ -12,6 +12,7 @@ export default function DashboardsPage() {
       <SEOHead
         title="Dashboard Templates"
         description="Explore our collection of pre-built dashboard templates with charts, tables, and analytics components."
+        category="Dashboards"
       />
 
       <div className="space-y-12">
