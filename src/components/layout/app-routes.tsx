@@ -19,6 +19,7 @@ const DashboardsPage = lazy(() => import("@/pages/dashboards"));
 const DashboardPage = lazy(() => import("@/pages/dashboard"));
 const BlocksPage = lazy(() => import("@/pages/blocks"));
 const BlockPage = lazy(() => import("@/pages/block"));
+const ChangelogPage = lazy(() => import("@/pages/changelog"));
 
 export function AppRoutes() {
   const isComponentPage = useMatch("/components/:slug");
@@ -86,6 +87,14 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DocPageSkeleton />}>
               <CLIPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/changelog"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <ChangelogPage />
             </Suspense>
           }
         />

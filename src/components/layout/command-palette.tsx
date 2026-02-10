@@ -32,6 +32,7 @@ const pages = [
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
   { name: 'CLI', href: '/cli', icon: CommandIcon, shortcut: 'C' },
+  { name: 'Changelog', href: '/changelog', icon: CommandIcon, shortcut: 'L' },
 ];
 
 export function CommandPalette() {
