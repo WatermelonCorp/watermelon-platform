@@ -18,6 +18,7 @@ import {
 } from "@/components/animate-ui/components/animate/tooltip";
 import { AnimatePresence, motion } from "motion/react";
 import { AnimatedCheck } from "./animated-check";
+import { trackEvent } from "@/lib/analytics";
 
 interface PromptItemsProps {
   className?: string;
@@ -65,6 +66,12 @@ export function PromptItems({
       await navigator.clipboard.writeText(prompts[platform]);
       setCopiedPlatform(platform);
       setTimeout(() => setCopiedPlatform(null), 2000);
+      trackEvent("ai_prompt_copy", {
+        platform,
+        component_name: componentName,
+        file_count: files.length,
+        dependency_count: dependencies.length,
+      });
     } catch (error) {
       console.error("Failed to copy prompt:", error);
     }
@@ -90,6 +97,7 @@ export function PromptItems({
               <TooltipTrigger asChild>
                 <button
                   onClick={() => handleCopyPrompt(platform)}
+                  aria-label={`Copy AI prompt for ${info.name}`}
                   className={cn(
                     "flex items-center justify-center cursor-pointer w-8 h-8 rounded-md bg-neutral-950 dark:bg-neutral-50 transition-all",
                     isCopied && "ring-1 ring-primary"

@@ -42,8 +42,8 @@ export function HeroSection() {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
         >
-          <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">Introducing Watermelon UI</span>
+          <Sparkles className="w-4 h-4 text-foreground/80" />
+          <span className="text-sm font-medium text-foreground/80">Introducing Watermelon UI</span>
         </motion.div>
 
         {/* Heading */}
@@ -65,7 +65,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-foreground/70 max-w-2xl mx-auto mb-10"
         >
           A collection of beautifully designed, accessible components that you can copy and paste into your apps. Built with React, Tailwind CSS, and Motion.
         </motion.p>
@@ -100,7 +100,7 @@ export function HeroSection() {
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl sm:text-3xl font-bold">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-sm text-foreground/70">{stat.label}</div>
             </div>
           ))}
         </motion.div>

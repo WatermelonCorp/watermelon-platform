@@ -1,10 +1,10 @@
 import { Suspense, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import type { DashboardItem } from '@/data/dashboards';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons } from '@hugeicons/core-free-icons';
+import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons } from '@/lib/hugeicons';
 import { ThemeToggle } from '../layout/theme-toggle';
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '../ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -12,7 +12,8 @@ import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/compon
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
 import { MobileRestriction } from '../mobile-restriction';
-import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@hugeicons/core-free-icons';
+import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
+import { trackEvent } from '@/lib/analytics';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -51,6 +52,15 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
     });
   }, [item]);
 
+  useEffect(() => {
+    if (!item) return;
+    trackEvent('dashboard_view', {
+      dashboard_slug: item.slug,
+      dashboard_name: item.name,
+      source: 'modal',
+    });
+  }, [item]);
+
   if (!item) return null;
 
   const handleReload = () => {
@@ -73,6 +83,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 <Link
                   to={`/dashboard/${item.slug}`}
                   onClick={onClose}
+                  aria-label={`Open ${item.name} full page`}
                   className="p-1.5 rounded-md hover:bg-accent transition-colors"
                   title="Full Page"
                 >
@@ -80,6 +91,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 </Link>
                 <button
                   onClick={onClose}
+                  aria-label="Close dashboard modal"
                   className="p-1.5 rounded-md hover:bg-accent transition-colors"
                 >
                   <HugeiconsIcon icon={Cancel01Icon} size={16} />
@@ -107,6 +119,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 <button
                   className="p-1.5 rounded-md border bg-background hover:bg-accent transition-colors"
                   onClick={handleReload}
+                  aria-label="Reload dashboard preview"
                 >
                   <HugeiconsIcon icon={ReloadIcon} size={14} />
                 </button>
@@ -170,6 +183,10 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
         showCloseButton={false}
         className="max-w-none sm:max-w-none w-[95vw] h-[90vh] p-0 gap-0 flex flex-col bg-background border overflow-hidden"
       >
+        <DialogTitle className="sr-only">{item.name}</DialogTitle>
+        <DialogDescription className="sr-only">
+          {item.description}
+        </DialogDescription>
         {/* Header with Breadcrumb */}
         <div className="flex items-center justify-between px-6 py-3 border-b bg-background shrink-0">
           <div className="flex items-center gap-4 flex-1 min-w-0">
@@ -181,6 +198,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
               <Link
                 to={`/dashboard/${item.slug}`}
                 onClick={onClose}
+                aria-label={`Open ${item.name} full page`}
                 className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors shrink-0 ml-1"
               >
                 <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
@@ -190,6 +208,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
 
           <button
             onClick={onClose}
+            aria-label="Close dashboard modal"
             className="p-2 rounded-md hover:bg-accent transition-colors"
           >
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
@@ -214,6 +233,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
               <div className="flex items-center bg-muted/50 rounded-md p-1 mr-2 border">
                 <button
                   onClick={() => setViewMode('desktop')}
+                  aria-label="Desktop preview"
                   className={`p-1.5 rounded-sm transition-all ${viewMode === 'desktop' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                   title="Desktop view"
                 >
@@ -221,6 +241,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 </button>
                 <button
                   onClick={() => setViewMode('tablet')}
+                  aria-label="Tablet preview"
                   className={`p-1.5 rounded-sm transition-all ${viewMode === 'tablet' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                   title="Tablet view"
                 >
@@ -228,6 +249,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 </button>
                 <button
                   onClick={() => setViewMode('mobile')}
+                  aria-label="Mobile preview"
                   className={`p-1.5 rounded-sm transition-all ${viewMode === 'mobile' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                   title="Mobile view"
                 >
@@ -242,6 +264,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
               <button
                 className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
                 onClick={handleReload}
+                aria-label="Reload dashboard preview"
                 title="Reload preview"
               >
                 <HugeiconsIcon icon={ReloadIcon} size={16} />

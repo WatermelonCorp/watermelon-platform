@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import { registry, type RegistryItem } from '@/data/registry';
 import { dashboards, type DashboardItem } from '@/data/dashboards';
 import { blocks, type BlockItem } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
 import { RegistryCard } from '@/components/registry/registry-card';
-import { ComponentModal } from '@/components/registry/component-modal';
 import { DashboardCard } from '@/components/registry/dashboard-card';
-import { DashboardModal } from '@/components/registry/dashboard-modal';
-import { BlockModal } from '@/components/registry/block-modal';
 import { Link } from 'react-router-dom';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import { ArrowRight01Icon } from '@/lib/hugeicons';
+import { trackEvent } from '@/lib/analytics';
+
+const ComponentModal = lazy(() => import('@/components/registry/component-modal').then((m) => ({ default: m.ComponentModal })));
+const DashboardModal = lazy(() => import('@/components/registry/dashboard-modal').then((m) => ({ default: m.DashboardModal })));
+const BlockModal = lazy(() => import('@/components/registry/block-modal').then((m) => ({ default: m.BlockModal })));
 
 export default function HomePage() {
   const [selectedItem, setSelectedItem] = useState<RegistryItem | null>(null);
@@ -58,6 +60,11 @@ export default function HomePage() {
             <h2 className="tracking-tight text-sm md:text-base">Featured Components</h2>
             <Link
               to="/components"
+              onClick={() =>
+                trackEvent('cta_view_all_click', {
+                  section: 'components',
+                })
+              }
               className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               View all ({registry.length})
@@ -66,10 +73,11 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredItems.map((item) => (
+            {featuredItems.map((item, index) => (
               <RegistryCard
                 key={item.slug}
                 item={item}
+                imagePriority={index === 0}
                 onClick={(item) => setSelectedItem(item)}
               />
             ))}
@@ -82,6 +90,11 @@ export default function HomePage() {
             <h2 className="tracking-tight text-sm md:text-base">Dashboard Templates</h2>
             <Link
               to="/dashboards"
+              onClick={() =>
+                trackEvent('cta_view_all_click', {
+                  section: 'dashboards',
+                })
+              }
               className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               View all ({dashboards.length})
@@ -106,6 +119,11 @@ export default function HomePage() {
             <h2 className="tracking-tight text-sm md:text-base">UI Blocks</h2>
             <Link
               to="/blocks"
+              onClick={() =>
+                trackEvent('cta_view_all_click', {
+                  section: 'blocks',
+                })
+              }
               className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               View all ({blocks.length})
@@ -118,6 +136,7 @@ export default function HomePage() {
               <DashboardCard
                 key={item.slug}
                 item={item as unknown as DashboardItem}
+                trackType="block"
                 onClick={(item) => setSelectedBlock(item as unknown as BlockItem)}
               />
             ))}
@@ -150,20 +169,26 @@ export default function HomePage() {
           </div>
         </footer>
 
-        <ComponentModal
-          item={selectedItem}
-          onClose={() => setSelectedItem(null)}
-        />
-
-        <DashboardModal
-          item={selectedDashboard}
-          onClose={() => setSelectedDashboard(null)}
-        />
-
-        <BlockModal
-          item={selectedBlock}
-          onClose={() => setSelectedBlock(null)}
-        />
+        <Suspense fallback={null}>
+          {selectedItem && (
+            <ComponentModal
+              item={selectedItem}
+              onClose={() => setSelectedItem(null)}
+            />
+          )}
+          {selectedDashboard && (
+            <DashboardModal
+              item={selectedDashboard}
+              onClose={() => setSelectedDashboard(null)}
+            />
+          )}
+          {selectedBlock && (
+            <BlockModal
+              item={selectedBlock}
+              onClose={() => setSelectedBlock(null)}
+            />
+          )}
+        </Suspense>
       </div>
     </>
   );

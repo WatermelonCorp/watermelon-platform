@@ -1,11 +1,6 @@
 "use client";
 
 import * as React from "react";
-import {
-  motion,
-  AnimatePresence,
-  LayoutGroup,
-} from "framer-motion";
 import { MoreVertical } from "lucide-react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -15,6 +10,7 @@ import {
   PencilEdit02Icon,
   Share01Icon,
 } from "@hugeicons/core-free-icons";
+import { AnimatePresence, LayoutGroup, motion, type Transition, type Variants } from "motion/react";
 
 /* ---------- Types ---------- */
 export interface MenuItemProps {
@@ -31,7 +27,7 @@ export interface InlineDisclosureMenuProps {
 }
 
 /* ---------- Motion ---------- */
-const spring: Spring = { type: "spring", stiffness: 320, damping: 26 };
+const spring: Transition = { type: "spring", stiffness: 320, damping: 26 };
 
 const menuVariants: Variants = {
   hidden: { opacity: 0, scale: 0.94 },

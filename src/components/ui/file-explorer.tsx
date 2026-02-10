@@ -11,7 +11,7 @@ import {
   JavaScriptIcon,
   PaintBrushIcon,
   FileAttachmentIcon,
-} from "@hugeicons/core-free-icons";
+} from "@/lib/hugeicons";
 
 export interface FileItem {
   name: string;

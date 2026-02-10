@@ -483,7 +483,6 @@ function HighlightItem<T extends React.ElementType>({
 
   const dataAttributes = {
     'data-active': isActive ? 'true' : 'false',
-    'aria-selected': isActive,
     'data-disabled': isDisabled,
     'data-value': childValue,
     'data-highlight': true,
@@ -549,7 +548,6 @@ function HighlightItem<T extends React.ElementType>({
                       (exitDelay ?? contextExitDelay ?? 0) / 1000,
                   },
                 }}
-                {...dataAttributes}
               />
             )}
           </AnimatePresence>
@@ -611,7 +609,6 @@ function HighlightItem<T extends React.ElementType>({
                     (exitDelay ?? contextExitDelay ?? 0) / 1000,
                 },
               }}
-              {...dataAttributes}
             />
           )}
         </AnimatePresence>

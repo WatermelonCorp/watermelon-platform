@@ -2,21 +2,31 @@ import { useState } from "react";
 import type { DashboardItem } from "@/data/dashboards";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
+import { ArrowUpRight01Icon } from "@/lib/hugeicons";
+import { trackEvent } from "@/lib/analytics";
 
 interface DashboardCardProps {
   item: DashboardItem;
   onClick: (item: DashboardItem) => void;
+  trackType?: "dashboard" | "block";
 }
 
-export function DashboardCard({ item, onClick }: DashboardCardProps) {
+export function DashboardCard({ item, onClick, trackType = "dashboard" }: DashboardCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
       role="button"
       tabIndex={0}
-      onClick={() => !item.comingSoon && onClick(item)}
+      onClick={() => {
+        if (item.comingSoon) return;
+        const eventName = trackType === "block" ? "block_card_click" : "dashboard_card_click";
+        trackEvent(eventName, {
+          slug: item.slug,
+          name: item.name,
+        });
+        onClick(item);
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
@@ -53,14 +63,14 @@ export function DashboardCard({ item, onClick }: DashboardCardProps) {
           <span className="text-base font-semibold text-foreground truncate leading-tight">
             {item.name}
           </span>
-          <span className="text-xs text-muted-foreground">
+          <span className="text-xs text-foreground/70">
             {item.files.length} files • {item.dependencies?.length || 0} dependencies
           </span>
         </div>
 
         {/* Right: Status or View */}
         {item.comingSoon ? (
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
+          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70">
             Coming Soon
           </span>
         ) : (
@@ -104,6 +114,7 @@ export function DashboardCard({ item, onClick }: DashboardCardProps) {
               src={item.image}
               alt={`${item.name} preview`}
               loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
               onError={(e) => {
                 e.currentTarget.style.display = "none";

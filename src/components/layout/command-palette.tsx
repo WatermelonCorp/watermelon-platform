@@ -23,7 +23,7 @@ import {
   GridIcon,
   SearchIcon,
   SidebarLeft01Icon,
-} from '@hugeicons/core-free-icons';
+} from '@/lib/hugeicons';
 
 // Page navigation items
 const pages = [

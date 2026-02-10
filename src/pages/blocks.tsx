@@ -33,6 +33,7 @@ export default function BlocksPage() {
             <DashboardCard
               key={block.slug}
               item={block}
+              trackType="block"
               onClick={() => !block.comingSoon && setSelectedBlock(block)}
             />
           ))}

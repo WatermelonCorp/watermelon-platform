@@ -38,9 +38,11 @@ export default defineConfig({
             "lucide-react",
             "@hugeicons/react",
             "clsx",
-            "tailwind-merge"
+            "tailwind-merge",
+            "next-themes",
+            "date-fns",
+            "recharts"
           ],
-          "syntax-highlighter": ["react-syntax-highlighter"],
         },
       },
     },
