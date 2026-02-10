@@ -16,6 +16,7 @@ export default function BlocksPage() {
       <SEOHead
         title="UI Blocks - Pre-built Sections"
         description="Browse our collection of pre-built UI blocks. Copy and paste beautiful hero sections, features, pricing, and more."
+        category="UI Blocks"
       />
 
       <div className="px-2 md:px-6 space-y-8">

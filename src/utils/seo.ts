@@ -11,6 +11,18 @@ export const siteConfig = {
   twitterHandle: "@watermelonui",
 };
 
+export const generateOgImageUrl = (params: {
+  title: string;
+  description?: string;
+  category?: string;
+}) => {
+  const url = new URL(`${siteConfig.url}/api/og`);
+  url.searchParams.set('title', params.title);
+  if (params.description) url.searchParams.set('description', params.description);
+  if (params.category) url.searchParams.set('category', params.category);
+  return url.toString();
+};
+
 export const buildPath = (type: 'component' | 'dashboard' | 'block', slug: string) => {
   switch (type) {
     case 'component':

@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { registry, type RegistryItem } from '@/data/registry';
 import { RegistryCard } from '@/components/registry/registry-card';
 import { ComponentModal } from '@/components/registry/component-modal';
+import { SEOHead } from '@/components/seo-head';
 
 export default function CategoryPage() {
   const { category } = useParams<{ category: string }>();
@@ -29,10 +29,11 @@ export default function CategoryPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{title} Components | Registry</title>
-        <meta name="description" content={`Browse ${title} components.`} />
-      </Helmet>
+      <SEOHead
+        title={`${title} Components`}
+        description={`Browse our collection of ${title} components. High-quality, customizable React components for your next project.`}
+        category={title}
+      />
 
       <div className="space-y-6">
         <div className="flex items-center justify-between">
