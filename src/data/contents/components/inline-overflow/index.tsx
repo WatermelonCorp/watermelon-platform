@@ -62,7 +62,7 @@ export const InlineOverflow: FC<InlineOverflowProps> = ({
                 {/* HIDDEN ACTIONS */}
                 <AnimatePresence mode="popLayout">
                     {open &&
-                        hiddenActions.map((action, i) => (
+                        hiddenActions.map((action) => (
                             <motion.div
                                 layout
                                 key={action.label}
