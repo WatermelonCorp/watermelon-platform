@@ -19,7 +19,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ArrowDown01Icon,
-} from "@hugeicons/core-free-icons";
+} from "@/lib/hugeicons";
 import { allCategories } from "@/data/registry";
 import { dashboards } from "@/data/dashboards";
 import { blocks } from "@/data/blocks";
@@ -41,7 +41,7 @@ const NavItem = memo(function NavItem({
 }) {
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton asChild size="sm" isActive={isActive}>
+      <SidebarMenuButton asChild size="lg" isActive={isActive}>
         <Link
           to={url}
           className="text-muted-foreground hover:text-foreground"
@@ -70,16 +70,16 @@ const NavSection = memo(function NavSection({
   return (
     <SidebarGroup>
       <Collapsible defaultOpen={defaultOpen}>
-        <CollapsibleTrigger className="w-full">
+        <CollapsibleTrigger className="w-full min-h-12">
           {titleLink ? (
-            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1">
-              <Link to={titleLink} className="w-full text-start">
-                <span className="font-semibold inline-block py-1 w-[80%]">{title}</span>
+            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-3 min-h-12">
+              <Link to={titleLink} className="w-full text-start block py-3">
+                <span className="font-semibold inline-block w-[80%]">{title}</span>
               </Link>
               <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="transition-transform" />
             </SidebarGroupLabel>
           ) : (
-            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1">
+            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-3 min-h-12">
               <span className="font-semibold">{title}</span>
               <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="transition-transform" />
             </SidebarGroupLabel>

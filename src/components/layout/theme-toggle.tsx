@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons';
+import { Moon02Icon, Sun01Icon } from '@/lib/hugeicons';
 
 export const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);

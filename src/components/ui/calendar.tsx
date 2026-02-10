@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowLeftIcon, ArrowRightIcon, ArrowDownIcon } from "@hugeicons/core-free-icons"
+import { ArrowLeftIcon, ArrowRightIcon, ArrowDownIcon } from "@/lib/hugeicons"
 
 function Calendar({
   className,

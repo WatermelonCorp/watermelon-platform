@@ -2,23 +2,38 @@ import { useState, useRef, useEffect } from "react";
 import type { RegistryItem } from "@/data/registry";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowUpRight, ShadcnSquareIcon } from "@hugeicons/core-free-icons";
+import { ArrowUpRight, ShadcnSquareIcon } from "@/lib/hugeicons";
 import { CopyButton } from "../animate-ui/components/buttons/copy";
 import { Tooltip } from "../animate-ui/primitives/animate/tooltip";
 import { TooltipContent, TooltipTrigger } from "../animate-ui/components/animate/tooltip";
+import { trackEvent } from "@/lib/analytics";
 
 interface RegistryCardProps {
   item: RegistryItem;
   onClick: (item: RegistryItem) => void;
+  imagePriority?: boolean;
 }
 
-export function RegistryCard({ item, onClick }: RegistryCardProps) {
+export function RegistryCard({ item, onClick, imagePriority = false }: RegistryCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [_isCopied, setIsCopied] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Get the CLI command from item.install (same as component-modal)
   const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
+
+  const getImageSrcSet = (src: string) => {
+    if (!src.startsWith("http")) return undefined;
+    if (!src.includes("images.unsplash.com")) return undefined;
+    const url = new URL(src);
+    url.searchParams.set("w", "400");
+    const w400 = url.toString();
+    url.searchParams.set("w", "800");
+    const w800 = url.toString();
+    url.searchParams.set("w", "1200");
+    const w1200 = url.toString();
+    return `${w400} 400w, ${w800} 800w, ${w1200} 1200w`;
+  };
 
   useEffect(() => {
     if (!videoRef.current) return;
@@ -38,6 +53,12 @@ export function RegistryCard({ item, onClick }: RegistryCardProps) {
       await navigator.clipboard.writeText(cliCommand);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
+      trackEvent("install_command_copy", {
+        component_slug: item.slug,
+        component_name: item.name,
+        command: cliCommand,
+        source: "card",
+      });
     } catch (err) {
       console.error("Failed to copy:", err);
     }
@@ -47,7 +68,14 @@ export function RegistryCard({ item, onClick }: RegistryCardProps) {
     <div
       role="button"
       tabIndex={0}
-      onClick={() => onClick(item)}
+      onClick={() => {
+        trackEvent("component_card_click", {
+          component_slug: item.slug,
+          component_name: item.name,
+          category: item.category,
+        });
+        onClick(item);
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
@@ -84,7 +112,7 @@ export function RegistryCard({ item, onClick }: RegistryCardProps) {
           <span className="text-sm font-semibold text-foreground truncate leading-tight">
             {item.name}
           </span>
-          <span className="text-[10px] text-muted-foreground capitalize">
+          <span className="text-[10px] text-foreground/70 capitalize">
             {item.category}
           </span>
         </div>
@@ -99,6 +127,7 @@ export function RegistryCard({ item, onClick }: RegistryCardProps) {
                 onClick={handleCopy}
                 icon={<HugeiconsIcon icon={ShadcnSquareIcon} />}
                 content={cliCommand}
+                ariaLabel={`Copy install command for ${item.name}`}
                 className="group-hover:-translate-x-1 translate-x-10 transition-all duration-300 ease-in-out"
               ></CopyButton>
             </TooltipTrigger>
@@ -173,8 +202,12 @@ export function RegistryCard({ item, onClick }: RegistryCardProps) {
         {/* Static image */}
         <img
           src={item.image}
+          srcSet={getImageSrcSet(item.image)}
+          sizes="(min-width: 1024px) 360px, (min-width: 768px) 45vw, 90vw"
           alt={`${item.name} preview`}
-          loading="lazy"
+          loading={imagePriority ? "eager" : "lazy"}
+          fetchPriority={imagePriority ? "high" : "auto"}
+          decoding="async"
           className={cn(
             "absolute inset-0 h-full w-full object-cover",
             "transition-opacity duration-500 ease-out",
@@ -191,6 +224,9 @@ export function RegistryCard({ item, onClick }: RegistryCardProps) {
             loop
             playsInline
             preload="none"
+            aria-hidden="true"
+            role="presentation"
+            tabIndex={-1}
             className={cn(
               "absolute inset-0 h-full w-full object-cover",
               "transition-opacity duration-500 ease-out",

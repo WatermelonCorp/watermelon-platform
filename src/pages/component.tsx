@@ -10,7 +10,7 @@ import {
   SourceCodeIcon,
   ReloadIcon,
   ArrowUpRight01FreeIcons,
-} from "@hugeicons/core-free-icons";
+} from "@/lib/hugeicons";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { PromptItems } from "@/components/prompt-items";
 import type { ComponentFile } from "@/lib/types";
@@ -21,6 +21,7 @@ import { ScrollFadeEffect } from "@/components/scroll-fade-effect";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
+import { trackEvent } from "@/lib/analytics";
 
 
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
@@ -42,6 +43,16 @@ export default function ComponentPage() {
     if (!item) return;
     item.demoCode().then(setDemoCode);
     item.code().then(setComponentCode);
+  }, [item]);
+
+  useEffect(() => {
+    if (!item) return;
+    trackEvent("component_view", {
+      component_slug: item.slug,
+      component_name: item.name,
+      category: item.category,
+      source: "page",
+    });
   }, [item]);
 
   if (!item) {
@@ -101,6 +112,7 @@ export default function ComponentPage() {
             <div className="absolute top-3 right-3 z-10 flex gap-2">
               <button
                 onClick={() => setIsCodeOpen(true)}
+                aria-label="Open source code drawer"
                 className="px-3 py-1.5 text-xs rounded-md border bg-background"
               >
                 <HugeiconsIcon icon={SourceCodeIcon} size={14} />
@@ -157,7 +169,7 @@ export default function ComponentPage() {
                     href={item.inspiredByLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm text-primary hover:underline"
+                    className="inline-flex items-center text-sm text-foreground underline underline-offset-4"
                   >
                     {item.inspiredByName}
                     <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className="ml-0.5" />
@@ -264,6 +276,7 @@ export default function ComponentPage() {
                   <h3 className="text-sm font-medium">Usage & Source</h3>
                   <button
                     onClick={() => setIsCodeOpen(false)}
+                    aria-label="Close source code drawer"
                     className="text-sm text-muted-foreground"
                   >
                     ✕
@@ -357,7 +370,7 @@ export default function ComponentPage() {
                         href={item.inspiredByLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-sm text-primary"
+                        className="inline-flex items-center text-sm text-foreground underline underline-offset-4"
                       >
                         {item.inspiredByName}
                         <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
@@ -467,6 +480,7 @@ export default function ComponentPage() {
                 <ThemeToggle />
                 <button
                   onClick={() => setReloadKey((k) => k + 1)}
+                  aria-label="Reload component preview"
                   className="p-2 rounded-md hover:bg-accent"
                 >
                   <HugeiconsIcon icon={ReloadIcon} size={16} />

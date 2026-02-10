@@ -6,12 +6,14 @@ import { HelmetProvider } from 'react-helmet-async'
 import { ThemeProvider } from 'next-themes'
 import { TooltipProvider as TooltipProviderAnimate } from '../animate-ui/components/animate/tooltip'
 import { ScrollProgressProvider } from '../animate-ui/primitives/animate/scroll-progress'
+import { Analytics } from '@/components/analytics/analytics'
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <HelmetProvider>
       <ScrollProgressProvider>
         <BrowserRouter>
+          <Analytics />
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <TooltipProvider>
               <TooltipProviderAnimate>

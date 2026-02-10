@@ -20,8 +20,10 @@ export function SEOHead({
   schema
 }: SEOHeadProps) {
   const fullTitle = title.includes('Watermelon UI') ? title : `${title} | Watermelon UI`;
-  const siteUrl = 'https://watermelon-ui.com'; // Placeholder - replace with actual production URL
-  const absoluteUrl = canonical || siteUrl;
+  const envSiteUrl = (import.meta as any).env?.VITE_SITE_URL as string | undefined;
+  const fallbackOrigin = typeof window !== "undefined" ? window.location.origin : "https://watermelon-ui.com";
+  const siteUrl = envSiteUrl || fallbackOrigin;
+  const absoluteUrl = canonical || (typeof window !== "undefined" ? window.location.href : siteUrl);
   const absoluteImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.png`;
 
   return (
@@ -31,8 +33,9 @@ export function SEOHead({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={absoluteUrl} />
-      <meta name="robots" content="index, follow" />
-      <meta http-equiv="content-language" content="en-us" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta httpEquiv="content-language" content="en-us" />
+      <meta name="theme-color" content="#FF5112" />
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
@@ -40,6 +43,7 @@ export function SEOHead({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={absoluteUrl} />
       <meta property="og:image" content={absoluteImage} />
+      <meta property="og:site_name" content="Watermelon UI" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />

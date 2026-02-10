@@ -3,6 +3,7 @@ import { CopyButton } from "../animate-ui/components/buttons/copy";
 import type { RegistryItem } from "@/data/registry";
 import { ScrollFadeEffect } from "../scroll-fade-effect";
 import { AnimatePresence, motion } from "motion/react";
+import { trackEvent } from "@/lib/analytics";
 type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun';
 const PM_LIST = ['npm', 'pnpm', 'yarn', 'bun'] as PackageManager[]
 
@@ -72,7 +73,14 @@ export const InstallationCmd = ({
             return (
               <button
                 key={pm}
-                onClick={() => setActivePackageManager(pm)}
+                onClick={() => {
+                  setActivePackageManager(pm);
+                  trackEvent("install_pm_select", {
+                    package_manager: pm,
+                    component_slug: item.slug,
+                    component_name: item.name,
+                  });
+                }}
                 className={cn(
                   "relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors",
                   isActive
@@ -134,7 +142,16 @@ export const InstallationCmd = ({
                 size="sm"
                 content={command}
                 copied={hasCopiedInstall}
-                onCopiedChange={() => handleCopyInstall(command)}
+                onCopiedChange={() => {
+                  handleCopyInstall(command);
+                  trackEvent("install_command_copy", {
+                    component_slug: item.slug,
+                    component_name: item.name,
+                    package_manager: activePackageManager,
+                    command,
+                    source: "cli",
+                  });
+                }}
                 className="absolute right-2 top-2 p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors"
               />
             </div>

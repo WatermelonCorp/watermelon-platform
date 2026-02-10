@@ -4,7 +4,7 @@ import { dashboards } from '@/data/dashboards';
 import { SEOHead } from '@/components/seo-head';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ReloadIcon, ViewIcon, SourceCodeIcon, LaptopIcon, TabletIcon, SmartPhoneIcon } from '@hugeicons/core-free-icons';
+import { ReloadIcon, ViewIcon, SourceCodeIcon, LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PromptItems } from '@/components/prompt-items';
 import { Drawer, DrawerContent } from '@/components/ui/drawer';
@@ -14,6 +14,7 @@ import type { ComponentFile } from '@/lib/types';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
 import { MobileRestriction } from '@/components/mobile-restriction';
+import { trackEvent } from '@/lib/analytics';
 
 export default function DashboardPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -48,6 +49,15 @@ export default function DashboardPage() {
       if (results.length > 0 && !selectedFile) {
         setSelectedFile(results[0].name);
       }
+    });
+  }, [item]);
+
+  useEffect(() => {
+    if (!item) return;
+    trackEvent('dashboard_view', {
+      dashboard_slug: item.slug,
+      dashboard_name: item.name,
+      source: 'page',
     });
   }, [item]);
 
@@ -90,6 +100,7 @@ export default function DashboardPage() {
             <div className="absolute top-3 right-3 z-10 flex gap-2">
               <button
                 onClick={() => setIsCodeOpen(true)}
+                aria-label="Open source code drawer"
                 className="px-3 py-1.5 text-xs rounded-md border bg-background"
               >
                 <HugeiconsIcon icon={SourceCodeIcon} size={14} />
@@ -150,6 +161,7 @@ export default function DashboardPage() {
                   <h3 className="text-sm font-medium">Source Code ({item.files.length} files)</h3>
                   <button
                     onClick={() => setIsCodeOpen(false)}
+                    aria-label="Close source code drawer"
                     className="text-sm text-muted-foreground"
                   >
                     ✕
@@ -236,6 +248,7 @@ export default function DashboardPage() {
                 <div className="flex items-center bg-muted/50 rounded-md p-1 mr-2 border">
                   <button
                     onClick={() => setViewMode('desktop')}
+                    aria-label="Desktop preview"
                     className={`p-1.5 rounded-sm transition-all ${viewMode === 'desktop' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                     title="Desktop view"
                   >
@@ -243,6 +256,7 @@ export default function DashboardPage() {
                   </button>
                   <button
                     onClick={() => setViewMode('tablet')}
+                    aria-label="Tablet preview"
                     className={`p-1.5 rounded-sm transition-all ${viewMode === 'tablet' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                     title="Tablet view"
                   >
@@ -250,6 +264,7 @@ export default function DashboardPage() {
                   </button>
                   <button
                     onClick={() => setViewMode('mobile')}
+                    aria-label="Mobile preview"
                     className={`p-1.5 rounded-sm transition-all ${viewMode === 'mobile' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                     title="Mobile view"
                   >
@@ -263,6 +278,7 @@ export default function DashboardPage() {
                 <button
                   className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
                   onClick={() => setReloadKey(k => k + 1)}
+                  aria-label="Reload dashboard preview"
                   title="Reload preview"
                 >
                   <HugeiconsIcon icon={ReloadIcon} size={16} />

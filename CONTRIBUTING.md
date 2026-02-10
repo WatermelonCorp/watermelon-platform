@@ -9,7 +9,7 @@ Thanks for contributing to Watermelon Platform. This guide focuses on adding new
 
 ## Create A Branch
 
-1. Sync your local `main`: `git checkout main` then `git pull`
+1. Sync your local `dev`: `git checkout dev` then `git pull`
 2. Create a feature branch: `git checkout -b feature/<component-slug>`
 
 ## Add A Component
@@ -48,7 +48,8 @@ install:
 ## Submit Your PR
 
 1. Push your branch: `git push -u origin feature/<component-slug>`
-2. Open a pull request with a short summary and screenshots or a video of the component demo.
+2. Open a pull request targeting the `dev` branch.
+3. Provide a short summary and screenshots or a video of the component demo.
 
 ## Tips
 

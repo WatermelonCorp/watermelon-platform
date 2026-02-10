@@ -52,6 +52,7 @@ type CopyButtonProps = Omit<ButtonPrimitiveProps, 'children'> &
     onCopiedChange?: (copied: boolean, content?: string) => void;
     delay?: number;
     icon?: IconProp;
+    ariaLabel?: string;
   };
 
 function CopyButton({
@@ -64,6 +65,7 @@ function CopyButton({
   size,
   icon,
   delay = 3000,
+  ariaLabel,
   ...props
 }: CopyButtonProps) {
   const [isCopied, setIsCopied] = useControlledState({
@@ -124,6 +126,7 @@ function CopyButton({
   return (
     <ButtonPrimitive
       data-slot="copy-button"
+      aria-label={ariaLabel || "Copy to clipboard"}
       className={cn(buttonVariants({ variant, size }), className)}
       onClick={handleCopy}
       {...props}
@@ -132,9 +135,9 @@ function CopyButton({
         <motion.span
           key={isCopied ? 'check' : 'copy'}
           data-slot="copy-button-icon"
-          initial={{ scale: 0, opacity: 0.4, filter: 'blur(4px)' }}
-          animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
-          exit={{ scale: 0, opacity: 0.4, filter: 'blur(4px)' }}
+          initial={{ scale: 0.85, opacity: 0.4 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.85, opacity: 0.4 }}
           transition={{ duration: 0.25 }}
         >
           {renderIcon()}

@@ -3,7 +3,7 @@ import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowRight01Icon, MoreHorizontalCircle01Icon } from "@hugeicons/core-free-icons"
+import { ArrowRight01Icon, MoreHorizontalCircle01Icon } from "@/lib/hugeicons"
 
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (

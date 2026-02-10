@@ -1,10 +1,10 @@
 import { Suspense, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import type { RegistryItem } from '@/data/registry';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowUpRight01FreeIcons } from '@hugeicons/core-free-icons';
+import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowUpRight01FreeIcons } from '@/lib/hugeicons';
 import { ThemeToggle } from '../layout/theme-toggle';
 import { PromptItems } from '@/components/prompt-items';
 import type { ComponentFile } from '@/lib/types';
@@ -16,6 +16,7 @@ import { ProgressiveBlur } from '../ui/progressive-blur';
 import { ManualInstallationCmd } from '../mdx/manual-installation';
 import { LayoutGroup } from 'motion/react';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
+import { trackEvent } from '@/lib/analytics';
 
 interface ComponentModalProps {
   item: RegistryItem | null;
@@ -38,6 +39,16 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
     if (!item) return;
     item.demoCode().then(setDemoCode);
     item.code().then(setComponentCode);
+  }, [item]);
+
+  useEffect(() => {
+    if (!item) return;
+    trackEvent('component_view', {
+      component_slug: item.slug,
+      component_name: item.name,
+      category: item.category,
+      source: 'modal',
+    });
   }, [item]);
 
   // Early return AFTER all hooks
@@ -95,14 +106,15 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                         {item.componentNumber}
                       </span>
                     )}
-                    <Link
-                      to={`/components/${item.slug}`}
-                      onClick={onClose}
-                      className="flex items-center gap-1 text-primary font-medium"
-                    >
-                      Full Page
-                      <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={12} />
-                    </Link>
+                  <Link
+                    to={`/components/${item.slug}`}
+                    onClick={onClose}
+                    aria-label={`Open ${item.name} full page`}
+                    className="flex items-center gap-1 text-primary font-medium"
+                  >
+                    Full Page
+                    <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={12} />
+                  </Link>
                   </div>
 
                 </div>
@@ -123,6 +135,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                   <ThemeToggle />
                   <button
                     onClick={handleReload}
+                    aria-label="Reload component preview"
                     className="p-1.5 rounded-md border bg-background hover:bg-accent transition"
                     title="Reload preview"
                   >
@@ -241,6 +254,10 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   return (
     <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
       <DialogContent onOpenAutoFocus={(e) => e.preventDefault()} className="max-w-none sm:max-w-none w-[90vw] h-[90vh] p-0 gap-0 overflow-hidden flex flex-row bg-background border rounded-xl">
+        <DialogTitle className="sr-only">{item.name}</DialogTitle>
+        <DialogDescription className="sr-only">
+          {item.description}
+        </DialogDescription>
 
         {/* Left Side: Documentation & Code */}
         <div className="w-[40%] flex flex-col h-full border-r bg-background relative">
@@ -258,6 +275,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                   <Link
                     to={`/components/${item.slug}`}
                     onClick={onClose}
+                    aria-label={`Open ${item.name} full page`}
                     className="flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors shrink-0 ml-2"
                   >
                     <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
@@ -320,7 +338,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                           href={item.inspiredByLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-sm text-primary"
+                          className="inline-flex items-center text-sm text-foreground underline underline-offset-4"
                         >
                           {item.inspiredByName}
                           <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className="group-hover/inspired-by:translate-x-1 -translate-x-5 opacity-0 group-hover/inspired-by:opacity-100 transition" />
@@ -458,6 +476,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
               <button
                 className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
                 onClick={handleReload}
+                aria-label="Reload component preview"
                 title="Reload preview"
               >
                 <HugeiconsIcon icon={ReloadIcon} size={16} />

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { CopyButton } from "../animate-ui/components/buttons/copy";
 import { ScrollFadeEffect } from "../scroll-fade-effect";
+import { trackEvent } from "@/lib/analytics";
 
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 const PM_LIST = ["npm", "pnpm", "yarn", "bun"] as PackageManager[];
@@ -45,7 +46,10 @@ export function ManualInstallationCmd({
             return (
               <button
                 key={pm}
-                onClick={() => setActivePackageManager(pm)}
+                onClick={() => {
+                  setActivePackageManager(pm);
+                  trackEvent("manual_pm_select", { package_manager: pm });
+                }}
                 className={cn(
                   "relative px-3 py-1.5 text-sm font-medium rounded-md",
                   isActive
@@ -93,6 +97,14 @@ export function ManualInstallationCmd({
           variant="secondary"
           size="sm"
           content={command}
+          onCopiedChange={() => {
+            if (!command) return;
+            trackEvent("manual_install_copy", {
+              package_manager: activePackageManager,
+              command,
+              dependency_count: dependencies.length,
+            });
+          }}
           className="absolute right-2 top-2"
         />
       </div>

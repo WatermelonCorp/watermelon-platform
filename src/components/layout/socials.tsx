@@ -1,4 +1,4 @@
-import { GithubIcon, Linkedin01Icon, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { GithubIcon, Linkedin01Icon, NewTwitterIcon } from "@/lib/hugeicons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,8 @@ export const Socials = ({ className }: { className?: string }) => {
           to={href}
           target="_blank"
           rel="noreferrer"
+          aria-label={title}
+          title={title}
           className="hover:text-primary transition-colors hover:bg-muted/50 size-6 flex items-center justify-center rounded-md"
         >
           {Icon}

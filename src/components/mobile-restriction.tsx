@@ -1,5 +1,5 @@
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ComputerIcon } from "@hugeicons/core-free-icons";
+import { ComputerIcon } from "@/lib/hugeicons";
 
 export function MobileRestriction() {
   return (

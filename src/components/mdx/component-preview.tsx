@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ViewIcon, CodeIcon, Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
+import { ViewIcon, CodeIcon, Copy01Icon, Tick02Icon } from "@/lib/hugeicons";
 import { CodeBlock } from "./code-block";
+import { trackEvent } from "@/lib/analytics";
 
 interface ComponentPreviewProps {
   children?: React.ReactNode;
@@ -28,6 +29,11 @@ export function ComponentPreview({
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+      trackEvent("code_copy", {
+        title: title || "component_preview",
+        char_count: code.length,
+        source: "component_preview",
+      });
     } catch (err) {
       console.error("Failed to copy:", err);
     }
