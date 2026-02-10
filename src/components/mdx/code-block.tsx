@@ -153,7 +153,7 @@ export function CodeBlock({
         <syntax.SyntaxHighlighter
           language={language}
           style={resolvedTheme === "dark" ? syntax.oneDark : syntax.oneLight}
-          useInlineStyles={false}
+          useInlineStyles={true}
           className="text-foreground"
           showLineNumbers={mobile ? false : showLineNumbers}
           customStyle={{

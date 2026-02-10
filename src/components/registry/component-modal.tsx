@@ -106,15 +106,15 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                         {item.componentNumber}
                       </span>
                     )}
-                  <Link
-                    to={`/components/${item.slug}`}
-                    onClick={onClose}
-                    aria-label={`Open ${item.name} full page`}
-                    className="flex items-center gap-1 text-primary font-medium"
-                  >
-                    Full Page
-                    <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={12} />
-                  </Link>
+                    <Link
+                      to={`/components/${item.slug}`}
+                      onClick={onClose}
+                      aria-label={`Open ${item.name} full page`}
+                      className="flex items-center gap-1 text-primary font-medium"
+                    >
+                      Full Page
+                      <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={12} />
+                    </Link>
                   </div>
 
                 </div>
