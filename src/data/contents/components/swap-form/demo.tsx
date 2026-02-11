@@ -7,7 +7,6 @@ function SwapFormDemo() {
     const [isSignIn, setIsSignIn] = useState(true);
     return (
         <div className="flex items-center justify-center">
-
             <SwapForm
                 isSignIn={isSignIn}
                 onModeChange={setIsSignIn}
