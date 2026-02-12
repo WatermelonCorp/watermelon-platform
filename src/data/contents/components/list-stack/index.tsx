@@ -1,10 +1,7 @@
 'use client';
 
 import { useState, type FC } from 'react';
-import {
-  motion,
-  AnimatePresence,
-} from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { FaFireFlameCurved, FaSailboat } from 'react-icons/fa6';
 import { LuTent } from 'react-icons/lu';
@@ -54,12 +51,12 @@ export const ListStack: FC<ListStackProps> = ({ items = ITEMS }) => {
 
   return (
     <div className="h- w-full font-sans">
-      <div className="flex h-[400px] w-full flex-col items-center justify-center bg-white">
+      <div className="flex h-[400px] w-full flex-col items-center justify-center">
         <div className="relative flex h-full w-full flex-col items-center justify-center perspective-[1000px]">
           {items.map((item, i) => {
             return (
               <motion.div
-                className="bg-opacity-80 absolute flex w-[270px] items-center rounded-2xl bg-white px-3 py-3 shadow-[0px_0px_2px_rgba(0,0,0,0.1),0px_1px_4px_rgba(0,0,0,0.15)] backdrop-blur-2xl dark:border-gray-100 dark:bg-white"
+                className="bg-opacity-80 absolute flex w-[270px] items-center rounded-2xl bg-white px-3 py-3 shadow-[0px_0px_2px_rgba(0,0,0,0.1),0px_1px_4px_rgba(0,0,0,0.15)] backdrop-blur-2xl dark:border-gray-100 dark:bg-zinc-800"
                 key={i}
                 animate={isExpanded ? 'expanded' : 'collapsed'}
                 style={{
@@ -86,15 +83,19 @@ export const ListStack: FC<ListStackProps> = ({ items = ITEMS }) => {
                     key={i}
                     className="flex w-full items-center gap-x-2 text-neutral-900"
                   >
-                    <div className="flex size-10 items-center justify-center rounded-md bg-black text-zinc-100">
+                    <div className="flex size-10 items-center justify-center rounded-md bg-black text-zinc-100 dark:bg-white dark:text-zinc-700">
                       <item.icon size={24} />
                     </div>
                     <div className="leading-tighter flex-1">
-                      <h3 className="text-sm text-neutral-900">{item.title}</h3>
-                      <p className="text-xs text-zinc-500">{item.location}</p>
+                      <h3 className="text-sm text-zinc-900 dark:text-zinc-100">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                        {item.location}
+                      </p>
                     </div>
 
-                    <span className="leading-tighter mb-[2px] ml-5 self-end text-end text-xs text-zinc-500">
+                    <span className="leading-tighter mb-[2px] ml-5 self-end text-end text-xs text-zinc-500 dark:text-zinc-400">
                       {item.date}
                     </span>
                   </div>
