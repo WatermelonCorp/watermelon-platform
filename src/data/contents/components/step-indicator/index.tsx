@@ -56,8 +56,8 @@ export const StepIndicator: FC<StepIndicatorProps> = ({
     positionIndex === -1 ? 0 : stepWidth * positionIndex + stepWidth / 2;
 
   const getClipPath = () => {
-    if (!containerWidth || positionIndex === -1)
-      return 'inset(0 0 0 0 round 999px)';
+    if (!containerWidth || stepWidth === 0)
+      return 'inset(0 50% 0 50% round 999px)';
 
     const left = tooltipCenter - stepWidth / 2;
     const right = containerWidth - (tooltipCenter + stepWidth / 2);
@@ -66,17 +66,17 @@ export const StepIndicator: FC<StepIndicatorProps> = ({
   };
 
   return (
-    <div className="flex  w-full items-center justify-center bg-white dark:bg-zinc-950">
+    <div className="flex w-full items-center justify-center bg-white dark:bg-zinc-950">
       <div className="w-full max-w-[420px]">
         <div
           ref={containerRef}
           className="relative flex h-3 w-full items-center gap-3 px-1"
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          {/* Tooltip layer */}
           <div className="pointer-events-none absolute bottom-full left-0 h-14 w-full">
             <motion.div
               className="absolute inset-0 h-9 rounded-full bg-black dark:bg-white"
+              initial={false}
               animate={{
                 clipPath: getClipPath(),
                 opacity: hoveredIndex === null ? 0 : 1,
@@ -153,6 +153,7 @@ export const StepIndicator: FC<StepIndicatorProps> = ({
 
                 <motion.div
                   className="absolute inset-0 rounded-full bg-zinc-900 dark:bg-white"
+                  initial={false}
                   animate={{
                     opacity: isHovered ? 1 : 0,
                     scaleY: isHovered ? 1.25 : 1,
