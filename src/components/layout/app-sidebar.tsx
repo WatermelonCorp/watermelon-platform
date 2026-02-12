@@ -172,7 +172,7 @@ export function AppSidebar() {
           items={componentCategories}
           defaultOpen
           pathname={location.pathname}
-          titleLink="/"
+          titleLink="/components"
         />
         <NavSection
           title="Blocks"

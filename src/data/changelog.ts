@@ -18,6 +18,23 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: "1.2.1",
+    date: "Feb 12, 2026",
+    sections: [
+      {
+        title: "Components",
+        items: [
+          {
+            text: "Added new components to the registry."
+          },
+          {
+            text: "Added new components with full documentation."
+          }
+        ]
+      }
+    ]
+  },
+  {
     version: "1.2.0",
     date: "Feb 11, 2026",
     sections: [

@@ -9,6 +9,7 @@ import { PageLayout } from "@/components/layout/page-layout";
 import { HomePageSkeleton, ComponentPageSkeleton, DocPageSkeleton } from "@/components/skeletons";
 
 const HomePage = lazy(() => import("@/pages/home"));
+const ComponentsPage = lazy(() => import("@/pages/components"));
 const ComponentPage = lazy(() => import("@/pages/component"));
 const CategoryPage = lazy(() => import("@/pages/category"));
 const BasicUsagePage = lazy(() => import("@/pages/basic-usage"));
@@ -33,6 +34,15 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <HomePage />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/components"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <ComponentsPage />
             </Suspense>
           }
         />
