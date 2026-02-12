@@ -25,6 +25,7 @@ interface PromptItemsProps {
   files?: ComponentFile[];
   dependencies?: string[];
   componentName?: string;
+  componentSlug?: string;
 
   /** optional – same as demo */
   openDelay?: number;
@@ -40,6 +41,7 @@ export function PromptItems({
   files = [],
   dependencies = [],
   componentName = "Component",
+  componentSlug,
   openDelay = 200,
   closeDelay = 100,
   side = "top",
@@ -68,6 +70,7 @@ export function PromptItems({
       setTimeout(() => setCopiedPlatform(null), 2000);
       trackEvent("ai_prompt_copy", {
         platform,
+        component_slug: componentSlug,
         component_name: componentName,
         file_count: files.length,
         dependency_count: dependencies.length,

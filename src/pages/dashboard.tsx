@@ -147,6 +147,7 @@ export default function DashboardPage() {
                   files={componentFiles}
                   dependencies={item.dependencies || []}
                   componentName={item.name}
+                  componentSlug={item.slug}
                 />
               </div>
             )}
@@ -332,6 +333,7 @@ export default function DashboardPage() {
                         files={componentFiles}
                         dependencies={item.dependencies || []}
                         componentName={item.name}
+                        componentSlug={item.slug}
                       />
                     )}
                   </div>

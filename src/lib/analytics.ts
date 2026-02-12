@@ -52,13 +52,20 @@ export function trackPosthogPageView(path: string) {
 
 export function trackEvent(name: string, props: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
+  const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const enrichedProps: Record<string, unknown> = {
+    page_path: pagePath,
+    page_url: window.location.href,
+    page_title: document.title,
+    ...props,
+  };
 
   if (GA_MEASUREMENT_ID) {
     if (!window.gtag) loadGtag();
-    window.gtag?.("event", name, props);
+    window.gtag?.("event", name, enrichedProps);
   }
 
   if (POSTHOG_KEY) {
-    posthog.capture(name, props);
+    posthog.capture(name, enrichedProps);
   }
 }

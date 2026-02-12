@@ -79,6 +79,13 @@ export const InstallationCmd = ({
                     package_manager: pm,
                     component_slug: item.slug,
                     component_name: item.name,
+                    category: item.category,
+                    source: "cli",
+                    command_preview:
+                      item.install[0]
+                        ? getInstallCommand(pm, item.install[0])
+                        : undefined,
+                    command_count: item.install.length,
                   });
                 }}
                 className={cn(

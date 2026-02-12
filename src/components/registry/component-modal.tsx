@@ -206,6 +206,12 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 activePackageManager={activePackageManager}
                 setActivePackageManager={setActivePackageManager}
                 dependencies={item.dependencies}
+                trackingContext={{
+                  component_slug: item.slug,
+                  component_name: item.name,
+                  category: item.category,
+                  source: "modal",
+                }}
               />
             </section>
 
@@ -358,6 +364,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                       files={componentFiles}
                       dependencies={item.dependencies || []}
                       componentName={item.name}
+                      componentSlug={item.slug}
                     />
                   </div>
 
@@ -404,6 +411,12 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                               activePackageManager={activePackageManager}
                               setActivePackageManager={setActivePackageManager}
                               dependencies={item.dependencies}
+                              trackingContext={{
+                                component_slug: item.slug,
+                                component_name: item.name,
+                                category: item.category,
+                                source: "modal",
+                              }}
                             />
                             {componentCode ? (
                               <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>

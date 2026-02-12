@@ -24,15 +24,21 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
 
   const getImageSrcSet = (src: string) => {
     if (!src.startsWith("http")) return undefined;
-    if (!src.includes("images.unsplash.com")) return undefined;
     const url = new URL(src);
-    url.searchParams.set("w", "400");
-    const w400 = url.toString();
-    url.searchParams.set("w", "800");
-    const w800 = url.toString();
-    url.searchParams.set("w", "1200");
-    const w1200 = url.toString();
-    return `${w400} 400w, ${w800} 800w, ${w1200} 1200w`;
+    const supportsWidthParams =
+      url.hostname.includes("images.unsplash.com") ||
+      url.hostname.includes("assets.watermelon.sh");
+    if (!supportsWidthParams) return undefined;
+
+    const mk = (width: number) => {
+      const sized = new URL(src);
+      sized.searchParams.set("w", String(width));
+      sized.searchParams.set("q", "75");
+      sized.searchParams.set("format", "auto");
+      return `${sized.toString()} ${width}w`;
+    };
+
+    return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
   };
 
   useEffect(() => {
@@ -203,7 +209,7 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
         <img
           src={item.image}
           srcSet={getImageSrcSet(item.image)}
-          sizes="(min-width: 1024px) 360px, (min-width: 768px) 45vw, 90vw"
+          sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
           alt={`${item.name} preview`}
           loading={imagePriority ? "eager" : "lazy"}
           fetchPriority={imagePriority ? "high" : "auto"}
@@ -225,16 +231,13 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
             playsInline
             preload="none"
             aria-hidden="true"
-            role="presentation"
             tabIndex={-1}
             className={cn(
               "absolute inset-0 h-full w-full object-cover",
               "transition-opacity duration-500 ease-out",
               isHovered ? "opacity-100" : "opacity-0"
             )}
-          >
-            <track kind="captions" />
-          </video>
+          />
         )}
 
         {/* Bottom fade overlay */}

@@ -158,6 +158,7 @@ export default function ComponentPage() {
                 files={componentFiles}
                 dependencies={item.dependencies || []}
                 componentName={item.name}
+                componentSlug={item.slug}
               />
             </div>
 
@@ -225,6 +226,12 @@ export default function ComponentPage() {
                         activePackageManager={activePackageManager}
                         setActivePackageManager={setActivePackageManager}
                         dependencies={item.dependencies}
+                        trackingContext={{
+                          component_slug: item.slug,
+                          component_name: item.name,
+                          category: item.category,
+                          source: "page",
+                        }}
                       />
                       {componentCode ? (
                         <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
@@ -291,6 +298,12 @@ export default function ComponentPage() {
                   activePackageManager={activePackageManager}
                   setActivePackageManager={setActivePackageManager}
                   dependencies={item.dependencies}
+                  trackingContext={{
+                    component_slug: item.slug,
+                    component_name: item.name,
+                    category: item.category,
+                    source: "page",
+                  }}
                 />
 
                 {/* DEMO CODE — MOBILE SAFE */}
@@ -391,6 +404,7 @@ export default function ComponentPage() {
                     files={componentFiles}
                     dependencies={item.dependencies || []}
                     componentName={item.name}
+                    componentSlug={item.slug}
                   />
                 </div>
 
@@ -437,6 +451,12 @@ export default function ComponentPage() {
                             activePackageManager={activePackageManager}
                             setActivePackageManager={setActivePackageManager}
                             dependencies={item.dependencies}
+                            trackingContext={{
+                              component_slug: item.slug,
+                              component_name: item.name,
+                              category: item.category,
+                              source: "page",
+                            }}
                           />
                           {componentCode ? (
                             <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
