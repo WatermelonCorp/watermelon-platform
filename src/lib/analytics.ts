@@ -1,3 +1,5 @@
+import posthog from "posthog-js";
+
 type GtagFn = (...args: any[]) => void;
 
 declare global {
@@ -11,12 +13,6 @@ const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | und
 const POSTHOG_KEY =
   (import.meta.env.VITE_PUBLIC_POSTHOG_KEY as string | undefined) ??
   (import.meta.env.VITE_POSTHOG_KEY as string | undefined);
-const POSTHOG_HOST =
-  (import.meta.env.VITE_PUBLIC_POSTHOG_HOST as string | undefined) ??
-  (import.meta.env.VITE_POSTHOG_HOST as string | undefined) ??
-  "https://app.posthog.com";
-
-let posthogInitPromise: Promise<typeof import("posthog-js")["default"]> | null = null;
 
 export function loadGtag() {
   if (!GA_MEASUREMENT_ID) return;
@@ -48,24 +44,8 @@ export function trackGtagPageView(path: string) {
   });
 }
 
-export async function loadPosthog() {
-  if (!POSTHOG_KEY) return null;
-  if (typeof window === "undefined") return null;
-  if (!posthogInitPromise) {
-    posthogInitPromise = import("posthog-js").then((mod) => {
-      mod.default.init(POSTHOG_KEY, {
-        api_host: POSTHOG_HOST,
-        capture_pageview: false,
-      });
-      return mod.default;
-    });
-  }
-  return posthogInitPromise;
-}
-
-export async function trackPosthogPageView(path: string) {
-  const posthog = await loadPosthog();
-  if (!posthog) return;
+export function trackPosthogPageView(path: string) {
+  if (!POSTHOG_KEY) return;
   const pageLocation = new URL(path, window.location.origin).toString();
   posthog.capture("$pageview", { $current_url: pageLocation });
 }
@@ -79,8 +59,6 @@ export function trackEvent(name: string, props: Record<string, unknown> = {}) {
   }
 
   if (POSTHOG_KEY) {
-    void loadPosthog().then((posthog) => {
-      posthog?.capture(name, props);
-    });
+    posthog.capture(name, props);
   }
 }

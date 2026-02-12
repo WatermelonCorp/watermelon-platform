@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
   loadGtag,
-  loadPosthog,
   trackGtagPageView,
   trackPosthogPageView,
 } from "@/lib/analytics";
@@ -13,7 +12,6 @@ export function Analytics() {
   useEffect(() => {
     // Defer third-party analytics until after hydration.
     loadGtag();
-    loadPosthog();
   }, []);
 
   useEffect(() => {
