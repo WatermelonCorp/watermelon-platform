@@ -124,7 +124,7 @@ export const RadialCarousel: React.FC<RadialCarouselProps> = ({
                         animate="expanded"
                         exit="collapsed"
                         className="relative flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing"
-                        onPan={(e, info) => {
+                        onPan={(_, info) => {
                             const current = rotation.get();
                             rotation.set(current + info.delta.x * 0.5);
                         }}

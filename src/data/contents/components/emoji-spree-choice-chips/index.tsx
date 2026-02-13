@@ -41,7 +41,7 @@ export const EmojiSpreeChips: React.FC<Props> = ({ interests, onChange }) => {
         const centerX = rect.left + rect.width / 2 - containerRect.left;
         const centerY = rect.top - containerRect.top;
 
-        const newParticles = Array.from({ length: 3 }).map((_, i) => ({
+        const newParticles = Array.from({ length: 3 }).map(() => ({
             id: Math.random() + Date.now(),
             emoji,
             x: centerX,
