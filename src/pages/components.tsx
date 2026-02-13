@@ -55,7 +55,12 @@ export default function ComponentsPage() {
       else next.set('page', String(nextPage));
       return next;
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const scrollContainer = document.querySelector('[data-slot="scroll-progress-container"]');
+    if (scrollContainer) {
+      scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
