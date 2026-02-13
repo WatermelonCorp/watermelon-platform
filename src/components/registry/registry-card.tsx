@@ -234,7 +234,7 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
             tabIndex={-1}
             className={cn(
               "absolute inset-0 h-full w-full object-cover",
-              "transition-opacity duration-500 ease-out",
+              "transition-opacity duration-100 ease-out",
               isHovered ? "opacity-100" : "opacity-0"
             )}
           />
