@@ -14,6 +14,10 @@ const POSTHOG_KEY =
   (import.meta.env.VITE_PUBLIC_POSTHOG_KEY as string | undefined) ??
   (import.meta.env.VITE_POSTHOG_KEY as string | undefined);
 
+function hasGtag() {
+  return typeof window !== "undefined" && typeof window.gtag === "function";
+}
+
 export function loadGtag() {
   if (!GA_MEASUREMENT_ID) return;
   if (typeof window === "undefined") return;
@@ -35,10 +39,9 @@ export function loadGtag() {
 }
 
 export function trackGtagPageView(path: string) {
-  if (!GA_MEASUREMENT_ID) return;
-  if (!window.gtag) return;
+  if (!hasGtag()) return;
   const pageLocation = new URL(path, window.location.origin).toString();
-  window.gtag("event", "page_view", {
+  window.gtag?.("event", "page_view", {
     page_path: path,
     page_location: pageLocation,
   });
@@ -60,8 +63,8 @@ export function trackEvent(name: string, props: Record<string, unknown> = {}) {
     ...props,
   };
 
-  if (GA_MEASUREMENT_ID) {
-    if (!window.gtag) loadGtag();
+  if (GA_MEASUREMENT_ID || hasGtag()) {
+    if (!window.gtag && GA_MEASUREMENT_ID) loadGtag();
     window.gtag?.("event", name, enrichedProps);
   }
 
