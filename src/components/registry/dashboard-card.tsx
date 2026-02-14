@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon } from "@/lib/hugeicons";
 import { trackEvent } from "@/lib/analytics";
-import { MediaLoadingOverlay } from "./media-loading-overlay";
 
 interface DashboardCardProps {
   item: DashboardItem;
@@ -158,7 +157,6 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
                       isHovered && isVideoReady ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {isHovered && !isVideoReady && <MediaLoadingOverlay />}
                 </>
               )}
             </>

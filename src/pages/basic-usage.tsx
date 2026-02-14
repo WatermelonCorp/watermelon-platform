@@ -70,7 +70,7 @@ export default function MyComponent() {
             <DocCard className="text-center">
               <img
                 src="/brand/v0-logo-icon.png"
-                className="size-10 mx-auto dark:invert"
+                className="size-10 mx-auto dark:invert-0 invert"
                 alt="V0 logo"
                 loading="lazy"
                 width={40}

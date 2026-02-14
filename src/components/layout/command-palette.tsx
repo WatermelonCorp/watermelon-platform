@@ -35,6 +35,9 @@ const pages = [
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
   { name: 'CLI', href: '/cli', icon: CommandIcon, shortcut: 'L' },
   { name: 'Changelog', href: '/changelog', icon: CommandIcon, shortcut: 'G' },
+  { name: 'Terms', href: '/terms', icon: Book02Icon, shortcut: 'T' },
+  { name: 'Privacy', href: '/privacy', icon: Book02Icon, shortcut: 'P' },
+  { name: 'Copyright', href: '/copyright', icon: Book02Icon, shortcut: 'R' },
 ];
 
 export function CommandPalette() {

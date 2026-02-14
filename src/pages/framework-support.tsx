@@ -72,7 +72,7 @@ export default function FrameworkSupportPage() {
         <DocSection>
           <DocTable>
             {/* table header */}
-            <div className="hidden md:grid grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-4 border-b bg-muted/40 text-sm font-medium">
+            <div className="hidden md:grid grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-2.5 border-b bg-background text-sm font-medium">
               <div>Framework</div>
               <div>Version</div>
               <div>Status</div>
@@ -83,7 +83,7 @@ export default function FrameworkSupportPage() {
               {frameworks.map((f, i) => (
                 <div
                   key={f.name}
-                  className={`grid grid-cols-1 md:grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-5 text-sm ${i % 2 === 0 ? "bg-background" : "bg-muted/20"
+                  className={`grid grid-cols-1 md:grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-2 text-sm ${i % 2 !== 0 ? "bg-background" : "bg-muted/20"
                     }`}
                 >
                   <div className="font-medium">{f.name}</div>

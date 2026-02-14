@@ -16,6 +16,9 @@ const BasicUsagePage = lazy(() => import("@/pages/basic-usage"));
 const InstallationPage = lazy(() => import("@/pages/installation"));
 const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
 const CLIPage = lazy(() => import("@/pages/cli"));
+const TermsPage = lazy(() => import("@/pages/terms"));
+const PrivacyPage = lazy(() => import("@/pages/privacy"));
+const CopyrightPage = lazy(() => import("@/pages/copyright"));
 // const DashboardsPage = lazy(() => import("@/pages/dashboards"));
 // const DashboardPage = lazy(() => import("@/pages/dashboard"));
 // Coming Soon - disabled for now
@@ -106,6 +109,30 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DocPageSkeleton />}>
               <ChangelogPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <TermsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <PrivacyPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/copyright"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <CopyrightPage />
             </Suspense>
           }
         />

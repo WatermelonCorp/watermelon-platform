@@ -131,6 +131,12 @@ export function AppSidebar() {
     { title: "Changelog", url: "/changelog" },
   ];
 
+  const legalLinks = [
+    { title: "Terms", url: "/terms" },
+    { title: "Privacy", url: "/privacy" },
+    { title: "Copyright", url: "/copyright" },
+  ];
+
   // Generate component categories from registry
   const componentCategories = useMemo(() =>
     allCategories.map((category) => ({
@@ -206,6 +212,13 @@ export function AppSidebar() {
             <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">Coming Soon</span>
           </SidebarGroupLabel>
         </SidebarGroup>
+        <NavSection
+          title="Legal"
+          items={legalLinks}
+          defaultOpen
+          pathname={location.pathname}
+          indentItems
+        />
         {/* <NavSection
           title="Dashboards"
           items={dashboardItems}

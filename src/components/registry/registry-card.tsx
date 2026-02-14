@@ -7,7 +7,6 @@ import { CopyButton } from "../animate-ui/components/buttons/copy";
 import { Tooltip } from "../animate-ui/primitives/animate/tooltip";
 import { TooltipContent, TooltipTrigger } from "../animate-ui/components/animate/tooltip";
 import { trackEvent } from "@/lib/analytics";
-import { MediaLoadingOverlay } from "./media-loading-overlay";
 
 interface RegistryCardProps {
   item: RegistryItem;
@@ -46,10 +45,6 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
     if (!videoRef.current) return;
 
     if (isHovered) {
-      // Check if the video is already loaded (e.g., from cache)
-      if (videoRef.current.readyState >= 3) {
-        setIsVideoReady(true);
-      }
       if (!isVideoReady) return;
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => { });
@@ -246,7 +241,6 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
                 isHovered && isVideoReady ? "opacity-100" : "opacity-0"
               )}
             />
-            {isHovered && !isVideoReady && <MediaLoadingOverlay />}
           </>
         )}
 
