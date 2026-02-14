@@ -2,6 +2,11 @@ export interface ChangelogEntry {
   version: string;
   date: string;
   title?: string;
+  stats?: {
+    label: string;
+    count: number;
+    href: string;
+  }[];
   sections: {
     title: string;
     items: {
@@ -20,15 +25,19 @@ export const changelogData: ChangelogEntry[] = [
   {
     version: "1.2.1",
     date: "Feb 12, 2026",
+    stats: [
+      { label: "Components Added", count: 24, href: "/components" },
+      { label: "New Categories", count: 6, href: "/components" },
+    ],
     sections: [
       {
         title: "Components",
         items: [
           {
-            text: "Added new components to the registry."
+            text: "Added 24 new components to the registry with polished previews and copy-ready install commands."
           },
           {
-            text: "Added new components with full documentation."
+            text: "Published full documentation and usage examples for all new additions."
           }
         ]
       }

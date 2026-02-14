@@ -1,6 +1,7 @@
 import { SEOHead } from "@/components/seo-head";
 import { changelogData } from "@/data/changelog";
 import { DocPage, DocHeader } from "@/components/docs";
+import { Link } from "react-router-dom";
 
 export default function ChangelogPage() {
   return (
@@ -39,6 +40,21 @@ export default function ChangelogPage() {
                   <div className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border bg-muted/50 mb-4">
                     {entry.version}
                   </div>
+
+                  {entry.stats && entry.stats.length > 0 && (
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {entry.stats.map((stat, idx) => (
+                        <Link
+                          key={`${stat.label}-${idx}`}
+                          to={stat.href}
+                          className="inline-flex items-center gap-1.5 rounded-md border bg-background px-2.5 py-1 text-xs hover:bg-muted transition-colors"
+                        >
+                          <span className="font-semibold text-foreground">{stat.count}</span>
+                          <span className="text-muted-foreground">{stat.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="space-y-8">
                     {entry.sections.map((section, sIdx) => (
@@ -91,5 +107,4 @@ export default function ChangelogPage() {
     </>
   );
 }
-
 

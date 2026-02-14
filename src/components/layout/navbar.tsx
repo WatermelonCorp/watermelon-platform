@@ -142,8 +142,8 @@ export const Navbar = () => {
             className="
     border-input/50 bg-background hover:bg-accent
     text-muted-foreground hover:text-foreground
-    flex h-9 items-center justify-center gap-2
-    rounded-md border px-2 transition-colors
+    flex h-8 md:h-10 items-center justify-center gap-2
+    rounded-lg border px-2 transition-colors
     md:w-auto md:px-3
   "
           >
