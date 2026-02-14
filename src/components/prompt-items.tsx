@@ -92,6 +92,7 @@ export function PromptItems({
 
           return (
             <Tooltip
+              key={platform}
               side={side}
               sideOffset={sideOffset}
               align={align}
