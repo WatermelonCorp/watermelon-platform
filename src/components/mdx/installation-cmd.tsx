@@ -18,15 +18,11 @@ export const InstallationCmd = ({
   activePackageManager,
   setActivePackageManager,
   item,
-  hasCopiedInstall,
-  handleCopyInstall,
   trackingContext,
 }: {
   activePackageManager: PackageManager
   setActivePackageManager: (pm: PackageManager) => void
   item: RegistryItem
-  hasCopiedInstall: boolean
-  handleCopyInstall: (cmd: string) => void
   trackingContext?: InstallTrackingContext
 
 }) => {
@@ -157,18 +153,18 @@ export const InstallationCmd = ({
                 variant="secondary"
                 size="sm"
                 content={command}
-                copied={hasCopiedInstall}
-                onCopiedChange={() => {
-                  handleCopyInstall(command);
-                  trackEvent("install_command_copy", {
-                    component_slug: item.slug,
-                    component_name: item.name,
-                    category: item.category,
-                    package_manager: activePackageManager,
-                    command,
-                    source: "cli",
-                    source_context: trackingContext?.source,
-                  });
+                onCopiedChange={(copied) => {
+                  if (copied) {
+                    trackEvent("install_command_copy", {
+                      component_slug: item.slug,
+                      component_name: item.name,
+                      category: item.category,
+                      package_manager: activePackageManager,
+                      command,
+                      source: "cli",
+                      source_context: trackingContext?.source,
+                    });
+                  }
                 }}
                 className="absolute right-2 top-2 p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors"
               />

@@ -36,7 +36,7 @@ export default function ComponentPage() {
   const [reloadKey, setReloadKey] = useState(0);
   const [activePackageManager, setActivePackageManager] =
     useState<PackageManager>("npm");
-  const [hasCopiedInstall, setHasCopiedInstall] = useState(false);
+
   const [isCodeOpen, setIsCodeOpen] = useState(false);
 
   useEffect(() => {
@@ -65,15 +65,7 @@ export default function ComponentPage() {
       ? [{ name: `${item.slug}.tsx`, content: componentCode }]
       : []),
   ];
-  const handleCopyInstall = async (cmd: string) => {
-    try {
-      await navigator.clipboard.writeText(cmd);
-      setHasCopiedInstall(true);
-      setTimeout(() => setHasCopiedInstall(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy', err);
-    }
-  };
+
 
   return (
     <>
@@ -202,8 +194,7 @@ export default function ComponentPage() {
                           activePackageManager={activePackageManager}
                           setActivePackageManager={setActivePackageManager}
                           item={item}
-                          hasCopiedInstall={hasCopiedInstall}
-                          handleCopyInstall={handleCopyInstall}
+
                           trackingContext={{
                             component_slug: item.slug,
                             component_name: item.name,
@@ -435,8 +426,7 @@ export default function ComponentPage() {
                               activePackageManager={activePackageManager}
                               setActivePackageManager={setActivePackageManager}
                               item={item}
-                              hasCopiedInstall={hasCopiedInstall}
-                              handleCopyInstall={handleCopyInstall}
+
                               trackingContext={{
                                 component_slug: item.slug,
                                 component_name: item.name,

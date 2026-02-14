@@ -12,7 +12,7 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/registry';
-import { dashboards } from '@/data/dashboards';
+// import { dashboards } from '@/data/dashboards';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { trackEvent } from '@/lib/analytics';
 import {
@@ -23,7 +23,7 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  SidebarLeft01Icon,
+  // SidebarLeft01Icon,
 } from '@/lib/hugeicons';
 
 // Page navigation items
@@ -138,9 +138,8 @@ export function CommandPalette() {
               </CommandGroup>
             ))}
 
-            <CommandSeparator />
-
-            {/* Dashboards */}
+            {/* Dashboards disabled */}
+            {/* <CommandSeparator />
             <CommandGroup heading="Dashboards">
               {dashboards.map((dashboard) => (
                 <CommandItem
@@ -156,7 +155,7 @@ export function CommandPalette() {
                   )}
                 </CommandItem>
               ))}
-            </CommandGroup>
+            </CommandGroup> */}
           </CommandList>
         </Command>
       </CommandDialog>

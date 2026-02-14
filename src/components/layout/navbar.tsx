@@ -6,7 +6,7 @@ import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/registry';
-import { dashboards } from '@/data/dashboards';
+// import { dashboards } from '@/data/dashboards';
 // import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
 import { motion } from 'framer-motion';
@@ -21,7 +21,7 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
   '/installation': { label: 'Installation' },
   '/framework-support': { label: 'Framework Support' },
   '/cli': { label: 'CLI' },
-  '/dashboards': { label: 'Dashboards' },
+  // '/dashboards': { label: 'Dashboards' },
   // '/blocks': { label: 'Blocks' },
   '/changelog': { label: 'Changelog' },
 };
@@ -64,17 +64,17 @@ export const Navbar = () => {
       return [{ label: 'Components', href: '/' }, { label: title }];
     }
 
-    // Dashboard detail page: /dashboard/:slug
-    if (path.startsWith('/dashboard/')) {
-      const slug = params.slug || path.split('/').pop();
-      const item = dashboards.find((d) => d.slug === slug);
-      if (item) {
-        return [
-          { label: 'Dashboards', href: '/dashboards' },
-          { label: item.name },
-        ];
-      }
-    }
+    // Dashboards disabled
+    // if (path.startsWith('/dashboard/')) {
+    //   const slug = params.slug || path.split('/').pop();
+    //   const item = dashboards.find((d) => d.slug === slug);
+    //   if (item) {
+    //     return [
+    //       { label: 'Dashboards', href: '/dashboards' },
+    //       { label: item.name },
+    //     ];
+    //   }
+    // }
 
     // Block detail page: /block/:slug
     // if (path.startsWith('/block/')) {

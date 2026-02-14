@@ -34,6 +34,11 @@ function hasGtag() {
   return typeof window !== "undefined" && typeof window.gtag === "function";
 }
 
+function isPosthogLoaded() {
+  const client = posthog as unknown as { __loaded?: boolean };
+  return client.__loaded === true;
+}
+
 export function loadGtag() {
   if (!GA_MEASUREMENT_ID) return;
   if (typeof window === "undefined") return;
@@ -65,6 +70,7 @@ export function trackGtagPageView(path: string) {
 
 export function trackPosthogPageView(path: string) {
   if (!POSTHOG_KEY) return;
+  if (!isPosthogLoaded()) return;
   const pageLocation = new URL(path, window.location.origin).toString();
   posthog.capture("$pageview", { $current_url: pageLocation });
 }
@@ -85,6 +91,7 @@ export function trackEvent(name: string, props: Record<string, unknown> = {}) {
   }
 
   if (POSTHOG_KEY) {
+    if (!isPosthogLoaded()) return;
     posthog.capture(mapEventNameForPosthog(name), enrichedProps);
   }
 }
