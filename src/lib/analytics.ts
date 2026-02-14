@@ -14,6 +14,22 @@ const POSTHOG_KEY =
   (import.meta.env.VITE_PUBLIC_POSTHOG_KEY as string | undefined) ??
   (import.meta.env.VITE_POSTHOG_KEY as string | undefined);
 
+function mapEventNameForPosthog(name: string) {
+  switch (name) {
+    case "outbound_click":
+    case "internal_link_click":
+      return "link_clicked";
+    case "view_search_results":
+      return "search_results_viewed";
+    case "scroll":
+      return "page_scrolled";
+    case "exception":
+      return "client_exception";
+    default:
+      return name;
+  }
+}
+
 function hasGtag() {
   return typeof window !== "undefined" && typeof window.gtag === "function";
 }
@@ -69,6 +85,6 @@ export function trackEvent(name: string, props: Record<string, unknown> = {}) {
   }
 
   if (POSTHOG_KEY) {
-    posthog.capture(name, enrichedProps);
+    posthog.capture(mapEventNameForPosthog(name), enrichedProps);
   }
 }

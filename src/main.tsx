@@ -20,7 +20,7 @@ const options = {
   api_host: posthogHost,
   defaults: '2026-01-30',
   capture_pageview: false,
-  autocapture: true,
+  autocapture: false,
 } as const
 
 createRoot(root).render(

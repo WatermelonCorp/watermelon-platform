@@ -18,8 +18,9 @@ const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
 const CLIPage = lazy(() => import("@/pages/cli"));
 const DashboardsPage = lazy(() => import("@/pages/dashboards"));
 const DashboardPage = lazy(() => import("@/pages/dashboard"));
-const BlocksPage = lazy(() => import("@/pages/blocks"));
-const BlockPage = lazy(() => import("@/pages/block"));
+// Coming Soon - disabled for now
+// const BlocksPage = lazy(() => import("@/pages/blocks"));
+// const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 
 export function AppRoutes() {
@@ -127,23 +128,9 @@ export function AppRoutes() {
           }
         />
 
-        {/* Block pages */}
-        <Route
-          path="/blocks"
-          element={
-            <Suspense fallback={<HomePageSkeleton />}>
-              <BlocksPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/block/:slug"
-          element={
-            <Suspense fallback={<ComponentPageSkeleton />}>
-              <BlockPage />
-            </Suspense>
-          }
-        />
+        {/* Block pages - Coming Soon, redirect to home */}
+        <Route path="/blocks" element={<Navigate to="/" replace />} />
+        <Route path="/block/:slug" element={<Navigate to="/" replace />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

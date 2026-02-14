@@ -7,6 +7,7 @@ import { CopyButton } from "../animate-ui/components/buttons/copy";
 import { Tooltip } from "../animate-ui/primitives/animate/tooltip";
 import { TooltipContent, TooltipTrigger } from "../animate-ui/components/animate/tooltip";
 import { trackEvent } from "@/lib/analytics";
+import { MediaLoadingOverlay } from "./media-loading-overlay";
 
 interface RegistryCardProps {
   item: RegistryItem;
@@ -16,7 +17,7 @@ interface RegistryCardProps {
 
 export function RegistryCard({ item, onClick, imagePriority = false }: RegistryCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [_isCopied, setIsCopied] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Get the CLI command from item.install (same as component-modal)
@@ -45,23 +46,27 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
     if (!videoRef.current) return;
 
     if (isHovered) {
+      // Check if the video is already loaded (e.g., from cache)
+      if (videoRef.current.readyState >= 3) {
+        setIsVideoReady(true);
+      }
+      if (!isVideoReady) return;
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => { });
     } else {
       videoRef.current.pause();
     }
-  }, [isHovered]);
+  }, [isHovered, isVideoReady]);
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
 
     try {
       await navigator.clipboard.writeText(cliCommand);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
       trackEvent("install_command_copy", {
         component_slug: item.slug,
         component_name: item.name,
+        category: item.category,
         command: cliCommand,
         source: "card",
       });
@@ -223,21 +228,26 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
 
         {/* Video preview */}
         {item.video && (
-          <video
-            ref={videoRef}
-            src={item.video}
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden="true"
-            tabIndex={-1}
-            className={cn(
-              "absolute inset-0 h-full w-full object-cover",
-              "transition-opacity duration-100 ease-out",
-              isHovered ? "opacity-100" : "opacity-0"
-            )}
-          />
+          <>
+            <video
+              ref={videoRef}
+              src={item.video}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              tabIndex={-1}
+              onLoadedData={() => setIsVideoReady(true)}
+              onCanPlay={() => setIsVideoReady(true)}
+              className={cn(
+                "absolute inset-0 h-full w-full object-cover",
+                "transition-opacity duration-100 ease-out",
+                isHovered && isVideoReady ? "opacity-100" : "opacity-0"
+              )}
+            />
+            {isHovered && !isVideoReady && <MediaLoadingOverlay />}
+          </>
         )}
 
         {/* Bottom fade overlay */}

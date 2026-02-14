@@ -7,7 +7,7 @@ import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/registry';
 import { dashboards } from '@/data/dashboards';
-import { blocks } from '@/data/blocks';
+// import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
 import { motion } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
@@ -22,7 +22,7 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
   '/framework-support': { label: 'Framework Support' },
   '/cli': { label: 'CLI' },
   '/dashboards': { label: 'Dashboards' },
-  '/blocks': { label: 'Blocks' },
+  // '/blocks': { label: 'Blocks' },
   '/changelog': { label: 'Changelog' },
 };
 
@@ -77,13 +77,13 @@ export const Navbar = () => {
     }
 
     // Block detail page: /block/:slug
-    if (path.startsWith('/block/')) {
-      const slug = params.slug || path.split('/').pop();
-      const item = blocks.find((b) => b.slug === slug);
-      if (item) {
-        return [{ label: 'Blocks', href: '/blocks' }, { label: item.name }];
-      }
-    }
+    // if (path.startsWith('/block/')) {
+    //   const slug = params.slug || path.split('/').pop();
+    //   const item = blocks.find((b) => b.slug === slug);
+    //   if (item) {
+    //     return [{ label: 'Blocks', href: '/blocks' }, { label: item.name }];
+    //   }
+    // }
 
     // Default fallback
     return [{ label: 'Components' }];

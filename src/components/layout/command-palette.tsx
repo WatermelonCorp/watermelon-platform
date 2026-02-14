@@ -14,6 +14,7 @@ import {
 import { registry, allCategories } from '@/data/registry';
 import { dashboards } from '@/data/dashboards';
 import { HugeiconsIcon } from '@hugeicons/react';
+import { trackEvent } from '@/lib/analytics';
 import {
   Home01Icon,
   Book02Icon,
@@ -45,7 +46,13 @@ export function CommandPalette() {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen((currentOpen) => {
+          const nextOpen = !currentOpen;
+          if (nextOpen) {
+            trackEvent('command_palette_open', { source: 'keyboard' });
+          }
+          return nextOpen;
+        });
       }
     };
 
@@ -55,6 +62,7 @@ export function CommandPalette() {
 
   // Navigate and close
   const runCommand = useCallback((command: () => void) => {
+    trackEvent('command_palette_select');
     setOpen(false);
     command();
   }, []);
@@ -72,7 +80,10 @@ export function CommandPalette() {
     <>
       {/* Trigger Button */}
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          trackEvent('command_palette_open', { source: 'button' });
+          setOpen(true);
+        }}
         className="group flex h-10 items-center lg:w-90 justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
       >
         <div className="flex items-center gap-2">

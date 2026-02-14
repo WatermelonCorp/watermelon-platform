@@ -200,6 +200,12 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 item={item}
                 hasCopiedInstall={hasCopiedInstall}
                 handleCopyInstall={handleCopyInstall}
+                trackingContext={{
+                  component_slug: item.slug,
+                  component_name: item.name,
+                  category: item.category,
+                  source: "modal",
+                }}
               />
 
               <ManualInstallationCmd
@@ -365,6 +371,8 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                       dependencies={item.dependencies || []}
                       componentName={item.name}
                       componentSlug={item.slug}
+                      category={item.category}
+                      source="modal"
                     />
                   </div>
 
@@ -387,6 +395,12 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                                 item={item}
                                 hasCopiedInstall={hasCopiedInstall}
                                 handleCopyInstall={handleCopyInstall}
+                                trackingContext={{
+                                  component_slug: item.slug,
+                                  component_name: item.name,
+                                  category: item.category,
+                                  source: "modal",
+                                }}
                               />
                             </LayoutGroup>
                             {/* Import & use */}

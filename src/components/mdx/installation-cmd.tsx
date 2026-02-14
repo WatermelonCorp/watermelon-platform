@@ -7,6 +7,12 @@ import { trackEvent } from "@/lib/analytics";
 type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun';
 const PM_LIST = ['npm', 'pnpm', 'yarn', 'bun'] as PackageManager[]
 
+type InstallTrackingContext = {
+  component_slug?: string;
+  component_name?: string;
+  category?: string;
+  source?: string;
+};
 
 export const InstallationCmd = ({
   activePackageManager,
@@ -14,12 +20,14 @@ export const InstallationCmd = ({
   item,
   hasCopiedInstall,
   handleCopyInstall,
+  trackingContext,
 }: {
   activePackageManager: PackageManager
   setActivePackageManager: (pm: PackageManager) => void
   item: RegistryItem
   hasCopiedInstall: boolean
   handleCopyInstall: (cmd: string) => void
+  trackingContext?: InstallTrackingContext
 
 }) => {
 
@@ -81,6 +89,7 @@ export const InstallationCmd = ({
                     component_name: item.name,
                     category: item.category,
                     source: "cli",
+                    source_context: trackingContext?.source,
                     command_preview:
                       item.install[0]
                         ? getInstallCommand(pm, item.install[0])
@@ -154,9 +163,11 @@ export const InstallationCmd = ({
                   trackEvent("install_command_copy", {
                     component_slug: item.slug,
                     component_name: item.name,
+                    category: item.category,
                     package_manager: activePackageManager,
                     command,
                     source: "cli",
+                    source_context: trackingContext?.source,
                   });
                 }}
                 className="absolute right-2 top-2 p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors"

@@ -26,6 +26,8 @@ interface PromptItemsProps {
   dependencies?: string[];
   componentName?: string;
   componentSlug?: string;
+  category?: string;
+  source?: string;
 
   /** optional – same as demo */
   openDelay?: number;
@@ -42,6 +44,8 @@ export function PromptItems({
   dependencies = [],
   componentName = "Component",
   componentSlug,
+  category,
+  source,
   openDelay = 200,
   closeDelay = 100,
   side = "top",
@@ -72,6 +76,8 @@ export function PromptItems({
         platform,
         component_slug: componentSlug,
         component_name: componentName,
+        category,
+        source,
         file_count: files.length,
         dependency_count: dependencies.length,
       });

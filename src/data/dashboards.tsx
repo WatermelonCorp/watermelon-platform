@@ -12,6 +12,7 @@ export interface DashboardItem {
   category: string;
   description: string;
   image: string;
+  video?: string;
   component: React.LazyExoticComponent<React.ComponentType<any>>;
   files: DashboardFile[];
   dependencies?: string[];

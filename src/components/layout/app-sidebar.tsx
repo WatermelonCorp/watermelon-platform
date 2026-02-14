@@ -22,7 +22,7 @@ import {
 } from "@/lib/hugeicons";
 import { allCategories } from "@/data/registry";
 import { dashboards } from "@/data/dashboards";
-import { blocks } from "@/data/blocks";
+// import { blocks } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
 import { memo, useMemo } from "react";
 import { Logo } from "./logo";
@@ -128,20 +128,20 @@ export function AppSidebar() {
   );
 
   // Generate block items from registry
-  const blockItems = useMemo(() =>
-    blocks.map((block) => ({
-      title: block.name,
-      url: `/block/${block.slug}`,
-    })),
-    []
-  );
+  // const blockItems = useMemo(() =>
+  //   blocks.map((block) => ({
+  //     title: block.name,
+  //     url: `/block/${block.slug}`,
+  //   })),
+  //   []
+  // );
 
-  const templates = [
-    { title: "React", url: "/templates/react" },
-    { title: "Next.js", url: "/templates/nextjs" },
-    { title: "Vue", url: "/templates/vue" },
-    { title: "Svelte", url: "/templates/svelte" },
-  ];
+  // const templates = [
+  //   { title: "React", url: "/templates/react" },
+  //   { title: "Next.js", url: "/templates/nextjs" },
+  //   { title: "Vue", url: "/templates/vue" },
+  //   { title: "Svelte", url: "/templates/svelte" },
+  // ];
 
   // Generate dashboard items from registry
   const dashboardItems = useMemo(() =>
@@ -174,17 +174,18 @@ export function AppSidebar() {
           pathname={location.pathname}
           titleLink="/components"
         />
-        <NavSection
-          title="Blocks"
-          items={blockItems}
-          pathname={location.pathname}
-          titleLink="/blocks"
-        />
-        <NavSection
-          title="Templates"
-          items={templates}
-          pathname={location.pathname}
-        />
+        <SidebarGroup>
+          <SidebarGroupLabel className="flex items-center justify-between px-2 py-3 min-h-12">
+            <span className="font-semibold text-muted-foreground/60">Blocks</span>
+            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">Coming Soon</span>
+          </SidebarGroupLabel>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel className="flex items-center justify-between px-2 py-3 min-h-12">
+            <span className="font-semibold text-muted-foreground/60">Templates</span>
+            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">Coming Soon</span>
+          </SidebarGroupLabel>
+        </SidebarGroup>
         <NavSection
           title="Dashboards"
           items={dashboardItems}

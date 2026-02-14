@@ -159,6 +159,8 @@ export default function ComponentPage() {
                 dependencies={item.dependencies || []}
                 componentName={item.name}
                 componentSlug={item.slug}
+                category={item.category}
+                source="page"
               />
             </div>
 
@@ -202,6 +204,12 @@ export default function ComponentPage() {
                           item={item}
                           hasCopiedInstall={hasCopiedInstall}
                           handleCopyInstall={handleCopyInstall}
+                          trackingContext={{
+                            component_slug: item.slug,
+                            component_name: item.name,
+                            category: item.category,
+                            source: "page",
+                          }}
                         />
                       </LayoutGroup>
                       {/* Import & use */}
@@ -405,6 +413,8 @@ export default function ComponentPage() {
                     dependencies={item.dependencies || []}
                     componentName={item.name}
                     componentSlug={item.slug}
+                    category={item.category}
+                    source="page"
                   />
                 </div>
 
@@ -427,6 +437,12 @@ export default function ComponentPage() {
                               item={item}
                               hasCopiedInstall={hasCopiedInstall}
                               handleCopyInstall={handleCopyInstall}
+                              trackingContext={{
+                                component_slug: item.slug,
+                                component_name: item.name,
+                                category: item.category,
+                                source: "page",
+                              }}
                             />
                           </LayoutGroup>
                           {/* Import & use */}
