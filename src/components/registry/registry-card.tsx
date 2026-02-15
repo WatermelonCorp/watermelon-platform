@@ -42,16 +42,19 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
   };
 
   useEffect(() => {
-    if (!videoRef.current) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Safari fix: ensure muted property is set on the DOM element
+    video.muted = true;
 
     if (isHovered) {
-      if (!isVideoReady) return;
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => { });
+      video.currentTime = 0;
+      video.play().catch(() => { });
     } else {
-      videoRef.current.pause();
+      video.pause();
     }
-  }, [isHovered, isVideoReady]);
+  }, [isHovered]);
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -230,11 +233,10 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
               aria-hidden="true"
               tabIndex={-1}
-              onLoadedData={() => setIsVideoReady(true)}
-              onCanPlay={() => setIsVideoReady(true)}
+              onCanPlayThrough={() => setIsVideoReady(true)}
               className={cn(
                 "absolute inset-0 h-full w-full object-cover",
                 "transition-opacity duration-100 ease-out",
