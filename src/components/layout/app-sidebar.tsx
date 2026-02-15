@@ -15,6 +15,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -24,7 +25,7 @@ import { allCategories } from "@/data/registry";
 // import { dashboards } from "@/data/dashboards";
 // import { blocks } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
-import { memo, useMemo } from "react";
+import { memo, useEffect, useMemo } from "react";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 import { Socials } from "./socials";
@@ -122,6 +123,13 @@ function formatCategoryName(category: string): string {
 
 export function AppSidebar() {
   const location = useLocation();
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  useEffect(() => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  }, [isMobile, location.pathname, location.search, location.hash, setOpenMobile]);
 
   const quickStart = [
     { title: "Installation", url: "/installation" },

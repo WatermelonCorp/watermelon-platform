@@ -41,7 +41,7 @@ export default function BasicUsagePage() {
 
             <h3 className="font-medium mb-2">Step 2: Install via CLI</h3>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/button-01.json`}
             </CodeBlock>
 
             <h3 className="font-medium mb-2">Step 3: Import and use</h3>

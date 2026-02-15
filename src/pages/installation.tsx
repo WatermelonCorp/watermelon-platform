@@ -48,7 +48,7 @@ export default function InstallationPage() {
           </DocText>
 
           <CodeBlock language="bash">
-            {`npx shadcn@latest add https://registry.watermelon.sh/r/[component].json`}
+            {`npx shadcn@latest add https://registry.watermelon.sh/r/r/[component].json`}
           </CodeBlock>
         </DocSection>
 

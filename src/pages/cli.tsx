@@ -42,7 +42,7 @@ export default function CLIPage() {
           <div className="space-y-3">
             <h3 className="text-sm font-medium">Add a component</h3>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/button-01.json`}
             </CodeBlock>
           </div>
         </DocSection>
@@ -58,7 +58,7 @@ export default function CLIPage() {
               npm
             </span>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/[component].json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/[component].json`}
             </CodeBlock>
 
             <span className="text-xs font-medium text-muted-foreground">
@@ -86,13 +86,13 @@ export default function CLIPage() {
 
           <div className="space-y-3">
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/button-01.json`}
             </CodeBlock>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/alert-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/alert-01.json`}
             </CodeBlock>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/avatar-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/avatar-01.json`}
             </CodeBlock>
           </div>
         </DocSection>
