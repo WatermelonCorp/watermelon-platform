@@ -6,8 +6,8 @@ export const siteConfig = {
   name: "Watermelon UI",
   title: "Watermelon UI - High-Quality React Components Registry",
   description: "A collection of high-quality React components, dashboards, and UI blocks. Copy and paste production-ready UI with ease.",
-  url: "https://watermelon-ui.com",
-  ogImage: "https://watermelon-ui.com/og-image.png",
+  url: "https://ui.watermelon.sh",
+  ogImage: "https://ui.watermelon.sh/og-image.png",
   twitterHandle: "@watermelonui",
 };
 
@@ -44,7 +44,7 @@ export const generateOrganizationSchema = () => ({
   "logo": `${siteConfig.url}/logo.png`,
   "sameAs": [
     "https://github.com/watermeloncorp",
-    "https://twitter.com/watermelonui"
+    "https://twitter.com/watermelonshHQ"
   ],
 });
 

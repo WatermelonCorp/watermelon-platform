@@ -1,3 +1,5 @@
+import posthog from "posthog-js";
+
 type GtagFn = (...args: any[]) => void;
 
 declare global {
@@ -11,12 +13,31 @@ const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | und
 const POSTHOG_KEY =
   (import.meta.env.VITE_PUBLIC_POSTHOG_KEY as string | undefined) ??
   (import.meta.env.VITE_POSTHOG_KEY as string | undefined);
-const POSTHOG_HOST =
-  (import.meta.env.VITE_PUBLIC_POSTHOG_HOST as string | undefined) ??
-  (import.meta.env.VITE_POSTHOG_HOST as string | undefined) ??
-  "https://app.posthog.com";
 
-let posthogInitPromise: Promise<typeof import("posthog-js")["default"]> | null = null;
+function mapEventNameForPosthog(name: string) {
+  switch (name) {
+    case "outbound_click":
+    case "internal_link_click":
+      return "link_clicked";
+    case "view_search_results":
+      return "search_results_viewed";
+    case "scroll":
+      return "page_scrolled";
+    case "exception":
+      return "client_exception";
+    default:
+      return name;
+  }
+}
+
+function hasGtag() {
+  return typeof window !== "undefined" && typeof window.gtag === "function";
+}
+
+function isPosthogLoaded() {
+  const client = posthog as unknown as { __loaded?: boolean };
+  return client.__loaded === true;
+}
 
 export function loadGtag() {
   if (!GA_MEASUREMENT_ID) return;
@@ -39,48 +60,38 @@ export function loadGtag() {
 }
 
 export function trackGtagPageView(path: string) {
-  if (!GA_MEASUREMENT_ID) return;
-  if (!window.gtag) return;
+  if (!hasGtag()) return;
   const pageLocation = new URL(path, window.location.origin).toString();
-  window.gtag("event", "page_view", {
+  window.gtag?.("event", "page_view", {
     page_path: path,
     page_location: pageLocation,
   });
 }
 
-export async function loadPosthog() {
-  if (!POSTHOG_KEY) return null;
-  if (typeof window === "undefined") return null;
-  if (!posthogInitPromise) {
-    posthogInitPromise = import("posthog-js").then((mod) => {
-      mod.default.init(POSTHOG_KEY, {
-        api_host: POSTHOG_HOST,
-        capture_pageview: false,
-      });
-      return mod.default;
-    });
-  }
-  return posthogInitPromise;
-}
-
-export async function trackPosthogPageView(path: string) {
-  const posthog = await loadPosthog();
-  if (!posthog) return;
+export function trackPosthogPageView(path: string) {
+  if (!POSTHOG_KEY) return;
+  if (!isPosthogLoaded()) return;
   const pageLocation = new URL(path, window.location.origin).toString();
   posthog.capture("$pageview", { $current_url: pageLocation });
 }
 
 export function trackEvent(name: string, props: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
+  const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const enrichedProps: Record<string, unknown> = {
+    page_path: pagePath,
+    page_url: window.location.href,
+    page_title: document.title,
+    ...props,
+  };
 
-  if (GA_MEASUREMENT_ID) {
-    if (!window.gtag) loadGtag();
-    window.gtag?.("event", name, props);
+  if (GA_MEASUREMENT_ID || hasGtag()) {
+    if (!window.gtag && GA_MEASUREMENT_ID) loadGtag();
+    window.gtag?.("event", name, enrichedProps);
   }
 
   if (POSTHOG_KEY) {
-    void loadPosthog().then((posthog) => {
-      posthog?.capture(name, props);
-    });
+    if (!isPosthogLoaded()) return;
+    posthog.capture(mapEventNameForPosthog(name), enrichedProps);
   }
 }

@@ -7,45 +7,27 @@ import { DocCard, DocHeader, DocPage, DocSection, DocTable, DocText } from "@/co
 const frameworks = [
   {
     name: "Next.js",
-    version: "13+",
+    version: "14+",
     status: "full",
     notes: "Full support including App Router and Server Components",
   },
   {
-    name: "React",
-    version: "18+",
+    name: "Vite + React",
+    version: "5+",
     status: "full",
-    notes: "Full support with Vite, CRA, or custom setups",
+    notes: "Recommended setup — this is what Watermelon UI is built with",
   },
   {
     name: "Remix",
     version: "2+",
     status: "full",
-    notes: "Full support with proper hydration",
-  },
-  {
-    name: "Gatsby",
-    version: "5+",
-    status: "full",
-    notes: "Full support with SSG and SSR",
+    notes: "Full support with SSR hydration",
   },
   {
     name: "Astro",
-    version: "3+",
-    status: "partial",
-    notes: "Supported with React integration",
-  },
-  {
-    name: "Vue",
-    version: "3+",
-    status: "coming",
-    notes: "Coming soon - Vue port in development",
-  },
-  {
-    name: "Svelte",
     version: "4+",
-    status: "coming",
-    notes: "Coming soon - Svelte port planned",
+    status: "partial",
+    notes: "Supported with React integration (@astrojs/react)",
   },
 ];
 
@@ -77,20 +59,20 @@ export default function FrameworkSupportPage() {
     <>
       <SEOHead
         title="Framework Support"
-        description="Watermelon UI works with all major React frameworks including Next.js, Remix, Gatsby, Vite, and Astro. Check compatibility and setup guides."
-        keywords="Next.js, React, Vite, Remix, Gatsby, Astro, frameworks, compatibility"
+        description="Watermelon UI works with all major React frameworks including Next.js, Vite, Remix, and Astro. Check compatibility and setup guides."
+        keywords="Next.js, React, Vite, Remix, Astro, frameworks, compatibility"
       />
 
       <DocPage>
         <DocHeader
           title="Framework Support"
-          description="Watermelon UI components work with all major React frameworks."
+          description="Watermelon UI components work with any React-based framework that supports Tailwind CSS v4."
         />
 
         <DocSection>
           <DocTable>
             {/* table header */}
-            <div className="hidden md:grid grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-4 border-b bg-muted/40 text-sm font-medium">
+            <div className="hidden md:grid grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-2.5 border-b bg-background text-sm font-medium">
               <div>Framework</div>
               <div>Version</div>
               <div>Status</div>
@@ -101,7 +83,7 @@ export default function FrameworkSupportPage() {
               {frameworks.map((f, i) => (
                 <div
                   key={f.name}
-                  className={`grid grid-cols-1 md:grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-5 text-sm ${i % 2 === 0 ? "bg-background" : "bg-muted/20"
+                  className={`grid grid-cols-1 md:grid-cols-[1.2fr_0.6fr_0.8fr_2fr] gap-4 px-6 py-2 text-sm ${i % 2 !== 0 ? "bg-background" : "bg-muted/20"
                     }`}
                 >
                   <div className="font-medium">{f.name}</div>
@@ -116,16 +98,31 @@ export default function FrameworkSupportPage() {
           </DocTable>
         </DocSection>
 
+        <DocSection title="Vite Setup (Recommended)">
+          <DocText>
+            Watermelon UI is built with Vite + React. Use the Tailwind CSS v4 Vite plugin for the best experience:
+          </DocText>
+          <CodeBlock language="tsx">{`// vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});`}</CodeBlock>
+        </DocSection>
+
         <DocSection title="Next.js Setup">
           <DocText>
-            Recommended setup for Next.js 13+ with App Router.
+            For Next.js 14+ with App Router, install the Tailwind CSS v4 PostCSS plugin and configure your project:
           </DocText>
-          <CodeBlock language="tsx">{`// next.config.js
-module.exports = {
-  experimental: {
-    optimizePackageImports: ['motion'],
+          <CodeBlock language="bash">{`npm install tailwindcss @tailwindcss/postcss`}</CodeBlock>
+          <CodeBlock language="tsx">{`// postcss.config.mjs
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
   },
-}`}</CodeBlock>
+};`}</CodeBlock>
         </DocSection>
 
         <DocSection title="Requirements">
@@ -139,8 +136,9 @@ module.exports = {
                 Required
               </h3>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>React 18+</li>
-                <li>Tailwind CSS 3.4+</li>
+                <li>React 19+</li>
+                <li>Tailwind CSS v4</li>
+                <li>shadcn CLI initialized</li>
               </ul>
             </DocCard>
 
@@ -150,11 +148,13 @@ module.exports = {
                   icon={Tick01Icon}
                   className="size-4 text-blue-500"
                 />
-                Optional
+                Common Dependencies
               </h3>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>Motion</li>
+                <li>motion</li>
+                <li>class-variance-authority</li>
                 <li>next-themes</li>
+                <li>lucide-react</li>
               </ul>
             </DocCard>
           </div>

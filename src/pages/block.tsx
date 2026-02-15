@@ -148,6 +148,7 @@ export default function BlockPage() {
                   files={componentFiles}
                   dependencies={item.dependencies || []}
                   componentName={item.name}
+                  componentSlug={item.slug}
                 />
               </div>
             )}
@@ -332,6 +333,7 @@ export default function BlockPage() {
                         files={componentFiles}
                         dependencies={item.dependencies || []}
                         componentName={item.name}
+                        componentSlug={item.slug}
                       />
                     )}
                   </div>

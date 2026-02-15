@@ -7,14 +7,23 @@ import { trackEvent } from "@/lib/analytics";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 const PM_LIST = ["npm", "pnpm", "yarn", "bun"] as PackageManager[];
 
+type InstallTrackingContext = {
+  component_slug?: string;
+  component_name?: string;
+  category?: string;
+  source?: string;
+};
+
 export function ManualInstallationCmd({
   activePackageManager,
   setActivePackageManager,
   dependencies,
+  trackingContext,
 }: {
   activePackageManager: PackageManager;
   setActivePackageManager: (pm: PackageManager) => void;
   dependencies?: string[];
+  trackingContext?: InstallTrackingContext;
 }) {
   if (!dependencies || dependencies.length === 0) return null;
 
@@ -48,7 +57,11 @@ export function ManualInstallationCmd({
                 key={pm}
                 onClick={() => {
                   setActivePackageManager(pm);
-                  trackEvent("manual_pm_select", { package_manager: pm });
+                  trackEvent("manual_pm_select", {
+                    package_manager: pm,
+                    dependency_count: dependencies.length,
+                    ...trackingContext,
+                  });
                 }}
                 className={cn(
                   "relative px-3 py-1.5 text-sm font-medium rounded-md",
@@ -103,6 +116,7 @@ export function ManualInstallationCmd({
               package_manager: activePackageManager,
               command,
               dependency_count: dependencies.length,
+              ...trackingContext,
             });
           }}
           className="absolute right-2 top-2"

@@ -28,7 +28,7 @@ type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun';
 export function ComponentModal({ item, onClose }: ComponentModalProps) {
   // ALL HOOKS MUST BE CALLED BEFORE ANY EARLY RETURNS
   const isMobile = useIsMobile();
-  const [hasCopiedInstall, setHasCopiedInstall] = useState(false);
+
   const [demoCode, setDemoCode] = useState<string>('');
   const [componentCode, setComponentCode] = useState<string>('');
   const [reloadKey, setReloadKey] = useState(0);
@@ -54,15 +54,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   // Early return AFTER all hooks
   if (!item) return null;
 
-  const handleCopyInstall = async (cmd: string) => {
-    try {
-      await navigator.clipboard.writeText(cmd);
-      setHasCopiedInstall(true);
-      setTimeout(() => setHasCopiedInstall(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy', err);
-    }
-  };
+
 
   const handleReload = () => {
     setReloadKey(prev => prev + 1);
@@ -198,14 +190,25 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 activePackageManager={activePackageManager}
                 setActivePackageManager={setActivePackageManager}
                 item={item}
-                hasCopiedInstall={hasCopiedInstall}
-                handleCopyInstall={handleCopyInstall}
+
+                trackingContext={{
+                  component_slug: item.slug,
+                  component_name: item.name,
+                  category: item.category,
+                  source: "modal",
+                }}
               />
 
               <ManualInstallationCmd
                 activePackageManager={activePackageManager}
                 setActivePackageManager={setActivePackageManager}
                 dependencies={item.dependencies}
+                trackingContext={{
+                  component_slug: item.slug,
+                  component_name: item.name,
+                  category: item.category,
+                  source: "modal",
+                }}
               />
             </section>
 
@@ -358,6 +361,9 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                       files={componentFiles}
                       dependencies={item.dependencies || []}
                       componentName={item.name}
+                      componentSlug={item.slug}
+                      category={item.category}
+                      source="modal"
                     />
                   </div>
 
@@ -378,8 +384,13 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                                 activePackageManager={activePackageManager}
                                 setActivePackageManager={setActivePackageManager}
                                 item={item}
-                                hasCopiedInstall={hasCopiedInstall}
-                                handleCopyInstall={handleCopyInstall}
+
+                                trackingContext={{
+                                  component_slug: item.slug,
+                                  component_name: item.name,
+                                  category: item.category,
+                                  source: "modal",
+                                }}
                               />
                             </LayoutGroup>
                             {/* Import & use */}
@@ -404,6 +415,12 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                               activePackageManager={activePackageManager}
                               setActivePackageManager={setActivePackageManager}
                               dependencies={item.dependencies}
+                              trackingContext={{
+                                component_slug: item.slug,
+                                component_name: item.name,
+                                category: item.category,
+                                source: "modal",
+                              }}
                             />
                             {componentCode ? (
                               <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>

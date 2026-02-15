@@ -1,0 +1,27 @@
+---
+title: Draw Signature
+slug: draw-signature
+category: inputs
+description: A premium interactive signature component that captures fluid strokes with a custom pen cursor and step-based workflow.
+image: https://assets.watermelon.sh/components/draw_signature.webp
+video: https://assets.watermelon.sh/components/draw_signature.mp4
+featured: true
+featuredOrder: 0
+componentNumber: 18
+dependencies: ['motion', 'lucide-react', 'react-icons', 'next-themes']
+inspiredByName: nitishkmrk
+inspiredByLink: https://x.com/nitishkmrk
+install:
+  - npx shadcn@latest add https://registry.watermelon.sh/draw-signature.json
+---
+
+# Draw Signature
+
+A high-fidelity signature capture component designed for seamless user consent and authorization flows. It provides a tactile drawing experience that transitions between workflow states with elegant animations, creating a professional and polished signing process.
+
+- **Adaptive Signature Pad**: A touch-responsive canvas that captures fluid strokes with high precision, featuring a theme-aware custom pen cursor.
+- **Theme-Aware Experience**: Fully integrated with `next-themes`, automatically adjusting stroke colors and UI aesthetics for both light and dark modes.
+- **Animated Workflow States**: Leverages `AnimatePresence` and `layoutId` to smoothly morph between `idle`, `drawing`, and `done` states, maintaining visual continuity.
+- **Premium Interaction Design**: Built with sophisticated spring transitions (`stiffness: 400`, `damping: 30`) and tactile hover/tap states for a responsive, high-end experience.
+- **Effortless Clear & Redo**: Features smooth transitions for clearing the canvas and re-entering the drawing state, ensuring a friction-less user experience.
+- **Callback-Driven Export**: Automatically provides a high-resolution base64 data URL via the `onFinish` callback, making it easy to save or transmit signature data.

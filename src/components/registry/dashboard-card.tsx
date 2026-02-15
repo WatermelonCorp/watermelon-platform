@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { DashboardItem } from "@/data/dashboards";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -13,6 +13,18 @@ interface DashboardCardProps {
 
 export function DashboardCard({ item, onClick, trackType = "dashboard" }: DashboardCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+    if (isHovered && item.video && isVideoReady) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => { });
+      return;
+    }
+    videoRef.current.pause();
+  }, [isHovered, isVideoReady, item.video]);
 
   return (
     <div
@@ -105,21 +117,49 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
         />
 
         {/* Placeholder or image */}
-        <div className={cn(
-          "absolute inset-0 flex items-center justify-center",
-          "bg-linear-to-br from-muted via-muted to-muted/50"
-        )}>
+        <div
+          className={cn(
+            "absolute inset-0 flex items-center justify-center",
+            "bg-linear-to-br from-muted via-muted to-muted/50"
+          )}
+        >
           {item.image ? (
-            <img
-              src={item.image}
-              alt={`${item.name} preview`}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
+            <>
+              <img
+                src={item.image}
+                alt={`${item.name} preview`}
+                loading="lazy"
+                decoding="async"
+                className={cn(
+                  "w-full h-full object-cover transition-opacity duration-200",
+                  item.video && isHovered && isVideoReady ? "opacity-0" : "opacity-100"
+                )}
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+              {item.video && (
+                <>
+                  <video
+                    ref={videoRef}
+                    src={item.video}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    onLoadedData={() => setIsVideoReady(true)}
+                    onCanPlay={() => setIsVideoReady(true)}
+                    onLoadStart={() => setIsVideoReady(false)}
+                    className={cn(
+                      "absolute inset-0 h-full w-full object-cover transition-opacity duration-200",
+                      isHovered && isVideoReady ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </>
+              )}
+            </>
           ) : (
             <div className="text-center space-y-2 p-4">
               <div className="text-4xl">📊</div>

@@ -29,9 +29,11 @@ export function SEOHead({
 }: SEOHeadProps) {
   const fullTitle = title.includes('Watermelon UI') ? title : `${title} | Watermelon UI`;
   const envSiteUrl = (import.meta as any).env?.VITE_SITE_URL as string | undefined;
-  const fallbackOrigin = typeof window !== "undefined" ? window.location.origin : "https://watermelon-ui.com";
-  const siteUrl = envSiteUrl || fallbackOrigin;
-  const absoluteUrl = canonical || (typeof window !== "undefined" ? window.location.href : siteUrl);
+  const siteUrl = (envSiteUrl || "https://ui.watermelon.sh").replace(/\/$/, "");
+  const currentPath = typeof window !== "undefined"
+    ? `${window.location.pathname}${window.location.search}`
+    : "";
+  const absoluteUrl = canonical || `${siteUrl}${currentPath}`;
   const absoluteImage = image
     ? (image.startsWith('http') ? image : `${siteUrl}${image}`)
     : generateOgImageUrl({ title, description, category });
@@ -67,7 +69,7 @@ export function SEOHead({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImage} />
-      <meta name="twitter:site" content="@watermelonui" />
+      <meta name="twitter:site" content="@watermelonshHQ" />
 
       {/* Schema.org JSON-LD */}
       {schema && (
