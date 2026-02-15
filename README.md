@@ -120,7 +120,7 @@ dependencies:
 inspiredByName: Apple
 inspiredByLink: https://apple.com
 install:
-  - npx shadcn@latest add https://registry.watermelon.sh/my-button.json
+  - npx shadcn@latest add https://registry.watermelon.sh/r/my-button.json
 ---
 
 # My Button
