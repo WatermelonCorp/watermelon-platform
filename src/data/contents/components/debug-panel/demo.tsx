@@ -2,7 +2,6 @@
 
 import { DebugPanel } from "./index";
 
-
 export default function DebugPanelDemo() {
     return (
         <DebugPanel

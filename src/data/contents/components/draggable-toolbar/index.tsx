@@ -76,7 +76,7 @@ export const DraggableToolbar: React.FC<DraggableToolbarProps> = ({
         return () => unsubscribe();
     }, [isDragging, x, y]);
 
-    const handleDragEnd = (event: any, info: any) => {
+    const handleDragEnd = (_event: any, _info: any) => {
         setIsDragging(false);
         if (isOverTarget) {
             setIsVisible(false);
