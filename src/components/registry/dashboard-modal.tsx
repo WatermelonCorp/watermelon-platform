@@ -15,6 +15,7 @@ import { MobileRestriction } from '../mobile-restriction';
 import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
 import { PageHeader } from '../layout/page-header';
+import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -295,12 +296,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
           <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
             <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
               {/* Preview takes full available size or constraint */}
-              <div
-                className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
-                  viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
-                    'w-[375px] h-[812px] rounded-[2.5rem] border-4'
-                  }`}
-              >
+              <ResponsivePreviewFrame viewport={viewMode}>
                 <Suspense fallback={
                   <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                     <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
@@ -309,7 +305,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 }>
                   <item.component key={`${reloadKey}-${viewMode}`} />
                 </Suspense>
-              </div>
+              </ResponsivePreviewFrame>
             </TabsContent>
 
             <TabsContent value="code" className="absolute inset-0 flex">

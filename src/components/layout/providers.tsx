@@ -14,7 +14,13 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       <ScrollProgressProvider>
         <BrowserRouter>
           <Analytics />
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            enableColorScheme
+          >
             <TooltipProvider>
               <TooltipProviderAnimate>
                 <SidebarProvider>

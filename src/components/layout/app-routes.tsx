@@ -19,11 +19,10 @@ const CLIPage = lazy(() => import("@/pages/cli"));
 const TermsPage = lazy(() => import("@/pages/terms"));
 const PrivacyPage = lazy(() => import("@/pages/privacy"));
 const CopyrightPage = lazy(() => import("@/pages/copyright"));
-// const DashboardsPage = lazy(() => import("@/pages/dashboards"));
-// const DashboardPage = lazy(() => import("@/pages/dashboard"));
-// Coming Soon - disabled for now
-// const BlocksPage = lazy(() => import("@/pages/blocks"));
-// const BlockPage = lazy(() => import("@/pages/block"));
+const DashboardsPage = lazy(() => import("@/pages/dashboards"));
+const DashboardPage = lazy(() => import("@/pages/dashboard"));
+const BlocksPage = lazy(() => import("@/pages/blocks"));
+const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 
 export function AppRoutes() {
@@ -137,13 +136,41 @@ export function AppRoutes() {
           }
         />
 
-        {/* Dashboard pages - disabled, redirect to home */}
-        <Route path="/dashboards" element={<Navigate to="/" replace />} />
-        <Route path="/dashboard/:slug" element={<Navigate to="/" replace />} />
+        {/* Dashboard pages */}
+        <Route
+          path="/dashboards"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <DashboardsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/dashboard/:slug"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <DashboardPage />
+            </Suspense>
+          }
+        />
 
-        {/* Block pages - Coming Soon, redirect to home */}
-        <Route path="/blocks" element={<Navigate to="/" replace />} />
-        <Route path="/block/:slug" element={<Navigate to="/" replace />} />
+        {/* Block pages */}
+        <Route
+          path="/blocks"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <BlocksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/block/:slug"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <BlockPage />
+            </Suspense>
+          }
+        />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
