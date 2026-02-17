@@ -23,6 +23,26 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: "1.2.2",
+    date: "Feb 15, 2026",
+    stats: [
+      { label: "Total Components", count: 85, href: "/components" },
+    ],
+    sections: [
+      {
+        title: "Launch",
+        items: [
+          {
+            text: "Watermelon UI is now live with a comprehensive collection of React components."
+          },
+          {
+            text: "launched with 85+ components in the initial release."
+          }
+        ]
+      }
+    ]
+  },
+  {
     version: "1.2.1",
     date: "Feb 12, 2026",
     stats: [
