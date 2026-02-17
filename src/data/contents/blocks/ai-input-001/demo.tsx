@@ -1,19 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-import { AiInput, type Message } from '.'; 
+import { AiInput, type Message } from '.';
 
 export default function AiInputDemo() {
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
 
-  const handleSend = (text: string, modelId: string) => {
+  const handleSend = (text: string, _modelId: string) => {
 
     const userMsg: Message = {
       id: Date.now().toString(),
       text: text,
       sender: 'user'
     };
-    
+
     setChatMessages(prev => [...prev, userMsg]);
 
     setTimeout(() => {
@@ -28,11 +28,11 @@ export default function AiInputDemo() {
 
   return (
     <main>
-      <AiInput 
-        messages={chatMessages} 
+      <AiInput
+        messages={chatMessages}
         onSendMessage={handleSend}
-        backgroundText="AI Input 001" 
-        placeholder="How can I help you today?" 
+        backgroundText="AI Input 001"
+        placeholder="How can I help you today?"
       />
     </main>
   );

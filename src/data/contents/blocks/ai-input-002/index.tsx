@@ -67,7 +67,7 @@ const AiInputBar: React.FC<AiInputBarProps> = ({
     };
 
     return (
-        <div className="w-full max-w-[700px] px-3 sm:px-4 pb-4 sm:pb-12">
+        <div className="w-full max-w-[700px] px-3 sm:px-4 pb-4 sm:pb-24">
             <motion.div
                 layout
                 className="relative flex items-center bg-white dark:bg-zinc-900 rounded-2xl sm:rounded-[28px] p-1.5 sm:p-2 shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-gray-100/50 dark:border-zinc-800 transition-colors duration-200"
