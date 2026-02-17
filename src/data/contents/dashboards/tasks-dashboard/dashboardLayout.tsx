@@ -22,7 +22,7 @@ export default function TasksDashboardLayout({
     userAvatar
 }: DashboardLayoutProps) {
     return (
-        <div className={`flex h-[70dvh] w-full transition-colors font-sans duration-200 overflow-hidden ${isDarkMode ? 'dark:bg-[#0C0C0C] text-[#F2F2F2]' : 'bg-[#FFFFFF] text-[#1A1D23]'}`}>
+        <div className={`flex h-full w-full transition-colors font-sans duration-200 overflow-hidden ${isDarkMode ? 'dark:bg-[#0C0C0C] text-[#F2F2F2]' : 'bg-[#FFFFFF] text-[#1A1D23]'}`}>
 
             {/* Mobile Overlay */}
             <AnimatePresence>
