@@ -16,6 +16,7 @@ export interface DashboardItem {
   component: React.LazyExoticComponent<React.ComponentType<any>>;
   files: DashboardFile[];
   dependencies?: string[];
+  install?: string[];
   featured?: boolean;
   comingSoon?: boolean;
 }
@@ -83,6 +84,7 @@ export const dashboards: DashboardItem[] = Object.entries(mdxFiles)
       files: getDashboardFiles(slug),
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",
+      install: frontmatter.install || [],
     };
   })
   .filter((item): item is DashboardItem => item !== null)

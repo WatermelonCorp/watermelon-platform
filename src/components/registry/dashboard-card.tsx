@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import type { DashboardItem } from "@/data/dashboards";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowUpRight01Icon } from "@/lib/hugeicons";
+import { ArrowUpRight01Icon, ShadcnSquareIcon } from "@/lib/hugeicons";
 import { trackEvent } from "@/lib/analytics";
+import { CopyButton } from "../animate-ui/components/buttons/copy";
+import { Tooltip } from "../animate-ui/primitives/animate/tooltip";
+import { TooltipContent, TooltipTrigger } from "../animate-ui/components/animate/tooltip";
 
 interface DashboardCardProps {
   item: DashboardItem;
@@ -16,15 +19,58 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
   const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
+
+  const getImageSrcSet = (src: string) => {
+    if (!src.startsWith("http")) return undefined;
+    const url = new URL(src);
+    const supportsWidthParams =
+      url.hostname.includes("images.unsplash.com") ||
+      url.hostname.includes("assets.watermelon.sh");
+    if (!supportsWidthParams) return undefined;
+
+    const mk = (width: number) => {
+      const sized = new URL(src);
+      sized.searchParams.set("w", String(width));
+      sized.searchParams.set("q", "75");
+      sized.searchParams.set("format", "auto");
+      return `${sized.toString()} ${width}w`;
+    };
+
+    return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
+  };
+
   useEffect(() => {
-    if (!videoRef.current) return;
-    if (isHovered && item.video && isVideoReady) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => { });
-      return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Safari fix: ensure muted property is set on the DOM element
+    video.muted = true;
+
+    if (isHovered && item.video) {
+      video.currentTime = 0;
+      video.play().catch(() => { });
+    } else {
+      video.pause();
     }
-    videoRef.current.pause();
-  }, [isHovered, isVideoReady, item.video]);
+  }, [isHovered, item.video]);
+
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    try {
+      await navigator.clipboard.writeText(cliCommand);
+      trackEvent("install_command_copy", {
+        slug: item.slug,
+        name: item.name,
+        category: item.category,
+        command: cliCommand,
+        source: trackType === "block" ? "block_card" : "dashboard_card",
+      });
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
 
   return (
     <div
@@ -75,29 +121,47 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
           <span className="text-base font-semibold text-foreground truncate leading-tight">
             {item.name}
           </span>
-          <span className="text-xs text-foreground/70">
-            {item.files.length} files • {item.dependencies?.length || 0} dependencies
+          <span className="text-xs text-foreground/70 truncate capitalize">
+            {trackType === "block" ? `${item.files.length} files • ${item.category}` : item.category}
           </span>
         </div>
 
-        {/* Right: Status or View */}
-        {item.comingSoon ? (
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70">
-            Coming Soon
-          </span>
-        ) : (
-          <span
-            className={cn(
-              "flex items-center gap-0.5 text-xs font-medium text-muted-foreground",
-              "transition-all duration-200",
-              "opacity-0 translate-x-1",
-              "group-hover:opacity-100 group-hover:translate-x-0"
-            )}
-          >
-            View
-            <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-3.5 w-3.5" />
-          </span>
-        )}
+        {/* Right: Actions or Status */}
+        <div className="flex items-center gap-2 shrink-0">
+          {!item.comingSoon && (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <CopyButton
+                  variant="outline"
+                  onClick={handleCopy}
+                  icon={<HugeiconsIcon icon={ShadcnSquareIcon} />}
+                  content={cliCommand}
+                  ariaLabel={`Copy install command for ${item.name}`}
+                  className="group-hover:-translate-x-1 translate-x-10 transition-all duration-300 ease-in-out"
+                ></CopyButton>
+              </TooltipTrigger>
+              <TooltipContent>Copy CLI Command</TooltipContent>
+            </Tooltip>
+          )}
+
+          {item.comingSoon ? (
+            <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70">
+              Coming Soon
+            </span>
+          ) : (
+            <span
+              className={cn(
+                "flex items-center gap-0.5 text-xs font-medium text-muted-foreground",
+                "transition-all duration-200",
+                "opacity-0 translate-x-1",
+                "group-hover:opacity-100 group-hover:translate-x-0"
+              )}
+            >
+              View
+              <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-3.5 w-3.5" />
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Preview */}
@@ -120,70 +184,52 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
         <div
           className={cn(
             "absolute inset-0 flex items-center justify-center",
-            "bg-linear-to-br from-muted via-muted to-muted/50"
+            "bg-neutral-50 dark:bg-neutral-900"
           )}
         >
           {item.image ? (
             <>
               <img
                 src={item.image}
+                srcSet={getImageSrcSet(item.image)}
+                sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
                 alt={`${item.name} preview`}
                 loading="lazy"
                 decoding="async"
                 className={cn(
-                  "w-full h-full object-cover transition-opacity duration-200",
-                  item.video && isHovered && isVideoReady ? "opacity-0" : "opacity-100"
+                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ease-out",
+                  item.video && isHovered ? "opacity-0" : "opacity-100"
                 )}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                 }}
               />
               {item.video && (
-                <>
-                  <video
-                    ref={videoRef}
-                    src={item.video}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                    onLoadedData={() => setIsVideoReady(true)}
-                    onCanPlay={() => setIsVideoReady(true)}
-                    onLoadStart={() => setIsVideoReady(false)}
-                    className={cn(
-                      "absolute inset-0 h-full w-full object-cover transition-opacity duration-200",
-                      isHovered && isVideoReady ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                </>
+                <video
+                  ref={videoRef}
+                  src={item.video}
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  aria-hidden="true"
+                  tabIndex={-1}
+                  onCanPlayThrough={() => setIsVideoReady(true)}
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-cover transition-opacity duration-200 ease-out",
+                    isHovered && isVideoReady ? "opacity-100" : "opacity-0"
+                  )}
+                />
               )}
             </>
           ) : (
             <div className="text-center space-y-2 p-4">
-              <div className="text-4xl">📊</div>
-              <p className="text-sm text-muted-foreground font-medium">{item.name}</p>
+              <div className="text-4xl">{trackType === "block" ? "🧩" : "📊"}</div>
+              <p className="text-sm text-neutral-500 font-medium">{item.name}</p>
             </div>
           )}
         </div>
 
-        {/* Hover overlay */}
-        {!item.comingSoon && (
-          <div
-            className={cn(
-              "absolute inset-0 bg-black/40 flex items-center justify-center",
-              "transition-opacity duration-300",
-              isHovered ? "opacity-100" : "opacity-0",
-              "z-20"
-            )}
-          >
-            <span className="text-white font-medium text-sm flex items-center gap-1">
-              View Dashboard
-              <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-4 w-4" />
-            </span>
-          </div>
-        )}
       </div>
 
       {/* Description */}
