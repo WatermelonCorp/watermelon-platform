@@ -28,13 +28,21 @@ export default function CLIPage() {
         <DocSection title="Quick Start">
           <DocText>
             Watermelon UI uses the shadcn CLI for component installation.
-            No additional setup is required.
+            No additional setup is required — just make sure you have
+            initialized shadcn in your project.
           </DocText>
+
+          <div className="space-y-3">
+            <h3 className="text-sm font-medium">Initialize shadcn (if not already done)</h3>
+            <CodeBlock language="bash">
+              {`npx shadcn@latest init`}
+            </CodeBlock>
+          </div>
 
           <div className="space-y-3">
             <h3 className="text-sm font-medium">Add a component</h3>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/button-01.json`}
             </CodeBlock>
           </div>
         </DocSection>
@@ -50,7 +58,7 @@ export default function CLIPage() {
               npm
             </span>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/[component].json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/[component].json`}
             </CodeBlock>
 
             <span className="text-xs font-medium text-muted-foreground">
@@ -60,12 +68,6 @@ export default function CLIPage() {
               {`pnpm dlx shadcn@latest add https://registry.watermelon.sh/r/[component].json`}
             </CodeBlock>
 
-            <span className="text-xs font-medium text-muted-foreground">
-              yarn
-            </span>
-            <CodeBlock language="bash">
-              {`yarn dlx shadcn@latest add https://registry.watermelon.sh/r/[component].json`}
-            </CodeBlock>
             <span className="text-xs font-medium text-muted-foreground">
               bun
             </span>
@@ -84,16 +86,13 @@ export default function CLIPage() {
 
           <div className="space-y-3">
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/button-01.json`}
             </CodeBlock>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/alert-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/alert-01.json`}
             </CodeBlock>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/avatar-01.json`}
-            </CodeBlock>
-            <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/analytics-dashboard.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/avatar-01.json`}
             </CodeBlock>
           </div>
         </DocSection>
@@ -124,7 +123,7 @@ export default function CLIPage() {
               <div>
                 <p className="font-medium">Dependencies</p>
                 <p className="text-sm text-muted-foreground">
-                  Required npm packages are automatically installed.
+                  Required npm packages (e.g. <code>motion</code>, <code>class-variance-authority</code>, <code>lucide-react</code>) are automatically installed.
                 </p>
               </div>
             </div>
@@ -168,7 +167,7 @@ export default function CLIPage() {
 
             <DocCard>
               <h3 className="font-medium mb-1">
-                Missing Tailwind config
+                Missing configuration
               </h3>
               <DocText>
                 Run <code>npx shadcn@latest init</code> to set up the base

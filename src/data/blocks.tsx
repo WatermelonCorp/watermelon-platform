@@ -12,9 +12,11 @@ export interface BlockItem {
   category: string;
   description: string;
   image: string;
+  video?: string;
   component: React.LazyExoticComponent<React.ComponentType<any>>;
   files: BlockFile[];
   dependencies?: string[];
+  install?: string[];
   featured?: boolean;
   comingSoon?: boolean;
 }
@@ -82,6 +84,7 @@ export const blocks: BlockItem[] = Object.entries(mdxFiles)
       files: getBlockFiles(slug),
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",
+      install: frontmatter.install || [],
     };
   })
   .filter((item): item is BlockItem => item !== null)

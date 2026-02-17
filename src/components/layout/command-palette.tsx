@@ -12,8 +12,9 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/registry';
-import { dashboards } from '@/data/dashboards';
+// import { dashboards } from '@/data/dashboards';
 import { HugeiconsIcon } from '@hugeicons/react';
+import { trackEvent } from '@/lib/analytics';
 import {
   Home01Icon,
   Book02Icon,
@@ -22,16 +23,21 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  SidebarLeft01Icon,
+  // SidebarLeft01Icon,
 } from '@/lib/hugeicons';
 
 // Page navigation items
 const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
+  { name: 'Components', href: '/components', icon: Home01Icon, shortcut: 'C' },
   { name: 'Basic Usage', href: '/basic-usage', icon: Book02Icon, shortcut: 'B' },
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
-  { name: 'CLI', href: '/cli', icon: CommandIcon, shortcut: 'C' },
+  { name: 'CLI', href: '/cli', icon: CommandIcon, shortcut: 'L' },
+  { name: 'Changelog', href: '/changelog', icon: CommandIcon, shortcut: 'G' },
+  { name: 'Terms', href: '/terms', icon: Book02Icon, shortcut: 'T' },
+  { name: 'Privacy', href: '/privacy', icon: Book02Icon, shortcut: 'P' },
+  { name: 'Copyright', href: '/copyright', icon: Book02Icon, shortcut: 'R' },
 ];
 
 export function CommandPalette() {
@@ -43,7 +49,13 @@ export function CommandPalette() {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen((currentOpen) => {
+          const nextOpen = !currentOpen;
+          if (nextOpen) {
+            trackEvent('command_palette_open', { source: 'keyboard' });
+          }
+          return nextOpen;
+        });
       }
     };
 
@@ -53,6 +65,7 @@ export function CommandPalette() {
 
   // Navigate and close
   const runCommand = useCallback((command: () => void) => {
+    trackEvent('command_palette_select');
     setOpen(false);
     command();
   }, []);
@@ -70,7 +83,10 @@ export function CommandPalette() {
     <>
       {/* Trigger Button */}
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          trackEvent('command_palette_open', { source: 'button' });
+          setOpen(true);
+        }}
         className="group flex h-10 items-center lg:w-90 justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
       >
         <div className="flex items-center gap-2">
@@ -125,9 +141,8 @@ export function CommandPalette() {
               </CommandGroup>
             ))}
 
-            <CommandSeparator />
-
-            {/* Dashboards */}
+            {/* Dashboards disabled */}
+            {/* <CommandSeparator />
             <CommandGroup heading="Dashboards">
               {dashboards.map((dashboard) => (
                 <CommandItem
@@ -143,7 +158,7 @@ export function CommandPalette() {
                   )}
                 </CommandItem>
               ))}
-            </CommandGroup>
+            </CommandGroup> */}
           </CommandList>
         </Command>
       </CommandDialog>

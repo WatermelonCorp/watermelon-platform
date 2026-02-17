@@ -15,7 +15,7 @@ export default function BasicUsagePage() {
       <SEOHead
         title="Basic Usage"
         description="Learn how to use Watermelon UI components in your React projects. Copy-paste ready components with AI-powered prompts."
-        keywords="react components, usage, copy-paste, tailwind, AI prompts, cursor, copilot"
+        keywords="react components, usage, copy-paste, tailwind, AI prompts, cursor, V0, lovable, bolt"
       />
 
       <DocPage>
@@ -39,13 +39,10 @@ export default function BasicUsagePage() {
               Browse the components section and preview different variants.
             </DocText>
 
-
-
             <h3 className="font-medium mb-2">Step 2: Install via CLI</h3>
             <CodeBlock language="bash">
-              {`npx shadcn@latest add https://registry.watermelon.sh/r/button-01.json`}
+              {`npx shadcn@latest add https://registry.watermelon.sh/r/r/button-01.json`}
             </CodeBlock>
-
 
             <h3 className="font-medium mb-2">Step 3: Import and use</h3>
             <CodeBlock language="tsx">
@@ -66,29 +63,29 @@ export default function MyComponent() {
         <DocSection title="AI-Powered Prompts">
           <DocText>
             Every component includes optimized prompts for popular AI coding
-            assistants. Click the AI icon to copy a tailored prompt for:
+            assistants. Click the AI icon on any component to copy a tailored prompt for:
           </DocText>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <DocCard className="text-center">
               <img
-                src="/brand/claude-logo.webp"
-                className="size-10 mx-auto"
-                alt="Claude AI logo"
+                src="/brand/v0-logo-icon.png"
+                className="size-10 mx-auto dark:invert-0 invert"
+                alt="V0 logo"
                 loading="lazy"
                 width={40}
                 height={40}
               />
-              <h3 className="mt-2 font-medium">Claude</h3>
+              <h3 className="mt-2 font-medium">V0</h3>
               <p className="text-sm text-muted-foreground">
-                Anthropic&apos;s AI
+                Vercel&apos;s AI
               </p>
             </DocCard>
 
             <DocCard className="text-center">
               <img
                 src="/brand/cursor-logo-icon.png"
-                className="size-10 mx-auto"
+                className="size-10 mx-auto dark:invert"
                 alt="Cursor editor logo"
                 loading="lazy"
                 width={40}
@@ -102,16 +99,31 @@ export default function MyComponent() {
 
             <DocCard className="text-center">
               <img
-                src="/brand/githubcopilot.png"
+                src="/brand/lovable-logo-icon.svg"
                 className="size-10 mx-auto"
-                alt="GitHub Copilot logo"
+                alt="Lovable logo"
                 loading="lazy"
                 width={40}
                 height={40}
               />
-              <h3 className="mt-2 font-medium">Copilot</h3>
+              <h3 className="mt-2 font-medium">Lovable</h3>
               <p className="text-sm text-muted-foreground">
-                GitHub&apos;s assistant
+                AI builder
+              </p>
+            </DocCard>
+
+            <DocCard className="text-center">
+              <img
+                src="/brand/bolt-logo-icon.png"
+                className="size-10 mx-auto dark:invert"
+                alt="Bolt logo"
+                loading="lazy"
+                width={40}
+                height={40}
+              />
+              <h3 className="mt-2 font-medium">Bolt</h3>
+              <p className="text-sm text-muted-foreground">
+                StackBlitz AI
               </p>
             </DocCard>
           </div>
@@ -135,20 +147,22 @@ export default function MyComponent() {
         {/* Dark Mode */}
         <DocSection title="Dark Mode">
           <DocText>
-            All components support dark mode out of the box. Enable it in
-            your app using one of the following approaches:
+            All components support dark mode out of the box. Enable it using
+            <code> next-themes</code> or by toggling the <code>dark</code> class:
           </DocText>
 
           <CodeBlock language="tsx">
-            {`// Add dark class to html element
-<html className="dark">
-
-// Or use next-themes
+            {`// Using next-themes (recommended)
 import { ThemeProvider } from "next-themes";
 
 <ThemeProvider attribute="class">
   <App />
-</ThemeProvider>`}
+</ThemeProvider>
+
+// Or toggle the dark class manually
+<html className="dark">
+  ...
+</html>`}
           </CodeBlock>
         </DocSection>
       </DocPage>

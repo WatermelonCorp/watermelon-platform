@@ -9,16 +9,21 @@ import { PageLayout } from "@/components/layout/page-layout";
 import { HomePageSkeleton, ComponentPageSkeleton, DocPageSkeleton } from "@/components/skeletons";
 
 const HomePage = lazy(() => import("@/pages/home"));
+const ComponentsPage = lazy(() => import("@/pages/components"));
 const ComponentPage = lazy(() => import("@/pages/component"));
 const CategoryPage = lazy(() => import("@/pages/category"));
 const BasicUsagePage = lazy(() => import("@/pages/basic-usage"));
 const InstallationPage = lazy(() => import("@/pages/installation"));
 const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
 const CLIPage = lazy(() => import("@/pages/cli"));
+const TermsPage = lazy(() => import("@/pages/terms"));
+const PrivacyPage = lazy(() => import("@/pages/privacy"));
+const CopyrightPage = lazy(() => import("@/pages/copyright"));
 const DashboardsPage = lazy(() => import("@/pages/dashboards"));
 const DashboardPage = lazy(() => import("@/pages/dashboard"));
 const BlocksPage = lazy(() => import("@/pages/blocks"));
 const BlockPage = lazy(() => import("@/pages/block"));
+const ChangelogPage = lazy(() => import("@/pages/changelog"));
 
 export function AppRoutes() {
   const isComponentPage = useMatch("/components/:slug");
@@ -32,6 +37,15 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <HomePage />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/components"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <ComponentsPage />
             </Suspense>
           }
         />
@@ -89,6 +103,38 @@ export function AppRoutes() {
             </Suspense>
           }
         />
+        <Route
+          path="/changelog"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <ChangelogPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <TermsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <PrivacyPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/copyright"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <CopyrightPage />
+            </Suspense>
+          }
+        />
 
         {/* Dashboard pages */}
         <Route
@@ -102,7 +148,7 @@ export function AppRoutes() {
         <Route
           path="/dashboard/:slug"
           element={
-            <Suspense fallback={<ComponentPageSkeleton />}>
+            <Suspense fallback={<DocPageSkeleton />}>
               <DashboardPage />
             </Suspense>
           }
@@ -120,7 +166,7 @@ export function AppRoutes() {
         <Route
           path="/block/:slug"
           element={
-            <Suspense fallback={<ComponentPageSkeleton />}>
+            <Suspense fallback={<DocPageSkeleton />}>
               <BlockPage />
             </Suspense>
           }

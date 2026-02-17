@@ -14,6 +14,8 @@ import { motion } from 'framer-motion';
 import { MobileRestriction } from '../mobile-restriction';
 import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
+import { PageHeader } from '../layout/page-header';
+import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -136,7 +138,6 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
 
               <TabsContent value="code" className="absolute inset-0 flex flex-col">
                 {/* File Explorer - Horizontal on mobile */}
-                {/* File Explorer - Horizontal on mobile */}
                 <FileExplorer
                   files={item.files.map((f): FileItem => ({ name: f.name, type: 'file' }))}
                   selectedFile={selectedFile}
@@ -192,7 +193,25 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
         <div className="flex items-center justify-between px-6 py-3 border-b bg-background shrink-0">
           <div className="flex items-center gap-4 flex-1 min-w-0">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <PageHeader
+              variant="pill"
+              items={[
+                { label: 'Dashboards', href: '/dashboards' },
+                { label: item.name }
+              ]}
+              action={
+                <Link
+                  to={`/dashboard/${item.slug}`}
+                  onClick={onClose}
+                  aria-label={`Open ${item.name} full page`}
+                  className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors"
+                  title="Full Page"
+                >
+                  <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
+                </Link>
+              }
+            />
+            {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span className="shrink-0">Dashboards</span>
               <span className="shrink-0">/</span>
               <span className="text-foreground font-medium truncate">{item.name}</span>
@@ -204,7 +223,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
               >
                 <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <button
@@ -277,12 +296,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
           <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
             <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
               {/* Preview takes full available size or constraint */}
-              <div
-                className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
-                  viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
-                    'w-[375px] h-[812px] rounded-[2.5rem] border-4'
-                  }`}
-              >
+              <ResponsivePreviewFrame viewport={viewMode}>
                 <Suspense fallback={
                   <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                     <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
@@ -291,7 +305,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 }>
                   <item.component key={`${reloadKey}-${viewMode}`} />
                 </Suspense>
-              </div>
+              </ResponsivePreviewFrame>
             </TabsContent>
 
             <TabsContent value="code" className="absolute inset-0 flex">

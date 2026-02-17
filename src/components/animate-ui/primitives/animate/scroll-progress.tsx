@@ -49,6 +49,20 @@ function ScrollProgressProvider({
   const progress = direction === 'vertical' ? scrollYProgress : scrollXProgress;
   const scale = useSpring(progress, transition);
 
+  React.useEffect(() => {
+    requestAnimationFrame(() => {
+      const el = global ? document.documentElement : containerRef.current;
+      if (el) {
+        const scrollPos = direction === 'vertical' ? el.scrollTop : el.scrollLeft;
+        const scrollSize = direction === 'vertical'
+          ? el.scrollHeight - el.clientHeight
+          : el.scrollWidth - el.clientWidth;
+        const correctProgress = scrollSize > 0 ? scrollPos / scrollSize : 0;
+        scale.jump(correctProgress);
+      }
+    });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <LocalScrollProgressProvider
       value={{
@@ -77,10 +91,38 @@ function ScrollProgress({
   asChild = false,
   ...props
 }: ScrollProgressProps) {
-  const { scale, direction, global } = useScrollProgress();
+  const { scale, direction, global, containerRef } = useScrollProgress();
   const scaleValue = useMotionValueState(scale);
+  const [isScrollable, setIsScrollable] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = global ? document.documentElement : containerRef.current;
+    if (!el) return;
+
+    const check = () => {
+      const scrollable = direction === 'vertical'
+        ? el.scrollHeight > el.clientHeight
+        : el.scrollWidth > el.clientWidth;
+      setIsScrollable(scrollable);
+    };
+
+    check();
+
+    const ro = new ResizeObserver(check);
+    ro.observe(el);
+    // Also observe children changes
+    if (!global && containerRef.current) {
+      for (const child of Array.from(containerRef.current.children)) {
+        ro.observe(child);
+      }
+    }
+
+    return () => ro.disconnect();
+  }, [global, containerRef, direction]);
 
   const Component = asChild ? Slot : motion.div;
+
+  if (!isScrollable) return null;
 
   return (
     <Component
@@ -91,11 +133,11 @@ function ScrollProgress({
       style={{
         ...(mode === 'width' || mode === 'height'
           ? {
-              [mode]: scaleValue * 100 + '%',
-            }
+            [mode]: scaleValue * 100 + '%',
+          }
           : {
-              [mode]: scale,
-            }),
+            [mode]: scale,
+          }),
         ...style,
       }}
       {...props}

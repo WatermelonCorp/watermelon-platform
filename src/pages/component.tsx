@@ -36,7 +36,7 @@ export default function ComponentPage() {
   const [reloadKey, setReloadKey] = useState(0);
   const [activePackageManager, setActivePackageManager] =
     useState<PackageManager>("npm");
-  const [hasCopiedInstall, setHasCopiedInstall] = useState(false);
+
   const [isCodeOpen, setIsCodeOpen] = useState(false);
 
   useEffect(() => {
@@ -65,15 +65,7 @@ export default function ComponentPage() {
       ? [{ name: `${item.slug}.tsx`, content: componentCode }]
       : []),
   ];
-  const handleCopyInstall = async (cmd: string) => {
-    try {
-      await navigator.clipboard.writeText(cmd);
-      setHasCopiedInstall(true);
-      setTimeout(() => setHasCopiedInstall(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy', err);
-    }
-  };
+
 
   return (
     <>
@@ -81,6 +73,7 @@ export default function ComponentPage() {
         title={item.name}
         description={item.description}
         image={item.image}
+        category={item.category}
       />
 
       {/* ================= MOBILE ================= */}
@@ -157,6 +150,9 @@ export default function ComponentPage() {
                 files={componentFiles}
                 dependencies={item.dependencies || []}
                 componentName={item.name}
+                componentSlug={item.slug}
+                category={item.category}
+                source="page"
               />
             </div>
 
@@ -198,8 +194,13 @@ export default function ComponentPage() {
                           activePackageManager={activePackageManager}
                           setActivePackageManager={setActivePackageManager}
                           item={item}
-                          hasCopiedInstall={hasCopiedInstall}
-                          handleCopyInstall={handleCopyInstall}
+
+                          trackingContext={{
+                            component_slug: item.slug,
+                            component_name: item.name,
+                            category: item.category,
+                            source: "page",
+                          }}
                         />
                       </LayoutGroup>
                       {/* Import & use */}
@@ -224,6 +225,12 @@ export default function ComponentPage() {
                         activePackageManager={activePackageManager}
                         setActivePackageManager={setActivePackageManager}
                         dependencies={item.dependencies}
+                        trackingContext={{
+                          component_slug: item.slug,
+                          component_name: item.name,
+                          category: item.category,
+                          source: "page",
+                        }}
                       />
                       {componentCode ? (
                         <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
@@ -290,6 +297,12 @@ export default function ComponentPage() {
                   activePackageManager={activePackageManager}
                   setActivePackageManager={setActivePackageManager}
                   dependencies={item.dependencies}
+                  trackingContext={{
+                    component_slug: item.slug,
+                    component_name: item.name,
+                    category: item.category,
+                    source: "page",
+                  }}
                 />
 
                 {/* DEMO CODE — MOBILE SAFE */}
@@ -390,6 +403,9 @@ export default function ComponentPage() {
                     files={componentFiles}
                     dependencies={item.dependencies || []}
                     componentName={item.name}
+                    componentSlug={item.slug}
+                    category={item.category}
+                    source="page"
                   />
                 </div>
 
@@ -410,8 +426,13 @@ export default function ComponentPage() {
                               activePackageManager={activePackageManager}
                               setActivePackageManager={setActivePackageManager}
                               item={item}
-                              hasCopiedInstall={hasCopiedInstall}
-                              handleCopyInstall={handleCopyInstall}
+
+                              trackingContext={{
+                                component_slug: item.slug,
+                                component_name: item.name,
+                                category: item.category,
+                                source: "page",
+                              }}
                             />
                           </LayoutGroup>
                           {/* Import & use */}
@@ -436,6 +457,12 @@ export default function ComponentPage() {
                             activePackageManager={activePackageManager}
                             setActivePackageManager={setActivePackageManager}
                             dependencies={item.dependencies}
+                            trackingContext={{
+                              component_slug: item.slug,
+                              component_name: item.name,
+                              category: item.category,
+                              source: "page",
+                            }}
                           />
                           {componentCode ? (
                             <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>

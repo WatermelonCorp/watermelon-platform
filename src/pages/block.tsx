@@ -16,6 +16,7 @@ import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
 import { MobileRestriction } from '@/components/mobile-restriction';
 import { trackEvent } from '@/lib/analytics';
+import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
 
 export default function BlockPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -148,6 +149,7 @@ export default function BlockPage() {
                   files={componentFiles}
                   dependencies={item.dependencies || []}
                   componentName={item.name}
+                  componentSlug={item.slug}
                 />
               </div>
             )}
@@ -292,12 +294,7 @@ export default function BlockPage() {
               {/* Preview Tab */}
               <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
                 {/* Preview takes full available size or constraint */}
-                <div
-                  className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
-                    viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
-                      'w-[375px] h-[812px] rounded-[2.5rem] border-4'
-                    }`}
-                >
+                <ResponsivePreviewFrame viewport={viewMode}>
                   <Suspense fallback={
                     <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                       <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
@@ -306,7 +303,7 @@ export default function BlockPage() {
                   }>
                     <item.component key={`${reloadKey}-${viewMode}`} />
                   </Suspense>
-                </div>
+                </ResponsivePreviewFrame>
               </TabsContent>
 
               {/* Source Code Tab */}
@@ -332,6 +329,7 @@ export default function BlockPage() {
                         files={componentFiles}
                         dependencies={item.dependencies || []}
                         componentName={item.name}
+                        componentSlug={item.slug}
                       />
                     )}
                   </div>

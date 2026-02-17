@@ -31,7 +31,6 @@ export function CodeBlock({
     oneDark: Record<string, any>;
     oneLight: Record<string, any>;
   } | null>(null);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -100,18 +99,6 @@ export function CodeBlock({
     };
   }, []);
 
-  const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(children?.trim() || "");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-    trackEvent("code_copy", {
-      language,
-      title: title || language,
-      char_count: children?.trim()?.length || 0,
-      source: "code_block",
-    });
-  };
-
   return (
     <div
       className={cn(
@@ -140,8 +127,16 @@ export function CodeBlock({
 
         <CopyButton
           content={children}
-          copied={copied}
-          onCopiedChange={copyToClipboard}
+          onCopiedChange={(copied) => {
+            if (copied) {
+              trackEvent("code_copy", {
+                language,
+                title: title || language,
+                char_count: children?.trim()?.length || 0,
+                source: "code_block",
+              });
+            }
+          }}
           size="sm"
           variant="secondary"
           className="h-7 px-2 text-xs"

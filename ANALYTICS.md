@@ -61,6 +61,23 @@ Events are sent to **both GA4 and PostHog** via `trackEvent()`:
 - `dashboard_card_click`
 - `block_card_click`
 
+**Automatic Site-Wide Events**
+The app now also auto-tracks these on all pages:
+- `outbound_click` (external link clicks)
+- `internal_link_click` (in-app and same-origin link clicks)
+- `form_submit` (all form submissions)
+- `view_search_results` (when URL contains `q`, `query`, `search`, or `term`)
+- `scroll` at `50%` and `90%` depth
+- `exception` (runtime errors and unhandled promise rejections)
+- `command_palette_open` and `command_palette_select`
+
+### PostHog Event Model
+For cleaner product analytics in PostHog, GA-style names are normalized:
+- `outbound_click` / `internal_link_click` -> `link_clicked`
+- `view_search_results` -> `search_results_viewed`
+- `scroll` -> `page_scrolled`
+- `exception` -> `client_exception`
+
 ---
 
 ## Verification Checklist

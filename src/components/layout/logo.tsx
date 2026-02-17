@@ -15,7 +15,11 @@ const Logo = () => {
           className="h-6 w-6"
         />
       </div>
-      <span className="font-medium">Watermelon UI</span>
+      <div className="flex gap-0.5 flex-col items-start">
+
+        <span className="font-medium hidden md:block text-xs">Watermelon UI</span>
+        <div className="text-[10px] rounded px-1 py-[0.5px] bg-primary text-white ">beta</div>
+      </div>
     </Link>
   )
 }

@@ -15,6 +15,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -24,7 +25,7 @@ import { allCategories } from "@/data/registry";
 import { dashboards } from "@/data/dashboards";
 import { blocks } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
-import { memo, useMemo } from "react";
+import { memo, useEffect, useMemo } from "react";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 import { Socials } from "./socials";
@@ -33,7 +34,7 @@ import { Socials } from "./socials";
 const NavItem = memo(function NavItem({
   title,
   url,
-  isActive
+  isActive,
 }: {
   title: string;
   url: string;
@@ -41,10 +42,15 @@ const NavItem = memo(function NavItem({
 }) {
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton asChild size="lg" isActive={isActive}>
+      <SidebarMenuButton
+        asChild
+        size="default"
+        isActive={isActive}
+        className="h-6 md:h-5 px-2.5"
+      >
         <Link
           to={url}
-          className="text-muted-foreground hover:text-foreground"
+          className="text-muted-foreground hover:text-foreground text-xs"
         >
           {title}
         </Link>
@@ -60,33 +66,41 @@ const NavSection = memo(function NavSection({
   defaultOpen = false,
   pathname,
   titleLink,
+  indentItems = false,
 }: {
   title: string;
   items: { title: string; url: string }[];
   defaultOpen?: boolean;
   pathname: string;
   titleLink?: string;
+  indentItems?: boolean;
 }) {
   return (
     <SidebarGroup>
       <Collapsible defaultOpen={defaultOpen}>
-        <CollapsibleTrigger className="w-full min-h-12">
+        <CollapsibleTrigger className="w-full min-h-8">
           {titleLink ? (
-            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-3 min-h-12">
-              <Link to={titleLink} className="w-full text-start block py-3">
+            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1.5 min-h-8">
+              <Link to={titleLink} className="w-full text-start block py-1.5">
                 <span className="font-semibold inline-block w-[80%]">{title}</span>
               </Link>
               <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="transition-transform" />
             </SidebarGroupLabel>
           ) : (
-            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-3 min-h-12">
+            <SidebarGroupLabel className="flex items-center justify-between cursor-pointer hover:bg-accent rounded-md px-2 py-1.5 min-h-8">
               <span className="font-semibold">{title}</span>
               <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="transition-transform" />
             </SidebarGroupLabel>
           )}
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <SidebarMenu className="mt-1">
+          <SidebarMenu
+            className={
+              indentItems
+                ? "mt-1 ml-2 border-l border-border/60 pl-2"
+                : "mt-1"
+            }
+          >
             {items.map((item) => (
               <NavItem
                 key={item.title}
@@ -109,12 +123,26 @@ function formatCategoryName(category: string): string {
 
 export function AppSidebar() {
   const location = useLocation();
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  useEffect(() => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  }, [isMobile, location.pathname, location.search, location.hash, setOpenMobile]);
 
   const quickStart = [
     { title: "Installation", url: "/installation" },
     { title: "Basic Usage", url: "/basic-usage" },
     { title: "Framework Support", url: "/framework-support" },
     { title: "CLI", url: "/cli" },
+    { title: "Changelog", url: "/changelog" },
+  ];
+
+  const legalLinks = [
+    { title: "Terms", url: "/terms" },
+    { title: "Privacy", url: "/privacy" },
+    { title: "Copyright", url: "/copyright" },
   ];
 
   // Generate component categories from registry
@@ -135,13 +163,6 @@ export function AppSidebar() {
     []
   );
 
-  const templates = [
-    { title: "React", url: "/templates/react" },
-    { title: "Next.js", url: "/templates/nextjs" },
-    { title: "Vue", url: "/templates/vue" },
-    { title: "Svelte", url: "/templates/svelte" },
-  ];
-
   // Generate dashboard items from registry
   const dashboardItems = useMemo(() =>
     dashboards.map((dashboard) => ({
@@ -153,7 +174,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="inset">
-      <SidebarHeader className="p-4">
+      <SidebarHeader className="p-3">
         <div className="flex items-center justify-between rounded-lg px-2 py-1 hover:bg-accent dark:hover:bg-accent/20 transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
@@ -165,33 +186,45 @@ export function AppSidebar() {
           items={quickStart}
           defaultOpen
           pathname={location.pathname}
+          indentItems
         />
         <NavSection
           title="Components"
           items={componentCategories}
           defaultOpen
           pathname={location.pathname}
-          titleLink="/"
+          indentItems
         />
         <NavSection
           title="Blocks"
           items={blockItems}
           pathname={location.pathname}
           titleLink="/blocks"
+          indentItems
         />
-        <NavSection
-          title="Templates"
-          items={templates}
-          pathname={location.pathname}
-        />
+        <SidebarGroup>
+          <SidebarGroupLabel className="flex items-center justify-between px-2 py-1.5 min-h-6">
+            <span className="font-semibold text-muted-foreground/60">Templates</span>
+            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">Coming Soon</span>
+          </SidebarGroupLabel>
+        </SidebarGroup>
         <NavSection
           title="Dashboards"
           items={dashboardItems}
           pathname={location.pathname}
           titleLink="/dashboards"
+          indentItems
         />
+        <NavSection
+          title="Legal"
+          items={legalLinks}
+          defaultOpen
+          pathname={location.pathname}
+          indentItems
+        />
+
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t -mx-2">
+      <SidebarFooter className="p-3 border-t -mx-2">
         <div className="flex items-center justify-between">
           <ThemeToggle />
           <Socials />

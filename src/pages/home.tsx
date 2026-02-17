@@ -36,7 +36,7 @@ export default function HomePage() {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "support",
-      "email": "support@watermelon-ui.com"
+      "email": "watermeloncorpui@gmail.com"
     },
     "address": {
       "@type": "PostalAddress",
@@ -53,11 +53,11 @@ export default function HomePage() {
         image="/og-image.png"
       />
 
+      <h1 className="sr-only">Watermelon UI - High-Quality React Components Registry</h1>
       <div className="space-y-12">
-        <h1 className="sr-only">Watermelon UI - High-Quality React Components Registry</h1>
         {/* Components Section */}
         <section id="components" className="space-y-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-2 md:px-4 mt-2 md:mt-0">
             <h2 className="tracking-tight text-sm md:text-base">Featured Components</h2>
             <Link
               to="/components"
@@ -145,7 +145,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer with Semantic Sections */}
-        <footer className="border-t py-2 sr-only">
+        <footer className="border-t py-6 mt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-muted-foreground">
             <section id="about" className="space-y-2">
               <h3 className="font-semibold text-foreground">About</h3>
@@ -164,7 +164,7 @@ export default function HomePage() {
             <section id="contact" className="space-y-2">
               <h3 className="font-semibold text-foreground">Contact</h3>
               <p>
-                For support and inquiries, please reach out via GitHub issues or email <a href="mailto:support@watermelon-ui.com" className="hover:text-foreground underline underline-offset-4">support@watermelon-ui.com</a>.
+                For support and inquiries, please reach out via GitHub issues or email <a href="mailto:watermeloncorpui@gmail.com" className="hover:text-foreground underline underline-offset-4">watermeloncorpui@gmail.com</a>.
               </p>
             </section>
           </div>

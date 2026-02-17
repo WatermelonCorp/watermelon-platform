@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { generateOgImageUrl } from '@/utils/seo';
 
 interface SEOHeadProps {
   title: string;
@@ -10,9 +11,9 @@ interface SEOHeadProps {
   schema?: string;
   ogImageAlt?: string;
   noindex?: boolean;
+  category?: string;
 }
 
-import { useEffect } from 'react';
 
 export function SEOHead({
   title,
@@ -23,25 +24,19 @@ export function SEOHead({
   type = 'website',
   schema,
   ogImageAlt,
-  noindex = false
+  noindex = false,
+  category
 }: SEOHeadProps) {
   const fullTitle = title.includes('Watermelon UI') ? title : `${title} | Watermelon UI`;
   const envSiteUrl = (import.meta as any).env?.VITE_SITE_URL as string | undefined;
-  const fallbackOrigin = typeof window !== "undefined" ? window.location.origin : "https://watermelon-ui.com";
-  const siteUrl = envSiteUrl || fallbackOrigin;
-  const absoluteUrl = canonical || (typeof window !== "undefined" ? window.location.href : siteUrl);
-  const absoluteImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.png`;
-
-  // Manage canonical link manually to avoid data-rh attribute from react-helmet-async
-  useEffect(() => {
-    let link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
-    if (!link) {
-      link = document.createElement('link');
-      link.rel = 'canonical';
-      document.head.appendChild(link);
-    }
-    link.href = absoluteUrl;
-  }, [absoluteUrl]);
+  const siteUrl = (envSiteUrl || "https://ui.watermelon.sh").replace(/\/$/, "");
+  const currentPath = typeof window !== "undefined"
+    ? `${window.location.pathname}${window.location.search}`
+    : "";
+  const absoluteUrl = canonical || `${siteUrl}${currentPath}`;
+  const absoluteImage = image
+    ? (image.startsWith('http') ? image : `${siteUrl}${image}`)
+    : generateOgImageUrl({ title, description, category });
 
   return (
     <Helmet>
@@ -49,8 +44,7 @@ export function SEOHead({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      {/* Removed rel="canonical" from Helmet to manage it manually without data-rh */}
-      {/* <link rel="canonical" href={absoluteUrl} /> */}
+      <link rel="canonical" href={absoluteUrl} />
       <link rel="alternate" hrefLang="en-us" href={absoluteUrl} />
       <link rel="alternate" hrefLang="x-default" href={absoluteUrl} />
       <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
@@ -75,7 +69,7 @@ export function SEOHead({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImage} />
-      <meta name="twitter:site" content="@watermelonui" />
+      <meta name="twitter:site" content="@watermelonshHQ" />
 
       {/* Schema.org JSON-LD */}
       {schema && (

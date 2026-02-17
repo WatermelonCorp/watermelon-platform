@@ -15,6 +15,7 @@ import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'framer-motion';
 import { MobileRestriction } from '@/components/mobile-restriction';
 import { trackEvent } from '@/lib/analytics';
+import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
 
 export default function DashboardPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -147,6 +148,7 @@ export default function DashboardPage() {
                   files={componentFiles}
                   dependencies={item.dependencies || []}
                   componentName={item.name}
+                  componentSlug={item.slug}
                 />
               </div>
             )}
@@ -199,7 +201,7 @@ export default function DashboardPage() {
           {/* Header - Outside tabs, always visible */}
 
 
-          <div className="px-6 py-4 border-b bg-background shrink-0">
+          <div className="px-6 py-4 bg-background shrink-0">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-1">
@@ -231,7 +233,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Tabs - Take remaining space */}
-          <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0">
+          <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0 border rounded-xl">
             <div className="flex items-center justify-between px-6 py-2 border-b bg-muted/30 shrink-0">
               <TabsList>
                 <TabsTrigger value="preview">
@@ -289,14 +291,9 @@ export default function DashboardPage() {
             {/* Tab Contents */}
             <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
               {/* Preview Tab */}
-              <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
+              <TabsContent value="preview" className="absolute inset-0 overflow-auto flex items-start justify-center p-1">
                 {/* Preview takes full available size or constraint */}
-                <div
-                  className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
-                    viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
-                      'w-[375px] h-[812px] rounded-[2.5rem] border-4'
-                    }`}
-                >
+                <ResponsivePreviewFrame viewport={viewMode}>
                   <Suspense fallback={
                     <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                       <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
@@ -305,7 +302,7 @@ export default function DashboardPage() {
                   }>
                     <item.component key={`${reloadKey}-${viewMode}`} />
                   </Suspense>
-                </div>
+                </ResponsivePreviewFrame>
               </TabsContent>
 
               {/* Source Code Tab */}
@@ -332,6 +329,7 @@ export default function DashboardPage() {
                         files={componentFiles}
                         dependencies={item.dependencies || []}
                         componentName={item.name}
+                        componentSlug={item.slug}
                       />
                     )}
                   </div>
