@@ -485,7 +485,7 @@ export default function FamilyWallet() {
     <div className="relative flex  items-center justify-center ">
       <button
         onClick={() => setOpen(true)}
-        className="rounded-full bg-white px-8 py-4 font-bold dark:text-white dark:bg-zinc-800"
+        className="rounded-full bg-zinc-100 px-8 py-4 font-bold dark:text-white dark:bg-zinc-800"
       >
         Open Wallet
       </button>

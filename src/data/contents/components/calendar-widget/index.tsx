@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, type FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, CalendarDays } from 'lucide-react';
+import {CalendarDays } from 'lucide-react';
 
 export interface CalendarEvent {
   title: string;
@@ -37,18 +37,11 @@ export const CalendarWidget: FC<CalendarWidgetProps> = ({
   currentMonthYear,
 }) => {
   const [selectedDate, setSelectedDate] = useState<string>(initialSelectedDate);
-  const [isDark, setIsDark] = useState<boolean>(false);
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const isDragging = useRef<boolean>(false);
   const startX = useRef<number>(0);
   const scrollLeftStart = useRef<number>(0);
-
-  // Theme Sync
-  useEffect(() => {
-    if (isDark) document.documentElement.classList.add('dark');
-    else document.documentElement.classList.remove('dark');
-  }, [isDark]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -108,25 +101,13 @@ export const CalendarWidget: FC<CalendarWidgetProps> = ({
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-6 bg-white dark:bg-zinc-950">
-      {/* Theme Toggle Button */}
-      <button
-        onClick={() => setIsDark(!isDark)}
-        className="rounded-full border border-zinc-200 bg-zinc-100 p-3 shadow-sm transition-all active:scale-90 dark:border-zinc-800 dark:bg-zinc-900"
-      >
-        {isDark ? (
-          <Sun className="text-yellow-400" size={20} />
-        ) : (
-          <Moon className="text-zinc-500" size={20} />
-        )}
-      </button>
-
-      <div className="flex w-[340px] flex-col  rounded-[30px] border border-black/10 bg-[#F6F5FA] shadow-lg transition-colors duration-500 select-none dark:border-white/5 dark:bg-zinc-900">
+      <div className="flex w-[340px] flex-col rounded-[30px] border border-black/10 bg-[#F6F5FA] shadow-lg transition-colors duration-500 select-none dark:border-white/5 dark:bg-zinc-900">
         <div className="p-4">
           <motion.div
             key={currentMonthYear}
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
-            className=" ml-2 text-xl font-semibold dark:text-white"
+            className="ml-2 text-xl font-semibold dark:text-white"
           >
             {currentMonthYear}
           </motion.div>
@@ -134,7 +115,7 @@ export const CalendarWidget: FC<CalendarWidgetProps> = ({
           <div className="relative">
             <div
               ref={scrollRef}
-              className="scrollbar-hide flex gap-2 overflow-x-auto "
+              className="scrollbar-hide flex gap-2 overflow-x-auto"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {dates.map((date) => {
