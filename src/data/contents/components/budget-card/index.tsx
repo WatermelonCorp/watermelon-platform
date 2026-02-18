@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Check } from 'lucide-react';
 
 interface BreakdownItem {
@@ -16,11 +16,11 @@ interface BudgetCardProps {
   spentAmount: number;
   breakdown: BreakdownItem[];
   onViewDetails?: () => void;
-  onMonthChange?: (month: string) => void; 
+  onMonthChange?: (month: string) => void;
 }
 
 const months = [
-  "January", "February", "March", "April", "May", "June", 
+  "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
@@ -60,12 +60,12 @@ export const BudgetCard: React.FC<BudgetCardProps> = ({
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
       className="relative w-full max-w-130 mx-auto"
-    > 
+    >
       {/* Corner Borders */}
       <div className={`${cornerClass} top-0 left-0 border-t-[1.6px] border-l-[1.6px] z-40`} />
       <div className={`${cornerClass} top-0 right-0 border-t-[1.6px] border-r-[1.6px] z-40`} />
@@ -73,19 +73,19 @@ export const BudgetCard: React.FC<BudgetCardProps> = ({
       <div className={`${cornerClass} bottom-0 right-0 border-b-[1.6px] border-r-[1.6px] z-40`} />
 
       <div className="w-full bg-white dark:bg-[#0B0B0B] border-[1.6px] border-black/8 dark:border-[#e3d4d4]/10 overflow-visible font-sans text-black dark:text-white relative shadow-sm dark:shadow-2xl">
-        
+
         {/* Top Section */}
         <div className="p-6 sm:p-8 pb-4">
           <div className="flex justify-between items-start mb-1">
             <p className="text-zinc-500 dark:text-[#686868] font-normal text-sm sm:text-[18px]">Monthly Budget</p>
-            
+
             {/* --- Month Dropdown --- */}
             <div className="relative" ref={dropdownRef}>
-              <button 
+              <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-2 sm:gap-4 px-3 py-1 bg-transparent border-[1.6px] border-zinc-200 dark:border-[#1e1d1d] text-zinc-500 dark:text-[#686868] font-normal text-sm sm:text-[18px] hover:bg-zinc-50 dark:hover:bg-[#1A1A1A] transition-colors min-w-30 justify-between"
               >
-                {selectedMonth} 
+                {selectedMonth}
                 <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }}>
                   <ChevronDown size={16} className="text-zinc-400 dark:text-[#7d7c7c]" />
                 </motion.div>
@@ -105,8 +105,8 @@ export const BudgetCard: React.FC<BudgetCardProps> = ({
                           key={m}
                           onClick={() => handleMonthSelect(m)}
                           className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-left transition-colors
-                            ${selectedMonth === m 
-                              ? 'bg-zinc-100 dark:bg-white/5 text-zinc-900 dark:text-white font-medium' 
+                            ${selectedMonth === m
+                              ? 'bg-zinc-100 dark:bg-white/5 text-zinc-900 dark:text-white font-medium'
                               : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-white/2'
                             }`}
                         >
@@ -120,7 +120,7 @@ export const BudgetCard: React.FC<BudgetCardProps> = ({
               </AnimatePresence>
             </div>
           </div>
-          
+
           <h2 className="text-[40px] sm:text-[60px] font-medium text-zinc-900 dark:text-[#F4F4F4] tracking-tight leading-none mb-6 sm:mb-10">
             ${totalBudget.toLocaleString()}
           </h2>

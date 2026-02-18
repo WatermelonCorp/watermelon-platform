@@ -9,7 +9,7 @@ import { registry } from '@/data/registry';
 import { dashboards } from '@/data/dashboards';
 import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Book02Icon } from '@/lib/hugeicons';
 import { Link } from 'react-router-dom';

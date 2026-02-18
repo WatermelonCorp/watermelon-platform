@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FC } from 'react';
-import { motion, AnimatePresence, type Transition } from 'framer-motion';
+import { motion, AnimatePresence, type Transition } from 'motion/react';
 import { Check } from 'lucide-react';
 import NumberFlow from '@number-flow/react';
 

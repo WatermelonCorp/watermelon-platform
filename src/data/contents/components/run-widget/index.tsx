@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, useMotionValue, useMotionValueEvent } from 'framer-motion';
+import { motion, useMotionValue, useMotionValueEvent } from 'motion/react';
 import { HiOutlineArrowUpRight } from 'react-icons/hi2';
 import { FaRunning } from 'react-icons/fa';
 import NumberFlow from '@number-flow/react';

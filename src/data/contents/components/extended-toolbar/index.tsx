@@ -1,7 +1,7 @@
 "use client";
 
 import { type FC, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import {
   BsChatLeftFill,
@@ -60,7 +60,7 @@ export const ExtendedToolbar: FC<ExtendedToolbarProps> = ({
   const [isExpanded, setIsExpanded] = useState<boolean>(defaultExpanded);
 
   return (
-   <div className="relative flex w-full items-center justify-center bg-transparent transition-colors duration-500 px-4">
+    <div className="relative flex w-full items-center justify-center bg-transparent transition-colors duration-500 px-4">
       {/* Toolbar */}
       <motion.div
         layout

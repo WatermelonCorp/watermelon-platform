@@ -6,7 +6,7 @@ import React, {
   useRef,
   useCallback,
 } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 /* ---------- Types ---------- */
 interface DigitColumnProps {
@@ -91,7 +91,7 @@ export const RollingNumber: FC<RollingNumberProps> = ({
     )}>
       {formatted.split("").map((char, index) => {
         const isNumber = !isNaN(parseInt(char, 10));
-        
+
         if (!isNumber) {
           return (
             <span key={index} className="px-px">
@@ -101,10 +101,10 @@ export const RollingNumber: FC<RollingNumberProps> = ({
         }
 
         return (
-          <DigitColumn 
-            key={index} 
-            digit={Number(char)} 
-            height={typeof window !== 'undefined' && window.innerWidth < 640 ? 24 : 32} 
+          <DigitColumn
+            key={index}
+            digit={Number(char)}
+            height={typeof window !== 'undefined' && window.innerWidth < 640 ? 24 : 32}
           />
         );
       })}
@@ -249,7 +249,7 @@ export const PriceRangeCard: FC<PriceRangeCardProps> = ({
           >
             Apply
           </button>
-          
+
 
           <button
             onClick={() => {

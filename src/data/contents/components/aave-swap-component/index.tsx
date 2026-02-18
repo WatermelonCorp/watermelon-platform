@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, ArrowUpDown } from "lucide-react";
 
 /* ---------------- Types ---------------- */
@@ -76,7 +76,7 @@ export function AaveSwapComponent({ from, to }: AaveSwapComponentProps) {
     const val = e.target.value.replace(/[^0-9.]/g, "");
     const parts = val.split('.');
     if (parts.length > 2) return;
-    
+
     if (val !== from.max?.toString()) setIsMax(false);
     setInputVal(val === "" ? "0" : val);
   };
@@ -108,11 +108,10 @@ export function AaveSwapComponent({ from, to }: AaveSwapComponentProps) {
               <button
                 type="button"
                 onClick={handleUseMax}
-                className={`rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-base font-medium transition-all shrink-0 ${
-                  isMax
+                className={`rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-base font-medium transition-all shrink-0 ${isMax
                     ? "bg-gray-200 dark:bg-[#2b2b2b] text-gray-400 dark:text-[#8e8e8e]"
                     : "bg-gray-200 dark:bg-[#2b2b2b] text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-[#3b3b3b]"
-                }`}
+                  }`}
               >
                 {isMax ? "Using Max" : "Use Max"}
               </button>

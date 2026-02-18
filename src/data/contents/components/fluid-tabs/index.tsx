@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode, type FC } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { BiSolidPieChartAlt2 } from "react-icons/bi";
 import { FaInbox, FaLandmark } from "react-icons/fa";
 

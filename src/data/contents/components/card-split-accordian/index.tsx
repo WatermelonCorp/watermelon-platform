@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, type FC } from 'react';
-import { motion, MotionConfig, type Transition } from 'framer-motion';
+import { motion, MotionConfig, type Transition } from 'motion/react';
 import { ChevronDown, Send } from 'lucide-react';
 import { HiCursorArrowRipple } from 'react-icons/hi2';
 import { Layers } from 'lucide-react';

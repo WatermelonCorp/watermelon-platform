@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { FaCheck } from 'react-icons/fa6';
 import { cn } from '@/lib/utils';
@@ -26,13 +26,13 @@ export const ProgressiveInputStack: React.FC<ProgressiveInputStackProps> = ({
 
   const [formData, setFormData] = useState<Record<string, string | boolean>>(
     initialData ||
-      steps.reduce(
-        (acc, step) => ({
-          ...acc,
-          [step.id]: step.type === 'toggle' ? false : '',
-        }),
-        {},
-      ),
+    steps.reduce(
+      (acc, step) => ({
+        ...acc,
+        [step.id]: step.type === 'toggle' ? false : '',
+      }),
+      {},
+    ),
   );
 
   const springTransition = {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface JournalEntry {
@@ -65,7 +65,7 @@ export const JournalNavigation: React.FC<JournalNavigationProps> = ({
 
     return (
         <div className="min-h-full w-full flex flex-col items-center justify-center p-6 transition-colors duration-500 bg-transparent">
-            
+
             <div className="relative w-full max-w-90 h-85 rounded-[32px] shadow-sm flex overflow-hidden select-none border transition-colors duration-300 bg-[#F3EFE9] border-[#e5e4de]/50 dark:bg-[#1A1A1C] dark:border-white/5">
 
                 {/* vertical left area */}
@@ -89,8 +89,8 @@ export const JournalNavigation: React.FC<JournalNavigationProps> = ({
                                         onClick={() => setCurrentIndex(index)}
                                         animate={{ scale: isActive ? 1.2 : 1 }}
                                         className={`h-9.25 w-9.25 flex items-center justify-center rounded-full text-[16px] font-bold transition-colors cursor-pointer shrink-0 
-                                            ${isActive 
-                                                ? 'text-[#1C1C1E] bg-[#F0ECE6] dark:text-white dark:bg-white/10' 
+                                            ${isActive
+                                                ? 'text-[#1C1C1E] bg-[#F0ECE6] dark:text-white dark:bg-white/10'
                                                 : 'text-[#B0AFB8] hover:bg-[#F0ECE6] dark:text-gray-600 dark:hover:text-gray-400'
                                             }`}
                                     >
@@ -127,9 +127,9 @@ export const JournalNavigation: React.FC<JournalNavigationProps> = ({
                         </div>
 
                         <div className="flex gap-2">
-                            {[ 
-                                { title: 'left', action: handlePrev, disabled: currentIndex === 0, icon: <ChevronLeft size={20} strokeWidth={2.5}/> },
-                                { title: 'right', action: handleNext, disabled: currentIndex === entries.length - 1, icon: <ChevronRight size={20} strokeWidth={2.5}/> }
+                            {[
+                                { title: 'left', action: handlePrev, disabled: currentIndex === 0, icon: <ChevronLeft size={20} strokeWidth={2.5} /> },
+                                { title: 'right', action: handleNext, disabled: currentIndex === entries.length - 1, icon: <ChevronRight size={20} strokeWidth={2.5} /> }
                             ].map((btn) => (
                                 <button key={btn.title} title={btn.title}
                                     onClick={btn.action}

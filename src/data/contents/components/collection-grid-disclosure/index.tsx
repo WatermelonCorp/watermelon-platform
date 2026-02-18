@@ -6,7 +6,7 @@ import {
   AnimatePresence,
   MotionConfig,
   type Transition,
-} from 'framer-motion';
+} from 'motion/react';
 import { ChevronRight, X, Coffee } from 'lucide-react';
 import { FaCarrot, FaGraduationCap, FaPills, FaPlug } from 'react-icons/fa';
 import { TbHomeFilled, TbPlayerPlayFilled } from 'react-icons/tb';
@@ -216,7 +216,7 @@ const GridContainer = ({
               <motion.div
                 key={'expanded'}
                 className="flex w-full flex-col gap-3"
-               exit={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.01, ease: 'easeOut' }}
               >
                 <motion.div className="flex items-center px-1" layout>

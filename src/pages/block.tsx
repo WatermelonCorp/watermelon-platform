@@ -13,7 +13,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 import type { ComponentFile } from '@/lib/types';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { MobileRestriction } from '@/components/mobile-restriction';
 import { trackEvent } from '@/lib/analytics';
 import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';

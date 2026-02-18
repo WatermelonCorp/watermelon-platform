@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 
 type FocusOption = {
@@ -47,7 +47,7 @@ export const OnboardingSetup: React.FC<OnboardingSetupProps> = ({
 }) => {
 
     return (
-<div className={`transition-all duration-500  w-full flex flex-col items-center justify-center py-0 relative bg-transparent`}>
+        <div className={`transition-all duration-500  w-full flex flex-col items-center justify-center py-0 relative bg-transparent`}>
             <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -170,6 +170,6 @@ export const OnboardingSetup: React.FC<OnboardingSetupProps> = ({
                     </AnimatePresence>
                 </div>
             </motion.div>
-</div>
+        </div>
     );
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, type FC } from 'react';
-import { motion, type Transition } from 'framer-motion';
+import { motion, type Transition } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 
 import {

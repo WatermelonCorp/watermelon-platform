@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { MoreVertical, Download, ChevronDown } from 'lucide-react';
 
 interface UsageHistoryItem {
@@ -41,9 +41,9 @@ export const CreditUsageCard: React.FC<CreditUsageCardProps> = ({
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 font-sans bg-transparent transition-colors duration-500">
-        
+
       <div className="w-full max-w-135 bg-white dark:bg-[#101010] rounded-4xl border border-[#DDD] dark:border-[#222] text-slate-700 dark:text-[#d4d4d4] font-mono shadow-xl overflow-hidden select-none transition-all duration-500">
-        
+
         {/* Top Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 py-5 bg-gray-50/50 dark:bg-[#171717] px-4 sm:px-6 md:px-8">
           <div>
@@ -57,11 +57,10 @@ export const CreditUsageCard: React.FC<CreditUsageCardProps> = ({
             </span>
             <button title='toggle'
               onClick={handleToggleAutoSwitch}
-              className={`w-10 h-4.75 rounded-full relative transition-colors border-[1.4px] duration-200 flex items-center p-0.5 shrink-0 ${
-                autoSwitch 
-                ? 'bg-[#E8F5E9] dark:bg-[#182D1A] border-green-500/40 dark:border-green-400/40' 
-                : 'bg-gray-200 dark:bg-[#333] border-gray-300 dark:border-[#404040]'
-              }`}
+              className={`w-10 h-4.75 rounded-full relative transition-colors border-[1.4px] duration-200 flex items-center p-0.5 shrink-0 ${autoSwitch
+                  ? 'bg-[#E8F5E9] dark:bg-[#182D1A] border-green-500/40 dark:border-green-400/40'
+                  : 'bg-gray-200 dark:bg-[#333] border-gray-300 dark:border-[#404040]'
+                }`}
             >
               <motion.div
                 animate={{ x: autoSwitch ? 13.5 : 0 }}
@@ -79,9 +78,8 @@ export const CreditUsageCard: React.FC<CreditUsageCardProps> = ({
             return (
               <div
                 key={i}
-                className={`flex-1 rounded-full transition-all duration-700 ${
-                  isFilled ? 'bg-[#FF7A3F]' : 'bg-gray-200 dark:bg-[#222]'
-                }`}
+                className={`flex-1 rounded-full transition-all duration-700 ${isFilled ? 'bg-[#FF7A3F]' : 'bg-gray-200 dark:bg-[#222]'
+                  }`}
                 style={{ opacity: isFilled ? 1 - (i * 0.004) : 1 }}
               />
             );
@@ -101,7 +99,7 @@ export const CreditUsageCard: React.FC<CreditUsageCardProps> = ({
             <h4 className="text-sm sm:text-base font-medium text-slate-800 dark:text-[#E8E8E8] inter">Usage History</h4>
             <button
               onClick={onViewAll}
-              title='view all' 
+              title='view all'
               className="px-2 py-0.5 rounded-full text-center border border-gray-300 dark:border-[#909090]/65 text-[9px] text-gray-500 dark:text-[#909090] hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition-colors"
             >
               View all
@@ -138,7 +136,7 @@ export const CreditUsageCard: React.FC<CreditUsageCardProps> = ({
         <div className="pt-4 pb-4 flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-[#101010] px-4 sm:px-6 md:px-8">
           <div className="flex gap-3 text-slate-400 dark:text-[#888888] self-start sm:self-auto">
             < MoreVertical size={16} className="cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors" />
-            <div className='h-4 w-px bg-gray-200 dark:bg-[#242424]'/>
+            <div className='h-4 w-px bg-gray-200 dark:bg-[#242424]' />
             <Download size={16} className="cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors" />
           </div>
 
@@ -156,7 +154,7 @@ export const CreditUsageCard: React.FC<CreditUsageCardProps> = ({
           </div>
         </div>
       </div>
-      
+
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

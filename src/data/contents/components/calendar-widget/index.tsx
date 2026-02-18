@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect, type FC } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {CalendarDays } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { CalendarDays } from 'lucide-react';
 
 export interface CalendarEvent {
   title: string;
@@ -128,11 +128,10 @@ export const CalendarWidget: FC<CalendarWidgetProps> = ({
                     className="relative flex min-w-9 flex-col items-center pt-4"
                   >
                     <div
-                      className={`mb-1 text-base font-medium transition-colors duration-300 ${
-                        isSelected
+                      className={`mb-1 text-base font-medium transition-colors duration-300 ${isSelected
                           ? 'text-black dark:text-white'
                           : 'text-gray-500 dark:text-zinc-500'
-                      }`}
+                        }`}
                     >
                       {date.dayName}
                     </div>
@@ -155,11 +154,10 @@ export const CalendarWidget: FC<CalendarWidgetProps> = ({
                           />
                         )}
                         <span
-                          className={`relative z-10 text-base font-medium ${
-                            isSelected
+                          className={`relative z-10 text-base font-medium ${isSelected
                               ? 'text-black dark:text-white'
                               : 'text-black/80 dark:text-zinc-400'
-                          }`}
+                            }`}
                         >
                           {date.day}
                         </span>

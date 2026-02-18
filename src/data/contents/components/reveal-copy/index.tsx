@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { FaCopy } from 'react-icons/fa';
 import { BsEyeFill } from 'react-icons/bs';
 import { FaCheck } from 'react-icons/fa6';
@@ -170,11 +170,10 @@ export const RevealAndCopy = ({
                 initial={{ scale: 0.85, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.85, opacity: 0 }}
-                className={`relative flex h-full w-full items-center justify-center rounded-2xl transition-colors duration-300 ${
-                  copied
+                className={`relative flex h-full w-full items-center justify-center rounded-2xl transition-colors duration-300 ${copied
                     ? 'bg-[#2DBE50] text-white'
                     : 'bg-[#CAF9D5] text-[#2DBE50] dark:bg-emerald-900/30 dark:text-emerald-400'
-                }`}
+                  }`}
               >
                 {timerActive && !copied && (
                   <svg

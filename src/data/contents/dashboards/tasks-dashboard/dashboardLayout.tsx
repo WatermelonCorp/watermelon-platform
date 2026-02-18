@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { AppSidebar } from "./app-sidebar";
 
 interface DashboardLayoutProps {
@@ -38,9 +38,9 @@ export default function TasksDashboardLayout({
             </AnimatePresence>
 
             {/* Sidebar  */}
-            <AppSidebar 
-                isSidebarOpen={isSidebarOpen} 
-                isDarkMode={isDarkMode} 
+            <AppSidebar
+                isSidebarOpen={isSidebarOpen}
+                isDarkMode={isDarkMode}
                 toggleDarkMode={toggleDarkMode}
                 userAvatar={userAvatar}
             />

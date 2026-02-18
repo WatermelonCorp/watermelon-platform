@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, type Transition } from 'framer-motion';
+import { motion, AnimatePresence, type Transition } from 'motion/react';
 import { Zap } from 'lucide-react';
 import { HiBadgeCheck } from 'react-icons/hi';
 import { IoCloseSharp } from 'react-icons/io5';
@@ -70,12 +70,12 @@ function AnimatedText({
   );
 }
 
- const spring: Transition = {
-   type: 'spring',
-   stiffness: 260,
-   damping: 22,
-   mass: 0.8,
- };
+const spring: Transition = {
+  type: 'spring',
+  stiffness: 260,
+  damping: 22,
+  mass: 0.8,
+};
 const DEFAULT_STEPS = [
   { id: 1, label: 'Importing Survey Data', icon: FaInbox },
   { id: 2, label: 'Refining Responses', icon: RiBubbleChartFill },
@@ -125,7 +125,7 @@ export function RunActionButton({
     return () => clearInterval(interval);
   }, [status, steps.length]);
 
- 
+
 
   const widths = {
     idle: 180,
@@ -138,11 +138,10 @@ export function RunActionButton({
       <motion.div
         animate={{ width: widths[status] }}
         transition={spring}
-        className={`relative flex h-[64px] items-center justify-between overflow-hidden rounded-full ${
-          status === 'running'
+        className={`relative flex h-[64px] items-center justify-between overflow-hidden rounded-full ${status === 'running'
             ? 'border-2 border-dashed border-[#D6D6DD] dark:border-white/20'
             : 'border-2 border-transparent'
-        } `}
+          } `}
       >
         <AnimatePresence mode="popLayout">
           {status === 'idle' && (

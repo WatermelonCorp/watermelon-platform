@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useRef, useEffect, type SVGProps } from 'react';
+import { useState, useEffect, type SVGProps } from 'react';
 import useMeasure from 'react-use-measure';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 import {
   Drawer,
@@ -19,8 +19,6 @@ import {
   Fingerprint,
   Github,
   Chrome,
-  Wallet,
-  Wallet2,
   Twitter,
 } from 'lucide-react';
 
@@ -29,11 +27,13 @@ import { FaApple, FaDiscord } from 'react-icons/fa6';
 
 /* ---------------- ENUMS ---------------- */
 
-enum View {
-  SIGN_IN = 'SIGN_IN',
-  PASSKEY = 'PASSKEY',
-  CONNECT_WALLET = 'CONNECT_WALLET',
-}
+const View = {
+  SIGN_IN: 'SIGN_IN',
+  PASSKEY: 'PASSKEY',
+  CONNECT_WALLET: 'CONNECT_WALLET',
+} as const;
+
+type View = (typeof View)[keyof typeof View];
 
 const TABS = [
   { id: 'email', label: 'Email' },
@@ -182,7 +182,6 @@ export default function FamilyWallet() {
   const [authType, setAuthType] = useState('email');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [hasWallet, setHasWallet] = useState(false);
 
   const [ref, bounds] = useMeasure();
 
@@ -239,11 +238,10 @@ export default function FamilyWallet() {
               )}
 
               <span
-                className={`relative z-10 ${
-                  tab.id === authType
-                    ? 'text-zinc-900 dark:text-zinc-100'
-                    : 'text-zinc-500 dark:text-zinc-400'
-                }`}
+                className={`relative z-10 ${tab.id === authType
+                  ? 'text-zinc-900 dark:text-zinc-100'
+                  : 'text-zinc-500 dark:text-zinc-400'
+                  }`}
               >
                 {tab.label}
               </span>
@@ -350,7 +348,7 @@ export default function FamilyWallet() {
               ry="16"
               fill="none"
               stroke="none"
-           
+
             />
             =
             <motion.rect
@@ -460,7 +458,7 @@ export default function FamilyWallet() {
       </div>
 
       <div className="mt-2 mb-2 flex items-center justify-center gap-2 cursor-pointer"
-      onClick={() => setView(View.SIGN_IN)}
+        onClick={() => setView(View.SIGN_IN)}
       >
         <BsWallet2 className="size-6" />
         <p> I don't have wallet</p>

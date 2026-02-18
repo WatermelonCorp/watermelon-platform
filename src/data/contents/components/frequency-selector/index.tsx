@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { Check, ChevronRight } from 'lucide-react';
 
 /* ---------- Types ---------- */
@@ -100,11 +100,10 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({ value, onC
                                                 setTempType(type);
                                                 setTempSubValue(SUB_OPTIONS[type][0]);
                                             }}
-                                            className={`relative flex-1 text-center h-full flex items-center justify-center font-bold text-xs sm:text-[17px] z-10 px-0.5 sm:px-1 transition-colors ${
-                                                tempType === type 
-                                                ? 'text-zinc-900 dark:text-white' 
-                                                : 'text-zinc-400 dark:text-zinc-500 hover:text-zinc-600'
-                                            }`}
+                                            className={`relative flex-1 text-center h-full flex items-center justify-center font-bold text-xs sm:text-[17px] z-10 px-0.5 sm:px-1 transition-colors ${tempType === type
+                                                    ? 'text-zinc-900 dark:text-white'
+                                                    : 'text-zinc-400 dark:text-zinc-500 hover:text-zinc-600'
+                                                }`}
                                         >
                                             {tempType === type && (
                                                 <motion.div
@@ -138,12 +137,11 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({ value, onC
                                     transition={smoothSpring}
                                     className="px-0.5 pb-0.5"
                                 >
-                                    <div 
-                                        className={`grid gap-1 rounded-[22px] p-2 transition-colors bg-white dark:bg-zinc-800 shadow-inner overflow-y-auto max-h-45 sm:max-h-none ${
-                                            tempType === 'Monthly' ? 'grid-cols-6 sm:grid-cols-7' : 
-                                            tempType === 'Yearly' ? 'grid-cols-3 sm:grid-cols-4' : 
-                                            'grid-cols-4 sm:grid-cols-7'
-                                        }`}
+                                    <div
+                                        className={`grid gap-1 rounded-[22px] p-2 transition-colors bg-white dark:bg-zinc-800 shadow-inner overflow-y-auto max-h-45 sm:max-h-none ${tempType === 'Monthly' ? 'grid-cols-6 sm:grid-cols-7' :
+                                                tempType === 'Yearly' ? 'grid-cols-3 sm:grid-cols-4' :
+                                                    'grid-cols-4 sm:grid-cols-7'
+                                            }`}
                                     >
                                         {SUB_OPTIONS[tempType].map((option) => (
                                             <button

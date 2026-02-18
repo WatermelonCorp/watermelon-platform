@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, type FC, type ChangeEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 /* ---------- Types ---------- */
 interface AdaptiveSliderProps {

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import { BsChatDots, BsList } from 'react-icons/bs';
 import { PiColumns } from 'react-icons/pi';
@@ -121,11 +121,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ data, isDarkMode, 
     return (
         <>
             <div className="h-11 flex items-center justify-between px-6  border-l-[1.5px] border-l-black/5 dark:border-l-white/5 border-b-[1.5px] border-slate-200 dark:border-white/5 bg-[#F7F8F9]/50 dark:bg-[#0E0E0E]/50 backdrop-blur-md overflow-x-auto no-scrollbar">
-                 <div className="flex items-center text-[12px] font-medium space-x-1 text-[#848687] min-w-max">
-                        Total :  <span className='text-[#353638] dark:text-slate-200 ml-1'> 17 Leads</span>
-                        <span className='text-[16px] px-2 text-[#848687]/40'>•</span>
-                        Closed :  <span className='text-[#181819] dark:text-slate-200 ml-1'> 8 Deals</span>
-                    </div>
+                <div className="flex items-center text-[12px] font-medium space-x-1 text-[#848687] min-w-max">
+                    Total :  <span className='text-[#353638] dark:text-slate-200 ml-1'> 17 Leads</span>
+                    <span className='text-[16px] px-2 text-[#848687]/40'>•</span>
+                    Closed :  <span className='text-[#181819] dark:text-slate-200 ml-1'> 8 Deals</span>
+                </div>
 
                 <div className="hidden sm:flex items-center space-x-3.5">
                     <button title='toggle' onClick={onAddIssue} className="flex items-center space-x-1.5 px-3 py-0.5 rounded-md text-[13px] text-[#17191d] hover:text-slate-800 dark:hover:text-slate-300 hover:bg-slate-200/50 border-[1.6px] border-slate-200/50 dark:border-slate-200/20 dark:text-slate-300/70 dark:hover:bg-white/5 transition-all">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 interface GooeyMenuProps {
   title?: string;
@@ -52,9 +52,8 @@ export function GooeyMenu({
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9 }}
-          className={`relative z-20 flex items-center justify-center w-16 h-16 bg-black dark:bg-white rounded-full shadow-lg border-none outline-none transition-all ${
-            isOpen && !isMobile ? "sm:mr-10" : "mr-0"
-          }`}
+          className={`relative z-20 flex items-center justify-center w-16 h-16 bg-black dark:bg-white rounded-full shadow-lg border-none outline-none transition-all ${isOpen && !isMobile ? "sm:mr-10" : "mr-0"
+            }`}
         >
           <svg width="32" height="32" viewBox="0 0 180 180" fill="none">
             <circle cx="90" cy="90" r="90" className="fill-black dark:fill-white" />
@@ -74,11 +73,11 @@ export function GooeyMenu({
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, x: 0, y: 0, scale: 0.7 }}
-              animate={{ 
-                opacity: 1, 
-                x: isMobile ? 0 : 190, 
-                y: isMobile ? -160 : 0, 
-                scale: 1 
+              animate={{
+                opacity: 1,
+                x: isMobile ? 0 : 190,
+                y: isMobile ? -160 : 0,
+                scale: 1
               }}
               exit={{ opacity: 0, x: 0, y: 0, scale: 0.7 }}
               transition={{

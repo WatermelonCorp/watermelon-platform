@@ -8,7 +8,7 @@ import {
   motion,
   MotionConfig,
   type Variants,
-} from 'framer-motion';
+} from 'motion/react';
 import useMeasure from 'react-use-measure';
 
 
@@ -114,7 +114,7 @@ export const TimedUndoAction: FC<TimedUndoActionProps> = ({
                 )}
               </AnimatePresence>
 
-          
+
               <div className="flex items-center justify-center gap-2">
                 <TextAnimated
                   isDeleting={isDeleting}
@@ -220,7 +220,7 @@ export const TextAnimated: FC<TextAnimatedProps> = ({
         type: 'spring',
         stiffness: 100,
         damping: 15,
-        mass:0.1
+        mass: 0.1
       },
     },
     exit: {
@@ -232,7 +232,7 @@ export const TextAnimated: FC<TextAnimatedProps> = ({
         type: 'spring',
         stiffness: 100,
         damping: 15,
-        mass:0.1
+        mass: 0.1
       },
     },
   };

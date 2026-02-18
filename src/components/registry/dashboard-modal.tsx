@@ -10,7 +10,7 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '../ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { MobileRestriction } from '../mobile-restriction';
 import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';

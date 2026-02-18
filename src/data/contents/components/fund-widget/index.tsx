@@ -6,7 +6,7 @@ import {
   useTransform,
   useMotionTemplate,
   type Transition,
-} from 'framer-motion';
+} from 'motion/react';
 import { FaArrowUp } from 'react-icons/fa6';
 
 export interface FundItem {

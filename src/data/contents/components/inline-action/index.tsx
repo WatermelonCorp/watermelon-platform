@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface InlineActionProps {
@@ -59,7 +59,7 @@ export const InlineAction: React.FC<InlineActionProps> = ({
         <div className="flex items-center gap-2 sm:gap-3 px-1 sm:px-2 min-w-0">
           <div className="shrink-0 text-[#1F1F1F] dark:text-zinc-100 bg-[#F0F0F0] dark:bg-zinc-800 p-2.5 sm:p-3.5 rounded-full flex items-center justify-center transition-colors">
             <div className="scale-90 sm:scale-100">
-                {icon}
+              {icon}
             </div>
           </div>
           <span className="font-bold text-[#000000] dark:text-white text-[15px] sm:text-[18px] transition-colors truncate">
@@ -69,8 +69,8 @@ export const InlineAction: React.FC<InlineActionProps> = ({
 
         {/* Right Section */}
         <div className={cn(
-            "flex justify-end pr-1 transition-all duration-300",
-            status === "success" ? "w-12.5" : "w-25 sm:w-30"
+          "flex justify-end pr-1 transition-all duration-300",
+          status === "success" ? "w-12.5" : "w-25 sm:w-30"
         )}>
           <AnimatePresence mode="popLayout">
             {status === "idle" && (
@@ -129,7 +129,7 @@ export const InlineAction: React.FC<InlineActionProps> = ({
                   transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
                   className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/50 dark:via-black/20 to-transparent skew-x-[-20deg] z-10"
                 />
-                
+
                 <motion.svg
                   width="16"
                   height="16"

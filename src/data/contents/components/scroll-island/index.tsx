@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 
 /* ---------- Types ---------- */
@@ -81,10 +81,10 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
         className="fixed top-72 sm:top-32 z-9999 flex justify-center pointer-events-none pt-6"
         style={{
           left: isMobile
-            ? "0" 
+            ? "0"
             : isScrollIslandPage
-            ? "28%"
-            : "20%",
+              ? "28%"
+              : "20%",
           width: "100%",
         }}
       >
@@ -183,11 +183,10 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
           <div
             key={topic.id}
             id={topic.id}
-            className={`mb-20 scroll-mt-32 p-2 rounded-2xl transition-all duration-500 ${
-              activeTopicId === topic.id
+            className={`mb-20 scroll-mt-32 p-2 rounded-2xl transition-all duration-500 ${activeTopicId === topic.id
                 ? "bg-zinc-100 dark:bg-zinc-900 animate-flash"
                 : ""
-            }`}
+              }`}
           >
             <h4 className="text-3xl font-bold mb-6 text-zinc-900 dark:text-zinc-50">
               {topic.title}
@@ -201,7 +200,7 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
 
       {mounted && createPortal(islandUI, document.body)}
 
-<style jsx global>{`
+      <style jsx global>{`
         @keyframes flash {
           0%, 100% { background-color: transparent; }
           50% { background-color: rgba(255, 255, 255, 0.05); }

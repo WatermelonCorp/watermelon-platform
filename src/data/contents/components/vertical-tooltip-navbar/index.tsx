@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { motion, AnimatePresence, LayoutGroup, type Transition } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup, type Transition } from "motion/react";
 
 export interface ToolbarItem {
   id: string;
@@ -53,7 +53,7 @@ export function VerticalTooltipNavbar({ items }: TooltipNavbarProps) {
                 <button
                   key={item.id}
                   onMouseEnter={() => setHoveredId(item.id)}
-                  onClick={() => setHoveredId(item.id)} 
+                  onClick={() => setHoveredId(item.id)}
                   className={`
                     relative z-20 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full
                     transition-colors duration-200 outline-none group text-white
@@ -85,11 +85,10 @@ export function VerticalTooltipNavbar({ items }: TooltipNavbarProps) {
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: isMobile ? -5 : 10, scale: 0.9 }}
                     transition={sharedLayoutTransition}
-                    className={`absolute flex items-center pointer-events-none z-50 ${
-                      isMobile ? "left-full ml-4" : "right-full mr-4"
-                    }`}
+                    className={`absolute flex items-center pointer-events-none z-50 ${isMobile ? "left-full ml-4" : "right-full mr-4"
+                      }`}
                     style={{
-                    
+
                       top: `calc(${activeIndex * (isMobile ? 48 : 60)}px + ${isMobile ? '12px' : '14px'})`,
                     }}
                   >
@@ -114,7 +113,7 @@ export function VerticalTooltipNavbar({ items }: TooltipNavbarProps) {
                         </motion.div>
                       )}
                     </div>
-                    
+
                     {/* Tooltip Arrow  */}
                     <div className={`w-2 h-2 bg-black dark:bg-transparent rotate-45 absolute ${isMobile ? '-left-1' : '-right-1'}`} />
                   </motion.div>

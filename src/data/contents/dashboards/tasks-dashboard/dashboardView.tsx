@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Search, Filter, SortAsc, LayoutGrid, ChevronRight, Menu, Layers } from 'lucide-react';
 import { CgProfile } from "react-icons/cg";
 import { TfiLayoutListThumb } from "react-icons/tfi";
@@ -14,7 +14,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { CheckListIcon, DashboardSquare02Icon, StickyNote01Icon } from '@hugeicons/core-free-icons';
 
 
-import { pickGradient,type TaskGroup } from './data';
+import { pickGradient, type TaskGroup } from './data';
 
 
 
@@ -101,13 +101,12 @@ const TaskGroupSection: React.FC<{ group: TaskGroup }> = ({ group }) => {
                                 <div className="text-[12px] text-slate-400 tabular-nums">{task.code}</div>
                                 <div className="truncate text-[13px] font-medium text-slate-700 dark:text-slate-200">{task.name}</div>
                                 <div>
-                                    <span className={`inline-flex px-3 py-0.5 rounded-sm text-[12px] font-medium border-[1.5px] ${
-                                        task.priority === "High"
+                                    <span className={`inline-flex px-3 py-0.5 rounded-sm text-[12px] font-medium border-[1.5px] ${task.priority === "High"
                                             ? "border-red-200 dark:text-red-400 text-red-600"
                                             : task.priority === "Low"
-                                            ? "border-emerald-100 text-emerald-600 dark:text-emerald-400"
-                                            : "border-blue-100 text-blue-600 dark:text-blue-400"
-                                    }`}>
+                                                ? "border-emerald-100 text-emerald-600 dark:text-emerald-400"
+                                                : "border-blue-100 text-blue-600 dark:text-blue-400"
+                                        }`}>
                                         {task.priority}
                                     </span>
                                 </div>

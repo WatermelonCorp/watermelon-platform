@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { X, Info } from 'lucide-react';
 
 interface CommunityData {
@@ -17,11 +17,11 @@ interface CreateCommunityProps {
   initialData?: Partial<CommunityData>;
 }
 
-export const CreateCommunity: React.FC<CreateCommunityProps> = ({ 
-  isOpen, 
-  onClose, 
+export const CreateCommunity: React.FC<CreateCommunityProps> = ({
+  isOpen,
+  onClose,
   onCreate,
-  initialData 
+  initialData
 }) => {
   const [communityName, setCommunityName] = useState(initialData?.communityName || 'Clipping Course');
   const [pricing, setPricing] = useState(initialData?.pricing || 'FREE');
@@ -41,9 +41,9 @@ export const CreateCommunity: React.FC<CreateCommunityProps> = ({
     <AnimatePresence mode="wait">
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto overflow-x-hidden">
-          
+
           {/* BG Overlay Animation */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -52,7 +52,7 @@ export const CreateCommunity: React.FC<CreateCommunityProps> = ({
             className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-[#0a0a0a] dark:backdrop-blur-none"
           >
             {/* Glow Effects */}
-            <div 
+            <div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-75 bg-white/30 blur-[80px] rotate-[-15deg] hidden dark:block"
               style={{ borderRadius: '50%' }}
             />
@@ -64,10 +64,10 @@ export const CreateCommunity: React.FC<CreateCommunityProps> = ({
             initial={{ opacity: 0, scale: 0.92, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 30 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: [0.16, 1, 0.3, 1],
-              opacity: { duration: 0.4 } 
+              opacity: { duration: 0.4 }
             }}
             className="relative w-full max-w-135 backdrop-blur-2xl rounded-[32px] p-5 sm:p-6 shadow-2xl z-50 my-auto
                        bg-white border-[6px] sm:border-12 border-[#F2F2F2]
@@ -107,7 +107,7 @@ export const CreateCommunity: React.FC<CreateCommunityProps> = ({
 
               {/* Pricing Tabs */}
               <div className="space-y-2">
-                 <label className="text-[14px] ml-1 text-gray-500 dark:text-[#8A8A8A]">Pricing & Access</label>
+                <label className="text-[14px] ml-1 text-gray-500 dark:text-[#8A8A8A]">Pricing & Access</label>
                 <div className="grid grid-cols-3 mt-2.5 rounded-full p-1 relative
                               bg-gray-100 border border-gray-200
                               dark:bg-[#0A0A0A] dark:border-white/5">
@@ -115,11 +115,10 @@ export const CreateCommunity: React.FC<CreateCommunityProps> = ({
                     <button
                       key={option}
                       onClick={() => setPricing(option)}
-                      className={`relative z-10 py-3.5 text-[11px] sm:text-[12px] font-normal tracking-widest transition-colors duration-300 ${
-                        pricing === option 
-                        ? 'text-gray-900 dark:text-[#EDEDED]' 
-                        : 'text-gray-400 dark:text-[#EDEDED]/80'
-                      }`}
+                      className={`relative z-10 py-3.5 text-[11px] sm:text-[12px] font-normal tracking-widest transition-colors duration-300 ${pricing === option
+                          ? 'text-gray-900 dark:text-[#EDEDED]'
+                          : 'text-gray-400 dark:text-[#EDEDED]/80'
+                        }`}
                     >
                       {option}
                       {pricing === option && (
@@ -146,20 +145,18 @@ export const CreateCommunity: React.FC<CreateCommunityProps> = ({
                 </div>
                 <button title='switch'
                   onClick={() => setIsApplicationRequired(!isApplicationRequired)}
-                  className={`w-10 h-6 rounded-full transition-colors duration-300 relative ${
-                    isApplicationRequired 
-                    ? 'bg-black dark:bg-white/80' 
-                    : 'bg-gray-200 dark:bg-[#333333]'
-                  }`}
+                  className={`w-10 h-6 rounded-full transition-colors duration-300 relative ${isApplicationRequired
+                      ? 'bg-black dark:bg-white/80'
+                      : 'bg-gray-200 dark:bg-[#333333]'
+                    }`}
                 >
                   <motion.div
                     animate={{ x: isApplicationRequired ? 19 : 2 }}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    className={`absolute top-0.5 w-5 h-5 rounded-full transition-colors ${
-                      isApplicationRequired 
-                      ? 'bg-white dark:bg-[#333333]' 
-                      : 'bg-white'
-                    }`}
+                    className={`absolute top-0.5 w-5 h-5 rounded-full transition-colors ${isApplicationRequired
+                        ? 'bg-white dark:bg-[#333333]'
+                        : 'bg-white'
+                      }`}
                   />
                 </button>
               </div>

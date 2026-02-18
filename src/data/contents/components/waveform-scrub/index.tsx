@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useMotionValueEvent } from 'motion/react';
 import { TbPlayerPauseFilled, TbPlayerPlayFilled } from 'react-icons/tb';
 
 interface WaveformScrubProps {
@@ -20,14 +20,14 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
 }) => {
     const [currentTime, setCurrentTime] = useState(4);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [isDark] = useState(false); 
+    const [isDark] = useState(false);
     const [containerWidth, setContainerWidth] = useState(0);
 
     const waveformRef = useRef<HTMLDivElement>(null);
     const x = useMotionValue(0);
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  
+
     useEffect(() => {
         const updateWidth = () => {
             if (waveformRef.current) {
@@ -42,7 +42,7 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
         return () => window.removeEventListener('resize', updateWidth);
     }, [duration, currentTime]);
 
- 
+
     useEffect(() => {
         if (isPlaying && currentTime < duration) {
             timerRef.current = setInterval(() => {
@@ -59,7 +59,7 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
         return () => { if (timerRef.current) clearInterval(timerRef.current); };
     }, [isPlaying, duration, x, containerWidth]);
 
-   
+
     useMotionValueEvent(x, 'change', (latest) => {
         if (!isPlaying && containerWidth > 0) {
             const progress = latest / containerWidth;
@@ -98,7 +98,7 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
                     {/* INNER WAVEFORM CARD */}
                     <div className="rounded-3xl h-17 relative flex items-center justify-center shadow-[inset_0_1px_4px_rgba(0,0,0,0.02)] overflow-hidden transition-colors duration-300 bg-[#fefefe] dark:bg-[#0A0A0A] border-[1.6px] border-[#fefefe]/70 dark:border-[#0A0A0A]/70">
 
-                        <div 
+                        <div
                             className="absolute inset-0 pointer-events-none transition-opacity opacity-[0.04] dark:opacity-[0.1]"
                             style={{
                                 backgroundImage: `linear-gradient(-45deg, ${isDark ? '#FFF' : '#000'} 25%, transparent 25%, transparent 50%, ${isDark ? '#FFF' : '#000'} 50%, ${isDark ? '#FFF' : '#000'} 75%, transparent 75%, transparent)`,
@@ -145,7 +145,7 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
                         dragElastic={0}
                         dragMomentum={false}
                         onDragStart={() => setIsPlaying(false)}
-                        style={{ x, left: 24 }} 
+                        style={{ x, left: 24 }}
                         className="absolute top-12 -translate-y-1/2 w-7 h-50 -ml-3.5 flex flex-col items-center z-50 cursor-grab active:cursor-grabbing"
                     >
                         <div

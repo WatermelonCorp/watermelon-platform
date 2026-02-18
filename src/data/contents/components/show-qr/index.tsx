@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { HiQrCode } from "react-icons/hi2";
 import { ImLink } from "react-icons/im";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 

@@ -29,7 +29,7 @@ category: buttons
 description: A button with a smooth hover animation.
 image: /previews/animated-button.jpg
 video: /previews/animated-button.mp4
-dependencies: ['framer-motion']
+dependencies: ['motion/react']
 install:
   - npx shadcn@latest add https://registry.watermelon.sh/r/animated-button.json
 ---

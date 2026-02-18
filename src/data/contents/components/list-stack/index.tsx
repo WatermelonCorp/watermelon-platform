@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FC } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 import { FaFireFlameCurved, FaSailboat } from 'react-icons/fa6';
 import { LuTent } from 'react-icons/lu';

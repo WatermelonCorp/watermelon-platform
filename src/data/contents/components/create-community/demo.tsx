@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { CreateCommunity } from './index';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const CreateCommunityDemo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,7 +35,7 @@ const CreateCommunityDemo = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onCreate={handleCreate}
-        initialData={myData} 
+        initialData={myData}
       />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig } from 'motion/react';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
@@ -213,9 +213,8 @@ export const SaveToggle: React.FC<SaveToggleProps> = ({
                     : { opacity: 1, scale: 1, y: 0 }
                 }
                 exit={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                className={`absolute inset-0 flex items-center justify-center ${
-                  status === 'saved' ? `${cfg.gap} ${cfg.padding}` : ''
-                }`}
+                className={`absolute inset-0 flex items-center justify-center ${status === 'saved' ? `${cfg.gap} ${cfg.padding}` : ''
+                  }`}
               >
                 <motion.div
                   layout

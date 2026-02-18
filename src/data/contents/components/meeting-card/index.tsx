@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import {
     ChevronUp, Calendar, Clock, Bell, Video, Users,
     Link as LinkIcon, MoreHorizontal
@@ -38,10 +38,10 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 
     return (
         <div className={theme === 'dark' ? 'dark' : ''}>
-            <div className="w-full mt-12 flex flex-col items-center justify-center p-2 sm:p-6 relative bg-transparent"> 
+            <div className="w-full mt-12 flex flex-col items-center justify-center p-2 sm:p-6 relative bg-transparent">
                 <div className="w-full max-w-full lg:w-100 lg:max-w-100 ">
                     <motion.div
-                        layout="position" 
+                        layout="position"
                         transition={spring}
                         className="w-full bg-[#F5F5F7] dark:bg-[#161616] border border-[#E5E5E5] dark:border-white/10 rounded-xl shadow-lg overflow-hidden"
                     >
@@ -98,7 +98,7 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 
                                         <Row icon={<Video size={15} />} label="Link">
                                             <Tag className="max-w-30 xs:max-w-[180px] sm:max-w-none">
-                                                <LinkIcon size={12} className="shrink-0" /> 
+                                                <LinkIcon size={12} className="shrink-0" />
                                                 <span className="truncate">{meetingLink}</span>
                                             </Tag>
                                         </Row>
@@ -134,7 +134,7 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
                                             <p className="text-[12px] text-[#4B5563] dark:text-gray-400 leading-relaxed">{description}</p>
                                         </div>
                                     </div>
-                                    
+
                                     {/* Footer */}
                                     <div className="p-3 flex flex-wrap items-center justify-between gap-3 bg-[#F5F5F7] dark:bg-[#161616] border-t dark:border-white/5">
                                         <p className="text-[13px] text-[#6B7280] dark:text-gray-500 font-medium">Going?</p>
@@ -180,17 +180,15 @@ const Toggle = ({ active, onChange }: { active: boolean; onChange: (v: boolean) 
     return (
         <div
             onClick={() => onChange(!active)}
-            className={`w-9 h-5 rounded-full px-1 flex items-center cursor-pointer transition-colors duration-200 ${
-                active ? "bg-[#EAF7EA] dark:bg-green-500/20" : "bg-[#F3F4F6] dark:bg-white/10"
-            }`}
+            className={`w-9 h-5 rounded-full px-1 flex items-center cursor-pointer transition-colors duration-200 ${active ? "bg-[#EAF7EA] dark:bg-green-500/20" : "bg-[#F3F4F6] dark:bg-white/10"
+                }`}
         >
             <motion.div
                 layout
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 animate={{ x: active ? 16 : 0 }}
-                className={`w-3.5 h-3.5 rounded-full shadow-sm ${
-                    active ? "bg-[#22C55E]" : "bg-[#9CA3AF]"
-                }`}
+                className={`w-3.5 h-3.5 rounded-full shadow-sm ${active ? "bg-[#22C55E]" : "bg-[#9CA3AF]"
+                    }`}
             />
         </div>
     );

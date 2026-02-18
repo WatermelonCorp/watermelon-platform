@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   Building2,
   CreditCard,
@@ -125,16 +125,14 @@ const CardView = ({ cards, onClose, onProceed }: any) => {
       </div>
       <div className="space-y-3 mb-6">
         {cards.map((card: Card) => (
-          <label key={card.id} onClick={() => setSelected(card.id)} 
-            className={`flex items-center justify-between h-14 px-4 rounded-xl cursor-pointer border transition-colors ${
-              selected === card.id 
-                ? 'bg-[#F6F5F2] border-[#E6E4DF] dark:bg-[#2C2C2E] dark:border-[#48484A]' 
+          <label key={card.id} onClick={() => setSelected(card.id)}
+            className={`flex items-center justify-between h-14 px-4 rounded-xl cursor-pointer border transition-colors ${selected === card.id
+                ? 'bg-[#F6F5F2] border-[#E6E4DF] dark:bg-[#2C2C2E] dark:border-[#48484A]'
                 : 'bg-[#F6F5F2] border-[#ECEAE6] dark:bg-transparent dark:border-[#2C2C2E]'
-            }`}
+              }`}
           >
             <div className="flex items-center gap-3">
-              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                  selected === card.id ? 'border-[#1C1C1E] dark:border-white' : 'border-[#CFCBC2]'
+              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selected === card.id ? 'border-[#1C1C1E] dark:border-white' : 'border-[#CFCBC2]'
                 }`}
               >
                 {selected === card.id && <div className="w-2.5 h-2.5 rounded-full bg-[#1C1C1E] dark:bg-white" />}
@@ -176,13 +174,13 @@ export const SendMoney: React.FC<SendMoneyProps> = ({
     { id: '1', last4: '6756', brand: 'visa' },
     { id: '2', last4: '4632', brand: 'mastercard' }
   ],
-  onProceed = () => {},
+  onProceed = () => { },
 }) => {
   const [view, setView] = useState<PaymentType>(null);
 
   return (
     <div className="min-h-[60vh] w-full flex flex-col items-center justify-center transition-colors duration-500 bg-transparent p-4">
-      
+
       <motion.div
         layout
         className="

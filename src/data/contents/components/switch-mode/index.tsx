@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FC } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { IoMoon, IoMoonOutline, IoSunny, IoSunnyOutline } from "react-icons/io5";
 import { useTheme } from "next-themes";
 

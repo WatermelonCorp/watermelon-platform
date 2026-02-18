@@ -5,7 +5,7 @@ import {
   useTransform,
   useMotionTemplate,
   type PanInfo,
-} from 'framer-motion';
+} from 'motion/react';
 import {
   ArrowUpRight,
   ShoppingCart,
@@ -180,9 +180,8 @@ export function WigglingCards({ cards }: { cards?: CardData[] }) {
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-3 w-3 rounded-full transition-colors ${
-              i === index ? 'bg-[#ADACB8]' : 'bg-[#E5E4F0]'
-            }`}
+            className={`h-3 w-3 rounded-full transition-colors ${i === index ? 'bg-[#ADACB8]' : 'bg-[#E5E4F0]'
+              }`}
           />
         ))}
       </div>

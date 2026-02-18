@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { FiShare } from 'react-icons/fi';
 import { cn } from '@/lib/utils';
 
@@ -73,7 +73,7 @@ export const ShareSheet = ({ users, onShareComplete }: ShareSheetProps) => {
                 <div className="relative flex flex-col">
                   {users.map((user) => (
                     <motion.div
-                    layout
+                      layout
                       key={user.id}
                       onHoverStart={() => setHoveredId(user.id)}
                       onHoverEnd={() => setHoveredId(null)}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Sun, Moon } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { BsMusicNoteList } from 'react-icons/bs';
 import { HiOutlineAdjustments } from 'react-icons/hi';
 import { MdFavorite } from 'react-icons/md';
@@ -89,10 +89,10 @@ export const StepPager: React.FC<StepPagerProps> = ({
                         animate={{
                           opacity: 1,
                           filter: 'blur(0px)',
-                          scale:  1,
+                          scale: 1,
                           color: isActive ? '#262629' : '#CBD5E1',
                         }}
-                        exit={{ opacity: 0, filter: 'blur(4px)',scale: 0 }}
+                        exit={{ opacity: 0, filter: 'blur(4px)', scale: 0 }}
                         transition={{ duration: 0.3, ease: 'easeOut' }}
                         onClick={() => setActiveIndex(index)}
                       >
