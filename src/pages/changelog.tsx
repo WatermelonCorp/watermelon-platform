@@ -23,7 +23,7 @@ export default function ChangelogPage() {
           <div className="absolute left-[140px] top-4 bottom-4 w-px bg-border hidden md:block" />
 
           <div className="space-y-16">
-            {changelogData.map((entry) => (
+            {changelogData.map((entry, index) => (
               <div key={entry.version} className="relative flex flex-col md:flex-row gap-8 md:gap-0">
                 {/* Date Side */}
                 <div className="md:w-[140px] md:pr-12 text-sm text-muted-foreground font-medium pt-1 shrink-0">
@@ -37,8 +37,15 @@ export default function ChangelogPage() {
 
                 {/* Content Side */}
                 <div className="flex-1 md:pl-12">
-                  <div className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border bg-muted/50 mb-4">
-                    {entry.version}
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border bg-muted/50">
+                      {entry.version}
+                    </div>
+                    {index === 0 && (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-primary/10 text-primary border border-primary/20">
+                        Latest
+                      </span>
+                    )}
                   </div>
 
                   {entry.stats && entry.stats.length > 0 && (
