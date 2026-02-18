@@ -4,6 +4,7 @@ import { registry, type RegistryItem } from '@/data/registry';
 import { RegistryCard } from '@/components/registry/registry-card';
 import { ComponentModal } from '@/components/registry/component-modal';
 import { SEOHead } from '@/components/seo-head';
+import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
 const ITEMS_PER_PAGE = 18;
 
@@ -62,11 +63,10 @@ export default function CategoryPage() {
         category={title}
       />
 
+      <CatalogPageHeader
+        title={title}
+      />
       <div className="space-y-12">
-        <div className="flex items-center justify-between">
-          <h1 className="text-xl md:text-2xl font-medium tracking-tight">{title}</h1>
-          <p className="text-muted-foreground text-sm md:text-base">{filteredItems.length} components</p>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleItems.map((item) => (

@@ -12,7 +12,8 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/registry';
-// import { dashboards } from '@/data/dashboards';
+import { dashboards } from '@/data/dashboards';
+import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { trackEvent } from '@/lib/analytics';
 import {
@@ -23,7 +24,8 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  // SidebarLeft01Icon,
+  SidebarLeft01Icon,
+  LayoutIcon,
 } from '@/lib/hugeicons';
 
 // Page navigation items
@@ -141,8 +143,9 @@ export function CommandPalette() {
               </CommandGroup>
             ))}
 
-            {/* Dashboards disabled */}
-            {/* <CommandSeparator />
+            <CommandSeparator />
+
+            {/* Dashboards */}
             <CommandGroup heading="Dashboards">
               {dashboards.map((dashboard) => (
                 <CommandItem
@@ -158,7 +161,27 @@ export function CommandPalette() {
                   )}
                 </CommandItem>
               ))}
-            </CommandGroup> */}
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            {/* UI Blocks */}
+            <CommandGroup heading="UI Blocks">
+              {blocks.map((block) => (
+                <CommandItem
+                  key={block.slug}
+                  onSelect={() =>
+                    runCommand(() => navigate(`/blocks/${block.slug}`))
+                  }
+                >
+                  <HugeiconsIcon icon={LayoutIcon} strokeWidth={2} className="size-4" />
+                  <span>{block.name}</span>
+                  {block.comingSoon && (
+                    <span className="ml-2 text-xs text-muted-foreground">(Coming Soon)</span>
+                  )}
+                </CommandItem>
+              ))}
+            </CommandGroup>
           </CommandList>
         </Command>
       </CommandDialog>

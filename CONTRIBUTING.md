@@ -19,7 +19,8 @@ Thanks for contributing to Watermelon Platform. This guide focuses on adding new
 3. Create `src/data/contents/components/<slug>/demo.tsx`.
 4. Create `src/data/contents/registry/<slug>.mdx`.
 5. Match the slug across all locations: MDX frontmatter `slug`, the folder name, and any references in your MDX content.
-6. Use this frontmatter shape in the MDX file:
+6. **Component Numbering**: Check the last used `componentNumber` in the registry and increment it by 1. You can also run `bun scripts/fix-mdx-numbers.ts` to automatically fix and reorder numbers.
+7. Use this frontmatter shape in the MDX file:
 
 ```mdx
 ---
@@ -29,6 +30,7 @@ category: buttons
 description: A button with a smooth hover animation.
 image: /previews/animated-button.jpg
 video: /previews/animated-button.mp4
+componentNumber: 1
 dependencies: ['motion/react']
 install:
   - npx shadcn@latest add https://registry.watermelon.sh/r/animated-button.json
@@ -41,7 +43,8 @@ install:
 2. Create `src/data/contents/blocks/<slug>/demo.tsx` (the main export from this file will be rendered in the preview).
 3. Create `src/data/contents/blocks/<slug>/<slug>.mdx` for documentation and metadata.
 4. Add any supporting components or files within the same folder.
-5. Use this frontmatter shape in the MDX file:
+5. **Block Numbering**: Check the last used `componentNumber` for blocks and increment it. Or run `bun scripts/fix-mdx-numbers.ts`.
+6. Use this frontmatter shape in the MDX file:
 
 ```mdx
 ---
@@ -51,6 +54,7 @@ category: sections
 description: A modern feature grid section.
 image: /blocks/feature-section.png
 video: /blocks/feature-section.mp4
+componentNumber: 1
 dependencies: ['lucide-react']
 install:
   - npx shadcn@latest add https://registry.watermelon.sh/r/feature-section.json
@@ -63,7 +67,8 @@ install:
 2. Create `src/data/contents/dashboards/<slug>/demo.tsx`.
 3. Create `src/data/contents/dashboards/<slug>/<slug>.mdx`.
 4. Place all dashboard-specific layouts, views, and data files within this folder to keep it self-contained.
-5. Use this frontmatter shape in the MDX file:
+5. **Dashboard Numbering**: Check the last used `componentNumber` for dashboards and increment it. Or run `bun scripts/fix-mdx-numbers.ts`.
+6. Use this frontmatter shape in the MDX file:
 
 ```mdx
 ---
@@ -73,6 +78,7 @@ category: dashboard
 description: A comprehensive admin interface.
 image: /dashboards/admin-dashboard.webp
 video: /dashboards/admin-dashboard.mp4
+componentNumber: 1
 dependencies: ['recharts']
 install:
   - npx shadcn@latest add https://registry.watermelon.sh/r/admin-dashboard.json

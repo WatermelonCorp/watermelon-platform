@@ -16,6 +16,7 @@ import { motion } from 'motion/react';
 import { MobileRestriction } from '@/components/mobile-restriction';
 import { trackEvent } from '@/lib/analytics';
 import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
+import { InstallCliCommand } from '@/components/registry/install-cli-command';
 
 export default function DashboardPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -90,7 +91,14 @@ export default function DashboardPage() {
               <span className="text-foreground font-medium">{item.name}</span>
             </div>
 
-            <h1 className="text-xl font-semibold">{item.name}</h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-xl font-semibold">{item.name}</h1>
+              {item.componentNumber && (
+                <span className="px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground rounded-sm">
+                  {item.componentNumber}
+                </span>
+              )}
+            </div>
             <p className="text-sm text-muted-foreground">
               {item.description}
             </p>
@@ -106,7 +114,7 @@ export default function DashboardPage() {
               >
                 <HugeiconsIcon icon={SourceCodeIcon} size={14} />
               </button>
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
             </div>
 
             <div className="min-h-full bg-muted/5 p-4 flex items-center justify-center">
@@ -139,6 +147,15 @@ export default function DashboardPage() {
                 </div>
               </div>
             )}
+
+            <InstallCliCommand
+              install={item.install}
+              slug={item.slug}
+              name={item.name}
+              category={item.category}
+              entityType="dashboard"
+              source="page"
+            />
 
             {/* Copy for AI */}
             {!loadingFiles && (
@@ -197,7 +214,7 @@ export default function DashboardPage() {
 
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
-        <div className="flex flex-col h-screen overflow-hidden">
+        <div className="flex flex-col">
           {/* Header - Outside tabs, always visible */}
 
 
@@ -228,12 +245,40 @@ export default function DashboardPage() {
                 <p className="text-sm text-muted-foreground line-clamp-2">
                   {item.description}
                 </p>
+                <div className="mt-4 max-w-3xl">
+                  <InstallCliCommand
+                    install={item.install}
+                    slug={item.slug}
+                    name={item.name}
+                    category={item.category}
+                    entityType="dashboard"
+                    source="page"
+                  />
+                </div>
+                {!loadingFiles && (
+                  <div className="mt-4 space-y-2">
+                    <h4 className="text-sm font-medium">Copy for AI</h4>
+                    <PromptItems
+                      files={componentFiles}
+                      dependencies={item.dependencies || []}
+                      componentName={item.name}
+                      componentSlug={item.slug}
+                    />
+                  </div>
+                )}
               </div>
+              {item.componentNumber && (
+                <div className="flex items-center justify-center shrink-0">
+                  <span className="p-1 text-sm font-mono font-medium bg-muted text-muted-foreground rounded-md border">
+                    {item.componentNumber}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
           {/* Tabs - Take remaining space */}
-          <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0 border rounded-xl">
+          <Tabs defaultValue="preview" className="h-[90dvh] shrink-0 flex flex-col min-h-0 border rounded-xl">
             <div className="flex items-center justify-between px-6 py-2 border-b bg-muted/30 shrink-0">
               <TabsList>
                 <TabsTrigger value="preview">

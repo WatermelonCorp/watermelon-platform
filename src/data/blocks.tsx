@@ -19,6 +19,7 @@ export interface BlockItem {
   install?: string[];
   featured?: boolean;
   comingSoon?: boolean;
+  componentNumber?: number;
 }
 
 // Load all block MDX files (metadata)

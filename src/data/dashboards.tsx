@@ -19,6 +19,7 @@ export interface DashboardItem {
   install?: string[];
   featured?: boolean;
   comingSoon?: boolean;
+  componentNumber?: number;
 }
 
 // Load all dashboard MDX files (metadata)
