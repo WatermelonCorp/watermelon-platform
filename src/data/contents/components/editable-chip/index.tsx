@@ -57,7 +57,7 @@ export const EditableChip: FC<EditableChipProps> = ({
         <div
           className={cn(
             `relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full border border-zinc-200 py-1 pr-1 transition-all duration-300 ease-in-out select-none dark:border-zinc-700 dark:bg-zinc-900`,
-            isEditing && 'gap-8 ring-2 ring-black',
+            isEditing && 'gap-8 ring-2 ring-black dark:ring-white',
           )}
         >
           <motion.input
