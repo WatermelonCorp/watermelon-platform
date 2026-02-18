@@ -35,6 +35,13 @@ const staticRoutes = [
   '/components',
   '/dashboards',
   '/blocks',
+  '/installation',
+  '/changelog',
+  '/basic-usage',
+  '/framework-support',
+  '/privacy',
+  '/terms',
+  '/cli',
 ];
 
 const componentSlugs = getMdxSlugs(path.join(SRC_DIR, 'data/contents/registry'));
