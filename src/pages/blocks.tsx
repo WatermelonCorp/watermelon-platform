@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { blocks } from '@/data/blocks';
 import { DashboardCard } from '@/components/registry/dashboard-card';
 import { BlockModal } from '@/components/registry/block-modal';
@@ -6,10 +6,35 @@ import type { BlockItem } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
 
 
+const ITEMS_PER_PAGE = 18;
+
 export default function BlocksPage() {
   const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
+  const visibleBlocks = useMemo(
+    () => blocks.slice(0, visibleCount),
+    [visibleCount]
+  );
 
+  const hasMore = visibleBlocks.length < blocks.length;
+
+  useEffect(() => {
+    if (!hasMore || !loadMoreRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry?.isIntersecting) return;
+        setVisibleCount((prev) => Math.min(prev + ITEMS_PER_PAGE, blocks.length));
+      },
+      { rootMargin: '300px 0px 300px 0px' }
+    );
+
+    observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [hasMore]);
 
   return (
     <>
@@ -30,7 +55,7 @@ export default function BlocksPage() {
 
         {/* Blocks Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blocks.map((block) => (
+          {visibleBlocks.map((block) => (
             <DashboardCard
               key={block.slug}
               item={block}
@@ -39,6 +64,13 @@ export default function BlocksPage() {
             />
           ))}
         </div>
+
+        {/* Infinite scroll sentinel */}
+        {hasMore && (
+          <div ref={loadMoreRef} className="h-16 flex items-center justify-center">
+            <div className="h-5 w-5 border-2 border-muted-foreground/40 border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
 
         {/* Empty State */}
         {blocks.length === 0 && (
