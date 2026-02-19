@@ -7,8 +7,12 @@ import { SAMPLE_DATA } from './data';
 import type { TaskGroup } from './data';
 
 
+import { useTheme } from "next-themes";
+
 const TasksDashboardDemo: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const { resolvedTheme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
 
@@ -18,21 +22,26 @@ const TasksDashboardDemo: React.FC = () => {
     currentProject: 'Mobile App Redesign',
   };
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle('dark', isDarkMode);
-  }, [isDarkMode]);
+    if (!mounted) return;
+    setIsDarkMode(resolvedTheme === 'dark');
+  }, [resolvedTheme, mounted]);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev);
+    setIsDarkMode((prev) => !prev);
   };
+
+  if (!mounted) return null;
 
   const handleAddIssue = () => {
     console.log('Add Issue clicked');
   };
 
- 
+
   const data: TaskGroup[] = SAMPLE_DATA;
 
   return (

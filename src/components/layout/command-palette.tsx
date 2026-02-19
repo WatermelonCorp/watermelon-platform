@@ -32,6 +32,8 @@ import {
 const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: Home01Icon, shortcut: 'C' },
+  { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
+  { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
   { name: 'Basic Usage', href: '/basic-usage', icon: Book02Icon, shortcut: 'B' },
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },

@@ -55,6 +55,11 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
     }
   }, [isHovered, item.video]);
 
+  useEffect(() => {
+    if (!isHovered) return;
+    void item.preload?.();
+  }, [isHovered, item]);
+
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
 
@@ -83,6 +88,7 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
           slug: item.slug,
           name: item.name,
         });
+        void item.preload?.();
         onClick(item);
       }}
       onMouseEnter={() => setIsHovered(true)}

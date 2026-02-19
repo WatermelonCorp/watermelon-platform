@@ -36,25 +36,35 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
   // Load file codes when item changes
   useEffect(() => {
     if (!item) return;
+    let cancelled = false;
     setLoadingFiles(true);
+    setFileCodes({});
+    setSelectedFile(null);
 
     Promise.all(
       item.files.map(async (file) => {
         const code = await file.code();
         return { name: file.name, code };
       })
-    ).then((results) => {
-      const codeMap: Record<string, string> = {};
-      results.forEach(({ name, code }) => {
-        codeMap[name] = code;
+    )
+      .then((results) => {
+        if (cancelled) return;
+        const codeMap: Record<string, string> = {};
+        results.forEach(({ name, code }) => {
+          codeMap[name] = code;
+        });
+        setFileCodes(codeMap);
+        setLoadingFiles(false);
+        setSelectedFile(results[0]?.name ?? null);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setLoadingFiles(false);
       });
-      setFileCodes(codeMap);
-      setLoadingFiles(false);
-      // Auto-select first file
-      if (results.length > 0 && !selectedFile) {
-        setSelectedFile(results[0].name);
-      }
-    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [item]);
 
   useEffect(() => {
@@ -81,7 +91,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
   // Mobile View - Drawer with tabs
   if (isMobile) {
     return (
-      <Drawer open={!!item} onOpenChange={(o) => !o && onClose()}>
+      <Drawer open={!!item} onOpenChange={(open) => { if (!open) onClose(); }}>
         <DrawerContent className="h-[95dvh] p-0 rounded-t-2xl flex flex-col">
           {/* Header */}
           <DrawerHeader className="px-4 py-3 border-b shrink-0 bg-background">
@@ -223,7 +233,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
 
   // Desktop View - Full width with tabs
   return (
-    <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
+    <Dialog open={!!item} onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogContent
         showCloseButton={false}
         aria-describedby={undefined}
