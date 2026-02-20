@@ -97,8 +97,8 @@ export function CommandPalette() {
           <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4" />
           <span className='hidden md:block'>Search components...</span>
         </div>
-        <kbd className="pointer-events-none flex h-5 select-none items-center gap-0.5 rounded-md border border-input/50 bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
-          <span className="text-xs">⌘</span>K
+        <kbd className="pointer-events-none flex h-5 select-none items-center gap-0.5 rounded-md border border-input/50 bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground leading-none">
+          <HugeiconsIcon icon={CommandIcon} size={13} />K
         </kbd>
       </button>
 
