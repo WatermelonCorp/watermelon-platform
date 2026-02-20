@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const BASE_URL = 'https://watermelon-ui.com';
+const BASE_URL = 'https://ui.watermelon.sh';
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const SRC_DIR = path.resolve(process.cwd(), 'src');
 
