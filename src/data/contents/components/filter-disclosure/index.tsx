@@ -4,7 +4,6 @@ import { useState, type FC } from 'react';
 import {
   motion,
   AnimatePresence,
-  type Variants,
   MotionConfig,
 } from 'motion/react';
 import { FaBell, FaTasks } from 'react-icons/fa';
