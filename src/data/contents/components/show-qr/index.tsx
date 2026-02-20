@@ -53,6 +53,9 @@ export const ShowQr = ({
         transition={isExpanded ? springConfig : collapsedTransition}
       >
         <motion.div
+          initial={{
+            width: 170,
+          }}
           animate={{
             width: isExpanded ? 250 : 170,
             height: isExpanded ? bounds.height : 48,
@@ -60,7 +63,7 @@ export const ShowQr = ({
           className="overflow-hidden rounded-[32px] bg-[#F4F4F9] dark:bg-[#1C1C1E]"
         >
           <div ref={ref} className="">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence mode="popLayout" initial={false}>
               {!isExpanded ? (
                 <motion.div
                   key="collapsed"
@@ -79,10 +82,13 @@ export const ShowQr = ({
                   className="flex flex-col items-center gap-2 p-4 text-neutral-900 dark:text-white"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  exit={{ opacity: 0,transition:{
-                    duration: 0.2,
-                    ease: 'easeOut',
-                  } }}
+                  exit={{
+                    opacity: 0,
+                    transition: {
+                      duration: 0.2,
+                      ease: 'easeOut',
+                    },
+                  }}
                 >
                   <motion.div
                     className="flex h-[220px] w-[220px] items-center justify-center rounded-3xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-[#0B0B0E]"
@@ -152,7 +158,7 @@ const AnimatedText = ({
   const activeText = isCopied ? to : from;
 
   return (
-    <div className="flex text-lg tracking-tight  will-change-transform">
+    <div className="flex text-lg tracking-tight will-change-transform">
       <AnimatePresence mode="popLayout" initial={false}>
         {activeText.split('').map((char, index) => {
           const displayChar = char === ' ' ? '\u00A0' : char;
