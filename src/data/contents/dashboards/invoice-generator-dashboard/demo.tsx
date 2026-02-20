@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { DashboardLayout } from "./dashboardLayout";
-import { InvoiceView } from "./InvoicePageView";
+import { InvoiceView } from "./invoicePageView";
 
 export default function InvoiceGeneratorDashboardDemo() {
     const [currentView, setCurrentView] = useState("Invoice");
@@ -10,7 +10,7 @@ export default function InvoiceGeneratorDashboardDemo() {
     const renderContent = () => {
         switch (currentView) {
             case "Invoice":
-                return <InvoiceView/>;
+                return <InvoiceView />;
             default:
                 return <InvoiceView />;
         }

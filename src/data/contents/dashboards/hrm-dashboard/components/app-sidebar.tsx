@@ -259,7 +259,7 @@ export function SecondarySidebar({
           <div className="h-px bg-sidebar-border mb-3" />
 
 
-          <CollapsibleSection title="Workforce" items={workforceItems} onNavigate={onNavigate} currentView={currentView} />
+          <CollapsibleSection title="Workforce" items={workforceItems} onNavigate={onNavigate} />
 
           <div className="h-px bg-sidebar-border mb-3" />
 
@@ -267,7 +267,6 @@ export function SecondarySidebar({
             title="Communication"
             items={communicationItems}
             onNavigate={onNavigate}
-            currentView={currentView}
           />
 
           <div className="h-px bg-sidebar-border mb-3" />
@@ -307,7 +306,7 @@ export function SecondarySidebar({
           </Collapsible>
           <div className="h-px bg-sidebar-border mb-3" />
 
-          <CollapsibleSection title="Administration" items={adminItems} onNavigate={onNavigate} currentView={currentView} />
+          <CollapsibleSection title="Administration" items={adminItems} onNavigate={onNavigate} />
         </div>
       </div>
     </div>
@@ -360,12 +359,10 @@ function CollapsibleSection({
   title,
   items,
   onNavigate,
-  currentView
 }: {
   title: string;
   items: NavItem[];
   onNavigate?: (view: string) => void;
-  currentView?: string;
 }) {
   return (
     <Collapsible defaultOpen className="group/collapsible mb-2">
