@@ -10,7 +10,11 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
 
-const ComponentModal = lazy(() => import('@/components/registry/component-modal').then((m) => ({ default: m.ComponentModal })));
+const ComponentModal = lazy(() =>
+  import('@/components/registry/component-modal').then((m) => ({
+    default: m.ComponentModal,
+  })),
+);
 // const DashboardModal = lazy(() => import('@/components/registry/dashboard-modal').then((m) => ({ default: m.DashboardModal })));
 // const BlockModal = lazy(() => import('@/components/registry/block-modal').then((m) => ({ default: m.BlockModal })));
 
@@ -26,39 +30,44 @@ export default function HomePage() {
   // const featuredBlocks = blocks.slice(0, 4);
 
   const organizationSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Watermelon UI",
-    "url": "https://watermelon-ui.com",
-    "logo": "https://watermelon-ui.com/logo.png",
-    "foundingDate": "2024-01-01",
-    "description": "A collection of high-quality React components for modern web applications.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "support",
-      "email": "watermeloncorpui@gmail.com"
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Watermelon UI',
+    url: 'https://watermelon-ui.com',
+    logo: 'https://watermelon-ui.com/logo.png',
+    foundingDate: '2024-01-01',
+    description:
+      'A collection of high-quality React components for modern web applications.',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'support',
+      email: 'watermeloncorpui@gmail.com',
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "US"
-    }
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'US',
+    },
   });
 
   return (
     <>
       <SEOHead
-        title="Featured Components"
+        title="React Components, Dashboards & Blocks"
         description="Explore our collection of high-quality, customizable React components built with modularity and performance in mind."
         schema={organizationSchema}
         image="/og-image.png"
       />
 
-      <h1 className="sr-only">Watermelon UI - High-Quality React Components Registry</h1>
+      <h1 className="sr-only">
+        Watermelon UI - High-Quality React Components Registry
+      </h1>
       <div className="space-y-12">
         {/* Components Section */}
         <section id="components" className="space-y-6">
-          <div className="flex items-center justify-between px-2 md:px-4 mt-2 md:mt-0">
-            <h2 className="tracking-tight text-sm md:text-base">Featured Components</h2>
+          <div className="mt-2 flex items-center justify-between px-2 md:mt-0 md:px-4">
+            <h2 className="text-sm tracking-tight md:text-base">
+              Featured Components
+            </h2>
             <Link
               to="/components"
               onClick={() =>
@@ -66,14 +75,14 @@ export default function HomePage() {
                   section: 'components',
                 })
               }
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm transition-colors"
             >
               View all ({registry.length})
               <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredItems.map((item, index) => (
               <RegistryCard
                 key={item.slug}
@@ -145,26 +154,34 @@ export default function HomePage() {
         </section> */}
 
         {/* Footer with Semantic Sections */}
-        <footer className="border-t py-6 mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-muted-foreground">
+        <footer className="mt-12 border-t py-6">
+          <div className="text-muted-foreground grid grid-cols-1 gap-8 text-xs md:grid-cols-3">
             <section id="about" className="space-y-2">
-              <h3 className="font-semibold text-foreground">About</h3>
+              <h3 className="text-foreground font-semibold">About</h3>
               <p>
-                Watermelon UI is a comprehensive component registry improving developer experience with accessible, performant, and beautiful UI blocks.
+                Watermelon UI is a comprehensive component registry improving
+                developer experience with accessible, performant, and beautiful
+                UI blocks.
               </p>
             </section>
 
             <section id="team" className="space-y-2">
-              <h3 className="font-semibold text-foreground">Team</h3>
-              <p>
-                Maintained by a dedicated team of open-source contributors.
-              </p>
+              <h3 className="text-foreground font-semibold">Team</h3>
+              <p>Maintained by a dedicated team of open-source contributors.</p>
             </section>
 
             <section id="contact" className="space-y-2">
-              <h3 className="font-semibold text-foreground">Contact</h3>
+              <h3 className="text-foreground font-semibold">Contact</h3>
               <p>
-                For support and inquiries, please reach out via GitHub issues or email <a href="mailto:watermeloncorpui@gmail.com" className="hover:text-foreground underline underline-offset-4">watermeloncorpui@gmail.com</a>.
+                For support and inquiries, please reach out via GitHub issues or
+                email{' '}
+                <a
+                  href="mailto:watermeloncorpui@gmail.com"
+                  className="hover:text-foreground underline underline-offset-4"
+                >
+                  watermeloncorpui@gmail.com
+                </a>
+                .
               </p>
             </section>
           </div>
