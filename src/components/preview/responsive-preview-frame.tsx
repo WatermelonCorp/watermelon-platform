@@ -65,20 +65,34 @@ function syncDocumentStyles(frameDocument: Document) {
   const parentRoot = document.documentElement;
   const frameRoot = frameDocument.documentElement;
 
-  frameRoot.className = parentRoot.className;
-  frameRoot.style.cssText = parentRoot.style.cssText;
+  if (frameRoot.className !== parentRoot.className) {
+    frameRoot.className = parentRoot.className;
+  }
+  if (frameRoot.style.cssText !== parentRoot.style.cssText) {
+    frameRoot.style.cssText = parentRoot.style.cssText;
+  }
 
-  const existing = frameDocument.head.querySelectorAll('[data-preview-style]');
-  existing.forEach((node) => node.remove());
+  const existingNodes = Array.from(frameDocument.head.querySelectorAll('[data-preview-style]'));
+  const existingMap = new Map(existingNodes.map(node => [node.textContent || (node as HTMLLinkElement).href, node]));
 
-  const styles = document.head.querySelectorAll(
-    'style, link[rel="stylesheet"]',
-  );
+  const styles = document.head.querySelectorAll('style, link[rel="stylesheet"]');
+  const seenKeys = new Set<string>();
 
   styles.forEach((node) => {
-    const clone = node.cloneNode(true) as HTMLElement;
-    clone.setAttribute('data-preview-style', 'true');
-    frameDocument.head.appendChild(clone);
+    const key = node.textContent || (node as HTMLLinkElement).href;
+    seenKeys.add(key);
+
+    if (!existingMap.has(key)) {
+      const clone = node.cloneNode(true) as HTMLElement;
+      clone.setAttribute('data-preview-style', 'true');
+      frameDocument.head.appendChild(clone);
+    }
+  });
+
+  existingMap.forEach((node, key) => {
+    if (!seenKeys.has(key)) {
+      node.remove();
+    }
   });
 }
 
