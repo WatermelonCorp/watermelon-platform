@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { Search, X } from 'lucide-react';
 
 /* ---------- Types ---------- */
@@ -26,9 +26,9 @@ const transition = {
   mass: 1
 } as const;
 
-export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({ 
+export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
   categories,
-  className = "" 
+  className = ""
 }) => {
   const [isSearching, setIsSearching] = useState(false);
   const [activeTab, setActiveTab] = useState(categories[0]?.id);
@@ -56,11 +56,10 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
             <motion.div
               layout
               transition={transition}
-              className={`relative flex items-center shadow-sm border overflow-hidden transition-colors rounded-[28px] ${
-                isSearching 
-                  ? 'w-[calc(100vw-80px)] xs:w-64 sm:w-80 h-12 sm:h-14' 
+              className={`relative flex items-center shadow-sm border overflow-hidden transition-colors rounded-[28px] ${isSearching
+                  ? 'w-[calc(100vw-80px)] xs:w-64 sm:w-80 h-12 sm:h-14'
                   : 'w-12 h-12 sm:w-14 sm:h-14'
-              } bg-white border-zinc-100 dark:bg-zinc-900 dark:border-zinc-800`}
+                } bg-white border-zinc-100 dark:bg-zinc-900 dark:border-zinc-800`}
             >
               <div className="flex items-center w-full px-3 sm:px-4 h-full">
                 <motion.div layout="position" transition={transition}>
@@ -112,26 +111,26 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
                 >
                   {categories.map((cat) => {
                     const isActive = activeTab === cat.id;
-                    
+
                     return (
                       <motion.button
                         key={cat.id}
                         layout
                         onClick={() => setActiveTab(cat.id)}
                         className={`relative px-3 sm:px-6 py-2 sm:py-3 rounded-full flex items-center gap-1.5 sm:gap-2 transition-colors whitespace-nowrap font-bold text-xs sm:text-lg tracking-tight z-0`}
-                        style={{ 
-                          color: isActive ? cat.activeTextColor : undefined 
+                        style={{
+                          color: isActive ? cat.activeTextColor : undefined
                         }}
                       >
                         {!isActive && <span className="absolute inset-0 flex items-center justify-center text-zinc-600 dark:text-zinc-400" />}
-                        
+
                         {isActive && (
                           <motion.div
                             layoutId="pill-bg"
                             className="absolute inset-0 z-[-1] rounded-full shadow-sm bg-[(--active-bg)] dark:bg-zinc-800 dark:border dark:border-zinc-700"
-                            style={{ 
+                            style={{
                               // @ts-ignore
-                              '--active-bg': cat.activeColor 
+                              '--active-bg': cat.activeColor
                             } as React.CSSProperties}
                             transition={transition}
                           />

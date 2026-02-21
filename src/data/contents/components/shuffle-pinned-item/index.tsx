@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo, type FC } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Pin, ChevronsUpDown } from "lucide-react";
 import { BsChatFill } from "react-icons/bs";
 

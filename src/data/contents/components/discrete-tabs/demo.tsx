@@ -1,7 +1,7 @@
 import { DiscreteTabs } from '.';
 import { FaBell } from 'react-icons/fa6';
 import { HiCalendarDays } from 'react-icons/hi2';
-import { MdMailOutline } from 'react-icons/md';
+import { MdMailOutline } from 'react-icons/md'; 
 
 
 

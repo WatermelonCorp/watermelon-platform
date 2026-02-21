@@ -4,17 +4,21 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/compone
 import type { DashboardItem } from '@/data/dashboards';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons } from '@/lib/hugeicons';
+import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons, ShadcnSquareIcon } from '@/lib/hugeicons';
 import { ThemeToggle } from '../layout/theme-toggle';
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '../ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { MobileRestriction } from '../mobile-restriction';
 import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
 import { PageHeader } from '../layout/page-header';
+import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
+import { PromptItems } from '../prompt-items';
+import type { ComponentFile } from '@/lib/types';
+import { CopyButton } from '../animate-ui/components/buttons/copy';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -32,25 +36,35 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
   // Load file codes when item changes
   useEffect(() => {
     if (!item) return;
+    let cancelled = false;
     setLoadingFiles(true);
+    setFileCodes({});
+    setSelectedFile(null);
 
     Promise.all(
       item.files.map(async (file) => {
         const code = await file.code();
         return { name: file.name, code };
       })
-    ).then((results) => {
-      const codeMap: Record<string, string> = {};
-      results.forEach(({ name, code }) => {
-        codeMap[name] = code;
+    )
+      .then((results) => {
+        if (cancelled) return;
+        const codeMap: Record<string, string> = {};
+        results.forEach(({ name, code }) => {
+          codeMap[name] = code;
+        });
+        setFileCodes(codeMap);
+        setLoadingFiles(false);
+        setSelectedFile(results[0]?.name ?? null);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setLoadingFiles(false);
       });
-      setFileCodes(codeMap);
-      setLoadingFiles(false);
-      // Auto-select first file
-      if (results.length > 0 && !selectedFile) {
-        setSelectedFile(results[0].name);
-      }
-    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [item]);
 
   useEffect(() => {
@@ -64,6 +78,12 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
 
   if (!item) return null;
 
+  const componentFiles: ComponentFile[] = item.files.map((file) => ({
+    name: file.name,
+    content: fileCodes[file.name] || '',
+  }));
+  const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
+
   const handleReload = () => {
     setReloadKey(prev => prev + 1);
   };
@@ -71,7 +91,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
   // Mobile View - Drawer with tabs
   if (isMobile) {
     return (
-      <Drawer open={!!item} onOpenChange={(o) => !o && onClose()}>
+      <Drawer open={!!item} onOpenChange={(open) => { if (!open) onClose(); }}>
         <DrawerContent className="h-[95dvh] p-0 rounded-t-2xl flex flex-col">
           {/* Header */}
           <DrawerHeader className="px-4 py-3 border-b shrink-0 bg-background">
@@ -81,6 +101,11 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 <p className="text-xs text-muted-foreground truncate mt-0.5">{item.description}</p>
               </div>
               <div className="flex items-center gap-2 shrink-0">
+                {item.componentNumber && (
+                  <span className="px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground rounded-sm">
+                    {item.componentNumber}
+                  </span>
+                )}
                 <Link
                   to={`/dashboard/${item.slug}`}
                   onClick={onClose}
@@ -100,6 +125,36 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
               </div>
             </div>
           </DrawerHeader>
+
+          <div className="px-4 py-2 border-b bg-background shrink-0 flex items-center justify-end gap-2">
+            <CopyButton
+              variant="outline"
+              size="sm"
+              icon={<HugeiconsIcon icon={ShadcnSquareIcon} />}
+              content={cliCommand}
+              ariaLabel={`Copy install command for ${item.name}`}
+              onCopiedChange={(copied) => {
+                if (!copied) return;
+                trackEvent("install_command_copy", {
+                  slug: item.slug,
+                  name: item.name,
+                  category: item.category,
+                  command: cliCommand,
+                  source: "dashboard_modal",
+                });
+              }}
+            />
+            {!loadingFiles && (
+              <PromptItems
+                files={componentFiles}
+                dependencies={item.dependencies || []}
+                componentName={item.name}
+                componentSlug={item.slug}
+                category={item.category}
+                source="modal"
+              />
+            )}
+          </div>
 
           {/* Tabs - Take remaining space */}
           <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0">
@@ -178,7 +233,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
 
   // Desktop View - Full width with tabs
   return (
-    <Dialog open={!!item} onOpenChange={(open) => !open && onClose()}>
+    <Dialog open={!!item} onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogContent
         showCloseButton={false}
         aria-describedby={undefined}
@@ -210,6 +265,11 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 </Link>
               }
             />
+            {item.componentNumber && (
+              <span className="px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground rounded-sm shrink-0">
+                {item.componentNumber}
+              </span>
+            )}
             {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span className="shrink-0">Dashboards</span>
               <span className="shrink-0">/</span>
@@ -232,6 +292,36 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
           >
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
           </button>
+        </div>
+
+        <div className="px-6 py-2 border-b bg-background shrink-0 flex items-center justify-end gap-2">
+          <CopyButton
+            variant="outline"
+            size="sm"
+            icon={<HugeiconsIcon icon={ShadcnSquareIcon} />}
+            content={cliCommand}
+            ariaLabel={`Copy install command for ${item.name}`}
+            onCopiedChange={(copied) => {
+              if (!copied) return;
+              trackEvent("install_command_copy", {
+                slug: item.slug,
+                name: item.name,
+                category: item.category,
+                command: cliCommand,
+                source: "dashboard_modal",
+              });
+            }}
+          />
+          {!loadingFiles && (
+            <PromptItems
+              files={componentFiles}
+              dependencies={item.dependencies || []}
+              componentName={item.name}
+              componentSlug={item.slug}
+              category={item.category}
+              source="modal"
+            />
+          )}
         </div>
 
         {/* Tabs - Take remaining space */}
@@ -295,12 +385,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
           <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
             <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
               {/* Preview takes full available size or constraint */}
-              <div
-                className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
-                  viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
-                    'w-[375px] h-[812px] rounded-[2.5rem] border-4'
-                  }`}
-              >
+              <ResponsivePreviewFrame viewport={viewMode}>
                 <Suspense fallback={
                   <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                     <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
@@ -309,7 +394,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                 }>
                   <item.component key={`${reloadKey}-${viewMode}`} />
                 </Suspense>
-              </div>
+              </ResponsivePreviewFrame>
             </TabsContent>
 
             <TabsContent value="code" className="absolute inset-0 flex">

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ChevronLeft, Info, ImagePlus } from 'lucide-react';
 import { HiBadgeCheck } from 'react-icons/hi';
 
@@ -38,7 +38,7 @@ export const OnboardingScreen: React.FC<OnboardingProps> = ({
     const [legalName, setLegalName] = useState('');
     const [currentStep, setCurrentStep] = useState(1);
 
-    const totalSteps = 3; 
+    const totalSteps = 3;
     const spring = { type: "spring", stiffness: 300, damping: 30 } as const;
     const progressSpring = { type: "spring", stiffness: 100, damping: 20 } as const;
 
@@ -95,7 +95,7 @@ export const OnboardingScreen: React.FC<OnboardingProps> = ({
                                 <label className="text-xs font-semibold uppercase tracking-wider text-[#808080] dark:text-[#6C6C6C] flex items-center gap-2 transition-colors">
                                     {businessNameLabel} <Info size={14} className="opacity-50" />
                                 </label>
-                                <input 
+                                <input
                                     placeholder={businessNamePlaceholder}
                                     value={businessName}
                                     onChange={(e) => setBusinessName(e.target.value)}

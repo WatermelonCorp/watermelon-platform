@@ -1,36 +1,36 @@
 import { useState, Suspense, lazy } from 'react';
 import { registry, type RegistryItem } from '@/data/registry';
-// import { dashboards, type DashboardItem } from '@/data/dashboards';
-// import { blocks, type BlockItem } from '@/data/blocks';
+import { dashboards, type DashboardItem } from '@/data/dashboards';
+import { blocks, type BlockItem } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
 import { RegistryCard } from '@/components/registry/registry-card';
-// import { DashboardCard } from '@/components/registry/dashboard-card';
+import { DashboardCard } from '@/components/registry/dashboard-card';
 import { Link } from 'react-router-dom';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
 
 const ComponentModal = lazy(() => import('@/components/registry/component-modal').then((m) => ({ default: m.ComponentModal })));
-// const DashboardModal = lazy(() => import('@/components/registry/dashboard-modal').then((m) => ({ default: m.DashboardModal })));
-// const BlockModal = lazy(() => import('@/components/registry/block-modal').then((m) => ({ default: m.BlockModal })));
+const DashboardModal = lazy(() => import('@/components/registry/dashboard-modal').then((m) => ({ default: m.DashboardModal })));
+const BlockModal = lazy(() => import('@/components/registry/block-modal').then((m) => ({ default: m.BlockModal })));
 
 export default function HomePage() {
   const [selectedItem, setSelectedItem] = useState<RegistryItem | null>(null);
-  // const [selectedDashboard, setSelectedDashboard] = useState<DashboardItem | null>(null);
-  // const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
+  const [selectedDashboard, setSelectedDashboard] = useState<DashboardItem | null>(null);
+  const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
 
   // For home page, we might want to show featured or all. Let's show all for now.
   // In a real app, you might have a "featured" flag.
   const featuredItems = registry.slice(0, 6);
-  // const featuredDashboards = dashboards.slice(0, 4);
-  // const featuredBlocks = blocks.slice(0, 4);
+  const featuredDashboards = dashboards.slice(0, 4);
+  const featuredBlocks = blocks.slice(0, 4);
 
   const organizationSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Watermelon UI",
-    "url": "https://watermelon-ui.com",
-    "logo": "https://watermelon-ui.com/logo.png",
+    "url": "https://ui.watermelon.sh",
+    "logo": "https://ui.watermelon.sh/logo.png",
     "foundingDate": "2024-01-01",
     "description": "A collection of high-quality React components for modern web applications.",
     "contactPoint": {
@@ -85,8 +85,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Dashboards Section - disabled */}
-        {/* <section id="dashboards" className="space-y-6">
+        {/* Dashboards Section */}
+        <section id="dashboards" className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="tracking-tight text-sm md:text-base">Dashboard Templates</h2>
             <Link
@@ -112,10 +112,10 @@ export default function HomePage() {
               />
             ))}
           </div>
-        </section> */}
+        </section>
 
         {/* Blocks Section */}
-        {/* <section id="blocks" className="space-y-6">
+        <section id="blocks" className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="tracking-tight text-sm md:text-base">UI Blocks</h2>
             <Link
@@ -142,7 +142,7 @@ export default function HomePage() {
               />
             ))}
           </div>
-        </section> */}
+        </section>
 
         {/* Footer with Semantic Sections */}
         <footer className="border-t py-6 mt-12">
@@ -177,18 +177,18 @@ export default function HomePage() {
               onClose={() => setSelectedItem(null)}
             />
           )}
-          {/* {selectedDashboard && (
+          {selectedDashboard && (
             <DashboardModal
               item={selectedDashboard}
               onClose={() => setSelectedDashboard(null)}
             />
-          )} */}
-          {/* {selectedBlock && (
+          )}
+          {selectedBlock && (
             <BlockModal
               item={selectedBlock}
               onClose={() => setSelectedBlock(null)}
             />
-          )} */}
+          )}
         </Suspense>
       </div>
     </>

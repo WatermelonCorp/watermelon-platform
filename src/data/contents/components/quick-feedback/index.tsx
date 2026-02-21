@@ -1,7 +1,7 @@
 "use client";
 
 import { type FC, useState } from "react";
-import { motion, AnimatePresence, type Transition } from "framer-motion";
+import { motion, AnimatePresence, type Transition } from "motion/react";
 import { Undo2 } from "lucide-react";
 import { FaThumbsDown, FaThumbsUp } from "react-icons/fa6";
 

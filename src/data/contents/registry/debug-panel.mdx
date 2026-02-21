@@ -1,0 +1,32 @@
+---
+title: Debug Panel
+slug: debug-panel
+category: interaction
+description: >-
+  An interactive monitoring panel for tracking real-time mouse coordinates,
+  click counts, and keyboard interactions with a minimal developer aesthetic.
+image: 'https://assets.watermelon.sh/components/debug_panel.webp'
+video: 'https://assets.watermelon.sh/components/debug_panel.mp4'
+featured: true
+componentNumber: 118
+dependencies:
+  - motion
+  - lucide-react
+inspiredByName: SKIPER-UI
+inspiredByLink: 'https://skiper-ui.com/v1/skiper92'
+install:
+  - 'npx shadcn@latest add https://registry.watermelon.sh/r/debug-panel.json'
+---
+
+## Introduction
+
+The `DebugPannel` is a specialized developer utility designed for real-time interaction monitoring. It provides immediate visual feedback for user inputs, making it an essential tool for debugging complex motion systems and event handlers in a premium dashboard environment.
+
+## Features
+
+- **Interactive Mouse Tracking**: Real-time monitoring of X/Y coordinates using high-performance `useMotionValue`.
+- **Global Event Listeners**: Tracks keyboard activity across the entire window for comprehensive input debugging.
+- **Session State Tracking**: Integrated click counter for monitoring user engagement and interaction frequency.
+- **Minimalist Aesthetics**: Clean, monochrome developer interface that blends into any workspace.
+- **Configurable Toggles**: Granular control over tracking features (Mouse, Keys, Clicks) via component props.
+- **Type-Safe Implementation**: Robust TypeScript support for all interactive properties and panel modes.

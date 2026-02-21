@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { LuCircleDotDashed } from 'react-icons/lu';
 import { FaArrowRotateRight } from 'react-icons/fa6';
 import { TbAlertOctagonFilled } from 'react-icons/tb';
@@ -37,9 +37,8 @@ export const FeedbackAction: React.FC<InlineFeedbackProps> = ({
 
   return (
     <div
-      className={`min-h-full flex items-center justify-center p-4 transition-colors ${
-        isDark ? 'bg-[#0E0E11]' : 'bg-transparent'
-      }`}
+      className={`min-h-full flex items-center justify-center p-4 transition-colors ${isDark ? 'bg-[#0E0E11]' : 'bg-transparent'
+        }`}
     >
       <div className="flex items-center gap-3 h-14">
         {/* STATUS PILL */}
@@ -54,15 +53,14 @@ export const FeedbackAction: React.FC<InlineFeedbackProps> = ({
               mass: 0.9,
             },
           }}
-          className={`relative flex items-center h-15.5 px-6 min-w-40 justify-center rounded-full border overflow-hidden shadow-sm transition-colors ${
-            status === 'error'
+          className={`relative flex items-center h-15.5 px-6 min-w-40 justify-center rounded-full border overflow-hidden shadow-sm transition-colors ${status === 'error'
               ? isDark
                 ? 'bg-[#1A0F10] border-[#3A1F22]'
                 : 'bg-[#F4F4F4] border-[#ECEAEA]'
               : isDark
-              ? 'bg-[#141418] border-[#26262C]'
-              : 'bg-[#F4F4F9] border-[#EBEBEF]'
-          }`}
+                ? 'bg-[#141418] border-[#26262C]'
+                : 'bg-[#F4F4F9] border-[#EBEBEF]'
+            }`}
         >
           <AnimatePresence mode="popLayout">
             {status === 'error' ? (
@@ -79,9 +77,8 @@ export const FeedbackAction: React.FC<InlineFeedbackProps> = ({
                   className={isDark ? 'text-[#FF453A]' : 'text-[#FF332C]'}
                 />
                 <span
-                  className={`font-bold text-xl tracking-tight ${
-                    isDark ? 'text-[#FF6B63]' : 'text-[#FF332C]'
-                  }`}
+                  className={`font-bold text-xl tracking-tight ${isDark ? 'text-[#FF6B63]' : 'text-[#FF332C]'
+                    }`}
                 >
                   {errorMessage}
                 </span>
@@ -145,9 +142,8 @@ export const FeedbackAction: React.FC<InlineFeedbackProps> = ({
                 </motion.div>
 
                 <span
-                  className={`font-bold text-xl ${
-                    isDark ? 'text-[#E5E5EB]' : 'text-[#232328]'
-                  }`}
+                  className={`font-bold text-xl ${isDark ? 'text-[#E5E5EB]' : 'text-[#232328]'
+                    }`}
                 >
                   {loadingMessage}
                 </span>
@@ -184,9 +180,8 @@ export const FeedbackAction: React.FC<InlineFeedbackProps> = ({
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
               onClick={handleRetry}
-              className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center ${
-                isDark ? 'bg-[#F5F5F7] text-black' : 'bg-black text-white'
-              }`}
+              className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center ${isDark ? 'bg-[#F5F5F7] text-black' : 'bg-black text-white'
+                }`}
             >
               <FaArrowRotateRight size={22} />
             </motion.button>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { TbMessageFilled, TbPlayerPauseFilled, TbPlayerPlayFilled } from 'react-icons/tb';
 
 interface VoiceMessageProps {
@@ -60,13 +60,12 @@ export const TranscribeVoiceMessage: React.FC<VoiceMessageProps> = ({
             <div className="relative flex items-center gap-2 sm:gap-4 w-full max-w-fit">
 
                 {/* Transcription Icon Toggle */}
-                <button title='Transcription' 
+                <button title='Transcription'
                     onClick={() => setShowTranscription(!showTranscription)}
-                    className={`shrink-0 w-11 h-11 sm:w-16 sm:h-16 flex items-center justify-center rounded-full transition-all duration-300 border-2 ${
-                        showTranscription 
-                            ? 'bg-transparent text-zinc-900 border-zinc-200 dark:text-white dark:border-white/20' 
+                    className={`shrink-0 w-11 h-11 sm:w-16 sm:h-16 flex items-center justify-center rounded-full transition-all duration-300 border-2 ${showTranscription
+                            ? 'bg-transparent text-zinc-900 border-zinc-200 dark:text-white dark:border-white/20'
                             : 'bg-zinc-100 text-zinc-900 border-transparent hover:bg-zinc-200 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700'
-                    }`}
+                        }`}
                 >
                     <TbMessageFilled size={22} className="sm:hidden" />
                     <TbMessageFilled size={28} className="hidden sm:block" />
@@ -93,8 +92,8 @@ export const TranscribeVoiceMessage: React.FC<VoiceMessageProps> = ({
                                     initial={{ height: h * 0.7 }}
                                     animate={{
                                         height: h,
-                                        backgroundColor: isPlayed 
-                                            ? 'var(--tw-played-color)' 
+                                        backgroundColor: isPlayed
+                                            ? 'var(--tw-played-color)'
                                             : 'var(--tw-unplayed-color)'
                                     }}
                                     transition={{ duration: 0.1 }}

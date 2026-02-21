@@ -3,6 +3,7 @@ import { registry, type RegistryItem } from '@/data/registry';
 import { SEOHead } from '@/components/seo-head';
 import { RegistryCard } from '@/components/registry/registry-card';
 import { ComponentModal } from '@/components/registry/component-modal';
+import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
 const ITEMS_PER_PAGE = 18;
 
@@ -45,17 +46,11 @@ export default function ComponentsPage() {
         category="Components"
       />
 
-      <div className="space-y-12">
+      <div className="space-y-12 mb-10">
         <section id="components" className="space-y-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl md:text-2xl font-medium tracking-tight">All Components</h1>
-              <p className="text-muted-foreground mt-1 text-sm md:text-base">
-                Explore every component in the registry with source code and live preview
-              </p>
-            </div>
-            <p className="text-muted-foreground text-sm md:text-base">{registry.length} components available</p>
-          </div>
+          <CatalogPageHeader
+            title="All Components"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleItems.map((item) => (

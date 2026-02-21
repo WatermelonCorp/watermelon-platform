@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, type FC, type ChangeEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Check } from "lucide-react";
 
 /* --- Types --- */
@@ -100,9 +100,8 @@ const Dropdown: FC<DropdownProps> = ({ selected, onSelect, currencies }) => {
           {selected.code}
         </span>
         <ChevronDown
-          className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -170,7 +169,7 @@ interface DigitColumnProps {
 const DigitColumn: FC<DigitColumnProps> = ({ digit }) => {
   // Adjusted heights for mobile/desktop
   const [digitHeight, setDigitHeight] = useState(28);
-  
+
   useEffect(() => {
     const updateHeight = () => {
       setDigitHeight(window.innerWidth < 640 ? 24 : 28);

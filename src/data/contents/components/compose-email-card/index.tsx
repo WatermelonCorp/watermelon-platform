@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, type FC } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import {
     X, Minus, Maximize2, Mail, ChevronDown,
     Smile, Paperclip, Link2, Sparkles,
@@ -77,7 +77,7 @@ export const ComposeEmailCard: FC<ComposeEmailCardProps> = ({ data, onSend, onCl
 
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-center p-2 sm:p-6 lg:p-10 relative overflow-hidden bg-transparent transition-colors duration-500 lg:mt-2">
-            
+
             <motion.div
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -211,7 +211,7 @@ export const ComposeEmailCard: FC<ComposeEmailCardProps> = ({ data, onSend, onCl
                         <span className="text-[11px] text-[#C6C5CA] font-medium truncate max-w-25 sm:max-w-none">Draft saved</span>
                         <div className="flex items-center gap-2">
                             <button className="flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 border border-gray-200 dark:border-zinc-700 rounded-full text-[13px] sm:text-[14px] font-normal text-[#535355] dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all">
-                                <Calendar size={16} strokeWidth={2.5} /> 
+                                <Calendar size={16} strokeWidth={2.5} />
                                 <span className="hidden xs:inline">Schedule</span>
                             </button>
                             <motion.button

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { Minus, Plus, X, ChevronUp, ChevronDown } from 'lucide-react';
 import { FaBell, FaCheck } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
@@ -57,7 +57,7 @@ export const EventReminders: React.FC<EventRemindersProps> = ({
 
   return (
     <div className="flex flex-col items-center justify-center min-h-full p-2 sm:p-4 antialiased transition-colors duration-500 bg-transparent">
-      
+
       <motion.div
         layout
         className="w-full max-w-100 rounded-[24px] sm:rounded-[32px] p-4 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 transition-colors duration-300 bg-[#fefefe] border-[#E9E8ED] dark:bg-[#1C1C1E] dark:border-white/10"
@@ -68,7 +68,7 @@ export const EventReminders: React.FC<EventRemindersProps> = ({
             <h2 className="font-bold text-[17px] sm:text-[19px] leading-tight transition-colors text-[#1C1C1E] dark:text-white truncate">
               {title}
             </h2>
-            
+
             <AnimatePresence mode="wait">
               {isEditingDate ? (
                 <motion.input
@@ -84,7 +84,7 @@ export const EventReminders: React.FC<EventRemindersProps> = ({
                   className="font-bold text-[16px] sm:text-[18px] mt-1 outline-none rounded px-1 w-full border-b-2 transition-colors text-[#6A6970] bg-[#f4f3f3] border-[#6A6970]/30 dark:bg-white/5 dark:text-gray-300 dark:border-white/20"
                 />
               ) : (
-                <motion.p 
+                <motion.p
                   key="static-date"
                   initial={{ opacity: 0, x: 5 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -96,9 +96,9 @@ export const EventReminders: React.FC<EventRemindersProps> = ({
               )}
             </AnimatePresence>
           </div>
-          
-          <button 
-            title={isEditingDate ? 'save' : 'edit'} 
+
+          <button
+            title={isEditingDate ? 'save' : 'edit'}
             onClick={() => setIsEditingDate(!isEditingDate)}
             className="p-1.5 sm:p-2 rounded-lg transition-colors duration-300 border-2 shrink-0 bg-[#fefefe] text-[#66666B] hover:bg-[#f4f3f3] border-[#E9E8ED] dark:bg-white/5 dark:text-gray-400 dark:hover:bg-white/10 dark:border-white/10"
           >
