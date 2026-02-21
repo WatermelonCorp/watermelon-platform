@@ -50,7 +50,7 @@ export function NavSupport({
         </SidebarGroupLabel>
         <CollapsibleContent className="">
           <SidebarMenu>
-            {support.map((item, index) => (
+            {support.map((item) => (
               <SidebarMenuItem key={item.name}>
                 <SidebarMenuButton asChild tooltip={item.name} isActive={pathname === item.url} className="text-neutral-500 dark:text-neutral-400 text-xs h-8 font-medium data-[active=true]:border data-[active=true]:border-border data-[active=true]:text-neutral-600 dark:data-[active=true]:text-neutral-300 hover:border hover:border-border hover:text-neutral-600 dark:hover:text-neutral-300">
                   <a href={item.isDisabled ? "#" : item.url} onClick={(e) => {
