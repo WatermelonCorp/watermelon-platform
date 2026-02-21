@@ -36,8 +36,6 @@ export const QuickSwitcher: React.FC<QuickSwitcherProps> = ({
     setMode((prev) => (prev === 'ask' ? 'generate' : 'ask'));
   };
 
-  const direction = mode === 'ask' ? -1 : 1;
-
   return (
     <motion.div
       layout

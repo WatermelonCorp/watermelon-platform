@@ -1,15 +1,9 @@
 'use client';
 
-import React, {
-  type FC,
-  useState,
-  useRef,
-  useCallback,
-  useLayoutEffect,
-} from 'react';
+import React, { type FC, useState, useRef, useCallback } from 'react';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 
-/* ---------- Types ---------- */
+
 interface DigitColumnProps {
   digit: number;
   height: number;
@@ -215,7 +209,6 @@ const RangeSlider: FC<RangeSliderProps> = ({
     </div>
   );
 };
-
 
 export const PriceRangeCard: FC<PriceRangeCardProps> = ({
   defaultRange = [800, 2400],

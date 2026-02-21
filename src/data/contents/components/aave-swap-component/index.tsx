@@ -18,29 +18,6 @@ interface AaveSwapComponentProps {
   to: TokenConfig;
 }
 
-function RollingText({
-  value,
-  className,
-}: {
-  value: string | number;
-  className?: string;
-}) {
-  return (
-    <AnimatePresence mode="wait">
-      <motion.span
-        key={value}
-        initial={{ y: 14, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -14, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className={className}
-      >
-        {value}
-      </motion.span>
-    </AnimatePresence>
-  );
-}
-
 export function AaveSwapComponent({ from, to }: AaveSwapComponentProps) {
   const [inputVal, setInputVal] = useState('0');
   const [isMax, setIsMax] = useState(false);

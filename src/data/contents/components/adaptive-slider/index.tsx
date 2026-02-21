@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, type FC, type ChangeEvent } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import NumberFlow from '@number-flow/react';
 
 /* ---------- Types ---------- */
