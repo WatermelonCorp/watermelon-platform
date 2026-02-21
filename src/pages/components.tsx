@@ -46,7 +46,7 @@ export default function ComponentsPage() {
         category="Components"
       />
 
-      <div className="space-y-12">
+      <div className="space-y-12 mb-10">
         <section id="components" className="space-y-6">
           <CatalogPageHeader
             title="All Components"

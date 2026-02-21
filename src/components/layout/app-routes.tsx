@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import {
   Routes,
   Route,
-  Navigate,
   useMatch,
 } from "react-router-dom";
 import { PageLayout } from "@/components/layout/page-layout";
@@ -24,6 +23,7 @@ const DashboardPage = lazy(() => import("@/pages/dashboard"));
 const BlocksPage = lazy(() => import("@/pages/blocks"));
 const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
+const NotFoundPage = lazy(() => import("@/pages/not-found"));
 
 export function AppRoutes() {
   const isComponentPage = useMatch("/components/:slug");
@@ -172,8 +172,15 @@ export function AppRoutes() {
           }
         />
 
-        {/* Fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* 404 */}
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <NotFoundPage />
+            </Suspense>
+          }
+        />
       </Routes>
     </PageLayout>
   );

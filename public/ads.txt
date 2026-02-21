@@ -1,0 +1,7 @@
+# ads.txt - Authorized Digital Sellers
+# ui.watermelon.sh currently does not run any programmatic advertising.
+# This file exists to declare that explicitly and prevent unauthorized ad fraud.
+#
+# If you add ad partners in the future, list them here in the format:
+# <DOMAIN>, <ACCOUNT_ID>, <ACCOUNT_TYPE>, <TAG_ID>
+# Example: google.com, pub-1234567890, DIRECT, f08c47fec0942fa0
