@@ -24,18 +24,18 @@ export interface ChangelogEntry {
 export const changelogData: ChangelogEntry[] = [
   {
     version: "1.2.3",
-    date: "Feb 21, 2026",
+    date: "Feb 22, 2026",
     stats: [
       { label: "Total Components", count: 123, href: "/components" },
-      { label: "New Dashboards", count: 8, href: "/dashboards" },
+      { label: "New Dashboards", count: 15, href: "/dashboards" },
       { label: "New Blocks", count: 5, href: "/blocks" },
     ],
     sections: [
       {
-        title: "Added Dashboards and Blocks",
+        title: "New Version: Added Dashboards and Blocks",
         items: [
           {
-            text: "Added 8 new dashboards to the registry with polished previews and copy-ready install commands."
+            text: "Added 15 new dashboards to the registry with polished previews and copy-ready install commands."
           },
           {
             text: "Added 5 new blocks to the registry with polished previews and copy-ready install commands."
