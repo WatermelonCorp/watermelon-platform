@@ -5,7 +5,15 @@ import {
   useMatch,
 } from "react-router-dom";
 import { PageLayout } from "@/components/layout/page-layout";
-import { HomePageSkeleton, ComponentPageSkeleton, DocPageSkeleton } from "@/components/skeletons";
+import {
+  HomePageSkeleton,
+  ComponentPageSkeleton,
+  DocPageSkeleton,
+  DashboardsPageSkeleton,
+  BlocksPageSkeleton,
+  DashboardPageSkeleton,
+  BlockPageSkeleton,
+} from "@/components/skeletons";
 
 const HomePage = lazy(() => import("@/pages/home"));
 const ComponentsPage = lazy(() => import("@/pages/components"));
@@ -140,7 +148,7 @@ export function AppRoutes() {
         <Route
           path="/dashboards"
           element={
-            <Suspense fallback={<HomePageSkeleton />}>
+            <Suspense fallback={<DashboardsPageSkeleton />}>
               <DashboardsPage />
             </Suspense>
           }
@@ -148,7 +156,7 @@ export function AppRoutes() {
         <Route
           path="/dashboard/:slug"
           element={
-            <Suspense fallback={<DocPageSkeleton />}>
+            <Suspense fallback={<DashboardPageSkeleton />}>
               <DashboardPage />
             </Suspense>
           }
@@ -158,7 +166,7 @@ export function AppRoutes() {
         <Route
           path="/blocks"
           element={
-            <Suspense fallback={<HomePageSkeleton />}>
+            <Suspense fallback={<BlocksPageSkeleton />}>
               <BlocksPage />
             </Suspense>
           }
@@ -166,7 +174,7 @@ export function AppRoutes() {
         <Route
           path="/block/:slug"
           element={
-            <Suspense fallback={<DocPageSkeleton />}>
+            <Suspense fallback={<BlockPageSkeleton />}>
               <BlockPage />
             </Suspense>
           }

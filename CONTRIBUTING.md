@@ -72,12 +72,12 @@ install:
 
 ```mdx
 ---
-title: Admin Dashboard
-slug: admin-dashboard
+title: Admin
+slug: admin
 category: dashboard
 description: A comprehensive admin interface.
-image: /dashboards/admin-dashboard.webp
-video: /dashboards/admin-dashboard.mp4
+image: /dashboards/admin.webp
+video: /dashboards/admin.mp4
 componentNumber: 1
 dependencies: ['recharts']
 install:
