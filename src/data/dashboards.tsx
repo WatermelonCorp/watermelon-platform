@@ -14,6 +14,7 @@ export interface DashboardItem {
   image: string;
   video?: string;
   component: React.LazyExoticComponent<React.ComponentType<any>>;
+  preload?: () => Promise<void>;
   files: DashboardFile[];
   dependencies?: string[];
   install?: string[];
@@ -68,6 +69,7 @@ export const dashboards: DashboardItem[] = Object.entries(mdxFiles)
     const slug = frontmatter.slug;
     const demoKey = `./contents/dashboards/${slug}/demo.tsx`;
     const demoLoader = demoComponents[demoKey];
+    const resolvedLoader = (demoLoader as (() => Promise<unknown>) | undefined);
 
     if (!demoLoader && !frontmatter.comingSoon) {
       console.warn(`Missing demo component for dashboard: ${slug}`);
@@ -82,6 +84,7 @@ export const dashboards: DashboardItem[] = Object.entries(mdxFiles)
           (demoLoader as any) ||
           (() => Promise.resolve({ default: () => <div>Missing Dashboard</div> }))
         ),
+      preload: resolvedLoader ? async () => { await resolvedLoader(); } : undefined,
       files: getDashboardFiles(slug),
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",

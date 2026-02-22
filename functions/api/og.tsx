@@ -114,7 +114,7 @@ export async function onRequest(context: any) {
               alignItems: 'center',
             }}
           >
-            <span>watermelon-ui.com</span>
+            <span>ui.watermelon.sh</span>
             <div style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: '#3f3f46', margin: '0 12px' }} />
             <span>Copy & Paste UI</span>
           </div>

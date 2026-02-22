@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
 
-Sitemap: https://watermelon-ui.com/sitemap.xml
+Sitemap: https://ui.watermelon.sh/sitemap.xml

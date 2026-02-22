@@ -202,12 +202,7 @@ export function AppSidebar() {
           titleLink="/blocks"
           indentItems
         />
-        <SidebarGroup>
-          <SidebarGroupLabel className="flex items-center justify-between px-2 py-1.5 min-h-6">
-            <span className="font-semibold text-muted-foreground/60">Templates</span>
-            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">Coming Soon</span>
-          </SidebarGroupLabel>
-        </SidebarGroup>
+
         <NavSection
           title="Dashboards"
           items={dashboardItems}
@@ -215,6 +210,13 @@ export function AppSidebar() {
           titleLink="/dashboards"
           indentItems
         />
+
+        <SidebarGroup>
+          <SidebarGroupLabel className="flex items-center justify-between px-2 py-1.5 min-h-6">
+            <span className="font-semibold text-muted-foreground/60">Templates</span>
+            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">Coming Soon</span>
+          </SidebarGroupLabel>
+        </SidebarGroup>
         <NavSection
           title="Legal"
           items={legalLinks}

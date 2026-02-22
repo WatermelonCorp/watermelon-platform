@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useSyncExternalStore } from 'react';
+import { useSyncExternalStore } from 'react';
 import { useTheme } from 'next-themes';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Moon02Icon, Sun01Icon } from '@/lib/hugeicons';
 
 export const ThemeToggle = () => {
-  const [optimisticTheme, setOptimisticTheme] = useState<'light' | 'dark' | null>(null);
   const { resolvedTheme, setTheme } = useTheme();
 
   const mounted = useSyncExternalStore(
@@ -24,15 +23,10 @@ export const ThemeToggle = () => {
     );
   }
 
-  const resolved = resolvedTheme === 'dark' ? 'dark' : 'light';
-  const effectiveTheme =
-    optimisticTheme && optimisticTheme !== resolved ? optimisticTheme : resolved;
-  const isDark = effectiveTheme === 'dark';
+  const isDark = resolvedTheme === 'dark';
 
   const handleToggle = () => {
-    const nextTheme = isDark ? 'light' : 'dark';
-    setOptimisticTheme(nextTheme);
-    setTheme(nextTheme);
+    setTheme(isDark ? 'light' : 'dark');
   };
 
   return (
