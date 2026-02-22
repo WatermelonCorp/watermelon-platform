@@ -9,7 +9,9 @@ export async function onRequest(context: any) {
     const { searchParams } = new URL(context.request.url);
 
     const title = searchParams.get('title') || 'Watermelon UI';
-    const description = searchParams.get('description') || 'High-Quality React Components Registry';
+    const description =
+      searchParams.get('description') ||
+      'High-Quality React Components Registry';
     const category = searchParams.get('category');
 
     return new ImageResponse(
@@ -115,7 +117,15 @@ export async function onRequest(context: any) {
             }}
           >
             <span>ui.watermelon.sh</span>
-            <div style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: '#3f3f46', margin: '0 12px' }} />
+            <div
+              style={{
+                width: '4px',
+                height: '4px',
+                borderRadius: '50%',
+                backgroundColor: '#3f3f46',
+                margin: '0 12px',
+              }}
+            />
             <span>Copy & Paste UI</span>
           </div>
         </div>
@@ -123,7 +133,7 @@ export async function onRequest(context: any) {
       {
         width: 1200,
         height: 630,
-      }
+      },
     );
   } catch (e: any) {
     console.error(e.message);
