@@ -1,22 +1,30 @@
-"use client";
+import { AppSidebar } from "./components/app-sidebar";
+import { SiteHeader } from "./components/site-header";
+import { SidebarInset, SidebarProvider } from "./components/ui/sidebar";
 
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-
-import { AppSidebar } from "./app-sidebar";
-import { SiteHeader } from "./site-header";
-
-export default function ECommerceDashboard({
+export const DashboardLayout = ({
   children,
+  onNavigate,
+  currentView,
 }: {
   children: React.ReactNode;
-}) {
+  onNavigate?: (view: string) => void;
+  currentView?: string;
+}) => {
   return (
-    <SidebarProvider className="w-full relative h-full">
-      <AppSidebar className="absolute h-full" />
-      <SidebarInset>
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-width": "calc(var(--spacing) * 72)",
+          "--header-height": "calc(var(--spacing) * 12)",
+        } as React.CSSProperties
+      }
+    >
+      <AppSidebar variant="inset" onNavigate={onNavigate} currentView={currentView} />
+      <SidebarInset className="min-w-0">
         <SiteHeader />
-        <div className="flex-1">{children}</div>
+        <div className="flex flex-1 flex-col min-w-0">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );
-}
+};

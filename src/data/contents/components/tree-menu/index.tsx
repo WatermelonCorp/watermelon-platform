@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FC } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "motion/react";
 import { TbArrowBackUp } from "react-icons/tb";
 
 export interface MenuItem {
@@ -47,7 +47,7 @@ export const TreeMenu: FC<TreeMenuProps> = ({ menuData = [] }) => {
     <div className="min-h-full w-full flex flex-col items-center justify-center sm:justify-center bg-transparent transition-colors duration-300 overflow-x-hidden pt-12 pb-20">
       {/* Main Container */}
       <div className="w-full max-w-lg px-6 sm:px-10 flex flex-col min-h-100">
-        
+
         {/* Breadcrumb Path */}
         <div className="flex flex-col items-start space-y-1 mb-6">
           <AnimatePresence mode="popLayout">

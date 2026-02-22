@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { X, ArrowRight } from 'lucide-react';
 
 export interface PasteData {
@@ -68,7 +68,7 @@ export const QuickPaste: React.FC<QuickPasteProps> = ({
                                                        text-[#68676C] dark:text-zinc-200">
                                             {pastedData.name}
                                         </span>
-                                        <button 
+                                        <button
                                             title='remove'
                                             onClick={handleClear}
                                             className="w-5 h-5 bg-[#AEACB8] rounded-full flex items-center justify-center text-white hover:bg-red-500 transition-colors"
@@ -77,7 +77,7 @@ export const QuickPaste: React.FC<QuickPasteProps> = ({
                                         </button>
                                     </div>
 
-                                    <button 
+                                    <button
                                         title='continue'
                                         onClick={() => onContinue?.(pastedData)}
                                         className="ml-2 w-11 h-11 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all 
@@ -102,7 +102,7 @@ export const QuickPaste: React.FC<QuickPasteProps> = ({
                                         className="bg-transparent border-none outline-none text-[16px] sm:text-[18px] font-semibold w-full mr-2 transition-colors 
                                                    text-[#26262A] placeholder:text-[#B3B3B8] dark:text-white dark:placeholder:text-zinc-600"
                                     />
-                                    <button 
+                                    <button
                                         type='button'
                                         onClick={handlePaste}
                                         className="bg-[#016FFE] hover:bg-blue-600 text-white px-5 sm:px-7 py-2.5 rounded-full text-[14px] sm:text-[15px] font-bold tracking-tight shadow-md active:scale-95 transition-all whitespace-nowrap"

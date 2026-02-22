@@ -6,10 +6,10 @@ import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/registry';
-// import { dashboards } from '@/data/dashboards';
-// import { blocks } from '@/data/blocks';
+import { dashboards } from '@/data/dashboards';
+import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Book02Icon } from '@/lib/hugeicons';
 import { Link } from 'react-router-dom';
@@ -24,8 +24,8 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
   '/terms': { label: 'Terms' },
   '/privacy': { label: 'Privacy' },
   '/copyright': { label: 'Copyright' },
-  // '/dashboards': { label: 'Dashboards' },
-  // '/blocks': { label: 'Blocks' },
+  '/dashboards': { label: 'Dashboards' },
+  '/blocks': { label: 'Blocks' },
   '/changelog': { label: 'Changelog' },
 };
 
@@ -67,26 +67,26 @@ export const Navbar = () => {
       return [{ label: 'Components', href: '/' }, { label: title }];
     }
 
-    // Dashboards disabled
-    // if (path.startsWith('/dashboard/')) {
-    //   const slug = params.slug || path.split('/').pop();
-    //   const item = dashboards.find((d) => d.slug === slug);
-    //   if (item) {
-    //     return [
-    //       { label: 'Dashboards', href: '/dashboards' },
-    //       { label: item.name },
-    //     ];
-    //   }
-    // }
+    // Dashboard detail page: /dashboard/:slug
+    if (path.startsWith('/dashboard/')) {
+      const slug = params.slug || path.split('/').pop();
+      const item = dashboards.find((d) => d.slug === slug);
+      if (item) {
+        return [
+          { label: 'Dashboards', href: '/dashboards' },
+          { label: item.name },
+        ];
+      }
+    }
 
     // Block detail page: /block/:slug
-    // if (path.startsWith('/block/')) {
-    //   const slug = params.slug || path.split('/').pop();
-    //   const item = blocks.find((b) => b.slug === slug);
-    //   if (item) {
-    //     return [{ label: 'Blocks', href: '/blocks' }, { label: item.name }];
-    //   }
-    // }
+    if (path.startsWith('/block/')) {
+      const slug = params.slug || path.split('/').pop();
+      const item = blocks.find((b) => b.slug === slug);
+      if (item) {
+        return [{ label: 'Blocks', href: '/blocks' }, { label: item.name }];
+      }
+    }
 
     // Default fallback
     return [{ label: 'Components' }];

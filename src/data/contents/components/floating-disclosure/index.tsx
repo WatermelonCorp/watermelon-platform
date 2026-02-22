@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, type FC  } from "react";
-import { motion, AnimatePresence, type Transition } from "framer-motion";
-import { Plus, X} from "lucide-react";
+import React, { useState, type FC } from "react";
+import { motion, AnimatePresence, type Transition } from "motion/react";
+import { Plus, X } from "lucide-react";
 import { BsFileTextFill } from "react-icons/bs";
 import { FaBell } from "react-icons/fa6";
 import { TbFileFilled } from "react-icons/tb";
@@ -20,7 +20,7 @@ interface FloatingDisclosureProps {
 }
 
 /* --- Animation --- */
-const SPRING : Transition = {
+const SPRING: Transition = {
   type: "spring",
   stiffness: 420,
   damping: 34,

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { motion, AnimatePresence, LayoutGroup, type Transition } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup, type Transition } from "motion/react";
 
 export interface ToolbarItem {
   id: string;
@@ -80,9 +80,8 @@ export function TooltipNavbar({ items }: TooltipNavbarProps) {
                     transition={sharedLayoutTransition}
                     className="absolute bottom-full mb-3 flex justify-center pointer-events-none z-50 origin-bottom"
                     style={{
-                      left: `calc(${(activeIndex / items.length) * 100}% + ${
-                        activeIndex === 0 ? "4%" : activeIndex === items.length - 1 ? "-4%" : "0%"
-                      })`,
+                      left: `calc(${(activeIndex / items.length) * 100}% + ${activeIndex === 0 ? "4%" : activeIndex === items.length - 1 ? "-4%" : "0%"
+                        })`,
                       transform: 'translateX(-50%)',
                       width: 'auto',
                     }}

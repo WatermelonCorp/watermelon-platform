@@ -3,7 +3,7 @@ import { ComputerIcon } from "@/lib/hugeicons";
 
 export function MobileRestriction() {
   return (
-    <div className="flex flex-col items-center justify-center p-8 text-center h-full min-h-[50vh] bg-muted/5 border-y md:border-none">
+    <div className="flex flex-col items-center justify-center p-8 text-center h-full min-h-[50vh] bg-muted/5 md:border-none">
       <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
         <HugeiconsIcon icon={ComputerIcon} size={32} className="text-muted-foreground" />
       </div>

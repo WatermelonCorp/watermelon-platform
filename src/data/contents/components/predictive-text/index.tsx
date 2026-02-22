@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUp, ImageIcon, Mic } from 'lucide-react';
 
 interface PredictiveInputProps {
@@ -50,9 +50,9 @@ export const PredictiveText: React.FC<PredictiveInputProps> = ({
 
   return (
     <div className={`w-full flex flex-col items-center justify-center p-4 sm:p-6 antialiased select-none ${className}`}>
-      
+
       <div className="relative w-full max-w-[95%] sm:max-w-md flex flex-col items-start mb-10 sm:mb-20">
-        
+
         {/* Suggestions Bar - Responsive & Theme Aware */}
         <div className="h-10 sm:h-12 w-full flex justify-start items-center mb-3">
           <AnimatePresence>
@@ -69,8 +69,8 @@ export const PredictiveText: React.FC<PredictiveInputProps> = ({
                     key={word}
                     onClick={() => applySuggestion(word)}
                     className={`px-3 sm:px-4 py-1 text-xs sm:text-sm font-bold transition-colors whitespace-nowrap
-                      ${i === suggestions.length - 1 
-                        ? 'text-blue-500' 
+                      ${i === suggestions.length - 1
+                        ? 'text-blue-500'
                         : 'text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300'}
                       ${i !== 0 ? 'border-l-2 pl-3 sm:pl-4 border-[#F4F4F8] dark:border-white/5' : ''}
                     `}

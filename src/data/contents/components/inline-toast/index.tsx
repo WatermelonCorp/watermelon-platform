@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FC } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 
 
@@ -17,14 +17,14 @@ export const InlineToast: FC<InlineCopyToastProps> = ({
   const [copied, setCopied] = useState<boolean>(false);
 
 
-   const handleCopy = async (): Promise<void> => {
-     await navigator.clipboard.writeText(code);
-     setCopied(true);
+  const handleCopy = async (): Promise<void> => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
 
-     setTimeout(() => {
-       setCopied(false);
-     }, copyDuration);
-   };
+    setTimeout(() => {
+      setCopied(false);
+    }, copyDuration);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 bg-white transition-colors duration-500 dark:bg-zinc-950">
@@ -48,18 +48,18 @@ export const InlineToast: FC<InlineCopyToastProps> = ({
         </AnimatePresence>
 
         <div className=" z-10 flex w-full items-center justify-between gap-7">
-          <AnimatePresence mode="popLayout" >    
+          <AnimatePresence mode="popLayout" >
             {!copied ? (
               <motion.div
                 key="copy"
-                initial={{ opacity: 0, filter: 'blur(4px)',scale:0.95 }}
-                animate={{ opacity: 1, filter: 'blur(0px)',scale:1 }}
-                exit={{ opacity: 0, filter: 'blur(4px)', scale:0.95 }}
-                transition={{ 
-                    type: 'spring',
-                    bounce:0,
-                    duration:0.4
-                 }}
+                initial={{ opacity: 0, filter: 'blur(4px)', scale: 0.95 }}
+                animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                exit={{ opacity: 0, filter: 'blur(4px)', scale: 0.95 }}
+                transition={{
+                  type: 'spring',
+                  bounce: 0,
+                  duration: 0.4
+                }}
                 className="flex w-full items-center justify-between"
               >
                 <span className="text-xl font-bold tracking-wide text-[#868686] dark:text-zinc-500">
@@ -90,13 +90,13 @@ export const InlineToast: FC<InlineCopyToastProps> = ({
             ) : (
               <motion.div
                 key="copied"
-                initial={{ opacity: 0, filter: 'blur(4px)', scale:1.1 }}
-                animate={{ opacity: 1, filter: 'blur(0px)',scale:1 }}
-                exit={{ opacity: 0, filter: 'blur(4px)', scale:1.1 }}
-                transition={{ 
-                 type: 'spring',
-                  bounce:0,
-                  duration:0.4  
+                initial={{ opacity: 0, filter: 'blur(4px)', scale: 1.1 }}
+                animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                exit={{ opacity: 0, filter: 'blur(4px)', scale: 1.1 }}
+                transition={{
+                  type: 'spring',
+                  bounce: 0,
+                  duration: 0.4
 
                 }}
                 className="flex w-full items-center justify-center gap-2 text-black dark:text-white"

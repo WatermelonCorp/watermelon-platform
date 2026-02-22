@@ -7,7 +7,7 @@ import {
   useSpring,
   animate,
   type Transition,
-} from 'framer-motion';
+} from 'motion/react';
 
 interface ScrubSliderProps {
   initialValue?: number;
@@ -49,7 +49,7 @@ export const ScrubSlider: FC<ScrubSliderProps> = ({
   const x = useMotionValue(0);
   const smoothX = useSpring(x, SPRING);
 
- 
+
   const [value, setValue] = useState(initialValue);
   const [isDragging, setIsDragging] = useState(false);
   const [step, setStep] = useState(0);
@@ -114,7 +114,7 @@ export const ScrubSlider: FC<ScrubSliderProps> = ({
     };
   }, [isDragging, step, sliderLeft, sliderWidth]);
 
- 
+
   useEffect(() => {
     const move = (e: TouchEvent) => {
       if (!isDragging) return;
@@ -135,7 +135,7 @@ export const ScrubSlider: FC<ScrubSliderProps> = ({
   return (
     <div className="flex w-full flex-col items-center justify-center dark:bg-zinc-950">
       <div className="relative w-full max-w-md select-none">
- 
+
         <motion.div
           style={{ left: smoothX }}
           className="pointer-events-none absolute -top-12 z-30 -translate-x-1/2"
@@ -165,7 +165,7 @@ export const ScrubSlider: FC<ScrubSliderProps> = ({
           }}
           className="relative h-24 cursor-pointer touch-none overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-md dark:border-zinc-800 dark:bg-zinc-900"
         >
-   
+
           <div className="absolute inset-4">
             {Array.from({ length: tickCount }).map((_, i) => (
               <div

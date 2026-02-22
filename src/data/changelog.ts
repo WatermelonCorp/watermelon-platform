@@ -23,6 +23,51 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: "1.2.3",
+    date: "Feb 22, 2026",
+    stats: [
+      { label: "Total Components", count: 123, href: "/components" },
+      { label: "New Dashboards", count: 15, href: "/dashboards" },
+      { label: "New Blocks", count: 5, href: "/blocks" },
+    ],
+    sections: [
+      {
+        title: "New Version: Added Dashboards and Blocks",
+        items: [
+          {
+            text: "Added 15 new dashboards to the registry with polished previews and copy-ready install commands."
+          },
+          {
+            text: "Added 5 new blocks to the registry with polished previews and copy-ready install commands."
+          },
+          {
+            text: "Added 38 new components to the registry with polished previews and copy-ready install commands."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    version: "1.2.2",
+    date: "Feb 15, 2026",
+    stats: [
+      { label: "Total Components", count: 85, href: "/components" },
+    ],
+    sections: [
+      {
+        title: "Launch",
+        items: [
+          {
+            text: "Watermelon UI is now live with a comprehensive collection of React components."
+          },
+          {
+            text: "launched with 85+ components in the initial release."
+          }
+        ]
+      }
+    ]
+  },
+  {
     version: "1.2.1",
     date: "Feb 12, 2026",
     stats: [

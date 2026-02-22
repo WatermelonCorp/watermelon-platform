@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { MoreHorizontal, Copy } from "lucide-react";
 
 /* --- Types --- */
@@ -42,7 +42,7 @@ export const MinimalCarousel: React.FC<MinimalCarouselProps> = ({
         {/* Container  */}
         <div className="w-full max-w-105">
           <motion.div layout className="flex flex-col gap-3">
-            
+
             {/* Expanded Card */}
             <AnimatePresence mode="popLayout">
               {activeCard && (
@@ -107,9 +107,8 @@ export const MinimalCarousel: React.FC<MinimalCarouselProps> = ({
             {/* Grid Layout */}
             <motion.div
               layout
-              className={`grid gap-2 sm:gap-3 transition-all duration-500 ${
-                activeId ? "grid-cols-3" : "grid-cols-2"
-              }`}
+              className={`grid gap-2 sm:gap-3 transition-all duration-500 ${activeId ? "grid-cols-3" : "grid-cols-2"
+                }`}
             >
               {(activeId ? secondaryCards : cards).map((card) => (
                 <motion.div

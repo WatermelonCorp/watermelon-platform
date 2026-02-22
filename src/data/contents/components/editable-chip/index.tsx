@@ -9,7 +9,7 @@ import {
   type KeyboardEvent,
   type MouseEvent,
 } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 import { BiSolidPencil } from 'react-icons/bi';
 import { Check } from 'lucide-react';
@@ -57,7 +57,7 @@ export const EditableChip: FC<EditableChipProps> = ({
         <div
           className={cn(
             `relative flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full border border-zinc-200 py-1 pr-1 transition-all duration-300 ease-in-out select-none dark:border-zinc-700 dark:bg-zinc-900`,
-            isEditing && 'gap-8 ring-2 ring-black',
+            isEditing && 'gap-8 ring-2 ring-black dark:ring-white',
           )}
         >
           <motion.input
@@ -73,7 +73,7 @@ export const EditableChip: FC<EditableChipProps> = ({
             onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
               e.key === 'Enter' && handleSave(e)
             }
-            
+
             onClick={(e: MouseEvent) => e.stopPropagation()}
             className="ml-4 w-32 border-none bg-transparent text-lg font-medium text-[#262626] capitalize outline-none selection:bg-[#B6B6B6] dark:text-zinc-100 dark:selection:bg-zinc-700"
           />

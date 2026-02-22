@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { ArrowRight, ChevronUp, ChevronDown } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ChatGptIcon, ClaudeIcon, GoogleGeminiIcon } from '@hugeicons/core-free-icons';

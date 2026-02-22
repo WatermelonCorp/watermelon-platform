@@ -1,11 +1,11 @@
 import React from "react";
 
-import { ShowQR } from "@/data/contents/components/show-qr";
+import { ShowQr } from ".";
 
 const App: React.FC = () => {
   return (
     <div className="w-full">
-      <ShowQR
+      <ShowQr
         value="https://gemini.google.com"
         buttonLabel="Show QR Code"
         onCopy={() => console.log("Link copied to clipboard!")}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import {
     ChevronDown,
     Search,
@@ -93,7 +93,7 @@ const TradeCard: React.FC<{ trade: TradeItem }> = ({ trade }) => {
                     <div className="w-4 h-4 rounded border-2 border-gray-200 dark:border-[#2d2d2d] group-hover:border-gray-400 dark:group-hover:border-[#4d4d4d] cursor-pointer transition-colors duration-200" />
                 </div>
 
-                <div className="flex-1 min-w-0"> 
+                <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-start mb-1 gap-2">
                         <div className="truncate">
                             <h3 className="text-sm sm:text-base font-medium text-zinc-800 dark:text-[#C4C4C4] tracking-tight truncate">{trade.asset}</h3>
@@ -137,11 +137,10 @@ const TradeCard: React.FC<{ trade: TradeItem }> = ({ trade }) => {
 
                         <div className="flex items-center gap-2 justify-between sm:justify-end">
                             <span className="text-[8px] px-2 pt-1 pb-0.5 bg-purple-50 dark:bg-[#292232] rounded-full border-[0.5px] border-purple-200 dark:border-[#8b5cf6]/70 font-bold text-purple-600 dark:text-[#8b5cf6] uppercase tracking-widest">{trade.contracts} CTRS</span>
-                            <span className={`text-[8px] px-2 pt-1 pb-0.5 rounded-full border-[0.5px] font-bold uppercase tracking-widest ${
-                                trade.side === 'LONG' 
-                                ? 'text-[#15CA25] bg-green-50 dark:bg-[#172C19] border-green-200 dark:border-[#15CA25]/70' 
-                                : 'text-red-500 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-500/70'
-                            }`}>
+                            <span className={`text-[8px] px-2 pt-1 pb-0.5 rounded-full border-[0.5px] font-bold uppercase tracking-widest ${trade.side === 'LONG'
+                                    ? 'text-[#15CA25] bg-green-50 dark:bg-[#172C19] border-green-200 dark:border-[#15CA25]/70'
+                                    : 'text-red-500 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-500/70'
+                                }`}>
                                 {trade.side}
                             </span>
                         </div>
@@ -161,7 +160,7 @@ export const TradeSummary: React.FC<TradeSummaryProps> = ({ date, trades, onAddT
         <div className="min-h-screen w-full flex flex-col items-center justify-center transition-colors duration-500 p-2 sm:p-4 md:p-8 bg-transparent mt-36">
             <div className="w-full max-w-130">
                 <div className="bg-white dark:bg-[#0a0a0a] rounded-[24px] overflow-hidden shadow-xl border border-zinc-200 dark:border-[#1c1c1c] flex flex-col transition-all duration-500">
-                    
+
                     {/* Top Header */}
                     <header className="px-3 sm:px-4 py-3 flex flex-wrap items-center justify-between gap-2">
                         <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-sm tracking-normal">
@@ -190,7 +189,7 @@ export const TradeSummary: React.FC<TradeSummaryProps> = ({ date, trades, onAddT
                             <FilterButton label="All strategies" />
                             <FilterButton label="More" />
                         </div>
-                        
+
                         <div className="relative group flex-1">
                             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-[#525252] group-focus-within:text-zinc-600 dark:group-focus-within:text-white/40 transition-colors" size={14} />
                             <input

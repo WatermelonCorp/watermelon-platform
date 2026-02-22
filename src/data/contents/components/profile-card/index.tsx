@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import {
     ChevronUp, Globe, MousePointer2, Flame, MapPin,
     Tag, Users, DollarSign, Flag, Link as LinkIcon
@@ -32,7 +32,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
 
     return (
         <div className="transition-all duration-500 min-h-full bg-transparent flex flex-col items-center justify-center p-4 sm:p-10 space-y-12 relative">
-            
+
             <motion.div
                 layout
                 transition={springConfig}

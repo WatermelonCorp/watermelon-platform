@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { Pencil, X, Check } from 'lucide-react';
 import { GoStack } from 'react-icons/go';
 import { BsArrowUpRightSquare } from 'react-icons/bs';
@@ -34,19 +34,19 @@ export const InlineTableControl: React.FC<InlineTableControlProps> = ({ data, on
     const [editingId, setEditingId] = useState<string | null>(null);
     const [editValues, setEditValues] = useState<TableItem | null>(null);
 
-  
+
     useEffect(() => {
         setItems(data);
     }, [data]);
 
     const handleDone = () => {
         if (editValues) {
-            const updatedItems = items.map((item) => 
+            const updatedItems = items.map((item) =>
                 item.id === editValues.id ? editValues : item
             );
             setItems(updatedItems);
             onUpdate?.(editValues);
-            
+
             setEditingId(null);
             setEditValues(null);
         }
@@ -55,7 +55,7 @@ export const InlineTableControl: React.FC<InlineTableControlProps> = ({ data, on
     return (
         <div className={`w-full flex flex-col items-center justify-center p-4 sm:p-10 antialiased select-none ${className}`}>
             <div className="w-full max-w-lg">
-                
+
                 {/* Header */}
                 <div className={`hidden sm:grid grid-cols-[1.2fr_1fr_0.8fr_40px] px-6 py-4 font-semibold text-sm capitalize tracking-wider transition-all duration-300 
                     ${editingId ? 'opacity-20 blur-[1px]' : 'opacity-100'} text-zinc-400 dark:text-zinc-500`}>
@@ -70,7 +70,7 @@ export const InlineTableControl: React.FC<InlineTableControlProps> = ({ data, on
                         {items.map((item) => (
                             <div key={item.id} className="relative">
                                 {!editingId && <div className="hidden sm:block h-px mx-6 bg-zinc-100 dark:bg-white/5" />}
-                                
+
                                 <AnimatePresence mode="popLayout">
                                     {editingId === item.id ? (
                                         <motion.div
@@ -99,7 +99,7 @@ export const InlineTableControl: React.FC<InlineTableControlProps> = ({ data, on
                                             </div>
 
                                             <div className="flex flex-row justify-end gap-2 mt-6 sm:mt-8">
-                                                <button onClick={() => {setEditingId(null); setEditValues(null);}} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 sm:py-2 rounded-xl font-bold text-sm bg-zinc-100 text-zinc-600 dark:bg-white/5 dark:text-zinc-400">
+                                                <button onClick={() => { setEditingId(null); setEditValues(null); }} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 sm:py-2 rounded-xl font-bold text-sm bg-zinc-100 text-zinc-600 dark:bg-white/5 dark:text-zinc-400">
                                                     <X size={18} /> <span>Cancel</span>
                                                 </button>
                                                 <button onClick={handleDone} className="flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 sm:py-2 rounded-xl font-bold text-sm bg-zinc-900 text-white dark:bg-white dark:text-black">

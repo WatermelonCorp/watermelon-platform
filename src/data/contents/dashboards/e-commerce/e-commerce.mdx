@@ -1,20 +1,28 @@
 ---
-title: E-Commerce Dashboard
+title: E-commerce
 slug: e-commerce
 category: dashboard
-description: A comprehensive e-commerce analytics dashboard with revenue charts, transaction tables, and traffic insights. Built with Recharts for data visualization.
-image: /dashboards/e-commerce.png
-featured: true
+image: 'https://assets.watermelon.sh/components/e-commerce.webp'
+video: 'https://assets.watermelon.sh/components/e-commerce.mp4'
+description: >-
+  A comprehensive e-commerce dashboard featuring order tracking, product management,
+  customer insights, and inventory control.
+featured: false
 dependencies:
   - recharts
-  - '@tabler/icons-react'
+  - lucide-react
+  - tabler/icons-react
+install:
+  - 'npx shadcn@latest add https://registry.watermelon.sh/r/e-commerce-dashboard.json'
+componentNumber: 7
 ---
 
-# E-Commerce Dashboard
+# E-commerce
 
-A fully featured e-commerce analytics dashboard with:
+Features:
 
-- **Metrics Cards** - Total orders, sales, visits, and conversion rate with trend indicators
-- **Revenue Chart** - Area chart showing profit vs loss over time
-- **Transactions Table** - Recent transaction list with status badges
-- **Traffic Channel** - Pie chart showing traffic sources
+- Overview of total orders, sales, visits, and conversion rates
+- Revenue chart with month/quarter/year filters
+- Recent transactions list
+- Traffic channel distribution (Pie Chart)
+- Sidebar navigation with collapsible sections

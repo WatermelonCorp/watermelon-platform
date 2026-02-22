@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import {
     ChevronLeft,
     ChevronRight,
@@ -53,7 +53,7 @@ export const SubscriptionCalendar: React.FC<SubscriptionCalendarProps> = ({
 
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-10 font-sans transition-colors duration-500 bg-transparent">
-            
+
             <motion.div
                 initial={{ scale: 0.96, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}

@@ -1,12 +1,24 @@
-import ECommerceDashboard from "./dashboardLayout";
+"use client";
+
+import { useState } from "react";
+import { DashboardLayout } from "./dashboardLayout";
 import { DashboardView } from "./dashboardView";
 
-export default function ECommerceDashboardDemo() {
-  return (
-    <div className="w-full h-screen bg-background">
-      <ECommerceDashboard>
-        <DashboardView />
-      </ECommerceDashboard>
-    </div>
-  );
+export default function EcommerceDashboardDemo() {
+    const [currentView, setCurrentView] = useState("Dashboard");
+
+    const renderContent = () => {
+        switch (currentView) {
+            case "Dashboard":
+                return <DashboardView />;
+            default:
+                return <DashboardView />;
+        }
+    };
+
+    return (
+        <DashboardLayout onNavigate={setCurrentView} currentView={currentView}>
+            {renderContent()}
+        </DashboardLayout>
+    );
 }

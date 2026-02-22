@@ -12,7 +12,8 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/registry';
-// import { dashboards } from '@/data/dashboards';
+import { dashboards } from '@/data/dashboards';
+import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { trackEvent } from '@/lib/analytics';
 import {
@@ -23,13 +24,16 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  // SidebarLeft01Icon,
+  SidebarLeft01Icon,
+  LayoutIcon,
 } from '@/lib/hugeicons';
 
 // Page navigation items
 const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: Home01Icon, shortcut: 'C' },
+  { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
+  { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
   { name: 'Basic Usage', href: '/basic-usage', icon: Book02Icon, shortcut: 'B' },
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
@@ -93,14 +97,25 @@ export function CommandPalette() {
           <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4" />
           <span className='hidden md:block'>Search components...</span>
         </div>
-        <kbd className="pointer-events-none flex h-5 select-none items-center gap-0.5 rounded-md border border-input/50 bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
-          <span className="text-xs">⌘</span>K
+        <kbd className="pointer-events-none flex h-5 select-none items-center gap-0.5 rounded-md border border-input/50 bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground leading-none">
+          <HugeiconsIcon icon={CommandIcon} size={13} />K
         </kbd>
       </button>
 
       {/* Command Dialog */}
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <Command className="rounded-xl">
+        <Command
+          className="rounded-xl"
+          filter={(value, search, keywords = []) => {
+            const extendValue = keywords.length > 0 ? keywords.join(' ') : value;
+            const a = extendValue.toLowerCase();
+            const b = search.toLowerCase();
+            if (a === b) return 100;
+            if (a.startsWith(b)) return 50;
+            if (a.includes(b)) return 10;
+            return 0;
+          }}
+        >
           <CommandInput placeholder="Type to search..." />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
@@ -110,6 +125,8 @@ export function CommandPalette() {
               {pages.map((page) => (
                 <CommandItem
                   key={page.href}
+                  value={`page-${page.href}`}
+                  keywords={[page.name, page.shortcut]}
                   onSelect={() => runCommand(() => navigate(page.href))}
                 >
                   <HugeiconsIcon icon={page.icon} strokeWidth={2} className="size-4" />
@@ -130,6 +147,8 @@ export function CommandPalette() {
                 {componentsByCategory[category].map((component) => (
                   <CommandItem
                     key={component.slug}
+                    value={`component-${component.slug}`}
+                    keywords={[component.name, category]}
                     onSelect={() =>
                       runCommand(() => navigate(`/components/${component.slug}`))
                     }
@@ -141,24 +160,43 @@ export function CommandPalette() {
               </CommandGroup>
             ))}
 
-            {/* Dashboards disabled */}
-            {/* <CommandSeparator />
+            <CommandSeparator />
+
+            {/* Dashboards */}
             <CommandGroup heading="Dashboards">
               {dashboards.map((dashboard) => (
                 <CommandItem
                   key={dashboard.slug}
+                  value={`dashboard-${dashboard.slug}`}
+                  keywords={[dashboard.name, 'dashboard', dashboard.category]}
                   onSelect={() =>
                     runCommand(() => navigate(`/dashboard/${dashboard.slug}`))
                   }
                 >
                   <HugeiconsIcon icon={SidebarLeft01Icon} strokeWidth={2} className="size-4" />
                   <span>{dashboard.name}</span>
-                  {dashboard.comingSoon && (
-                    <span className="ml-2 text-xs text-muted-foreground">(Coming Soon)</span>
-                  )}
                 </CommandItem>
               ))}
-            </CommandGroup> */}
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            {/* UI Blocks */}
+            <CommandGroup heading="UI Blocks">
+              {blocks.map((block) => (
+                <CommandItem
+                  key={block.slug}
+                  value={`block-${block.slug}`}
+                  keywords={[block.name, 'block', block.category]}
+                  onSelect={() =>
+                    runCommand(() => navigate(`/blocks/${block.slug}`))
+                  }
+                >
+                  <HugeiconsIcon icon={LayoutIcon} strokeWidth={2} className="size-4" />
+                  <span>{block.name}</span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
           </CommandList>
         </Command>
       </CommandDialog>

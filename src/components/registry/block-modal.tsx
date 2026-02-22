@@ -4,17 +4,21 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/compone
 import type { BlockItem } from '@/data/blocks';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons } from '@/lib/hugeicons';
+import { ViewIcon, SourceCodeIcon, ReloadIcon, ArrowRight01Icon, Cancel01Icon, ArrowUpRight01FreeIcons, ShadcnSquareIcon } from '@/lib/hugeicons';
 import { ThemeToggle } from '../layout/theme-toggle';
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '../ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/components/animate-ui/components/radix/tabs';
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { PageHeader } from '@/components/layout/page-header';
 import { MobileRestriction } from '../mobile-restriction';
 import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
+import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
+import { PromptItems } from '../prompt-items';
+import type { ComponentFile } from '@/lib/types';
+import { CopyButton } from '../animate-ui/components/buttons/copy';
 
 interface BlockModalProps {
   item: BlockItem | null;
@@ -64,6 +68,12 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
 
   if (!item) return null;
 
+  const componentFiles: ComponentFile[] = item.files.map((file) => ({
+    name: file.name,
+    content: fileCodes[file.name] || '',
+  }));
+  const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
+
   const handleReload = () => {
     setReloadKey(prev => prev + 1);
   };
@@ -81,6 +91,11 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
                 <p className="text-xs text-muted-foreground truncate mt-0.5">{item.description}</p>
               </div>
               <div className="flex items-center gap-2 shrink-0">
+                {item.componentNumber && (
+                  <span className="px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground rounded-sm">
+                    {item.componentNumber}
+                  </span>
+                )}
                 <Link
                   to={`/block/${item.slug}`}
                   onClick={onClose}
@@ -100,6 +115,36 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
               </div>
             </div>
           </DrawerHeader>
+
+          <div className="px-4 py-2 border-b bg-background shrink-0 flex items-center justify-end gap-2">
+            <CopyButton
+              variant="outline"
+              size="sm"
+              icon={<HugeiconsIcon icon={ShadcnSquareIcon} />}
+              content={cliCommand}
+              ariaLabel={`Copy install command for ${item.name}`}
+              onCopiedChange={(copied) => {
+                if (!copied) return;
+                trackEvent("install_command_copy", {
+                  slug: item.slug,
+                  name: item.name,
+                  category: item.category,
+                  command: cliCommand,
+                  source: "block_modal",
+                });
+              }}
+            />
+            {!loadingFiles && (
+              <PromptItems
+                files={componentFiles}
+                dependencies={item.dependencies || []}
+                componentName={item.name}
+                componentSlug={item.slug}
+                category={item.category}
+                source="modal"
+              />
+            )}
+          </div>
 
           {/* Tabs - Take remaining space */}
           <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0">
@@ -211,6 +256,11 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
                 </Link>
               }
             />
+            {item.componentNumber && (
+              <span className="px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground rounded-sm shrink-0">
+                {item.componentNumber}
+              </span>
+            )}
           </div>
 
           <button
@@ -220,6 +270,36 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
           >
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
           </button>
+        </div>
+
+        <div className="px-6 py-2 border-b bg-background shrink-0 flex items-center justify-end gap-2">
+          <CopyButton
+            variant="outline"
+            size="sm"
+            icon={<HugeiconsIcon icon={ShadcnSquareIcon} />}
+            content={cliCommand}
+            ariaLabel={`Copy install command for ${item.name}`}
+            onCopiedChange={(copied) => {
+              if (!copied) return;
+              trackEvent("install_command_copy", {
+                slug: item.slug,
+                name: item.name,
+                category: item.category,
+                command: cliCommand,
+                source: "block_modal",
+              });
+            }}
+          />
+          {!loadingFiles && (
+            <PromptItems
+              files={componentFiles}
+              dependencies={item.dependencies || []}
+              componentName={item.name}
+              componentSlug={item.slug}
+              category={item.category}
+              source="modal"
+            />
+          )}
         </div>
 
         {/* Tabs - Take remaining space */}
@@ -291,12 +371,7 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
           <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
             <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
               {/* Preview takes full available size or constraint */}
-              <div
-                className={`transition-all duration-300 ease-in-out bg-background border shadow-sm overflow-hidden ${viewMode === 'desktop' ? 'w-full h-full rounded-md' :
-                  viewMode === 'tablet' ? 'w-[768px] h-[1024px] rounded-[2rem] border-4' :
-                    'w-[375px] h-[812px] rounded-[2.5rem] border-4'
-                  }`}
-              >
+              <ResponsivePreviewFrame viewport={viewMode}>
                 <Suspense fallback={
                   <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                     <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
@@ -305,7 +380,7 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
                 }>
                   <item.component key={`${reloadKey}-${viewMode}`} />
                 </Suspense>
-              </div>
+              </ResponsivePreviewFrame>
             </TabsContent>
 
             <TabsContent value="code" className="absolute inset-0 flex">
