@@ -56,7 +56,7 @@ function RulerItem({ value, x, itemWidth, max }: RulerItemProps) {
 export function FractionalPicker({
   min = 0,
   max = 20,
-  defaultValue = 9,
+  defaultValue = 0,
   itemWidth = 80,
   onChange,
   className,
@@ -69,6 +69,7 @@ export function FractionalPicker({
 
   const snap = () => {
     const currentX = x.get();
+    console.log(currentX)
     const closestValue = Math.round(currentX / itemWidth) * itemWidth;
     animate(x, closestValue, {
       type: 'spring',
