@@ -41,11 +41,11 @@ import {
   SidebarMenuSubItem,
   SidebarTrigger
 } from "./ui/sidebar"
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button"
 import { useLocation } from "react-router-dom"
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "../../business-management/components/ui/dialog"
-import { Input } from "../../business-management/components/ui/input"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../../business-management/components/ui/dropdown-menu"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "./ui/dialog"
+import { Input } from "./ui/input"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu"
 
 const data = {
   quickActions: [
