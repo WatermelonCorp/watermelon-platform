@@ -5,19 +5,19 @@ import { MdFavorite } from "react-icons/md";
 import { MorphingDiscoveryBar, type Category } from "./index";
 
 const DISCOVERY_CATEGORIES: Category[] = [
-  { 
-    id: 'popular', 
-    label: 'Popular', 
-    icon: <FaFire size={20} className="fill-current" />, 
-    activeColor: '#F9EBEF', 
-    activeTextColor: '#FF3B30' 
+  {
+    id: 'popular',
+    label: 'Popular',
+    icon: <FaFire size={20} className="fill-current" />,
+    activeColor: '#F9EBEF',
+    activeTextColor: '#FF3B30'
   },
-  { 
-    id: 'favorites', 
-    label: 'Favorites', 
-    icon: <MdFavorite size={20} className="fill-current" />, 
-    activeColor: '#F9EBEF', 
-    activeTextColor: '#FD2649' 
+  {
+    id: 'favorites',
+    label: 'Favorites',
+    icon: <MdFavorite size={20} className="fill-current" />,
+    activeColor: '#F9EBEF',
+    activeTextColor: '#FD2649'
   },
 ];
 
