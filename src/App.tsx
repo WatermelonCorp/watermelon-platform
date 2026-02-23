@@ -4,6 +4,16 @@ import { Providers } from "@/components/layout/providers";
 import { SidebarInset } from "@/components/ui/sidebar";
 
 export default function App() {
+  const isPreview = typeof window !== 'undefined' && window.location.pathname.startsWith("/preview/");
+
+  if (isPreview) {
+    return (
+      <Providers>
+        <AppRoutes />
+      </Providers>
+    );
+  }
+
   return (
     <Providers>
       <AppSidebar />
