@@ -3,12 +3,7 @@
 import { cn } from '@/lib/utils';
 import { Undo2 } from 'lucide-react';
 import { useEffect, useState, type FC, type ReactNode } from 'react';
-import {
-  AnimatePresence,
-  motion,
-  MotionConfig,
-  type Variants,
-} from 'motion/react';
+import { AnimatePresence, motion, MotionConfig } from 'motion/react';
 import useMeasure from 'react-use-measure';
 
 export interface TimedUndoActionProps {
