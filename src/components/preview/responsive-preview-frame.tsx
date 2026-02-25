@@ -23,7 +23,8 @@ const VIEWPORTS: Record<Exclude<PreviewViewport, 'desktop'>, ViewportSize> = {
 
 interface ResponsivePreviewFrameProps {
   viewport: PreviewViewport;
-  children: ReactNode;
+  children?: ReactNode;
+  previewUrl?: string;
   className?: string;
 }
 
@@ -99,6 +100,7 @@ function syncDocumentStyles(frameDocument: Document) {
 export function ResponsivePreviewFrame({
   viewport,
   children,
+  previewUrl,
   className,
 }: ResponsivePreviewFrameProps) {
   const frameRef = useRef<HTMLIFrameElement>(null);
@@ -143,17 +145,23 @@ export function ResponsivePreviewFrame({
         frameDocument.removeEventListener('submit', handleSubmit);
       };
 
-      syncDocumentStyles(frameDocument);
-      setMountNode(frameDocument.getElementById('preview-root') as HTMLDivElement | null);
+      if (!previewUrl) {
+        syncDocumentStyles(frameDocument);
+        setMountNode(frameDocument.getElementById('preview-root') as HTMLDivElement | null);
+      }
       setIsFrameReady(true);
     };
 
     frame.addEventListener('load', handleLoad);
 
-    frame.srcdoc = `<!doctype html>
+    if (previewUrl) {
+      frame.src = previewUrl;
+    } else {
+      frame.srcdoc = `<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
+    <base target="_parent" href="${window.location.origin}/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       html, body, #preview-root { margin: 0; width: 100%; height: 100%; }
@@ -164,6 +172,7 @@ export function ResponsivePreviewFrame({
     <div id="preview-root"></div>
   </body>
 </html>`;
+    }
 
     return () => {
       frame.removeEventListener('load', handleLoad);
@@ -172,9 +181,11 @@ export function ResponsivePreviewFrame({
       setMountNode(null);
       setIsFrameReady(false);
     };
-  }, []);
+  }, [previewUrl]);
 
   useEffect(() => {
+    if (previewUrl) return;
+
     const frameDocument = frameRef.current?.contentDocument;
     if (!frameDocument) return;
 
@@ -232,7 +243,7 @@ export function ResponsivePreviewFrame({
             Loading preview...
           </div>
         )}
-        {mountNode ? createPortal(children, mountNode) : null}
+        {!previewUrl && mountNode ? createPortal(children, mountNode) : null}
       </div>
     </div>
   );

@@ -12,13 +12,14 @@ import { Tabs, TabsContent, TabsContents, TabsList, TabsTrigger } from '@/compon
 import { FileExplorer, type FileItem } from '@/components/ui/file-explorer';
 import { motion } from 'motion/react';
 import { MobileRestriction } from '../mobile-restriction';
-import { LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
+import { LaptopIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
 import { PageHeader } from '../layout/page-header';
 import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
 import { PromptItems } from '../prompt-items';
 import type { ComponentFile } from '@/lib/types';
 import { CopyButton } from '../animate-ui/components/buttons/copy';
+import { Tablet01Icon } from '@hugeicons/core-free-icons';
 
 interface DashboardModalProps {
   item: DashboardItem | null;
@@ -354,7 +355,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
                   className={`p-1.5 rounded-sm transition-all ${viewMode === 'tablet' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
                   title="Tablet view"
                 >
-                  <HugeiconsIcon icon={TabletIcon} size={14} />
+                  <HugeiconsIcon icon={Tablet01Icon} size={14} />
                 </button>
                 <button
                   onClick={() => setViewMode('mobile')}
@@ -385,7 +386,10 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
           <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
             <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
               {/* Preview takes full available size or constraint */}
-              <ResponsivePreviewFrame viewport={viewMode}>
+              <ResponsivePreviewFrame
+                viewport={viewMode}
+                previewUrl={`/preview/dashboard/${item.slug}?reload=${reloadKey}`}
+              >
                 <Suspense fallback={
                   <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                     <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />

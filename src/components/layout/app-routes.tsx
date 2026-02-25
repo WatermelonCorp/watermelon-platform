@@ -32,9 +32,30 @@ const BlocksPage = lazy(() => import("@/pages/blocks"));
 const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
+const PreviewPage = lazy(() => import("@/pages/preview"));
 
 export function AppRoutes() {
   const isComponentPage = useMatch("/components/:slug");
+  const isPreview = useMatch("/preview/:type/:slug");
+
+  if (isPreview) {
+    return (
+      <Routes>
+        <Route
+          path="/preview/:type/:slug"
+          element={
+            <Suspense fallback={
+              <div className="flex h-screen w-screen items-center justify-center">
+                <div className="h-4 w-4 border-2 border-foreground border-t-transparent rounded-full animate-spin" />
+              </div>
+            }>
+              <PreviewPage />
+            </Suspense>
+          }
+        />
+      </Routes>
+    );
+  }
 
   return (
     <PageLayout showScrollProgress={!isComponentPage}>

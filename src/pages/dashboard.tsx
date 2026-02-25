@@ -338,7 +338,10 @@ export default function DashboardPage() {
               {/* Preview Tab */}
               <TabsContent value="preview" className="absolute inset-0 overflow-auto flex items-start justify-center p-1">
                 {/* Preview takes full available size or constraint */}
-                <ResponsivePreviewFrame viewport={viewMode}>
+                <ResponsivePreviewFrame
+                  viewport={viewMode}
+                  previewUrl={`/preview/dashboard/${item.slug}?reload=${reloadKey}`}
+                >
                   <Suspense fallback={
                     <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
                       <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />

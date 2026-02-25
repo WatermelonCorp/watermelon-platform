@@ -57,16 +57,16 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
               layout
               transition={transition}
               className={`relative flex items-center shadow-sm border overflow-hidden transition-colors rounded-[28px] ${isSearching
-                  ? 'w-[calc(100vw-80px)] xs:w-64 sm:w-80 h-12 sm:h-14'
-                  : 'w-12 h-12 sm:w-14 sm:h-14'
-                } bg-white border-zinc-100 dark:bg-zinc-900 dark:border-zinc-800`}
+                ? 'w-[calc(100vw-80px)] xs:w-64 sm:w-80 h-12 sm:h-14'
+                : 'w-12 h-12 sm:w-14 sm:h-14'
+                } bg-white border-neutral-100 dark:bg-neutral-900 dark:border-neutral-800`}
             >
               <div className="flex items-center w-full px-3 sm:px-4 h-full">
                 <motion.div layout="position" transition={transition}>
                   <Search
                     size={18}
                     strokeWidth={3}
-                    className="shrink-0 transition-colors text-zinc-900 dark:text-zinc-400"
+                    className="shrink-0 transition-colors text-neutral-900 dark:text-neutral-400"
                   />
                 </motion.div>
 
@@ -80,7 +80,7 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
                       exit={{ opacity: 0, x: -5 }}
                       transition={{ duration: 0.15 }}
                       placeholder="Search"
-                      className="bg-transparent border-none outline-none w-full text-sm sm:text-base font-medium ml-2 text-zinc-900 placeholder:text-zinc-400 dark:text-white dark:placeholder:text-zinc-600"
+                      className="bg-transparent border-none outline-none w-full text-sm sm:text-base font-medium ml-2 text-neutral-900 placeholder:text-neutral-400 dark:text-white dark:placeholder:text-neutral-600"
                       value={searchValue}
                       onChange={(e) => setSearchValue(e.target.value)}
                     />
@@ -107,7 +107,7 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
                   animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
                   transition={transition}
-                  className="flex items-center gap-1 rounded-full p-1 border bg-[#ffffff] border-[#F0F0F0] dark:bg-zinc-900 dark:border-zinc-800 overflow-hidden"
+                  className="flex items-center gap-1 rounded-full p-1 border bg-[#ffffff] border-[#F0F0F0] dark:bg-neutral-900 dark:border-neutral-800 overflow-hidden"
                 >
                   {categories.map((cat) => {
                     const isActive = activeTab === cat.id;
@@ -122,12 +122,12 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
                           color: isActive ? cat.activeTextColor : undefined
                         }}
                       >
-                        {!isActive && <span className="absolute inset-0 flex items-center justify-center text-zinc-600 dark:text-zinc-400" />}
+                        {!isActive && <span className="absolute inset-0 flex items-center justify-center text-neutral-600 dark:text-neutral-400" />}
 
                         {isActive && (
                           <motion.div
                             layoutId="pill-bg"
-                            className="absolute inset-0 z-[-1] rounded-full shadow-sm bg-[(--active-bg)] dark:bg-zinc-800 dark:border dark:border-zinc-700"
+                            className="absolute inset-0 z-[-1] rounded-full shadow-sm bg-[(--active-bg)] dark:bg-neutral-800 dark:border dark:border-neutral-700"
                             style={{
                               // @ts-ignore
                               '--active-bg': cat.activeColor
@@ -136,7 +136,7 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
                           />
                         )}
                         <span className="relative z-10 scale-90 sm:scale-100">{cat.icon}</span>
-                        <span className={`relative z-10 ${!isActive ? 'text-zinc-600 dark:text-zinc-400' : ''}`}>
+                        <span className={`relative z-10 ${!isActive ? 'text-neutral-600 dark:text-neutral-400' : ''}`}>
                           {cat.label}
                         </span>
                       </motion.button>
@@ -156,7 +156,7 @@ export const MorphingDiscoveryBar: React.FC<MorphingDiscoveryBarProps> = ({
                     setIsSearching(false);
                     setSearchValue("");
                   }}
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-sm border shrink-0 transition-colors bg-white border-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:border-zinc-800 dark:text-white"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-sm border shrink-0 transition-colors bg-white border-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:border-neutral-800 dark:text-white"
                 >
                   <X size={18} strokeWidth={2.5} />
                 </motion.button>
