@@ -181,7 +181,7 @@ export function ResponsivePreviewFrame({
       setMountNode(null);
       setIsFrameReady(false);
     };
-  }, []);
+  }, [previewUrl]);
 
   useEffect(() => {
     if (previewUrl) return;
