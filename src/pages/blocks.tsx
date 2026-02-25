@@ -45,7 +45,7 @@ export default function BlocksPage() {
         category="UI Blocks"
       />
 
-      <div className="space-y-12">
+      <div className="space-y-12 pb-10">
         <section id="blocks" className="space-y-6">
           <CatalogPageHeader
             title="UI Blocks"

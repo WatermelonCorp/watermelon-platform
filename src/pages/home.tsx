@@ -29,8 +29,8 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Watermelon UI",
-    "url": "https://watermelon-ui.com",
-    "logo": "https://watermelon-ui.com/logo.png",
+    "url": "https://ui.watermelon.sh",
+    "logo": "https://ui.watermelon.sh/logo.png",
     "foundingDate": "2024-01-01",
     "description": "A collection of high-quality React components for modern web applications.",
     "contactPoint": {

@@ -1,7 +1,11 @@
 'use client';
 
 import { useState, type FC } from 'react';
-import { motion, AnimatePresence, MotionConfig } from 'motion/react';
+import {
+  motion,
+  AnimatePresence,
+  MotionConfig,
+} from 'motion/react';
 import { FaBell, FaTasks } from 'react-icons/fa';
 import { IoCalendar } from 'react-icons/io5';
 import { BsCheckLg, BsFillPeopleFill, BsPinFill } from 'react-icons/bs';

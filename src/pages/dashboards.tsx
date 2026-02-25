@@ -43,7 +43,7 @@ export default function DashboardsPage() {
         category="Dashboards"
       />
 
-      <div className="space-y-12">
+      <div className="space-y-12 pb-10">
         <section id="dashboards" className="space-y-6">
           <CatalogPageHeader
             title="Dashboards"

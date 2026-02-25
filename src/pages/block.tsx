@@ -215,7 +215,7 @@ export default function BlockPage() {
 
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-10">
           {/* Header - Outside tabs, always visible */}
 
 

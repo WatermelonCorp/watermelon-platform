@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import LeadDashboardLayout from "./dashboardLayout";
 import { DashboardView } from "./dashboardView";
+import { useTheme } from "next-themes";
 import { CheckSquare, Mail } from 'lucide-react';
+
 
 import { type ReactNode } from 'react';
 import { BsBag } from 'react-icons/bs';
@@ -33,7 +35,20 @@ export interface TaskGroup {
 }
 
 const LeadDashboardDemo: React.FC = () => {
+    const { resolvedTheme } = useTheme();
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+        setIsDarkMode(resolvedTheme === 'dark');
+    }, [resolvedTheme, mounted]);
+
+    
 
     const currentUser = {
         name: "Kanban Board",
@@ -50,12 +65,12 @@ const LeadDashboardDemo: React.FC = () => {
             dotColor: '#868E96',
             tasks: [
                 {
-                  id: '1',
-                   code: 'PRO-1024',
-                   title: 'Implement Auth',
+                    id: '1',
+                    code: 'PRO-1024',
+                    title: 'Implement Auth',
                     name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<Mail size={14} className="text-[#10B981]" />),
+                    icon: (<Mail size={14} className="text-[#10B981]" />),
                     priority: 'Normal',
                     list: 'Backend',
                     tag: 'Cycle 14',
@@ -69,7 +84,7 @@ const LeadDashboardDemo: React.FC = () => {
                     title: 'Rewrite notification engine to support batching',
                     name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<Mail size={14} className="text-[#10B981]" />),
+                    icon: (<Mail size={14} className="text-[#10B981]" />),
                     priority: 'Normal',
                     list: 'Backend',
                     tag: 'Cycle 14',
@@ -83,14 +98,14 @@ const LeadDashboardDemo: React.FC = () => {
                     title: 'Fix visual regression on Safari mobile header',
                     name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<BsBag size={14} className="text-[#10B981]"/>),
+                    icon: (<BsBag size={14} className="text-[#10B981]" />),
                     priority: 'Low',
                     list: 'Design',
                     tag: 'Sprint 8',
                     week: 'W41',
                     dueDate: 'Oct 12, 2024',
-                     assignees: 'https://images.unsplash.com/photo-1554034483-04fda0d3507b?w=600&auto=format&fit=crop'   
-                    
+                    assignees: 'https://images.unsplash.com/photo-1554034483-04fda0d3507b?w=600&auto=format&fit=crop'
+
                 }
             ]
         },
@@ -105,15 +120,15 @@ const LeadDashboardDemo: React.FC = () => {
                     id: '6',
                     code: 'PRO-988',
                     title: 'Core engine refactor for concurrent requests',
-                     name: "Alex costa",
+                    name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5}/>),
+                    icon: (<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5} />),
                     priority: 'High',
                     list: 'Engineering',
                     tag: 'Sprint 22',
                     week: 'W40',
                     dueDate: 'Oct 05, 2024',
-                     assignees: 'https://plus.unsplash.com/premium_photo-1664443577580-dd2674e9d359?q=80&w=1171&auto=format&fit=crop'
+                    assignees: 'https://plus.unsplash.com/premium_photo-1664443577580-dd2674e9d359?q=80&w=1171&auto=format&fit=crop'
                 },
                 {
                     id: '7',
@@ -121,7 +136,7 @@ const LeadDashboardDemo: React.FC = () => {
                     title: 'Update design tokens for high-contrast mode',
                     name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5}/>),
+                    icon: (<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5} />),
                     priority: 'Normal',
                     list: 'Design',
                     tag: 'Cycle 12',
@@ -144,7 +159,7 @@ const LeadDashboardDemo: React.FC = () => {
                     title: 'Deploy v2.4.0 to production environment',
                     name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5}/>),
+                    icon: (<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5} />),
                     priority: 'High',
                     list: 'DevOps',
                     tag: 'Release',
@@ -167,7 +182,7 @@ const LeadDashboardDemo: React.FC = () => {
                     title: 'Deploy v2.4.0 to production environment',
                     name: "Alex costa",
                     description: 'Developing a responsive online shopping... ',
-                    icon:(<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5}/>),
+                    icon: (<CheckSquare size={14} className="text-[#10B981]" strokeWidth={2.5} />),
                     priority: 'High',
                     list: 'DevOps',
                     tag: 'Release',
@@ -179,31 +194,25 @@ const LeadDashboardDemo: React.FC = () => {
         }
     ];
 
-    useEffect(() => {
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [isDarkMode]);
-
-    const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+    const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
     const handleAddIssue = () => {
         console.log("Add Issue clicked");
     };
 
+    if (!mounted) return null;
+
     return (
         <div className="w-full h-screen overflow-hidden">
-            <LeadDashboardLayout 
-                isDarkMode={isDarkMode} 
+            <LeadDashboardLayout
+                isDarkMode={isDarkMode}
                 toggleDarkMode={toggleDarkMode}
                 userName={currentUser.name}
             >
-                <DashboardView 
-                    data={sampleData} 
-                    isDarkMode={isDarkMode} 
-                    onAddIssue={handleAddIssue} 
+                <DashboardView
+                    data={sampleData}
+                    isDarkMode={isDarkMode}
+                    onAddIssue={handleAddIssue}
                 />
             </LeadDashboardLayout>
         </div>
