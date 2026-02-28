@@ -1,0 +1,36 @@
+# Label incoming PRs automatically
+
+components:
+  - any:
+    - 'src/components/**/*'
+    - 'src/data/contents/components/**/*'
+
+blocks:
+  - any:
+    - 'src/data/contents/blocks/**/*'
+
+dashboards:
+  - any:
+    - 'src/data/contents/dashboards/**/*'
+
+documentation:
+  - any:
+    - 'README.md'
+    - 'CONTRIBUTING.md'
+    - 'CODE_OF_CONDUCT.md'
+    - 'SECURITY.md'
+    - 'AI_POLICY.md'
+    - 'CHANGELOG.md'
+    - 'docs/**/*'
+
+ci-cd:
+  - any:
+    - '.github/**/*'
+    - 'package.json'
+    - 'bun.lockb'
+
+website:
+  - any:
+    - 'src/pages/**/*'
+    - 'src/lib/**/*'
+    - 'index.html'
