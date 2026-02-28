@@ -2,24 +2,29 @@
 title: Lead
 slug: lead
 category: dashboard
-image: 'https://assets.watermelon.sh/components/lead-dashboard.webp'
-video: 'https://assets.watermelon.sh/components/lead-dashboard.mp4'
+image: 'https://assets.watermelon.sh/components/lead.webp'
+video: 'https://assets.watermelon.sh/components/lead.mp4'
 description: >-
-  AI-first operations dashboard with task tracking, collaboration, and live
-  discussions.
-featured: true
+  A unified lead management dashboard interface featuring a Kanban board, lead tracking, and pipeline management.
+featured: false
 dependencies:
-  - recharts
-  - '@tabler/icons-react'
-componentNumber: 1
+  - lucide-react
+  - "@tabler/icons-react"
+  - "@dnd-kit/core"
+  - "@dnd-kit/sortable"
+install:
+  - >-
+    npx shadcn@latest add
+    https://registry.watermelon.sh/r/lead-dashboard.json
+componentNumber: 15
 ---
 
-# Lead
+# Lead Dashboard
 
 Features:
 
-- Live task queue
-- Multi-tab workflow
-- AI-assisted discussions
-- Dark / light mode
-- Responsive sidebar + chat panel
+- Interactive Kanban board for tracking leads across different stages.
+- Drag-and-drop functionality for moving lead cards between columns.
+- Dialogs for creating new leads and adding cards to specific columns.
+- Filtering options to view leads by status, assignee, and time.
+- Overview of total and closed leads.
