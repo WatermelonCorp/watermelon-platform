@@ -6,7 +6,7 @@ export default function FractionalPickerDemo() {
 
   return (
    <>
-      <FractionalPicker value={value} onChange={setValue} />
+      <FractionalPicker value={value} onChange={setValue} min={0} max={30} defaultValue={10} />
     </>
   );
 }
