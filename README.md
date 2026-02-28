@@ -362,6 +362,15 @@ bun run build
 
 ---
 
+## Community & Guidelines
+
+- **[Contributing Guide](CONTRIBUTING.md)**: Details on how to run the project, add components/dashboards, and submit PRs.
+- **[Code of Conduct](CODE_OF_CONDUCT.md)**: Rules and expectations for the Watermelon community.
+- **[Security Policy](SECURITY.md)**: Instructions for reporting vulnerabilities safely.
+- **[AI Usage Policy](AI_POLICY.md)**: Guidelines for contributing AI-generated code.
+
+---
+
 ## License
 
-MIT
+[MIT License](LICENSE)

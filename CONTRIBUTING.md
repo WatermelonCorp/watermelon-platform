@@ -1,6 +1,8 @@
 # Contributing
 
-Thanks for contributing to Watermelon Platform. This guide focuses on adding new components to the registry.
+Thanks for contributing to Watermelon Platform! We welcome all contributions. Please note that by participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Also, if you are using AI tools (Copilot, ChatGPT, etc.) to generate code, please review our [AI Usage Policy](AI_POLICY.md).
+
+This guide focuses on adding new components to the registry.
 
 ## Setup
 
