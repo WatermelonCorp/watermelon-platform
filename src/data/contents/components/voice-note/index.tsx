@@ -247,7 +247,7 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
                       <Play size={22} fill="currentColor" />
                     )}
                   </motion.button>
-                  <span className="flex items-center justify-center text-[20px] font-bold text-[#282828] tabular-nums transition-colors dark:text-neutral-100">
+                  <span className="flex items-center gap-0.5 justify-center text-[20px] font-bold text-[#282828] tabular-nums transition-colors dark:text-neutral-100">
                     <AnimatedNumber
                       value={
                         state === RecorderState.PLAYING
@@ -323,7 +323,7 @@ interface AnimatedNumberProps {
 
 const digitVariants = {
   initial: (dir: number) => ({
-    y: dir > 0 ? 20 : -20,
+    y: dir > 0 ? 8 : -8,
     opacity: 0,
     scale: 0.5,
     z: 0,
@@ -337,7 +337,7 @@ const digitVariants = {
     filter: 'blur(0px)',
   },
   exit: (dir: number) => ({
-    y: dir > 0 ? -20 : 20,
+    y: dir > 0 ? -8 : 8,
     opacity: 0,
     scale: 0.5,
     z: 0,
