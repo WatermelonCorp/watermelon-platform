@@ -2,9 +2,7 @@
 
 import { useState, useMemo, type FC, type ChangeEvent } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import NumberFlow from '@number-flow/react';
 import { cn } from '@/lib/utils';
-
 
 interface AdaptiveSliderProps {
   value?: number;
@@ -21,12 +19,10 @@ interface ColorSettings {
   thumbBorder: string;
 }
 
-
 const DEFAULT_MIN = 50;
 const DEFAULT_MAX = 350;
 const DEFAULT_STEP = 25;
 const DEFAULT_VALUE = 200;
-
 
 const getColorSettings = (
   value: number,
@@ -55,7 +51,6 @@ const getColorSettings = (
     };
   }
 };
-
 
 export const AdaptiveSlider: FC<AdaptiveSliderProps> = ({
   value,
@@ -152,7 +147,6 @@ export const AdaptiveSlider: FC<AdaptiveSliderProps> = ({
   );
 };
 
-
 const AnimatedText = ({
   value,
   className,
@@ -174,7 +168,6 @@ const AnimatedText = ({
           return (
             <motion.span
               key={char + index}
-            
               initial={{ opacity: 1, y: 0, scale: 1 }}
               animate={{
                 opacity: 1,

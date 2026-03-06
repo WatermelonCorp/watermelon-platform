@@ -83,7 +83,7 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
 
   const handleSend = () => {
     onSend?.({ duration, blob: null });
-    cancelRecording();
+    
   };
 
   const barHeights = useMemo(() => {
@@ -288,7 +288,8 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
                     onClick={
                       state === RecorderState.RECORDING
                         ? stopRecording
-                        : cancelRecording
+                        : state === RecorderState.PLAYING
+                        ? startRecording : handleSend
                     }
                   >
                     {state === RecorderState.RECORDING && (

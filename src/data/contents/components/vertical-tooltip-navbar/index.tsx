@@ -2,16 +2,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useRef, useState, type ReactNode } from 'react';
-import {
-  MessageCircle,
-  Inbox,
-  Circle,
-  Crosshair,
-  Download,
-  Menu,
-  CommandIcon,
-} from 'lucide-react';
-
+import { MessageCircle, Inbox, Circle, CommandIcon } from 'lucide-react';
 
 const DEFAULT_ITEMS: TooltipItem[] = [
   {
@@ -46,7 +37,7 @@ interface TooltipVerticalNavbarProps {
 }
 
 export const TooltipVerticalNavbar = ({
-  items,
+  items = DEFAULT_ITEMS,
   tooltipDelay = 300,
 }: TooltipVerticalNavbarProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

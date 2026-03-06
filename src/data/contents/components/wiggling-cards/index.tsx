@@ -55,7 +55,7 @@ const DEFAULT_CARDS: CardData[] = [
 ];
 
 const CARD_WIDTH = 320;
-const GAP = 40;
+const GAP = 200;
 
 const DRAG_BUFFER = 80;
 const VELOCITY_THRESHOLD = 500;
@@ -98,8 +98,8 @@ export function WigglingCards({ cards }: { cards?: CardData[] }) {
           }}
           transition={{
             type: 'spring',
-            stiffness: 260,
-            damping: 20,
+            stiffness: 300,
+            damping: 40,
           }}
           onDragEnd={handleDragEnd}
         >
@@ -111,7 +111,7 @@ export function WigglingCards({ cards }: { cards?: CardData[] }) {
 
             const rotate = useTransform(
               distance,
-              [-CARD_WIDTH, -CARD_WIDTH * 0.2, 0, CARD_WIDTH * 0.2, CARD_WIDTH],
+              [-CARD_WIDTH, -CARD_WIDTH * 0.1, 0, CARD_WIDTH * 0.1, CARD_WIDTH],
               [10, 10, 0, -10, -10],
             );
 
@@ -138,35 +138,35 @@ export function WigglingCards({ cards }: { cards?: CardData[] }) {
                   filter,
                   minWidth: CARD_WIDTH,
                 }}
-                className="relative flex h-80 flex-col justify-between rounded-[40px] border-2 border-[#E0DEDA] bg-white p-6"
+                className="relative flex h-80 flex-col justify-between rounded-[40px] border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
               >
                 <div className="flex flex-col gap-10">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#F4F4FC]/80">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-neutral-100 dark:bg-neutral-800">
                     <Icon
-                      className="h-14 w-14 text-[#020204]"
+                      className="h-14 w-14 text-neutral-900 dark:text-neutral-100"
                       strokeWidth={1.5}
                     />
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <div className="flex w-fit items-center rounded-2xl bg-[#F4F4FC] px-3 py-0.5 text-lg font-medium text-[#68676E]">
+                    <div className="flex w-fit items-center rounded-2xl bg-neutral-200 px-3 py-0.5 text-lg font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
                       <FaArrowUpLong className="mr-1 h-3 w-3" />
                       {card.percentage}
                     </div>
 
-                    <h2 className="text-[42px] font-bold text-[#020204]">
+                    <h2 className="text-[42px] font-bold text-neutral-900 dark:text-neutral-100">
                       {card.value}
                     </h2>
 
-                    <p className="text-[20px] font-medium text-[#000002]">
+                    <p className="text-[20px] font-medium text-neutral-700 dark:text-neutral-300">
                       {card.label}
                     </p>
                   </div>
                 </div>
 
                 <div className="absolute right-7 bottom-9">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F4F4FB]">
-                    <ArrowUpRight className="h-6 w-6" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-200 dark:bg-neutral-800">
+                    <ArrowUpRight className="h-6 w-6 text-neutral-900 dark:text-neutral-100" />
                   </div>
                 </div>
               </motion.div>
@@ -175,13 +175,16 @@ export function WigglingCards({ cards }: { cards?: CardData[] }) {
         </motion.div>
       </div>
 
-      <div className="mt-4 flex gap-3">
+      <div className="mt-8 flex gap-3">
         {data.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-3 w-3 rounded-full transition-colors ${i === index ? 'bg-[#ADACB8]' : 'bg-[#E5E4F0]'
-              }`}
+            className={`h-3 w-3 rounded-full transition-colors duration-200 ease-out ${
+              i === index
+                ? 'bg-neutral-500 dark:bg-neutral-400'
+                : 'bg-neutral-300 dark:bg-neutral-700'
+            }`}
           />
         ))}
       </div>

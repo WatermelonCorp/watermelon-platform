@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { ArrowRight, ChevronUp, ChevronDown } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react';

@@ -1,18 +1,24 @@
 'use client';
 
-import  { useEffect, useState} from 'react';
-import {
-  motion,
-  AnimatePresence,
-  MotionConfig,
-} from 'motion/react';
-import {  PlusIcon, } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence, MotionConfig } from 'motion/react';
+import { PlusIcon } from 'lucide-react';
 import { BsFileTextFill } from 'react-icons/bs';
 import { FaBell } from 'react-icons/fa6';
 import { TbFileFilled } from 'react-icons/tb';
 import { IoIosFolder } from 'react-icons/io';
 import useMeasure from 'react-use-measure';
 import { cn } from '@/lib/utils';
+import type { IconType } from 'react-icons';
+
+interface TooltipItem {
+  title: string;
+  description: string;
+  icon: IconType;
+}
+interface FloatingDisclosureProps {
+  items: TooltipItem[];
+}
 
 export const items = [
   {
@@ -37,7 +43,7 @@ export const items = [
   },
 ];
 
-export const FloatingDisclosure = () => {
+export const FloatingDisclosure = ({ items }: FloatingDisclosureProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ref, bounds] = useMeasure({ offsetSize: true });
 
@@ -128,7 +134,7 @@ export const FloatingDisclosure = () => {
               </motion.div>
             ) : (
               <motion.div key="open" className="flex shrink-0 flex-col gap-3">
-                {items.map((item, index) => (
+                {items.map((item) => (
                   <motion.div
                     key={item.title}
                     className="flex flex-1 shrink-0 cursor-pointer items-center gap-2 rounded-xl p-1 hover:bg-[#f9f6f4] dark:hover:bg-white/5"

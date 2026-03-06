@@ -2,9 +2,6 @@ import {
   MessageCircle,
   Inbox,
   Circle,
-  Crosshair,
-  Download,
-  Menu,
 } from 'lucide-react';
 import { TooltipVerticalNavbar } from './index';
 
