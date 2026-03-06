@@ -1,17 +1,52 @@
-import { Eye, Share2, Upload, Menu } from "lucide-react";
-import { IoChatbubbleOutline } from "react-icons/io5";
-import { FiInbox } from "react-icons/fi";
-import {TooltipNavbar} from "./index";
+import {
+  MessageCircle,
+  Inbox,
+  Circle,
+  Crosshair,
+  Download,
+  Menu,
+} from 'lucide-react';
+import { TooltipNavbar } from './index';
+
 
 const items = [
-  { id: "comment", icon: <IoChatbubbleOutline size={26} />, label: "Comment", shortcut: ["C"] },
-  { id: "inbox", icon: <FiInbox size={26} />, label: "Feature", shortcut: ["F"], showDot: true },
-  { id: "view", icon: <Eye size={26} />, label: "View", shortcut: ["V"] },
-  { id: "share", icon: <Share2 size={26} />, label: "Mode", shortcut: ["S", "H"] },
-  { id: "upload", icon: <Upload size={26} />, label: "Upload", shortcut: ["U"] },
-  { id: "menu", icon: <Menu size={26} />, label: "Menu", shortcut: ["K"], showDot: true },
+  {
+    icon: <MessageCircle className="h-full w-full" />,
+    label: 'Comment',
+    labelHasKeyword: ['C'],
+    hasBadge: false,
+  },
+  {
+    icon: <Inbox className="h-full w-full" />,
+    label: 'Inbox',
+    labelHasKeyword: ['I'],
+    hasBadge: true,
+  },
+  {
+    icon: <Circle className="h-full w-full" />,
+    label: 'Record',
+    labelHasKeyword: ['R'],
+    hasBadge: false,
+  },
+  {
+    icon: <Crosshair className="h-full w-full" />,
+    label: 'Focus Mode',
+    labelHasKeyword: ['F'],
+    hasBadge: false,
+  },
+  {
+    icon: <Download className="h-full w-full" />,
+    label: 'Share',
+    labelHasKeyword: ['S'],
+    hasBadge: false,
+  },
+  {
+    icon: <Menu className="h-full w-full" />,
+    label: 'Menu',
+    labelHasKeyword: ['M'],
+    hasBadge: false,
+  },
 ];
-
 export default function TooltipNavbarDemo() {
   return <TooltipNavbar items={items} />;
 }

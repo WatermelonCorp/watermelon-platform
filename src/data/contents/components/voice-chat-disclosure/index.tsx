@@ -1,213 +1,197 @@
-"use client";
+'use client';
 
-import React, { useState, type ReactNode } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { IoChevronDown } from "react-icons/io5";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Cancel01Icon } from "@hugeicons/core-free-icons";
-
-/*  Types  */
+import React, { useState, type ReactNode } from 'react';
+import { motion, AnimatePresence, MotionConfig } from 'motion/react';
+import { IoChevronDown } from 'react-icons/io5';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
 
 export interface User {
-    id: number;
-    name: string;
-    img: string;
-    active?: boolean;
+  id: number;
+  name: string;
+  img: string;
+  active?: boolean;
 }
 
 type IconRenderer = (props?: any) => ReactNode;
 
 interface VoiceChatDisclosureProps {
-    users?: User[];
-    title?: string;
-    ctaText?: string;
-    helperText?: string;
-    closeIcon?: IconRenderer;
+  users?: User[];
+  title?: string;
+  ctaText?: string;
+  helperText?: string;
+  closeIcon?: IconRenderer;
 }
 
-/*  Defaults  */
-
 const DEFAULT_USERS: User[] = [
-    {
-        id: 1,
-        name: "Oğuz",
-        img: "https://i.pravatar.cc/150?u=oguz",
-        active: true,
-    },
-    { id: 2, name: "Ashish", img: "https://i.pravatar.cc/150?u=ashish" },
-    { id: 3, name: "Mariana", img: "https://i.pravatar.cc/150?u=mariana" },
-    { id: 4, name: "MDS", img: "https://i.pravatar.cc/150?u=mds" },
-    { id: 5, name: "Ana", img: "https://i.pravatar.cc/150?u=ana" },
-    {
-        id: 6,
-        name: "Natko",
-        img: "https://i.pravatar.cc/150?u=natko",
-        active: true,
-    },
-    { id: 7, name: "Afshin", img: "https://i.pravatar.cc/150?u=afshin" },
+  {
+    id: 1,
+    name: 'Oğuz',
+    img: 'https://i.pravatar.cc/150?u=oguz',
+    active: true,
+  },
+  { id: 2, name: 'Ashish', img: 'https://i.pravatar.cc/150?u=ashish' },
+  { id: 3, name: 'Mariana', img: 'https://i.pravatar.cc/150?u=mariana' },
+  { id: 4, name: 'MDS', img: 'https://i.pravatar.cc/150?u=mds' },
+  { id: 5, name: 'Ana', img: 'https://i.pravatar.cc/150?u=ana' },
+  {
+    id: 6,
+    name: 'Natko',
+    img: 'https://i.pravatar.cc/150?u=natko',
+    active: true,
+  },
 ];
 
-/*  Component  */
-
 export const VoiceChatDisclosure: React.FC<VoiceChatDisclosureProps> = ({
-    users = DEFAULT_USERS,
-    title = "Voice Chat",
-    ctaText = "Join Now",
-    helperText = "Mic will be muted initially.",
-    closeIcon = (props) => (
-        <HugeiconsIcon icon={Cancel01Icon} size={20} strokeWidth={2} {...props} />
-    ),
+  users = DEFAULT_USERS,
+  title = 'Voice Chat',
+  ctaText = 'Join Now',
+  helperText = 'Mic will be muted initially.',
+  closeIcon = (props) => (
+    <HugeiconsIcon icon={Cancel01Icon} size={20} strokeWidth={2} {...props} />
+  ),
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const bars = [0, 1, 2, 3];
 
-    return (
+  return (
+    <MotionConfig
+      transition={{ type: 'spring', bounce: 0, visualDuration: 0.32 }}
+    >
+      <motion.div layout className="relative">
+        <AnimatePresence mode="popLayout">
+          {!isOpen && (
+            <motion.div
+              layout="position"
+              className="absolute -top-4 -left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 shadow-lg dark:bg-neutral-100"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="flex items-center gap-[3px]">
+                {bars.map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-[2.5px] rounded-full bg-white dark:bg-neutral-900"
+                    initial={{ height: 6 }}
+                    animate={{ height: [2, 16, 6] }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      delay: i * 0.15,
+                    }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <motion.div
-            layout
-            transition={{ type: "spring", stiffness: 400, damping: 35 }}
-            className={`relative bg-white dark:bg-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border-[1.6px] border-[#E6E6EA] dark:border-zinc-800 transition-colors
-          ${isOpen ? "rounded-[40px] w-xs sm:w-sm" : "rounded-full pl-2 pr-6 py-2"}`}
+          layout
+          onClick={() => !isOpen && setIsOpen(true)}
+          className="cursor-pointer overflow-hidden border border-neutral-200 bg-white shadow-xl dark:border-neutral-700 dark:bg-neutral-900"
+          style={{
+            width: isOpen ? 420 : 280,
+            height: isOpen ? 420 : 90,
+            borderRadius: isOpen ? 32 : 44,
+          }}
         >
-            <AnimatePresence mode="popLayout">
-                {!isOpen ? (
-                    /* -------- Collapsed Pill -------- */
+          <AnimatePresence mode="popLayout">
+            {!isOpen ? (
+              <div className="flex h-full items-center px-6">
+                <div className="flex -space-x-3">
+                  {users.slice(0, 4).map((user, idx) => (
                     <motion.div
-                        key="pill"
-                        layoutId="container"
-                        onClick={() => setIsOpen(true)}
-                        className="relative flex items-center rounded-full cursor-pointer w-fit"
+                      key={user.id}
+                      layoutId={`avatar-${user.id}`}
+                      style={{ zIndex: 10 - idx }}
                     >
-                        {/* Voice Indicator */}
-                        <motion.div
-                            layoutId="voice-icon"
-                            className="absolute -left-4 -top-4 w-10 h-10 rounded-full bg-gradient-to-b from-[#45444D] to-[#1E1D24] dark:from-zinc-100 dark:to-zinc-300 flex items-center justify-center shadow-lg z-20"
-                        >
-                            <div className="flex gap-[3px] items-center">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <motion.div
-                                        key={i}
-                                        animate={{ height: [6, 16, 6] }}
-                                        transition={{
-                                            repeat: Infinity,
-                                            duration: 0.8,
-                                            delay: i * 0.1,
-                                        }}
-                                        className="w-[2.5px] bg-[#fefefe] dark:bg-zinc-900 rounded-full"
-                                    />
-                                ))}
+                      <motion.img
+                        layoutId={`avatar-img-${user.id}`}
+                        src={user.img}
+                        className="h-14 w-14 rounded-full border-4 border-white object-cover shadow-lg dark:border-neutral-900"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="ml-4 flex items-center gap-1 text-lg font-medium text-neutral-600 dark:text-neutral-400">
+                  <span>+{users.length - 4}</span>
+                  <IoChevronDown />
+                </div>
+              </div>
+            ) : (
+              <motion.div layout className="flex h-full flex-col">
+                <div className="flex items-center justify-between border-b border-neutral-200 bg-neutral-100 px-8 py-3 dark:border-neutral-700 dark:bg-neutral-800">
+                  <div className="w-8" />
+                  <h2 className="text-lg font-semibold text-neutral-700 dark:text-neutral-300">
+                    {title}
+                  </h2>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-full bg-neutral-200 p-2 dark:bg-neutral-700"
+                  >
+                    {closeIcon({
+                      className: 'text-neutral-600 dark:text-neutral-300',
+                    })}
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-4 gap-y-8 px-6 py-6">
+                  {users.map((user) => (
+                    <motion.div
+                      key={user.id}
+                      layoutId={`avatar-${user.id}`}
+                      className="relative flex flex-col items-center gap-2"
+                    >
+                      <div className="relative">
+                        <motion.img
+                          layoutId={`avatar-img-${user.id}`}
+                          src={user.img}
+                          className="h-[56px] w-[56px] rounded-full border border-neutral-200 object-cover shadow-md dark:border-neutral-700"
+                        />
+
+                        {user.active && (
+                          <motion.div className="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-xl dark:bg-neutral-800">
+                            <div className="flex items-center gap-[2px]">
+                              {bars.map((i) => (
+                                <motion.div
+                                  key={i}
+                                  className="w-[2px] rounded-full bg-neutral-700 dark:bg-neutral-300"
+                                  animate={{ height: [2, 12, 6] }}
+                                  transition={{
+                                    duration: 1,
+                                    repeat: Infinity,
+                                    delay: i * 0.2,
+                                  }}
+                                />
+                              ))}
                             </div>
-                        </motion.div>
+                          </motion.div>
+                        )}
+                      </div>
 
-                        {/* Avatars */}
-                        <div className="flex ml-8 -space-x-3">
-                            {users.slice(0, 4).map((user, idx) => (
-                                <motion.div
-                                    key={user.id}
-                                    layoutId={`avatar-container-${user.id}`}
-                                    className="relative"
-                                    style={{ zIndex: 10 - idx }}
-                                >
-                                    <motion.img
-                                        layoutId={`avatar-${user.id}`}
-                                        src={user.img}
-                                        className="w-14 h-14 rounded-full border-[3px] border-white dark:border-zinc-900 object-cover shadow-lg"
-                                    />
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="ml-4 flex items-center gap-1 text-[18px] font-medium text-gray-500 dark:text-zinc-400"
-                        >
-                            <span className="tracking-tight">+{users.length - 4}</span>
-                            <IoChevronDown />
-                        </motion.div>
+                      <span className="text-sm font-semibold text-neutral-700 dark:text-neutral-400">
+                        {user.name}
+                      </span>
                     </motion.div>
-                ) : (
-                    /*  Expanded Card  */
-                    <motion.div
-                        key="card"
-                        layoutId="container"
-                        className="flex flex-col rounded-[40px] overflow-hidden"
-                    >
-                        {/* Header */}
-                        <div className="flex items-center justify-between bg-[#F6F5FA] dark:bg-zinc-800/50 mb-8 border-b-[1.6px] border-[#E6E6EA] dark:border-zinc-800 py-2.5 px-8">
-                            <div className="w-8" />
-                            <motion.h2
-                                initial={{ opacity: 0, y: -5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-[19px] font-semibold text-[#83828C] dark:text-zinc-400"
-                            >
-                                {title}
-                            </motion.h2>
-                            <motion.button
-                                onClick={() => setIsOpen(false)}
-                                className="rounded-full p-1.5 bg-[#EFEEF9] dark:bg-zinc-800 flex items-center justify-center"
-                            >
-                                {closeIcon({
-                                    color: "#AEADB6",
-                                    className: "text-[#AEADB6]",
-                                })}
-                            </motion.button>
-                        </div>
+                  ))}
+                </div>
 
-                        {/* Users Grid */}
-                        <div className="grid grid-cols-4 px-6 mb-2 gap-y-7 gap-x-2">
-                            {users.map((user) => (
-                                <motion.div
-                                    key={user.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="relative flex flex-col items-center gap-2"
-                                >
-                                    <div className="relative p-1 rounded-full">
-                                        <motion.img
-                                            layoutId={`avatar-${user.id}`}
-                                            src={user.img}
-                                            className="w-[56px] h-[56px] rounded-full object-cover shadow-md border"
-                                        />
-                                        {user.active && (
-                                            <motion.div
-                                                layoutId={`voice-icon-${user.id}`}
-                                                className="absolute -right-4 -top-3 w-8 h-8 rounded-full bg-[#fefefe] dark:bg-zinc-800 flex items-center justify-center shadow-xl"
-                                            >
-                                                <div className="flex gap-[3px] items-center">
-                                                    {[1, 2, 3, 4].map((i) => (
-                                                        <motion.div
-                                                            key={i}
-                                                            animate={{ height: [6, 16, 6] }}
-                                                            transition={{
-                                                                repeat: Infinity,
-                                                                duration: 0.8,
-                                                                delay: i * 0.1,
-                                                            }}
-                                                            className="w-[2.5px] bg-[#68676C] dark:bg-zinc-300 rounded-full"
-                                                        />
-                                                    ))}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </div>
-                                    <span className="text-[14px] font-semibold text-[#6A6A6C] dark:text-zinc-400">
-                                        {user.name}
-                                    </span>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* CTA */}
-                        <div className="p-6">
-                            <button className="w-full py-3 bg-[#212027] dark:bg-zinc-100 text-[#F2F1F6] dark:text-zinc-900 rounded-xl text-[18px] transition-transform active:scale-[0.98]">
-                                {ctaText}
-                            </button>
-                            <p className="text-center text-[15px] text-[#9B9B9F] dark:text-zinc-500 mt-4 font-semibold opacity-70">
-                                {helperText}
-                            </p>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                <div className="px-6 pb-6">
+                  <button className="w-full rounded-xl bg-neutral-900 py-3 text-lg text-white transition active:scale-[0.98] dark:bg-neutral-100 dark:text-neutral-900">
+                    {ctaText}
+                  </button>
+                  <p className="mt-4 text-center text-sm text-neutral-500 dark:text-neutral-500">
+                    {helperText}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
-    );
+      </motion.div>
+    </MotionConfig>
+  );
 };

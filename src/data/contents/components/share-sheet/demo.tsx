@@ -26,7 +26,7 @@ const users = [
 
 export default function ShareSheetDemo() {
   return (
-    <div className="flex  w-full items-center justify-center bg-white font-sans">
+    <div className="flex  w-full items-center justify-center bg-transparent font-sans">
       <ShareSheet
         users={users}
         onShareComplete={(user) => console.log(`Shared with ${user.name}`)}

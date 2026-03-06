@@ -1,11 +1,11 @@
-import { ScheduleButton } from '.'
+import { ScheduleButton } from '.';
 
 function ScheduleButtonDemo() {
-    return (
-        <div className="flex justify-center items-center">
-            <ScheduleButton />
-        </div>
-    )
+  return (
+    <div className="flex items-center justify-center">
+      <ScheduleButton />
+    </div>
+  );
 }
 
-export default ScheduleButtonDemo
+export default ScheduleButtonDemo;

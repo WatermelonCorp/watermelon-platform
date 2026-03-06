@@ -1,13 +1,34 @@
-import { Upload, Menu } from "lucide-react";
-import { IoChatbubbleOutline } from "react-icons/io5";
-import {VerticalTooltipNavbar} from "./index";
+import {
+  MessageCircle,
+  Inbox,
+  Circle,
+  Crosshair,
+  Download,
+  Menu,
+} from 'lucide-react';
+import { TooltipVerticalNavbar } from './index';
 
 const items = [
-  { id: "comment", icon: <IoChatbubbleOutline size={26} />, label: "Comment", shortcut: ["C"] },
-  { id: "upload", icon: <Upload size={26} />, label: "Upload", shortcut: ["U"] },
-  { id: "menu", icon: <Menu size={26} />, label: "Menu", shortcut: ["K"], showDot: true },
+  {
+    icon: <MessageCircle className="h-full w-full" />,
+    label: 'Comment',
+    labelHasKeyword: ['C'],
+    hasBadge: false,
+  },
+  {
+    icon: <Inbox className="h-full w-full" />,
+    label: 'Inbox',
+    labelHasKeyword: ['I'],
+    hasBadge: true,
+  },
+  {
+    icon: <Circle className="h-full w-full" />,
+    label: 'Record',
+    labelHasKeyword: ['R'],
+    hasBadge: false,
+  },
 ];
 
 export default function VerticalTooltipNavbarDemo() {
-  return <VerticalTooltipNavbar items={items} />;
+  return <TooltipVerticalNavbar items={items} />;
 }
