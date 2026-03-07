@@ -1,30 +1,42 @@
 # Label incoming PRs automatically
 
 components:
-  - 'src/components/**/*'
-  - 'src/data/contents/components/**/*'
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'src/components/**/*'
+      - 'src/data/contents/components/**/*'
 
 blocks:
-  - 'src/data/contents/blocks/**/*'
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'src/data/contents/blocks/**/*'
 
 dashboards:
-  - 'src/data/contents/dashboards/**/*'
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'src/data/contents/dashboards/**/*'
 
 documentation:
-  - 'README.md'
-  - 'CONTRIBUTING.md'
-  - 'CODE_OF_CONDUCT.md'
-  - 'SECURITY.md'
-  - 'AI_POLICY.md'
-  - 'CHANGELOG.md'
-  - 'docs/**/*'
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'CODE_OF_CONDUCT.md'
+      - 'SECURITY.md'
+      - 'AI_POLICY.md'
+      - 'CHANGELOG.md'
+      - 'docs/**/*'
 
 ci-cd:
-  - '.github/**/*'
-  - 'package.json'
-  - 'bun.lockb'
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.github/**/*'
+      - 'package.json'
+      - 'bun.lockb'
 
 website:
-  - 'src/pages/**/*'
-  - 'src/lib/**/*'
-  - 'index.html'
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'src/pages/**/*'
+      - 'src/lib/**/*'
+      - 'index.html'
