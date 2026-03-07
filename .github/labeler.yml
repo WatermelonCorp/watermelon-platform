@@ -1,36 +1,53 @@
 # Label incoming PRs automatically
 
 components:
-  - changed-files:
-      - any-glob-to-any-file: 'src/components/**/*'
-      - any-glob-to-any-file: 'src/data/contents/components/**/*'
+  - any:
+      - changed-files:
+          - any-glob-to-any-file: 'src/components/**/*'
+      - changed-files:
+          - any-glob-to-any-file: 'src/data/contents/components/**/*'
 
 blocks:
-  - changed-files:
-      - any-glob-to-any-file: 'src/data/contents/blocks/**/*'
+  - any:
+      - changed-files:
+          - any-glob-to-any-file: 'src/data/contents/blocks/**/*'
 
 dashboards:
-  - changed-files:
-      - any-glob-to-any-file: 'src/data/contents/dashboards/**/*'
+  - any:
+      - changed-files:
+          - any-glob-to-any-file: 'src/data/contents/dashboards/**/*'
 
 documentation:
-  - changed-files:
-      - any-glob-to-any-file: 'README.md'
-      - any-glob-to-any-file: 'CONTRIBUTING.md'
-      - any-glob-to-any-file: 'CODE_OF_CONDUCT.md'
-      - any-glob-to-any-file: 'SECURITY.md'
-      - any-glob-to-any-file: 'AI_POLICY.md'
-      - any-glob-to-any-file: 'CHANGELOG.md'
-      - any-glob-to-any-file: 'docs/**/*'
+  - any:
+      - changed-files:
+          - any-glob-to-any-file: 'README.md'
+      - changed-files:
+          - any-glob-to-any-file: 'CONTRIBUTING.md'
+      - changed-files:
+          - any-glob-to-any-file: 'CODE_OF_CONDUCT.md'
+      - changed-files:
+          - any-glob-to-any-file: 'SECURITY.md'
+      - changed-files:
+          - any-glob-to-any-file: 'AI_POLICY.md'
+      - changed-files:
+          - any-glob-to-any-file: 'CHANGELOG.md'
+      - changed-files:
+          - any-glob-to-any-file: 'docs/**/*'
 
 ci-cd:
-  - changed-files:
-      - any-glob-to-any-file: '.github/**/*'
-      - any-glob-to-any-file: 'package.json'
-      - any-glob-to-any-file: 'bun.lockb'
+  - any:
+      - changed-files:
+          - any-glob-to-any-file: '.github/**/*'
+      - changed-files:
+          - any-glob-to-any-file: 'package.json'
+      - changed-files:
+          - any-glob-to-any-file: 'bun.lockb'
 
 website:
-  - changed-files:
-      - any-glob-to-any-file: 'src/pages/**/*'
-      - any-glob-to-any-file: 'src/lib/**/*'
-      - any-glob-to-any-file: 'index.html'
+  - any:
+      - changed-files:
+          - any-glob-to-any-file: 'src/pages/**/*'
+      - changed-files:
+          - any-glob-to-any-file: 'src/lib/**/*'
+      - changed-files:
+          - any-glob-to-any-file: 'index.html'
