@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "sitemap": "bun run scripts/generate-sitemap.ts",
-    "deploy": "bun run build && bun run sitemap && npx wrangler deploy"
+    "deploy": "bun run build && bun run sitemap && npx wrangler deploy",
+    "prepare": "husky"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
@@ -77,6 +78,7 @@
     "glob": "^13.0.5",
     "globals": "^16.5.0",
     "gray-matter": "^4.0.3",
+    "husky": "^9.1.7",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "react-snap": "^1.23.0",

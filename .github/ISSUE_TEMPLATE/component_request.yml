@@ -1,0 +1,46 @@
+name: Component Request
+description: Request a new UI component for the registry
+title: "[Component]: "
+labels: ["enhancement", "component"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for requesting a new component! Please provide as much detail as possible to help us understand.
+  - type: textarea
+    id: description
+    attributes:
+      label: Component Description
+      description: What kind of component are you looking for? (e.g., A multi-select dropdown with animated badges.)
+      placeholder: Describe the component you want to see.
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use Case
+      description: In what sorts of scenarios would this component be useful? What problems does it solve?
+    validations:
+      required: true
+  - type: textarea
+    id: inspiration
+    attributes:
+      label: Inspiration / Examples
+      description: Provide links to similar components in other libraries, Dribbble shots, screenshots, etc.
+    validations:
+      required: false
+  - type: dropdown
+    id: category
+    attributes:
+      label: Component Category
+      description: Which category best fits this component?
+      options:
+        - buttons
+        - inputs
+        - cards
+        - navigation
+        - blocks
+        - dashboard
+        - other
+    validations:
+      required: true
