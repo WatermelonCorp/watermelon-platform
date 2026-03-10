@@ -506,7 +506,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             {/* Preview Panel */}
             <TabsContent value="preview">
               <div className="h-full flex items-center justify-center p-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-muted/50 via-transparent to-transparent">
-                <div className="w-full max-w-4xl rounded-xl border bg-background shadow-sm flex items-center justify-center overflow-hidden p-8 min-h-[400px]">
+                <div className="w-full max-w-2xl rounded-xl border bg-background shadow-sm flex items-center justify-center overflow-hidden p-8 min-h-[400px]">
                   <Suspense fallback={
                     <div className="flex items-center gap-2 text-muted-foreground text-sm">
                       <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
