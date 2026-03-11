@@ -32,7 +32,7 @@ export function NavSecondary({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild size="default" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-400/15 dark:hover:bg-neutral-800/50 transition-all active:scale-[0.98]">
+              <SidebarMenuButton asChild size="default" className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-400/15 dark:hover:bg-neutral-800/50 transition-colors outline-none focus-visible:ring-0">
                 {item.onClick ? (
                   <button
                     onClick={(e) => {

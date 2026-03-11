@@ -56,7 +56,7 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
     updateWidth();
     window.addEventListener('resize', updateWidth);
     return () => window.removeEventListener('resize', updateWidth);
-  }, [duration, currentTime]);
+  }, [duration, currentTime, x]);
 
   useEffect(() => {
     if (isPlaying && currentTime < duration) {
@@ -74,7 +74,7 @@ export const WaveformScrub: React.FC<WaveformScrubProps> = ({
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPlaying, duration, x, containerWidth]);
+  }, [isPlaying, duration, x, containerWidth, currentTime]);
 
   useMotionValueEvent(x, 'change', (latest) => {
     if (!isPlaying && containerWidth > 0) {

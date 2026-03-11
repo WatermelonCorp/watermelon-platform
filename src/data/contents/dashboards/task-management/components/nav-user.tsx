@@ -46,7 +46,7 @@ export function NavUser({
       <SidebarMenuItem>
         <SidebarMenuButton
           size="lg"
-          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border bg-white dark:bg-neutral-900 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all active:scale-[0.98]"
+          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border bg-white dark:bg-neutral-900 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors outline-none focus-visible:ring-0"
         >
           <div className="flex w-full items-center">
             <div className="flex h-8 w-8 items-center justify-center rounded-md bg-linear-to-br from-purple-500 to-pink-500 text-white shrink-0">

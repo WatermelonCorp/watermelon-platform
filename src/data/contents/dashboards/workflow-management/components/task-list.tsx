@@ -50,10 +50,10 @@ export function TaskList() {
                   <div
                     onClick={() => selectTask(task.id)}
                     className={cn(
-                      "p-3 rounded-none border cursor-pointer transition-all duration-200 mb-1 shadow-card group/card active:scale-[0.98]",
+                      "p-3 rounded-none border cursor-pointer transition-colors duration-200 mb-1 shadow-card group/card",
                       selectedTaskId === task.id
                         ? "border-blue-400 bg-card ring-1 ring-blue-400/20"
-                        : "bg-card hover:bg-muted/40 border-border hover:-translate-y-0.5"
+                        : "bg-card hover:bg-muted/40 border-border"
                     )}
                   >
                     <div className="flex items-center justify-between mb-1.5">
@@ -106,9 +106,9 @@ export function TaskList() {
                     {task.subTasks.map((subTask) => (
                       <div
                         key={subTask.id}
-                        className="group flex items-center gap-2 px-3 py-1.5 rounded-none bg-muted shadow-card transition-all hover:bg-muted/80 active:translate-x-0.5"
+                        className="group flex items-center gap-2 px-3 py-1.5 rounded-none bg-muted shadow-card transition-colors hover:bg-muted/80"
                       >
-                        <CornerDownRight className="size-3.5 text-muted-foreground/50 shrink-0 transition-transform group-hover:translate-x-0.5" />
+                        <CornerDownRight className="size-3.5 text-muted-foreground/50 shrink-0" />
 
                         <div className="flex items-center gap-2 flex-1">
                           <Checkbox

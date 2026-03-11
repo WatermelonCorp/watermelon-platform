@@ -79,7 +79,7 @@ import { amsGroups, visualizeGroups, type Task, type Group } from "./data"
 
 function ProjectCard({ title, logo, count, groups, isPrivate }: { title: string, logo: React.ReactNode, count: number, groups: Group[], isPrivate?: boolean }) {
     return (
-        <Card className="flex flex-col gap-0 dark:border-neutral-800/60 bg-white dark:bg-neutral-900 shadow-none overflow-hidden rounded-lg p-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-neutral-900/40">
+        <Card className="flex flex-col gap-0 dark:border-neutral-800/60 bg-white dark:bg-neutral-900 shadow-none overflow-hidden rounded-lg p-0 transition-all duration-300 hover:shadow-lg dark:hover:shadow-neutral-900/40">
             <CardHeader className="flex flex-row items-center justify-between px-4 py-3! border-b dark:border-neutral-800/50">
                 <div className="flex items-center gap-2.5">
                     {logo}
@@ -229,7 +229,7 @@ function ProjectCard({ title, logo, count, groups, isPrivate }: { title: string,
 
 function FilterPill({ icon, label }: { icon: React.ReactNode, label: string }) {
     return (
-        <div className="flex items-center gap-1 h-6 px-2 rounded-full border border-neutral-200 dark:border-neutral-800 text-[11px] text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all active:scale-95 cursor-pointer shrink-0 font-medium whitespace-nowrap">
+        <div className="flex items-center gap-1 h-6 px-2 rounded-full border border-neutral-200 dark:border-neutral-800 text-[11px] text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer shrink-0 font-medium whitespace-nowrap">
             {icon}
             {label}
         </div>
@@ -251,7 +251,7 @@ function TaskItem({ task }: { task: Task }) {
     }
 
     return (
-        <div className="flex items-center gap-3 p-1.5 rounded-full bg-white dark:bg-neutral-800/20 border dark:border-neutral-700/40 shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-neutral-200 dark:hover:border-neutral-700 transition-all duration-200 cursor-pointer group active:scale-[0.985]">
+        <div className="flex items-center gap-3 p-1.5 rounded-full bg-white dark:bg-neutral-800/20 border dark:border-neutral-700/40 shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-neutral-200 dark:hover:border-neutral-700 transition-all duration-200 cursor-pointer group">
             <div className="flex items-center gap-2.5 shrink-0 px-0.5">
                 {statusIcons[task.status]}
                 {priorityIcons[task.priority]}
@@ -340,7 +340,7 @@ export default function TasksPageView() {
                         <IconSearch className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-neutral-400 group-focus-within:text-neutral-500 transition-colors" />
                         <Input
                             placeholder="Search..."
-                            className="h-8 w-8 sm:w-56 pl-8 pr-2 sm:pr-12 bg-neutral-100/50 dark:bg-neutral-900/50 focus-visible:bg-background focus-visible:ring-1 focus-visible:border-neutral-200 transition-all hover:border-neutral-300 dark:hover:border-neutral-700 rounded-md text-xs border-neutral-200 dark:border-neutral-800 shadow-none placeholder:text-neutral-400 font-medium"
+                            className="h-8 w-8 sm:w-56 pl-8 pr-2 sm:pr-12 bg-white dark:bg-neutral-900 rounded-md text-xs border border-[1.3px] border-neutral-200 dark:border-neutral-800 shadow-none placeholder:text-neutral-400 font-medium outline-none focus-visible:ring-0 focus-visible:border-neutral-400 dark:focus-visible:border-neutral-600 transition-colors"
                         />
                         <kbd className="absolute right-1.5 top-1/2 -translate-y-1/2 hidden md:flex h-5 items-center justify-center gap-1 rounded-[4px] border border-neutral-200 bg-white px-1.5 text-[10px] font-medium text-neutral-500 opacity-100 pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 select-none">
                             <span className="text-[12px] h-3.5 flex items-center">⌘</span>
@@ -349,7 +349,7 @@ export default function TasksPageView() {
                     </div>
                     <Popover>
                         <PopoverTrigger asChild>
-                            <Button variant="outline" size="icon" className="size-8 hidden xs:flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 transition-all active:scale-95">
+                            <Button variant="outline" size="icon" className="size-8 hidden xs:flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 transition-colors">
                                 <IconBell className="size-4" />
                             </Button>
                         </PopoverTrigger>
@@ -366,7 +366,7 @@ export default function TasksPageView() {
                     </Popover>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="outline" size="icon" className="size-8 hidden sm:flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 transition-all active:scale-95">
+                            <Button variant="outline" size="icon" className="size-8 hidden sm:flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 transition-colors">
                                 <IconQuestionMark className="size-4" />
                             </Button>
                         </DropdownMenuTrigger>
@@ -379,7 +379,7 @@ export default function TasksPageView() {
                     </DropdownMenu>
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button variant="outline" className="h-8 px-3 gap-1.5 hidden md:flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md shadow-none font-medium text-xs tracking-tight border-neutral-200 dark:border-neutral-800 transition-all active:scale-95">
+                            <Button variant="outline" className="h-8 px-3 gap-1.5 hidden md:flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md shadow-none font-medium text-xs tracking-tight border-neutral-200 dark:border-neutral-800 transition-colors">
                                 <IconUpload className="size-3.5" />
                                 <span>Share</span>
                             </Button>
@@ -416,7 +416,7 @@ export default function TasksPageView() {
                                     key={tab.value}
                                     value={tab.value}
                                     disabled={tab.value !== "overview"}
-                                    className="relative gap-1.5 px-1 py-0 bg-transparent shadow-none! data-[state=active]:bg-transparent dark:data-[state=active]:bg-transparent! data-[state=active]:shadow-none! rounded-none text-neutral-500 data-[state=active]:text-neutral-900 dark:data-[state=active]:text-neutral-100 border-x-0 border-t-0 border-b-0 data-[state=active]:border-b-[1.5px]! data-[state=active]:border-neutral-900 dark:data-[state=active]:border-neutral-100 data-[state=active]:-mb-px data-[state=active]:z-10 font-medium text-[13px] transition-all active:scale-95 group items-center flex tracking-tight shrink-0 whitespace-nowrap"
+                                    className="relative gap-1.5 px-1 py-0 bg-transparent shadow-none! data-[state=active]:bg-transparent dark:data-[state=active]:bg-transparent! data-[state=active]:shadow-none! rounded-none text-neutral-500 data-[state=active]:text-neutral-900 dark:data-[state=active]:text-neutral-100 border-x-0 border-t-0 border-b-0 data-[state=active]:border-b-[1.5px]! data-[state=active]:border-neutral-900 dark:data-[state=active]:border-neutral-100 data-[state=active]:-mb-px data-[state=active]:z-10 font-medium text-[13px] transition-colors group items-center flex tracking-tight shrink-0 whitespace-nowrap"
                                 >
                                     <tab.icon className="size-4" />
                                     {tab.label}
@@ -427,7 +427,7 @@ export default function TasksPageView() {
                         <div className="flex items-center">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" className="h-8 gap-1 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 rounded-md text-[12px] shadow-none font-medium shrink-0 dark:border-neutral-800 transition-all active:scale-95">
+                                    <Button variant="outline" className="h-8 gap-1 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 rounded-md text-[12px] shadow-none font-medium shrink-0 dark:border-neutral-800 transition-colors">
                                         <IconPlus className="size-3" />
                                         <span className="max-md:hidden">Add View</span>
                                     </Button>
@@ -454,7 +454,7 @@ export default function TasksPageView() {
                         <div className="hidden sm:flex items-center gap-1">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" size="icon" className="size-8 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all active:scale-95">
+                                    <Button variant="outline" size="icon" className="size-8 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
                                         <IconLayoutGrid className="size-4" />
                                     </Button>
                                 </DropdownMenuTrigger>
@@ -468,7 +468,7 @@ export default function TasksPageView() {
                             </DropdownMenu>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" size="icon" className="size-8 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all active:scale-95">
+                                    <Button variant="outline" size="icon" className="size-8 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
                                         <IconUserCircle className="size-4.5" />
                                     </Button>
                                 </DropdownMenuTrigger>
@@ -481,7 +481,7 @@ export default function TasksPageView() {
                             </DropdownMenu>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" size="icon" className="size-8 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all active:scale-95">
+                                    <Button variant="outline" size="icon" className="size-8 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
                                         <IconCircleCheck className="size-4" />
                                     </Button>
                                 </DropdownMenuTrigger>
@@ -495,7 +495,7 @@ export default function TasksPageView() {
                         <div className="flex items-center gap-1.5 font-medium">
                             <Popover>
                                 <PopoverTrigger asChild>
-                                    <Button variant="outline" className="h-8 gap-2 px-3 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-medium transition-all active:scale-95">
+                                    <Button variant="outline" className="h-8 gap-2 px-3 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-medium transition-colors">
                                         <IconAdjustmentsHorizontal className="size-4" />
                                         <span className="hidden xs:inline">Filter (3)</span>
                                     </Button>
@@ -525,7 +525,7 @@ export default function TasksPageView() {
 
                             <Popover>
                                 <PopoverTrigger asChild>
-                                    <Button variant="outline" className="h-8 gap-2 px-3 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-medium transition-all active:scale-95">
+                                    <Button variant="outline" className="h-8 gap-2 px-3 rounded-md shadow-none border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-medium transition-colors">
                                         <IconSortAscending className="size-4" />
                                         <span className="hidden xs:inline">Sort</span>
                                     </Button>
@@ -549,7 +549,7 @@ export default function TasksPageView() {
                             </Popover>
                             <Dialog>
                                 <DialogTrigger asChild>
-                                    <Button className="h-8 gap-2 px-3 rounded-md shadow-xs bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white text-xs font-medium border-none shrink-0 ml-1 transition-all active:scale-95">
+                                    <Button className="h-8 gap-2 px-3 rounded-md shadow-xs bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white text-xs font-medium border-none shrink-0 ml-1 transition-colors">
                                         <IconCirclePlus className="size-4" />
                                         <span className="hidden xs:inline">Add Task</span>
                                     </Button>

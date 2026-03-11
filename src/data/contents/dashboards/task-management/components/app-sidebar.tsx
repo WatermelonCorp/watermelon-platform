@@ -60,12 +60,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </div>
             <span className="text-lg font-serif">OceanLabs</span>
           </div>
-          <SidebarTrigger className="-mr-1 ml-auto hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md transition-all active:scale-[0.98]" />
+          <SidebarTrigger className="-mr-1 ml-auto hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md transition-colors outline-none focus-visible:ring-0" />
         </div>
 
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="border bg-white dark:bg-neutral-900 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-all active:scale-[0.98]">
+            <SidebarMenuButton asChild className="border bg-white dark:bg-neutral-900 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors outline-none focus-visible:ring-0">
               <div className="flex w-full items-center">
                 <div className="flex aspect-square size-5 items-center justify-center rounded bg-linear-to-br from-orange-400 to-rose-400 text-white">
                   {/* Team Logo Placeholder */}

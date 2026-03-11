@@ -78,7 +78,7 @@ export function AaveSwapComponent({ from, to }: AaveSwapComponentProps) {
         setInputVal(val);
       }
     },
-    [from.max, inputVal, isMax],
+    [from.max],
   );
 
   const characters = useMemo(() => inputVal.split(''), [inputVal]);

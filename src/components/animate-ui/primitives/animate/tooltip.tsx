@@ -207,7 +207,7 @@ function TooltipArrow({
   const { side, align, open } = useRenderedTooltip();
   const { context, arrowRef } = useFloatingContext();
   const { transition, globalId } = useGlobalTooltip();
-  React.useImperativeHandle(ref, () => { return arrowRef.current as SVGSVGElement }, []);
+  React.useImperativeHandle(ref, () => { return arrowRef.current as SVGSVGElement }, [arrowRef]);
 
   const deg = { top: 0, right: 90, bottom: 180, left: -90 }[side];
 
