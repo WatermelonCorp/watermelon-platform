@@ -32,7 +32,9 @@ export default function ComponentPage() {
   const isMobile = useIsMobile();
 
   const [demoCode, setDemoCode] = useState("");
-  const [componentCode, setComponentCode] = useState("");
+  const [componentCodeBase, setComponentCodeBase] = useState("");
+  const [componentCodeOverridden, setComponentCodeOverridden] = useState("");
+  const [activeVariant, setActiveVariant] = useState<'base' | 'overridden'>('overridden');
   const [reloadKey, setReloadKey] = useState(0);
   const [activePackageManager, setActivePackageManager] =
     useState<PackageManager>("npm");
@@ -41,9 +43,10 @@ export default function ComponentPage() {
 
   useEffect(() => {
     if (!item) return;
-    item.demoCode().then(setDemoCode);
-    item.code().then(setComponentCode);
-  }, [item]);
+    item.demoCode[activeVariant]().then(setDemoCode);
+    item.code.base().then(setComponentCodeBase);
+    item.code.overridden().then(setComponentCodeOverridden);
+  }, [item, activeVariant]);
 
   useEffect(() => {
     if (!item) return;
@@ -61,10 +64,17 @@ export default function ComponentPage() {
 
   const componentFiles: ComponentFile[] = [
     ...(demoCode ? [{ name: "demo.tsx", content: demoCode }] : []),
-    ...(componentCode
-      ? [{ name: `${item.slug}.tsx`, content: componentCode }]
+    ...(componentCodeBase
+      ? [{ name: `${item.slug}-base.tsx`, content: componentCodeBase }]
+      : []),
+    ...(componentCodeOverridden
+      ? [{ name: `${item.slug}.tsx`, content: componentCodeOverridden }]
       : []),
   ];
+
+  const ActiveComponent = activeVariant === 'base' ? item.component.base : item.component.overridden;
+  const activeCode = activeVariant === 'base' ? componentCodeBase : componentCodeOverridden;
+  const activeVariantTitle = activeVariant === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`;
 
 
   return (
@@ -113,9 +123,11 @@ export default function ComponentPage() {
               <ThemeToggle />
             </div>
 
-            <Suspense fallback={<div>Loading preview…</div>}>
-              <item.component key={reloadKey} />
-            </Suspense>
+            <div className={activeVariant === 'base' ? 'theme-injected w-full flex items-center justify-center' : 'w-full flex items-center justify-center'}>
+              <Suspense fallback={<div>Loading preview…</div>}>
+                <ActiveComponent key={reloadKey} />
+              </Suspense>
+            </div>
           </div>
 
           {/* Docs */}
@@ -232,10 +244,18 @@ export default function ComponentPage() {
                           source: "page",
                         }}
                       />
-                      {componentCode ? (
-                        <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                          {componentCode}
-                        </CodeBlock>
+                      {componentCodeOverridden && componentCodeBase ? (
+                        <div className="space-y-4">
+                          <Tabs value={activeVariant} onValueChange={(v: any) => setActiveVariant(v)} className="w-full">
+                            <TabsList className="grid w-full grid-cols-2">
+                              <TabsTrigger value="overridden" className="text-xs">Original</TabsTrigger>
+                              <TabsTrigger value="base" className="text-xs">Tailwind Base</TabsTrigger>
+                            </TabsList>
+                          </Tabs>
+                          <CodeBlock showLineNumbers title={activeVariantTitle}>
+                            {activeCode}
+                          </CodeBlock>
+                        </div>
                       ) : (
                         <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
                           Loading source code…
@@ -315,12 +335,12 @@ export default function ComponentPage() {
                   </CodeBlock>
                 )}
 
-                {componentCode && (
+                {(componentCodeOverridden || componentCodeBase) && (
                   <CodeBlock
                     mobile
                     showLineNumbers={false}
                   >
-                    {componentCode}
+                    {activeCode}
                   </CodeBlock>
                 )}
               </div>
@@ -464,10 +484,18 @@ export default function ComponentPage() {
                               source: "page",
                             }}
                           />
-                          {componentCode ? (
-                            <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                              {componentCode}
-                            </CodeBlock>
+                          {componentCodeOverridden && componentCodeBase ? (
+                            <div className="space-y-4">
+                              <Tabs value={activeVariant} onValueChange={(v: any) => setActiveVariant(v)} className="w-full">
+                                <TabsList className="grid w-full grid-cols-2">
+                                  <TabsTrigger value="overridden" className="text-xs">Original</TabsTrigger>
+                                  <TabsTrigger value="base" className="text-xs">Tailwind Base</TabsTrigger>
+                                </TabsList>
+                              </Tabs>
+                              <CodeBlock showLineNumbers title={activeVariantTitle}>
+                                {activeCode}
+                              </CodeBlock>
+                            </div>
                           ) : (
                             <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
                               Loading source code…
@@ -503,21 +531,48 @@ export default function ComponentPage() {
           {/* RIGHT PREVIEW - Sticky */}
           <div className="flex-1 sticky top-0 h-[calc(100dvh-84px)] p-6">
             <div className="h-full flex flex-col bg-muted/5 border rounded-2xl overflow-hidden">
-              <div className="flex justify-end gap-2 px-4 py-2 border-b bg-background/80 backdrop-blur rounded-t-2xl">
-                <ThemeToggle />
-                <button
-                  onClick={() => setReloadKey((k) => k + 1)}
-                  aria-label="Reload component preview"
-                  className="p-2 rounded-md hover:bg-accent"
-                >
-                  <HugeiconsIcon icon={ReloadIcon} size={16} />
-                </button>
+              <div className="flex justify-between items-center gap-2 px-4 py-2 border-b bg-background/80 backdrop-blur rounded-t-2xl">
+                {/* Variant toggle */}
+                <div className="flex items-center rounded-lg border bg-muted p-0.5 gap-0.5 text-xs">
+                  <button
+                    onClick={() => setActiveVariant('overridden')}
+                    className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                      activeVariant === 'overridden'
+                        ? 'bg-background shadow-sm text-foreground'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Original
+                  </button>
+                  <button
+                    onClick={() => setActiveVariant('base')}
+                    className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                      activeVariant === 'base'
+                        ? 'bg-background shadow-sm text-foreground'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Tailwind Base
+                  </button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <button
+                    onClick={() => setReloadKey((k) => k + 1)}
+                    aria-label="Reload component preview"
+                    className="p-2 rounded-md hover:bg-accent"
+                  >
+                    <HugeiconsIcon icon={ReloadIcon} size={16} />
+                  </button>
+                </div>
               </div>
 
               <div className="flex-1 overflow-auto p-12 flex justify-center items-center">
-                <Suspense fallback={<div>Loading preview…</div>}>
-                  <item.component key={reloadKey} />
-                </Suspense>
+                <div className={activeVariant === 'base' ? 'theme-injected max-w-full flex justify-center items-center' : 'max-w-full flex justify-center items-center'}>
+                  <Suspense fallback={<div>Loading preview…</div>}>
+                    <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
+                  </Suspense>
+                </div>
               </div>
             </div>
           </div>

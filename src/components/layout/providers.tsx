@@ -7,6 +7,7 @@ import { ThemeProvider } from 'next-themes'
 import { TooltipProvider as TooltipProviderAnimate } from '../animate-ui/components/animate/tooltip'
 import { ScrollProgressProvider } from '../animate-ui/primitives/animate/scroll-progress'
 import { Analytics } from '@/components/analytics/analytics'
+import { ThemeCssProvider } from '@/contexts/theme-css-context'
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -24,7 +25,9 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
             <TooltipProvider>
               <TooltipProviderAnimate>
                 <SidebarProvider>
-                  {children}
+                  <ThemeCssProvider>
+                    {children}
+                  </ThemeCssProvider>
                 </SidebarProvider>
               </TooltipProviderAnimate>
             </TooltipProvider>

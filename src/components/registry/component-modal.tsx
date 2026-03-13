@@ -30,16 +30,21 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   const isMobile = useIsMobile();
 
   const [demoCode, setDemoCode] = useState<string>('');
-  const [componentCode, setComponentCode] = useState<string>('');
+  const [componentCodeBase, setComponentCodeBase] = useState<string>('');
+  const [componentCodeOverridden, setComponentCodeOverridden] = useState<string>('');
+  const [activeCodeTab, setActiveCodeTab] = useState<'base' | 'overridden'>('overridden');
   const [reloadKey, setReloadKey] = useState(0);
   const [activePackageManager, setActivePackageManager] = useState<PackageManager>('npm');
 
   // Load code when item changes
   useEffect(() => {
     if (!item) return;
-    item.demoCode().then(setDemoCode);
-    item.code().then(setComponentCode);
-  }, [item]);
+    item.demoCode[activeCodeTab]().then(setDemoCode);
+    if (item.code) {
+      item.code.base().then(setComponentCodeBase);
+      item.code.overridden().then(setComponentCodeOverridden);
+    }
+  }, [item, activeCodeTab]);
 
   useEffect(() => {
     if (!item) return;
@@ -63,8 +68,11 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   // Prepare files for PromptItems
   const componentFiles: ComponentFile[] = [
     ...(demoCode ? [{ name: 'demo.tsx', content: demoCode }] : []),
-    ...(componentCode ? [{ name: `${item.slug}.tsx`, content: componentCode }] : []),
+    ...(componentCodeBase ? [{ name: `${item.slug}-base.tsx`, content: componentCodeBase }] : []),
+    ...(componentCodeOverridden ? [{ name: `${item.slug}.tsx`, content: componentCodeOverridden }] : []),
   ];
+
+  const ActiveComponent = activeCodeTab === 'base' ? item.component.base : item.component.overridden;
 
   // Mobile View - Drawer with preview on top
   // Mobile View — Drawer
@@ -136,7 +144,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                 </div>
               </div>
 
-              <div className="rounded-xl border bg-background p-6 min-h-[240px] flex items-center justify-center">
+              <div className={`rounded-xl border bg-background p-6 min-h-[240px] flex items-center justify-center ${activeCodeTab === 'base' ? 'theme-injected' : ''}`}>
                 <Suspense
                   fallback={
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -145,7 +153,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                     </div>
                   }
                 >
-                  <item.component key={reloadKey} />
+                  <ActiveComponent key={reloadKey} />
                 </Suspense>
               </div>
             </section>
@@ -231,12 +239,20 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             </section>
 
             {/* Source Code */}
-            <section className="p-4 space-y-2">
-              <h3 className="text-sm font-medium">Source</h3>
+            <section className="p-4 space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-medium">Source</h3>
+                <Tabs value={activeCodeTab} onValueChange={(v: any) => setActiveCodeTab(v)} className="w-[180px]">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="overridden" className="text-xs">Original</TabsTrigger>
+                    <TabsTrigger value="base" className="text-xs">Tailwind</TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              </div>
 
-              {componentCode ? (
-                <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                  {componentCode}
+              {componentCodeOverridden && componentCodeBase ? (
+                <CodeBlock showLineNumbers title={activeCodeTab === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
+                  {activeCodeTab === 'base' ? componentCodeBase : componentCodeOverridden}
                 </CodeBlock>
               ) : (
                 <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
@@ -422,10 +438,18 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                                 source: "modal",
                               }}
                             />
-                            {componentCode ? (
-                              <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                                {componentCode}
-                              </CodeBlock>
+                            {componentCodeOverridden && componentCodeBase ? (
+                              <div className="space-y-4">
+                                <Tabs value={activeCodeTab} onValueChange={(v: any) => setActiveCodeTab(v)} className="w-full">
+                                  <TabsList className="grid w-full grid-cols-2">
+                                    <TabsTrigger value="overridden" className="text-xs">Original</TabsTrigger>
+                                    <TabsTrigger value="base" className="text-xs">Tailwind Base</TabsTrigger>
+                                  </TabsList>
+                                </Tabs>
+                                <CodeBlock showLineNumbers title={activeCodeTab === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
+                                  {activeCodeTab === 'base' ? componentCodeBase : componentCodeOverridden}
+                                </CodeBlock>
+                              </div>
                             ) : (
                               <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
                                 Loading source code…
@@ -465,19 +489,39 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           {/* Toolbar with tabs */}
           <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/30">
             <TabsList>
-
               <TabsTrigger value="preview">
                 <HugeiconsIcon icon={ViewIcon} size={14} />
                 Preview
               </TabsTrigger>
-
-              {/* Code Tab */}
               <TabsTrigger value="code">
                 <HugeiconsIcon icon={SourceCodeIcon} size={14} />
                 Code
               </TabsTrigger>
             </TabsList>
 
+            {/* Variant toggle */}
+            <div className="flex items-center rounded-lg border bg-muted p-0.5 gap-0.5 text-xs">
+              <button
+                onClick={() => setActiveCodeTab('overridden')}
+                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  activeCodeTab === 'overridden'
+                    ? 'bg-background shadow-sm text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Original
+              </button>
+              <button
+                onClick={() => setActiveCodeTab('base')}
+                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  activeCodeTab === 'base'
+                    ? 'bg-background shadow-sm text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Tailwind Base
+              </button>
+            </div>
 
             {/* Actions */}
             <div className="flex items-center gap-2 mr-8">
@@ -506,14 +550,14 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             {/* Preview Panel */}
             <TabsContent value="preview">
               <div className="h-full flex items-center justify-center p-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-muted/50 via-transparent to-transparent">
-                <div className="w-full max-w-2xl rounded-xl border bg-background shadow-sm flex items-center justify-center overflow-hidden p-8 min-h-[400px]">
+                <div className={`w-full max-w-2xl rounded-xl border bg-background shadow-sm flex items-center justify-center overflow-hidden p-8 min-h-[400px] ${activeCodeTab === 'base' ? 'theme-injected' : ''}`}>
                   <Suspense fallback={
                     <div className="flex items-center gap-2 text-muted-foreground text-sm">
                       <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                       Loading component...
                     </div>
                   }>
-                    <item.component key={reloadKey} />
+                    <ActiveComponent key={`${reloadKey}-${activeCodeTab}`} />
                   </Suspense>
                 </div>
               </div>
@@ -522,10 +566,18 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             {/* Code Panel */}
             <TabsContent value="code">
               <div className="h-full overflow-y-auto p-4 space-y-8">
-                {componentCode ? (
-                  <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                    {componentCode}
-                  </CodeBlock>
+                {componentCodeOverridden && componentCodeBase ? (
+                  <div className="space-y-4">
+                    <Tabs value={activeCodeTab} onValueChange={(v: any) => setActiveCodeTab(v)} className="w-[300px]">
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="overridden" className="text-xs">Original Styling</TabsTrigger>
+                        <TabsTrigger value="base" className="text-xs">Tailwind Base</TabsTrigger>
+                      </TabsList>
+                    </Tabs>
+                    <CodeBlock showLineNumbers title={activeCodeTab === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
+                      {activeCodeTab === 'base' ? componentCodeBase : componentCodeOverridden}
+                    </CodeBlock>
+                  </div>
                 ) : (
                   <div className="h-32 flex items-center justify-center text-muted-foreground animate-pulse text-sm">
                     Loading source code…
