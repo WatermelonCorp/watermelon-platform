@@ -9,18 +9,20 @@ export interface RegistryItem {
   video: string;
   component: {
     base: React.LazyExoticComponent<React.ComponentType<any>>;
-    overridden: React.LazyExoticComponent<React.ComponentType<any>>;
+    original: React.LazyExoticComponent<React.ComponentType<any>>;
   };
   code: {
     base: () => Promise<string>;
-    overridden: () => Promise<string>;
+    original: () => Promise<string>;
   };
   demoCode: {
     base: () => Promise<string>;
-    overridden: () => Promise<string>;
+    original: () => Promise<string>;
   };
   install: string[];
+  installBase?: string[];
   dependencies?: string[];
+  hasVariants?: boolean;
   featured?: boolean;
   featuredOrder?: number;
   componentNumber?: number;
@@ -33,7 +35,7 @@ const mdxFiles = import.meta.glob("./contents/registry/*.mdx", { eager: true });
 
 // Load all Component Demos (lazy) - from subfolders
 const demoBaseComponents = import.meta.glob("./contents/components/*/demo-base.tsx");
-const demoOverriddenComponents = import.meta.glob("./contents/components/*/demo-overridden.tsx");
+const demoOriginalComponents = import.meta.glob("./contents/components/*/demo-original.tsx");
 const demoOldComponents = import.meta.glob("./contents/components/*/demo.tsx");
 
 // Load all Component Source Code (lazy) - from subfolders
@@ -42,7 +44,7 @@ const componentBaseSource = import.meta.glob("./contents/components/*/base.tsx",
   import: "default",
 });
 
-const componentOverriddenSource = import.meta.glob("./contents/components/*/overridden.tsx", {
+const componentOriginalSource = import.meta.glob("./contents/components/*/original.tsx", {
   query: "?raw",
   import: "default",
 });
@@ -57,7 +59,7 @@ const demoBaseSource = import.meta.glob("./contents/components/*/demo-base.tsx",
   query: "?raw",
   import: "default",
 });
-const demoOverriddenSource = import.meta.glob("./contents/components/*/demo-overridden.tsx", {
+const demoOriginalSource = import.meta.glob("./contents/components/*/demo-original.tsx", {
   query: "?raw",
   import: "default",
 });
@@ -80,23 +82,23 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
     const slug = frontmatter.slug;
 
     const demoBaseKey = `./contents/components/${slug}/demo-base.tsx`;
-    const demoOverriddenKey = `./contents/components/${slug}/demo-overridden.tsx`;
+    const demoOriginalKey = `./contents/components/${slug}/demo-original.tsx`;
     const demoOldKey = `./contents/components/${slug}/demo.tsx`;
     
     const baseKey = `./contents/components/${slug}/base.tsx`;
-    const overriddenKey = `./contents/components/${slug}/overridden.tsx`;
+    const originalKey = `./contents/components/${slug}/original.tsx`;
     const indexKey = `./contents/components/${slug}/index.tsx`;
 
     const demoBaseLoader = demoBaseComponents[demoBaseKey] || demoOldComponents[demoOldKey];
-    const demoOverriddenLoader = demoOverriddenComponents[demoOverriddenKey] || demoOldComponents[demoOldKey];
+    const demoOriginalLoader = demoOriginalComponents[demoOriginalKey] || demoOldComponents[demoOldKey];
     
     const baseLoader = componentBaseSource[baseKey];
-    const overriddenLoader = componentOverriddenSource[overriddenKey] || componentOldSource[indexKey];
+    const originalLoader = componentOriginalSource[originalKey] || componentOldSource[indexKey];
     
     const demoCodeBaseLoader = demoBaseSource[demoBaseKey] || demoOldSource[demoOldKey];
-    const demoCodeOverriddenLoader = demoOverriddenSource[demoOverriddenKey] || demoOldSource[demoOldKey];
+    const demoCodeOriginalLoader = demoOriginalSource[demoOriginalKey] || demoOldSource[demoOldKey];
 
-    if (!demoBaseLoader || !demoOverriddenLoader) {
+    if (!demoBaseLoader || !demoOriginalLoader) {
       console.warn(`Missing demo component variations for slug: ${slug}`);
     }
 
@@ -108,9 +110,9 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
           (demoBaseLoader as any) ||
           (() => Promise.resolve({ default: () => <div>Missing Base Component</div> }))
         ),
-        overridden: React.lazy(
-          (demoOverriddenLoader as any) ||
-          (() => Promise.resolve({ default: () => <div>Missing Overridden Component</div> }))
+        original: React.lazy(
+          (demoOriginalLoader as any) ||
+          (() => Promise.resolve({ default: () => <div>Missing Original Component</div> }))
         )
       },
       code: {
@@ -119,9 +121,9 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
           const source = await baseLoader();
           return source as string;
         },
-        overridden: async () => {
-          if (!overriddenLoader) return `// Missing overridden code for ${slug}`;
-          const source = await overriddenLoader();
+        original: async () => {
+          if (!originalLoader) return `// Missing original code for ${slug}`;
+          const source = await originalLoader();
           return source as string;
         }
       },
@@ -131,15 +133,17 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
           const source = await demoCodeBaseLoader();
           return source as string;
         },
-        overridden: async () => {
-          if (!demoCodeOverriddenLoader) return `// Missing demo overridden code for ${slug}`;
-          const source = await demoCodeOverriddenLoader();
+        original: async () => {
+          if (!demoCodeOriginalLoader) return `// Missing demo original code for ${slug}`;
+          const source = await demoCodeOriginalLoader();
           return source as string;
         }
       },
       // Ensure defaults
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",
+      installBase: frontmatter.installBase || [],
+      hasVariants: !!(demoBaseComponents[demoBaseKey] && demoOriginalComponents[demoOriginalKey]),
     };
   })
   .filter((item): item is RegistryItem => item !== null) // Remove null entries

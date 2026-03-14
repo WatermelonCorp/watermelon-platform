@@ -118,7 +118,7 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
   }, [items]);
 
   return (
-    <div className="relative h-[500px] w-xs overflow-hidden rounded-4xl border border-border bg-background px-4 py-4 sm:w-sm">
+    <div className="relative h-[500px] w-xs overflow-hidden rounded-4xl border border-border bg-card text-card-foreground shadow-sm px-4 py-4 sm:w-sm">
       <MotionConfig transition={springConfig}>
         <motion.div
           ref={scrollRef}
@@ -139,13 +139,13 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
                     initial={{ opacity: 0, scale: 0.8, y: -20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.8, y: -20 }}
-                    className="flex cursor-pointer items-center justify-between rounded-full bg-secondary p-3 py-2"
+                    className="flex cursor-pointer items-center justify-between rounded-full bg-primary text-primary-foreground shadow-sm p-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     onClick={shufflePinned}
                   >
                     <div className="flex min-w-0 flex-1 items-center gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-background">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20 text-primary-foreground">
                         <Pin
-                          className="h-5 w-5 text-muted-foreground"
+                          className="h-5 w-5"
                           fill="currentColor"
                         />
                       </div>
@@ -168,7 +168,7 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
                             type: 'spring',
                             bounce: 0,
                           }}
-                          className="truncate text-lg font-bold text-foreground"
+                          className="truncate text-lg font-bold text-primary-foreground"
                         >
                           {currentHeroItem?.text}
                         </motion.span>
@@ -178,7 +178,7 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
                     {pinnedItems.length > 1 && (
                       <motion.button
                         whileTap={{ scale: 0.95 }}
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-background text-muted-foreground"
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
                         <ChevronsUpDown className="h-6 w-6" />
                       </motion.button>
@@ -215,25 +215,25 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
                         damping: 30,
                         scale: { duration: 0.3 },
                       }}
-                      className="group relative flex cursor-default items-center justify-between overflow-hidden rounded-full p-2 px-2 transition-colors hover:bg-secondary"
+                      className="group relative flex cursor-default items-center justify-between overflow-hidden rounded-full p-2 px-2 transition-colors hover:bg-accent hover:text-accent-foreground"
                     >
                       {isHighlighted && (
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: [0, 1, 0] }}
                           transition={{ duration: 1, times: [0, 0.2, 1] }}
-                          className="pointer-events-none absolute inset-0 bg-secondary"
+                          className="pointer-events-none absolute inset-0 bg-accent"
                         />
                       )}
 
                       <div className="relative z-10 flex min-w-0 flex-1 items-center gap-4">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-background pl-0.5">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-muted pl-0.5 group-hover:bg-background transition-colors">
                           <BsChatFill
-                            className="h-5 w-5 text-muted-foreground"
+                            className="h-5 w-5 text-muted-foreground group-hover:text-accent-foreground transition-colors"
                             fill="currentColor"
                           />
                         </div>
-                        <span className="truncate font-bold text-foreground">
+                        <span className="truncate font-bold">
                           {item.text}
                         </span>
                       </div>
@@ -245,10 +245,10 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
                           e.stopPropagation();
                           togglePin(item.id);
                         }}
-                        className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all ${
+                        className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                           item.isPinned
-                            ? 'text-foreground opacity-100'
-                            : 'text-muted-foreground opacity-0 group-hover:opacity-80 hover:text-foreground'
+                            ? 'text-primary opacity-100'
+                            : 'text-muted-foreground opacity-0 group-hover:opacity-80 hover:text-primary hover:bg-primary/10'
                         }`}
                       >
                         <Pin className="h-5 w-5" fill="currentColor" />
@@ -268,7 +268,7 @@ export const ShufflePinnedList: FC<ShufflePinnedListProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-20 rounded-b-[40px] bg-gradient-to-t from-background via-background/90 to-transparent backdrop-blur-[2px]"
+            className="pointer-events-none absolute right-0 bottom-0 left-0 z-20 h-20 rounded-b-[40px] bg-gradient-to-t from-card via-card/90 to-transparent backdrop-blur-[2px]"
           />
         )}
       </AnimatePresence>

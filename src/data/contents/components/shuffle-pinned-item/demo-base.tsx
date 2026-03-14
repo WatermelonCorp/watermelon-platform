@@ -13,11 +13,13 @@ const items = [
 export default function ShufflePinnedListDemo() {
   return (
     <div className="flex justify-center items-center">
-    <ShufflePinnedList
-      items={items}
-      onPinChange={(updated: any) => console.log("Updated Items:", updated)}
-      onShuffle={(current: any) => console.log("Shuffled Hero Item:", current)}
-    />
+      <div className="theme-injected">
+        <ShufflePinnedList
+          items={items}
+          onPinChange={(updated: any) => console.log("Updated Items:", updated)}
+          onShuffle={(current: any) => console.log("Shuffled Hero Item:", current)}
+        />
+      </div>
     </div>
   );
 }

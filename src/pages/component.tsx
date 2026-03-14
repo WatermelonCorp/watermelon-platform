@@ -33,8 +33,8 @@ export default function ComponentPage() {
 
   const [demoCode, setDemoCode] = useState("");
   const [componentCodeBase, setComponentCodeBase] = useState("");
-  const [componentCodeOverridden, setComponentCodeOverridden] = useState("");
-  const [activeVariant, setActiveVariant] = useState<'base' | 'overridden'>('overridden');
+  const [componentCodeOriginal, setComponentCodeOriginal] = useState("");
+  const [activeVariant, setActiveVariant] = useState<'base' | 'original'>('original');
   const [reloadKey, setReloadKey] = useState(0);
   const [activePackageManager, setActivePackageManager] =
     useState<PackageManager>("npm");
@@ -45,7 +45,7 @@ export default function ComponentPage() {
     if (!item) return;
     item.demoCode[activeVariant]().then(setDemoCode);
     item.code.base().then(setComponentCodeBase);
-    item.code.overridden().then(setComponentCodeOverridden);
+    item.code.original().then(setComponentCodeOriginal);
   }, [item, activeVariant]);
 
   useEffect(() => {
@@ -67,13 +67,13 @@ export default function ComponentPage() {
     ...(componentCodeBase
       ? [{ name: `${item.slug}-base.tsx`, content: componentCodeBase }]
       : []),
-    ...(componentCodeOverridden
-      ? [{ name: `${item.slug}.tsx`, content: componentCodeOverridden }]
+    ...(componentCodeOriginal
+      ? [{ name: `${item.slug}.tsx`, content: componentCodeOriginal }]
       : []),
   ];
 
-  const ActiveComponent = activeVariant === 'base' ? item.component.base : item.component.overridden;
-  const activeCode = activeVariant === 'base' ? componentCodeBase : componentCodeOverridden;
+  const ActiveComponent = activeVariant === 'base' ? item.component.base : item.component.original;
+  const activeCode = activeVariant === 'base' ? componentCodeBase : componentCodeOriginal;
   const activeVariantTitle = activeVariant === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`;
 
 
@@ -203,6 +203,7 @@ export default function ComponentPage() {
                     <TabsContent value="cli">
                       <LayoutGroup id={`install-mobile-${item.slug}`}>
                         <InstallationCmd
+                          activeCodeTab={activeVariant}
                           activePackageManager={activePackageManager}
                           setActivePackageManager={setActivePackageManager}
                           item={item}
@@ -244,15 +245,9 @@ export default function ComponentPage() {
                           source: "page",
                         }}
                       />
-                      {componentCodeOverridden && componentCodeBase ? (
+                      {componentCodeOriginal && componentCodeBase ? (
                         <div className="space-y-4">
-                          <Tabs value={activeVariant} onValueChange={(v: any) => setActiveVariant(v)} className="w-full">
-                            <TabsList className="grid w-full grid-cols-2">
-                              <TabsTrigger value="overridden" className="text-xs">Original</TabsTrigger>
-                              <TabsTrigger value="base" className="text-xs">Tailwind Base</TabsTrigger>
-                            </TabsList>
-                          </Tabs>
-                          <CodeBlock showLineNumbers title={activeVariantTitle}>
+                          <CodeBlock showLineNumbers title={activeVariant === 'base' && item.hasVariants ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
                             {activeCode}
                           </CodeBlock>
                         </div>
@@ -335,7 +330,7 @@ export default function ComponentPage() {
                   </CodeBlock>
                 )}
 
-                {(componentCodeOverridden || componentCodeBase) && (
+                {(componentCodeOriginal || componentCodeBase) && (
                   <CodeBlock
                     mobile
                     showLineNumbers={false}
@@ -443,6 +438,7 @@ export default function ComponentPage() {
                         <TabsContent value="cli">
                           <LayoutGroup id={`install-cli-right-${item.slug}`}>
                             <InstallationCmd
+                              activeCodeTab={activeVariant}
                               activePackageManager={activePackageManager}
                               setActivePackageManager={setActivePackageManager}
                               item={item}
@@ -484,15 +480,9 @@ export default function ComponentPage() {
                               source: "page",
                             }}
                           />
-                          {componentCodeOverridden && componentCodeBase ? (
+                          {componentCodeOriginal && componentCodeBase ? (
                             <div className="space-y-4">
-                              <Tabs value={activeVariant} onValueChange={(v: any) => setActiveVariant(v)} className="w-full">
-                                <TabsList className="grid w-full grid-cols-2">
-                                  <TabsTrigger value="overridden" className="text-xs">Original</TabsTrigger>
-                                  <TabsTrigger value="base" className="text-xs">Tailwind Base</TabsTrigger>
-                                </TabsList>
-                              </Tabs>
-                              <CodeBlock showLineNumbers title={activeVariantTitle}>
+                              <CodeBlock showLineNumbers title={activeVariant === 'base' && item.hasVariants ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
                                 {activeCode}
                               </CodeBlock>
                             </div>
@@ -533,28 +523,30 @@ export default function ComponentPage() {
             <div className="h-full flex flex-col bg-muted/5 border rounded-2xl overflow-hidden">
               <div className="flex justify-between items-center gap-2 px-4 py-2 border-b bg-background/80 backdrop-blur rounded-t-2xl">
                 {/* Variant toggle */}
-                <div className="flex items-center rounded-lg border bg-muted p-0.5 gap-0.5 text-xs">
-                  <button
-                    onClick={() => setActiveVariant('overridden')}
-                    className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
-                      activeVariant === 'overridden'
-                        ? 'bg-background shadow-sm text-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    Original
-                  </button>
-                  <button
-                    onClick={() => setActiveVariant('base')}
-                    className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
-                      activeVariant === 'base'
-                        ? 'bg-background shadow-sm text-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    Tailwind Base
-                  </button>
-                </div>
+                {item.hasVariants && (
+                  <div className="flex items-center rounded-lg border bg-muted p-0.5 gap-0.5 text-xs">
+                    <button
+                      onClick={() => setActiveVariant('original')}
+                      className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                        activeVariant === 'original'
+                          ? 'bg-background shadow-sm text-foreground'
+                          : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      Original
+                    </button>
+                    <button
+                      onClick={() => setActiveVariant('base')}
+                      className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                        activeVariant === 'base'
+                          ? 'bg-background shadow-sm text-foreground'
+                          : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      Base
+                    </button>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                   <ThemeToggle />
                   <button
@@ -568,7 +560,7 @@ export default function ComponentPage() {
               </div>
 
               <div className="flex-1 overflow-auto p-12 flex justify-center items-center">
-                <div className={activeVariant === 'base' ? 'theme-injected max-w-full flex justify-center items-center' : 'max-w-full flex justify-center items-center'}>
+                <div className="max-w-full flex justify-center items-center">
                   <Suspense fallback={<div>Loading preview…</div>}>
                     <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
                   </Suspense>

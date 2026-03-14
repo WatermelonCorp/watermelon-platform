@@ -41,14 +41,14 @@ export function GlobalCssInput() {
           "
         >
           <HugeiconsIcon icon={PaintBoardIcon} size={18} />
-          <span className="hidden text-sm md:block">Theme CSS</span>
+          <span className="hidden text-sm md:block">Add Custom Theme</span>
         </button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl bg-background text-foreground border-border">
         <DialogHeader>
-          <DialogTitle>Inject Global CSS</DialogTitle>
+          <DialogTitle>Add Custom Theme CSS</DialogTitle>
           <DialogDescription>
-            Paste your custom Shadcn CSS variables here. This will apply exclusively to the <b>"Tailwind Base"</b> preview rendering of the components to test how they look in your app's theme.
+            Input your custom Shadcn CSS variables below to preview how the <b>"Base"</b> components will seamlessly blend into your own application's unique design system.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">

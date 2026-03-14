@@ -1,4 +1,4 @@
-import {ShufflePinnedList} from "./overridden";
+import { ShufflePinnedList } from "./original";
 
 const items = [
   { id: "1", text: "Daily Fitness Tracker", isPinned: false },
