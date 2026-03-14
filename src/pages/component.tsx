@@ -74,7 +74,6 @@ export default function ComponentPage() {
 
   const ActiveComponent = activeVariant === 'base' ? item.component.base : item.component.original;
   const activeCode = activeVariant === 'base' ? componentCodeBase : componentCodeOriginal;
-  const activeVariantTitle = activeVariant === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`;
 
 
   return (
