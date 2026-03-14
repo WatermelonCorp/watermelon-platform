@@ -1,4 +1,4 @@
-import {ShufflePinnedList} from ".";
+import {ShufflePinnedList} from "./base";
 
 const items = [
   { id: "1", text: "Daily Fitness Tracker", isPinned: false },
@@ -12,12 +12,12 @@ const items = [
 
 export default function ShufflePinnedListDemo() {
   return (
-    <div className="flex justify-center items-center">
-    <ShufflePinnedList
-      items={items}
-      onPinChange={(updated) => console.log("Updated Items:", updated)}
-      onShuffle={(current) => console.log("Shuffled Hero Item:", current)}
-    />
+    <div className="theme-injected flex justify-center items-center">
+      <ShufflePinnedList
+        items={items}
+        onPinChange={(updated: any) => console.log("Updated Items:", updated)}
+        onShuffle={(current: any) => console.log("Shuffled Hero Item:", current)}
+      />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { motion } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Book02Icon } from '@/lib/hugeicons';
 import { Link } from 'react-router-dom';
+import { GlobalCssInput } from './global-css-input';
 
 // Route config for breadcrumbs - easy to extend
 const routeConfig: Record<string, { label: string; href?: string }> = {
@@ -153,6 +154,7 @@ export const Navbar = () => {
             <HugeiconsIcon icon={Book02Icon} size={18} />
             <span className="hidden text-sm md:block">Changelog</span>
           </Link>
+          <GlobalCssInput />
           <ThemeToggle />
         </div>
       </nav>

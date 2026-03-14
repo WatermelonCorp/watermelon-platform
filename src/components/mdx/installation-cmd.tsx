@@ -17,11 +17,13 @@ type InstallTrackingContext = {
 export const InstallationCmd = ({
   activePackageManager,
   setActivePackageManager,
+  activeCodeTab,
   item,
   trackingContext,
 }: {
   activePackageManager: PackageManager
   setActivePackageManager: (pm: PackageManager) => void
+  activeCodeTab: 'base' | 'original'
   item: RegistryItem
   trackingContext?: InstallTrackingContext
 
@@ -87,10 +89,12 @@ export const InstallationCmd = ({
                     source: "cli",
                     source_context: trackingContext?.source,
                     command_preview:
-                      item.install[0]
+                      activeCodeTab === 'base' && item.installBase?.[0]
+                        ? getInstallCommand(pm, item.installBase[0])
+                        : item.install[0]
                         ? getInstallCommand(pm, item.install[0])
                         : undefined,
-                    command_count: item.install.length,
+                    command_count: activeCodeTab === 'base' && item.installBase ? item.installBase.length : item.install.length,
                   });
                 }}
                 className={cn(
@@ -124,7 +128,7 @@ export const InstallationCmd = ({
 
       {/* Install Commands */}
       <div className="space-y-3">
-        {item.install.map((cmd, idx) => {
+        {(activeCodeTab === 'base' && item.installBase ? item.installBase : item.install).map((cmd, idx) => {
           const command = getInstallCommand(activePackageManager, cmd)
 
           return (
