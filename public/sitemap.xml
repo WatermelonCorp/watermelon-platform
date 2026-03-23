@@ -169,7 +169,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/card-split-accordian</loc>
+    <loc>https://ui.watermelon.sh/components/card-split-accordion</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -967,7 +967,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/accordian</loc>
+    <loc>https://ui.watermelon.sh/categories/accordion</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
