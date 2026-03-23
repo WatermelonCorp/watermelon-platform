@@ -1,4 +1,4 @@
-import { InviteDisclosure } from '.';
+import { InviteDisclosure } from './base';
 import { FaFolderClosed } from 'react-icons/fa6';
 import { LuDraftingCompass } from 'react-icons/lu';
 import { BiSolidZap } from 'react-icons/bi';

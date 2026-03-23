@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { AddCashDisclosure } from './index';
+import { AddCashDisclosure } from './original';
 
 const App: React.FC = () => {
   const [balance, setBalance] = useState(34.00);

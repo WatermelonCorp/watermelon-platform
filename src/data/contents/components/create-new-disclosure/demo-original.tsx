@@ -1,4 +1,4 @@
-import { CreateNewDisclosure } from ".";
+import { CreateNewDisclosure } from "./original";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Award01Icon, Calendar04Icon, Flag02Icon, Folder01Icon, NoteIcon, TaskEdit01Icon } from "@hugeicons/core-free-icons";
 

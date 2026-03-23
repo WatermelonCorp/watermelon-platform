@@ -1,4 +1,4 @@
-import { EmojiSpreeChips, type InterestItem } from './index';
+import { EmojiSpreeChips, type InterestItem } from './original';
 
 const INTERESTS: InterestItem[] = [
     { id: '1', label: 'Design', emoji: '🎨' },
@@ -29,7 +29,7 @@ export default function EmojiSpreeChipsDemo() {
     };
 
     return (
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center relative overflow-hidden ">
             <EmojiSpreeChips
                 interests={INTERESTS}
                 onChange={handleChange}

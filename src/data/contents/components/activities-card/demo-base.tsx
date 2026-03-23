@@ -2,7 +2,7 @@ import { BellIcon, MessageCircle, Tag } from "lucide-react";
 import { FaCircleCheck } from "react-icons/fa6";
 import { LuBadgeCheck } from "react-icons/lu";
 import { TbClockHour12 } from "react-icons/tb";
-import { ActivitiesCard } from ".";
+import { ActivitiesCard } from "./base";
 
 const activities = [
     {

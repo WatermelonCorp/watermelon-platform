@@ -1,4 +1,4 @@
-import {SwitchDisclosure} from ".";
+import {SwitchDisclosure} from "./base";
 
 const SwitchDisclosureDemo = () => {
     return (

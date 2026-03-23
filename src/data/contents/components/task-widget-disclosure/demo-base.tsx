@@ -1,4 +1,4 @@
-import { TaskWidget, type TaskData } from './index';
+import { TaskWidget, type TaskData } from './base';
 
 const MOCK_DATA: TaskData = {
     title: "Design System",

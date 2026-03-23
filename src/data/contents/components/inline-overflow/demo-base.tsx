@@ -1,4 +1,4 @@
-import { InlineOverflow } from ".";
+import { InlineOverflow } from "./base";
 
 
 const visibleActions = [
