@@ -1,5 +1,5 @@
 "use client";
-import { IntegrationsCard } from './index';
+import { IntegrationsCard } from './original';
 import { SiSlack, SiDiscord, SiGithub } from 'react-icons/si';
 
 const MOCK_INTEGRATIONS = [

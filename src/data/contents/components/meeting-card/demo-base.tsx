@@ -1,4 +1,4 @@
-import { MeetingCard } from './index';
+import { MeetingCard } from './base';
 
 export default function MeetingCardDemo() {
   return (

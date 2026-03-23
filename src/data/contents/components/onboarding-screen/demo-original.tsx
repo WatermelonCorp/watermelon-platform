@@ -1,6 +1,6 @@
 "use client";
 
-import { OnboardingScreen } from './index';
+import { OnboardingScreen } from './original';
 
 export default function OnboardingDemo() {
     const handleOnboardingComplete = (data: any) => {

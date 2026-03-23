@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { DeploymentCard } from "./index";
-import type { DeploymentData } from "./index";
+import { DeploymentCard } from "./original";
+import type { DeploymentData } from "./original";
 
 export const mockDeploymentData: DeploymentData = {
   id: "main-8f3c2a1",

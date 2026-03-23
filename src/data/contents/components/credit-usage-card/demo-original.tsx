@@ -1,4 +1,4 @@
-import { CreditUsageCard } from './index';
+import { CreditUsageCard } from './original';
 
 const CreditUsageCardDemo = () => {
   const customHistory = [

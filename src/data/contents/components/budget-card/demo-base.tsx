@@ -1,6 +1,6 @@
 "use client";
 
-import { BudgetCard } from './index';
+import { BudgetCard } from './base';
 
 export default function BudgetCardDemo() {
   const budgetData = {

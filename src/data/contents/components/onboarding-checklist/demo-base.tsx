@@ -1,4 +1,4 @@
-import { OnboardingChecklist } from './index';
+import { OnboardingChecklist } from './base';
 
 const DEMO_STEPS = [
     { id: 1, title: "Create your profile", isCompleted: true },

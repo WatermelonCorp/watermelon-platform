@@ -1,6 +1,6 @@
 "use client";
 
-import { ComposeEmailCard } from "./index";
+import { ComposeEmailCard } from "./base";
 
 type User = {
   id: string;
