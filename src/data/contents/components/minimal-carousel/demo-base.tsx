@@ -1,5 +1,5 @@
 "use client";
-import { MinimalCarousel, type CarouselCard } from "./index";
+import { MinimalCarousel, type CarouselCard } from "./base";
 import { Anchor } from "lucide-react";
 import { VscSparkleFilled } from "react-icons/vsc";
 import { BsBookmarkStarFill } from "react-icons/bs";
@@ -10,28 +10,28 @@ const CARDS: CarouselCard[] = [
     id: "gxuri",
     title: "Gxuri",
     value: "1.03 ETH",
-    color: "bg-[#AD46FF]",
+    color: "bg-chart-2",
     icon: VscSparkleFilled,
   },
   {
     id: "savings",
     title: "Savings",
     value: "25.08 ETH",
-    color: "bg-[#171717]",
+    color: "bg-chart-4",
     icon: BsBookmarkStarFill,
   },
   {
     id: "yield",
     title: "Yield",
     value: "0.04 ETH",
-    color: "bg-[#00B8DB]",
+    color: "bg-chart-3",
     icon: FaCloud,
   },
   {
     id: "spending",
     title: "Spending",
     value: "0 ETH",
-    color: "bg-[#2B7FFF]",
+    color: "bg-chart-1",
     icon: Anchor,
   },
 ];
@@ -46,8 +46,8 @@ export default function MinimalCarouselDemo() {
   };
 
   return (
-      <MinimalCarousel 
-        cards={CARDS} 
+      <MinimalCarousel
+        cards={CARDS}
         onCopyClick={handleCopy}
         onCustomizeClick={handleCustomize}
       />

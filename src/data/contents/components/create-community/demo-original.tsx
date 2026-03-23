@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { CreateCommunity } from './index';
+import { CreateCommunity } from './original';
 import { motion } from 'motion/react';
 
 const CreateCommunityDemo = () => {

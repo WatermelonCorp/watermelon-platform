@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pencil } from 'lucide-react';
-import { EditProfile } from './index';
+import { EditProfile } from './original';
 
 const EditProfileDemo = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);

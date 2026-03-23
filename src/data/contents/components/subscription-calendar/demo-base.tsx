@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { SubscriptionCalendar } from './index';
+import { SubscriptionCalendar } from './base';
 import { RiClaudeFill, RiNetflixFill } from 'react-icons/ri';
 import { SiAdobe } from 'react-icons/si';
 import { FaAmazon } from 'react-icons/fa6';

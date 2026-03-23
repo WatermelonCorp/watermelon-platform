@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { OnboardingSetup } from "./index";
+import { OnboardingSetup } from "./base";
 
 export default function OnboardingSetupDemo() {
   const [focus, setFocus] = useState("deals");

@@ -1,6 +1,6 @@
 "use client";
 
-import { TradeSummary } from "./index";
+import { TradeSummary } from "./base";
 
 /* ---------- TYPES  ---------- */
 

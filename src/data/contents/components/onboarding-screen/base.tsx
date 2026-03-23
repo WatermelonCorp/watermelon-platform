@@ -52,7 +52,7 @@ export const OnboardingScreen: React.FC<OnboardingProps> = ({
     };
 
     return (
-        <div className="theme-injected min-h-full w-full flex flex-col items-center justify-center transition-colors duration-500 bg-background text-foreground font-sans" style={{ fontFamily: "var(--font-sans)" }}>
+        <div className="theme-injected min-h-full w-full flex flex-col items-center justify-center transition-colors duration-500 bg-transparent text-foreground font-sans" style={{ fontFamily: "var(--font-sans)" }}>
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}

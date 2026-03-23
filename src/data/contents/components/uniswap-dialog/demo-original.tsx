@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UniSwapDialog } from "./index";
+import { UniSwapDialog } from "./original";
 
 const Countries = [
   { name: "Afghanistan", code: "AF" },
@@ -25,7 +25,7 @@ export default function UniswapDialogDemo() {
   );
 
   return (
-    <div className="flex h-full items-center justify-center bg-transparent">
+    <div className="flex h-150 items-center justify-center bg-transparent">
       <UniSwapDialog
         value={selectedCountry}
         onChange={setSelectedCountry}

@@ -1,5 +1,5 @@
 import { GiftCardIcon, MailSend02Icon, CheckmarkBadge02Icon, LaurelWreath01Icon } from '@hugeicons/core-free-icons';
-import { DialogStack, type StackItem } from '.';
+import { DialogStack, type StackItem } from './base';
 
 export default function DialogStackDemo() {
   const DATA: StackItem[] = [

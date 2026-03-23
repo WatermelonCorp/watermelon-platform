@@ -1,4 +1,4 @@
-import { RadialCarousel } from '.';
+import { RadialCarousel } from './base';
 
 const demo_images = [
     { id: 1, url: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80', title: 'Mountain Lake' },

@@ -1,4 +1,4 @@
-import { ProfileCard } from './index';
+import { ProfileCard } from './original';
 
 export default function ProfileCardDemo() {
   return (

@@ -1,4 +1,4 @@
-import { ReturnsCalculator } from "./index"; 
+import { ReturnsCalculator } from "./base"; 
 
 export default function ReturnsCalculatorDemo() {
   return (
