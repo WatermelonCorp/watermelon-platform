@@ -2,9 +2,11 @@ import { useState, Suspense, lazy } from 'react';
 import { registry, type RegistryItem } from '@/data/registry';
 import { dashboards, type DashboardItem } from '@/data/dashboards';
 import { blocks, type BlockItem } from '@/data/blocks';
+import { bentos, type BentoItem } from '@/data/bentos';
 import { SEOHead } from '@/components/seo-head';
 import { RegistryCard } from '@/components/registry/registry-card';
 import { DashboardCard } from '@/components/registry/dashboard-card';
+import { BentoCard } from '@/components/registry/bento-card';
 import { Link } from 'react-router-dom';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@/lib/hugeicons';
@@ -13,17 +15,20 @@ import { trackEvent } from '@/lib/analytics';
 const ComponentModal = lazy(() => import('@/components/registry/component-modal').then((m) => ({ default: m.ComponentModal })));
 const DashboardModal = lazy(() => import('@/components/registry/dashboard-modal').then((m) => ({ default: m.DashboardModal })));
 const BlockModal = lazy(() => import('@/components/registry/block-modal').then((m) => ({ default: m.BlockModal })));
+const BentoModal = lazy(() => import('@/components/registry/bento-modal').then((m) => ({ default: m.BentoModal })));
 
 export default function HomePage() {
   const [selectedItem, setSelectedItem] = useState<RegistryItem | null>(null);
   const [selectedDashboard, setSelectedDashboard] = useState<DashboardItem | null>(null);
   const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
+  const [selectedBento, setSelectedBento] = useState<BentoItem | null>(null);
 
   // For home page, we might want to show featured or all. Let's show all for now.
   // In a real app, you might have a "featured" flag.
   const featuredItems = registry.slice(0, 6);
   const featuredDashboards = dashboards.slice(0, 4);
   const featuredBlocks = blocks.slice(0, 4);
+  const featuredBentos = bentos.slice(0, 4);
 
   const organizationSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -118,6 +123,35 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Bentos Section */}
+        <section id="bentos" className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="tracking-tight text-sm md:text-base">Bento Grids</h2>
+            <Link
+              to="/bentos"
+              onClick={() =>
+                trackEvent('cta_view_all_click', {
+                  section: 'bentos',
+                })
+              }
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              View all ({bentos.length})
+              <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {featuredBentos.map((item) => (
+              <BentoCard
+                key={item.slug}
+                item={item}
+                onClick={(item) => setSelectedBento(item)}
+              />
+            ))}
+          </div>
+        </section>
+
         {/* Blocks Section */}
         <section id="blocks" className="space-y-6">
           <div className="flex items-center justify-between">
@@ -199,6 +233,12 @@ export default function HomePage() {
             <BlockModal
               item={selectedBlock}
               onClose={() => setSelectedBlock(null)}
+            />
+          )}
+          {selectedBento && (
+            <BentoModal
+              item={selectedBento}
+              onClose={() => setSelectedBento(null)}
             />
           )}
         </Suspense>

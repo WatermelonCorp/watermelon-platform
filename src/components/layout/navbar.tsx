@@ -7,6 +7,7 @@ import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/registry';
 import { dashboards } from '@/data/dashboards';
+import { bentos } from '@/data/bentos';
 import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
 import { motion } from 'motion/react';
@@ -26,6 +27,7 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
   '/privacy': { label: 'Privacy' },
   '/copyright': { label: 'Copyright' },
   '/dashboards': { label: 'Dashboards' },
+  '/bentos': { label: 'Bentos' },
   '/blocks': { label: 'Blocks' },
   '/changelog': { label: 'Changelog' },
 };
@@ -86,6 +88,15 @@ export const Navbar = () => {
       const item = blocks.find((b) => b.slug === slug);
       if (item) {
         return [{ label: 'Blocks', href: '/blocks' }, { label: item.name }];
+      }
+    }
+
+    // Bento detail page: /bento/:slug
+    if (path.startsWith('/bento/')) {
+      const slug = params.slug || path.split('/').pop();
+      const item = bentos.find((b) => b.slug === slug);
+      if (item) {
+        return [{ label: 'Bentos', href: '/bentos' }, { label: item.name }];
       }
     }
 

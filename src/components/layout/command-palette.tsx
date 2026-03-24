@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/registry';
 import { dashboards } from '@/data/dashboards';
+import { bentos } from '@/data/bentos';
 import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { trackEvent } from '@/lib/analytics';
@@ -33,6 +34,7 @@ const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: Home01Icon, shortcut: 'C' },
   { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
+  { name: 'Bentos', href: '/bentos', icon: GridIcon, shortcut: 'E' },
   { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
   { name: 'Basic Usage', href: '/basic-usage', icon: Book02Icon, shortcut: 'B' },
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
@@ -175,6 +177,25 @@ export function CommandPalette() {
                 >
                   <HugeiconsIcon icon={SidebarLeft01Icon} strokeWidth={2} className="size-4" />
                   <span>{dashboard.name}</span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            {/* Bentos */}
+            <CommandGroup heading="Bentos">
+              {bentos.map((bento) => (
+                <CommandItem
+                  key={bento.slug}
+                  value={`bento-${bento.slug}`}
+                  keywords={[bento.name, 'bento', bento.category, 'grid']}
+                  onSelect={() =>
+                    runCommand(() => navigate(`/bento/${bento.slug}`))
+                  }
+                >
+                  <HugeiconsIcon icon={GridIcon} strokeWidth={2} className="size-4" />
+                  <span>{bento.name}</span>
                 </CommandItem>
               ))}
             </CommandGroup>

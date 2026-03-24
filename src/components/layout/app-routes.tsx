@@ -13,6 +13,8 @@ import {
   BlocksPageSkeleton,
   DashboardPageSkeleton,
   BlockPageSkeleton,
+  BentosPageSkeleton,
+  BentoPageSkeleton,
 } from "@/components/skeletons";
 
 const HomePage = lazy(() => import("@/pages/home"));
@@ -28,6 +30,8 @@ const PrivacyPage = lazy(() => import("@/pages/privacy"));
 const CopyrightPage = lazy(() => import("@/pages/copyright"));
 const DashboardsPage = lazy(() => import("@/pages/dashboards"));
 const DashboardPage = lazy(() => import("@/pages/dashboard"));
+const BentosPage = lazy(() => import("@/pages/bentos"));
+const BentoPage = lazy(() => import("@/pages/bento"));
 const BlocksPage = lazy(() => import("@/pages/blocks"));
 const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
@@ -179,6 +183,24 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DashboardPageSkeleton />}>
               <DashboardPage />
+            </Suspense>
+          }
+        />
+
+        {/* Bento pages */}
+        <Route
+          path="/bentos"
+          element={
+            <Suspense fallback={<BentosPageSkeleton />}>
+              <BentosPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/bento/:slug"
+          element={
+            <Suspense fallback={<BentoPageSkeleton />}>
+              <BentoPage />
             </Suspense>
           }
         />

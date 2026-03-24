@@ -5,3 +5,5 @@ export { DashboardsPageSkeleton } from "./dashboards-page-skeleton";
 export { BlocksPageSkeleton } from "./blocks-page-skeleton";
 export { DashboardPageSkeleton } from "./dashboard-page-skeleton";
 export { BlockPageSkeleton } from "./block-page-skeleton";
+export { BentosPageSkeleton } from "./bentos-page-skeleton";
+export { BentoPageSkeleton } from "./bento-page-skeleton";

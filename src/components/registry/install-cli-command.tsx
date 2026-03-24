@@ -14,7 +14,7 @@ interface InstallCliCommandProps {
   name: string;
   category?: string;
   source: "modal" | "page";
-  entityType: "dashboard" | "block";
+  entityType: "dashboard" | "block" | "bento";
   className?: string;
 }
 

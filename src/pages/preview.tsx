@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { dashboards } from '@/data/dashboards';
 import { blocks } from '@/data/blocks';
+import { bentos } from '@/data/bentos';
 
 export default function PreviewPage() {
   const { type, slug } = useParams<{ type: string; slug: string }>();
@@ -8,6 +9,8 @@ export default function PreviewPage() {
   let Component = null;
   if (type === 'dashboard') {
     Component = dashboards.find((d) => d.slug === slug)?.component;
+  } else if (type === 'bento') {
+    Component = bentos.find((b) => b.slug === slug)?.component;
   } else if (type === 'block') {
     Component = blocks.find((b) => b.slug === slug)?.component;
   }

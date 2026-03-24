@@ -23,6 +23,7 @@ import {
 } from "@/lib/hugeicons";
 import { allCategories } from "@/data/registry";
 import { dashboards } from "@/data/dashboards";
+import { bentos } from "@/data/bentos";
 import { blocks } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
 import { memo, useEffect, useMemo } from "react";
@@ -172,6 +173,15 @@ export function AppSidebar() {
     []
   );
 
+  // Generate bento items from registry
+  const bentoItems = useMemo(() =>
+    bentos.map((bento) => ({
+      title: bento.name,
+      url: `/bento/${bento.slug}`,
+    })),
+    []
+  );
+
   return (
     <Sidebar variant="inset">
       <SidebarHeader className="p-3">
@@ -208,6 +218,14 @@ export function AppSidebar() {
           items={dashboardItems}
           pathname={location.pathname}
           titleLink="/dashboards"
+          indentItems
+        />
+
+        <NavSection
+          title="Bentos"
+          items={bentoItems}
+          pathname={location.pathname}
+          titleLink="/bentos"
           indentItems
         />
 
