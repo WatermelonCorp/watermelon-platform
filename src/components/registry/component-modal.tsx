@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import type { RegistryItem } from '@/data/registry';
@@ -37,15 +37,49 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
   const [activePackageManager, setActivePackageManager] = useState<PackageManager>('npm');
 
   // Load code when item changes
-  useEffect(() => {
-    if (!item) return;
-    item.demoCode[activeCodeTab]().then(setDemoCode);
-    if (item.code) {
-      item.code.base().then(setComponentCodeBase);
-      item.code.original().then(setComponentCodeOriginal);
-    }
-  }, [item, activeCodeTab]);
+  // useEffect(() => {
+  //   if (!item) return;
+  //   item.demoCode[activeCodeTab]().then(setDemoCode);
+  //   if (item.code) {
+  //     item.code.base().then(setComponentCodeBase);
+  //     item.code.original().then(setComponentCodeOriginal);
+  //   }
+  // }, [item, activeCodeTab]);
 
+  useEffect(() => {
+  if (!item) return;
+
+  let isActive = true;
+
+  item.demoCode[activeCodeTab]().then((code) => {
+    if (isActive) setDemoCode(code);
+  });
+
+  return () => {
+    isActive = false;
+  };
+}, [item?.slug, activeCodeTab]);
+
+// 2. Fetch Base/Original Code (Depends ONLY on the item)
+useEffect(() => {
+  if (!item) return;
+
+  let isActive = true;
+
+  Promise.all([
+    item.code.base(),
+    item.code.original()
+  ]).then(([baseCode, originalCode]) => {
+    if (isActive) {
+      setComponentCodeBase(baseCode);
+      setComponentCodeOriginal(originalCode);
+    }
+  });
+
+  return () => {
+    isActive = false;
+  };
+}, [item?.slug]);
   useEffect(() => {
     if (!item) return;
     trackEvent('component_view', {
@@ -55,6 +89,13 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
       source: 'modal',
     });
   }, [item]);
+
+  const layoutGroupId = useMemo(
+  () => `install-cli-right-${item?.slug}`,
+  [item?.slug]
+);
+ 
+
 
   // Early return AFTER all hooks
   if (!item) return null;
@@ -397,8 +438,8 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                           <TabsTrigger value="manual">Manual</TabsTrigger>
                         </TabsList>
                         <TabsContents>
-                          <TabsContent value="cli">
-                            <LayoutGroup id={`install-cli-right-${item.slug}`}>
+                          <TabsContent value="cli"  className="data-[state=inactive]:hidden">
+                            <LayoutGroup id={layoutGroupId}>
                               <InstallationCmd
                                 activeCodeTab={activeCodeTab}
                                 activePackageManager={activePackageManager}
@@ -429,7 +470,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                               )}
                             </div>
                           </TabsContent>
-                          <TabsContent value="manual" className='space-y-6'>
+                          <TabsContent value="manual"  className="space-y-6 data-[state=inactive]:hidden">
                             {/* Manual install (dependencies-driven) */}
                             <ManualInstallationCmd
                               activePackageManager={activePackageManager}
@@ -548,7 +589,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           {/* Content */}
           <div className="flex-1 overflow-y-auto relative">
             {/* Preview Panel */}
-            <TabsContent value="preview">
+            <TabsContent value="preview"  className="data-[state=inactive]:hidden">
               <div className="h-full flex items-center justify-center p-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-muted/50 via-transparent to-transparent">
               
                   <Suspense fallback={
@@ -564,7 +605,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             </TabsContent>
 
             {/* Code Panel */}
-            <TabsContent value="code">
+            <TabsContent value="code"  className="data-[state=inactive]:hidden">
               <div className="h-full overflow-y-auto p-4 space-y-8">
                 {componentCodeOriginal && componentCodeBase ? (
                   <div className="space-y-4">

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { registry, type RegistryItem } from '@/data/registry';
 import { RegistryCard } from '@/components/registry/registry-card';
@@ -28,6 +28,9 @@ export default function CategoryPage() {
 
   const hasMore = visibleItems.length < filteredItems.length;
 
+  const handleCardClick = useCallback((item: RegistryItem) => {
+  setSelectedItem(item);
+}, []);
   useEffect(() => {
     if (!hasMore || !loadMoreRef.current) return;
 
@@ -73,7 +76,7 @@ export default function CategoryPage() {
             <RegistryCard
               key={item.slug}
               item={item}
-              onClick={(item) => setSelectedItem(item)}
+              onClick={handleCardClick}
             />
           ))}
         </div>
