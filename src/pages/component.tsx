@@ -79,8 +79,10 @@ export default function ComponentPage() {
       : []),
   ];
 
-  const OriginalComponent = item.component.original;
-  const BaseComponent = item.component.base;
+  const ActiveComponent =
+    activeVariant === 'base' ? item.component.base : item.component.original;
+  const activeCode =
+    activeVariant === 'base' ? componentCodeBase : componentCodeOriginal;
 
   return (
     <>
@@ -119,9 +121,9 @@ export default function ComponentPage() {
               <button
                 onClick={() => setIsCodeOpen(true)}
                 aria-label="Open source code drawer"
-                className="size-8 rounded-lg border border-input/50 bg-background flex items-center justify-center active:bg-accent transition-colors"
+                className="bg-background rounded-md border px-3 py-1.5 text-xs"
               >
-                <HugeiconsIcon icon={SourceCodeIcon} size={16} />
+                <HugeiconsIcon icon={SourceCodeIcon} size={14} />
               </button>
               <ThemeToggle />
             </div>
@@ -134,12 +136,7 @@ export default function ComponentPage() {
               }
             >
               <Suspense fallback={<div>Loading preview…</div>}>
-                <div className={activeVariant === 'original' ? 'contents' : 'hidden'}>
-                  <OriginalComponent key={`orig-${reloadKey}`} />
-                </div>
-                <div className={activeVariant === 'base' ? 'contents' : 'hidden'}>
-                  {BaseComponent && <BaseComponent key={`base-${reloadKey}`} />}
-                </div>
+                <ActiveComponent key={reloadKey} />
               </Suspense>
             </div>
           </div>
@@ -218,7 +215,7 @@ export default function ComponentPage() {
                     <TabsTrigger value="manual">Manual</TabsTrigger>
                   </TabsList>
                   <TabsContents>
-                    <TabsContent value="cli" forceMount className="data-[state=inactive]:hidden">
+                    <TabsContent value="cli">
                       <LayoutGroup id={`install-mobile-${item.slug}`}>
                         <InstallationCmd
                           activeCodeTab={activeVariant}
@@ -251,7 +248,7 @@ export default function ComponentPage() {
                         )}
                       </div>
                     </TabsContent>
-                    <TabsContent value="manual" forceMount className="space-y-6 data-[state=inactive]:hidden">
+                    <TabsContent value="manual" className="space-y-6">
                       {/* Manual install (dependencies-driven) */}
                       <ManualInstallationCmd
                         activePackageManager={activePackageManager}
@@ -266,16 +263,16 @@ export default function ComponentPage() {
                       />
                       {componentCodeOriginal && componentCodeBase ? (
                         <div className="space-y-4">
-                          <div className={activeVariant === 'original' ? 'block' : 'hidden'}>
-                            <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                              {componentCodeOriginal}
-                            </CodeBlock>
-                          </div>
-                          <div className={activeVariant === 'base' ? 'block' : 'hidden'}>
-                            <CodeBlock showLineNumbers title={`${item.slug}-base.tsx`}>
-                              {componentCodeBase}
-                            </CodeBlock>
-                          </div>
+                          <CodeBlock
+                            showLineNumbers
+                            title={
+                              activeVariant === 'base' && item.hasVariants
+                                ? `${item.slug}-base.tsx`
+                                : `${item.slug}.tsx`
+                            }
+                          >
+                            {activeCode}
+                          </CodeBlock>
                         </div>
                       ) : (
                         <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center text-sm">
@@ -347,18 +344,9 @@ export default function ComponentPage() {
                 )}
 
                 {(componentCodeOriginal || componentCodeBase) && (
-                  <>
-                    <div className={activeVariant === 'original' ? 'block' : 'hidden'}>
-                      <CodeBlock mobile showLineNumbers={false}>
-                        {componentCodeOriginal}
-                      </CodeBlock>
-                    </div>
-                    <div className={activeVariant === 'base' ? 'block' : 'hidden'}>
-                      <CodeBlock mobile showLineNumbers={false}>
-                        {componentCodeBase}
-                      </CodeBlock>
-                    </div>
-                  </>
+                  <CodeBlock mobile showLineNumbers={false}>
+                    {activeCode}
+                  </CodeBlock>
                 )}
               </div>
             </DrawerContent>
@@ -459,7 +447,7 @@ export default function ComponentPage() {
                         <TabsTrigger value="manual">Manual</TabsTrigger>
                       </TabsList>
                       <TabsContents>
-                        <TabsContent value="cli" forceMount className="data-[state=inactive]:hidden">
+                        <TabsContent value="cli">
                           <LayoutGroup id={`install-cli-right-${item.slug}`}>
                             <InstallationCmd
                               activeCodeTab={activeVariant}
@@ -493,7 +481,7 @@ export default function ComponentPage() {
                             )}
                           </div>
                         </TabsContent>
-                        <TabsContent value="manual" forceMount className="space-y-6 data-[state=inactive]:hidden">
+                        <TabsContent value="manual" className="space-y-6">
                           {/* Manual install (dependencies-driven) */}
                           <ManualInstallationCmd
                             activePackageManager={activePackageManager}
@@ -508,16 +496,16 @@ export default function ComponentPage() {
                           />
                           {componentCodeOriginal && componentCodeBase ? (
                             <div className="space-y-4">
-                              <div className={activeVariant === 'original' ? 'block' : 'hidden'}>
-                                <CodeBlock showLineNumbers title={`${item.slug}.tsx`}>
-                                  {componentCodeOriginal}
-                                </CodeBlock>
-                              </div>
-                              <div className={activeVariant === 'base' ? 'block' : 'hidden'}>
-                                <CodeBlock showLineNumbers title={`${item.slug}-base.tsx`}>
-                                  {componentCodeBase}
-                                </CodeBlock>
-                              </div>
+                              <CodeBlock
+                                showLineNumbers
+                                title={
+                                  activeVariant === 'base' && item.hasVariants
+                                    ? `${item.slug}-base.tsx`
+                                    : `${item.slug}.tsx`
+                                }
+                              >
+                                {activeCode}
+                              </CodeBlock>
                             </div>
                           ) : (
                             <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center text-sm">
@@ -556,7 +544,7 @@ export default function ComponentPage() {
           {/* RIGHT PREVIEW - Sticky */}
           <div className="sticky top-0 h-[calc(100dvh-84px)] flex-1 p-6">
             <div className="bg-muted/5 flex h-full flex-col overflow-hidden rounded-2xl border">
-              <div className={`bg-background/80 flex items-center gap-2 rounded-t-2xl border-b px-4 py-2 backdrop-blur ${item.hasVariants ? 'justify-between' : 'justify-end'}`}>
+              <div className="bg-background/80 flex items-center justify-between gap-2 rounded-t-2xl border-b px-4 py-2 backdrop-blur">
                 {/* Variant toggle */}
                 {item.hasVariants && (
                   <div className="bg-muted flex items-center gap-0.5 rounded-lg border p-0.5 text-xs">
@@ -587,9 +575,9 @@ export default function ComponentPage() {
                   <button
                     onClick={() => setReloadKey((k) => k + 1)}
                     aria-label="Reload component preview"
-                    className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
+                    className="hover:bg-accent rounded-md p-2"
                   >
-                    <HugeiconsIcon icon={ReloadIcon} size={18} />
+                    <HugeiconsIcon icon={ReloadIcon} size={16} />
                   </button>
                 </div>
               </div>
@@ -597,12 +585,7 @@ export default function ComponentPage() {
               <div className="flex flex-1 items-center justify-center overflow-auto p-12">
                 <div className="flex max-w-full items-center justify-center">
                   <Suspense fallback={<div>Loading preview…</div>}>
-                    <div className={activeVariant === 'original' ? 'contents' : 'hidden'}>
-                      <OriginalComponent key={`orig-${reloadKey}`} />
-                    </div>
-                    <div className={activeVariant === 'base' ? 'contents' : 'hidden'}>
-                      {BaseComponent && <BaseComponent key={`base-${reloadKey}`} />}
-                    </div>
+                    <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
                   </Suspense>
                 </div>
               </div>

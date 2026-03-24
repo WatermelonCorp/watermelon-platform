@@ -48,7 +48,7 @@ export function ComponentPreview({
           <button
             onClick={() => setActiveTab("preview")}
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md",
+              "flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200",
               activeTab === "preview"
                 ? "bg-background text-foreground shadow-sm border"
                 : "text-muted-foreground hover:text-foreground hover:bg-accent"
@@ -63,7 +63,7 @@ export function ComponentPreview({
             <button
               onClick={() => setActiveTab("code")}
               className={cn(
-                "flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md",
+                "flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200",
                 activeTab === "code"
                   ? "bg-background text-foreground shadow-sm border"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent"
