@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { registry } from '@/data/registry';
 import { SEOHead } from '@/components/seo-head';
@@ -48,12 +48,34 @@ export default function ComponentPage() {
 
   const [isCodeOpen, setIsCodeOpen] = useState(false);
 
+  // 1. Fetch Demo Code (Depends on item AND variant)
   useEffect(() => {
     if (!item) return;
-    item.demoCode[activeVariant]().then(setDemoCode);
-    item.code.base().then(setComponentCodeBase);
-    item.code.original().then(setComponentCodeOriginal);
-  }, [item, activeVariant]);
+    let isActive = true;
+    item.demoCode[activeVariant]().then((code) => {
+      if (isActive) setDemoCode(code);
+    });
+    return () => {
+      isActive = false;
+    };
+  }, [item?.slug, activeVariant]);
+
+  // 2. Fetch Base/Original Code (Depends ONLY on the item)
+  useEffect(() => {
+    if (!item) return;
+    let isActive = true;
+    Promise.all([item.code.base(), item.code.original()]).then(
+      ([baseCode, originalCode]) => {
+        if (isActive) {
+          setComponentCodeBase(baseCode);
+          setComponentCodeOriginal(originalCode);
+        }
+      },
+    );
+    return () => {
+      isActive = false;
+    };
+  }, [item?.slug]);
 
   useEffect(() => {
     if (!item) return;
@@ -135,9 +157,7 @@ export default function ComponentPage() {
                   : 'flex w-full items-center justify-center'
               }
             >
-              <Suspense fallback={<div>Loading preview…</div>}>
-                <ActiveComponent key={reloadKey} />
-              </Suspense>
+              <ActiveComponent key={reloadKey} />
             </div>
           </div>
 
@@ -237,14 +257,10 @@ export default function ComponentPage() {
                         </p>
                         <h3 className="font-medium">How to use</h3>
 
-                        {demoCode ? (
+                        {demoCode && (
                           <CodeBlock language="tsx" title="demo.tsx">
                             {demoCode}
                           </CodeBlock>
-                        ) : (
-                          <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                            Loading usage example…
-                          </div>
                         )}
                       </div>
                     </TabsContent>
@@ -261,7 +277,7 @@ export default function ComponentPage() {
                           source: 'page',
                         }}
                       />
-                      {componentCodeOriginal && componentCodeBase ? (
+                      {componentCodeOriginal || componentCodeBase ? (
                         <div className="space-y-4">
                           <CodeBlock
                             showLineNumbers
@@ -274,11 +290,7 @@ export default function ComponentPage() {
                             {activeCode}
                           </CodeBlock>
                         </div>
-                      ) : (
-                        <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center text-sm">
-                          Loading source code…
-                        </div>
-                      )}
+                      ) : null}
                       {/* Import & use */}
                       <div className="space-y-2">
                         <h4 className="text-muted-foreground text-sm font-medium">
@@ -288,14 +300,10 @@ export default function ComponentPage() {
                           Update the import path to match your project structure
                         </p>
 
-                        {demoCode ? (
+                        {demoCode && (
                           <CodeBlock language="tsx" title="demo.tsx">
                             {demoCode}
                           </CodeBlock>
-                        ) : (
-                          <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                            Loading usage example…
-                          </div>
                         )}
                       </div>
                     </TabsContent>
@@ -470,14 +478,10 @@ export default function ComponentPage() {
                             </p>
                             <h3 className="font-medium">How to use</h3>
 
-                            {demoCode ? (
+                            {demoCode && (
                               <CodeBlock language="tsx" title="demo.tsx">
                                 {demoCode}
                               </CodeBlock>
-                            ) : (
-                              <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                                Loading usage example…
-                              </div>
                             )}
                           </div>
                         </TabsContent>
@@ -494,7 +498,7 @@ export default function ComponentPage() {
                               source: 'page',
                             }}
                           />
-                          {componentCodeOriginal && componentCodeBase ? (
+                          {componentCodeOriginal || componentCodeBase ? (
                             <div className="space-y-4">
                               <CodeBlock
                                 showLineNumbers
@@ -507,11 +511,7 @@ export default function ComponentPage() {
                                 {activeCode}
                               </CodeBlock>
                             </div>
-                          ) : (
-                            <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center text-sm">
-                              Loading source code…
-                            </div>
-                          )}
+                          ) : null}
                           {/* Import & use */}
                           <div className="space-y-2">
                             <h4 className="text-muted-foreground text-sm font-medium">
@@ -522,14 +522,10 @@ export default function ComponentPage() {
                               structure
                             </p>
 
-                            {demoCode ? (
+                            {demoCode && (
                               <CodeBlock language="tsx" title="demo.tsx">
                                 {demoCode}
                               </CodeBlock>
-                            ) : (
-                              <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                                Loading usage example…
-                              </div>
                             )}
                           </div>
                         </TabsContent>
@@ -575,18 +571,16 @@ export default function ComponentPage() {
                   <button
                     onClick={() => setReloadKey((k) => k + 1)}
                     aria-label="Reload component preview"
-                    className="hover:bg-accent rounded-md p-2"
+                    className="hover:bg-accent flex size-10 items-center justify-center rounded-md transition-colors"
                   >
-                    <HugeiconsIcon icon={ReloadIcon} size={16} />
+                    <HugeiconsIcon icon={ReloadIcon} size={18} />
                   </button>
                 </div>
               </div>
 
               <div className="flex flex-1 items-center justify-center overflow-auto p-12">
                 <div className="flex max-w-full items-center justify-center">
-                  <Suspense fallback={<div>Loading preview…</div>}>
-                    <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
-                  </Suspense>
+                  <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
                 </div>
               </div>
             </div>

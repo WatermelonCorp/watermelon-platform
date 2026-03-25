@@ -133,9 +133,7 @@ export function AppSidebar() {
 
   const quickStart = [
     { title: "Installation", url: "/installation" },
-    { title: "Basic Usage", url: "/basic-usage" },
     { title: "Framework Support", url: "/framework-support" },
-    { title: "CLI", url: "/cli" },
     { title: "Changelog", url: "/changelog" },
   ];
 
