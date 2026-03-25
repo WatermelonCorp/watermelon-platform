@@ -23,6 +23,29 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+  version: '1.2.5',
+  date: 'Mar 25, 2026',
+  sections: [
+    {
+      title: 'Custom Theme Support',
+      items: [
+        {
+          text: 'Added support for custom theme CSS variables, allowing users to define their own design system colors.',
+        },
+        {
+          text: 'Introduced a dedicated theme input panel to apply and preview custom styles in real-time.',
+        },
+        {
+          text: 'Enabled seamless integration of user-defined themes with base components for consistent UI rendering.',
+        },
+        {
+          text: 'Improved flexibility for developers to match components with their brand identity using custom variables.',
+        },
+      ],
+    },
+  ],
+},
+  {
     version: '1.2.4',
     date: 'Mar 7, 2026',
     stats: [
