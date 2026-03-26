@@ -34,10 +34,10 @@ const pages = [
   { name: 'Components', href: '/components', icon: Home01Icon, shortcut: 'C' },
   { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
   { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
-  { name: 'Basic Usage', href: '/basic-usage', icon: Book02Icon, shortcut: 'B' },
+
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
-  { name: 'CLI', href: '/cli', icon: CommandIcon, shortcut: 'L' },
+
   { name: 'Changelog', href: '/changelog', icon: CommandIcon, shortcut: 'G' },
   { name: 'Terms', href: '/terms', icon: Book02Icon, shortcut: 'T' },
   { name: 'Privacy', href: '/privacy', icon: Book02Icon, shortcut: 'P' },

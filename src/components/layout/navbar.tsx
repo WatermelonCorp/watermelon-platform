@@ -18,10 +18,10 @@ import { GlobalCssInput } from './global-css-input';
 // Route config for breadcrumbs - easy to extend
 const routeConfig: Record<string, { label: string; href?: string }> = {
   '/': { label: 'Components' },
-  '/basic-usage': { label: 'Basic Usage' },
+
   '/installation': { label: 'Installation' },
   '/framework-support': { label: 'Framework Support' },
-  '/cli': { label: 'CLI' },
+
   '/terms': { label: 'Terms' },
   '/privacy': { label: 'Privacy' },
   '/copyright': { label: 'Copyright' },

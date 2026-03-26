@@ -26,13 +26,14 @@ export interface DashboardItem {
 // Load all dashboard MDX files (metadata)
 const mdxFiles = import.meta.glob("./contents/dashboards/*/*.mdx", { eager: true });
 
-// Load all Dashboard Demos (lazy) - from subfolders
-const demoComponents = import.meta.glob("./contents/dashboards/*/demo.tsx");
+// Load all Dashboard Demos (eager) - from subfolders
+const demoComponents = import.meta.glob("./contents/dashboards/*/demo.tsx", { eager: true });
 
-// Load all Dashboard source files (raw) - all tsx files in dashboard folders
+// Load all Dashboard source files (eager) - all tsx files in dashboard folders
 const dashboardSources = import.meta.glob("./contents/dashboards/*/*.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 
 // Helper to get all source files for a dashboard
@@ -47,8 +48,8 @@ function getDashboardFiles(slug: string): DashboardFile[] {
         name: fileName,
         path: path,
         code: async () => {
-          const source = await loader();
-          return source as string;
+          const source = await (loader as () => Promise<string>)();
+          return source;
         },
       });
     }
@@ -79,11 +80,8 @@ export const dashboards: DashboardItem[] = Object.entries(mdxFiles)
       ...frontmatter,
       name: frontmatter.title,
       component: frontmatter.comingSoon
-        ? React.lazy(() => Promise.resolve({ default: () => <div className="text-muted-foreground text-center py-20">Coming Soon</div> }))
-        : React.lazy(
-          (demoLoader as any) ||
-          (() => Promise.resolve({ default: () => <div>Missing Dashboard</div> }))
-        ),
+        ? (() => <div className="text-muted-foreground text-center py-20">Coming Soon</div>)
+        : ((demoLoader as any)?.default || (() => <div>Missing Dashboard</div>)),
       preload: resolvedLoader ? async () => { await resolvedLoader(); } : undefined,
       files: getDashboardFiles(slug),
       category: frontmatter.category || "Uncategorized",
