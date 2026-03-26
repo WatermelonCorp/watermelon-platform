@@ -688,7 +688,7 @@ function PlayerCard() {
     </Card>
   );
 }
-const page = () => {
+const Bento14 = () => {
   return (
     <div className="min-h-screen bg-black p-8 font-sans antialiased text-gray-400">
       <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-2 ">
@@ -704,4 +704,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Bento14;
