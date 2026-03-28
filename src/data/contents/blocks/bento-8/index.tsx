@@ -3,13 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/base-ui/card';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const BentoCard = ({ children, className, title, description }: any) => (
+const BentoCard = ({ children, className, title, description }: { children?: React.ReactNode; className?: string; title: string; description: string }) => (
   <Card
     className={cn(
       'group relative min-h-[340px] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-white/5 p-0',

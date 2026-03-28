@@ -182,16 +182,7 @@ const PatternIconSmall3 = ({ className }: IconProps) => {
     </svg>
   );
 };
-const SmallIcons = [
-  GiJumpingRope,
-  TbTreadmill,
-  GrYoga,
-  GiMeditation,
-  PatternIconSmall,
-  PatternIconSmall2,
-  PatternIconSmall3,
-  PatternIconSmall3,
-];
+
 const yearlyData = [140, 170, 110, 80, 135, 190, 135];
 const monthlyData = [80, 120, 70, 50, 95, 140, 100];
 const CHART_HEIGHT = 220;

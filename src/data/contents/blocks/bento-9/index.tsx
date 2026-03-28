@@ -1,10 +1,5 @@
 'use client';
-import {
-  useEffect,
-  useState,
-  type ReactElement,
-  type SVGProps,
-} from 'react';
+import { useEffect, useState, type ReactElement, type SVGProps } from 'react';
 import {
   animate,
   AnimatePresence,
@@ -18,7 +13,7 @@ import { FaLongArrowAltDown } from 'react-icons/fa';
 import { FaCircleChevronDown } from 'react-icons/fa6';
 import { MdOutlineBarChart } from 'react-icons/md';
 import { IoMdGlobe } from 'react-icons/io';
- const DoubleCheck = ({className}: {className?: string}) => {
+const DoubleCheck = ({ className }: { className?: string }) => {
   return (
     <svg
       width="24"
@@ -111,31 +106,25 @@ export const ChatIncident = ({ text, incidents }: ChatIncidentProps) => {
         // reset
         setTyped('');
 
-    
         for (let i = 0; i <= text.length; i++) {
-          await new Promise((r) => setTimeout(r,40));
+          await new Promise((r) => setTimeout(r, 40));
           if (!isMounted) return;
           setTyped(text.slice(0, i));
         }
 
- 
         await new Promise((r) => setTimeout(r, 500));
 
-    
         await animate(
           '[data-item]',
           { opacity: [0, 1], y: [-20, 0], filter: ['blur(4px)', 'blur(0px)'] },
           {
             duration: 0.3,
             delay: stagger(0.15),
-            
           },
         );
 
-    
         await new Promise((r) => setTimeout(r, 5000));
 
-      
         await animate(
           '[data-item]',
           { opacity: [1, 0], filter: ['blur(0px)', 'blur(4px)'] },
@@ -170,7 +159,6 @@ export const ChatIncident = ({ text, incidents }: ChatIncidentProps) => {
             alt="monkey-face-avatar"
             height={32}
             width={32}
-            
           />
         </div>
 
@@ -280,7 +268,7 @@ export const Card4_IncidentsMock = () => {
       <div className="flex flex-col justify-center gap-1">
         <div className="flex items-center gap-4">
           <div
-            className={`relative size-7 shrink-0 flex rounded ${colors.statusDown}`}
+            className={`relative flex size-7 shrink-0 rounded ${colors.statusDown}`}
           >
             <DoubleCheck className="m-auto" />
             <div className="absolute left-1/2 h-8 w-0.5 -translate-x-1/2 -translate-y-[120%] bg-slate-600" />
@@ -335,8 +323,8 @@ export const Card4_IncidentsMock = () => {
                       ease: 'easeOut',
                     }}
                   />
-                  <div className="size-6 rounded-full bg-red-600 flex items-center justify-center" >
-                    <FaLongArrowAltDown className='size-4 z-20' />
+                  <div className="flex size-6 items-center justify-center rounded-full bg-red-600">
+                    <FaLongArrowAltDown className="z-20 size-4" />
                   </div>
                 </div>
 
@@ -533,14 +521,13 @@ const Row = ({
             key={i}
             className="flex aspect-square w-20 items-center justify-center rounded-lg bg-[#303847] text-xs text-white/70"
           >
-            <Icon className="size-8 text-white md:size-10 grayscale-90" />
+            <Icon className="size-8 text-white grayscale-90 md:size-10" />
           </div>
         ))}
       </motion.div>
     </div>
   );
 };
-
 
 const backups = [
   { id: '1', label: 'managed database backup' },
@@ -557,17 +544,15 @@ type BackupListProps = {
   items: Item[];
 };
 
-
-
 export const BackupList = ({ items }: BackupListProps) => {
   const ITEM_HEIGHT = 60;
   const VISIBLE = 3;
 
   const loop = [...items, ...items, ...items];
 
-  const [index, setIndex] = useState(items.length);
+  const [index, setIndex] = useState(0);
 
-  const y = useMotionValue(-index * ITEM_HEIGHT);
+  const y = useMotionValue(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -578,19 +563,13 @@ export const BackupList = ({ items }: BackupListProps) => {
   }, []);
 
   useEffect(() => {
-    const controls = animate(y, -index * ITEM_HEIGHT, {
+    const normalizedIndex = index % items.length;
+
+    animate(y, -normalizedIndex * ITEM_HEIGHT, {
       type: 'spring',
       bounce: 0,
       duration: 1,
-      onComplete: () => {
-        if (index >= items.length * 2) {
-          setIndex(items.length);
-          y.set(-items.length * ITEM_HEIGHT);
-        }
-      },
     });
-
-    return () => controls.stop();
   }, [index, items.length, y]);
 
   const centerOffset = Math.floor(VISIBLE / 2);
@@ -650,7 +629,6 @@ export const BackupList = ({ items }: BackupListProps) => {
   );
 };
 
-
 const tabs = ['Response', 'Screenshot', 'Monitor'];
 
 function IncidentsCard1() {
@@ -666,15 +644,15 @@ function IncidentsCard1() {
 
   return (
     <div className="relative flex h-full flex-col gap-2 p-6">
-      <div className="absolute top-0 left-0 size-40 rounded-lg border border-red-500 bg-gradient-to-br from-slate-500 to-transparent opacity-40 blur-3xl"/>
-     
-      
+      <div className="absolute top-0 left-0 size-40 rounded-lg border border-red-500 bg-gradient-to-br from-slate-500 to-transparent opacity-40 blur-3xl" />
 
       <span className={`text-sm ${colors.textMuted}`}>Incidents</span>
 
       <div className="flex items-center gap-3">
-        <div className={` shrink-0  items-center justify-center p-2 rounded ${colors.statusUp}`} >
-          <FaCircleChevronDown className='size-6' />
+        <div
+          className={`shrink-0 items-center justify-center rounded p-2 ${colors.statusUp}`}
+        >
+          <FaCircleChevronDown className="size-6" />
         </div>
         <div className="flex min-w-0 flex-col">
           <span className={`text-sm ${colors.textMain} truncate`}>
@@ -692,9 +670,8 @@ function IncidentsCard1() {
           {tabs.map((tab, i) => (
             <div
               key={tab}
-              className="relative flex-1 p-2 text-center text-xs text-neutral-400 flex items-center justify-center "
+              className="relative flex flex-1 items-center justify-center p-2 text-center text-xs text-neutral-400"
             >
-             
               {active === i && (
                 <motion.div
                   layoutId="pill"
@@ -703,7 +680,7 @@ function IncidentsCard1() {
                     stiffness: 300,
                     damping: 25,
                   }}
-                  className="absolute inset-0  rounded-md bg-slate-400/10"
+                  className="absolute inset-0 rounded-md bg-slate-400/10"
                 />
               )}
 
@@ -741,9 +718,21 @@ const BentoGrid9 = () => {
           <ChatIncident
             text="Could you check this out, Mike?"
             incidents={[
-              { id: '1', message: 'Monitor recovered.', region: 'North America' },
-              { id: '2', message: 'Monitor recovered.', region: 'North America' },
-              { id: '3', message: 'Monitor recovered.', region: 'North America' },
+              {
+                id: '1',
+                message: 'Monitor recovered.',
+                region: 'North America',
+              },
+              {
+                id: '2',
+                message: 'Monitor recovered.',
+                region: 'North America',
+              },
+              {
+                id: '3',
+                message: 'Monitor recovered.',
+                region: 'North America',
+              },
             ]}
           />
         </BentoCard>
