@@ -286,6 +286,7 @@ function TooltipOverlay() {
       {rendered.data && ready && (
         <TooltipPortal>
           <div
+            className="pointer-events-none"
             ref={refs.setFloating}
             data-slot="tooltip-overlay"
             data-side={resolvedSide}
