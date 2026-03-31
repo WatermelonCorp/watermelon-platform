@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { registry, type RegistryItem } from '@/data/registry';
 import { RegistryCard } from '@/components/registry/registry-card';
@@ -28,6 +28,9 @@ export default function CategoryPage() {
 
   const hasMore = visibleItems.length < filteredItems.length;
 
+  const handleCardClick = useCallback((item: RegistryItem) => {
+  setSelectedItem(item);
+}, []);
   useEffect(() => {
     if (!hasMore || !loadMoreRef.current) return;
 
@@ -66,14 +69,14 @@ export default function CategoryPage() {
       <CatalogPageHeader
         title={title}
       />
-      <div className="space-y-12">
+      <div className="space-y-12 pb-16">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleItems.map((item) => (
             <RegistryCard
               key={item.slug}
               item={item}
-              onClick={(item) => setSelectedItem(item)}
+              onClick={handleCardClick}
             />
           ))}
         </div>

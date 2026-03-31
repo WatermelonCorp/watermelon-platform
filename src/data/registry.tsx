@@ -33,47 +33,51 @@ export interface RegistryItem {
 // Load all MDX files (metadata)
 const mdxFiles = import.meta.glob("./contents/registry/*.mdx", { eager: true });
 
-// Load all Component Demos (lazy) - from subfolders
-const demoBaseComponents = import.meta.glob("./contents/components/*/demo-base.tsx");
-const demoOriginalComponents = import.meta.glob("./contents/components/*/demo-original.tsx");
-const demoOldComponents = import.meta.glob("./contents/components/*/demo.tsx");
+// Load all Component Demos (eager) - from subfolders
+const demoBaseComponents = import.meta.glob("./contents/components/*/demo-base.tsx", { eager: true });
+const demoOriginalComponents = import.meta.glob("./contents/components/*/demo-original.tsx", { eager: true });
+const demoOldComponents = import.meta.glob("./contents/components/*/demo.tsx", { eager: true });
 
-// Load all Component Source Code (lazy) - from subfolders
+// Load all Component Source Code (eager) - from subfolders
 const componentBaseSource = import.meta.glob("./contents/components/*/base.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 
 const componentOriginalSource = import.meta.glob("./contents/components/*/original.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 
 const componentOldSource = import.meta.glob("./contents/components/*/index.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 
-// Load all Component Demo Source Code (lazy) - from subfolders
+// Load all Component Demo Source Code (eager) - from subfolders
 const demoBaseSource = import.meta.glob("./contents/components/*/demo-base.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 const demoOriginalSource = import.meta.glob("./contents/components/*/demo-original.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 const demoOldSource = import.meta.glob("./contents/components/*/demo.tsx", {
   query: "?raw",
   import: "default",
+  eager: true,
 });
 
 export const registry: RegistryItem[] = Object.values(mdxFiles)
   .map((mod: any) => {
     const frontmatter = mod.frontmatter;
 
-    // Skip if frontmatter is missing or invalid
-    // Check for title since MDX uses title, map it to name later
     if (!frontmatter || !frontmatter.slug || !frontmatter.title) {
       console.warn("Skipping MDX file with missing frontmatter:", mod);
       return null;
@@ -89,57 +93,30 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
     const originalKey = `./contents/components/${slug}/original.tsx`;
     const indexKey = `./contents/components/${slug}/index.tsx`;
 
-    const demoBaseLoader = demoBaseComponents[demoBaseKey] || demoOldComponents[demoOldKey];
-    const demoOriginalLoader = demoOriginalComponents[demoOriginalKey] || demoOldComponents[demoOldKey];
+    const demoBaseModule = demoBaseComponents[demoBaseKey] || demoOldComponents[demoOldKey];
+    const demoOriginalModule = demoOriginalComponents[demoOriginalKey] || demoOldComponents[demoOldKey];
     
-    const baseLoader = componentBaseSource[baseKey];
-    const originalLoader = componentOriginalSource[originalKey] || componentOldSource[indexKey];
+    const baseCode = componentBaseSource[baseKey];
+    const originalCode = componentOriginalSource[originalKey] || componentOldSource[indexKey];
     
-    const demoCodeBaseLoader = demoBaseSource[demoBaseKey] || demoOldSource[demoOldKey];
-    const demoCodeOriginalLoader = demoOriginalSource[demoOriginalKey] || demoOldSource[demoOldKey];
-
-    if (!demoBaseLoader || !demoOriginalLoader) {
-      console.warn(`Missing demo component variations for slug: ${slug}`);
-    }
+    const demoCodeBase = demoBaseSource[demoBaseKey] || demoOldSource[demoOldKey];
+    const demoCodeOriginal = demoOriginalSource[demoOriginalKey] || demoOldSource[demoOldKey];
 
     return {
       ...frontmatter,
-      name: frontmatter.title, // Map MDX title to RegistryItem name
+      name: frontmatter.title,
       component: {
-        base: React.lazy(
-          (demoBaseLoader as any) ||
-          (() => Promise.resolve({ default: () => <div>Missing Base Component</div> }))
-        ),
-        original: React.lazy(
-          (demoOriginalLoader as any) ||
-          (() => Promise.resolve({ default: () => <div>Missing Original Component</div> }))
-        )
+        base: (demoBaseModule as any)?.default || (() => <div>Missing Base Component</div>),
+        original: (demoOriginalModule as any)?.default || (() => <div>Missing Original Component</div>)
       },
       code: {
-        base: async () => {
-          if (!baseLoader) return `// Missing base code for ${slug}`;
-          const source = await baseLoader();
-          return source as string;
-        },
-        original: async () => {
-          if (!originalLoader) return `// Missing original code for ${slug}`;
-          const source = await originalLoader();
-          return source as string;
-        }
+        base: async () => (baseCode as string) || `// Missing base code for ${slug}`,
+        original: async () => (originalCode as string) || `// Missing original code for ${slug}`
       },
       demoCode: {
-        base: async () => {
-          if (!demoCodeBaseLoader) return `// Missing demo base code for ${slug}`;
-          const source = await demoCodeBaseLoader();
-          return source as string;
-        },
-        original: async () => {
-          if (!demoCodeOriginalLoader) return `// Missing demo original code for ${slug}`;
-          const source = await demoCodeOriginalLoader();
-          return source as string;
-        }
+        base: async () => (demoCodeBase as string) || `// Missing demo base code for ${slug}`,
+        original: async () => (demoCodeOriginal as string) || `// Missing demo original code for ${slug}`
       },
-      // Ensure defaults
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",
       installBase: frontmatter.installBase || [],

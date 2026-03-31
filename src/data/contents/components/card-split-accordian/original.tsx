@@ -28,8 +28,6 @@ interface AccordionProps {
   items?: AccordionItemData[];
 }
 
-
-
 const springTransition: Transition = {
   type: 'spring',
   stiffness: 600,
@@ -41,9 +39,7 @@ const DEFAULT_ITEMS: AccordionItemData[] = [
   {
     id: 1,
     title: 'What is Interaction Design?',
-    icon: (
-      <HiCursorArrowRipple size={28} className="-rotate-10" color="#86858C" />
-    ),
+    icon: <HiCursorArrowRipple className="size-3 -rotate-10 md:size-4" />,
     content:
       'Interaction design focuses on creating engaging interfaces with well-thought-out behaviors and actions.',
   },
@@ -155,13 +151,13 @@ const AccordionItem: FC<AccordionItemProps> = ({
             <div className="flex items-center gap-[12px]">
               {item.icon}
 
-              <span className="text-lg font-bold text-[#272729] dark:text-zinc-100">
+              <span className="text-sm font-bold text-[#272729] md:text-lg dark:text-zinc-100">
                 {item.title}
               </span>
             </div>
 
             <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
-              <ChevronDown className="text-neutral-400 dark:text-zinc-600" />
+              <ChevronDown className="size-5 text-neutral-400 md:size-[1.625rem] dark:text-zinc-600" />
             </motion.div>
           </button>
 
@@ -174,7 +170,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
             className="overflow-hidden will-change-transform"
           >
             <div ref={ref}>
-              <div className="px-5 pb-5 text-[18px] font-medium text-[#545359] dark:text-zinc-400">
+              <div className="px-5 pb-5 text-xs font-medium text-[#545359] md:text-[18px] dark:text-zinc-400">
                 {item.content}
               </div>
             </div>
@@ -193,8 +189,8 @@ export const AccordionApp: FC<AccordionProps> = ({ items }) => {
   const openIndex = defaultItems.findIndex((item) => item.id === openId);
 
   return (
-    <div className="flex w-full  flex-col items-center justify-center bg-[#ffffff] p-6 transition-colors duration-500 dark:bg-zinc-950">
-      <ul className="w-full max-w-[400px]">
+    <div className="flex w-full flex-col items-center justify-center p-6 transition-colors duration-500">
+      <ul className="w-xs md:w-sm">
         {defaultItems.map((item, index) => (
           <AccordionItem
             key={item.id}

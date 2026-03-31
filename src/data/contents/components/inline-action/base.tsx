@@ -63,7 +63,7 @@ export const InlineAction: React.FC<InlineActionProps> = ({
         className,
       )}
     >
-      <div className="border-border/50 bg-card flex w-full max-w-100 items-center justify-between overflow-hidden rounded-lg border-1 p-3 shadow-sm transition-colors duration-300">
+      <div className="border-border/50 bg-card flex w-full w-xs items-center justify-between overflow-hidden rounded-lg border-1 p-3 shadow-sm transition-colors duration-300 md:w-sm">
         <div className="flex min-w-0 items-center gap-2 sm:gap-3">
           <div className="bg-primary text-primary-foreground flex shrink-0 items-center justify-center rounded-lg p-2.5 transition-colors sm:p-3.5">
             <div className="scale-90 sm:scale-100">{icon}</div>

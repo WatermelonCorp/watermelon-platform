@@ -19,10 +19,10 @@ const HomePage = lazy(() => import("@/pages/home"));
 const ComponentsPage = lazy(() => import("@/pages/components"));
 const ComponentPage = lazy(() => import("@/pages/component"));
 const CategoryPage = lazy(() => import("@/pages/category"));
-const BasicUsagePage = lazy(() => import("@/pages/basic-usage"));
+
 const InstallationPage = lazy(() => import("@/pages/installation"));
 const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
-const CLIPage = lazy(() => import("@/pages/cli"));
+
 const TermsPage = lazy(() => import("@/pages/terms"));
 const PrivacyPage = lazy(() => import("@/pages/privacy"));
 const CopyrightPage = lazy(() => import("@/pages/copyright"));
@@ -44,13 +44,7 @@ export function AppRoutes() {
         <Route
           path="/preview/:type/:slug"
           element={
-            <Suspense fallback={
-              <div className="flex h-screen w-screen items-center justify-center">
-                <div className="h-4 w-4 border-2 border-foreground border-t-transparent rounded-full animate-spin" />
-              </div>
-            }>
-              <PreviewPage />
-            </Suspense>
+            <PreviewPage />
           }
         />
       </Routes>
@@ -99,15 +93,7 @@ export function AppRoutes() {
           }
         />
 
-        {/* Documentation pages with doc skeleton */}
-        <Route
-          path="/basic-usage"
-          element={
-            <Suspense fallback={<DocPageSkeleton />}>
-              <BasicUsagePage />
-            </Suspense>
-          }
-        />
+
         <Route
           path="/installation"
           element={
@@ -124,14 +110,7 @@ export function AppRoutes() {
             </Suspense>
           }
         />
-        <Route
-          path="/cli"
-          element={
-            <Suspense fallback={<DocPageSkeleton />}>
-              <CLIPage />
-            </Suspense>
-          }
-        />
+
         <Route
           path="/changelog"
           element={

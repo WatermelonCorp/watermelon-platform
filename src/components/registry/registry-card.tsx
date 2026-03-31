@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import type { RegistryItem } from "@/data/registry";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -13,16 +13,7 @@ interface RegistryCardProps {
   onClick: (item: RegistryItem) => void;
   imagePriority?: boolean;
 }
-
-export function RegistryCard({ item, onClick, imagePriority = false }: RegistryCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVideoReady, setIsVideoReady] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Get the CLI command from item.install (same as component-modal)
-  const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
-
-  const getImageSrcSet = (src: string) => {
+ const getImageSrcSet = (src: string) => {
     if (!src.startsWith("http")) return undefined;
     const url = new URL(src);
     const supportsWidthParams =
@@ -40,6 +31,16 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
 
     return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
   };
+
+export const RegistryCard = memo(function RegistryCard({ item, onClick, imagePriority = false }: RegistryCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Get the CLI command from item.install (same as component-modal)
+  const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
+
+ 
 
   useEffect(() => {
     const video = videoRef.current;
@@ -233,7 +234,7 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
               muted
               loop
               playsInline
-              preload="auto"
+              preload="none"
               aria-hidden="true"
               tabIndex={-1}
               onCanPlayThrough={() => setIsVideoReady(true)}
@@ -257,4 +258,4 @@ export function RegistryCard({ item, onClick, imagePriority = false }: RegistryC
       </div>
     </div>
   );
-}
+})

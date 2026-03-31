@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { registry } from '@/data/registry';
 import { SEOHead } from '@/components/seo-head';
@@ -48,12 +48,34 @@ export default function ComponentPage() {
 
   const [isCodeOpen, setIsCodeOpen] = useState(false);
 
+  // 1. Fetch Demo Code (Depends on item AND variant)
   useEffect(() => {
     if (!item) return;
-    item.demoCode[activeVariant]().then(setDemoCode);
-    item.code.base().then(setComponentCodeBase);
-    item.code.original().then(setComponentCodeOriginal);
+    let isActive = true;
+    item.demoCode[activeVariant]().then((code) => {
+      if (isActive) setDemoCode(code);
+    });
+    return () => {
+      isActive = false;
+    };
   }, [item, activeVariant]);
+
+  // 2. Fetch Base/Original Code (Depends ONLY on the item)
+  useEffect(() => {
+    if (!item) return;
+    let isActive = true;
+    Promise.all([item.code.base(), item.code.original()]).then(
+      ([baseCode, originalCode]) => {
+        if (isActive) {
+          setComponentCodeBase(baseCode);
+          setComponentCodeOriginal(originalCode);
+        }
+      },
+    );
+    return () => {
+      isActive = false;
+    };
+  }, [item]);
 
   useEffect(() => {
     if (!item) return;
@@ -97,7 +119,7 @@ export default function ComponentPage() {
       {isMobile && (
         <>
           {/* Header */}
-          <div className="bg-background relative px-4 pt-4 pb-3">
+          <div className="bg-background relative border-b px-4 pt-4 pb-3">
             <div className="text-muted-foreground mb-2 flex gap-2 text-xs">
               <Link to="/">Components</Link>
               <span>/</span>
@@ -106,38 +128,35 @@ export default function ComponentPage() {
 
             <div className="mb-2 flex items-center justify-between">
               <h1 className="text-xl font-semibold">{item.name}</h1>
-              {item.componentNumber && (
-                <span className="bg-muted text-muted-foreground rounded-sm px-2 py-0.5 text-xs font-medium backdrop-blur-md">
-                  {item.componentNumber}
-                </span>
-              )}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsCodeOpen(true)}
+                  aria-label="Open source code drawer"
+                  className="bg-muted hover:bg-accent flex size-7.5 items-center justify-center rounded-md border transition-colors md:size-10"
+                >
+                  <HugeiconsIcon icon={SourceCodeIcon} size={16} />
+                </button>
+                <ThemeToggle />
+                {item.componentNumber && (
+                  <span className="bg-muted text-muted-foreground ml-2 rounded-sm px-2 py-0.5 text-xs font-medium backdrop-blur-md">
+                    {item.componentNumber}
+                  </span>
+                )}
+              </div>
             </div>
             <p className="text-muted-foreground text-sm">{item.description}</p>
           </div>
 
           {/* Preview */}
-          <div className="bg-muted/5 relative flex min-h-[60dvh] items-center justify-center border-y">
-            <div className="absolute top-3 right-3 z-10 flex gap-2">
-              <button
-                onClick={() => setIsCodeOpen(true)}
-                aria-label="Open source code drawer"
-                className="bg-background rounded-md border px-3 py-1.5 text-xs"
-              >
-                <HugeiconsIcon icon={SourceCodeIcon} size={14} />
-              </button>
-              <ThemeToggle />
-            </div>
-
+          <div className="bg-muted/5 relative flex min-h-[50dvh] items-center justify-center border-b">
             <div
               className={
                 activeVariant === 'base'
-                  ? 'theme-injected flex w-full items-center justify-center'
-                  : 'flex w-full items-center justify-center'
+                  ? 'theme-injected flex w-full items-center justify-center p-8 pb-12'
+                  : 'flex w-full items-center justify-center p-8 pb-12'
               }
             >
-              <Suspense fallback={<div>Loading preview…</div>}>
-                <ActiveComponent key={reloadKey} />
-              </Suspense>
+              <ActiveComponent key={reloadKey} />
             </div>
           </div>
 
@@ -237,14 +256,10 @@ export default function ComponentPage() {
                         </p>
                         <h3 className="font-medium">How to use</h3>
 
-                        {demoCode ? (
+                        {demoCode && (
                           <CodeBlock language="tsx" title="demo.tsx">
                             {demoCode}
                           </CodeBlock>
-                        ) : (
-                          <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                            Loading usage example…
-                          </div>
                         )}
                       </div>
                     </TabsContent>
@@ -261,7 +276,7 @@ export default function ComponentPage() {
                           source: 'page',
                         }}
                       />
-                      {componentCodeOriginal && componentCodeBase ? (
+                      {componentCodeOriginal || componentCodeBase ? (
                         <div className="space-y-4">
                           <CodeBlock
                             showLineNumbers
@@ -274,11 +289,7 @@ export default function ComponentPage() {
                             {activeCode}
                           </CodeBlock>
                         </div>
-                      ) : (
-                        <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center text-sm">
-                          Loading source code…
-                        </div>
-                      )}
+                      ) : null}
                       {/* Import & use */}
                       <div className="space-y-2">
                         <h4 className="text-muted-foreground text-sm font-medium">
@@ -288,14 +299,10 @@ export default function ComponentPage() {
                           Update the import path to match your project structure
                         </p>
 
-                        {demoCode ? (
+                        {demoCode && (
                           <CodeBlock language="tsx" title="demo.tsx">
                             {demoCode}
                           </CodeBlock>
-                        ) : (
-                          <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                            Loading usage example…
-                          </div>
                         )}
                       </div>
                     </TabsContent>
@@ -470,14 +477,10 @@ export default function ComponentPage() {
                             </p>
                             <h3 className="font-medium">How to use</h3>
 
-                            {demoCode ? (
+                            {demoCode && (
                               <CodeBlock language="tsx" title="demo.tsx">
                                 {demoCode}
                               </CodeBlock>
-                            ) : (
-                              <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                                Loading usage example…
-                              </div>
                             )}
                           </div>
                         </TabsContent>
@@ -494,7 +497,7 @@ export default function ComponentPage() {
                               source: 'page',
                             }}
                           />
-                          {componentCodeOriginal && componentCodeBase ? (
+                          {componentCodeOriginal || componentCodeBase ? (
                             <div className="space-y-4">
                               <CodeBlock
                                 showLineNumbers
@@ -507,11 +510,7 @@ export default function ComponentPage() {
                                 {activeCode}
                               </CodeBlock>
                             </div>
-                          ) : (
-                            <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center text-sm">
-                              Loading source code…
-                            </div>
-                          )}
+                          ) : null}
                           {/* Import & use */}
                           <div className="space-y-2">
                             <h4 className="text-muted-foreground text-sm font-medium">
@@ -522,14 +521,10 @@ export default function ComponentPage() {
                               structure
                             </p>
 
-                            {demoCode ? (
+                            {demoCode && (
                               <CodeBlock language="tsx" title="demo.tsx">
                                 {demoCode}
                               </CodeBlock>
-                            ) : (
-                              <div className="text-muted-foreground flex h-32 animate-pulse items-center justify-center">
-                                Loading usage example…
-                              </div>
                             )}
                           </div>
                         </TabsContent>
@@ -575,18 +570,16 @@ export default function ComponentPage() {
                   <button
                     onClick={() => setReloadKey((k) => k + 1)}
                     aria-label="Reload component preview"
-                    className="hover:bg-accent rounded-md p-2"
+                    className="hover:bg-accent flex size-10 items-center justify-center rounded-md transition-colors"
                   >
-                    <HugeiconsIcon icon={ReloadIcon} size={16} />
+                    <HugeiconsIcon icon={ReloadIcon} size={18} />
                   </button>
                 </div>
               </div>
 
               <div className="flex flex-1 items-center justify-center overflow-auto p-12">
                 <div className="flex max-w-full items-center justify-center">
-                  <Suspense fallback={<div>Loading preview…</div>}>
-                    <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
-                  </Suspense>
+                  <ActiveComponent key={`${reloadKey}-${activeVariant}`} />
                 </div>
               </div>
             </div>

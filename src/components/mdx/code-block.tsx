@@ -17,6 +17,82 @@ interface CodeBlockProps {
   mobile?: boolean;
 }
 
+interface SyntaxResult {
+  SyntaxHighlighter: any;
+  oneDark: Record<string, any>;
+  oneLight: Record<string, any>;
+}
+
+let syntaxPromise: Promise<SyntaxResult | null> | null = null;
+
+const loadSyntax = async (): Promise<SyntaxResult | null> => {
+  if (syntaxPromise) return syntaxPromise;
+
+  syntaxPromise = (async () => {
+    try {
+      const [
+        prismLightModule,
+        { oneDark, oneLight },
+        tsx,
+        typescript,
+        bash,
+        json,
+        css,
+        markdown,
+        javascript,
+      ] = await Promise.all([
+        import("react-syntax-highlighter/dist/esm/prism-light"),
+        import("react-syntax-highlighter/dist/esm/styles/prism"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/tsx"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/typescript"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/bash"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/json"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/css"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/markdown"),
+        import("react-syntax-highlighter/dist/esm/languages/prism/javascript"),
+      ]);
+
+      const SyntaxHighlighter =
+        (prismLightModule as any).default ||
+        (prismLightModule as any).PrismLight ||
+        (prismLightModule as any);
+
+      if (typeof SyntaxHighlighter?.registerLanguage !== "function") {
+        return null;
+      }
+
+      const register = (name: string, mod: any) => {
+        const lang = mod?.default || mod;
+        if (lang) SyntaxHighlighter.registerLanguage(name, lang);
+      };
+
+      register("tsx", tsx);
+      register("typescript", typescript);
+      register("bash", bash);
+      register("json", json);
+      register("css", css);
+      register("markdown", markdown);
+      register("javascript", javascript);
+
+      return {
+        SyntaxHighlighter,
+        oneDark: oneDark as any,
+        oneLight: oneLight as any,
+      };
+    } catch (error) {
+      console.error("Failed to load syntax highlighter:", error);
+      return null;
+    }
+  })();
+
+  return syntaxPromise;
+};
+
+// Start loading immediately
+if (typeof window !== "undefined") {
+  loadSyntax();
+}
+
 export function CodeBlock({
   children,
   language = "tsx",
@@ -26,74 +102,13 @@ export function CodeBlock({
   mobile = false,
 }: CodeBlockProps) {
   const { resolvedTheme } = useTheme();
-  const [syntax, setSyntax] = useState<{
-    SyntaxHighlighter: any;
-    oneDark: Record<string, any>;
-    oneLight: Record<string, any>;
-  } | null>(null);
+  const [syntax, setSyntax] = useState<SyntaxResult | null>(null);
 
   useEffect(() => {
     let active = true;
-    const loadSyntax = async () => {
-      try {
-        const [
-          prismLightModule,
-          { oneDark, oneLight },
-          tsx,
-          typescript,
-          bash,
-          json,
-          css,
-          markdown,
-          javascript,
-        ] = await Promise.all([
-          import("react-syntax-highlighter/dist/esm/prism-light"),
-          import("react-syntax-highlighter/dist/esm/styles/prism"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/tsx"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/typescript"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/bash"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/json"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/css"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/markdown"),
-          import("react-syntax-highlighter/dist/esm/languages/prism/javascript"),
-        ]);
-
-        if (!active) return;
-
-        const SyntaxHighlighter =
-          (prismLightModule as any).default ||
-          (prismLightModule as any).PrismLight ||
-          (prismLightModule as any);
-
-        if (typeof SyntaxHighlighter?.registerLanguage !== "function") {
-          setSyntax(null);
-          return;
-        }
-
-        const register = (name: string, mod: any) => {
-          const lang = mod?.default || mod;
-          if (lang) SyntaxHighlighter.registerLanguage(name, lang);
-        };
-
-        register("tsx", tsx);
-        register("typescript", typescript);
-        register("bash", bash);
-        register("json", json);
-        register("css", css);
-        register("markdown", markdown);
-        register("javascript", javascript);
-
-        setSyntax({
-          SyntaxHighlighter,
-          oneDark: (oneDark as any),
-          oneLight: (oneLight as any),
-        });
-      } catch {
-        setSyntax(null);
-      }
-    };
-
-    loadSyntax();
+    loadSyntax().then((result) => {
+      if (active) setSyntax(result);
+    });
     return () => {
       active = false;
     };

@@ -103,7 +103,7 @@ export function AaveSwapComponent({ from, to }: AaveSwapComponentProps) {
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#6D7FF9] sm:h-10 sm:w-10">
                   <img
                     src={from.logo}
-                    className="w-5 sm:w-6 dark:invert"
+                    className="w-5 sm:w-6"
                     alt={from.symbol}
                   />
                 </div>

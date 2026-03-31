@@ -3,7 +3,6 @@ import { SaveToggle } from './base';
 
 const SaveToggleDemo: React.FC = () => {
   return (
-    <div className="h-full w-full ">
       <SaveToggle
         size="md"
         idleText="Save"
@@ -12,7 +11,6 @@ const SaveToggleDemo: React.FC = () => {
         successDuration={1000}
         // onStatusChange={(s) => console.log(s)}
       />
-    </div>
   );
 };
 
