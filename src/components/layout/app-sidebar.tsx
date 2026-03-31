@@ -46,7 +46,7 @@ const NavItem = memo(function NavItem({
         asChild
         size="default"
         isActive={isActive}
-        className="h-6 md:h-5 px-2.5"
+        className="h-6 md:h-5 px-2.5 mt-0.5"
       >
         <Link
           to={url}
