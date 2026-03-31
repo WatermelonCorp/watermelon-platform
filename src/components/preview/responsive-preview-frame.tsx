@@ -241,14 +241,14 @@ export function ResponsivePreviewFrame({
           sandbox="allow-scripts allow-same-origin"
           allowTransparency
         />
+        {!isFrameReady && (
+          <div className="absolute inset-0 flex items-center justify-center bg-background text-sm text-muted-foreground z-10">
+            <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+            Loading preview...
+          </div>
+        )}
         {!previewUrl && mountNode ? createPortal(children, mountNode) : null}
       </div>
-      {!isFrameReady && (
-        <div className="absolute inset-0 flex items-center justify-center bg-background text-sm text-muted-foreground z-10">
-          <div className="h-5 w-5 border-2 border-current border-t-transparent rounded-full animate-spin mr-3" />
-          Loading preview...
-        </div>
-      )}
     </div>
   );
 }
