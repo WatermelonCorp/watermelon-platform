@@ -164,8 +164,8 @@ export function ResponsivePreviewFrame({
     <base target="_parent" href="${window.location.origin}/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      html, body, #preview-root { margin: 0; width: 100%; height: 100%; }
-      body { overflow: auto; }
+      html, body, #preview-root { margin: 0; width: 100%; height: 100%; background: transparent; color-scheme: light dark; }
+      body { overflow: auto; background-color: transparent; }
     </style>
   </head>
   <body>
@@ -212,7 +212,7 @@ export function ResponsivePreviewFrame({
   }, [mountNode, previewUrl]);
 
   const frameClasses = cn(
-    'bg-background border shadow-sm overflow-hidden transition-all duration-300 ease-in-out',
+    'relative bg-background border shadow-sm overflow-hidden transition-all duration-300 ease-in-out',
     viewport === 'desktop' ? 'h-full w-full rounded-md' : 'rounded-[2rem] border-4',
   );
 
@@ -234,11 +234,15 @@ export function ResponsivePreviewFrame({
         <iframe
           ref={frameRef}
           title={`responsive-preview-${viewport}`}
-          className="h-full w-full border-0"
+          className={cn(
+            "h-full w-full border-0 bg-transparent transition-opacity duration-300",
+            !isFrameReady ? "opacity-0" : "opacity-100"
+          )}
           sandbox="allow-scripts allow-same-origin"
+          allowTransparency
         />
         {!isFrameReady && (
-          <div className="absolute inset-0 flex items-center justify-center bg-background text-sm text-muted-foreground">
+          <div className="absolute inset-0 flex items-center justify-center bg-background text-sm text-muted-foreground z-10">
             <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
             Loading preview...
           </div>
