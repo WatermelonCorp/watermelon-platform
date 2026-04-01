@@ -526,13 +526,13 @@ useEffect(() => {
         <Tabs defaultValue="preview" className="flex-1 min-w-0 flex flex-col h-full bg-muted/10">
 
           {/* Toolbar with tabs */}
-          <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/30">
-            <TabsList>
-              <TabsTrigger value="preview">
+          <div className="flex items-center justify-between px-2 md:px-4 py-2 border-b bg-muted/30 gap-1 md:gap-2 min-w-0">
+            <TabsList className="shrink-0">
+              <TabsTrigger value="preview" className="text-xs md:text-sm px-2 md:px-3">
                 <HugeiconsIcon icon={ViewIcon} size={14} />
                 Preview
               </TabsTrigger>
-              <TabsTrigger value="code">
+              <TabsTrigger value="code" className="text-xs md:text-sm px-2 md:px-3">
                 <HugeiconsIcon icon={SourceCodeIcon} size={14} />
                 Code
               </TabsTrigger>
@@ -540,10 +540,10 @@ useEffect(() => {
 
             {/* Variant toggle */}
             {item.hasVariants && (
-              <div className="flex items-center rounded-lg border bg-muted p-0.5 gap-0.5 text-xs">
+              <div className="flex items-center rounded-lg border bg-muted p-0.5 gap-0.5 text-xs shrink-0">
                 <button
                   onClick={() => setActiveCodeTab('original')}
-                  className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  className={`px-2 md:px-3 py-1 md:py-1.5 rounded-md font-medium transition-colors ${
                     activeCodeTab === 'original'
                       ? 'bg-background shadow-sm text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
@@ -553,7 +553,7 @@ useEffect(() => {
                 </button>
                 <button
                   onClick={() => setActiveCodeTab('base')}
-                  className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  className={`px-2 md:px-3 py-1 md:py-1.5 rounded-md font-medium transition-colors ${
                     activeCodeTab === 'base'
                       ? 'bg-background shadow-sm text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
@@ -565,18 +565,19 @@ useEffect(() => {
             )}
 
             {/* Actions */}
-            <div className="flex items-center gap-2 mr-8">
+            <div className="flex items-center gap-1 md:gap-2 shrink-0 pr-8">
               <Link
                 to={`/components/${item.slug}`}
                 onClick={onClose}
-                className="flex items-center gap-1.5 px-3 py-2 text-sm tracking-tight text-primary rounded-md group transition-colors"
+                className="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm tracking-tight text-primary rounded-md group transition-colors whitespace-nowrap"
               >
-                Open Full Page
+                <span className="hidden min-[1120px]:inline">Open Full Page</span>
+                <span className="min-[1120px]:hidden">Open</span>
                 <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={14} className='group-hover:translate-x-1 transition-transform duration-300' />
               </Link>
               <ThemeToggle />
               <button
-                className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
+                className="p-1.5 md:p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
                 onClick={handleReload}
                 aria-label="Reload component preview"
                 title="Reload preview"
@@ -589,23 +590,23 @@ useEffect(() => {
           {/* Content */}
           <div className="flex-1 overflow-y-auto relative">
             {/* Preview Panel */}
-            <TabsContent value="preview"  className="data-[state=inactive]:hidden">
+            <TabsContent value="preview" className="data-[state=inactive]:hidden">
               <div className="h-full flex items-center justify-center p-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-muted/50 via-transparent to-transparent">
-              
-                  <Suspense fallback={
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                      <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                      Loading component...
-                    </div>
-                  }>
-                    <ActiveComponent key={`${reloadKey}-${activeCodeTab}`} />
-                  </Suspense>
-               
+
+                <Suspense fallback={
+                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                    Loading component...
+                  </div>
+                }>
+                  <ActiveComponent key={`${reloadKey}-${activeCodeTab}`} />
+                </Suspense>
+
               </div>
             </TabsContent>
 
             {/* Code Panel */}
-            <TabsContent value="code"  className="data-[state=inactive]:hidden">
+            <TabsContent value="code" className="data-[state=inactive]:hidden">
               <div className="h-full overflow-y-auto p-4 space-y-8">
                 {componentCodeOriginal && componentCodeBase ? (
                   <div className="space-y-4">
