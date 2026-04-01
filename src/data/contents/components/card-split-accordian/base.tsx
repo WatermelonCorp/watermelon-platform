@@ -152,7 +152,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
             <div className="text-card-foreground flex items-center gap-[12px]">
               {item.icon}
 
-              <span className="text-card-foreground text-lg font-bold">
+              <span className="text-card-foreground text-sm sm:text-base lg:text-lg font-bold">
                 {item.title}
               </span>
             </div>
@@ -171,7 +171,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
             className="overflow-hidden will-change-transform"
           >
             <div ref={ref}>
-              <div className="text-muted-foreground px-5 pb-5 text-[18px] font-medium">
+              <div className="text-muted-foreground px-5 pb-5 text-sm sm:text-base lg:text-[18px] font-medium">
                 {item.content}
               </div>
             </div>
@@ -190,7 +190,7 @@ export const AccordionApp: FC<AccordionProps> = ({ items }) => {
   const openIndex = defaultItems.findIndex((item) => item.id === openId);
 
   return (
-    <div className="theme-injected flex w-full flex-col items-center justify-center p-6 transition-colors duration-500">
+    <div className="theme-injected flex w-full flex-col items-center justify-center p-1 sm:p-6 transition-colors duration-500">
       <ul className="w-full max-w-[400px]">
         {defaultItems.map((item, index) => (
           <AccordionItem
