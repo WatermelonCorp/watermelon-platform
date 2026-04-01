@@ -344,6 +344,7 @@ export default function BlockPage() {
                 {/* Preview takes full available size or constraint */}
                 <ResponsivePreviewFrame
                   viewport={viewMode}
+                  previewUrl={`/preview/block/${item.slug}?reload=${reloadKey}`}
                 >
                   <item.component key={`${reloadKey}-${viewMode}`} />
                 </ResponsivePreviewFrame>
