@@ -345,157 +345,160 @@ const Bento1 = () => {
             whileHover="hover"
             className="relative mx-auto flex min-h-[200px] w-full max-w-[420px] cursor-pointer flex-col justify-end gap-0 overflow-hidden rounded-[2rem] bg-linear-to-b from-[#232323] to-[#121212] p-6 shadow-lg shadow-black/20 md:max-w-none md:p-8"
           >
-            {/* Background Dark Circles pattern */}
-            <div className="absolute top-5 -right-10 flex flex-col opacity-80">
-              {circleRows.map((row, rowIdx) => (
-                <div
-                  key={rowIdx}
-                  className={`flex gap-4 ${rowIdx === 1 ? 'ml-12' : ''}`}
-                >
-                  {row.map(({ From, To, delay }, i) => (
-                    <div
-                      key={i}
-                      className="relative flex size-20 items-center justify-center rounded-full bg-[#111111] shadow-[inset_0px_4px_12px_rgba(0,0,0,0.25),-3px_-3px_6px_rgba(50,50,50,0.25)]"
-                    >
-                      <motion.div
-                        className="absolute"
-                        variants={{
-                          initial: { opacity: 1, filter: 'blur(0px)' },
-                          hover: { opacity: 0, filter: 'blur(16px)' },
-                        }}
-                        transition={{ duration: 0.35, delay, ease: 'easeOut' }}
+            {/* CardHeader first on mobile, then circles below */}
+            <div className="flex flex-col sm:flex-row w-full">
+              <CardHeader className="relative z-10 w-full sm:w-[70%] px-0 order-1 sm:order-none">
+                <CardTitle className="mb-3 text-[1.4rem] leading-snug font-bold text-[#C5C5C5]">
+                  WorkFlow
+                  <br />
+                  Management
+                </CardTitle>
+                <CardDescription className="max-w-full sm:max-w-[60%] text-sm font-semibold text-[#918F8C]">
+                  Seamlessly manage all you existing apps.
+                </CardDescription>
+              </CardHeader>
+              {/* Circles below text on mobile, right on desktop */}
+              <div className="relative mt-4 sm:mt-0 sm:absolute sm:top-5 sm:-right-10 flex flex-col opacity-80 w-full sm:w-auto order-2 sm:order-none">
+                {circleRows.map((row, rowIdx) => (
+                  <div
+                    key={rowIdx}
+                    className={`flex gap-4 ${rowIdx === 1 ? 'ml-12' : ''}`}
+                  >
+                    {row.map(({ From, To, delay }, i) => (
+                      <div
+                        key={i}
+                        className="relative flex size-20 items-center justify-center rounded-full bg-[#111111] shadow-[inset_0px_4px_12px_rgba(0,0,0,0.25),-3px_-3px_6px_rgba(50,50,50,0.25)]"
                       >
-                        <From />
-                      </motion.div>
-                      <motion.div
-                        className="absolute"
-                        variants={{
-                          initial: { opacity: 0, filter: 'blur(16px)' },
-                          hover: { opacity: 1, filter: 'blur(0px)' },
-                        }}
-                        transition={{ duration: 0.35, delay, ease: 'easeOut' }}
-                      >
-                        <To />
-                      </motion.div>
-                    </div>
-                  ))}
-                </div>
-              ))}
+                        <motion.div
+                          className="absolute"
+                          variants={{
+                            initial: { opacity: 1, filter: 'blur(0px)' },
+                            hover: { opacity: 0, filter: 'blur(16px)' },
+                          }}
+                          transition={{ duration: 0.35, delay, ease: 'easeOut' }}
+                        >
+                          <From />
+                        </motion.div>
+                        <motion.div
+                          className="absolute"
+                          variants={{
+                            initial: { opacity: 0, filter: 'blur(16px)' },
+                            hover: { opacity: 1, filter: 'blur(0px)' },
+                          }}
+                          transition={{ duration: 0.35, delay, ease: 'easeOut' }}
+                        >
+                          <To />
+                        </motion.div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
-
-            <CardHeader className="relative z-10 w-[70%] px-0">
-              <CardTitle className="mb-3 text-[1.4rem] leading-snug font-bold text-[#C5C5C5]">
-                WorkFlow
-                <br />
-                Management
-              </CardTitle>
-              <CardDescription className="max-w-[60%] text-sm font-semibold text-[#918F8C]">
-                Seamlessly manage all you existing apps.
-              </CardDescription>
-            </CardHeader>
           </MotionCard>
 
           {/* Card 5 */}
           <MotionCard
             initial="initial"
             whileHover="hover"
-            className="group relative mx-auto flex min-h-[200px] w-full max-w-[420px] cursor-pointer flex-row items-end justify-between gap-0 overflow-hidden rounded-[2rem] bg-linear-to-b from-[#232323] to-[#121212] p-6 shadow-lg shadow-black/20 md:max-w-none md:p-8"
+            className="group relative mx-auto flex min-h-[200px] w-full max-w-[420px] cursor-pointer flex-col justify-end gap-0 overflow-hidden rounded-[2rem] bg-linear-to-b from-[#232323] to-[#121212] p-6 shadow-lg shadow-black/20 md:max-w-none md:p-8"
           >
-            <CardHeader className="relative z-10 w-[50%] px-0">
-              <CardTitle className="mb-3 text-[1.4rem] leading-snug font-bold text-[#C5C5C5]">
-                Team Collaboration
-                <br />
-                effortlessly
-              </CardTitle>
-              <CardDescription className="max-w-[70%] text-sm font-semibold text-[#918F8C]">
-                Seamless connection and collab with other teams
-              </CardDescription>
-            </CardHeader>
+            <div className="flex flex-col sm:flex-row w-full items-end sm:items-end">
+              <CardHeader className="relative z-10 w-full sm:w-[50%] px-0 order-1 sm:order-none">
+                <CardTitle className="mb-3 text-[1.4rem] leading-snug font-bold text-[#C5C5C5]">
+                  Team Collaboration
+                  <br />
+                  effortlessly
+                </CardTitle>
+                <CardDescription className="max-w-full sm:max-w-[70%] text-sm font-semibold text-[#918F8C]">
+                  Seamless connection and collab with other teams
+                </CardDescription>
+              </CardHeader>
+              {/* Overlapping Rings UI below text on mobile, right on desktop */}
+              <CardContent className="relative flex w-full justify-center items-center mb-8 sm:mb-0 mt-4 sm:mt-0 sm:absolute sm:top-[50%] sm:right-12 sm:-translate-y-[50%] sm:w-auto px-0 order-2 sm:order-none">
+                {/* Ring 1 - Red */}
+                <div
+                  className="relative z-4 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-md shadow-black/40 outline-5 outline-[#BC2C2C]"
+                  style={{
+                    backgroundImage:
+                      "url('https://randomuser.me/api/portraits/men/32.jpg')",
+                  }}
+                ></div>
+                {/* Ring 2 - Purple */}
+                <div
+                  className="relative z-3 -ml-6 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-md shadow-black/40 outline-5 outline-[#A855F7]"
+                  style={{
+                    backgroundImage:
+                      "url('https://randomuser.me/api/portraits/women/44.jpg')",
+                  }}
+                ></div>
+                {/* Ring 3 - Green with Glow */}
+                <div
+                  className="relative z-2 -ml-6 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-[0_0_30px_#22C55E80] outline-5 outline-[#22C55E]"
+                  style={{
+                    backgroundImage:
+                      "url('https://randomuser.me/api/portraits/men/78.jpg')",
+                  }}
+                ></div>
+                {/* Ring 4 - Dark grey */}
+                <div
+                  className="relative z-1 -ml-6 size-18 rounded-full border-5 border-[#3D3D3D] bg-cover bg-center outline-5 outline-[#2A2928]"
+                  style={{
+                    backgroundImage:
+                      "url('https://randomuser.me/api/portraits/women/40.jpg')",
+                  }}
+                ></div>
 
-            {/* Overlapping Rings UI */}
-            <CardContent className="absolute top-[50%] right-12 flex -translate-y-[50%] items-center px-0">
-              {/* Ring 1 - Red */}
-              <div
-                className="relative z-4 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-md shadow-black/40 outline-5 outline-[#BC2C2C]"
-                style={{
-                  backgroundImage:
-                    "url('https://randomuser.me/api/portraits/men/32.jpg')",
-                }}
-              ></div>
-              {/* Ring 2 - Purple */}
-              <div
-                className="relative z-3 -ml-6 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-md shadow-black/40 outline-5 outline-[#A855F7]"
-                style={{
-                  backgroundImage:
-                    "url('https://randomuser.me/api/portraits/women/44.jpg')",
-                }}
-              ></div>
-              {/* Ring 3 - Green with Glow */}
-              <div
-                className="relative z-2 -ml-6 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-[0_0_30px_#22C55E80] outline-5 outline-[#22C55E]"
-                style={{
-                  backgroundImage:
-                    "url('https://randomuser.me/api/portraits/men/78.jpg')",
-                }}
-              ></div>
-              {/* Ring 4 - Dark grey */}
-              <div
-                className="relative z-1 -ml-6 size-18 rounded-full border-5 border-[#3D3D3D] bg-cover bg-center outline-5 outline-[#2A2928]"
-                style={{
-                  backgroundImage:
-                    "url('https://randomuser.me/api/portraits/women/40.jpg')",
-                }}
-              ></div>
-
-              {/* Cursor and Label */}
-              <motion.div
-                variants={{
-                  initial: { x: 0, y: 0 },
-                  hover: { x: -140, y: -25 },
-                }}
-                transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
-                className="absolute right-8 -bottom-13 z-10 flex flex-col items-center drop-shadow-lg"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="-translate-x-1 -rotate-12 transition-transform duration-300 group-hover:rotate-45"
+                {/* Cursor and Label */}
+                <motion.div
+                  variants={{
+                    initial: { x: 0, y: 0 },
+                    hover: { x: -140, y: -25 },
+                  }}
+                  transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
+                  className="absolute right-8 -bottom-13 z-10 flex flex-col items-center drop-shadow-lg"
                 >
-                  <path
-                    d="M4.64069 3.01217C4.19532 2.62886 3.5 2.94528 3.5 3.53509V21.4936C3.5 22.1585 4.30402 22.4921 4.77351 22.0226L9.67139 17.1247H17.8931C18.4907 17.1247 18.8049 16.4026 18.4069 15.962L4.64069 3.01217Z"
-                    fill="black"
-                    stroke="white"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-                <div className="relative flex min-w-[60px] translate-x-6 items-center justify-center overflow-hidden rounded-tl-xl rounded-r-full rounded-bl-full bg-[#FFDC17] px-3 py-1 text-[14px] font-bold text-black">
-                  <motion.span
-                    variants={{
-                      initial: { opacity: 1, filter: 'blur(0px)' },
-                      hover: { opacity: 0, filter: 'blur(4px)' },
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute"
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="-translate-x-1 -rotate-12 transition-transform duration-300 group-hover:rotate-45"
                   >
-                    Jack
-                  </motion.span>
-                  <motion.span
-                    variants={{
-                      initial: { opacity: 0, filter: 'blur(4px)' },
-                      hover: { opacity: 1, filter: 'blur(0px)' },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    Mike
-                  </motion.span>
-                </div>
+                    <path
+                      d="M4.64069 3.01217C4.19532 2.62886 3.5 2.94528 3.5 3.53509V21.4936C3.5 22.1585 4.30402 22.4921 4.77351 22.0226L9.67139 17.1247H17.8931C18.4907 17.1247 18.8049 16.4026 18.4069 15.962L4.64069 3.01217Z"
+                      fill="black"
+                      stroke="white"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                  <div className="relative flex min-w-[60px] translate-x-6 items-center justify-center overflow-hidden rounded-tl-xl rounded-r-full rounded-bl-full bg-[#FFDC17] px-3 py-1 text-[14px] font-bold text-black">
+                    <motion.span
+                      variants={{
+                        initial: { opacity: 1, filter: 'blur(0px)' },
+                        hover: { opacity: 0, filter: 'blur(4px)' },
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute"
+                    >
+                      Jack
+                    </motion.span>
+                    <motion.span
+                      variants={{
+                        initial: { opacity: 0, filter: 'blur(4px)' },
+                        hover: { opacity: 1, filter: 'blur(0px)' },
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      Mike
+                    </motion.span>
+                  </div>
 
-                <div className="absolute -top-6 -left-6 size-30 bg-[#FFDC17]/15 blur-2xl"></div>
-              </motion.div>
-            </CardContent>
+                  <div className="absolute -top-6 -left-6 size-30 bg-[#FFDC17]/15 blur-2xl"></div>
+                </motion.div>
+              </CardContent>
+            </div>
           </MotionCard>
         </div>
 
