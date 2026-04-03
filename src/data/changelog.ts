@@ -23,28 +23,70 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
-  version: '1.2.5',
-  date: 'Mar 25, 2026',
-  sections: [
-    {
-      title: 'Custom Theme Support',
-      items: [
-        {
-          text: 'Added support for custom theme CSS variables, allowing users to define their own design system colors.',
-        },
-        {
-          text: 'Introduced a dedicated theme input panel to apply and preview custom styles in real-time.',
-        },
-        {
-          text: 'Enabled seamless integration of user-defined themes with base components for consistent UI rendering.',
-        },
-        {
-          text: 'Improved flexibility for developers to match components with their brand identity using custom variables.',
-        },
-      ],
-    },
-  ],
-},
+    version: '1.2.6',
+    date: 'Apr 03, 2026',
+    stats: [
+      { label: 'New Bento Layouts', count: 17, href: '/blocks' },
+      {
+        label: 'Non-Animated Variants',
+        count: 170,
+        href: '/components/accordion',
+      },
+    ],
+    sections: [
+      {
+        title: 'Bento Layouts',
+        items: [
+          {
+            text: 'Introduced modern bento-style layout components for visually rich and structured UI sections.',
+          },
+          {
+            text: 'Added multiple responsive bento grid variations optimized for dashboards and landing pages.',
+          },
+          {
+            text: 'Added ready-to-use bento layouts designed for clean structure and modern UI presentation.',
+          },
+        ],
+      },
+      {
+        title: 'Shadcn Variants (Non-Animated)',
+        items: [
+          {
+            text: 'Added non-animated variants for shadcn components to improve performance and accessibility.',
+          },
+          {
+            text: 'Provided simplified static variants of components for cleaner and distraction-free interfaces.',
+          },
+          {
+            text: 'Ensured consistent design language across animated and non-animated component sets.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    version: '1.2.5',
+    date: 'Mar 25, 2026',
+    sections: [
+      {
+        title: 'Custom Theme Support',
+        items: [
+          {
+            text: 'Added support for custom theme CSS variables, allowing users to define their own design system colors.',
+          },
+          {
+            text: 'Introduced a dedicated theme input panel to apply and preview custom styles in real-time.',
+          },
+          {
+            text: 'Enabled seamless integration of user-defined themes with base components for consistent UI rendering.',
+          },
+          {
+            text: 'Improved flexibility for developers to match components with their brand identity using custom variables.',
+          },
+        ],
+      },
+    ],
+  },
   {
     version: '1.2.4',
     date: 'Mar 7, 2026',

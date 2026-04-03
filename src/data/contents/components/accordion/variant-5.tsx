@@ -26,19 +26,19 @@ const items = [
   },
 ] as const
 
-const Accordion2 = () => {
+const Accordion5 = () => {
   return (
-    <Accordion className='w-full space-y-2' type="multiple" defaultValue={[items[0].value]}>
+    <Accordion className='w-full' type="multiple" defaultValue={[items[0].value]}>
       {items.map((item) => (
         <AccordionItem
           key={item.value}
           value={item.value}
-          className='rounded-sm border-b-0 bg-card shadow-sm transition-shadow data-[state=open]:shadow-lg'
+          className='has-[button[aria-expanded=true]]:border-blue-600 not-last:has-[button[aria-expanded=true]]:border-b-2 dark:has-[button[aria-expanded=true]]:border-blue-400'
         >
-          <AccordionTrigger className='px-5'>
+          <AccordionTrigger className='hover:no-underline aria-expanded:text-blue-600 dark:aria-expanded:text-blue-400 [&[aria-expanded=true]>svg]:text-blue-600 dark:[&[aria-expanded=true]>svg]:text-blue-400'>
             {item.title}
           </AccordionTrigger>
-          <AccordionContent className='px-5 text-muted-foreground'>
+          <AccordionContent className='text-muted-foreground'>
             {item.content}
           </AccordionContent>
         </AccordionItem>
@@ -47,4 +47,4 @@ const Accordion2 = () => {
   )
 }
 
-export default Accordion2
+export default Accordion5

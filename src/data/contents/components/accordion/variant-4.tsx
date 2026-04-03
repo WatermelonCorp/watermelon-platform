@@ -29,7 +29,7 @@ const items = [
 
 const Accordion4 = () => {
   return (
-    <Accordion type='multiple' className='w-full space-y-2' defaultValue={[items[0].value]}>
+    <Accordion className='w-full space-y-2' type="multiple" defaultValue={[items[0].value]}>
       {items.map((item) => (
         <AccordionItem
           key={item.value}
