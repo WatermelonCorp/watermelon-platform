@@ -130,14 +130,14 @@ export const variants: UiVariant[] = [
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/card-14.json",
     code: code14,
   },
-  // {
-  //   id: "card-15",
-  //   title: "Card 15",
-  //   component: Card15,
-  //   cli: "npx shadcn@latest add Card",
-  //   code: code15,
-  //   colSpan: 2,
-  // }
+  {
+    id: "card-15",
+    title: "Card 15",
+    component: Card15,
+    cli: "npx shadcn@latest add Card",
+    code: code15,
+    colSpan: 2,
+  }
 ];
 
 export { category };
