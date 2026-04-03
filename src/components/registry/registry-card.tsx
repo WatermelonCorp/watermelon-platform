@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, memo } from "react";
-import type { RegistryItem } from "@/data/registry";
+import type { RegistryItem } from "@/data/animated-components-registry";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight, ShadcnSquareIcon } from "@/lib/hugeicons";

@@ -21,7 +21,8 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ArrowDown01Icon,
 } from "@/lib/hugeicons";
-import { allCategories } from "@/data/registry";
+import { allCategories } from "@/data/animated-components-registry";
+import { uiCategories } from "@/data/components-registry";
 import { dashboards } from "@/data/dashboards";
 import { blocks } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
@@ -147,10 +148,18 @@ export function AppSidebar() {
   const componentCategories = useMemo(() =>
     allCategories.map((category) => ({
       title: formatCategoryName(category),
-      url: `/components/category/${category}`,
+      url: `/animated-components/category/${category}`,
     })),
     []
   );
+
+  // Generate new UI component categories from ui-registry
+  const uiComponentCategories = useMemo(() => [
+    ...uiCategories.map((cat) => ({
+      title: cat.label,
+      url: `/components/${cat.slug}`,
+    })),
+  ], []);
 
   // Generate block items from registry
   const blockItems = useMemo(() =>
@@ -179,6 +188,7 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
       <SidebarContent className="scrollbar-hide">
+
         <NavSection
           title="Quick Start"
           items={quickStart}
@@ -186,8 +196,30 @@ export function AppSidebar() {
           pathname={location.pathname}
           indentItems
         />
+        <SidebarGroup className="pb-0">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={location.pathname === "/"}
+                className="px-2 py-1.5 min-h-8 hover:bg-accent"
+              >
+                <Link to="/" className="w-full text-muted-foreground hover:text-foreground">
+                  <span className="font-semibold text-xs">Home</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
         <NavSection
           title="Components"
+          items={uiComponentCategories}
+          defaultOpen
+          pathname={location.pathname}
+          indentItems
+        />
+        <NavSection
+          title="Animated Components"
           items={componentCategories}
           defaultOpen
           pathname={location.pathname}

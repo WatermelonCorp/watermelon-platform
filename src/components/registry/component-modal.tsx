@@ -6,7 +6,7 @@ import {
   DialogDescription,
   DialogTitle,
 } from '@/components/ui/dialog';
-import type { RegistryItem } from '@/data/registry';
+import type { RegistryItem } from '@/data/animated-components-registry';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
@@ -78,7 +78,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
     return () => {
       isActive = false;
     };
-  }, [item?.slug, activeCodeTab]);
+  }, [item, activeCodeTab]);
 
   // 2. Fetch Base/Original Code (Depends ONLY on the item)
   useEffect(() => {
@@ -98,7 +98,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
     return () => {
       isActive = false;
     };
-  }, [item?.slug]);
+  }, [item]);
   useEffect(() => {
     if (!item) return;
     trackEvent('component_view', {
@@ -167,7 +167,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                       </span>
                     )}
                     <Link
-                      to={`/components/${item.slug}`}
+                      to={`/animated-components/${item.slug}`}
                       onClick={onClose}
                       aria-label={`Open ${item.name} full page`}
                       className="text-primary flex items-center gap-1 font-medium"
@@ -355,7 +355,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                     {item.name}
                   </span>
                   <Link
-                    to={`/components/${item.slug}`}
+                    to={`/animated-components/${item.slug}`}
                     onClick={onClose}
                     aria-label={`Open ${item.name} full page`}
                     className="text-primary hover:text-primary/80 ml-2 flex shrink-0 items-center gap-1 text-sm font-medium transition-colors"
@@ -603,7 +603,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             {/* Actions */}
             <div className="mr-9.5 flex items-center gap-1.5">
               <Link
-                to={`/components/${item.slug}`}
+                to={`/animated-components/${item.slug}`}
                 onClick={onClose}
                 className="text-primary group flex items-center gap-1.5 rounded-md px-3 py-2 text-sm tracking-tight transition-colors"
               >
@@ -627,22 +627,21 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           </div>
 
           {/* Content */}
-          <div className="relative flex-1 overflow-y-auto">
-            <TabsContents>
+          <div className="relative flex-1">
+            <TabsContents mode="layout" className="h-full">
               {/* Preview Panel */}
               <TabsContent
                 value="preview"
-                className="border-none shadow-none data-[state=inactive]:hidden"
+                className="absolute inset-0 border-none shadow-none data-[state=inactive]:hidden"
               >
                 <div className="from-muted/50 flex h-full items-center justify-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] via-transparent to-transparent p-10">
                   <ActiveComponent key={`${reloadKey}-${activeCodeTab}`} />
                 </div>
               </TabsContent>
 
-              {/* Code Panel */}
               <TabsContent
                 value="code"
-                className="data-[state=inactive]:hidden"
+                className="absolute inset-0 data-[state=inactive]:hidden"
               >
                 <div className="h-full space-y-8 overflow-y-auto p-4">
                   {componentCodeOriginal || componentCodeBase ? (
