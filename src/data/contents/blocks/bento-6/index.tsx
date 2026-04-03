@@ -352,8 +352,7 @@ const Profile = ({ className }: { className?: string }) => {
   );
 };
 
-const Card2 = () => {
-  const lines = [
+const lines = [
   "## Setting up",
   "",
   "Description...",
@@ -366,7 +365,8 @@ const typingSpeed = 40; // ms per char
 const lineDelay = 600;  // delay before next line
 const restartDelay = 1500;
 
-const [displayedLines, setDisplayedLines] = useState([""]);
+const Card2 = () => {
+  const [displayedLines, setDisplayedLines] = useState([""]);
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
 
