@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/base-ui/button';
 
 const Button31 = () => {
   return (

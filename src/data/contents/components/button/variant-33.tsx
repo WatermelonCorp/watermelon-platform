@@ -1,7 +1,7 @@
 import { IoMailOpenOutline } from 'react-icons/io5';
 
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/base-ui/badge';
+import { Button } from '@/components/base-ui/button';
 
 const Button33 = () => {
   return (
