@@ -80,10 +80,10 @@ function ComponentInstallation() {
       <TabsContent value="cli" className="mt-0">
         <div className="space-y-4">
           <PackageTabs
-            npm="npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-            pnpm="pnpm dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-            yarn="yarn dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-            bun="bunx --bun shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
+            npm="npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordion.json"
+            pnpm="pnpm dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordion.json"
+            yarn="yarn dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordion.json"
+            bun="bunx --bun shadcn@latest add https://registry.watermelon.sh/r/card-split-accordion.json"
           />
         </div>
       </TabsContent>
