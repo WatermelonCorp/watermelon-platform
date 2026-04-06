@@ -24,7 +24,7 @@ const Checkbox7 = () => {
       <Checkbox
         id={id}
         checked={isChecked}
-        onCheckedChange={setIsChecked}
+        onCheckedChange={(checked) => setIsChecked(checked === true)}
         className='mt-0.5 data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
       />
       <div className='grid gap-1.5'>

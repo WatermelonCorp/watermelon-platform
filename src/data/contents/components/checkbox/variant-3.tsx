@@ -22,7 +22,7 @@ const Checkbox3 = () => {
       <Checkbox
         id={id}
         checked={isChecked}
-        onCheckedChange={setIsChecked}
+        onCheckedChange={(checked) => setIsChecked(checked === true)}
         className='mt-0.5 border-dashed border-input data-checked:border-sky-600 data-checked:bg-sky-600 dark:border-input dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
       />
       <div className='space-y-1'>

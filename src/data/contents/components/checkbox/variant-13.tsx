@@ -56,7 +56,7 @@ const Checkbox13 = () => {
             id={option.id}
             checked={checkedSettings[option.id]}
             onCheckedChange={(checked) =>
-              handleCheckedChange(option.id, checked)
+              handleCheckedChange(option.id, checked === true)
             }
             className='mt-0.5 data-checked:border-sky-600 data-checked:bg-sky-600 data-checked:text-white dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
           />

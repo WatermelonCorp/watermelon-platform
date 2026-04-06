@@ -36,7 +36,7 @@ const Checkbox8 = () => {
               id={technology}
               checked={selectedTechnologies.includes(technology)}
               onCheckedChange={(checked) =>
-                handleCheckedChange(technology, checked)
+                handleCheckedChange(technology, checked === true)
               }
               className='data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
             />

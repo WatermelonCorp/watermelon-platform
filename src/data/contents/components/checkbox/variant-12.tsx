@@ -61,7 +61,9 @@ const Checkbox12 = () => {
           key={option.id}
           data-slot='checkbox'
           checked={checkedColors[option.id]}
-          onCheckedChange={(checked) => handleCheckedChange(option.id, checked)}
+          onCheckedChange={(checked) =>
+            handleCheckedChange(option.id, checked === true)
+          }
           className={`peer grid size-7 shrink-0 place-items-center rounded-full border border-transparent shadow-sm outline-none transition-all hover:scale-[1.02] focus-visible:ring-[3px] ${option.className}`}
           aria-label={option.ariaLabel}
         >

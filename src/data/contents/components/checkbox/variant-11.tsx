@@ -69,7 +69,7 @@ const Checkbox11 = () => {
             data-slot='checkbox'
             checked={isChecked}
             onCheckedChange={(checked) =>
-              handleCheckedChange(option.id, checked)
+              handleCheckedChange(option.id, checked === true)
             }
             className='group rounded-md outline-none transition-transform hover:scale-[1.03] focus-visible:ring-3 focus-visible:ring-ring/50'
             aria-label={option.ariaLabel}

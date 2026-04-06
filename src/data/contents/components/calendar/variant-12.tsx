@@ -13,7 +13,7 @@ const Calendar12 = () => {
     <div>
       <Calendar
         mode='multiple'
-        reqbase-uired
+        required
         selected={selectedDates}
         onSelect={setSelectedDates}
         max={5}

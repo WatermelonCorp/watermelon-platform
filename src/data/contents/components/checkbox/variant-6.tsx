@@ -36,7 +36,9 @@ const Checkbox6 = () => {
           <Checkbox
             id={snack}
             checked={selectedSnacks.includes(snack)}
-            onCheckedChange={(checked) => handleCheckedChange(snack, checked)}
+            onCheckedChange={(checked) =>
+              handleCheckedChange(snack, checked === true)
+            }
             className={`pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500 ${
               selectedSnacks.includes(snack)
                 ? 'opacity-100'

@@ -132,25 +132,34 @@ const DataTable7 = () => {
   )
 
   const leftOffsets = useMemo(() => {
-    let offset = 0
-
-    return leftPinnedColumns.reduce<Record<ColumnKey, number>>((acc, column) => {
-      acc[column.key] = offset
-      offset += column.width
-      return acc
-    }, {} as Record<ColumnKey, number>)
+    return leftPinnedColumns
+      .reduce(
+        (acc, column) => {
+          acc.offsets[column.key] = acc.offset
+          return {
+            offsets: acc.offsets,
+            offset: acc.offset + column.width
+          }
+        },
+        { offsets: {} as Record<ColumnKey, number>, offset: 0 }
+      )
+      .offsets
   }, [leftPinnedColumns])
 
   const rightOffsets = useMemo(() => {
-    let offset = 0
-
     return [...rightPinnedColumns]
       .reverse()
-      .reduce<Record<ColumnKey, number>>((acc, column) => {
-        acc[column.key] = offset
-        offset += column.width
-        return acc
-      }, {} as Record<ColumnKey, number>)
+      .reduce(
+        (acc, column) => {
+          acc.offsets[column.key] = acc.offset
+          return {
+            offsets: acc.offsets,
+            offset: acc.offset + column.width
+          }
+        },
+        { offsets: {} as Record<ColumnKey, number>, offset: 0 }
+      )
+      .offsets
   }, [rightPinnedColumns])
 
   const setPin = (key: ColumnKey, side: PinSide) => {

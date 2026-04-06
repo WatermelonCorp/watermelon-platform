@@ -51,10 +51,10 @@ const Calendar11 = () => {
             selected={selectedDate}
             onSelect={setSelectedDate}
             className='w-full bg-transparent p-0'
-            reqbase-uired
+            required
           />
         </CardContent>
-        <CardFooter className='flex flex-col items-start gap-3 border-t border-border/60 px-4 !pt-4'>
+        <CardFooter className='flex flex-col items-start gap-3 border-t border-border/60 px-4 pt-4!'>
           <div className='flex w-full items-center justify-between px-1'>
             <div className='text-sm font-medium'>
               {selectedDate?.toLocaleDateString('en-US', {

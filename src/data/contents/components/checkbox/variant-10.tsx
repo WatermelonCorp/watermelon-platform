@@ -54,7 +54,9 @@ const Checkbox10 = () => {
         <Checkbox
           key={option.id}
           checked={checkedColors[option.id]}
-          onCheckedChange={(checked) => handleCheckedChange(option.id, checked)}
+          onCheckedChange={(checked) =>
+            handleCheckedChange(option.id, checked === true)
+          }
           aria-label={option.ariaLabel}
           className={`size-5 rounded-[6px] shadow-xs ${option.className}`}
         />
