@@ -8,6 +8,7 @@ import { TooltipProvider as TooltipProviderAnimate } from '../animate-ui/compone
 import { ScrollProgressProvider } from '../animate-ui/primitives/animate/scroll-progress'
 import { Analytics } from '@/components/analytics/analytics'
 import { ThemeCssProvider } from '@/contexts/theme-css-context'
+import { Toaster } from '@/components/base-ui/sonner'
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -26,6 +27,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
               <TooltipProviderAnimate>
                 <SidebarProvider>
                   <ThemeCssProvider>
+                    <Toaster />
                     {children}
                   </ThemeCssProvider>
                 </SidebarProvider>
