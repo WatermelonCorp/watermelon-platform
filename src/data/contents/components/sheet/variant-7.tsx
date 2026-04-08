@@ -88,18 +88,18 @@ const Sheet7 = () => {
           placeholder="Search users..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="max-w-xs"
+          className="max-w-[300px]"
         />
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button>
-              <FaPlus className="mr-2 size-4" />
+            <Button className='ml-1'>
+              <FaPlus className="size-4" />
               New User
             </Button>
           </SheetTrigger>
 
-          <SheetContent className="space-y-6 p-4">
+          <SheetContent className="space-y-6 p-4 ">
             <SheetHeader className="p-0">
               <SheetTitle>Create User</SheetTitle>
               <SheetDescription>
@@ -200,7 +200,7 @@ const Sheet7 = () => {
         </Sheet>
       </div>
 
-      <div className="overflow-hidden rounded-lg border">
+      <div className="overflow-x-scroll rounded-lg border">
         <table className="w-full text-sm">
           <thead className="bg-muted/50">
             <tr>
