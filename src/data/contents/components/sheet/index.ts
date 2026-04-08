@@ -6,6 +6,7 @@ import Sheet3 from './variant-3';
 import Sheet4 from './variant-4';
 import Sheet5 from './variant-5';
 import Sheet6 from './variant-6';
+import Sheet7 from './variant-7';
 
 import code1 from './variant-1.tsx?raw';
 import code2 from './variant-2.tsx?raw';
@@ -13,6 +14,7 @@ import code3 from './variant-3.tsx?raw';
 import code4 from './variant-4.tsx?raw';
 import code5 from './variant-5.tsx?raw';
 import code6 from './variant-6.tsx?raw';
+import code7 from './variant-7.tsx?raw';
 
 import type { UiVariant } from '@/data/components-registry';
 
@@ -58,6 +60,13 @@ export const variants: UiVariant[] = [
     component: Sheet6,
     cli: 'npx shadcn@latest add sheet',
     code: code6,
+  },
+  {
+    id: 'sheet-07',
+    title: 'Sheet 7',
+    component: Sheet7,
+    cli: 'npx shadcn@latest add sheet',
+    code: code7,
   },
 ];
 

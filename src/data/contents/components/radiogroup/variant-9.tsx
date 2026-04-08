@@ -8,7 +8,7 @@ const RadioGroup9 = () => {
         <RadioGroupItem
           value="warning"
           id="color-warning"
-          className="border-amber-500 text-amber-500 focus-visible:border-amber-500 focus-visible:ring-amber-500/20 dark:border-amber-400 dark:text-amber-400 dark:focus-visible:ring-amber-400/40 [&_svg]:fill-amber-500 [&_svg]:text-amber-500"
+          className="border-amber-500 text-amber-500 focus-visible:ring-amber-500/20 data-[state=checked]:border-amber-500 data-[state=checked]:bg-amber-500 data-[state=checked]:text-white dark:border-amber-400 dark:text-amber-400 dark:data-[state=checked]:border-amber-400 dark:data-[state=checked]:bg-amber-400"
         />
         <Label htmlFor="color-warning">Warning</Label>
       </div>
@@ -17,7 +17,7 @@ const RadioGroup9 = () => {
         <RadioGroupItem
           value="positive"
           id="color-positive"
-          className="border-emerald-500 text-emerald-500 focus-visible:border-emerald-500 focus-visible:ring-emerald-500/20 dark:border-emerald-400 dark:text-emerald-400 dark:focus-visible:border-emerald-400 dark:focus-visible:ring-emerald-400/40 [&_svg]:fill-emerald-500 [&_svg]:text-emerald-500 dark:[&_svg]:fill-emerald-400"
+          className="border-emerald-500 text-emerald-500 focus-visible:ring-emerald-500/20 data-[state=checked]:border-emerald-500 data-[state=checked]:bg-emerald-500 data-[state=checked]:text-white dark:border-emerald-400 dark:text-emerald-400 dark:data-[state=checked]:border-emerald-400 dark:data-[state=checked]:bg-emerald-400"
         />
         <Label htmlFor="color-positive">Positive</Label>
       </div>
@@ -26,7 +26,7 @@ const RadioGroup9 = () => {
         <RadioGroupItem
           value="neutral"
           id="color-neutral"
-          className="border-indigo-500 text-indigo-500 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/20 dark:border-indigo-400 dark:text-indigo-400 dark:focus-visible:border-indigo-400 dark:focus-visible:ring-indigo-400/40 [&_svg]:fill-indigo-500 [&_svg]:text-indigo-500 dark:[&_svg]:fill-indigo-400"
+          className="border-indigo-500 text-indigo-500 focus-visible:ring-indigo-500/20 data-[state=checked]:border-indigo-500 data-[state=checked]:bg-indigo-500 data-[state=checked]:text-white dark:border-indigo-400 dark:text-indigo-400 dark:data-[state=checked]:border-indigo-400 dark:data-[state=checked]:bg-indigo-400"
         />
         <Label htmlFor="color-neutral">Neutral</Label>
       </div>
