@@ -2,1094 +2,1262 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ui.watermelon.sh</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/components</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/blocks</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboards</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/installation</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/changelog</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/basic-usage</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/framework-support</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/privacy</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/terms</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/cli</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/copyright</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/activities-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/accordion</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/slot-picker</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/alerts</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/meeting-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/avatar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/morphing-button</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/badge</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/task-widget-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/breadcrumb</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/journal-navigation</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/run-action-button</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/button-group</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/voice-note</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/transaction-list</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/collapsible</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/fund-widget</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/input</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/quick-paste</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/draggable-toolbar</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/command-search</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/quick-option-picker</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/pricing-widget</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/returns-calculator-snippet</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/select-ai-agent</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/card-split-accordian</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/credit-usage-card</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/onboarding-checklist</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/dock</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/inline-disclosure-menu</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/add-cash-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/inline-overflow</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/frequency-selector</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/dropdown-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/fractional-picker</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/quick-switcher</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/knob-slider</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/time-undo-action</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/create-new-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/save-toggle</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/scroll-island</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ui.watermelon.sh/components/list-stack</loc>
-    <lastmod>2026-02-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ui.watermelon.sh/components/pagination</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/uniswap-dialog</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/components/popover</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/tree-menu</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/aave-swap-component</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/pin-item</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/activities-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/floating-input</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/adaptive-slider</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/inline-edit</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/add-cash-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/trade-summary</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/budget-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/wiggling-cards</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/calendar-widget</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/swap-form</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/card-split-accordian</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/step-pager</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/card-swipe</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/step-indicator</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/carousel-navigator</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/debug-panel</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/carousel-slider</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/budget-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/changeable-pricing-section</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/waveform-scrub</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/collection-grid-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/subscription-calendar</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/command-search</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/predictive-text</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/compose-email-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/onboarding-screen</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/contextual-ai-bar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/editable-chip</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/continuous-pagination</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/progressive-input-stack</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/continuous-tabs</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/voice-transcribe</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/create-community</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/collection-grid-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/create-new-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/shimmer-button</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/credit-usage-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/carousel-navigator</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/deployment-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/discrete-tabs</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/dialog-stack</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/extended-toolbar</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/discrete-tabs</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/morphing-discovery-bar</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/dock</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/draw-signature</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/draw-signature</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/swap-currency-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/dropdown-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/gooey-menu</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/edit-badge</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/video-player-02</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/edit-profile</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/send-money</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/editable-chip</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/inline-table-control</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/emoji-spree-choice-chips</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/split-to-edit</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/event-reminders</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/aave-swap-component</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/extended-toolbar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/voice-chat-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/family-receive-button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/shuffle-pinned-item</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/family-wallet</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/continuous-tabs</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/feature-tour</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/labeled-progress-indicator</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/feedback-action</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/calendar-widget</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/feedback</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/show-qr</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/filter-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/feedback</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/floating-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/continuous-pagination</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/floating-input</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/inline-action</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/fluid-tabs</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/switch-mode</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/fractional-picker</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/share-sheet</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/frequency-selector</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/integration-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/fund-widget</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/adaptive-slider</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/gooey-menu</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/quick-feedback</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/inline-action</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/run-widget</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/inline-disclosure-menu</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/dialog-stack</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/inline-edit</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/create-community</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/inline-overflow</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/event-reminders</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/inline-table-control</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/stepper</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/inline-toast</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/edit-badge</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/integration-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/invite-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/invite-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/inline-toast</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/journal-navigation</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/scrub-slider</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/knob-slider</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/radial-carousel</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/labeled-progress-indicator</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/switch-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/layered-progressive-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/schedule-button</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/list-stack</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/range-selection-slider</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/macos-sidebar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/video-player</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/meeting-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/feedback-action</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/minimal-carousel</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/mobile-video-player</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/morphing-button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/weight-widget</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/morphing-discovery-bar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/carousel-slider</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/morphing-sidebar-controls</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/family-receive-button</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/onboarding-checklist</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/floating-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/onboarding-screen</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/tags</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/onboarding-setup</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/deployment-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/pagination</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/loop-hook</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/pin-item</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/filter-disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/predictive-text</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/profile-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/pricing-widget</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/compose-email-card</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/profile-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/status-picker</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/progressive-input-stack</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/card-swipe</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/quick-feedback</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/edit-profile</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/quick-option-picker</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/family-wallet</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/quick-paste</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/contextual-ai-bar</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/quick-switcher</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/schedule-date</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/radial-carousel</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/feature-tour</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/range-selection-slider</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/emoji-spree-choice-chips</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/returns-calculator-snippet</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/fluid-tabs</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/reveal-copy</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/tooltip-navbar</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/run-action-button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/view-on-map</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/run-widget</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/onboarding-setup</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/save-toggle</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/vertical-tooltip-navbar</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/schedule-button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/reveal-copy</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/schedule-date</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/components/minimal-carousel</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/scroll-island</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/mail-dashboard</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/scrub-slider</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/tasks</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/select-ai-agent</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/task-management</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/send-money</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/sales</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/share-sheet</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/project-management</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/shimmer-button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/incident-management</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/show-qr</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/invoice-generator</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/shuffle-pinned-item</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/lead</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/slot-picker</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/hrm</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/split-button</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/e-commerce</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/split-to-edit</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/business-management</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/status-picker</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/invoice-manager</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/step-indicator</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/erp</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/step-pager</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/business-operations</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/stepper</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/dashboards/neural</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/subscription-calendar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/blocks/ai-input-003</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/swap-currency-card</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/blocks/ai-input-004</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/swap-form</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/blocks/ai-input-005</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/switch-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/blocks/ai-input-002</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/switch-mode</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/blocks/ai-input-001</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/tags</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/disclosure</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/task-widget-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/interaction</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/time-undo-action</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/cards</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/tooltip-navbar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/buttons</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/trade-summary</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/navigation</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/transaction-list</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/micro-interaction</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/tree-menu</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/widgets</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/uniswap-dialog</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/accordian</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/vertical-tooltip-navbar</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/dropdown</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/view-on-map</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/tabs</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/voice-chat-disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/sliders</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/voice-note</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/pagination</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/voice-transcribe</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/dialog</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/waveform-scrub</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/lists</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/weight-widget</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/inputs</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/wiggling-cards</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/corousel</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/accordian</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/media</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/action</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/tooltip</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/buttons</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/video-player</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/cards</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/action</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/carousel</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/toggle</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/choice-chips</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/carousel</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/dialog</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/popover</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/disclosure</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/hooks</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/dropdown</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/filters</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/filters</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/scheduler</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/inputs</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/choice-chips</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/interaction</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ui.watermelon.sh/categories/map</loc>
-    <lastmod>2026-02-22</lastmod>
+    <loc>https://ui.watermelon.sh/animated-components/category/lists</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/map</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/marketing</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/media</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/micro-interaction</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/navigation</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/pagination</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/popover</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/scheduler</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/sliders</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/tabs</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/toggle</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/tooltip</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/animated-components/category/widgets</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/ai-input-001</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/ai-input-002</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/ai-input-003</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/ai-input-004</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/ai-input-005</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-1</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-10</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-11</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-12</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-13</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-14</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-15</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-16</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-17</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-2</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-3</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-4</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-5</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-6</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-7</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-8</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/block/bento-9</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/business-management</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/business-operations</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/e-commerce</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/erp</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/hrm</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/incident-management</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/invoice-generator</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/invoice-manager</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/issue-tracking</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/lead</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/mail-dashboard</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/meetings</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/payment-operations</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/project-management</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/sales</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/task-management</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ui.watermelon.sh/dashboard/workflow-management</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
