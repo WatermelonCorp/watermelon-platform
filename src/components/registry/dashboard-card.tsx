@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { DashboardItem } from "@/data/dashboards";
+import type { BlockItem } from "@/data/blocks";
 import { cn } from "@/lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon, ShadcnSquareIcon } from "@/lib/hugeicons";
@@ -9,8 +10,8 @@ import { Tooltip } from "../animate-ui/primitives/animate/tooltip";
 import { TooltipContent, TooltipTrigger } from "../animate-ui/components/animate/tooltip";
 
 interface DashboardCardProps {
-  item: DashboardItem;
-  onClick: (item: DashboardItem) => void;
+  item: DashboardItem | BlockItem;
+  onClick: (item: any) => void;
   trackType?: "dashboard" | "block";
 }
 
@@ -57,7 +58,9 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
 
   useEffect(() => {
     if (!isHovered) return;
-    void item.preload?.();
+    if ('preload' in item) {
+      void item.preload?.();
+    }
   }, [isHovered, item]);
 
   const handleCopy = async (e: React.MouseEvent) => {
@@ -88,7 +91,9 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
           slug: item.slug,
           name: item.name,
         });
-        void item.preload?.();
+        if ('preload' in item) {
+          void item.preload?.();
+        }
         onClick(item);
       }}
       onMouseEnter={() => setIsHovered(true)}

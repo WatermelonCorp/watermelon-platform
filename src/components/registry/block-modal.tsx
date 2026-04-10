@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import type { BlockItem } from '@/data/blocks';
@@ -168,7 +168,7 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
               <div className="flex items-center gap-2">
                 <ThemeToggle />
                 <button
-                  className="p-1.5 rounded-md border bg-background hover:bg-accent transition-colors"
+                  className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
                   onClick={handleReload}
                   aria-label="Reload block preview"
                 >
@@ -362,7 +362,7 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
               </Link>
               <ThemeToggle />
               <button
-                className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
+                className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
                 onClick={handleReload}
                 aria-label="Reload block preview"
                 title="Reload preview"
@@ -378,16 +378,9 @@ export function BlockModal({ item, onClose }: BlockModalProps) {
               {/* Preview takes full available size or constraint */}
               <ResponsivePreviewFrame
                 viewport={viewMode}
-                previewUrl={`/preview/block/${item.slug}?reload=${reloadKey}`}
+                 previewUrl={`/preview/block/${item.slug}?reload=${reloadKey}`}
               >
-                <Suspense fallback={
-                  <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
-                    <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-                    Loading block...
-                  </div>
-                }>
-                  <item.component key={`${reloadKey}-${viewMode}`} />
-                </Suspense>
+                <item.component key={`${reloadKey}-${viewMode}`} />
               </ResponsivePreviewFrame>
             </TabsContent>
 

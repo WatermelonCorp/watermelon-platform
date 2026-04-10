@@ -5,7 +5,7 @@ import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
-import { registry } from '@/data/registry';
+import { registry } from '@/data/animated-components-registry';
 import { dashboards } from '@/data/dashboards';
 import { blocks } from '@/data/blocks';
 import { LogoIcon } from './logo';
@@ -17,11 +17,13 @@ import { GlobalCssInput } from './global-css-input';
 
 // Route config for breadcrumbs - easy to extend
 const routeConfig: Record<string, { label: string; href?: string }> = {
-  '/': { label: 'Components' },
-  '/basic-usage': { label: 'Basic Usage' },
+  '/': { label: 'Home' },
+  '/animated-components': { label: 'Animated Components' },
+  '/components': { label: 'Components' },
+
   '/installation': { label: 'Installation' },
   '/framework-support': { label: 'Framework Support' },
-  '/cli': { label: 'CLI' },
+
   '/terms': { label: 'Terms' },
   '/privacy': { label: 'Privacy' },
   '/copyright': { label: 'Copyright' },
@@ -44,28 +46,35 @@ export const Navbar = () => {
       return [routeConfig[path]];
     }
 
-    // Component detail page: /components/:slug
-    if (path.startsWith('/components/') && !path.includes('/category/')) {
+    // Animated Component detail page: /animated-components/:slug
+    if (path.startsWith('/animated-components/') && !path.includes('/category/')) {
       const slug = params.slug || path.split('/').pop();
       const item = registry.find((i) => i.slug === slug);
       if (item) {
         return [
-          { label: 'Components', href: '/' },
+          { label: 'Animated Components', href: '/animated-components' },
           {
             label:
               item.category.charAt(0).toUpperCase() + item.category.slice(1),
-            href: `/components/category/${item.category}`,
+            href: `/animated-components/category/${item.category}`,
           },
           { label: item.name },
         ];
       }
     }
 
-    // Category page: /components/category/:category
-    if (path.includes('/components/category/')) {
+    // Animated Category page: /animated-components/category/:category
+    if (path.includes('/animated-components/category/')) {
       const category = params.category || path.split('/').pop() || '';
       const title = category.charAt(0).toUpperCase() + category.slice(1);
-      return [{ label: 'Components', href: '/' }, { label: title }];
+      return [{ label: 'Animated Components', href: '/animated-components' }, { label: title }];
+    }
+
+    // New Component category page / UI Base Components: /components/:category
+    if (path.startsWith('/components/')) {
+      const category = params.category || path.split('/').pop() || '';
+      const title = category.charAt(0).toUpperCase() + category.slice(1);
+      return [{ label: 'Components' }, { label: title }];
     }
 
     // Dashboard detail page: /dashboard/:slug
@@ -90,7 +99,7 @@ export const Navbar = () => {
     }
 
     // Default fallback
-    return [{ label: 'Components' }];
+    return [{ label: 'Home' }];
   }, [location.pathname, params]);
 
   return (

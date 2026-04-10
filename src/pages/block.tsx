@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 
 import { blocks } from '@/data/blocks';
@@ -327,7 +327,7 @@ export default function BlockPage() {
                 </span>
                 <ThemeToggle />
                 <button
-                  className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
+                  className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
                   onClick={() => setReloadKey(k => k + 1)}
                   aria-label="Reload block preview"
                   title="Reload preview"
@@ -346,14 +346,7 @@ export default function BlockPage() {
                   viewport={viewMode}
                   previewUrl={`/preview/block/${item.slug}?reload=${reloadKey}`}
                 >
-                  <Suspense fallback={
-                    <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
-                      <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-                      Loading block...
-                    </div>
-                  }>
-                    <item.component key={`${reloadKey}-${viewMode}`} />
-                  </Suspense>
+                  <item.component key={`${reloadKey}-${viewMode}`} />
                 </ResponsivePreviewFrame>
               </TabsContent>
 

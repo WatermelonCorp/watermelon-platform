@@ -11,7 +11,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from '@/components/ui/command';
-import { registry, allCategories } from '@/data/registry';
+import { registry, allCategories } from '@/data/animated-components-registry';
 import { dashboards } from '@/data/dashboards';
 import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
@@ -31,13 +31,14 @@ import {
 // Page navigation items
 const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
-  { name: 'Components', href: '/components', icon: Home01Icon, shortcut: 'C' },
+  { name: 'Components', href: '/components', icon: GridIcon, shortcut: 'U' },
+  { name: 'Animated Components', href: '/animated-components', icon: Home01Icon, shortcut: 'C' },
   { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
   { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
-  { name: 'Basic Usage', href: '/basic-usage', icon: Book02Icon, shortcut: 'B' },
+
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
-  { name: 'CLI', href: '/cli', icon: CommandIcon, shortcut: 'L' },
+
   { name: 'Changelog', href: '/changelog', icon: CommandIcon, shortcut: 'G' },
   { name: 'Terms', href: '/terms', icon: Book02Icon, shortcut: 'T' },
   { name: 'Privacy', href: '/privacy', icon: Book02Icon, shortcut: 'P' },
@@ -150,7 +151,7 @@ export function CommandPalette() {
                     value={`component-${component.slug}`}
                     keywords={[component.name, category]}
                     onSelect={() =>
-                      runCommand(() => navigate(`/components/${component.slug}`))
+                      runCommand(() => navigate(`/animated-components/${component.slug}`))
                     }
                   >
                     <HugeiconsIcon icon={GridIcon} strokeWidth={2} className="size-4" />

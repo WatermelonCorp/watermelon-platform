@@ -13,7 +13,7 @@ export interface BlockItem {
   description: string;
   image: string;
   video?: string;
-  component: React.LazyExoticComponent<React.ComponentType<any>>;
+  component: React.ComponentType<any>;
   files: BlockFile[];
   dependencies?: string[];
   install?: string[];
@@ -25,8 +25,8 @@ export interface BlockItem {
 // Load all block MDX files (metadata)
 const mdxFiles = import.meta.glob("./contents/blocks/*/*.mdx", { eager: true });
 
-// Load all Block Demos (lazy) - from subfolders
-const demoComponents = import.meta.glob("./contents/blocks/*/demo.tsx");
+// Load all Block Demos (eager) - from subfolders
+const demoComponents = import.meta.glob("./contents/blocks/*/demo.tsx", { eager: true });
 
 // Load all Block source files (raw) - all tsx files in block folders
 const blockSources = import.meta.glob("./contents/blocks/*/*.tsx", {
@@ -67,21 +67,15 @@ export const blocks: BlockItem[] = Object.entries(mdxFiles)
 
     const slug = frontmatter.slug;
     const demoKey = `./contents/blocks/${slug}/demo.tsx`;
-    const demoLoader = demoComponents[demoKey];
-
-    if (!demoLoader && !frontmatter.comingSoon) {
-      console.warn(`Missing demo component for block: ${slug}`);
-    }
+    const demoMod = demoComponents[demoKey] as any;
+    const DemoComponent = demoMod?.default || (() => <div>Missing Block</div>);
 
     return {
       ...frontmatter,
       name: frontmatter.title,
       component: frontmatter.comingSoon
-        ? React.lazy(() => Promise.resolve({ default: () => <div className="text-muted-foreground text-center py-20">Coming Soon</div> }))
-        : React.lazy(
-          (demoLoader as any) ||
-          (() => Promise.resolve({ default: () => <div>Missing Block</div> }))
-        ),
+        ? () => <div className="text-muted-foreground text-center py-20">Coming Soon</div>
+        : DemoComponent,
       files: getBlockFiles(slug),
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",

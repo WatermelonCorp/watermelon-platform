@@ -28,5 +28,9 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "src/data/contents/components/fluid-tabs/original.tsx",
+    "src/data/contents/components/step-pager/demo-original.tsx"
+, "src/data/contents/components/quick-paste/base.tsx"  ]
 }

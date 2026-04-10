@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { CopyButton } from "../animate-ui/components/buttons/copy";
-import type { RegistryItem } from "@/data/registry";
+import type { RegistryItem } from "@/data/animated-components-registry";
 import { ScrollFadeEffect } from "../scroll-fade-effect";
 import { AnimatePresence, motion } from "motion/react";
 import { trackEvent } from "@/lib/analytics";

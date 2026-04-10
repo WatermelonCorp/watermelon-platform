@@ -1,5 +1,5 @@
 import { useState, Suspense, lazy } from 'react';
-import { registry, type RegistryItem } from '@/data/registry';
+import { registry, type RegistryItem } from '@/data/animated-components-registry';
 import { dashboards, type DashboardItem } from '@/data/dashboards';
 import { blocks, type BlockItem } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
@@ -64,7 +64,7 @@ export default function HomePage() {
               Featured Components
             </h2>
             <Link
-              to="/components"
+              to="/animated-components"
               onClick={() =>
                 trackEvent('cta_view_all_click', {
                   section: 'components',

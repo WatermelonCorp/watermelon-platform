@@ -326,12 +326,12 @@ export default function DashboardPage() {
                 </span>
                 <ThemeToggle />
                 <button
-                  className="p-2 bg-background/80 backdrop-blur rounded-md border shadow-sm hover:bg-accent transition-colors"
+                  className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
                   onClick={() => setReloadKey(k => k + 1)}
                   aria-label="Reload dashboard preview"
                   title="Reload preview"
                 >
-                  <HugeiconsIcon icon={ReloadIcon} size={16} />
+                  <HugeiconsIcon icon={ReloadIcon} size={18} />
                 </button>
               </div>
             </div>

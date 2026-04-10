@@ -16,13 +16,13 @@ import {
 } from "@/components/skeletons";
 
 const HomePage = lazy(() => import("@/pages/home"));
-const ComponentsPage = lazy(() => import("@/pages/components"));
-const ComponentPage = lazy(() => import("@/pages/component"));
-const CategoryPage = lazy(() => import("@/pages/category"));
-const BasicUsagePage = lazy(() => import("@/pages/basic-usage"));
+const ComponentsPage = lazy(() => import("@/pages/animated-components"));
+const ComponentPage = lazy(() => import("@/pages/animated-component"));
+const CategoryPage = lazy(() => import("@/pages/animated-category"));
+
 const InstallationPage = lazy(() => import("@/pages/installation"));
 const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
-const CLIPage = lazy(() => import("@/pages/cli"));
+
 const TermsPage = lazy(() => import("@/pages/terms"));
 const PrivacyPage = lazy(() => import("@/pages/privacy"));
 const CopyrightPage = lazy(() => import("@/pages/copyright"));
@@ -33,9 +33,12 @@ const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const PreviewPage = lazy(() => import("@/pages/preview"));
+// const UiComponentsPage = lazy(() => import("@/pages/components"));
+const UiCategoryPage = lazy(() => import("@/pages/component-category"));
 
 export function AppRoutes() {
-  const isComponentPage = useMatch("/components/:slug");
+  const isComponentPage = useMatch("/animated-components/:slug");
+  const isUiCategoryPage = useMatch("/components/:category");
   const isPreview = useMatch("/preview/:type/:slug");
 
   if (isPreview) {
@@ -44,13 +47,7 @@ export function AppRoutes() {
         <Route
           path="/preview/:type/:slug"
           element={
-            <Suspense fallback={
-              <div className="flex h-screen w-screen items-center justify-center">
-                <div className="h-4 w-4 border-2 border-foreground border-t-transparent rounded-full animate-spin" />
-              </div>
-            }>
-              <PreviewPage />
-            </Suspense>
+            <PreviewPage />
           }
         />
       </Routes>
@@ -58,7 +55,7 @@ export function AppRoutes() {
   }
 
   return (
-    <PageLayout showScrollProgress={!isComponentPage}>
+    <PageLayout showScrollProgress={!isComponentPage && !isUiCategoryPage}>
       <Routes>
         {/* Home page with card grid skeleton */}
         <Route
@@ -71,7 +68,7 @@ export function AppRoutes() {
         />
 
         <Route
-          path="/components"
+          path="/animated-components"
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <ComponentsPage />
@@ -81,7 +78,7 @@ export function AppRoutes() {
 
         {/* Component page with panel skeleton */}
         <Route
-          path="/components/:slug"
+          path="/animated-components/:slug"
           element={
             <Suspense fallback={<ComponentPageSkeleton />}>
               <ComponentPage />
@@ -91,7 +88,7 @@ export function AppRoutes() {
 
         {/* Category page with card grid skeleton */}
         <Route
-          path="/components/category/:category"
+          path="/animated-components/category/:category"
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <CategoryPage />
@@ -99,15 +96,25 @@ export function AppRoutes() {
           }
         />
 
-        {/* Documentation pages with doc skeleton */}
-        <Route
-          path="/basic-usage"
+
+        {/* New UI component system */}
+        {/* <Route
+          path="/components"
           element={
-            <Suspense fallback={<DocPageSkeleton />}>
-              <BasicUsagePage />
+            <Suspense fallback={<HomePageSkeleton />}>
+              <UiComponentsPage />
+            </Suspense>
+          }
+        /> */}
+        <Route
+          path="/components/:category"
+          element={
+            <Suspense fallback={<HomePageSkeleton />}>
+              <UiCategoryPage />
             </Suspense>
           }
         />
+
         <Route
           path="/installation"
           element={
@@ -124,14 +131,7 @@ export function AppRoutes() {
             </Suspense>
           }
         />
-        <Route
-          path="/cli"
-          element={
-            <Suspense fallback={<DocPageSkeleton />}>
-              <CLIPage />
-            </Suspense>
-          }
-        />
+
         <Route
           path="/changelog"
           element={
