@@ -51,7 +51,7 @@ const Table6 = () => {
     <div className="w-full">
       <div className="overflow-hidden rounded-xl border shadow-xs">
         <Table>
-          <TableHeader className="bg-muted/50 shadow-[inset_0px_1px_2px_0px_rgba(255,255,255,1),inset_0px_-1px_4px_0px_rgba(0,0,0,0.05)] dark:shadow-[inset_0px_1px_2px_0px_rgba(255,255,255,0.1),inset_0px_-1px_2px_0px_rgba(0,0,0,0.02)]">
+          <TableHeader className="bg-muted/50 shadow-[inset_0px_1px_2px_0px_rgba(255,255,255,1),inset_0px_-1px_4px_0px_rgba(0,0,0,0.05)] dark:shadow-[inset_0px_1px_2px_0px_rgba(255,255,255,0.05),inset_0px_-1px_2px_0px_rgba(0,0,0,0.02)]">
             <TableRow>
               <TableHead className="w-25">User ID</TableHead>
               <TableHead>Name</TableHead>
