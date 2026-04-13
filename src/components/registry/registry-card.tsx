@@ -100,11 +100,7 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick, imagePri
         // Inset shadow for depth
         "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]",
         "dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),inset_0_-1px_0_0_rgba(0,0,0,0.2)]",
-        // Hover effects
         "transition-all duration-300",
-        "hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15),inset_0_1px_0_0_rgba(255,255,255,0.15)]",
-        "dark:hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.1)]",
-        "hover:border-neutral-300 dark:hover:border-white/20",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       )}
     >

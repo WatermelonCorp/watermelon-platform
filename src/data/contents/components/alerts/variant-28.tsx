@@ -11,7 +11,7 @@ const Alert28 = () => {
       <GoAlertFill className="size-4" />
       <AlertTitle>Incomplete setup</AlertTitle>
       <AlertDescription className="text-white/80">
-        A few reqbase-uired fields are still empty. Fill them in to continue
+        A few required fields are still empty. Fill them in to continue
         smoothly.
       </AlertDescription>
     </Alert>

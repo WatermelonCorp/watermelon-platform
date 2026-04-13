@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { SubscriptionCalendar } from './base';
 import { RiClaudeFill, RiNetflixFill } from 'react-icons/ri';
-import { SiAdobe } from 'react-icons/si';
+import { BiLogoAdobe } from 'react-icons/bi';
 import { FaAmazon } from 'react-icons/fa6';
 
 const MONTHS_LIST = [
@@ -14,7 +14,7 @@ const MONTHS_LIST = [
 const DAYS = [
     { date: 29, isMuted: true }, { date: 30, isMuted: true }, { date: 31, isMuted: true },
     { date: 1 }, { date: 2, indicators: [<span key="y" className="w-1.5 h-1.5 rounded-full bg-yellow-400" />], isLogo: [<RiNetflixFill color='red' size={16} />] },
-    { date: 3 }, { date: 4, indicators: [<span key="dot" className="w-1.5 h-1.5 rounded-full bg-purple-400" />], isLogo: [<SiAdobe key="adobe" className="text-[#F00A07]" size={16} />] },
+    { date: 3 }, { date: 4, indicators: [<span key="dot" className="w-1.5 h-1.5 rounded-full bg-purple-400" />], isLogo: [<BiLogoAdobe key="adobe" className="text-[#F00A07]" size={16} />] },
     { date: 5 }, { date: 6 }, { date: 7 }, { date: 8 }, { date: 9 },
     { date: 10, indicators: [<span key="ring" className="w-1.5 h-1.5 rounded-full bg-purple-400" />], isLogo: [<RiClaudeFill color='#827BFF' size={16} />] },
     { date: 11 }, { date: 12 }, { date: 13 }, { date: 14 }, { date: 15 },
