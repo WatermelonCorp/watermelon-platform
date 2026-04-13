@@ -29,7 +29,7 @@ const Table9 = () => {
       <div className="overflow-y-auto [&>div]:max-h-70 [&>div]:rounded-sm [&>div]:border">
         <Table>
           <TableHeader>
-            <TableRow className="from-muted/90 via-muted/70 to-muted/30 sticky top-0 z-20 bg-gradient-to-b backdrop-blur-sm">
+            <TableRow className="from-muted/90 via-muted/70 to-muted/30 sticky top-0 z-20 bg-gradient-to-b backdrop-blur-sm rounded-t-sm">
               <TableHead className="w-25">Transaction</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Method</TableHead>

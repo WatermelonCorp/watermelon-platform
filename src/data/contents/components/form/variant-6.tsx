@@ -67,7 +67,7 @@ const Form5 = () => {
                 <Switch
                   checked={field.value}
                   onCheckedChange={field.onChange}
-                  className="bg-muted/50"
+                  className="bg-muted/50 self-start"
                 />
               </div>
             )}
