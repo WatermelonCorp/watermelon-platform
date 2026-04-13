@@ -58,7 +58,7 @@ const Table9 = () => {
       </div>
 
       <p className="text-muted-foreground mt-4 text-center text-sm">
-        Sticky header with progressive blur
+        Sticky header with blur
       </p>
     </div>
   );
