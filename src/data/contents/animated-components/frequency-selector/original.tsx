@@ -88,11 +88,11 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({
               exit={{ filter: 'blur(4px)', opacity: 0 }}
               onClick={handleOpen}
               transition={smoothSpring}
-              className="flex h-14 w-full max-w-md cursor-pointer items-center justify-between rounded-full bg-neutral-100 p-1 pl-6 dark:bg-neutral-900"
+              className="flex min-h-14 w-full max-w-md cursor-pointer items-center justify-between rounded-full bg-neutral-100 p-1 pl-4 sm:pl-6  gap-4 dark:bg-neutral-900"
             >
               <motion.span
                 layout
-                className="text-lg font-bold text-neutral-500 dark:text-neutral-400"
+                className="text-base font-bold text-neutral-500 sm:text-lg dark:text-neutral-400"
               >
                 Frequency
               </motion.span>
@@ -100,14 +100,14 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({
               <motion.div
                 layoutId="trigger-pill"
                 transition={smoothSpring}
-                className="flex h-12 items-center gap-3 rounded-full border border-black/5 bg-white px-4 shadow-sm dark:border-white/5 dark:bg-neutral-800"
+                className="flex min-h-12 flex-1 items-center justify-between gap-2 rounded-full border border-black/5 bg-white px-3 py-1.5 shadow-sm sm:flex-initial sm:gap-3 sm:px-4 dark:border-white/5 dark:bg-neutral-800"
               >
-                <span className="text-lg font-bold">
+                <span className="text-base font-bold sm:text-lg">
                   {value.type}
                   {value.subValue ? `, ${value.subValue}` : ''}
                 </span>
 
-                <ChevronRight size={20} className="text-neutral-400" />
+                <ChevronRight size={18} className="shrink-0 text-neutral-400" />
               </motion.div>
             </motion.div>
           ) : (
@@ -123,9 +123,9 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({
               {/* Top Row */}
               <div className="flex items-center gap-2">
                 <motion.div
-                    layoutId="trigger-pill"
+                  layoutId="trigger-pill"
                   transition={smoothSpring}
-                  className="relative flex h-13 flex-1 items-center overflow-hidden rounded-full bg-white p-1 shadow-inner dark:bg-neutral-800"
+                  className="custom-scrollbar relative flex h-11 flex-1 items-center gap-2 overflow-x-auto rounded-full bg-white p-1 shadow-inner sm:h-13 sm:gap-2 dark:bg-neutral-800"
                 >
                   {FREQUENCIES.map((type) => (
                     <button
@@ -134,7 +134,7 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({
                         setTempType(type);
                         setTempSubValue(SUB_OPTIONS[type][0]);
                       }}
-                      className="relative flex h-full flex-1 items-center justify-center text-[15px] font-bold"
+                      className="relative flex h-full flex-none items-center justify-center px-4 text-xs font-bold sm:flex-1 sm:min-w-fit sm:px-6 sm:text-[15px]"
                     >
                       {tempType === type && (
                         <motion.div
@@ -152,9 +152,9 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   onClick={handleConfirm}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-white sm:h-12 sm:w-12 dark:bg-white dark:text-neutral-900"
                 >
-                  <Check size={20} />
+                  <Check size={18} />
                 </motion.button>
               </div>
 
@@ -183,7 +183,7 @@ export const FrequencySelector: React.FC<FrequencySelectorProps> = ({
                           <button
                             key={option}
                             onClick={() => setTempSubValue(option)}
-                            className="relative flex h-9 items-center justify-center rounded-full text-sm font-bold"
+                            className="relative flex h-8 items-center justify-center rounded-full text-[10px] font-bold sm:h-9 sm:text-sm"
                           >
                             {tempSubValue === option && (
                               <motion.div

@@ -12,7 +12,7 @@ const data: Transaction[] = [
     icon: (
       <HugeiconsIcon
         icon={Invoice02Icon}
-        size={34}
+        size={24}
         color="#282825"
         fill="#F5F3EF"
         strokeWidth={1.5}
@@ -32,7 +32,7 @@ const data: Transaction[] = [
     amount: '-$4.05',
     icon: (
       <AiFillSignal
-        size={34}
+        size={24}
         color="#282825"
         fill="#F5F3EF"
         strokeWidth={1.5}
@@ -53,7 +53,7 @@ const data: Transaction[] = [
     icon: (
       <HugeiconsIcon
         icon={Invoice02Icon}
-        size={34}
+        size={24}
         color="#282825"
         fill="#F5F3EF"
         strokeWidth={1.5}
@@ -74,7 +74,7 @@ const data: Transaction[] = [
     icon: (
       <HugeiconsIcon
         icon={Invoice02Icon}
-        size={34}
+        size={24}
         color="#282825"
         fill="#F5F3EF"
         strokeWidth={1.5}
@@ -95,7 +95,7 @@ const data: Transaction[] = [
     icon: (
       <HugeiconsIcon
         icon={Hamburger01Icon}
-        size={34}
+        size={24}
         color="#282825"
         fill="#F5F3EF"
         strokeWidth={1.5}

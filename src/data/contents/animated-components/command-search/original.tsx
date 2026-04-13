@@ -177,13 +177,13 @@ export const CommandSearch: FC<Props> = ({ items = DEFAULT_ITEMS }) => {
     <>
       <AnimatePresence mode="popLayout">
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-transparent"
-            onClick={() => setIsOpen(false)}
-          />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40 bg-zinc-950/10 backdrop-blur-[2px] dark:bg-black/40"
+              onClick={() => setIsOpen(false)}
+            />
         )}
       </AnimatePresence>
 
@@ -218,9 +218,8 @@ export const CommandSearch: FC<Props> = ({ items = DEFAULT_ITEMS }) => {
           ) : (
             <motion.div
               layoutId="command-pallete"
-              layout={false}
               transition={sharedTransition}
-              className="absolute -top-2 -left-2 h-80 w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border-[1.4px] border-zinc-200 bg-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] md:w-[400px] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black"
+              className="absolute -top-2 -left-2 z-50 flex h-80 w-xs flex-col overflow-hidden rounded-2xl border-[1.4px] border-zinc-200 bg-white shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] md:w-[400px] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Search Header */}
@@ -239,7 +238,7 @@ export const CommandSearch: FC<Props> = ({ items = DEFAULT_ITEMS }) => {
                   <input
                     ref={inputRef}
                     type="text"
-                    className="w-full bg-transparent text-[15px] font-medium text-zinc-900 outline-none dark:text-white"
+                    className="w-full bg-transparent text-base font-medium text-zinc-900 outline-none md:text-[15px] dark:text-white"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
@@ -266,7 +265,7 @@ export const CommandSearch: FC<Props> = ({ items = DEFAULT_ITEMS }) => {
               </div>
 
               {/* Results Body */}
-              <div className="custom-scrollbar max-h-[380px] overflow-y-auto p-1.5">
+              <div className="custom-scrollbar flex-1 overflow-y-auto p-1.5 md:max-h-[380px]">
                 {filteredItems.length === 0 ? (
                   <div className="py-12 text-center text-sm text-zinc-500">
                     No results found for "{query}"

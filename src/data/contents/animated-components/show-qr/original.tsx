@@ -48,16 +48,16 @@ export const ShowQr = ({
   };
 
   return (
-    <div className="flex w-full items-center justify-center overflow-hidden bg-white transition-colors dark:bg-[#0B0B0E]">
+    <div className="flex w-full items-center justify-center overflow-hidden">
       <MotionConfig
         transition={isExpanded ? springConfig : collapsedTransition}
       >
         <motion.div
           initial={{
-            width: 170,
+            width: 180,
           }}
           animate={{
-            width: isExpanded ? 250 : 170,
+            width: isExpanded ? 250 : 180,
             height: isExpanded ? bounds.height : 48,
           }}
           className="overflow-hidden rounded-[32px] bg-[#F4F4F9] dark:bg-[#1C1C1E]"

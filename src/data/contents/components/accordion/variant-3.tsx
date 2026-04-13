@@ -37,7 +37,7 @@ const items = [
 
 const Accordion3 = () => {
   return (
-    <Accordion type='multiple' className='w-full' defaultValue={[items[0].value]}>
+    <Accordion className='w-full' type="multiple" defaultValue={[items[0].value]}>
       {items.map((item) => {
         const Icon = item.icon
 

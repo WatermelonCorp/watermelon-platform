@@ -107,14 +107,16 @@ function TransactionItem({
   return (
     <div className="flex w-64 cursor-pointer gap-2" onClick={onClick}>
       <motion.div
-        className="bg-foreground rounded-lg p-1"
+        className="bg-foreground flex size-10 shrink-0 items-center justify-center rounded-lg"
         layoutId={`icon-${data.id}`}
         layout="position"
       >
-        {data.icon}
+        <div className="flex items-center justify-center">
+          {data.icon}
+        </div>
       </motion.div>
 
-      <div className="flex flex-1 flex-col text-xs">
+      <div className="flex flex-1 flex-col justify-center text-xs">
         <motion.p
           className="text-foreground font-semibold"
           layoutId={`name-${data.id}`}
@@ -133,7 +135,7 @@ function TransactionItem({
       </div>
 
       <motion.p
-        className="text-muted-foreground text-xs"
+        className="text-muted-foreground flex items-center text-xs"
         layoutId={`amount-${data.id}`}
         layout="position"
       >
@@ -154,7 +156,7 @@ function TransactionItemExpanded({
     <div className="flex w-64 flex-col gap-2">
       <div className="flex justify-between">
         <motion.div
-          className="bg-foreground rounded-lg p-2"
+          className="bg-foreground flex size-10 items-center justify-center rounded-lg"
           layoutId={`icon-${data.id}`}
           layout="position"
         >

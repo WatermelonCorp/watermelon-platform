@@ -143,7 +143,7 @@ export const StatusPicker: React.FC<StatusPickerProps> = ({
                   <AnimatePresence mode="popLayout">
                     {status !== 0 && (
                       <motion.span
-                        className="mt-[2px] ml-1 flex items-center justify-center rounded-full bg-gray-300 p-[4px] text-sm font-medium text-neutral-400"
+                        className="ml-2 flex items-center justify-center rounded-full bg-gray-300 p-[4px] text-sm font-medium text-neutral-400 dark:bg-zinc-700"
                         key={`${status}-space`}
                         initial={{
                           opacity: 0,

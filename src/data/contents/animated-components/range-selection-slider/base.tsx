@@ -170,12 +170,15 @@ const RangeSlider: FC<RangeSliderProps> = ({
 
   return (
     <div
-      className="relative flex h-14 w-full touch-none items-center select-none"
+      className="relative flex h-14 w-full touch-none items-center px-4 select-none"
       onPointerMove={handleMove}
       onPointerUp={stop}
       onPointerLeave={stop}
     >
-      <div ref={trackRef} className="bg-foreground/20 border border-border absolute h-2 w-full rounded-lg">
+      <div
+        ref={trackRef}
+        className="bg-foreground/20 border-border absolute h-2 w-full rounded-lg border"
+      >
         <motion.div
           className="bg-foreground absolute h-full rounded-lg"
           style={{
@@ -218,56 +221,54 @@ export const PriceRangeCard: FC<PriceRangeCardProps> = ({
   const [range, setRange] = useState<[number, number]>(defaultRange);
 
   return (
-    <div className="theme-injected flex w-full items-center justify-center bg-transparent py-6 lg:px-4">
-      <div className="border-border bg-card w-full max-w-88 overflow-hidden rounded-lg border shadow-md sm:max-w-sm">
-        <div className="flex flex-col gap-4 p-5 sm:p-6">
-          <h2 className="text-foreground text-xl font-extrabold tracking-tight">
-            Price Range
-          </h2>
+    <div className="border-border theme-injected bg-card w-full w-xs overflow-hidden rounded-lg border shadow-md sm:w-sm sm:max-w-sm">
+      <div className="flex flex-col gap-4 p-5 sm:p-6">
+        <h2 className="text-foreground text-xl font-extrabold tracking-tight">
+          Price Range
+        </h2>
 
-          <RangeSlider
-            min={min}
-            max={max}
-            step={step}
-            value={range}
-            onChange={setRange}
-          />
+        <RangeSlider
+          min={min}
+          max={max}
+          step={step}
+          value={range}
+          onChange={setRange}
+        />
 
-          <div className="mt-2 flex flex-col gap-3 sm:gap-4">
-            {(['From', 'To'] as const).map((label, i) => (
-              <div
-                key={label}
-                className="bg-input/30 border-border border shadow-xs flex flex-col gap-1 rounded-lg p-4"
-              >
-                <span className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase sm:text-xs">
-                  {label}
-                </span>
-                <div className="text-xl font-bold sm:text-2xl">
-                  <RollingNumber value={range[i]} prefix={prefix} />
-                </div>
+        <div className="mt-2 flex flex-col gap-3 sm:gap-4">
+          {(['From', 'To'] as const).map((label, i) => (
+            <div
+              key={label}
+              className="bg-input/30 border-border flex flex-col gap-1 rounded-lg border p-4 shadow-xs"
+            >
+              <span className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase sm:text-xs">
+                {label}
+              </span>
+              <div className="text-xl font-bold sm:text-2xl">
+                <RollingNumber value={range[i]} prefix={prefix} />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div className="flex gap-3 px-5 pt-2 pb-6 sm:gap-4 sm:px-6">
-          <button
-            className="bg-primary text-primary-foreground flex-1 rounded-lg py-2.5 text-sm active:scale-95 sm:text-base"
-            onClick={() => onApply?.(range)}
-          >
-            Apply
-          </button>
+      <div className="flex gap-3 px-5 pt-2 pb-6 sm:gap-4 sm:px-6">
+        <button
+          className="bg-primary text-primary-foreground flex-1 rounded-lg py-2.5 text-sm active:scale-95 sm:text-base"
+          onClick={() => onApply?.(range)}
+        >
+          Apply
+        </button>
 
-          <button
-            onClick={() => {
-              setRange(defaultRange);
-              onCancel?.(defaultRange);
-            }}
-            className="border-border text-muted-foreground hover:bg-muted flex-1 rounded-lg border py-2.5 text-sm font-bold active:scale-95 sm:text-base"
-          >
-            Cancel
-          </button>
-        </div>
+        <button
+          onClick={() => {
+            setRange(defaultRange);
+            onCancel?.(defaultRange);
+          }}
+          className="border-border text-muted-foreground hover:bg-muted flex-1 rounded-lg border py-2.5 text-sm font-bold active:scale-95 sm:text-base"
+        >
+          Cancel
+        </button>
       </div>
     </div>
   );

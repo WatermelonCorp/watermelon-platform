@@ -1,6 +1,13 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback, type FC, type ChangeEvent } from 'react';
+import {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  type FC,
+  type ChangeEvent,
+} from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Check } from 'lucide-react';
 
@@ -91,8 +98,9 @@ const Dropdown: FC<DropdownProps> = ({ selected, onSelect, currencies }) => {
           {selected.code}
         </span>
         <ChevronDown
-          className={`h-4 w-4 text-gray-400 transition-transform sm:h-5 sm:w-5 ${isOpen ? 'rotate-180' : ''
-            }`}
+          className={`h-4 w-4 text-gray-400 transition-transform sm:h-5 sm:w-5 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
         />
       </button>
 
@@ -226,15 +234,20 @@ export const SwapCurrencyCard: FC<SwapCurrencyCardProps> = ({
   const [fromAmount, setFromAmount] = useState(defaultAmount);
   const [toAmount, setToAmount] = useState('');
 
-  const convert = useCallback((amount: string, from: Currency, to: Currency): string => {
-    const val = parseFloat(amount);
-    if (isNaN(val)) return '';
-    const usd = val / from.rate;
-    return (usd * to.rate).toFixed(2);
-  }, []);
+  const convert = useCallback(
+    (amount: string, from: Currency, to: Currency): string => {
+      const val = parseFloat(amount);
+      if (isNaN(val)) return '';
+      const usd = val / from.rate;
+      return (usd * to.rate).toFixed(2);
+    },
+    [],
+  );
 
   useEffect(() => {
-    requestAnimationFrame(() => setToAmount(convert(fromAmount, fromCurrency, toCurrency)));
+    requestAnimationFrame(() =>
+      setToAmount(convert(fromAmount, fromCurrency, toCurrency)),
+    );
   }, [convert, fromAmount, fromCurrency, toCurrency]);
 
   const handleFromChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -256,71 +269,69 @@ export const SwapCurrencyCard: FC<SwapCurrencyCardProps> = ({
   const rate = (toCurrency.rate / fromCurrency.rate).toFixed(2);
 
   return (
-    <div className="relative flex w-full items-center justify-center bg-transparent px-4 py-6 transition-colors duration-500">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, filter: 'blur(8px)' }}
-        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className="flex w-full max-w-sm flex-col gap-5 rounded-[32px] border-[1.6px] border-[#E5E5E9] bg-[#FEFEFE] p-6 shadow-[0_32px_47px_-16px_rgba(0,0,0,0.1)] sm:gap-6 sm:rounded-[40px] sm:p-8 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-[0_32px_60px_-16px_rgba(0,0,0,0.5)]"
-      >
-        <h2 className="text-lg font-semibold text-[#898990] sm:text-[20px] dark:text-zinc-500">
-          Swap Currency
-        </h2>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95, filter: 'blur(8px)' }}
+      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      className="flex w-xs flex-col gap-5 rounded-[32px] border-[1.6px] border-[#E5E5E9] bg-[#FEFEFE] p-6 shadow-[0_32px_47px_-16px_rgba(0,0,0,0.1)] sm:w-sm sm:gap-6 sm:rounded-[40px] sm:p-8 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-[0_32px_60px_-16px_rgba(0,0,0,0.5)]"
+    >
+      <h2 className="text-lg font-semibold text-[#898990] sm:text-[20px] dark:text-zinc-500">
+        Swap Currency
+      </h2>
 
-        <div className="flex flex-col gap-1.5 sm:gap-2">
-          {/* Input */}
-          <div className="flex items-center justify-between rounded-t-4xl rounded-b-2xl bg-[#F6F5FA] p-3.5 sm:rounded-t-[24px] sm:rounded-b-3xl sm:p-4 dark:bg-zinc-800/50">
-            <div className="relative mr-2 flex-1">
-              <AnimatedNumber value={fromAmount} />
-              <input
-                title="from"
-                value={fromAmount}
-                onChange={handleFromChange}
-                className="absolute inset-0 w-full bg-transparent text-xl font-semibold tracking-[0.08em] text-transparent caret-[#2F2F33] outline-none sm:text-[24px] dark:caret-zinc-100"
-              />
-            </div>
-
-            <Dropdown
-              selected={fromCurrency}
-              currencies={currencies}
-              onSelect={(c) => {
-                setFromCurrency(c);
-                setToAmount(convert(fromAmount, c, toCurrency));
-              }}
+      <div className="flex flex-col gap-1.5 sm:gap-2">
+        {/* Input */}
+        <div className="flex items-center justify-between rounded-t-4xl rounded-b-2xl bg-[#F6F5FA] p-3.5 sm:rounded-t-[24px] sm:rounded-b-3xl sm:p-4 dark:bg-zinc-800/50">
+          <div className="relative mr-2 flex-1">
+            <AnimatedNumber value={fromAmount} />
+            <input
+              title="from"
+              value={fromAmount}
+              onChange={handleFromChange}
+              className="absolute inset-0 w-full bg-transparent text-xl font-semibold tracking-[0.08em] text-transparent caret-[#2F2F33] outline-none sm:text-[24px] dark:caret-zinc-100"
             />
           </div>
 
-          {/* Input Block 2 */}
-          <div className="flex items-center justify-between rounded-t-2xl rounded-b-4xl bg-[#F6F5FA] p-3.5 sm:rounded-t-3xl sm:rounded-b-[24px] sm:p-4 dark:bg-zinc-800/50">
-            <div className="relative mr-2 flex-1">
-              <AnimatedNumber value={toAmount} />
-              <input
-                title="to"
-                value={toAmount}
-                onChange={handleToChange}
-                className="absolute inset-0 w-full bg-transparent text-xl font-semibold tracking-[0.08em] text-transparent caret-[#2F2F33] outline-none sm:text-[24px] dark:caret-zinc-100"
-              />
-            </div>
+          <Dropdown
+            selected={fromCurrency}
+            currencies={currencies}
+            onSelect={(c) => {
+              setFromCurrency(c);
+              setToAmount(convert(fromAmount, c, toCurrency));
+            }}
+          />
+        </div>
 
-            <Dropdown
-              selected={toCurrency}
-              currencies={currencies}
-              onSelect={(c) => {
-                setToCurrency(c);
-                setToAmount(convert(fromAmount, fromCurrency, c));
-              }}
+        {/* Input Block 2 */}
+        <div className="flex items-center justify-between rounded-t-2xl rounded-b-4xl bg-[#F6F5FA] p-3.5 sm:rounded-t-3xl sm:rounded-b-[24px] sm:p-4 dark:bg-zinc-800/50">
+          <div className="relative mr-2 flex-1">
+            <AnimatedNumber value={toAmount} />
+            <input
+              title="to"
+              value={toAmount}
+              onChange={handleToChange}
+              className="absolute inset-0 w-full bg-transparent text-xl font-semibold tracking-[0.08em] text-transparent caret-[#2F2F33] outline-none sm:text-[24px] dark:caret-zinc-100"
             />
           </div>
-        </div>
 
-        <button className="w-full rounded-2xl bg-[#262629] py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-black active:scale-[0.98] sm:rounded-[22px] sm:py-4 sm:text-[18px] dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white">
-          Proceed
-        </button>
-
-        <div className="text-center text-sm font-medium text-[#9F9EA1] sm:text-base dark:text-zinc-500">
-          1 {fromCurrency.code} ≈ {rate} {toCurrency.code}
+          <Dropdown
+            selected={toCurrency}
+            currencies={currencies}
+            onSelect={(c) => {
+              setToCurrency(c);
+              setToAmount(convert(fromAmount, fromCurrency, c));
+            }}
+          />
         </div>
-      </motion.div>
-    </div>
+      </div>
+
+      <button className="w-full rounded-2xl bg-[#262629] py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-black active:scale-[0.98] sm:rounded-[22px] sm:py-4 sm:text-[18px] dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white">
+        Proceed
+      </button>
+
+      <div className="text-center text-sm font-medium text-[#9F9EA1] sm:text-base dark:text-zinc-500">
+        1 {fromCurrency.code} ≈ {rate} {toCurrency.code}
+      </div>
+    </motion.div>
   );
 };

@@ -90,7 +90,7 @@ export const StepIndicator = ({
   };
 
   return (
-    <div className="flex w-full items-center justify-center bg-white py-20 dark:bg-zinc-950">
+    <div className="flex w-full items-center justify-center px-4 py-20">
       <div className="w-full max-w-[420px]">
         <div
           className="relative flex h-3 w-full items-center gap-3 px-1"
@@ -171,7 +171,6 @@ export const StepIndicator = ({
           ))}
         </div>
       </div>
-
       <div
         className="pointer-events-none absolute bottom-0 left-0 flex h-0 overflow-hidden whitespace-nowrap opacity-0"
         aria-hidden="true"

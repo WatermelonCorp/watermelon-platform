@@ -27,11 +27,11 @@ export function MacOSSidebar({
 
   return (
     <div
-      className={`theme-injected bg-muted relative flex min-w-120 overflow-hidden rounded-lg p-4 ${className}`}
+      className={`theme-injected bg-muted relative flex w-full overflow-hidden rounded-lg p-3 sm:min-w-[480px] ${className}`}
     >
       <motion.div
         animate={{
-          width: isOpen ? 320 : 64,
+          width: isOpen ? 240 : 64,
         }}
         transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
         className={`flex shrink-0 flex-col items-start rounded-lg p-2 transition-colors duration-900 ease-out ${

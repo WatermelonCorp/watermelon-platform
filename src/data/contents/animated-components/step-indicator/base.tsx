@@ -90,7 +90,7 @@ export const StepIndicator = ({
   };
 
   return (
-    <div className="theme-injected  flex w-full items-center justify-center py-20">
+    <div className="theme-injected flex w-full items-center justify-center px-4 py-20">
       <div className="w-full max-w-[420px]">
         <div
           className="relative flex h-3 w-full items-center gap-3 px-1"

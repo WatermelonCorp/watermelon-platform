@@ -100,147 +100,143 @@ export const CalendarWidget: FC<CalendarWidgetProps> = ({
   });
 
   return (
-    <div className="theme-injected  flex h-full w-full flex-col items-center justify-center gap-6">
-      <div className="border-border bg-muted flex w-[340px] flex-col rounded-lg border shadow-lg transition-colors duration-500 select-none">
-        <div className="p-4">
-          <motion.div
-            key={currentMonthYear}
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-foreground ml-2 text-xl font-semibold"
+    <div className="theme-injected border-border bg-muted flex w-[340px] flex-col rounded-lg border shadow-lg transition-colors duration-500 select-none">
+      <div className="p-4">
+        <motion.div
+          key={currentMonthYear}
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-foreground ml-2 text-xl font-semibold"
+        >
+          {currentMonthYear}
+        </motion.div>
+
+        <div className="relative">
+          <div
+            ref={scrollRef}
+            className="scrollbar-hide flex gap-2 overflow-x-auto px-2"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {currentMonthYear}
-          </motion.div>
+            {dates.map((date) => {
+              const isSelected = selectedDate === date.fullDate;
+              const hasEvent = events[date.fullDate]?.length > 0;
 
-          <div className="relative">
-            <div
-              ref={scrollRef}
-              className="scrollbar-hide flex gap-2 overflow-x-auto"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {dates.map((date) => {
-                const isSelected = selectedDate === date.fullDate;
-                const hasEvent = events[date.fullDate]?.length > 0;
-
-                return (
+              return (
+                <div
+                  key={date.fullDate}
+                  className="relative flex min-w-10 flex-col items-center pt-4"
+                >
                   <div
-                    key={date.fullDate}
-                    className="relative flex min-w-9 flex-col items-center pt-4"
+                    className={`mb-1 text-base font-medium transition-colors duration-300 ${
+                      isSelected ? 'text-foreground' : 'text-muted-foreground'
+                    }`}
                   >
-                    <div
-                      className={`mb-1 text-base font-medium transition-colors duration-300 ${
-                        isSelected ? 'text-foreground' : 'text-muted-foreground'
-                      }`}
-                    >
-                      {date.dayName}
-                    </div>
-
-                    <motion.div
-                      className="relative flex cursor-pointer flex-col items-center"
-                      whileTap={{ scale: 0.9 }}
-                      onClick={() => setSelectedDate(date.fullDate)}
-                    >
-                      <div className="relative flex h-10 w-10 items-center justify-center">
-                        {isSelected && (
-                          <motion.div
-                            layoutId="selected-date-bg"
-                            transition={{
-                              type: 'spring',
-                              stiffness: 180,
-                              damping: 22,
-                            }}
-                            className="bg-background absolute inset-0 rounded-lg shadow-sm"
-                          />
-                        )}
-                        <span
-                          className={`relative z-10 text-base font-medium ${
-                            isSelected
-                              ? 'text-foreground'
-                              : 'text-foreground/80'
-                          }`}
-                        >
-                          {date.day}
-                        </span>
-                      </div>
-                      <AnimatePresence mode="popLayout" initial={false}>
-                        {hasEvent && !isSelected && (
-                          <motion.span
-                            initial={{
-                              opacity: 0,
-                              scale: 0,
-                              filter: 'blur(4px)',
-                            }}
-                            animate={{
-                              opacity: 1,
-                              scale: 1,
-                              filter: 'blur(0px)',
-                            }}
-                            exit={{ opacity: 0, scale: 0, filter: 'blur(4px)' }}
-                            transition={{
-                              duration: 0.3,
-                            }}
-                            className="bg-muted-foreground h-1.5 w-1.5 -translate-y-1/2 rounded-full"
-                          />
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
+                    {date.dayName}
                   </div>
-                );
-              })}
-            </div>
+
+                  <motion.div
+                    className="relative flex cursor-pointer flex-col items-center"
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setSelectedDate(date.fullDate)}
+                  >
+                    <div className="relative flex h-10 w-10 items-center justify-center">
+                      {isSelected && (
+                        <motion.div
+                          layoutId="selected-date-bg"
+                          transition={{
+                            type: 'spring',
+                            stiffness: 180,
+                            damping: 22,
+                          }}
+                          className="bg-background absolute inset-0 rounded-lg shadow-sm"
+                        />
+                      )}
+                      <span
+                        className={`relative z-10 text-base font-medium ${
+                          isSelected ? 'text-foreground' : 'text-foreground/80'
+                        }`}
+                      >
+                        {date.day}
+                      </span>
+                    </div>
+                    <AnimatePresence mode="popLayout" initial={false}>
+                      {hasEvent && !isSelected && (
+                        <motion.span
+                          initial={{
+                            opacity: 0,
+                            scale: 0,
+                            filter: 'blur(4px)',
+                          }}
+                          animate={{
+                            opacity: 1,
+                            scale: 1,
+                            filter: 'blur(0px)',
+                          }}
+                          exit={{ opacity: 0, scale: 0, filter: 'blur(4px)' }}
+                          transition={{
+                            duration: 0.3,
+                          }}
+                          className="bg-muted-foreground h-1.5 w-1.5 -translate-y-1/2 rounded-full"
+                        />
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </div>
+      </div>
 
-        <div className="border-border bg-card relative flex h-52 flex-col overflow-hidden rounded-lg border px-4 pt-2 transition-colors duration-500">
-          <motion.div className="no-scrollbar relative h-full overflow-y-scroll">
-            <AnimatePresence mode="popLayout" initial={false}>
-              {events[selectedDate]?.length ? (
-                <motion.div key="list" className="pb-8">
-                  {events[selectedDate].map((event) => (
-                    <motion.div
-                      key={event.title}
-                      initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                      exit={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                      transition={{
-                        duration: 0.3,
-                        ease: 'easeOut',
-                      }}
-                      className="border-border flex flex-col border-b py-2 last:border-b-0"
-                    >
-                      <span className="text-foreground/70 text-base font-medium">
-                        {event.title}
-                      </span>
-                      <span className="text-muted-foreground text-base">
-                        {event.time}
-                      </span>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="no-events"
-                  initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                  transition={{
-                    duration: 0.3,
-                    ease: 'easeOut',
-                  }}
-                  className="flex h-40 flex-col items-center justify-center gap-3"
-                >
-                  <div className="bg-muted rounded-lg p-5">
-                    <CalendarDays className="text-muted-foreground size-8" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">No Events</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-     {events[selectedDate]?.length && (
+      <div className="border-border bg-card relative flex h-52 flex-col overflow-hidden rounded-lg border px-4 pt-2 transition-colors duration-500">
+        <motion.div className="no-scrollbar relative h-full overflow-y-scroll">
+          <AnimatePresence mode="popLayout" initial={false}>
+            {events[selectedDate]?.length ? (
+              <motion.div key="list" className="pb-8">
+                {events[selectedDate].map((event) => (
+                  <motion.div
+                    key={event.title}
+                    initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+                    transition={{
+                      duration: 0.3,
+                      ease: 'easeOut',
+                    }}
+                    className="border-border flex flex-col border-b py-2 last:border-b-0"
+                  >
+                    <span className="text-foreground/70 text-base font-medium">
+                      {event.title}
+                    </span>
+                    <span className="text-muted-foreground text-base">
+                      {event.time}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="no-events"
+                initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+                transition={{
+                  duration: 0.3,
+                  ease: 'easeOut',
+                }}
+                className="flex h-40 flex-col items-center justify-center gap-3"
+              >
+                <div className="bg-muted rounded-lg p-5">
+                  <CalendarDays className="text-muted-foreground size-8" />
+                </div>
+                <p className="text-muted-foreground text-sm">No Events</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+        {events[selectedDate]?.length && (
           <div className="from-background via-background/70 pointer-events-none absolute right-0 bottom-0 left-0 h-16 rounded-lg bg-linear-to-t to-transparent" />
-          )}
-        </div>
+        )}
       </div>
     </div>
   );
