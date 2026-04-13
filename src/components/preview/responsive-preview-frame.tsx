@@ -62,7 +62,7 @@ function useFrameScale(
   return scale;
 }
 
-function syncDocumentStyles(frameDocument: Document) {
+async function syncDocumentStyles(frameDocument: Document): Promise<void> {
   const parentRoot = document.documentElement;
   const frameRoot = frameDocument.documentElement;
 
@@ -78,6 +78,7 @@ function syncDocumentStyles(frameDocument: Document) {
 
   const styles = document.head.querySelectorAll('style, link[rel="stylesheet"]');
   const seenKeys = new Set<string>();
+  const loadPromises: Promise<void>[] = [];
 
   styles.forEach((node) => {
     const key = node.textContent || (node as HTMLLinkElement).href;
@@ -86,6 +87,14 @@ function syncDocumentStyles(frameDocument: Document) {
     if (!existingMap.has(key)) {
       const clone = node.cloneNode(true) as HTMLElement;
       clone.setAttribute('data-preview-style', 'true');
+      
+      if (clone.tagName === 'LINK') {
+        loadPromises.push(new Promise((resolve) => {
+          clone.onload = () => resolve();
+          clone.onerror = () => resolve();
+        }));
+      }
+      
       frameDocument.head.appendChild(clone);
     }
   });
@@ -95,6 +104,8 @@ function syncDocumentStyles(frameDocument: Document) {
       node.remove();
     }
   });
+
+  await Promise.all(loadPromises);
 }
 
 export function ResponsivePreviewFrame({
@@ -120,7 +131,7 @@ export function ResponsivePreviewFrame({
     const frame = frameRef.current;
     if (!frame) return;
 
-    const handleLoad = () => {
+    const handleLoad = async () => {
       const frameDocument = frame.contentDocument;
       if (!frameDocument) return;
 
@@ -146,7 +157,7 @@ export function ResponsivePreviewFrame({
       };
 
       if (!previewUrl) {
-        syncDocumentStyles(frameDocument);
+        await syncDocumentStyles(frameDocument);
         setMountNode(frameDocument.getElementById('preview-root') as HTMLDivElement | null);
       }
       setIsFrameReady(true);
