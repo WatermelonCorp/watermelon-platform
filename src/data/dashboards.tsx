@@ -21,6 +21,10 @@ export interface DashboardItem {
   featured?: boolean;
   comingSoon?: boolean;
   componentNumber?: number;
+  inspiredBy?: {
+    name: string;
+    url?: string;
+  };
 }
 
 // Load all dashboard MDX files (metadata)

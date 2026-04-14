@@ -17,6 +17,7 @@ import { MobileRestriction } from '@/components/mobile-restriction';
 import { trackEvent } from '@/lib/analytics';
 import { ResponsivePreviewFrame } from '@/components/preview/responsive-preview-frame';
 import { InstallCliCommand } from '@/components/registry/install-cli-command';
+import { InspiredBy } from '@/components/registry/inspired-by';
 
 export default function DashboardPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -150,6 +151,9 @@ export default function DashboardPage() {
                 </div>
               </div>
             )}
+            <div className="my-4">
+              <InspiredBy inspiredBy={item.inspiredBy} />
+            </div>
 
             <InstallCliCommand
               install={item.install}
@@ -248,6 +252,11 @@ export default function DashboardPage() {
                 <p className="text-sm text-muted-foreground line-clamp-2">
                   {item.description}
                 </p>
+                
+                <div className="mt-4">
+                  <InspiredBy inspiredBy={item.inspiredBy} />
+                </div>
+
                 <div className="mt-4 max-w-3xl">
                   <InstallCliCommand
                     install={item.install}

@@ -20,6 +20,10 @@ export interface BlockItem {
   featured?: boolean;
   comingSoon?: boolean;
   componentNumber?: number;
+  inspiredBy?: {
+    name: string;
+    url?: string;
+  };
 }
 
 // Load all block MDX files (metadata)

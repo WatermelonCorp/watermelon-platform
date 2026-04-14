@@ -13,7 +13,13 @@ export default function BlockCategoryPage() {
   const { category = '' } = useParams<{ category: string }>();
   const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [prevCategory, setPrevCategory] = useState(category);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  if (category !== prevCategory) {
+    setPrevCategory(category);
+    setVisibleCount(ITEMS_PER_PAGE);
+  }
 
   const exists = hasBlockCategory(category);
   const meta = blockCategories.find((c) => c.slug === category);
@@ -45,10 +51,6 @@ export default function BlockCategoryPage() {
     return () => observer.disconnect();
   }, [hasMore, allBlocks.length]);
 
-  // Reset visible count when category changes
-  useEffect(() => {
-    setVisibleCount(ITEMS_PER_PAGE);
-  }, [category]);
 
   if (!exists) {
     return (
