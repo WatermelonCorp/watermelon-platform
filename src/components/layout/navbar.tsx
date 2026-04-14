@@ -7,7 +7,7 @@ import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/animated-components-registry';
 import { dashboards } from '@/data/dashboards';
-import { blocks } from '@/data/blocks';
+import { blocks, blockCategories } from '@/data/blocks';
 import { LogoIcon } from './logo';
 import { motion } from 'motion/react';
 import { HugeiconsIcon } from '@hugeicons/react';
@@ -89,12 +89,26 @@ export const Navbar = () => {
       }
     }
 
+    // Block category page: /blocks/:category
+    if (path.startsWith('/blocks/')) {
+      const catSlug = params.category || path.split('/').pop() || '';
+      const catMeta = blockCategories.find((c) => c.slug === catSlug);
+      const catLabel = catMeta?.label ?? catSlug.charAt(0).toUpperCase() + catSlug.slice(1);
+      return [{ label: 'Blocks', href: '/blocks' }, { label: catLabel }];
+    }
+
     // Block detail page: /block/:slug
     if (path.startsWith('/block/')) {
       const slug = params.slug || path.split('/').pop();
       const item = blocks.find((b) => b.slug === slug);
       if (item) {
-        return [{ label: 'Blocks', href: '/blocks' }, { label: item.name }];
+        const catMeta = blockCategories.find((c) => c.slug === item.category);
+        const catLabel = catMeta?.label ?? item.category.charAt(0).toUpperCase() + item.category.slice(1);
+        return [
+          { label: 'Blocks', href: '/blocks' },
+          { label: catLabel, href: `/blocks/${item.category}` },
+          { label: item.name },
+        ];
       }
     }
 

@@ -29,11 +29,12 @@ const CopyrightPage = lazy(() => import("@/pages/copyright"));
 const DashboardsPage = lazy(() => import("@/pages/dashboards"));
 const DashboardPage = lazy(() => import("@/pages/dashboard"));
 const BlocksPage = lazy(() => import("@/pages/blocks"));
+const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
 const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const PreviewPage = lazy(() => import("@/pages/preview"));
-// const UiComponentsPage = lazy(() => import("@/pages/components"));
+const UiComponentsPage = lazy(() => import("@/pages/components"));
 const UiCategoryPage = lazy(() => import("@/pages/component-category"));
 
 export function AppRoutes() {
@@ -98,14 +99,14 @@ export function AppRoutes() {
 
 
         {/* New UI component system */}
-        {/* <Route
+        <Route
           path="/components"
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <UiComponentsPage />
             </Suspense>
           }
-        /> */}
+        />
         <Route
           path="/components/:category"
           element={
@@ -189,6 +190,14 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<BlocksPageSkeleton />}>
               <BlocksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blocks/:category"
+          element={
+            <Suspense fallback={<BlocksPageSkeleton />}>
+              <BlockCategoryPage />
             </Suspense>
           }
         />
