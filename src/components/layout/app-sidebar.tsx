@@ -24,7 +24,7 @@ import {
 import { allCategories } from "@/data/animated-components-registry";
 import { uiCategories } from "@/data/components-registry";
 import { dashboards } from "@/data/dashboards";
-import { blocks } from "@/data/blocks";
+import { blockCategories } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
 import { memo, useEffect, useMemo } from "react";
 import { Logo } from "./logo";
@@ -161,11 +161,11 @@ export function AppSidebar() {
     })),
   ], []);
 
-  // Generate block items from registry
+  // Generate block category items from registry
   const blockItems = useMemo(() =>
-    blocks.map((block) => ({
-      title: block.name,
-      url: `/block/${block.slug}`,
+    blockCategories.map((cat) => ({
+      title: cat.label,
+      url: `/blocks/${cat.slug}`,
     })),
     []
   );
@@ -216,6 +216,7 @@ export function AppSidebar() {
           items={uiComponentCategories}
           defaultOpen
           pathname={location.pathname}
+          titleLink="/components"
           indentItems
         />
         <NavSection
@@ -223,6 +224,7 @@ export function AppSidebar() {
           items={componentCategories}
           defaultOpen
           pathname={location.pathname}
+          titleLink="/animated-components"
           indentItems
         />
         <NavSection
