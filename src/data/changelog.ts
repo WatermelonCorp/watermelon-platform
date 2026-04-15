@@ -64,6 +64,47 @@ export const changelogData: ChangelogEntry[] = [
     ],
   },
   {
+    version: '1.2.7',
+    date: 'Apr 13, 2026',
+    stats: [
+      {
+        label: 'New Shadcn Variants',
+        count: 180,
+        href: '/components',
+      },
+    ],
+    sections: [
+      {
+        title: 'Shadcn Variants (Non-Animated)',
+        items: [
+          {
+            text: 'Added 180 more non-animated shadcn component variants to significantly expand the component library.',
+          },
+          {
+            text: 'Focused on performance-friendly, static UI patterns for better usability and faster rendering.',
+          },
+          {
+            text: 'Maintained consistent styling and structure across all new variants for seamless integration.',
+          },
+        ],
+      },
+      {
+        title: 'Consistency & Scalability',
+        items: [
+          {
+            text: 'Improved scalability of the design system with a larger set of reusable component variations.',
+          },
+          {
+            text: 'Ensured alignment with existing bento layouts and component ecosystem.',
+          },
+          {
+            text: 'Enhanced developer experience with more ready-to-use UI building blocks.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     version: '1.2.6',
     date: 'Apr 03, 2026',
     stats: [
