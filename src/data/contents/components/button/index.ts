@@ -34,10 +34,11 @@ import Button31 from './variant-31';
 import Button32 from './variant-32';
 import Button33 from './variant-33';
 import Button34 from './variant-34';
-import Button35 from './variant-35'; 
+import Button35 from './variant-35';
 import Button36 from './variant-36';
 import Button37 from './variant-37';
 import Button38 from './variant-38';
+import Button39 from "./variant-39.tsx";
 
 import code1 from './variant-1.tsx?raw';
 import code2 from './variant-2.tsx?raw';
@@ -75,8 +76,9 @@ import code33 from './variant-33.tsx?raw';
 import code34 from './variant-34.tsx?raw';
 import code35 from './variant-35.tsx?raw';
 import code36 from './variant-36.tsx?raw';
-import code37 from './variant-37.tsx?raw';  
+import code37 from './variant-37.tsx?raw';
 import code38 from './variant-38.tsx?raw';
+import code39 from "./variant-39.tsx?raw";
 
 import type { UiVariant } from '@/data/components-registry';
 
@@ -346,6 +348,13 @@ export const variants: UiVariant[] = [
     component: Button38,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/button-38.json',
     code: code38,
+  },
+  {
+    id: 'button-39',
+    title: 'Button 39',
+    component: Button39,
+    cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/button-39.json',
+    code: code39,
   },
 ];
 
