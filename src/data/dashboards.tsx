@@ -34,10 +34,9 @@ const mdxFiles = import.meta.glob("./contents/dashboards/*/*.mdx", { eager: true
 const demoComponents = import.meta.glob("./contents/dashboards/*/demo.tsx", { eager: true });
 
 // Load all Dashboard source files (eager) - all tsx files in dashboard folders
-const dashboardSources = import.meta.glob("./contents/dashboards/*/*.tsx", {
+const dashboardSources = import.meta.glob("./contents/dashboards/**/*.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
 
 // Helper to get all source files for a dashboard
@@ -48,6 +47,10 @@ function getDashboardFiles(slug: string): DashboardFile[] {
   Object.entries(dashboardSources).forEach(([path, loader]) => {
     if (path.startsWith(prefix)) {
       const fileName = path.replace(prefix, "");
+
+      // Skip components/ui folders
+      if (fileName.includes("components/ui/")) return;
+
       files.push({
         name: fileName,
         path: path,
