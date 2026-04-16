@@ -14,6 +14,7 @@ import Card12 from "./variant-12";
 import Card13 from "./variant-13";
 import Card14 from "./variant-14";
 import Card15 from "./variant-15";
+import Card16 from "./variant-16";
 import code1 from "./variant-1.tsx?raw";
 import code2 from "./variant-2.tsx?raw";
 import code3 from "./variant-3.tsx?raw";
@@ -29,6 +30,7 @@ import code12 from "./variant-12.tsx?raw";
 import code13 from "./variant-13.tsx?raw";
 import code14 from "./variant-14.tsx?raw";
 import code15 from "./variant-15.tsx?raw";
+import code16 from "./variant-16.tsx?raw";
 import type { UiVariant } from "@/data/components-registry";
 
 export const variants: UiVariant[] = [
@@ -137,7 +139,14 @@ export const variants: UiVariant[] = [
     cli: "npx shadcn@latest add Card",
     code: code15,
     colSpan: 2,
-  }
+  },
+  {
+    id: "card-16",
+    title: "Card 16",
+    component: Card16,
+    cli: "npx shadcn@latest add https://registry.watermelon.sh/r/card-16.json",
+    code: code16,
+  },
 ];
 
 export { category };
