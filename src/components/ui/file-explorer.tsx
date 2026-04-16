@@ -155,13 +155,7 @@ function FileTreeItem({
         )}
         <span className="truncate text-left flex-1">{item.name}</span>
         {isSelected && (
-          <motion.div
-            layoutId="file-indicator"
-            className="w-1.5 h-1.5 rounded-full bg-primary"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-          />
+          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
         )}
       </motion.button>
 

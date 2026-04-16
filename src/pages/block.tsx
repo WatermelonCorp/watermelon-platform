@@ -35,29 +35,42 @@ export default function BlockPage() {
   // Load file codes
   useEffect(() => {
     if (!item) return;
+    let cancelled = false;
     const loadFiles = async () => {
       setLoadingFiles(true);
+      setFileCodes({});
+      setSelectedFile(null);
 
-      const results = await Promise.all(
-        item.files.map(async (file) => {
-          const code = await file.code();
-          return { name: file.name, code };
-        })
-      );
-      const codeMap: Record<string, string> = {};
-      results.forEach(({ name, code }) => {
-        codeMap[name] = code;
-      });
-      setFileCodes(codeMap);
-      setLoadingFiles(false);
-      // Auto-select first file
-      if (results.length > 0 && !selectedFile) {
-        setSelectedFile(results[0].name);
+      try {
+        const results = await Promise.all(
+          item.files.map(async (file) => {
+            const code = await file.code();
+            return { name: file.name, code };
+          })
+        );
+        if (cancelled) return;
+        const codeMap: Record<string, string> = {};
+        results.forEach(({ name, code }) => {
+          codeMap[name] = code;
+        });
+        setFileCodes(codeMap);
+        setLoadingFiles(false);
+        // Auto-select first file
+        if (results.length > 0) {
+          setSelectedFile(results[0].name);
+        }
+      } catch (error) {
+        if (cancelled) return;
+        console.error("Failed to load block files:", error);
+        setLoadingFiles(false);
       }
     };
 
     loadFiles();
-  }, [item, selectedFile]);
+    return () => {
+      cancelled = true;
+    };
+  }, [item]);
 
   useEffect(() => {
     if (!item) return;
