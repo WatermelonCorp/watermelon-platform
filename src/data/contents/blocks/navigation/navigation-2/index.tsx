@@ -23,9 +23,11 @@ import {
   Terminal,
   ArrowUpRight,
   Menu,
+  Moon,
+  Github,
 } from 'lucide-react';
 
-export function Navigation1() {
+export function Navigation2() {
   return (
     <div className="relative w-full border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -254,25 +256,54 @@ export function Navigation1() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button
-            variant="ghost"
-            className="rounded-xl text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800/50 dark:hover:text-neutral-50"
-          >
-            Sign in
-          </Button>
+          <div className="mr-1 flex items-center gap-1.5">
+            <Button
+              variant="ghost"
+              size="icon-lg"
+              className="rounded-xl text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800/50"
+            >
+              <Github className="h-5 w-5" />
+              <span className="sr-only">GitHub Repository</span>
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon-lg"
+              className="rounded-xl text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800/50"
+            >
+              <Moon className="h-5 w-5" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          </div>
           <Button className="rounded-xl bg-orange-600 px-4 py-2 text-white hover:bg-orange-700 dark:bg-orange-600 dark:text-white dark:hover:bg-orange-700">
             Get started
           </Button>
         </div>
 
-        <div className="lg:hidden">
+        <div className="flex items-center gap-0.5 lg:hidden">
+          <Button
+            variant="ghost"
+            size="icon-lg"
+            className="shrink-0 rounded-lg text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
+          >
+            <Github className="h-5 w-5" />
+            <span className="sr-only">GitHub Repository</span>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon-lg"
+            className="shrink-0 rounded-lg text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
+          >
+            <Moon className="h-5 w-5" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button
+                size="icon-lg"
                 variant="ghost"
-                className="h-10 w-10 px-0 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
+                className="shrink-0 px-0 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
@@ -385,12 +416,6 @@ export function Navigation1() {
               </div>
 
               <div className="mt-auto flex flex-col gap-3 border-t border-neutral-200 pt-6 dark:border-neutral-800">
-                <Button
-                  variant="outline"
-                  className="w-full justify-center rounded-xl border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 dark:hover:bg-neutral-800/50"
-                >
-                  Sign in
-                </Button>
                 <Button className="w-full justify-center rounded-xl bg-orange-600 text-white hover:bg-orange-700 dark:bg-orange-600 dark:text-white dark:hover:bg-orange-700">
                   Get started
                 </Button>
