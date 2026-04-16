@@ -86,6 +86,8 @@ export const blocks: BlockItem[] = Object.entries(mdxFiles)
       install: frontmatter.install || [],
     };
   })
+  // Temporary: hide Bento-2 from Blocks listing without removing source files.
+  .filter((item) => item?.slug !== "bento-2")
   .filter((item): item is BlockItem => item !== null)
   .sort((a, b) => {
     // Featured first, then alphabetically
