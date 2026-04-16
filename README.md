@@ -156,6 +156,71 @@ The component will automatically appear in:
 - ✅ Command palette search (⌘K)
 
 ---
+# Adding a New Block
+
+### Step 1: Create Block Folder
+
+Create a new folder in `src/data/contents/blocks/[block-name]/`:
+
+```
+src/data/contents/blocks/my-block/
+├── index.tsx    # Main block file
+└── demo.tsx     # Demo/usage example
+```
+### Step 2: Create the Block MDX
+
+Create `src/data/contents/blocks/my-block.mdx`:
+
+```mdx
+---
+title: My Block
+slug: my-block
+category: blocks
+description: A customizable block component with multiple variants.
+image: https://example.com/preview.png
+video: ''
+featured: true
+featuredOrder: 1
+componentNumber: 10
+dependencies:
+  - clsx
+inspiredByName: Apple
+inspiredByLink: https://apple.com
+install:
+  - npx shadcn@latest add https://registry.watermelon.sh/r/my-block.json
+---
+
+# My Block
+
+A beautiful block component with smooth animations.
+```
+
+### Step 3: Create the Demo (`demo.tsx`)
+
+This file is used as the **Live Preview** on the website Gallery.
+
+```tsx
+import { MyBlock } from './index';
+
+export default function MyBlockDemo() {
+  return (
+    <div className="flex justify-center p-10">
+      <MyBlock />
+    </div>
+  );
+}
+```
+
+### Step 4: Verify
+
+The block will automatically appear in:
+
+- ✅ Homepage grid
+- ✅ Category pages
+- ✅ Sidebar navigation (under category)
+- ✅ Command palette search (⌘K)
+
+---
 
 ## Adding a New Dashboard
 
