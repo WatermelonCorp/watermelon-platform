@@ -1,10 +1,12 @@
 import { useState, Suspense, lazy } from 'react';
 import { registry, type RegistryItem } from '@/data/animated-components-registry';
-import { dashboards, type DashboardItem } from '@/data/dashboards';
-import { blocks, type BlockItem } from '@/data/blocks';
+// import { dashboards, type DashboardItem } from '@/data/dashboards';
+// import { blocks, type BlockItem } from '@/data/blocks';
+import type { DashboardItem } from '@/data/dashboards';
+import type { BlockItem } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
 import { RegistryCard } from '@/components/registry/registry-card';
-import { DashboardCard } from '@/components/registry/dashboard-card';
+// import { DashboardCard } from '@/components/registry/dashboard-card';
 import { Link } from 'react-router-dom';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@/lib/hugeicons';
@@ -22,8 +24,8 @@ export default function HomePage() {
   // For home page, we might want to show featured or all. Let's show all for now.
   // In a real app, you might have a "featured" flag.
   const featuredItems = registry.slice(0, 6);
-  const featuredDashboards = dashboards.slice(0, 4);
-  const featuredBlocks = blocks.slice(0, 4);
+  // const featuredDashboards = dashboards.slice(0, 4);
+  // const featuredBlocks = blocks.slice(0, 4);
 
   const organizationSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -89,8 +91,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Dashboards Section */}
-        <section id="dashboards" className="space-y-6">
+{/* <section id="dashboards" className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="tracking-tight text-sm md:text-base">Dashboard Templates</h2>
             <Link
@@ -118,7 +119,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Blocks Section */}
         <section id="blocks" className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="tracking-tight text-sm md:text-base">UI Blocks</h2>
@@ -146,7 +146,7 @@ export default function HomePage() {
               />
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Footer with Semantic Sections */}
         <footer className="mt-12 border-t py-6">

@@ -12,8 +12,8 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/animated-components-registry';
-import { dashboards } from '@/data/dashboards';
-import { blocks } from '@/data/blocks';
+// import { dashboards } from '@/data/dashboards';
+// import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { trackEvent } from '@/lib/analytics';
 import {
@@ -24,8 +24,8 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  SidebarLeft01Icon,
-  LayoutIcon,
+  // SidebarLeft01Icon,
+  // LayoutIcon,
 } from '@/lib/hugeicons';
 
 // Page navigation items
@@ -33,8 +33,8 @@ const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: GridIcon, shortcut: 'U' },
   { name: 'Animated Components', href: '/animated-components', icon: Home01Icon, shortcut: 'C' },
-  { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
-  { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
+  // { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
+  // { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
 
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
@@ -161,9 +161,7 @@ export function CommandPalette() {
               </CommandGroup>
             ))}
 
-            <CommandSeparator />
-
-            {/* Dashboards */}
+            {/* <CommandSeparator />
             <CommandGroup heading="Dashboards">
               {dashboards.map((dashboard) => (
                 <CommandItem
@@ -181,8 +179,6 @@ export function CommandPalette() {
             </CommandGroup>
 
             <CommandSeparator />
-
-            {/* UI Blocks */}
             <CommandGroup heading="UI Blocks">
               {blocks.map((block) => (
                 <CommandItem
@@ -197,7 +193,7 @@ export function CommandPalette() {
                   <span>{block.name}</span>
                 </CommandItem>
               ))}
-            </CommandGroup>
+            </CommandGroup> */}
           </CommandList>
         </Command>
       </CommandDialog>

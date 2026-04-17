@@ -23,8 +23,8 @@ import {
 } from "@/lib/hugeicons";
 import { allCategories } from "@/data/animated-components-registry";
 import { uiCategories } from "@/data/components-registry";
-import { dashboards } from "@/data/dashboards";
-import { blockCategories } from "@/data/blocks";
+// import { dashboards } from "@/data/dashboards";
+// import { blockCategories } from "@/data/blocks";
 import { Link, useLocation } from "react-router-dom";
 import { memo, useEffect, useMemo } from "react";
 import { Logo } from "./logo";
@@ -162,22 +162,22 @@ export function AppSidebar() {
   ], []);
 
   // Generate block category items from registry
-  const blockItems = useMemo(() =>
-    blockCategories.map((cat) => ({
-      title: cat.label,
-      url: `/blocks/${cat.slug}`,
-    })),
-    []
-  );
+  // const blockItems = useMemo(() =>
+  //   blockCategories.map((cat) => ({
+  //     title: cat.label,
+  //     url: `/blocks/${cat.slug}`,
+  //   })),
+  //   []
+  // );
 
   // Generate dashboard items from registry
-  const dashboardItems = useMemo(() =>
-    dashboards.map((dashboard) => ({
-      title: dashboard.name,
-      url: `/dashboard/${dashboard.slug}`,
-    })),
-    []
-  );
+  // const dashboardItems = useMemo(() =>
+  //   dashboards.map((dashboard) => ({
+  //     title: dashboard.name,
+  //     url: `/dashboard/${dashboard.slug}`,
+  //   })),
+  //   []
+  // );
 
   return (
     <Sidebar variant="inset">
@@ -227,7 +227,7 @@ export function AppSidebar() {
           titleLink="/animated-components"
           indentItems
         />
-        <NavSection
+{/* <NavSection
           title="Blocks"
           items={blockItems}
           pathname={location.pathname}
@@ -241,7 +241,7 @@ export function AppSidebar() {
           pathname={location.pathname}
           titleLink="/dashboards"
           indentItems
-        />
+        /> */}
 
         <SidebarGroup>
           <SidebarGroupLabel className="flex items-center justify-between px-2 py-1.5 min-h-6">
