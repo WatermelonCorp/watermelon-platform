@@ -371,6 +371,6 @@ bun run build
 
 ---
 
-## License	## License
+## License
 
-MIT	[MIT License](LICENSE)
+[MIT License](LICENSE)
