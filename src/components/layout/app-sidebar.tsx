@@ -42,7 +42,6 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  ShieldIcon,
 
 } from "@/lib/hugeicons";
 
@@ -57,6 +56,7 @@ import {
   HardDriveDownload,
   CubeIcon,
   ComputerTerminal02Icon,
+  AuctionIcon,
 } from "@hugeicons/core-free-icons";
 
 // ─── Imports: data registries (used to build nav category lists) ──────────────
@@ -107,7 +107,7 @@ const QuickstartNavItem = memo(function QuickstartNavItem({
         asChild
         size="default"
         isActive={isActive}
-        className="h-10 px-2.5 gap-3"
+        className="h-10 px-2 gap-2"
       >
         <Link
           to={url}
@@ -158,10 +158,10 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
           <SidebarMenuButton
             size="default"
             isActive={isAnyChildActive}
-            className="h-10 px-2.5 justify-between w-full"
+            className="h-10 px-2 justify-between w-full"
           >
             {/* Left cluster: grid icon + label (label is a link if titleUrl provided) */}
-            <span className="flex items-center gap-3 text-sm">
+            <span className="flex items-center gap-2 text-sm">
               <HugeiconsIcon
                 icon={GridIcon}
                 size={18}
@@ -230,10 +230,10 @@ const ExploreComingSoonItem = memo(function ExploreComingSoonItem({
       <SidebarMenuButton
         size="default"
         disabled
-        className="h-10 px-2.5 justify-between opacity-60 cursor-default"
+        className="h-10 px-2 justify-between opacity-60 cursor-default"
       >
         {/* Left cluster: grid icon + label */}
-        <span className="flex items-center gap-3 text-sm">
+        <span className="flex items-center gap-2 text-sm">
           <HugeiconsIcon
             icon={GridIcon}
             size={18}
@@ -341,9 +341,9 @@ export function AppSidebar() {
   }, []);
 
   return (
-    <Sidebar variant="inset">
+    <Sidebar variant="inset" className="p-0">
       {/* ─── Header: logo + collapse trigger ─────────────────────────────── */}
-      <SidebarHeader className="p-3">
+      <SidebarHeader className="p-4 px-6 border-b border-border dark:border-black shadow-[0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)]">
         <div className="flex items-center justify-between py-1 transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
@@ -351,13 +351,13 @@ export function AppSidebar() {
       </SidebarHeader>
 
       {/* ─── Content ──────────────────────────────────────────────────────── */}
-      <SidebarContent className="scrollbar-hide">
+      <SidebarContent className="scrollbar-hide px-2">
 
         {/* ── Search trigger bar ──
             Matches the Figma search row: magnifying glass + "search" text + ⌘K badge.
             Clicking dispatches the keydown event that opens CommandPalette.
         */}
-        <SidebarGroup className="px-3 pt-1 pb-2 lg:hidden">
+        <SidebarGroup className="px-2 pt-1 pb-2 mt-4 lg:hidden">
           <button
             type="button"
             onClick={handleSearchClick}
@@ -382,10 +382,10 @@ export function AppSidebar() {
         */}
         <SidebarGroup>
           {/* Section heading — bold label matching Figma typography */}
-          <SidebarGroupLabel className="px-2.5 min-h-8">
+          <SidebarGroupLabel className="px-2 min-h-8">
             <span className="font-semibold text-sidebar-foreground">Quickstart</span>
           </SidebarGroupLabel>
-          <SidebarMenu>
+          <SidebarMenu className="flex flex-col gap-0.5">
             {quickStartItems.map((item) => (
               <QuickstartNavItem
                 key={item.title}
@@ -404,7 +404,7 @@ export function AppSidebar() {
         */}
         <SidebarGroup>
           {/* Section heading */}
-          <SidebarGroupLabel className="px-2.5 min-h-8">
+          <SidebarGroupLabel className="px-2 min-h-8">
             <span className="font-semibold text-sidebar-foreground">Explore</span>
           </SidebarGroupLabel>
           <SidebarMenu className="flex flex-col gap-0.5">
@@ -448,9 +448,9 @@ export function AppSidebar() {
               type="button"
               className="flex w-full items-center justify-between px-4 py-2 rounded-md hover:bg-accent/20 transition-colors cursor-pointer"
             >
-              <span className="flex items-center gap-3 text-sm text-muted-foreground">
+              <span className="flex items-center gap-2 text-sm text-muted-foreground">
                 {/* Shield icon — matches the Figma legal row */}
-                <HugeiconsIcon icon={ShieldIcon} size={18} className="shrink-0" />
+                <HugeiconsIcon icon={AuctionIcon} size={18} className="shrink-0" />
                 Legal
               </span>
               {/*
@@ -492,14 +492,14 @@ export function AppSidebar() {
       </SidebarContent>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <SidebarFooter className="p-2 pt-1 border-t border-border/60">
+      <SidebarFooter className="border-t border-border dark:border-black shadow-[inset_0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-4">
 
 
         {/* ── Theme toggle row ──
             Matches the Figma footer row: [moon icon] Light/Dark Mode  [switch]
         */}
-        <div className="flex items-center justify-between px-2.5 py-2 lg:hidden">
-          <span className="flex items-center gap-3 text-sm text-muted-foreground">
+        <div className="flex items-center justify-between px-2 py-2 lg:hidden">
+          <span className="flex items-center gap-2 text-sm text-muted-foreground">
             {/* Moon crescent SVG — matches the Figma icon exactly */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -530,16 +530,16 @@ export function AppSidebar() {
         {/* ── Socials section ──
             "Socials" label above the icon row, matching the Figma footer layout.
         */}
-        <div className="px-2.5 pt-1 pb-0.5">
+        <div className="px-2 pt-1 pb-0.5">
           <span className="text-xs font-medium text-muted-foreground">Socials</span>
         </div>
         {/* Social icon row — reuses the existing Socials component, stripped of its border/bg */}
         <div className="px-1">
-          <Socials className="border-0 bg-transparent p-0 justify-start gap-1" />
+          <Socials className="border-0 bg-transparent p-0 justify-start gap-2" />
         </div>
 
         {/* ── Copyright notice ── */}
-        <span className="text-[10px] mt-1 px-2.5 text-muted-foreground">
+        <span className="text-[10px] mt-1 px-2 text-muted-foreground">
           © {new Date().getFullYear()} Watermelon. All rights reserved.
         </span>
 

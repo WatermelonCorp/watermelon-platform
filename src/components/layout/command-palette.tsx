@@ -92,7 +92,7 @@ export function CommandPalette() {
           trackEvent('command_palette_open', { source: 'button' });
           setOpen(true);
         }}
-        className="group flex h-10 items-center lg:w-90 justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
+        className="group hidden lg:flex h-10 items-center lg:w-90 justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
       >
         <div className="flex items-center gap-2">
           <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4" />

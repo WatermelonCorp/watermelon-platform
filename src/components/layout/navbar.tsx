@@ -142,8 +142,8 @@ export const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2"
             >
-              <SidebarTrigger className="bg-background border-input/50 hover:bg-accent -ml-1 size-9 border" />
-              <LogoIcon />
+              <SidebarTrigger className="bg-background border-input/50 hover:bg-accent ml-8 size-9 border" />
+              {/* <LogoIcon /> */}
             </motion.div>
           )}
         </div>
@@ -163,7 +163,7 @@ export const Navbar = () => {
 
         {/* Right: Socials + Theme */}
         <div className="flex shrink-0 items-center gap-2">
-          <Link
+          {/* <Link
             to="/changelog"
             title="Changelog"
             className="
@@ -176,7 +176,7 @@ export const Navbar = () => {
           >
             <HugeiconsIcon icon={Book02Icon} size={18} />
             <span className="hidden text-sm md:block">Changelog</span>
-          </Link>
+          </Link> */}
           <GlobalCssInput />
           <ThemeToggle />
         </div>
