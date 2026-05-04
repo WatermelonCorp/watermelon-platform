@@ -58,6 +58,7 @@ export default function HomePage() {
       <h1 className="sr-only">
         Watermelon UI - High-Quality React Components Registry
       </h1>
+
       <div className="space-y-12">
         {/* Components Section */}
         <section id="components" className="space-y-6">

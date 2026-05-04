@@ -343,7 +343,7 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="p-0">
       {/* ─── Header: logo + collapse trigger ─────────────────────────────── */}
-      <SidebarHeader className="p-4 px-6 border-b border-border dark:border-black shadow-[0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)]">
+      <SidebarHeader className="p-4 px-6 bg-gray-100 dark:bg-neutral-900 border-b border-border dark:border-black shadow-[0_1px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)] z-10">
         <div className="flex items-center justify-between py-1 transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
@@ -351,7 +351,7 @@ export function AppSidebar() {
       </SidebarHeader>
 
       {/* ─── Content ──────────────────────────────────────────────────────── */}
-      <SidebarContent className="scrollbar-hide px-2">
+      <SidebarContent className="scrollbar-hide px-2 bg-gray-100 dark:bg-neutral-900">
 
         {/* ── Search trigger bar ──
             Matches the Figma search row: magnifying glass + "search" text + ⌘K badge.
@@ -492,7 +492,7 @@ export function AppSidebar() {
       </SidebarContent>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <SidebarFooter className="border-t border-border dark:border-black shadow-[inset_0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-4">
+      <SidebarFooter className="border-t border-border bg-gray-100 dark:bg-neutral-900 dark:border-black shadow-[inset_0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-4">
 
 
         {/* ── Theme toggle row ──
