@@ -165,7 +165,7 @@ export default function HomePage() {
           </div>
         </section> */}
 
-        <footer className="border-t dark:border-black shadow-[inset_0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] py-4">
+        <footer className="border-t dark:border-black shadow-[inset_0_1px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-4 md:px-6 lg:px-8">
 
             <div className="flex items-center gap-2.5">

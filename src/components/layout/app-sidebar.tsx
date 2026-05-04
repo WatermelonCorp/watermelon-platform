@@ -242,7 +242,7 @@ const ExploreComingSoonItem = memo(function ExploreComingSoonItem({
           {title}
         </span>
         {/* Right: coming-soon pill badge */}
-        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary">
+        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-lime-400">
           Soon
         </span>
       </SidebarMenuButton>
@@ -343,7 +343,7 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="p-0">
       {/* ─── Header: logo + collapse trigger ─────────────────────────────── */}
-      <SidebarHeader className="p-4 px-6 bg-gray-100 dark:bg-neutral-900 border-b border-border dark:border-black shadow-[0_1px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)] z-10">
+      <SidebarHeader className="p-4 px-6 bg-gray-100 dark:bg-neutral-900 border-b border-border dark:border-black shadow-[0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)] z-10">
         <div className="flex items-center justify-between py-1 transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
@@ -492,7 +492,7 @@ export function AppSidebar() {
       </SidebarContent>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <SidebarFooter className="border-t border-border bg-gray-100 dark:bg-neutral-900 dark:border-black shadow-[inset_0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-4">
+      <SidebarFooter className="border-t border-border bg-gray-100 dark:bg-neutral-900 dark:border-black shadow-[inset_0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-4">
 
 
         {/* ── Theme toggle row ──

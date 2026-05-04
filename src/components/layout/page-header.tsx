@@ -33,7 +33,7 @@ export const PageHeader = ({
           "bg-gray-100 dark:bg-neutral-800 backdrop-blur-md border px-3 py-1.5 rounded-full shadow-sm",
           "pointer-events-auto"
         ] : [
-          "h-7 md:h-9 rounded-md bg-background"
+          "h-7 md:h-9"
         ],
         className
       )}
