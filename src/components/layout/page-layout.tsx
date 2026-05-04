@@ -53,7 +53,7 @@ export function PageLayout({
       >
         {showNavbar && <Navbar />}
 
-        <main className="flex flex-col gap-4 px-2 md:px-3 min-h-[calc(100vh-10.5rem)]">
+        <main className="flex flex-col gap-4 min-h-[calc(100vh-10.5rem)]">
           {children}
         </main>
 

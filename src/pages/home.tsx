@@ -59,28 +59,15 @@ export default function HomePage() {
         Watermelon UI - High-Quality React Components Registry
       </h1>
 
-      <div className="space-y-12">
+      <div className="flex flex-col gap-12">
         {/* Components Section */}
-        <section id="components" className="space-y-6">
-          <div className="mt-2 flex items-center justify-between px-2 md:mt-0 md:px-4">
-            <h2 className="text-sm tracking-tight md:text-base">
-              Featured Components
-            </h2>
-            <Link
-              to="/animated-components"
-              onClick={() =>
-                trackEvent('cta_view_all_click', {
-                  section: 'components',
-                })
-              }
-              className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-sm transition-colors"
-            >
-              View all ({registry.length})
-              <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
-            </Link>
-          </div>
+        <section id="components" className="flex flex-col gap-6">
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <h2 className="text-lg font-medium tracking-tight md:text-xl px-4 md:px-8 lg:px-8 pl-5 md:pl-7 lg:pl-9 pt-4">
+            Featured Components
+          </h2>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-6 lg:px-8">
             {featuredItems.map((item, index) => (
               <RegistryCard
                 key={item.slug}
@@ -92,7 +79,36 @@ export default function HomePage() {
           </div>
         </section>
 
-{/* <section id="dashboards" className="space-y-6">
+        <div className='flex items-center justify-center gap-3 px-4 md:px-6 lg:px-8 py-1'>
+          {/* Left: line + two crosses */}
+          <div className='flex flex-1 items-center justify-end gap-2.5'>
+            <div className='h-px flex-1  bg-linear-to-l from-foreground/20 to-transparent' />
+            <span className='text-foreground/20 text-base leading-none select-none'>×</span>
+            <span className='text-foreground/20 text-base leading-none select-none'>×</span>
+          </div>
+
+          <Link
+            to="/animated-components"
+            onClick={() =>
+              trackEvent('cta_view_all_click', {
+                section: 'components',
+              })
+            }
+            className="w-fit py-2 px-4 pr-2.5 text-sm flex items-center justify-center rounded-xl bg-linear-to-b from-lime-400 to-lime-500 border border-lime-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),0_2px_1px_0_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_2px_1px_0_rgba(0,0,0,0.04)] text-white"
+          >
+            View all ({registry.length})
+            <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
+          </Link>
+
+          {/* Right: two crosses + line */}
+          <div className='flex flex-1 items-center gap-2.5'>
+            <span className='text-foreground/20 text-base leading-none select-none'>×</span>
+            <span className='text-foreground/20 text-base leading-none select-none'>×</span>
+            <div className='h-px flex-1 bg-linear-to-r from-foreground/20 to-transparent' />
+          </div>
+        </div>
+
+        {/* <section id="dashboards" className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="tracking-tight text-sm md:text-base">Dashboard Templates</h2>
             <Link
@@ -149,37 +165,26 @@ export default function HomePage() {
           </div>
         </section> */}
 
-        {/* Footer with Semantic Sections */}
-        <footer className="mt-12 border-t py-6">
-          <div className="text-muted-foreground grid grid-cols-1 gap-8 text-xs md:grid-cols-3">
-            <section id="about" className="space-y-2">
-              <h3 className="text-foreground font-semibold">About</h3>
-              <p>
-                Watermelon UI is a comprehensive component registry improving
-                developer experience with accessible, performant, and beautiful
-                UI blocks.
-              </p>
-            </section>
+        <footer className="border-t dark:border-black shadow-[inset_0_2px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] py-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-4 md:px-6 lg:px-8">
 
-            <section id="team" className="space-y-2">
-              <h3 className="text-foreground font-semibold">Team</h3>
-              <p>Maintained by a dedicated team of open-source contributors.</p>
-            </section>
+            <div className="flex items-center gap-2.5">
+              <span className="text-sm font-medium text-foreground">Watermelon UI</span>
+              <span className="text-muted-foreground/40 text-xs select-none">·</span>
+              <span className="text-xs text-muted-foreground">High-quality React components.</span>
+            </div>
 
-            <section id="contact" className="space-y-2">
-              <h3 className="text-foreground font-semibold">Contact</h3>
-              <p>
-                For support and inquiries, please reach out via GitHub issues or
-                email{' '}
-                <a
-                  href="mailto:watermeloncorpui@gmail.com"
-                  className="hover:text-foreground underline underline-offset-4"
-                >
-                  watermeloncorpui@gmail.com
-                </a>
-                .
-              </p>
-            </section>
+            <div className="flex items-center gap-3 text-xs text-muted-foreground">
+              <a
+                href="mailto:watermeloncorpui@gmail.com"
+                className="hover:text-foreground transition-colors underline underline-offset-4"
+              >
+                watermeloncorpui@gmail.com
+              </a>
+              <span className="text-muted-foreground/40 select-none">·</span>
+              <span className="text-muted-foreground/60">© {new Date().getFullYear()} Watermelon</span>
+            </div>
+
           </div>
         </footer>
 
@@ -203,7 +208,7 @@ export default function HomePage() {
             />
           )}
         </Suspense>
-      </div>
+      </div >
     </>
   );
 }

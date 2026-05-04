@@ -33,7 +33,7 @@ export function GlobalCssInput() {
         <button
           title="Global CSS Theme"
           className="text-white flex h-7 md:h-9 items-center justify-center gap-2
-            rounded-lg border border-lime-600 px-2 transition-colors
+            rounded-xl border border-lime-600 px-2 transition-colors
             md:w-auto md:px-3 bg-linear-to-b from-primary/90 to-primary shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),inset_1px_0_0_0_rgba(255,255,255,0.3),inset_-1px_0_0_0_rgba(255,255,255,0.3),inset_4px_4px_0_0_rgba(255,255,255,0.06),inset_-4px_-4px_0_0_rgba(255,255,255,0.06),inset_6px_6px_0_0_rgba(255,255,255,0.04),inset_-6px_-6px_0_0_rgba(255,255,255,0.04),inset_8px_8px_0_0_rgba(255,255,255,0.02),inset_-8px_-8px_0_0_rgba(255,255,255,0.02),0_1px_2px_0_rgba(0,0,0,0.08),0_2px_4px_0_rgba(0,0,0,0.06),0_4px_6px_0_rgba(0,0,0,0.04),0_6px_8px_0_rgba(0,0,0,0.02),0_2px_1px_0_rgba(0,0,0,0.04)] text-shadow-2xs text-shadow-lime-600/45
           "
         >

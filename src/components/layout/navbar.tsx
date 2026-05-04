@@ -8,11 +8,7 @@ import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/animated-components-registry';
 import { dashboards } from '@/data/dashboards';
 import { blocks, blockCategories } from '@/data/blocks';
-import { LogoIcon } from './logo';
 import { motion } from 'motion/react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Book02Icon } from '@/lib/hugeicons';
-import { Link } from 'react-router-dom';
 import { GlobalCssInput } from './global-css-input';
 
 // Route config for breadcrumbs - easy to extend
@@ -117,7 +113,7 @@ export const Navbar = () => {
   }, [location.pathname, params]);
 
   return (
-    <header className="sticky top-0 z-20 h-14">
+    <header className="sticky top-0 z-20 h-18">
       {/* Progressive blur effect - fades from top (blurry) to bottom (clear) */}
       <ProgressiveBlur
         direction="top"
@@ -127,7 +123,7 @@ export const Navbar = () => {
       />
 
       {/* Navbar content */}
-      <nav className="relative z-10 flex h-14 items-center justify-between gap-2 px-4">
+      <nav className="relative z-10 flex h-18 items-center justify-between gap-2 px-4 md:px-6 lg:px-8">
         {/* Left: Sidebar trigger + logo on mobile/collapsed */}
         <div className="flex shrink-0 items-center gap-2">
           {(state === 'collapsed' || isMobile) && (
@@ -142,8 +138,7 @@ export const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2"
             >
-              <SidebarTrigger className="bg-background border-input/50 hover:bg-accent ml-8 size-9 border" />
-              {/* <LogoIcon /> */}
+              <SidebarTrigger className="bg-background border-input/50 hover:bg-accent size-9 border" />
             </motion.div>
           )}
         </div>
@@ -162,21 +157,7 @@ export const Navbar = () => {
         </div>
 
         {/* Right: Socials + Theme */}
-        <div className="flex shrink-0 items-center gap-2">
-          {/* <Link
-            to="/changelog"
-            title="Changelog"
-            className="
-    border-input/50 bg-background hover:bg-accent
-    text-muted-foreground hover:text-foreground
-    flex h-8 md:h-10 items-center justify-center gap-2
-    rounded-lg border px-2 transition-colors
-    md:w-auto md:px-3
-  "
-          >
-            <HugeiconsIcon icon={Book02Icon} size={18} />
-            <span className="hidden text-sm md:block">Changelog</span>
-          </Link> */}
+        <div className="flex shrink-0 items-center gap-3">
           <GlobalCssInput />
           <ThemeToggle />
         </div>
