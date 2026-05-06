@@ -72,4 +72,8 @@ export {
   UnfoldMoreIcon,
   UserIcon,
   ViewIcon,
+  CubeIcon,
+  DashboardSquare01Icon,
+  Layout01Icon,
+  SparklesIcon,
 } from '@hugeicons/core-free-icons';

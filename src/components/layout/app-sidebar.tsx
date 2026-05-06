@@ -40,9 +40,12 @@ import {
   ArrowDown01Icon,
   ArrowRight01Icon,
   CommandIcon,
+  CodeIcon,
   GridIcon,
   SearchIcon,
-
+  DashboardSquare01Icon,
+  Layout01Icon,
+  SparklesIcon,
 } from "@/lib/hugeicons";
 
 // ─── Imports: icons sourced directly from core-free-icons ────────────────────
@@ -57,6 +60,7 @@ import {
   CubeIcon,
   ComputerTerminal02Icon,
   AuctionIcon,
+  Component
 } from "@hugeicons/core-free-icons";
 
 // ─── Imports: data registries (used to build nav category lists) ──────────────
@@ -137,6 +141,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
   items,
   isAnyChildActive,
   defaultOpen = false,
+  icon,
 }: {
   /** Section label shown in the trigger row */
   title: string;
@@ -148,6 +153,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
   isAnyChildActive: boolean;
   /** Start expanded by default */
   defaultOpen?: boolean;
+  icon?: IconSvgElement;
 }) {
   return (
     <SidebarMenuItem>
@@ -163,7 +169,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
             {/* Left cluster: grid icon + label (label is a link if titleUrl provided) */}
             <span className="flex items-center gap-2 text-sm">
               <HugeiconsIcon
-                icon={GridIcon}
+                icon={icon || GridIcon}
                 size={18}
                 className="shrink-0 text-muted-foreground"
               />
@@ -222,8 +228,10 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
 // ─────────────────────────────────────────────────────────────────────────────
 const ExploreComingSoonItem = memo(function ExploreComingSoonItem({
   title,
+  icon,
 }: {
   title: string;
+  icon?: IconSvgElement;
 }) {
   return (
     <SidebarMenuItem>
@@ -235,7 +243,7 @@ const ExploreComingSoonItem = memo(function ExploreComingSoonItem({
         {/* Left cluster: grid icon + label */}
         <span className="flex items-center gap-2 text-sm">
           <HugeiconsIcon
-            icon={GridIcon}
+            icon={icon || GridIcon}
             size={18}
             className="shrink-0 text-muted-foreground"
           />
@@ -283,7 +291,7 @@ export function AppSidebar() {
   const quickStartItems = [
     { title: "Installation", url: "/installation", icon: HardDriveDownload },
     { title: "Basic Usage", url: "/basic-usage", icon: PlayCircleIcon },
-    { title: "Framework Support", url: "/framework-support", icon: CubeIcon },
+    { title: "Framework Support", url: "/framework-support", icon: CodeIcon },
     { title: "CLI", url: "/cli", icon: ComputerTerminal02Icon },
     { title: "Changelog", url: "/changelog", icon: Clock01Icon },
   ];
@@ -412,6 +420,7 @@ export function AppSidebar() {
             <ExploreCollapsibleItem
               title="Component"
               titleUrl="/components"
+              icon={Component}
               items={uiComponentCategories}
               isAnyChildActive={location.pathname.startsWith("/components")}
               defaultOpen
@@ -420,16 +429,17 @@ export function AppSidebar() {
             <ExploreCollapsibleItem
               title="Animated"
               titleUrl="/animated-components"
+              icon={SparklesIcon}
               items={componentCategories}
               isAnyChildActive={location.pathname.startsWith("/animated-components")}
               defaultOpen
             />
             {/* Blocks — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Blocks" />
+            <ExploreComingSoonItem title="Blocks" icon={CubeIcon} />
             {/* Dashboards — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Dashboards" />
+            <ExploreComingSoonItem title="Dashboards" icon={DashboardSquare01Icon} />
             {/* Templates — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Templates" />
+            <ExploreComingSoonItem title="Templates" icon={Layout01Icon} />
           </SidebarMenu>
         </SidebarGroup>
 

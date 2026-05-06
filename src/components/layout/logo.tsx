@@ -4,7 +4,7 @@ import LogoSVG from "@/assets/logo-icon"
 const Logo = () => {
   return (
     <Link to="/" className="flex items-center gap-1.5">
-      <div className="size-8 rounded-lg bg-lime-500 flex items-center justify-center">
+      <div className="size-9 rounded-lg bg-lime-500 flex items-center justify-center">
         {/* <img
           src="/logo-64.png"
           srcSet="/logo-64.png 64w, /logo-96.png 96w, /logo-128.png 128w"
