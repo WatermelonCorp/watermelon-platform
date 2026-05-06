@@ -30,7 +30,7 @@ type TabsListProps = TabsListPrimitiveProps;
 
 function TabsList({ className, ...props }: TabsListProps) {
   return (
-    <TabsHighlightPrimitive mode="parent" className="absolute z-0 inset-0 border-transparent rounded-lg h-full bg-background dark:border-input dark:bg-neutral-900 shadow-sm">
+    <TabsHighlightPrimitive mode="parent" forceUpdateBounds={true} className="rounded-lg bg-background dark:border-input dark:bg-neutral-900 shadow-sm">
       <TabsListPrimitive
         className={cn(
           'bg-muted text-foreground/70 inline-flex h-9 w-fit items-center justify-center rounded-xl p-1',
@@ -49,7 +49,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     <TabsHighlightItemPrimitive value={props.value} className="flex-1">
         <TabsTriggerPrimitive
           className={cn(
-            "data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-foreground/70 inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md w-full px-2 py-1 text-sm font-medium whitespace-nowrap transition-colors duration-500 ease-in-out focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+            "data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-foreground/70 inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md w-full px-2 py-1 text-sm font-medium whitespace-nowrap transition-colors duration-500 ease-in-out focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 relative",
             className,
           )}
           {...props}
