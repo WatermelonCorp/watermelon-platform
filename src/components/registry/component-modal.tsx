@@ -107,7 +107,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
       <Drawer open={!!item} onOpenChange={(o) => !o && onClose()}>
         <DrawerContent className="bg-background flex h-[95dvh] flex-col overflow-hidden rounded-t-2xl p-0">
           {/* Sticky Header */}
-          <div className="bg-background/80 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-30 backdrop-blur">
+          <div className="bg-background/80 supports-backdrop-filter:bg-background/60 sticky top-0 z-30 backdrop-blur">
             <DrawerHeader className="relative border-b px-4 pt-4 pb-3">
               <ProgressiveBlur
                 className="absolute inset-x-0 top-0 h-24"
@@ -311,7 +311,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                     href={item.inspiredByLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base underline underline-offset-4 hover:text-foreground transition-colors"
+                    className="text-base hover:text-foreground transition-colors"
                   >
                     {item.inspiredByName}
                   </a>
