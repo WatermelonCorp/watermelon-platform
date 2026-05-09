@@ -29,9 +29,9 @@ export default function AnimatedComponentsPage() {
         category="Components"
       />
 
-      <div className="space-y-12 pb-10">
-        <section id="animated-components" className="space-y-6">
-          <div className="space-y-1.5 px-2 md:px-4">
+      <div className="flex pb-10 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
+        <section id="animated-components" className="flex flex-col gap-6 md:gap-12">
+          <div className="space-y-1.5 px-2">
             <h1 className="text-2xl font-semibold tracking-tight">Animated Components</h1>
             <p className="text-sm text-muted-foreground max-w-xl">
               High-quality animated React components. Browse by category or explore individual components.

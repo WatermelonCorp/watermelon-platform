@@ -108,62 +108,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* <section id="dashboards" className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="tracking-tight text-sm md:text-base">Dashboard Templates</h2>
-            <Link
-              to="/dashboards"
-              onClick={() =>
-                trackEvent('cta_view_all_click', {
-                  section: 'dashboards',
-                })
-              }
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              View all ({dashboards.length})
-              <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {featuredDashboards.map((item) => (
-              <DashboardCard
-                key={item.slug}
-                item={item}
-                onClick={(item) => setSelectedDashboard(item)}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section id="blocks" className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="tracking-tight text-sm md:text-base">UI Blocks</h2>
-            <Link
-              to="/blocks"
-              onClick={() =>
-                trackEvent('cta_view_all_click', {
-                  section: 'blocks',
-                })
-              }
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              View all ({blocks.length})
-              <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {featuredBlocks.map((item) => (
-              <DashboardCard
-                key={item.slug}
-                item={item as unknown as DashboardItem}
-                trackType="block"
-                onClick={(item) => setSelectedBlock(item as unknown as BlockItem)}
-              />
-            ))}
-          </div>
-        </section> */}
 
         <footer className="border-t dark:border-black shadow-[inset_0_1px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-4 md:px-6 lg:px-8">
@@ -173,7 +117,6 @@ export default function HomePage() {
               <span className="text-muted-foreground/40 text-xs select-none">·</span>
               <span className="text-xs text-muted-foreground">High-quality React components.</span>
             </div>
-
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <a
                 href="mailto:watermeloncorpui@gmail.com"
