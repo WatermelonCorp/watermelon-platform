@@ -48,6 +48,7 @@ export default function AnimatedCategoryPage() {
   }, [hasMore, filteredItems.length]);
 
   const title = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Category';
+  const description = `Browse our collection of ${title.toLowerCase()} animated components. High-quality, customizable React components for your next project.`;
 
   if (filteredItems.length === 0) {
     return (
@@ -68,6 +69,7 @@ export default function AnimatedCategoryPage() {
 
       <CatalogPageHeader
         title={title}
+        description={description}
       />
       <div className="flex flex-col gap-6 md:gap-12 pb-16 px-4 md:px-6 lg:px-8 mt-4">
 

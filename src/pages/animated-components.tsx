@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { registry, allCategories } from '@/data/animated-components-registry';
 import { SEOHead } from '@/components/seo-head';
 import { cn } from '@/lib/utils';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { ArrowUpRight01Icon } from '@/lib/hugeicons';
+import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
 export default function AnimatedComponentsPage() {
   // Build category data dynamically from the registry
@@ -29,14 +28,13 @@ export default function AnimatedComponentsPage() {
         category="Components"
       />
 
-      <div className="flex w-full pb-10 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
+      <CatalogPageHeader
+        title="Animated Components"
+        description="High-quality animated React components. Browse by category or explore individual components."
+      />
+
+      <div className="flex w-full pb-10 px-4 md:px-6 lg:px-8 mt-4">
         <section id="animated-components" className="flex flex-col w-full gap-6 md:gap-12">
-          <div className="space-y-1.5 px-2">
-            <h1 className="text-2xl font-semibold tracking-tight">Animated Components</h1>
-            <p className="text-sm text-muted-foreground max-w-xl">
-              High-quality animated React components. Browse by category or explore individual components.
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((cat) => (

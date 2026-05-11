@@ -3,6 +3,7 @@ import { SEOHead } from "@/components/seo-head";
 import { uiCategories, uiRegistry } from "@/data/components-registry";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon } from "@/lib/hugeicons";
+import { CatalogPageHeader } from "@/components/layout/catalog-page-header";
 
 export default function ComponentsPage() {
   return (
@@ -13,14 +14,12 @@ export default function ComponentsPage() {
         category="Components"
       />
 
+      <CatalogPageHeader
+        title="Components"
+        description="Browse all base components. Live-rendered, copy-paste ready React components for your next project."
+      />
+
       <div className="flex flex-col gap-6 md:gap-12 mb-12 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
-        {/* ─ Page header ─ */}
-        <div className="space-y-1.5">
-          <h1 className="text-2xl font-semibold tracking-tight">Components</h1>
-          <p className="text-sm text-muted-foreground max-w-xl">
-            Browse all base components. Live-rendered, copy-paste ready React components for your next project.
-          </p>
-        </div>
 
         {/* ─ Categories grid ─ */}
         <div className="overflow-hidden">

@@ -6,6 +6,7 @@ import type { UiVariant } from "@/data/components-registry";
 import { CodeDialog } from "@/components/registry/code-dialog";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { SourceCodeIcon } from "@/lib/hugeicons";
+import { CatalogPageHeader } from "@/components/layout/catalog-page-header";
 
 // ─── Loading fallback ─────────────────────────────────────────────────────────
 
@@ -93,13 +94,9 @@ export default function ComponentCategoryPage() {
         category="Components"
       />
 
-      <div className="flex flex-col gap-6 md:gap-12 mb-12 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
+      <CatalogPageHeader title={label} description={description} />
 
-        {/* ─ Page header ─ */}
-        <div className="space-y-1.5">
-          <h1 className="text-2xl font-semibold tracking-tight">{label}</h1>
-          <p className="text-sm text-muted-foreground max-w-xl">{description}</p>
-        </div>
+      <div className="flex flex-col gap-6 md:gap-12 mb-12 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
 
         {/* ─ Variants grid ─ */}
         <div className="overflow-hidden">
