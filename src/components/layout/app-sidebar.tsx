@@ -197,7 +197,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
 
         {/* ── Sub-item list — indented with a left accent border ── */}
         <CollapsibleContent>
-          <SidebarMenu className="mt-1 ml-2 border-l border-border/60 pl-2">
+          <SidebarMenu className="mt-1 ml-2 border-l border-border/60 pl-2 pr-2.5">
             {items.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
@@ -208,7 +208,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
                 >
                   <Link
                     to={item.url}
-                    className="text-muted-foreground hover:text-foreground text-xs"
+                    className="text-muted-foreground hover:text-foreground text-xs mb-0.5"
                   >
                     {item.title}
                   </Link>
