@@ -528,7 +528,7 @@ const BentoGrid12 = () => {
 
           <BentoCard className="relative flex items-center justify-center p-6">
             <motion.div
-              className="absolute top-4 sm:left-12 left-6"
+              className="absolute top-4 left-6 sm:left-12"
               animate={{ scale: [1, 0.8, 1], rotate: [0, 180, 0] }}
               transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
             >
@@ -536,7 +536,7 @@ const BentoGrid12 = () => {
             </motion.div>
 
             <motion.div
-              className="absolute sm:right-12 bottom-4 right-6"
+              className="absolute right-6 bottom-4 sm:right-12"
               animate={{ scale: [1, 0.8, 1], rotate: [0, 180, 0] }}
               transition={{
                 duration: 3,

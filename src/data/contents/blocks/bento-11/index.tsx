@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/base-ui/card';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/base-ui/button';
 import { Bell } from 'lucide-react';
 import { motion, type Transition, type Variants } from 'framer-motion';
 import { useState } from 'react';
@@ -119,14 +119,14 @@ const reviews = [
     date: '11, Apr 2024',
     location: 'Mumbai, India',
     review:
-      'Sanjay is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills.',
+      'Sanjay is a remarkable Product Designer, renowned for his exceptional base-ui skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on base-ui skills.',
   },
   {
     name: 'Courtney Henry',
     date: '11, Feb 2024',
     location: 'Iceland',
     review:
-      'Courtney is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills',
+      'Courtney is a remarkable Product Designer, renowned for his exceptional base-ui skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on base-ui skills',
   },
 ];
 
@@ -259,7 +259,7 @@ function SchedulerCard() {
   };
 
   return (
-    <BentoCard className="relative col-span-1 flex min-h-[400px]  flex-col justify-between overflow-hidden p-0">
+    <BentoCard className="relative col-span-1 flex min-h-[400px] flex-col justify-between overflow-hidden p-0">
       <CardHeader className="relative z-10 p-4">
         <h3 className="text-lg font-semibold">
           <span className="text-white">Tasks Scheduler.</span>{' '}
@@ -274,7 +274,6 @@ function SchedulerCard() {
           "Lorem" isn’t actually a word. It is suggested that the text starts
           somewhere in classical Latin literature where there was a passage that
           contained the word “Do-lorem”.contained the word “Do-lorem”.word word
-        
         </p>
 
         <div className="absolute inset-0 top-36 flex items-center justify-center">
@@ -437,7 +436,7 @@ const data = [
 
 function DatasetCard() {
   return (
-    <BentoCard className="col-span-1 md:h-[350px] h-[450px]  md:col-span-2">
+    <BentoCard className="col-span-1 h-[450px] md:col-span-2 md:h-[350px]">
       <CardHeader className="p-4 text-lg leading-tight">
         <h3 className="mb-8 text-lg leading-tight">
           <span className="font-semibold text-neutral-200">
@@ -450,7 +449,7 @@ function DatasetCard() {
         </h3>
       </CardHeader>
 
-      <CardContent className="relative flex flex-col items-center gap-6  pl-4 md:flex-row">
+      <CardContent className="relative flex flex-col items-center gap-6 pl-4 md:flex-row">
         <div className="w-full rounded-lg border border-neutral-700 bg-neutral-800 p-3 shadow-xl md:w-48">
           <p className="mb-2 text-sm text-neutral-500">
             Enter your prompt here
@@ -544,7 +543,7 @@ const BentoGrid11 = () => {
               </span>
             </h3>
           </CardHeader>
-          <CardContent className="flex items-center justify-center p-4  ">
+          <CardContent className="flex items-center justify-center p-4">
             <Button className="cursor-pointer rounded-full border border-purple-600 bg-purple-600/20 px-10 py-6 text-xl text-white hover:bg-purple-600/40">
               Run the task
             </Button>

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Card, CardContent, CardFooter } from '@/components/base-ui/card';
@@ -353,20 +353,20 @@ const Profile = ({ className }: { className?: string }) => {
 };
 
 const lines = [
-  "## Setting up",
-  "",
-  "Description...",
-  "",
-  "<CardGroup cols={12} />",
-  "<Card />"
+  '## Setting up',
+  '',
+  'Description...',
+  '',
+  '<CardGroup cols={12} />',
+  '<Card />',
 ];
 
 const typingSpeed = 40; // ms per char
-const lineDelay = 600;  // delay before next line
+const lineDelay = 600; // delay before next line
 const restartDelay = 1500;
 
 const Card2 = () => {
-  const [displayedLines, setDisplayedLines] = useState([""]);
+  const [displayedLines, setDisplayedLines] = useState(['']);
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
 
@@ -374,7 +374,7 @@ const Card2 = () => {
     if (currentLine >= lines.length) {
       // restart loop
       const timeout = setTimeout(() => {
-        setDisplayedLines([""]);
+        setDisplayedLines(['']);
         setCurrentLine(0);
         setCurrentChar(0);
       }, restartDelay);
@@ -386,8 +386,7 @@ const Card2 = () => {
         setDisplayedLines((prev) => {
           const updated = [...prev];
           updated[currentLine] =
-            (updated[currentLine] || "") +
-            lines[currentLine][currentChar];
+            (updated[currentLine] || '') + lines[currentLine][currentChar];
           return updated;
         });
         setCurrentChar((c) => c + 1);
@@ -396,7 +395,7 @@ const Card2 = () => {
       return () => clearTimeout(timeout);
     } else {
       const timeout = setTimeout(() => {
-        setDisplayedLines((prev) => [...prev, ""]);
+        setDisplayedLines((prev) => [...prev, '']);
         setCurrentLine((l) => l + 1);
         setCurrentChar(0);
       }, lineDelay);
@@ -406,10 +405,9 @@ const Card2 = () => {
   }, [currentChar, currentLine]);
 
   return (
-    <div className="flex h-60 sm:h-70 w-80 md:w-110 flex-col rounded-t-xl border-x border-t border-[#A09B9B]/20 bg-[#0E1419] mask-b-from-90%">
-      
+    <div className="flex h-60 w-80 flex-col rounded-t-xl border-x border-t border-[#A09B9B]/20 bg-[#0E1419] mask-b-from-90% sm:h-70 md:w-110">
       {/* Header */}
-      <div className="flex w-full items-center justify-between px-8 border-b border-[#A09B9B]/20 py-1">
+      <div className="flex w-full items-center justify-between border-b border-[#A09B9B]/20 px-8 py-1">
         <div className="flex items-center gap-2 py-2">
           <GithubIcon className="size-5 text-zinc-200" />
           <span className="font-mono text-xs text-zinc-500">
@@ -420,7 +418,7 @@ const Card2 = () => {
       </div>
 
       {/* Terminal */}
-      <div className="w-full flex flex-col gap-1 sm:gap-2 p-6 font-mono text-sm">
+      <div className="flex w-full flex-col gap-1 p-6 font-mono text-sm sm:gap-2">
         {displayedLines.map((line, index) => (
           <div key={index} className="flex gap-6">
             <span className="text-blue-200">{index + 1}</span>
@@ -429,7 +427,7 @@ const Card2 = () => {
               {/* Cursor */}
               {index === displayedLines.length - 1 && (
                 <motion.span
-                  className="inline-block w-2 h-4 bg-blue-200 ml-1"
+                  className="ml-1 inline-block h-4 w-2 bg-blue-200"
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{
                     duration: 1,

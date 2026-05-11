@@ -1,5 +1,5 @@
 'use client';
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail } from 'react-icons/fi';
 import { Check, ChevronRight } from 'lucide-react';
@@ -303,8 +303,8 @@ const dots = [
   { t: '60%', l: '77%' },
 ];
 
-  const enterDelays = dots.map(() => Math.random() * 0.8);
-  const exitDelays = dots.map(() => Math.random() * 0.8);
+const enterDelays = dots.map(() => Math.random() * 0.8);
+const exitDelays = dots.map(() => Math.random() * 0.8);
 
 function Card4() {
   const [hovered, setHovered] = useState(false);
@@ -573,7 +573,7 @@ const BentoGrid15 = () => {
           className="col-span-12 md:col-span-6"
         >
           <Card className="group flex h-full min-h-[320px] w-full flex-col justify-between rounded-none border border-white/5 bg-neutral-900 p-0 shadow-none ring-0">
-            <CardContent className="flex flex-1 items-center justify-center gap-6 p-6 ">
+            <CardContent className="flex flex-1 items-center justify-center gap-6 p-6">
               {LOGOS.map((Logo, i) => (
                 <Logo
                   key={i}

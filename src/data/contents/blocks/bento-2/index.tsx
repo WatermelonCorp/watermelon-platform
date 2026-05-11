@@ -1,51 +1,50 @@
-"use client";
+'use client';
 
-import React from "react";
-import { AnimatePresence, motion } from "motion/react";
-import NumberFlow from "@number-flow/react";
+import React from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import NumberFlow from '@number-flow/react';
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/base-ui/card";
+} from '@/components/base-ui/card';
 
-const GLOBE_PHRASES = ["Find House", "Performance Market", "Handle Traffic"];
+const GLOBE_PHRASES = ['Find House', 'Performance Market', 'Handle Traffic'];
 
 const Bento2 = () => {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[#090909] p-3 sm:p-4 md:p-6 font-['Inter',sans-serif] overflow-x-hidden">
-
-      <div className="w-full max-w-350 flex flex-col lg:flex-row items-start justify-start gap-4 sm:gap-6 p-3 sm:p-6 md:p-8 lg:p-10">
-        <div className="flex flex-col gap-6 w-full max-w-none lg:max-w-189.75 lg:flex-1">
+    <div className="flex min-h-screen w-full items-center justify-center overflow-x-hidden bg-[#090909] p-3 font-['Inter',sans-serif] sm:p-4 md:p-6">
+      <div className="flex w-full max-w-350 flex-col items-start justify-start gap-4 p-3 sm:gap-6 sm:p-6 md:p-8 lg:flex-row lg:p-10">
+        <div className="flex w-full max-w-none flex-col gap-6 lg:max-w-189.75 lg:flex-1">
           {/* Bento-1 */}
-          <Card className="w-full min-h-90 sm:min-h-105 lg:h-112.75 bg-[#202020] rounded-4xl p-5 sm:p-8 flex flex-col justify-between overflow-hidden">
+          <Card className="flex min-h-90 w-full flex-col justify-between overflow-hidden rounded-4xl bg-[#202020] p-5 sm:min-h-105 sm:p-8 lg:h-112.75">
             <CardHeader className="w-full px-0 pt-0">
-              <CardTitle className="text-2xl sm:text-3xl font-semibold bg-clip-text text-transparent bg-linear-to-r from-[#FFFFFF] to-[#5B5959] mb-3 sm:mb-4 leading-tight">
+              <CardTitle className="mb-3 bg-linear-to-r from-[#FFFFFF] to-[#5B5959] bg-clip-text text-2xl leading-tight font-semibold text-transparent sm:mb-4 sm:text-3xl">
                 A World of Properties Awaits
               </CardTitle>
-              <CardDescription className="text-base sm:text-lg lg:text-xl font-thin text-white/50 leading-6 sm:leading-7">
+              <CardDescription className="text-base leading-6 font-thin text-white/50 sm:text-lg sm:leading-7 lg:text-xl">
                 Utilize our dynamic platform to showcase your property in
                 stunning detail or dive into a curated marketplace. Every
                 listing is an opportunity waiting to be explored.
               </CardDescription>
             </CardHeader>
-            <CardContent className="w-full h-full min-h-45 sm:min-h-55 flex items-center justify-center relative overflow-visible px-0">
+            <CardContent className="relative flex h-full min-h-45 w-full items-center justify-center overflow-visible px-0 sm:min-h-55">
               <Transforming />
             </CardContent>
           </Card>
 
           {/* Bento-2 */}
-          <Card className="w-full min-h-73 bg-[#202020] rounded-4xl flex flex-col sm:flex-row items-center justify-between p-5 sm:p-8 gap-5 sm:gap-6 overflow-hidden">
-            <CardContent className="w-full h-full flex items-center justify-center sm:justify-start scale-95 sm:scale-100 origin-center pl-6 px-0">
+          <Card className="flex min-h-73 w-full flex-col items-center justify-between gap-5 overflow-hidden rounded-4xl bg-[#202020] p-5 sm:flex-row sm:gap-6 sm:p-8">
+            <CardContent className="flex h-full w-full origin-center scale-95 items-center justify-center px-0 pl-6 sm:scale-100 sm:justify-start">
               <Globe />
             </CardContent>
             <CardHeader className="w-full px-0">
-              <CardTitle className="text-2xl sm:text-3xl font-semibold bg-clip-text text-transparent bg-linear-to-r from-[#FFFFFF] to-[#5B5959] mb-3 sm:mb-4 leading-tight text-center sm:text-left">
+              <CardTitle className="mb-3 bg-linear-to-r from-[#FFFFFF] to-[#5B5959] bg-clip-text text-center text-2xl leading-tight font-semibold text-transparent sm:mb-4 sm:text-left sm:text-3xl">
                 Marketplace Synergy
               </CardTitle>
-              <CardDescription className="text-base sm:text-lg lg:text-xl font-thin text-white/50 tracking-tight leading-6 sm:leading-7 text-center sm:text-left">
+              <CardDescription className="text-center text-base leading-6 font-thin tracking-tight text-white/50 sm:text-left sm:text-lg sm:leading-7 lg:text-xl">
                 Experience a frictionless journey from property management to
                 monetization.
               </CardDescription>
@@ -53,17 +52,17 @@ const Bento2 = () => {
           </Card>
         </div>
 
-        <div className="flex flex-col gap-6 w-full max-w-none lg:max-w-142.25">
+        <div className="flex w-full max-w-none flex-col gap-6 lg:max-w-142.25">
           {/* Bento-3 */}
-          <Card className="w-full min-h-73 bg-[#202020] rounded-4xl flex flex-col sm:flex-row items-center justify-between px-5 sm:px-8 py-5 sm:py-0 gap-5 sm:gap-6 overflow-hidden">
-            <CardContent className="h-full flex items-center justify-center mt-6 md:mt-0 relative scale-90 sm:scale-100 origin-center px-0">
+          <Card className="flex min-h-73 w-full flex-col items-center justify-between gap-5 overflow-hidden rounded-4xl bg-[#202020] px-5 py-5 sm:flex-row sm:gap-6 sm:px-8 sm:py-0">
+            <CardContent className="relative mt-6 flex h-full origin-center scale-90 items-center justify-center px-0 sm:scale-100 md:mt-0">
               <Graph />
             </CardContent>
             <CardHeader className="w-full px-0">
-              <CardTitle className="text-2xl sm:text-3xl font-semibold bg-clip-text text-transparent bg-linear-to-r from-[#FFFFFF] to-[#5B5959] mb-3 sm:mb-4 leading-tight text-center sm:text-left">
+              <CardTitle className="mb-3 bg-linear-to-r from-[#FFFFFF] to-[#5B5959] bg-clip-text text-center text-2xl leading-tight font-semibold text-transparent sm:mb-4 sm:text-left sm:text-3xl">
                 Advanced Analytics
               </CardTitle>
-              <CardDescription className="text-base sm:text-lg lg:text-xl font-thin text-white/50 leading-6 sm:leading-7 text-center sm:text-left">
+              <CardDescription className="text-center text-base leading-6 font-thin text-white/50 sm:text-left sm:text-lg sm:leading-7 lg:text-xl">
                 Stop reacting and start strategizing. Our predictive analytics
                 help you identify growth
               </CardDescription>
@@ -71,15 +70,15 @@ const Bento2 = () => {
           </Card>
 
           {/* Bento-4 */}
-          <Card className="w-full min-h-90 sm:min-h-105 lg:h-112.75 bg-[#202020] rounded-4xl p-5 sm:p-8 flex flex-col justify-between overflow-hidden">
-            <CardContent className="flex items-center justify-center relative min-h-45 sm:min-h-55 overflow-visible scale-90 sm:scale-100 origin-center px-0">
+          <Card className="flex min-h-90 w-full flex-col justify-between overflow-hidden rounded-4xl bg-[#202020] p-5 sm:min-h-105 sm:p-8 lg:h-112.75">
+            <CardContent className="relative flex min-h-45 origin-center scale-90 items-center justify-center overflow-visible px-0 sm:min-h-55 sm:scale-100">
               <Tools />
             </CardContent>
             <CardHeader className="w-full px-0">
-              <CardTitle className="text-2xl sm:text-3xl font-semibold bg-clip-text text-transparent bg-linear-to-r from-[#FFFFFF] to-[#5B5959] mb-3 sm:mb-4 leading-tight">
+              <CardTitle className="mb-3 bg-linear-to-r from-[#FFFFFF] to-[#5B5959] bg-clip-text text-2xl leading-tight font-semibold text-transparent sm:mb-4 sm:text-3xl">
                 Integrated Management Tools
               </CardTitle>
-              <CardDescription className="text-base sm:text-lg lg:text-xl font-thin text-white/50 leading-6 sm:leading-7">
+              <CardDescription className="text-base leading-6 font-thin text-white/50 sm:text-lg sm:leading-7 lg:text-xl">
                 Our comprehensive toolkit simplifies the complexities of
                 property ownership, automating routine tasks so you can focus on
                 growth
@@ -102,7 +101,7 @@ const Transforming = () => {
       viewBox="0 0 733 339"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute left-1/2 -translate-x-1/2 -top-20 md:-top-16 w-[145%] sm:w-[135%] md:w-[120%] lg:w-183.25"
+      className="absolute -top-20 left-1/2 w-[145%] -translate-x-1/2 sm:w-[135%] md:-top-16 md:w-[120%] lg:w-183.25"
     >
       <g opacity="0.44" filter="url(#filter0_f_4_1972)">
         <circle cx="368.441" cy="188" r="88" fill="#FD3D84" />
@@ -184,7 +183,7 @@ const Transforming = () => {
         animate={{ x: [-56, 56], opacity: [0, 1, 1, 0] }}
         transition={{
           duration: 3.4,
-          ease: "linear",
+          ease: 'linear',
           repeat: Infinity,
           times: [0, 0.16, 0.95, 1],
         }}
@@ -544,7 +543,7 @@ const Transforming = () => {
 };
 
 const BARS = [
-  { height: 70,  value: 0.9 },
+  { height: 70, value: 0.9 },
   { height: 107, value: 1.4 },
   { height: 160, value: 2.0 },
   { height: 125, value: 1.6 },
@@ -575,63 +574,70 @@ const Graph = () => {
   return (
     <div
       className="relative"
-      style={{ width: TOTAL_W, height: MAX_H, overflow: "visible" }}
+      style={{ width: TOTAL_W, height: MAX_H, overflow: 'visible' }}
     >
       {/* Bars */}
       {BARS.map((bar, i) => (
         <div
           key={i}
-          className="absolute bottom-0 rounded-full overflow-hidden"
+          className="absolute bottom-0 overflow-hidden rounded-full"
           style={{ left: barLeft(i), width: BAR_W, height: bar.height }}
         >
           {/* Gray base */}
           <div
             className="absolute inset-0 rounded-full"
             style={{
-              background: "linear-gradient(to right, #4C4C4C, #252525)",
+              background: 'linear-gradient(to right, #4C4C4C, #252525)',
               opacity: 1,
             }}
           />
           {/* Pink overlay */}
           <motion.div
             className="absolute inset-0 rounded-full"
-            style={{ background: "linear-gradient(to bottom, #F2689C, #FA0B65)" }}
+            style={{
+              background: 'linear-gradient(to bottom, #F2689C, #FA0B65)',
+            }}
             animate={{ opacity: activeBar === i ? 1 : 0 }}
-            transition={{ duration: 0.45, ease: "easeInOut" }}
+            transition={{ duration: 0.45, ease: 'easeInOut' }}
           />
         </div>
       ))}
 
       {/* Static centered glow */}
       <div
-        className="absolute pointer-events-none"
+        className="pointer-events-none absolute"
         style={{
           left: (TOTAL_W - (BAR_W + 20)) / 2,
           top: -10,
           width: BAR_W + 20,
           height: 80,
-          background: "#FD3D84",
-          filter: "blur(50px)",
+          background: '#FD3D84',
+          filter: 'blur(50px)',
         }}
       />
 
       {/* Ticker */}
       <motion.div
-        className="absolute flex flex-col items-center pointer-events-none"
+        className="pointer-events-none absolute flex flex-col items-center"
         style={{ width: TICKER_W }}
         animate={{ left: tickerLeft, bottom: tickerBottom }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
       >
         {/* Badge */}
         <div
           className="flex items-center justify-center rounded-xl font-bold text-white"
-          style={{ width: TICKER_W, height: 32, background: "#FD3D84", fontSize: 14 }}
+          style={{
+            width: TICKER_W,
+            height: 32,
+            background: '#FD3D84',
+            fontSize: 14,
+          }}
         >
           <NumberFlow
             value={BARS[activeBar].value}
             format={{ maximumFractionDigits: 1 }}
             suffix="k"
-            style={{ color: "white", fontWeight: 700, fontSize: 14 }}
+            style={{ color: 'white', fontWeight: 700, fontSize: 14 }}
           />
         </div>
         {/* Downward triangle pointer */}
@@ -639,9 +645,9 @@ const Graph = () => {
           style={{
             width: 0,
             height: 0,
-            borderLeft: "7px solid transparent",
-            borderRight: "7px solid transparent",
-            borderTop: "8px solid #FD3D84",
+            borderLeft: '7px solid transparent',
+            borderRight: '7px solid transparent',
+            borderTop: '8px solid #FD3D84',
           }}
         />
       </motion.div>
@@ -654,19 +660,19 @@ const Globe = () => {
   const [activePhrase, setActivePhrase] = React.useState(0);
 
   const [phraseWidths, setPhraseWidths] = React.useState(() =>
-    GLOBE_PHRASES.map(() => basePillWidth)
+    GLOBE_PHRASES.map(() => basePillWidth),
   );
 
   React.useEffect(() => {
-    if (typeof document === "undefined") return;
+    if (typeof document === 'undefined') return;
 
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    ctx.font = "700 15px Inter, sans-serif";
+    ctx.font = '700 15px Inter, sans-serif';
     const measuredWidths = GLOBE_PHRASES.map((phrase) =>
-      Math.max(90, Math.ceil(ctx.measureText(phrase).width) + 34)
+      Math.max(90, Math.ceil(ctx.measureText(phrase).width) + 34),
     );
 
     setPhraseWidths(measuredWidths);
@@ -690,14 +696,14 @@ const Globe = () => {
       viewBox="0 0 258 226"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-40 sm:w-50 md:w-64.5 h-auto"
-      style={{ overflow: "visible" }}
+      className="h-auto w-40 sm:w-50 md:w-64.5"
+      style={{ overflow: 'visible' }}
     >
       <motion.g
         filter="url(#filter0_f_667_17)"
         animate={{ scale: [0.98, 1.04, 0.98], opacity: [0.4, 0.55, 0.4] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformOrigin: "133px 109px" }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ transformOrigin: '133px 109px' }}
       >
         <g filter="url(#filter1_d_667_17)">
           <circle cx="133" cy="108.9" r="93.5" fill="#1F1F1F" />
@@ -710,8 +716,8 @@ const Globe = () => {
       <motion.g
         filter="url(#filter2_i_667_17)"
         animate={{ y: [0, -3, 0], rotate: [0, 1.2, 0, -1.2, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformOrigin: "133px 109px" }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ transformOrigin: '133px 109px' }}
       >
         <g filter="url(#filter3_d_667_17)">
           <circle
@@ -732,8 +738,8 @@ const Globe = () => {
       <motion.g
         filter="url(#filter4_ii_667_17)"
         animate={{ y: [0, -2, 0], scale: [1, 1.02, 1] }}
-        transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformOrigin: "59.5px 57px" }}
+        transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ transformOrigin: '59.5px 57px' }}
       >
         <motion.rect
           y="36.9004"
@@ -741,40 +747,40 @@ const Globe = () => {
           rx="20.5"
           fill="#FD3D84"
           animate={{ x: currentPillX, width: currentPillWidth }}
-          transition={{ duration: 0.45, ease: "easeInOut" }}
+          transition={{ duration: 0.45, ease: 'easeInOut' }}
         />
         <motion.foreignObject
           x="0"
           y="36.9004"
           height="41"
           animate={{ x: currentPillX, width: currentPillWidth }}
-          transition={{ duration: 0.45, ease: "easeInOut" }}
+          transition={{ duration: 0.45, ease: 'easeInOut' }}
         >
           <div
             style={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "15px",
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '15px',
               fontWeight: 700,
-              color: "white",
-              letterSpacing: "0.01em",
-              fontFamily: "Inter, sans-serif",
-              pointerEvents: "none",
-              userSelect: "none",
-              overflow: "hidden",
+              color: 'white',
+              letterSpacing: '0.01em',
+              fontFamily: 'Inter, sans-serif',
+              pointerEvents: 'none',
+              userSelect: 'none',
+              overflow: 'hidden',
             }}
           >
             <AnimatePresence mode="wait">
               <motion.p
                 key={GLOBE_PHRASES[activePhrase]}
-                initial={{ opacity: 0, filter: "blur(8px)" }}
-                animate={{ opacity: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, filter: "blur(8px)" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                style={{ margin: 0, lineHeight: 1, whiteSpace: "nowrap" }}
+                initial={{ opacity: 0, filter: 'blur(8px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, filter: 'blur(8px)' }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                style={{ margin: 0, lineHeight: 1, whiteSpace: 'nowrap' }}
               >
                 {GLOBE_PHRASES[activePhrase]}
               </motion.p>
@@ -785,28 +791,43 @@ const Globe = () => {
       <motion.g
         filter="url(#filter5_i_667_17)"
         animate={{ y: [0, -6, 0], x: [0, -2, 0] }}
-        transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
       >
         <circle cx="245" cy="162.9" r="13" fill="#F44386" />
       </motion.g>
       <motion.g
         filter="url(#filter6_i_667_17)"
         animate={{ y: [0, 4, 0], x: [0, 1.5, 0] }}
-        transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+        transition={{
+          duration: 2.8,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 0.4,
+        }}
       >
         <circle cx="10.5" cy="142.4" r="7.5" fill="#F44386" />
       </motion.g>
       <motion.g
         filter="url(#filter7_i_667_17)"
         animate={{ y: [0, -3, 0] }}
-        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+        transition={{
+          duration: 2.4,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 0.2,
+        }}
       >
         <circle cx="104.5" cy="102.4" r="4.5" fill="#F44386" />
       </motion.g>
       <motion.g
         filter="url(#filter8_i_667_17)"
         animate={{ y: [0, -5, 0], x: [0, 1, 0] }}
-        transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+        transition={{
+          duration: 3.6,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 0.6,
+        }}
       >
         <circle cx="197.5" cy="32.4004" r="4.5" fill="#F44386" />
       </motion.g>
@@ -1148,8 +1169,8 @@ const Tools = () => {
       viewBox="0 0 430 360"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute left-1/2 -translate-x-1/2 -top-16 sm:-top-8 md:-top-12 w-[105%] sm:w-full md:w-[95%] max-w-107.5 overflow-visible"
-      style={{ overflow: "visible" }}
+      className="absolute -top-16 left-1/2 w-[105%] max-w-107.5 -translate-x-1/2 overflow-visible sm:-top-8 sm:w-full md:-top-12 md:w-[95%]"
+      style={{ overflow: 'visible' }}
     >
       <g opacity="0.44" filter="url(#filter0_f_4_2045)">
         <circle cx="208" cy="160" r="100" fill="#FD3D84" />
@@ -1170,7 +1191,7 @@ const Tools = () => {
       <motion.g
         filter="url(#filter4_i_4_2045)"
         animate={{ x: profileX, y: profileY }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       >
         <circle cx="35.5" cy="190.5" r="35.5" fill="#232323" />
         <circle
@@ -1190,7 +1211,7 @@ const Tools = () => {
         transition={{
           duration: 8.5,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
           delay: 0.6,
         }}
       >

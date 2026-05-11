@@ -9,7 +9,17 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const BentoCard = ({ children, className, title, description }: { children?: React.ReactNode; className?: string; title: string; description: string }) => (
+const BentoCard = ({
+  children,
+  className,
+  title,
+  description,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+  title: string;
+  description: string;
+}) => (
   <Card
     className={cn(
       'group relative min-h-[340px] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-white/5 p-0',
@@ -20,7 +30,7 @@ const BentoCard = ({ children, className, title, description }: { children?: Rea
       {children}
     </CardContent>
 
-    <CardFooter className="z-10 flex flex-col items-center justify-center gap-2 pb-4 text-center bg-transparent border-none">
+    <CardFooter className="z-10 flex flex-col items-center justify-center gap-2 border-none bg-transparent pb-4 text-center">
       <h3 className="mx-auto line-clamp-2 text-center text-3xl leading-tight font-medium tracking-tight text-neutral-200">
         {title}
       </h3>
@@ -229,7 +239,7 @@ const BentoSource = () => {
         </div>
       </CardContent>
 
-      <CardFooter className="z-10 flex flex-col items-center justify-center gap-2 pb-4 text-center bg-transparent border-none">
+      <CardFooter className="z-10 flex flex-col items-center justify-center gap-2 border-none bg-transparent pb-4 text-center">
         <h3 className="mx-auto line-clamp-2 text-center text-3xl leading-tight font-medium tracking-tight text-neutral-200">
           Become the Source
         </h3>

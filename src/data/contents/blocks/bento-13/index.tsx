@@ -388,9 +388,9 @@ const trophyVariants: Variants = {
     rotate: [0, -12, 12, -10, 10, -6, 6, 0],
     scale: 1.15,
     transition: {
-      scale:{
-        duration:0.2,
-        ease: 'easeInOut'
+      scale: {
+        duration: 0.2,
+        ease: 'easeInOut',
       },
       duration: 0.7,
       ease: 'easeInOut',
@@ -466,24 +466,19 @@ const BentoGrid13 = () => {
   const [value, setValue] = useState(0);
 
   const itemVariants = {
-    hidden: { },
-    visible: { },
-    
+    hidden: {},
+    visible: {},
   };
 
   const TrophyItemVariants = {
     hidden: {},
     visible: {},
-    hoveer: {}
+    hoveer: {},
   };
-
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] p-4 font-sans text-white md:p-8">
-      <motion.div
-        className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-6"
-       
-      >
+      <motion.div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-6">
         <FinancialWellnessCard />
 
         <InvestmentGrowthCard />
@@ -582,11 +577,11 @@ const BentoGrid13 = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           onViewportEnter={() => setValue(250)}
-          className="col-span-1 flex flex-col items-center relative justify-center gap-1 rounded-3xl border border-white/5 bg-[#1a1a1a] p-8 text-center md:col-span-2 "
+          className="relative col-span-1 flex flex-col items-center justify-center gap-1 rounded-3xl border border-white/5 bg-[#1a1a1a] p-8 text-center md:col-span-2"
         >
-          <FaLock className="absolute md:size-50 size-30 text-neutral-950 opacity-60" />
+          <FaLock className="absolute size-30 text-neutral-950 opacity-60 md:size-50" />
           <Card className="relative flex h-full w-full items-center justify-center gap-0 overflow-hidden rounded-none border-0 bg-transparent p-0 ring-0">
-            <CardContent className="flex w-full items-center  justify-center text-center borde border-red-500">
+            <CardContent className="borde flex w-full items-center justify-center border-red-500 text-center">
               <span className="flex text-center text-5xl font-bold text-indigo-400 tabular-nums md:text-7xl">
                 $
                 <AnimatedNumber

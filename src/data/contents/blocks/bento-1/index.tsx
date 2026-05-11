@@ -157,8 +157,8 @@ const Bento1 = () => {
                   transition={{ ease: 'easeInOut', duration: 0.4 }}
                   className="absolute top-0 z-10 flex h-fit w-full items-center gap-4 rounded-[2rem] border border-white/5 bg-[#151515] p-4"
                 >
-                  <div className="h-[70px] min-w-[90px] rounded-2xl bg-black shadow-inner shadow-white/5 flex items-center justify-center">
-                    <MdDeveloperMode className='size-6 md:size-9 text-[#FFDC17]' />
+                  <div className="flex h-[70px] min-w-[90px] items-center justify-center rounded-2xl bg-black shadow-inner shadow-white/5">
+                    <MdDeveloperMode className="size-6 text-[#FFDC17] md:size-9" />
                   </div>
                   <div className="mt-0.5 flex flex-col gap-1">
                     <div className="flex items-center gap-1.5">
@@ -196,7 +196,7 @@ const Bento1 = () => {
                   className="absolute top-7 z-20 flex h-fit w-full gap-4 rounded-[2rem] border border-white/5 bg-[#151515] p-4"
                 >
                   <div className="relative flex h-[70px] min-w-[90px] items-center justify-center rounded-2xl bg-black shadow-inner shadow-white/5">
-                    <MdDesignServices className="size-6 md:size-9 text-[#FFDC17]" />
+                    <MdDesignServices className="size-6 text-[#FFDC17] md:size-9" />
                   </div>
                   <div className="flex flex-col justify-center gap-1.5">
                     <div className="flex items-center gap-1.5">
@@ -346,19 +346,19 @@ const Bento1 = () => {
             className="relative mx-auto flex min-h-[200px] w-full max-w-[420px] cursor-pointer flex-col justify-end gap-0 overflow-hidden rounded-[2rem] bg-linear-to-b from-[#232323] to-[#121212] p-6 shadow-lg shadow-black/20 md:max-w-none md:p-8"
           >
             {/* CardHeader first on mobile, then circles below */}
-            <div className="flex flex-col sm:flex-row w-full">
-              <CardHeader className="relative z-10 w-full sm:w-[70%] px-0 order-1 sm:order-none">
+            <div className="flex w-full flex-col sm:flex-row">
+              <CardHeader className="relative z-10 order-1 w-full px-0 sm:order-none sm:w-[70%]">
                 <CardTitle className="mb-3 text-[1.4rem] leading-snug font-bold text-[#C5C5C5]">
                   WorkFlow
                   <br />
                   Management
                 </CardTitle>
-                <CardDescription className="max-w-full sm:max-w-[60%] text-sm font-semibold text-[#918F8C]">
+                <CardDescription className="max-w-full text-sm font-semibold text-[#918F8C] sm:max-w-[60%]">
                   Seamlessly manage all you existing apps.
                 </CardDescription>
               </CardHeader>
               {/* Circles below text on mobile, right on desktop */}
-              <div className="relative mt-4 sm:mt-0 sm:absolute sm:top-5 sm:-right-10 flex flex-col opacity-80 w-full sm:w-auto order-2 sm:order-none">
+              <div className="relative order-2 mt-4 flex w-full flex-col opacity-80 sm:absolute sm:top-5 sm:-right-10 sm:order-none sm:mt-0 sm:w-auto">
                 {circleRows.map((row, rowIdx) => (
                   <div
                     key={rowIdx}
@@ -375,7 +375,11 @@ const Bento1 = () => {
                             initial: { opacity: 1, filter: 'blur(0px)' },
                             hover: { opacity: 0, filter: 'blur(16px)' },
                           }}
-                          transition={{ duration: 0.35, delay, ease: 'easeOut' }}
+                          transition={{
+                            duration: 0.35,
+                            delay,
+                            ease: 'easeOut',
+                          }}
                         >
                           <From />
                         </motion.div>
@@ -385,7 +389,11 @@ const Bento1 = () => {
                             initial: { opacity: 0, filter: 'blur(16px)' },
                             hover: { opacity: 1, filter: 'blur(0px)' },
                           }}
-                          transition={{ duration: 0.35, delay, ease: 'easeOut' }}
+                          transition={{
+                            duration: 0.35,
+                            delay,
+                            ease: 'easeOut',
+                          }}
                         >
                           <To />
                         </motion.div>
@@ -403,19 +411,19 @@ const Bento1 = () => {
             whileHover="hover"
             className="group relative mx-auto flex min-h-[200px] w-full max-w-[420px] cursor-pointer flex-col justify-end gap-0 overflow-hidden rounded-[2rem] bg-linear-to-b from-[#232323] to-[#121212] p-6 shadow-lg shadow-black/20 md:max-w-none md:p-8"
           >
-            <div className="flex flex-col sm:flex-row w-full items-end sm:items-end">
-              <CardHeader className="relative z-10 w-full sm:w-[50%] px-0 order-1 sm:order-none">
+            <div className="flex w-full flex-col items-end sm:flex-row sm:items-end">
+              <CardHeader className="relative z-10 order-1 w-full px-0 sm:order-none sm:w-[50%]">
                 <CardTitle className="mb-3 text-[1.4rem] leading-snug font-bold text-[#C5C5C5]">
                   Team Collaboration
                   <br />
                   effortlessly
                 </CardTitle>
-                <CardDescription className="max-w-full sm:max-w-[70%] text-sm font-semibold text-[#918F8C]">
+                <CardDescription className="max-w-full text-sm font-semibold text-[#918F8C] sm:max-w-[70%]">
                   Seamless connection and collab with other teams
                 </CardDescription>
               </CardHeader>
-              {/* Overlapping Rings UI below text on mobile, right on desktop */}
-              <CardContent className="relative flex w-full justify-center items-center mb-8 sm:mb-0 mt-4 sm:mt-0 sm:absolute sm:top-[50%] sm:right-12 sm:-translate-y-[50%] sm:w-auto px-0 order-2 sm:order-none">
+              {/* Overlapping Rings base-ui below text on mobile, right on desktop */}
+              <CardContent className="relative order-2 mt-4 mb-8 flex w-full items-center justify-center px-0 sm:absolute sm:top-[50%] sm:right-12 sm:order-none sm:mt-0 sm:mb-0 sm:w-auto sm:-translate-y-[50%]">
                 {/* Ring 1 - Red */}
                 <div
                   className="relative z-4 size-18 rounded-full border-5 border-[#000000] bg-cover bg-center shadow-md shadow-black/40 outline-5 outline-[#BC2C2C]"

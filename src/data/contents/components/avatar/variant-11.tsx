@@ -12,9 +12,9 @@ type Profile = {
 };
 
 const profile: Profile = {
-  name: 'Noah Bennett',
-  avatar: 'https://i.pravatar.cc/160?img=52',
-  count: 5,
+  name: 'Olivia',
+  avatar: 'https://assets.watermelon.sh/wm_olivia.png',
+  count: 12,
 };
 
 const getInitials = (name: string) =>
@@ -26,11 +26,10 @@ const getInitials = (name: string) =>
 const Avatar11 = () => {
   return (
     <div className="relative w-fit">
-      <Avatar className="size-10 rounded-sm">
+      <Avatar className="size-10 rounded-full overflow-hidden">
         <AvatarImage
           src={profile.avatar}
           alt={profile.name}
-          className="rounded-sm"
         />
         <AvatarFallback className="text-xs">
           {getInitials(profile.name)}

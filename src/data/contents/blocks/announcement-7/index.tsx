@@ -1,11 +1,9 @@
 'use client';
 
-
 import { Button } from '@/components/base-ui/button';
 import { HiSparkles, HiXMark } from 'react-icons/hi2';
 
 export default function Announcement7() {
- 
   return (
     <div className="w-full">
       <div className="bg-muted px-4 py-3 text-sm shadow-sm">
@@ -25,7 +23,7 @@ export default function Announcement7() {
             </div>
           </div>
 
-          <div className="flex shrink-0 items-center sm:self-center self-start  gap-2">
+          <div className="flex shrink-0 items-center gap-2 self-start sm:self-center">
             <Button
               variant="default"
               className="flex items-center gap-2 rounded-lg"
@@ -37,7 +35,6 @@ export default function Announcement7() {
             <Button
               variant="ghost"
               className="text-muted-foreground flex items-center gap-2 rounded-lg"
-             
             >
               <HiXMark className="size-4" />
               Dismiss

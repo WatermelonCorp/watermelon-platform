@@ -1,12 +1,12 @@
-"use client";
-import type { RefObject } from "react";
-import React, { useEffect, useId, useRef, useState } from "react";
+'use client';
+import type { RefObject } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import {
   AnimatePresence,
   motion,
   useAnimationFrame,
   useMotionValue,
-} from "framer-motion";
+} from 'framer-motion';
 import {
   Play,
   Pause,
@@ -18,15 +18,15 @@ import {
   Speaker,
   SkipForward,
   SkipBack,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+} from 'lucide-react';
+import { cn } from '@/lib/utils';
 import {
   Card,
   CardTitle,
   CardDescription,
   CardContent,
   CardFooter,
-} from "@/components/base-ui/card";
+} from '@/components/base-ui/card';
 
 function Row({
   direction,
@@ -60,10 +60,10 @@ function Row({
         {[...items, ...items].map((_, i) => (
           <span
             key={i}
-            className="px-4 py-2 border bg-neutral-800 border-white/20 text-neutral-100 rounded-sm text-xs flex items-center gap-2"
+            className="flex items-center gap-2 rounded-sm border border-white/20 bg-neutral-800 px-4 py-2 text-xs text-neutral-100"
           >
             Sale on entire stock
-            <span className="text-orange-400 text-lg">✦</span>
+            <span className="text-lg text-orange-400">✦</span>
           </span>
         ))}
       </motion.div>
@@ -75,23 +75,25 @@ function MarqueeCard() {
 
   return (
     <Card
-      className="md:col-span-7 bg-neutral-900 rounded-md p-6 flex flex-col justify-end border border-white/5 relative overflow-hidden h-[340px] gap-0 ring-0 shadow-none"
+      className="relative flex h-[340px] flex-col justify-end gap-0 overflow-hidden rounded-md border border-white/5 bg-neutral-900 p-6 shadow-none ring-0 md:col-span-7"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <CardContent
-        className="absolute inset-0 opacity-20 pointer-events-none [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] p-0"
-        style={{ perspective: "1000px" }}
+        className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] p-0 opacity-20"
+        style={{ perspective: '1000px' }}
       >
-        <div className="flex flex-col gap-4 -rotate-12 skew-x-12 -translate-y-4 scale-125">
+        <div className="flex -translate-y-4 scale-125 -rotate-12 skew-x-12 flex-col gap-4">
           <Row direction={1} isHovered={isHovered} />
           <Row direction={-1} isHovered={isHovered} />
           <Row direction={1} isHovered={isHovered} />
         </div>
       </CardContent>
-      <CardFooter className="z-10 relative p-6 flex-col bg-transparent border-none">
-        <CardTitle className="text-neutral-100 text-sm font-semibold mb-2">Tailored Precision</CardTitle>
-        <CardDescription className="text-md leading-relaxed text-neutral-400 max-w-[90%]">
+      <CardFooter className="relative z-10 flex-col border-none bg-transparent p-6">
+        <CardTitle className="mb-2 text-sm font-semibold text-neutral-100">
+          Tailored Precision
+        </CardTitle>
+        <CardDescription className="text-md max-w-[90%] leading-relaxed text-neutral-400">
           Chime offers tailored precision and intelligent insights, adeptly
           managing diverse sophisticated contextual understanding.
         </CardDescription>
@@ -111,7 +113,7 @@ function UploadCard() {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: "easeInOut" as const,
+        ease: 'easeInOut' as const,
       },
     },
   };
@@ -123,61 +125,61 @@ function UploadCard() {
       animate="rest"
       className="md:col-span-5"
     >
-      <Card
-        className="bg-neutral-900 rounded-md flex flex-col justify-between border border-white/5 relative overflow-hidden h-[340px] p-0 gap-0 ring-0 shadow-none"
-      >
-      <CardContent className="flex-1 relative flex items-center justify-center w-full h-full p-0">
-        <div className="flex justify-center items-center w-full h-full overflow-hidden relative pt-8 z-0 [mask-image:linear-gradient(to_bottom,black,transparent)]">
-          <div className="absolute bg-white/10 size-80 top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl" />
+      <Card className="relative flex h-[340px] flex-col justify-between gap-0 overflow-hidden rounded-md border border-white/5 bg-neutral-900 p-0 shadow-none ring-0">
+        <CardContent className="relative flex h-full w-full flex-1 items-center justify-center p-0">
+          <div className="relative z-0 flex h-full w-full items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black,transparent)] pt-8">
+            <div className="absolute top-0 left-1/2 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
 
-          <div
-            className="absolute inset-0 opacity-40"
-            style={{
-              backgroundImage:
-                "linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-              maskImage: "linear-gradient(to bottom, black, transparent)",
-            }}
-          />
+            <div
+              className="absolute inset-0 opacity-40"
+              style={{
+                backgroundImage:
+                  'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)',
+                backgroundSize: '40px 40px',
+                maskImage: 'linear-gradient(to bottom, black, transparent)',
+              }}
+            />
 
-          <div className="w-[250px] z-10 h-full shadow-3xl bg-neutral-600 flex items-center justify-center pt-3 px-3 rounded-t-[40px]">
-            <div className="bg-neutral-500 flex-1 h-full shadow-3xl pt-3 px-3 rounded-t-[28px]">
-              <div className="bg-neutral-900 flex-1 h-full rounded-t-[16px]" />
+            <div className="shadow-3xl z-10 flex h-full w-[250px] items-center justify-center rounded-t-[40px] bg-neutral-600 px-3 pt-3">
+              <div className="shadow-3xl h-full flex-1 rounded-t-[28px] bg-neutral-500 px-3 pt-3">
+                <div className="h-full flex-1 rounded-t-[16px] bg-neutral-900" />
+              </div>
             </div>
           </div>
-        </div>
 
-            <img 
-              src="https://assets.watermelon.sh/Download%20From%20Cloud.svg"
-              alt="Upload Icon"
-              className="w-12 h-12 mb-2 opacity-80 absolute left-1/2 top-38 -translate-x-1/2 z-10 pointer-events-none"
-            />
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center">
-          <span className="text-md text-neutral-500 tracking-wide">
-            Add your file
-          </span>
+          <img
+            src="https://assets.watermelon.sh/Download%20From%20Cloud.svg"
+            alt="Upload Icon"
+            className="pointer-events-none absolute top-38 left-1/2 z-10 mb-2 h-12 w-12 -translate-x-1/2 opacity-80"
+          />
+          <div className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center justify-center">
+            <span className="text-md tracking-wide text-neutral-500">
+              Add your file
+            </span>
 
-          <motion.div
-            variants={dragVariants}
-            transition={{
-              duration: 0.45,
-              ease: [0.65, 0, 0.35, 1],
-            }}
-            className="absolute flex items-center"
-          >
-            <div className="relative flex items-center bg-blue-600 text-white text-md px-3 py-1 rounded-full shadow-lg shadow-blue-600/20 cursor-grabbing ">
-              my_file.mp3
-            </div>
-          </motion.div>
-        </div>
-      </CardContent>
-      <CardFooter className="text-md text-neutral-400 leading-relaxed p-6 w-full flex-col items-start bg-transparent border-none">
-        <CardTitle className="text-neutral-100 text-sm font-semibold mb-2">Add Your File</CardTitle>
-        <CardDescription className="text-left w-full text-xs">
-          Powerful capabilities, simplified. Our advanced features are integrated
-          with remarkably easy and seamless to master.
-        </CardDescription>
-      </CardFooter>
+            <motion.div
+              variants={dragVariants}
+              transition={{
+                duration: 0.45,
+                ease: [0.65, 0, 0.35, 1],
+              }}
+              className="absolute flex items-center"
+            >
+              <div className="text-md relative flex cursor-grabbing items-center rounded-full bg-blue-600 px-3 py-1 text-white shadow-lg shadow-blue-600/20">
+                my_file.mp3
+              </div>
+            </motion.div>
+          </div>
+        </CardContent>
+        <CardFooter className="text-md w-full flex-col items-start border-none bg-transparent p-6 leading-relaxed text-neutral-400">
+          <CardTitle className="mb-2 text-sm font-semibold text-neutral-100">
+            Add Your File
+          </CardTitle>
+          <CardDescription className="w-full text-left text-xs">
+            Powerful capabilities, simplified. Our advanced features are
+            integrated with remarkably easy and seamless to master.
+          </CardDescription>
+        </CardFooter>
       </Card>
     </motion.div>
   );
@@ -212,32 +214,32 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   reverse = false,
   duration = Math.random() * 3 + 4,
   delay = 0,
-  pathColor = "gray",
+  pathColor = 'gray',
   pathWidth = 2,
   pathOpacity = 0.2,
-  gradientStartColor = "#ffaa40",
-  gradientStopColor = "#9c40ff",
+  gradientStartColor = '#ffaa40',
+  gradientStopColor = '#9c40ff',
   startXOffset = 0,
   startYOffset = 0,
   endXOffset = 0,
   endYOffset = 0,
 }) => {
   const id = useId();
-  const [pathD, setPathD] = useState("");
+  const [pathD, setPathD] = useState('');
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
 
   const gradientCoordinates = reverse
     ? {
-        x1: ["90%", "-10%"],
-        x2: ["100%", "0%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
+        x1: ['90%', '-10%'],
+        x2: ['100%', '0%'],
+        y1: ['0%', '0%'],
+        y2: ['0%', '0%'],
       }
     : {
-        x1: ["10%", "110%"],
-        x2: ["0%", "100%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
+        x1: ['10%', '110%'],
+        x2: ['0%', '100%'],
+        y1: ['0%', '0%'],
+        y2: ['0%', '0%'],
       };
 
   useEffect(() => {
@@ -299,8 +301,8 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       height={svgDimensions.height}
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        "pointer-events-none absolute top-0 left-0 transform-gpu stroke-2",
-        className
+        'pointer-events-none absolute top-0 left-0 transform-gpu stroke-2',
+        className,
       )}
       viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
     >
@@ -322,12 +324,12 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         <motion.linearGradient
           className="transform-gpu"
           id={id}
-          gradientUnits={"userSpaceOnUse"}
+          gradientUnits={'userSpaceOnUse'}
           initial={{
-            x1: "0%",
-            x2: "0%",
-            y1: "0%",
-            y2: "0%",
+            x1: '0%',
+            x2: '0%',
+            y1: '0%',
+            y2: '0%',
           }}
           animate={{
             x1: gradientCoordinates.x1,
@@ -363,52 +365,52 @@ function Card2() {
   const speakerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   return (
-    <Card className="md:col-span-5 bg-neutral-900 rounded-md p-0 flex flex-col justify-between border border-white/5 relative overflow-hidden min-h-[340px] gap-0 ring-0 shadow-none">
-      <CardContent className="flex-1 flex justify-center items-center h-full w-full relative p-0">
+    <Card className="relative flex min-h-[340px] flex-col justify-between gap-0 overflow-hidden rounded-md border border-white/5 bg-neutral-900 p-0 shadow-none ring-0 md:col-span-5">
+      <CardContent className="relative flex h-full w-full flex-1 items-center justify-center p-0">
         <div
           ref={containerRef}
-          className="flex items-center gap-12 relative z-10"
+          className="relative z-10 flex items-center gap-12"
         >
           <div
             ref={speakerRef}
-            className="p-4 bg-neutral-800 rounded-full z-20"
+            className="z-20 rounded-full bg-neutral-800 p-4"
           >
-            <Speaker className="size-10 opacity-60 text-neutral-400" />
+            <Speaker className="size-10 text-neutral-400 opacity-60" />
           </div>
 
           <div
             ref={rippleRef}
-            className="relative w-16 h-16 flex items-center justify-center z-20"
+            className="relative z-20 flex h-16 w-16 items-center justify-center"
           >
             <motion.div
-              animate={{ 
+              animate={{
                 scale: [1, 1.5, 2],
-                opacity: [0.5, 0.2, 0]
+                opacity: [0.5, 0.2, 0],
               }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: "easeOut"
+                ease: 'easeOut',
               }}
-              className="absolute w-16 h-16 rounded-full border border-white/50"
+              className="absolute h-16 w-16 rounded-full border border-white/50"
             />
 
-            <div className="w-16 h-16 bg-[#333] rounded-full flex items-center justify-center border border-white/10">
-              <div className="w-10 h-10 bg-[#444] rounded-full flex items-center justify-center" >
-                <img 
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-[#333]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#444]">
+                <img
                   src="https://assets.watermelon.sh/Music.png"
                   alt="Audio Waveform"
-                  className="w-6 h-6 opacity-80"
+                  className="h-6 w-6 opacity-80"
                 />
-                </div>
+              </div>
             </div>
           </div>
 
           <div
             ref={moniterRef}
-            className="p-4 bg-neutral-800 rounded-full z-20"
+            className="z-20 rounded-full bg-neutral-800 p-4"
           >
-            <Monitor className="size-10 opacity-60 text-neutral-400" />
+            <Monitor className="size-10 text-neutral-400 opacity-60" />
           </div>
           <AnimatedBeam
             containerRef={containerRef}
@@ -435,9 +437,11 @@ function Card2() {
         </div>
       </CardContent>
 
-      <CardFooter className="text-md text-neutral-400 leading-relaxed p-6 flex-col items-start bg-transparent border-none">
-        <CardTitle className="text-neutral-100 text-sm font-semibold mb-2">Connected Hub</CardTitle>
-        <CardDescription className="text-left w-full text-xs">
+      <CardFooter className="text-md flex-col items-start border-none bg-transparent p-6 leading-relaxed text-neutral-400">
+        <CardTitle className="mb-2 text-sm font-semibold text-neutral-100">
+          Connected Hub
+        </CardTitle>
+        <CardDescription className="w-full text-left text-xs">
           A dedicated platform engineered to empower your creative vision, and
           global distribution.
         </CardDescription>
@@ -449,23 +453,23 @@ function Card2() {
 const tracks = [
   {
     id: 1,
-    title: "Midnight Dreams",
-    artist: "Luna Waves",
-    cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=300",
+    title: 'Midnight Dreams',
+    artist: 'Luna Waves',
+    cover: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=300',
     duration: 101,
   },
   {
     id: 2,
-    title: "Ocean Lights",
-    artist: "Aurora Sky",
-    cover: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=300",
+    title: 'Ocean Lights',
+    artist: 'Aurora Sky',
+    cover: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=300',
     duration: 124,
   },
   {
     id: 3,
-    title: "Neon Streets",
-    artist: "Pulse City",
-    cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300",
+    title: 'Neon Streets',
+    artist: 'Pulse City',
+    cover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300',
     duration: 95,
   },
 ];
@@ -473,13 +477,13 @@ const tracks = [
 function formatTime(t: number) {
   const m = Math.floor(t / 60);
   const s = Math.floor(t % 60);
-  return `${m}:${s.toString().padStart(2, "0")}`;
+  return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
 const barVariants = {
-  initial: { y: -60, opacity: 0, scale: 0, filter: "blur(4px)" },
-  animate: { y: 16, opacity: 1, scale: 1, filter: "blur(0px)" },
-  exit: { y: -60, opacity: 0, scale: 0, filter: "blur(4px)" },
+  initial: { y: -60, opacity: 0, scale: 0, filter: 'blur(4px)' },
+  animate: { y: 16, opacity: 1, scale: 1, filter: 'blur(0px)' },
+  exit: { y: -60, opacity: 0, scale: 0, filter: 'blur(4px)' },
 };
 
 const songVariants = {
@@ -487,14 +491,14 @@ const songVariants = {
     x: dir > 0 ? 180 : -180,
     opacity: 0,
     scale: 0.75,
-    filter: "blur(4px)",
+    filter: 'blur(4px)',
   }),
-  center: { x: 0, opacity: 1, scale: 1, filter: "blur(0px)" },
+  center: { x: 0, opacity: 1, scale: 1, filter: 'blur(0px)' },
   exit: (dir: number) => ({
     x: dir > 0 ? -180 : 180,
     opacity: 0,
     scale: 0.75,
-    filter: "blur(4px)",
+    filter: 'blur(4px)',
   }),
 };
 
@@ -573,7 +577,7 @@ function PlayerCard() {
         setHover(false);
         setPlaying(false);
       }}
-      className="md:col-span-7 relative bg-neutral-900 rounded-md flex flex-col justify-between border border-white/5 overflow-hidden h-[340px] p-0 gap-0 ring-0 shadow-none"
+      className="relative flex h-[340px] flex-col justify-between gap-0 overflow-hidden rounded-md border border-white/5 bg-neutral-900 p-0 shadow-none ring-0 md:col-span-7"
     >
       <AnimatePresence>
         {hover && (
@@ -584,9 +588,9 @@ function PlayerCard() {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.35 }}
-            className="absolute top-0 left-1/2 -translate-x-1/2 z-20"
+            className="absolute top-0 left-1/2 z-20 -translate-x-1/2"
           >
-            <div className="bg-neutral-800/90 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 shadow-xl overflow-hidden w-[220px]">
+            <div className="w-[220px] overflow-hidden rounded-xl border border-white/10 bg-neutral-800/90 px-4 py-3 shadow-xl backdrop-blur-xl">
               <AnimatePresence
                 custom={direction}
                 initial={false}
@@ -599,16 +603,16 @@ function PlayerCard() {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
                   className="flex items-center gap-3"
                 >
                   <img
                     src={track.cover}
-                    className="w-10 h-10 rounded-md object-cover"
+                    className="h-10 w-10 rounded-md object-cover"
                   />
 
                   <div className="flex flex-col">
-                    <span className="text-sm text-white font-medium">
+                    <span className="text-sm font-medium text-white">
                       {track.title}
                     </span>
                     <span className="text-xs text-neutral-400">
@@ -622,84 +626,86 @@ function PlayerCard() {
         )}
       </AnimatePresence>
 
-      <CardContent className="flex-1 relative w-full h-full overflow-hidden p-0">
-        <div className="absolute bg-white/10 size-60 top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl" />
+      <CardContent className="relative h-full w-full flex-1 overflow-hidden p-0">
+        <div className="absolute top-0 left-1/2 size-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
 
-        <div className="absolute inset-0 pointer-events-none opacity-[0.06] bg-[radial-gradient(circle_at_50%_-45%,transparent_0px,transparent_118px,rgba(255,255,255,0.6)_120px,transparent_122px,transparent_178px,rgba(255,255,255,0.6)_180px,transparent_182px,transparent_248px,rgba(255,255,255,0.6)_250px,transparent_252px)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-45%,transparent_0px,transparent_118px,rgba(255,255,255,0.6)_120px,transparent_122px,transparent_178px,rgba(255,255,255,0.6)_180px,transparent_182px,transparent_248px,rgba(255,255,255,0.6)_250px,transparent_252px)] opacity-[0.06]" />
 
         <div className="absolute bottom-0 w-full px-6 pb-6">
           <div className="relative w-full">
             <div
               ref={ref}
               onClick={seek}
-              className="h-[3px] w-full bg-white/20 rounded-full overflow-hidden cursor-pointer"
+              className="h-[3px] w-full cursor-pointer overflow-hidden rounded-full bg-white/20"
             >
               <div
                 style={{ width: `${progress}%` }}
                 className={`h-full rounded-full transition-all ${
                   playing
-                    ? "bg-blue-500 shadow-[0_0_18px_rgba(59,130,246,0.9)]"
-                    : "bg-blue-600/50 shadow-[0_0_6px_rgba(59,130,246,0.25)]"
+                    ? 'bg-blue-500 shadow-[0_0_18px_rgba(59,130,246,0.9)]'
+                    : 'bg-blue-600/50 shadow-[0_0_6px_rgba(59,130,246,0.25)]'
                 }`}
               />
             </div>
 
-            <div className="flex justify-between text-xs text-neutral-500 mt-2">
+            <div className="mt-2 flex justify-between text-xs text-neutral-500">
               <span>{formatTime(time)}</span>
               <span>{formatTime(duration)}</span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between mt-4">
+          <div className="mt-4 flex items-center justify-between">
             <Heart
               onClick={() => setLiked(!liked)}
-              className={`w-5 h-5 cursor-pointer ${
-                liked ? "text-blue-500 fill-blue-500" : "text-neutral-400"
+              className={`h-5 w-5 cursor-pointer ${
+                liked ? 'fill-blue-500 text-blue-500' : 'text-neutral-400'
               }`}
             />
 
-            <Volume2 className="w-5 h-5 text-neutral-400" />
+            <Volume2 className="h-5 w-5 text-neutral-400" />
 
             <SkipBack
               onClick={prev}
-              className="w-5 h-5 text-neutral-400 cursor-pointer"
+              className="h-5 w-5 cursor-pointer text-neutral-400"
             />
 
             <div
               onClick={() => setPlaying(!playing)}
-              className="bg-white rounded-full p-2.5 shadow-[0_0_18px_rgba(255,255,255,0.15)] cursor-pointer"
+              className="cursor-pointer rounded-full bg-white p-2.5 shadow-[0_0_18px_rgba(255,255,255,0.15)]"
             >
               {playing ? (
-                <Pause className="w-5 h-5 text-black fill-black" />
+                <Pause className="h-5 w-5 fill-black text-black" />
               ) : (
-                <Play className="w-5 h-5 text-black fill-black" />
+                <Play className="h-5 w-5 fill-black text-black" />
               )}
             </div>
 
             <SkipForward
               onClick={next}
-              className="w-5 h-5 text-neutral-400 cursor-pointer"
+              className="h-5 w-5 cursor-pointer text-neutral-400"
             />
 
             <Repeat
               onClick={() => setLoop(!loop)}
-              className={`w-5 h-5 cursor-pointer ${
-                loop ? "text-blue-500" : "text-neutral-400"
+              className={`h-5 w-5 cursor-pointer ${
+                loop ? 'text-blue-500' : 'text-neutral-400'
               }`}
             />
 
             <Shuffle
               onClick={() => setShuffle(!shuffle)}
-              className={`w-5 h-5 cursor-pointer ${
-                shuffle ? "text-blue-500" : "text-neutral-400"
+              className={`h-5 w-5 cursor-pointer ${
+                shuffle ? 'text-blue-500' : 'text-neutral-400'
               }`}
             />
           </div>
         </div>
       </CardContent>
 
-      <CardFooter className="relative text-md leading-relaxed text-neutral-400 max-w-xl p-6 flex-col bg-transparent border-none">
-        <CardTitle className="text-neutral-100 text-sm font-semibold mb-2">Break Free</CardTitle>
+      <CardFooter className="text-md relative max-w-xl flex-col border-none bg-transparent p-6 leading-relaxed text-neutral-400">
+        <CardTitle className="mb-2 text-sm font-semibold text-neutral-100">
+          Break Free
+        </CardTitle>
         <CardDescription className="text-xs">
           Seize full command over your music's journey
         </CardDescription>
@@ -709,8 +715,8 @@ function PlayerCard() {
 }
 const Bento14 = () => {
   return (
-    <div className="min-h-screen bg-black p-8 font-sans antialiased text-gray-400">
-      <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-2 ">
+    <div className="min-h-screen bg-black p-8 font-sans text-gray-400 antialiased">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-2 md:grid-cols-12">
         <Card2 />
 
         <PlayerCard />

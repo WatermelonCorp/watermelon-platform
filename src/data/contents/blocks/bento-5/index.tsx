@@ -1,27 +1,32 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Card, CardContent, CardDescription ,CardFooter, CardTitle } from '@/components/base-ui/card';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardTitle,
+} from '@/components/base-ui/card';
 
 const Bento5 = () => {
   return (
     <div
-      className={`flex items-center justify-center min-h-screen bg-[#000A12] relative`}
+      className={`relative flex min-h-screen items-center justify-center bg-[#000A12]`}
     >
-
-      <div className="w-full h-full p-4 lg:p-10 mx-auto flex flex-col lg:flex-row flex-wrap items-center justify-center gap-8 overflow-y-auto">
+      <div className="mx-auto flex h-full w-full flex-col flex-wrap items-center justify-center gap-8 overflow-y-auto p-4 lg:flex-row lg:p-10">
         {/* Box-1 */}
-        <div className="p-px rounded-2xl bg-linear-to-t from-[3B3B3B]/45 to-[#A1A0A0]/45 w-full max-w-[400px]">
-          <Card className="w-full h-[400px] rounded-2xl bg-[#16191D] flex flex-col justify-between relative overflow-hidden p-0 gap-0 border-0 ring-0 shadow-none">
-            <div className="absolute -top-30 left-0  sm:scale-100 origin-top-left">
+        <div className="w-full max-w-[400px] rounded-2xl bg-linear-to-t from-[3B3B3B]/45 to-[#A1A0A0]/45 p-px">
+          <Card className="relative flex h-[400px] w-full flex-col justify-between gap-0 overflow-hidden rounded-2xl border-0 bg-[#16191D] p-0 shadow-none ring-0">
+            <div className="absolute -top-30 left-0 origin-top-left sm:scale-100">
               <One className="size-145" />
             </div>
-            <CardFooter className="w-full mt-auto p-8 relative z-20 items-start flex-col px-8 bg-transparent border-none">
+            <CardFooter className="relative z-20 mt-auto w-full flex-col items-start border-none bg-transparent p-8 px-8">
               <CardTitle className="text-xl font-bold text-white">
                 Begin Your Cyber Journey
               </CardTitle>
-              <CardDescription className="text-[14px] font-medium text-white/30 mt-4">
+              <CardDescription className="mt-4 text-[14px] font-medium text-white/30">
                 Step into the essential field of digital defense. We provide the
                 foundational knowledge and hands-on skills to start your career
                 with confidence.
@@ -31,23 +36,23 @@ const Bento5 = () => {
         </div>
 
         {/* Box-2 */}
-        <div className="p-px rounded-2xl bg-linear-to-t from-[3B3B3B]/45 to-[#A1A0A0]/45 w-full max-w-[400px]">
-          <Card className="w-full h-[400px] rounded-2xl bg-[#16191D] flex flex-col justify-between relative overflow-hidden p-0 gap-0 border-0 ring-0 shadow-none">
-            <CardContent className="absolute z-30 top-0 left-0 w-full h-[250px] sm:scale-100 origin-top p-0">
-              <Two className="w-full h-full" />
+        <div className="w-full max-w-[400px] rounded-2xl bg-linear-to-t from-[3B3B3B]/45 to-[#A1A0A0]/45 p-px">
+          <Card className="relative flex h-[400px] w-full flex-col justify-between gap-0 overflow-hidden rounded-2xl border-0 bg-[#16191D] p-0 shadow-none ring-0">
+            <CardContent className="absolute top-0 left-0 z-30 h-[250px] w-full origin-top p-0 sm:scale-100">
+              <Two className="h-full w-full" />
             </CardContent>
-            <div className="w-90 h-10 rounded-full bg-[#1779BF]/50 blur-2xl absolute left-1/2 -translate-x-1/2 top-40" />
-            <div className="w-90 h-10 rounded-full bg-[#1779BF] blur-2xl absolute left-1/2 -translate-x-1/2 top-40" />
-            <img 
+            <div className="absolute top-40 left-1/2 h-10 w-90 -translate-x-1/2 rounded-full bg-[#1779BF]/50 blur-2xl" />
+            <div className="absolute top-40 left-1/2 h-10 w-90 -translate-x-1/2 rounded-full bg-[#1779BF] blur-2xl" />
+            <img
               src="https://assets.watermelon.sh/Globe.svg"
               alt="Support Agent"
-              className="size-80 opacity-90 absolute left-1/2 top-40 -translate-x-1/2 -translate-y-1/2 z-20"
+              className="absolute top-40 left-1/2 z-20 size-80 -translate-x-1/2 -translate-y-1/2 opacity-90"
             />
-            <CardFooter className="w-full mt-auto p-8 relative z-20 items-start flex-col px-8 bg-transparent border-none">
+            <CardFooter className="relative z-20 mt-auto w-full flex-col items-start border-none bg-transparent p-8 px-8">
               <CardTitle className="text-xl font-bold text-white">
                 Connect with Global Experts
               </CardTitle>
-              <CardDescription className="text-[14px] font-medium text-white/30 mt-4">
+              <CardDescription className="mt-4 text-[14px] font-medium text-white/30">
                 You're not alone. Join a worldwide network of cybersecurity
                 professionals to exchange ideas, discuss emerging threats.
               </CardDescription>
@@ -56,22 +61,22 @@ const Bento5 = () => {
         </div>
 
         {/* Box-3 */}
-        <div className="p-px rounded-2xl bg-linear-to-t from-[3B3B3B]/45 to-[#A1A0A0]/45 w-full max-w-[400px]">
-          <Card className="w-full h-[400px] rounded-2xl bg-[#16191D] flex flex-col justify-between relative overflow-hidden p-0 gap-0 border-0 ring-0 shadow-none">
-            <CardContent className="absolute -top-20 left-1/2 -translate-x-1/2 scale-85 sm:scale-100 origin-top p-0">
-              <div className="w-full h-20 sm:h-16 bg-[#16191D] mx-auto translate-y-72 sm:translate-y-70 mask-t-from-50%" />
+        <div className="w-full max-w-[400px] rounded-2xl bg-linear-to-t from-[3B3B3B]/45 to-[#A1A0A0]/45 p-px">
+          <Card className="relative flex h-[400px] w-full flex-col justify-between gap-0 overflow-hidden rounded-2xl border-0 bg-[#16191D] p-0 shadow-none ring-0">
+            <CardContent className="absolute -top-20 left-1/2 origin-top -translate-x-1/2 scale-85 p-0 sm:scale-100">
+              <div className="mx-auto h-20 w-full translate-y-72 bg-[#16191D] mask-t-from-50% sm:h-16 sm:translate-y-70" />
               <LoopingText />
               <Three className="size-80" />
             </CardContent>
 
-            <CardFooter className="w-full mt-auto px-8 pb-8 relative z-30 bg-[#16191D] items-start flex-col border-none">
+            <CardFooter className="relative z-30 mt-auto w-full flex-col items-start border-none bg-[#16191D] px-8 pb-8">
               <CardTitle className="text-xl font-bold text-white">
                 Begin Your Cyber Journey
               </CardTitle>
-              <CardDescription className="text-[14px] font-medium text-white/30 mt-4">
+              <CardDescription className="mt-4 text-[14px] font-medium text-white/30">
                 Step into the essential field of digital defense. We provide the
                 foundational knowledge and hands-on skills to start your In a
-                world of evolving threats, your skills are your weapon.{" "}
+                world of evolving threats, your skills are your weapon.{' '}
               </CardDescription>
             </CardFooter>
           </Card>
@@ -83,7 +88,7 @@ const Bento5 = () => {
 
 export default Bento5;
 
-const LOOPING_TEXTS = ["Advanced", "Fastest", "Performance"];
+const LOOPING_TEXTS = ['Advanced', 'Fastest', 'Performance'];
 
 const LoopingText = () => {
   const [index, setIndex] = useState(0);
@@ -96,14 +101,14 @@ const LoopingText = () => {
   }, []);
 
   return (
-    <div className="px-4 py-2 rounded-full bg-[#1D2024] shadow-[inset_0px_2px_4px_rgba(131,131,131,0.29)] text-white text-sm font-medium w-28 mx-auto translate-y-45 flex items-center justify-center overflow-hidden">
+    <div className="mx-auto flex w-28 translate-y-45 items-center justify-center overflow-hidden rounded-full bg-[#1D2024] px-4 py-2 text-sm font-medium text-white shadow-[inset_0px_2px_4px_rgba(131,131,131,0.29)]">
       <AnimatePresence mode="wait">
         <motion.span
           key={LOOPING_TEXTS[index]}
-          initial={{ opacity: 0, scale: 0.8, filter: "blur(4px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, scale: 1.1, filter: "blur(4px)" }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
+          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, scale: 1.1, filter: 'blur(4px)' }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           className="whitespace-nowrap"
         >
           {LOOPING_TEXTS[index]}
@@ -160,7 +165,7 @@ const One = ({ className }: { className?: string }) => {
       <motion.g
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 500, opacity: [0, 1, 1, 0] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+        transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
       >
         <line
           x1="23"
@@ -218,7 +223,7 @@ const One = ({ className }: { className?: string }) => {
       <motion.g
         initial={{ x: -350, opacity: 0 }}
         animate={{ x: 200, opacity: [0, 1, 1, 0] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "linear", delay: 1 }}
+        transition={{ repeat: Infinity, duration: 4, ease: 'linear', delay: 1 }}
       >
         <line
           x1="414"
@@ -839,9 +844,9 @@ const One = ({ className }: { className?: string }) => {
 };
 
 const Two = ({ className }: { className?: string }) => {
-  const path1 = "M-34 0.891113C14.3787 25.5114 264.026 138.484 514 0.891113";
-  const path2 = "M-35 200.891C13.3787 176.271 263.026 63.2987 513 200.891";
-  const path3 = "M-118 17.8911C-54.7898 42.5114 271.392 155.484 598 17.8911";
+  const path1 = 'M-34 0.891113C14.3787 25.5114 264.026 138.484 514 0.891113';
+  const path2 = 'M-35 200.891C13.3787 176.271 263.026 63.2987 513 200.891';
+  const path3 = 'M-118 17.8911C-54.7898 42.5114 271.392 155.484 598 17.8911';
 
   return (
     <svg
@@ -851,7 +856,7 @@ const Two = ({ className }: { className?: string }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      style={{ overflow: "visible" }}
+      style={{ overflow: 'visible' }}
     >
       <defs>
         <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
@@ -893,7 +898,7 @@ const FloatingDot = ({
   delay,
 }: {
   name: string;
-  pathType: "path1" | "path2" | "path3";
+  pathType: 'path1' | 'path2' | 'path3';
   duration: number;
   delay: number;
 }) => {
@@ -952,7 +957,7 @@ const FloatingDot = ({
       transition={{
         duration,
         repeat: Infinity,
-        ease: "linear",
+        ease: 'linear',
         delay,
       }}
     >
@@ -962,7 +967,7 @@ const FloatingDot = ({
         r="3"
         fill="#38BDF8"
         opacity="0.5"
-        style={{ filter: "blur(1px)" }}
+        style={{ filter: 'blur(1px)' }}
       />
 
       <g transform="translate(0, -22)" filter="url(#tagShadow)">
@@ -984,7 +989,7 @@ const FloatingDot = ({
           fontSize="12"
           textAnchor="middle"
           fontWeight="600"
-          style={{ pointerEvents: "none", letterSpacing: "0.02em" }}
+          style={{ pointerEvents: 'none', letterSpacing: '0.02em' }}
         >
           {name}
         </text>

@@ -11,7 +11,7 @@ type Profile = {
 
 const profile: Profile = {
   name: 'Maya Chen',
-  avatar: 'https://i.pravatar.cc/160?img=18',
+  avatar: 'https://assets.watermelon.sh/wm_olivia.png',
 };
 
 const getInitials = (name: string) =>

@@ -20,9 +20,9 @@ import {
 import { Switch } from '@/components/base-ui/switch';
 
 const people = [
-  'https://github.com/ThePrimeagen.png',
-  'https://github.com/leerob.png',
-  'https://github.com/t3dotgg.png',
+  'https://assets.watermelon.sh/wm_alex.png',
+  'https://assets.watermelon.sh/wm_ben.png',
+  'https://assets.watermelon.sh/wm_josh.png',
 ];
 
 const sessions = [

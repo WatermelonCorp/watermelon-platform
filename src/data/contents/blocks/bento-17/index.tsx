@@ -130,7 +130,7 @@ function ChartsCard() {
       animate={hovered ? 'hover' : 'initial'}
       className="col-span-1 row-span-1 md:col-span-4 md:row-span-2"
     >
-      <Card className="flex  flex-col gap-0 overflow-hidden rounded-3xl border border-white/15 bg-transparent p-0 text-white shadow-none ring-0">
+      <Card className="flex flex-col gap-0 overflow-hidden rounded-3xl border border-white/15 bg-transparent p-0 text-white shadow-none ring-0">
         <CardHeader className="flex flex-col gap-1 p-4">
           <CardDescription className="m-0">
             <div className="flex items-center gap-2">
@@ -159,7 +159,7 @@ function ChartsCard() {
               <div className="text-xl font-normal">$ 68,700</div>
             </div>
 
-            <span className="rounded-full border border-white/20 px-2 py-1 text-sm bg-gray-400/30 whitespace-nowrap text-neutral-400 md:text-xs -translate-x-6">
+            <span className="-translate-x-6 rounded-full border border-white/20 bg-gray-400/30 px-2 py-1 text-sm whitespace-nowrap text-neutral-400 md:text-xs">
               Last 28 days
             </span>
           </div>
@@ -253,7 +253,7 @@ function NewsletterCard({ itemVariants }: { itemVariants: Variants }) {
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="  translate-x-4 rounded-t-xl border border-white/5 bg-gray-900/10 p-0">
+        <CardContent className="translate-x-4 rounded-t-xl border border-white/5 bg-gray-900/10 p-0">
           <div className="flex gap-1 p-2">
             <div className="h-1.5 w-1.5 rounded-full bg-neutral-600" />
             <div className="h-1.5 w-1.5 rounded-full bg-neutral-600" />
@@ -352,7 +352,7 @@ function IntegrationCard({ itemVariants }: { itemVariants: Variants }) {
       onTap={() => setTimeout(handleHoverEnd, 1500)}
       className="col-span-1 row-span-1 md:col-span-4"
     >
-      <Card className="md:h-[180px] h-[220px] gap-0 overflow-hidden rounded-3xl border border-white/15 bg-neutral-900/20 p-0 text-white shadow-none ring-0">
+      <Card className="h-[220px] gap-0 overflow-hidden rounded-3xl border border-white/15 bg-neutral-900/20 p-0 text-white shadow-none ring-0 md:h-[180px]">
         <CardHeader className="p-4">
           <CardDescription className="m-0">
             <div className="mb-2 flex items-center gap-3">
@@ -365,18 +365,18 @@ function IntegrationCard({ itemVariants }: { itemVariants: Variants }) {
             </div>
           </CardDescription>
 
-          <CardTitle className="text-lg font-semibold ">
+          <CardTitle className="text-lg font-semibold">
             Work with your favorite tools
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="grid  md:scale-120 grid-cols-4 gap-2 p-0 sm:grid-cols-6">
+        <CardContent className="grid grid-cols-4 gap-2 p-0 sm:grid-cols-6 md:scale-120">
           <div className="hidden aspect-square rounded-xl bg-white/10 sm:block" />
 
           {icons.map((Icon, i) => (
             <motion.div
               key={i}
-              className="flex  aspect-square items-center justify-center rounded-xl border border-white/5 bg-white/20"
+              className="flex aspect-square items-center justify-center rounded-xl border border-white/5 bg-white/20"
             >
               <motion.div
                 custom={i}
@@ -423,7 +423,7 @@ const BentoGrid17 = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#0f0c14] text-white md:p-8">
       <motion.div
-        className="relative mx-auto grid max-w-3xl grid-cols-1 gap-2 font-sans  md:auto-rows-auto md:grid-cols-8 p-4"
+        className="relative mx-auto grid max-w-3xl grid-cols-1 gap-2 p-4 font-sans md:auto-rows-auto md:grid-cols-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -438,7 +438,7 @@ const BentoGrid17 = () => {
           variants={itemVariants}
           className="col-span-1 row-span-1 md:col-span-4"
         >
-          <Card className="flex  flex-col justify-between gap-0 rounded-3xl border border-white/15 bg-transparent p-0 text-white shadow-none ring-0">
+          <Card className="flex flex-col justify-between gap-0 rounded-3xl border border-white/15 bg-transparent p-0 text-white shadow-none ring-0">
             <CardHeader className="p-6">
               <CardDescription className="m-0">
                 <div className="mb-2 flex items-center gap-3">

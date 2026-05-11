@@ -1,6 +1,5 @@
 'use client';
 
-
 import { X } from 'lucide-react';
 
 import { Button } from '@/components/base-ui/button';
@@ -8,7 +7,6 @@ import { Button } from '@/components/base-ui/button';
 import { HiArrowRight } from 'react-icons/hi2';
 
 export default function Announcement4() {
-
   return (
     <div className="flex h-full w-full items-center justify-center p-4">
       <div className="border-primary/20 bg-primary/10 shadow-sxs relative isolate flex w-full items-center justify-center overflow-hidden rounded-sm border px-4 py-1.5 tracking-tight">
@@ -47,7 +45,7 @@ export default function Announcement4() {
           <div className="group flex items-center gap-3">
             <div className="bg-primary hidden size-1 rounded-full sm:block" />
 
-            <Button className="text-foreground rounded-sm border border-white/20 bg-white/30 shadow-[inset_0_2px_4px_rgba(255,255,255,0.5),inset_0_-2px_5px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.1)] dark:border-white/20 dark:bg-white/10 dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.3),0_8px_20px_rgba(0,0,0,0.25)] tetx-shadow-sm">
+            <Button className="text-foreground tetx-shadow-sm rounded-sm border border-white/20 bg-white/30 shadow-[inset_0_2px_4px_rgba(255,255,255,0.5),inset_0_-2px_5px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.1)] dark:border-white/20 dark:bg-white/10 dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.3),0_8px_20px_rgba(0,0,0,0.25)]">
               See what’s new
               <HiArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Button>
@@ -57,7 +55,6 @@ export default function Announcement4() {
         <Button
           variant="ghost"
           size="icon"
-        
           className="text-foreground hover:text-foreground/70 absolute right-2 rounded-lg hover:bg-transparent dark:hover:bg-transparent"
         >
           <X className="h-4 w-4" />

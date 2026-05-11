@@ -1,7 +1,7 @@
-"use client";
-import React, { useRef, useEffect } from "react";
-import { motion } from "motion/react";
-import Matter from "matter-js";
+'use client';
+import React, { useRef, useEffect } from 'react';
+import { motion } from 'motion/react';
+import Matter from 'matter-js';
 import {
   Card,
   CardHeader,
@@ -9,37 +9,36 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@/components/base-ui/card";
+} from '@/components/base-ui/card';
 
 const Bento4 = () => {
   return (
     <div
-      className="min-h-screen w-full flex items-center justify-center bg-[#1a1a1a] p-4 md:p-8"
+      className="flex min-h-screen w-full items-center justify-center bg-[#1a1a1a] p-4 md:p-8"
       style={{ fontFamily: '"Plus Jakarta Sans", "Inter", sans-serif' }}
     >
-
       {/* Bento Grid Container */}
-      <div className="w-full max-w-[1200px] mx-auto md:pt-0 relative">
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 [grid-auto-rows:minmax(140px,auto)] xl:[grid-template-rows:160px_230px_220px_160px] gap-4 sm:gap-5 lg:gap-6 xl:gap-7 relative">
+      <div className="relative mx-auto w-full max-w-[1200px] md:pt-0">
+        <div className="relative grid [grid-auto-rows:minmax(140px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6 xl:grid-cols-4 xl:[grid-template-rows:160px_230px_220px_160px] xl:gap-7">
           {/* Card 1 */}
           <Card
-            className="rounded-2xl border border-white/5 p-6 sm:p-8 flex flex-col justify-between min-h-[280px] sm:min-h-[330px] xl:min-h-0 xl:[grid-column:1/2] xl:[grid-row:1/3]"
+            className="flex min-h-[280px] flex-col justify-between rounded-2xl border border-white/5 p-6 sm:min-h-[330px] sm:p-8 xl:[grid-column:1/2] xl:[grid-row:1/3] xl:min-h-0"
             style={{
               background: `
   radial-gradient(120% 120% at 0% 100%, rgba(194, 153, 136, 0.2) 0%, rgba(207,122,88,0) 100%),
   #2B2524
 `,
-              gridColumn: "span 1",
+              gridColumn: 'span 1',
             }}
           >
             <CardHeader className="flex flex-col gap-4 px-0">
               <Icon />
-              <CardTitle className="text-3xl sm:text-4xl font-semibold bg-clip-text bg-linear-to-r from-white to-[#A07260] text-transparent leading-tight">
+              <CardTitle className="bg-linear-to-r from-white to-[#A07260] bg-clip-text text-3xl leading-tight font-semibold text-transparent sm:text-4xl">
                 Perfect Prompts, Instantly
               </CardTitle>
             </CardHeader>
 
-            <CardFooter className="px-0 items-start flex-col bg-transparent border-none">
+            <CardFooter className="flex-col items-start border-none bg-transparent px-0">
               <CardTitle className="text-lg font-bold text-[#E6E3FF]">
                 10 days free trial
               </CardTitle>
@@ -50,14 +49,16 @@ const Bento4 = () => {
           </Card>
 
           {/* Card 2 */}
-          <Card className="hidden xl:block sm:col-span-2 xl:[grid-column:2/4] xl:[grid-row:1/3] bg-transparent border-0 ring-0 shadow-none p-0 gap-0 relative">
-            <div className="w-full max-w-[590px] mx-auto aspect-[556/396] relative">
-              <CardHeader className="absolute inset-0 flex flex-col gap-3 sm:gap-4 items-center mt-8 sm:mt-12 px-4">
+          <Card className="relative hidden gap-0 border-0 bg-transparent p-0 shadow-none ring-0 sm:col-span-2 xl:[grid-column:2/4] xl:[grid-row:1/3] xl:block">
+            <div className="relative mx-auto aspect-[556/396] w-full max-w-[590px]">
+              <CardHeader className="absolute inset-0 mt-8 flex flex-col items-center gap-3 px-4 sm:mt-12 sm:gap-4">
                 <div className="flex items-center justify-center gap-1">
                   <Icon2 className="size-6 sm:size-8" />
-                  <CardDescription className="text-lg sm:text-xl font-bold text-white">IdeaFlow</CardDescription>
+                  <CardDescription className="text-lg font-bold text-white sm:text-xl">
+                    IdeaFlow
+                  </CardDescription>
                 </div>
-                <CardTitle className="text-white text-[38px] sm:text-[60px] max-w-[16rem] sm:max-w-80 text-center font-medium leading-none">
+                <CardTitle className="max-w-[16rem] text-center text-[38px] leading-none font-medium text-white sm:max-w-80 sm:text-[60px]">
                   Master AI Prompting.
                 </CardTitle>
               </CardHeader>
@@ -66,8 +67,8 @@ const Bento4 = () => {
           </Card>
 
           {/* Fireball image - perfectly centered in grid space */}
-          <div className="hidden xl:block pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-[48%]">
-            <img 
+          <div className="pointer-events-none absolute top-1/2 left-1/2 z-20 hidden -translate-x-1/2 -translate-y-[48%] xl:block">
+            <img
               src="https://assets.watermelon.sh/fireball.png"
               alt="Decorative"
               className="w-[320px] max-w-full"
@@ -76,7 +77,7 @@ const Bento4 = () => {
 
           {/* Card 3 */}
           <Card
-            className="rounded-2xl border border-white/10 bg-[#252525] flex items-center justify-center min-h-[150px] xl:[grid-column:4/5] xl:[grid-row:1/2]"
+            className="flex min-h-[150px] items-center justify-center rounded-2xl border border-white/10 bg-[#252525] xl:[grid-column:4/5] xl:[grid-row:1/2]"
             style={{
               background: `
   radial-gradient(120% 120% at 0% 100%, rgba(194, 153, 136, 0.2) 0%, rgba(207,122,88,0) 100%),
@@ -91,7 +92,7 @@ const Bento4 = () => {
 
           {/* Card 4 */}
           <Card
-            className="rounded-2xl border border-white/10 flex flex-col items-center justify-center gap-2 sm:gap-3 min-h-[180px] xl:[grid-column:4/5] xl:[grid-row:2/3]"
+            className="flex min-h-[180px] flex-col items-center justify-center gap-2 rounded-2xl border border-white/10 sm:gap-3 xl:[grid-column:4/5] xl:[grid-row:2/3]"
             style={{
               background: `
   radial-gradient(120% 120% at 0% 100%, rgba(194, 153, 136, 0.2) 0%, rgba(207,122,88,0) 100%),
@@ -99,18 +100,18 @@ const Bento4 = () => {
 `,
             }}
           >
-            <CardTitle className="text-[52px] sm:text-[70px] font-bold tracking-tight leading-none text-transparent bg-clip-text bg-linear-to-r from-[#F5F1FF] to-[#EB642E]">
+            <CardTitle className="bg-linear-to-r from-[#F5F1FF] to-[#EB642E] bg-clip-text text-[52px] leading-none font-bold tracking-tight text-transparent sm:text-[70px]">
               17M+
             </CardTitle>
 
-            <CardDescription className="text-sm sm:text-lg font-thin text-[#CF7A58] px-4 sm:px-6 py-2 border-x border-[#CF7A58] bg-linear-to-r from-[#CF7A58]/10 to-[#CF7A58]/30">
+            <CardDescription className="border-x border-[#CF7A58] bg-linear-to-r from-[#CF7A58]/10 to-[#CF7A58]/30 px-4 py-2 text-sm font-thin text-[#CF7A58] sm:px-6 sm:text-lg">
               prompts crafted
             </CardDescription>
           </Card>
 
           {/* Card 5 */}
           <Card
-            className="rounded-2xl border border-white/10 p-6 sm:p-8 flex flex-col items-center justify-center gap-2 min-h-[220px] xl:[grid-column:1/2] xl:[grid-row:3/4]"
+            className="flex min-h-[220px] flex-col items-center justify-center gap-2 rounded-2xl border border-white/10 p-6 sm:p-8 xl:[grid-column:1/2] xl:[grid-row:3/4]"
             style={{
               background: `
   radial-gradient(120% 120% at 0% 100%, rgba(194, 153, 136, 0.2) 0%, rgba(207,122,88,0) 100%),
@@ -119,38 +120,38 @@ const Bento4 = () => {
             }}
           >
             <CardHeader className="flex flex-col items-center justify-center px-0">
-              <CardTitle className="text-[52px] sm:text-[70px] font-bold tracking-tight leading-none text-transparent bg-clip-text bg-linear-to-r from-[#FFB266] via-[#E9766F] to-[#C04350]">
+              <CardTitle className="bg-linear-to-r from-[#FFB266] via-[#E9766F] to-[#C04350] bg-clip-text text-[52px] leading-none font-bold tracking-tight text-transparent sm:text-[70px]">
                 21K
               </CardTitle>
-              <CardDescription className="text-md font-thin text-[#CF7A58]/80 text-center">
+              <CardDescription className="text-md text-center font-thin text-[#CF7A58]/80">
                 satisfied users
               </CardDescription>
             </CardHeader>
             <CardContent className="flex items-center justify-center px-0">
-              <div className="size-12 sm:size-16 bg-[#EB642E]/80 rounded-full border-3 border-[#352B28] relative overflow-hidden z-10">
+              <div className="relative z-10 size-12 overflow-hidden rounded-full border-3 border-[#352B28] bg-[#EB642E]/80 sm:size-16">
                 <img
                   src="https://assets.watermelon.sh/profile-1.png"
                   alt="Profile-1"
-                  className="w-full h-full"
+                  className="h-full w-full"
                 />
               </div>
-              <div className="size-12 sm:size-16 bg-white rounded-full border-3 border-[#352B28] -ml-3 sm:-ml-4 flex items-center justify-center relative z-20">
+              <div className="relative z-20 -ml-3 flex size-12 items-center justify-center rounded-full border-3 border-[#352B28] bg-white sm:-ml-4 sm:size-16">
                 <Star className="mt-2 sm:mt-3" />
               </div>
-              <div className="size-12 sm:size-16 bg-[#E58C5D] rounded-full border-3 border-[#352B28] -ml-3 sm:-ml-4 relative z-30 overflow-hidden">
+              <div className="relative z-30 -ml-3 size-12 overflow-hidden rounded-full border-3 border-[#352B28] bg-[#E58C5D] sm:-ml-4 sm:size-16">
                 <img
                   src="https://assets.watermelon.sh/profile-2.png"
                   alt="Profile-2"
-                  className="w-full h-full"
+                  className="h-full w-full"
                 />
               </div>
             </CardContent>
           </Card>
 
           {/* Card 6 */}
-          <Card className="hidden xl:block relative sm:col-span-1 xl:[grid-column:2/3] xl:[grid-row:3/5] bg-transparent border-0 ring-0 shadow-none p-0 gap-0">
-            <div className="relative w-full max-w-[264px] h-[360px] sm:h-[410px] mx-auto overflow-hidden">
-              <div className="relative w-full h-full">
+          <Card className="relative hidden gap-0 border-0 bg-transparent p-0 shadow-none ring-0 sm:col-span-1 xl:[grid-column:2/3] xl:[grid-row:3/5] xl:block">
+            <div className="relative mx-auto h-[360px] w-full max-w-[264px] overflow-hidden sm:h-[410px]">
+              <div className="relative h-full w-full">
                 {/* Hidden SVG definitions */}
                 <svg width="0" height="0" className="absolute">
                   <defs>
@@ -162,8 +163,8 @@ const Bento4 = () => {
 
                 {/* Clipped container */}
                 <div
-                  className="relative w-full h-full"
-                  style={{ clipPath: "url(#cardClip)" }}
+                  className="relative h-full w-full"
+                  style={{ clipPath: 'url(#cardClip)' }}
                 >
                   <CurvedCard />
 
@@ -178,11 +179,11 @@ const Bento4 = () => {
                 icon={<Wire className="size-6" />}
               />
 
-              <CardFooter className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end w-full h-full items-start px-6 sm:px-8 bg-transparent border-none">
-                <CardTitle className="text-white font-semibold text-lg">
+              <CardFooter className="absolute inset-0 flex h-full w-full flex-col items-start justify-end border-none bg-transparent p-6 px-6 sm:p-8 sm:px-8">
+                <CardTitle className="text-lg font-semibold text-white">
                   Branching paths
                 </CardTitle>
-                <CardDescription className="text-[#CF7A58]/80 text-sm leading-snug font-thin mt-1">
+                <CardDescription className="mt-1 text-sm leading-snug font-thin text-[#CF7A58]/80">
                   Discover ideas through multiple prompt routes.
                 </CardDescription>
               </CardFooter>
@@ -190,9 +191,9 @@ const Bento4 = () => {
           </Card>
 
           {/* Card 7 */}
-          <Card className="hidden xl:flex justify-center xl:justify-end sm:col-span-1 xl:[grid-column:3/4] xl:[grid-row:3/5] bg-transparent border-0 ring-0 shadow-none p-0 gap-0">
-            <div className="relative w-full max-w-[264px] h-[360px] sm:h-[410px]">
-              <div className="relative w-full h-full -scale-x-100">
+          <Card className="hidden justify-center gap-0 border-0 bg-transparent p-0 shadow-none ring-0 sm:col-span-1 xl:[grid-column:3/4] xl:[grid-row:3/5] xl:flex xl:justify-end">
+            <div className="relative h-[360px] w-full max-w-[264px] sm:h-[410px]">
+              <div className="relative h-full w-full -scale-x-100">
                 {/* Hidden SVG definitions */}
                 <svg width="0" height="0" className="absolute">
                   <defs>
@@ -204,8 +205,8 @@ const Bento4 = () => {
 
                 {/* Clipped container */}
                 <div
-                  className="relative w-full h-full"
-                  style={{ clipPath: "url(#cardClip)" }}
+                  className="relative h-full w-full"
+                  style={{ clipPath: 'url(#cardClip)' }}
                 >
                   <CurvedCard />
 
@@ -220,11 +221,11 @@ const Bento4 = () => {
                 icon={<MagicCapture className="size-8" />}
               />
 
-              <CardFooter className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end w-full h-full items-start px-6 sm:px-8 bg-transparent border-none">
-                <CardTitle className="text-white font-semibold text-lg">
+              <CardFooter className="absolute inset-0 flex h-full w-full flex-col items-start justify-end border-none bg-transparent p-6 px-6 sm:p-8 sm:px-8">
+                <CardTitle className="text-lg font-semibold text-white">
                   Precision booster
                 </CardTitle>
-                <CardDescription className="text-[#CF7A58]/80 text-sm leading-snug font-thin mt-1">
+                <CardDescription className="mt-1 text-sm leading-snug font-thin text-[#CF7A58]/80">
                   Sharpen every prompt with keyword boosts.
                 </CardDescription>
               </CardFooter>
@@ -233,7 +234,7 @@ const Bento4 = () => {
 
           {/* Card 8 */}
           <Card
-            className="rounded-2xl border border-white/10 p-6 sm:p-8 flex flex-col justify-between overflow-hidden min-h-[260px] sm:min-h-[320px] xl:h-full sm:col-span-2 xl:[grid-column:4/5] xl:[grid-row:3/5]"
+            className="flex min-h-[260px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 p-6 sm:col-span-2 sm:min-h-[320px] sm:p-8 xl:[grid-column:4/5] xl:[grid-row:3/5] xl:h-full"
             style={{
               background: `
   radial-gradient(120% 120% at 0% 100%, rgba(194, 153, 136, 0.2) 0%, rgba(207,122,88,0) 100%),
@@ -241,23 +242,23 @@ const Bento4 = () => {
 `,
             }}
           >
-            <CardHeader className="w-full flex flex-col px-0">
+            <CardHeader className="flex w-full flex-col px-0">
               <CardTitle className="text-xl font-semibold text-white">
                 Prompt templates
               </CardTitle>
-              <CardDescription className="text-md font-thin text-[#CF7A58]/80 leading-[20px] mt-1">
+              <CardDescription className="text-md mt-1 leading-[20px] font-thin text-[#CF7A58]/80">
                 Start faster with ready-to-use templates.
               </CardDescription>
             </CardHeader>
 
-            <CardContent className="px-0 pt-0 flex-1 min-h-0">
+            <CardContent className="min-h-0 flex-1 px-0 pt-0">
               <GravityStack />
             </CardContent>
           </Card>
 
           {/* Card 9 */}
           <Card
-            className="rounded-2xl border border-white/10 flex items-center justify-center relative min-h-[120px] sm:col-span-2 xl:[grid-column:1/2] xl:[grid-row:4/5]"
+            className="relative flex min-h-[120px] items-center justify-center rounded-2xl border border-white/10 sm:col-span-2 xl:[grid-column:1/2] xl:[grid-row:4/5]"
             style={{
               background: `
   radial-gradient(120% 120% at 0% 100%, rgba(194, 153, 136, 0.2) 0%, rgba(207,122,88,0) 100%),
@@ -299,7 +300,7 @@ const CardThreeToggle = () => {
       type="button"
       aria-pressed={enabled}
       onClick={() => setEnabled((value) => !value)}
-      className="w-36 h-18 border border-[#CB8265]/45 rounded-full relative overflow-hidden"
+      className="relative h-18 w-36 overflow-hidden rounded-full border border-[#CB8265]/45"
     >
       <motion.div
         className="absolute inset-0"
@@ -307,23 +308,23 @@ const CardThreeToggle = () => {
       />
 
       <motion.div
-        className="size-16 rounded-full absolute top-1 left-1 flex items-center justify-center"
+        className="absolute top-1 left-1 flex size-16 items-center justify-center rounded-full"
         animate={{
           x: enabled ? 72 : 0,
           boxShadow: enabled
-            ? "0 0 0 1px rgba(235,100,46,0.2), inset 0 0 14px rgba(235,100,46,0.16)"
-            : "0 0 0 0 rgba(0,0,0,0)",
+            ? '0 0 0 1px rgba(235,100,46,0.2), inset 0 0 14px rgba(235,100,46,0.16)'
+            : '0 0 0 0 rgba(0,0,0,0)',
           background: enabled
-            ? "radial-gradient(circle at 40% 35%, #FFFFFF 0%, rgba(255,255,255,0.95) 60%, rgba(235,235,235,0.9) 100%)"
-            : "radial-gradient(circle at 40% 35%, #E6A185 0%, rgba(235,100,46,0.85) 70%, rgba(235,100,46,0.7) 100%)",
+            ? 'radial-gradient(circle at 40% 35%, #FFFFFF 0%, rgba(255,255,255,0.95) 60%, rgba(235,235,235,0.9) 100%)'
+            : 'radial-gradient(circle at 40% 35%, #E6A185 0%, rgba(235,100,46,0.85) 70%, rgba(235,100,46,0.7) 100%)',
         }}
-        transition={{ type: "spring", stiffness: 420, damping: 30, mass: 0.8 }}
+        transition={{ type: 'spring', stiffness: 420, damping: 30, mass: 0.8 }}
       >
         <motion.div
-          key={enabled ? "star" : "magic"}
+          key={enabled ? 'star' : 'magic'}
           initial={{ opacity: 0, scale: 0.7, rotate: -45 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
           className="flex items-center justify-center"
         >
           {enabled ? (
@@ -395,21 +396,21 @@ const CardNineCTA = ({ compact = false }: { compact?: boolean }) => {
       <button
         type="button"
         onPointerDown={triggerConfetti}
-        className={`relative z-20 w-fit flex items-center justify-center rounded-full gap-2 bg-radial from-[#EB642E] to-[#82462E] shadow-[0px_1px_1px_rgba(255,255,255,0.07),inset_0px_1px_3px_rgba(1,5,30,0.5)] ${
-          compact ? "px-6 py-3" : "px-10 py-3"
+        className={`relative z-20 flex w-fit items-center justify-center gap-2 rounded-full bg-radial from-[#EB642E] to-[#82462E] shadow-[0px_1px_1px_rgba(255,255,255,0.07),inset_0px_1px_3px_rgba(1,5,30,0.5)] ${
+          compact ? 'px-6 py-3' : 'px-10 py-3'
         }`}
       >
         <PictureIcon />
         <span
-          className={`text-white ${compact ? "font-thin text-lg" : "font-light text-xl"}`}
+          className={`text-white ${compact ? 'text-lg font-thin' : 'text-xl font-light'}`}
         >
           Create
         </span>
       </button>
 
       <div
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#EB642E]/25 z-10 shadow-[0px_1px_1px_rgba(255,255,255,0.07),inset_0px_1px_3px_rgba(1,5,30,0.5)] ${
-          compact ? "w-40 h-14" : "w-50 h-18"
+        className={`absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#EB642E]/25 shadow-[0px_1px_1px_rgba(255,255,255,0.07),inset_0px_1px_3px_rgba(1,5,30,0.5)] ${
+          compact ? 'h-14 w-40' : 'h-18 w-50'
         }`}
       />
 
@@ -422,7 +423,7 @@ const CardNineCTA = ({ compact = false }: { compact?: boolean }) => {
             return (
               <motion.div
                 key={`${burst.id}-${particle.id}`}
-                className="absolute left-1/2 top-1/2"
+                className="absolute top-1/2 left-1/2"
                 initial={{ x: 0, y: 0, opacity: 0, scale: 0.35, rotate: 0 }}
                 animate={{
                   x,
@@ -466,214 +467,216 @@ const GravityStack = () => {
     let animId = 0;
     const { Engine, Runner, Bodies, Body, Composite, World } = Matter;
 
-      const W = container.clientWidth;
-      const H = container.clientHeight;
-      const randomInRange = (min: number, max: number) =>
-        min + Math.random() * (max - min);
-      const eventCleanup: Array<() => void> = [];
+    const W = container.clientWidth;
+    const H = container.clientHeight;
+    const randomInRange = (min: number, max: number) =>
+      min + Math.random() * (max - min);
+    const eventCleanup: Array<() => void> = [];
 
-      const engine = Engine.create({ gravity: { x: 0, y: 1.35 } });
-      const runner = Runner.create();
+    const engine = Engine.create({ gravity: { x: 0, y: 1.35 } });
+    const runner = Runner.create();
 
-      // Static boundaries
-      const ground = Bodies.rectangle(W / 2, H + 28, W * 2, 56, {
-        isStatic: true,
-        friction: 0.95,
-      });
-      const wallL = Bodies.rectangle(-25, H / 2, 50, H * 3, { isStatic: true });
-      const wallR = Bodies.rectangle(W + 25, H / 2, 50, H * 3, {
-        isStatic: true,
-      });
-      Composite.add(engine.world, [ground, wallL, wallR]);
+    // Static boundaries
+    const ground = Bodies.rectangle(W / 2, H + 28, W * 2, 56, {
+      isStatic: true,
+      friction: 0.95,
+    });
+    const wallL = Bodies.rectangle(-25, H / 2, 50, H * 3, { isStatic: true });
+    const wallR = Bodies.rectangle(W + 25, H / 2, 50, H * 3, {
+      isStatic: true,
+    });
+    Composite.add(engine.world, [ground, wallL, wallR]);
 
-      type Synced = {
-        body: ReturnType<typeof Bodies.rectangle>;
-        el: HTMLDivElement;
-        w: number;
-        h: number;
+    type Synced = {
+      body: ReturnType<typeof Bodies.rectangle>;
+      el: HTMLDivElement;
+      w: number;
+      h: number;
+    };
+    const synced: Synced[] = [];
+    let activeInteraction: {
+      body: ReturnType<typeof Bodies.rectangle>;
+      pointerId: number;
+    } | null = null;
+
+    const getLocalPoint = (event: PointerEvent) => {
+      const rect = container.getBoundingClientRect();
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
       };
-      const synced: Synced[] = [];
-      let activeInteraction: { body: ReturnType<typeof Bodies.rectangle>; pointerId: number } | null = null;
+    };
 
-      const getLocalPoint = (event: PointerEvent) => {
-        const rect = container.getBoundingClientRect();
-        return {
-          x: event.clientX - rect.left,
-          y: event.clientY - rect.top,
-        };
-      };
+    const handlePointerMove = (event: PointerEvent) => {
+      if (
+        !activeInteraction ||
+        activeInteraction.pointerId !== event.pointerId
+      ) {
+        return;
+      }
 
-      const handlePointerMove = (event: PointerEvent) => {
-        if (
-          !activeInteraction ||
-          activeInteraction.pointerId !== event.pointerId
-        ) {
-          return;
-        }
+      const { body } = activeInteraction;
+      const point = getLocalPoint(event);
+      const deltaX = point.x - body.position.x;
+      const deltaY = point.y - body.position.y;
+      const clamp = (value: number, limit: number) =>
+        Math.max(-limit, Math.min(limit, value));
 
-        const { body } = activeInteraction;
-        const point = getLocalPoint(event);
-        const deltaX = point.x - body.position.x;
-        const deltaY = point.y - body.position.y;
-        const clamp = (value: number, limit: number) =>
-          Math.max(-limit, Math.min(limit, value));
+      Body.applyForce(body, body.position, {
+        x: clamp(deltaX * 0.000012, 0.0009),
+        y: clamp(deltaY * 0.00001, 0.0007),
+      });
+      Body.setAngularVelocity(
+        body,
+        body.angularVelocity + clamp(deltaX * 0.00015, 0.025),
+      );
+    };
 
+    const releaseInteraction = (event: PointerEvent) => {
+      if (
+        !activeInteraction ||
+        activeInteraction.pointerId !== event.pointerId
+      ) {
+        return;
+      }
+      activeInteraction = null;
+    };
+
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerup', releaseInteraction);
+    window.addEventListener('pointercancel', releaseInteraction);
+    eventCleanup.push(() =>
+      window.removeEventListener('pointermove', handlePointerMove),
+    );
+    eventCleanup.push(() =>
+      window.removeEventListener('pointerup', releaseInteraction),
+    );
+    eventCleanup.push(() =>
+      window.removeEventListener('pointercancel', releaseInteraction),
+    );
+
+    const itemRefs = [itemRef0, itemRef1, itemRef2, itemRef3, itemRef4];
+    itemRefs.forEach((ref, i) => {
+      const el = ref.current;
+      if (!el) return;
+      const w = el.offsetWidth;
+      const h = el.offsetHeight;
+      const minX = w / 2 + 12;
+      const maxX = W - w / 2 - 12;
+      const startX = randomInRange(minX, Math.max(minX, maxX));
+      const startY = -(50 + i * 62);
+      const startAngle = randomInRange(-0.26, 0.26);
+
+      const body = Bodies.rectangle(startX, startY, w, h, {
+        restitution: 0.08,
+        friction: 0.88,
+        frictionStatic: 1,
+        frictionAir: 0.018,
+        chamfer: { radius: Math.min(18, h / 2) },
+      });
+      Body.setPosition(body, { x: startX, y: startY });
+      Body.setAngle(body, startAngle);
+      Body.setAngularVelocity(body, randomInRange(-0.018, 0.018));
+
+      // Initially position DOM element
+      el.style.position = 'absolute';
+      el.style.left = `${startX - w / 2}px`;
+      el.style.top = `${startY - h / 2}px`;
+      el.style.transform = `rotate(${startAngle}rad)`;
+      el.style.transformOrigin = 'center';
+      el.style.cursor = 'grab';
+
+      Composite.add(engine.world, body);
+      synced.push({ body, el, w, h });
+
+      const handlePointerDown = (event: PointerEvent) => {
+        activeInteraction = { body, pointerId: event.pointerId };
+        el.style.cursor = 'grabbing';
         Body.applyForce(body, body.position, {
-          x: clamp(deltaX * 0.000012, 0.0009),
-          y: clamp(deltaY * 0.00001, 0.0007),
+          x: randomInRange(-0.0004, 0.0004),
+          y: -0.00035,
         });
-        Body.setAngularVelocity(
-          body,
-          body.angularVelocity + clamp(deltaX * 0.00015, 0.025),
-        );
       };
 
-      const releaseInteraction = (event: PointerEvent) => {
-        if (
-          !activeInteraction ||
-          activeInteraction.pointerId !== event.pointerId
-        ) {
-          return;
+      const handlePointerRelease = (event: PointerEvent) => {
+        if (activeInteraction?.pointerId === event.pointerId) {
+          el.style.cursor = 'grab';
         }
-        activeInteraction = null;
       };
 
-      window.addEventListener("pointermove", handlePointerMove);
-      window.addEventListener("pointerup", releaseInteraction);
-      window.addEventListener("pointercancel", releaseInteraction);
+      el.addEventListener('pointerdown', handlePointerDown);
+      el.addEventListener('pointerup', handlePointerRelease);
+      el.addEventListener('pointercancel', handlePointerRelease);
       eventCleanup.push(() =>
-        window.removeEventListener("pointermove", handlePointerMove),
+        el.removeEventListener('pointerdown', handlePointerDown),
       );
       eventCleanup.push(() =>
-        window.removeEventListener("pointerup", releaseInteraction),
+        el.removeEventListener('pointerup', handlePointerRelease),
       );
       eventCleanup.push(() =>
-        window.removeEventListener("pointercancel", releaseInteraction),
+        el.removeEventListener('pointercancel', handlePointerRelease),
       );
+    });
 
-      const itemRefs = [itemRef0, itemRef1, itemRef2, itemRef3, itemRef4];
-      itemRefs.forEach((ref, i) => {
-        const el = ref.current;
-        if (!el) return;
-        const w = el.offsetWidth;
-        const h = el.offsetHeight;
-        const minX = w / 2 + 12;
-        const maxX = W - w / 2 - 12;
-        const startX = randomInRange(minX, Math.max(minX, maxX));
-        const startY = -(50 + i * 62);
-        const startAngle = randomInRange(-0.26, 0.26);
+    Runner.run(runner, engine);
 
-        const body = Bodies.rectangle(startX, startY, w, h, {
-          restitution: 0.08,
-          friction: 0.88,
-          frictionStatic: 1,
-          frictionAir: 0.018,
-          chamfer: { radius: Math.min(18, h / 2) },
-        });
-        Body.setPosition(body, { x: startX, y: startY });
-        Body.setAngle(body, startAngle);
-        Body.setAngularVelocity(body, randomInRange(-0.018, 0.018));
-
-        // Initially position DOM element
-        el.style.position = "absolute";
-        el.style.left = `${startX - w / 2}px`;
-        el.style.top = `${startY - h / 2}px`;
-        el.style.transform = `rotate(${startAngle}rad)`;
-        el.style.transformOrigin = "center";
-        el.style.cursor = "grab";
-
-        Composite.add(engine.world, body);
-        synced.push({ body, el, w, h });
-
-        const handlePointerDown = (event: PointerEvent) => {
-          activeInteraction = { body, pointerId: event.pointerId };
-          el.style.cursor = "grabbing";
-          Body.applyForce(body, body.position, {
-            x: randomInRange(-0.0004, 0.0004),
-            y: -0.00035,
-          });
-        };
-
-        const handlePointerRelease = (event: PointerEvent) => {
-          if (activeInteraction?.pointerId === event.pointerId) {
-            el.style.cursor = "grab";
-          }
-        };
-
-        el.addEventListener("pointerdown", handlePointerDown);
-        el.addEventListener("pointerup", handlePointerRelease);
-        el.addEventListener("pointercancel", handlePointerRelease);
-        eventCleanup.push(() =>
-          el.removeEventListener("pointerdown", handlePointerDown),
-        );
-        eventCleanup.push(() =>
-          el.removeEventListener("pointerup", handlePointerRelease),
-        );
-        eventCleanup.push(() =>
-          el.removeEventListener("pointercancel", handlePointerRelease),
-        );
+    const sync = () => {
+      synced.forEach(({ body, el, w, h }) => {
+        el.style.left = `${body.position.x - w / 2}px`;
+        el.style.top = `${body.position.y - h / 2}px`;
+        el.style.transform = `rotate(${body.angle}rad)`;
       });
+      animId = requestAnimationFrame(sync);
+    };
+    sync();
 
-      Runner.run(runner, engine);
-
-      const sync = () => {
-        synced.forEach(({ body, el, w, h }) => {
-          el.style.left = `${body.position.x - w / 2}px`;
-          el.style.top = `${body.position.y - h / 2}px`;
-          el.style.transform = `rotate(${body.angle}rad)`;
-        });
-        animId = requestAnimationFrame(sync);
-      };
-      sync();
-
-      return () => {
-        Runner.stop(runner);
-        cancelAnimationFrame(animId);
-        eventCleanup.forEach((dispose) => dispose());
-        World.clear(engine.world, false);
-        Engine.clear(engine);
-      };
-
+    return () => {
+      Runner.stop(runner);
+      cancelAnimationFrame(animId);
+      eventCleanup.forEach((dispose) => dispose());
+      World.clear(engine.world, false);
+      Engine.clear(engine);
+    };
   }, []);
 
   return (
     <div
       ref={stackRef}
-      className="w-full h-44 sm:h-52 lg:h-56 xl:h-full pt-4 relative overflow-hidden select-none"
+      className="relative h-44 w-full overflow-hidden pt-4 select-none sm:h-52 lg:h-56 xl:h-full"
     >
       <div
         ref={itemRef0}
-        className="w-fit whitespace-nowrap px-8 py-3 rounded-full border-2 border-[#EB642E] bg-[#CF7A58]/20 text-white font-semibold text-md shadow-lg"
+        className="text-md w-fit rounded-full border-2 border-[#EB642E] bg-[#CF7A58]/20 px-8 py-3 font-semibold whitespace-nowrap text-white shadow-lg"
       >
         10 days trial
       </div>
       <div
         ref={itemRef1}
-        className="border border-white/5 bg-[#CF7A58]/20 px-8 py-3 w-fit rounded-full flex items-center justify-center gap-2 shadow-lg"
+        className="flex w-fit items-center justify-center gap-2 rounded-full border border-white/5 bg-[#CF7A58]/20 px-8 py-3 shadow-lg"
       >
         <span className="size-2 rounded-full bg-[#EB642E]" />
-        <p className="text-white font-medium text-md">Rewrite</p>
+        <p className="text-md font-medium text-white">Rewrite</p>
       </div>
       <div
         ref={itemRef2}
-        className="size-12 rounded-full border border-white/20 bg-linear-to-b from-[#E6A185] to-[#EB642E]/80 flex items-center justify-center shadow-lg"
+        className="flex size-12 items-center justify-center rounded-full border border-white/20 bg-linear-to-b from-[#E6A185] to-[#EB642E]/80 shadow-lg"
       >
         <Gift />
       </div>
       <div
         ref={itemRef3}
-        className="border rotate-0 border-white/5 bg-[#CF7A58]/20 px-6 py-3 w-fit rounded-full flex items-center justify-center gap-2 shadow-lg"
+        className="flex w-fit rotate-0 items-center justify-center gap-2 rounded-full border border-white/5 bg-[#CF7A58]/20 px-6 py-3 shadow-lg"
       >
         <span className="size-2 rounded-full bg-[#EB642E]" />
-        <p className="text-white font-medium text-md">JPG</p>
+        <p className="text-md font-medium text-white">JPG</p>
         <span className="size-2 rounded-full bg-[#FFB266]" />
-        <p className="text-white font-medium text-md">PNG</p>
+        <p className="text-md font-medium text-white">PNG</p>
         <span className="size-2 rounded-full bg-[#CDAC9F]" />
-        <p className="text-white font-medium text-md">PDF</p>
+        <p className="text-md font-medium text-white">PDF</p>
       </div>
       <div
         ref={itemRef4}
-        className="size-12 rounded-full border border-white/20 bg-linear-to-b from-[#E6A185] to-[#EB642E]/80 flex items-center justify-center shadow-lg"
+        className="flex size-12 items-center justify-center rounded-full border border-white/20 bg-linear-to-b from-[#E6A185] to-[#EB642E]/80 shadow-lg"
       >
         <Camera />
       </div>
@@ -693,7 +696,7 @@ const Icon = () => {
       <g filter="url(#filter0_iii_4_6126)">
         <mask
           id="mask0_4_6126"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -883,7 +886,7 @@ const Icon2 = ({ className }: { className?: string }) => {
     >
       <mask
         id="mask0_4_6114"
-        style={{ maskType: "luminance" }}
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="0"
         y="0"
@@ -1207,14 +1210,14 @@ const Camera = ({ className }: { className?: string }) => {
 };
 
 const CurvedCard = ({ className }: { className?: string }) => {
-  const idBase = React.useId().replace(/:/g, "");
+  const idBase = React.useId().replace(/:/g, '');
   const notchArcId = `${idBase}-curved-notch-arc`;
   const notchFadeId = `${idBase}-curved-notch-fade`;
 
   return (
     <svg
       viewBox="0 0 264 412"
-      className={`w-full h-full relative overflow-hidden ${className || ""}`}
+      className={`relative h-full w-full overflow-hidden ${className || ''}`}
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -1270,7 +1273,7 @@ const buildBinaryRibbon = (seed: number, groups: number, bitsPerGroup = 4) => {
   let value = seed >>> 0;
 
   return Array.from({ length: groups }, () => {
-    let chunk = "";
+    let chunk = '';
 
     for (let index = 0; index < bitsPerGroup; index += 1) {
       value = (value * 1664525 + 1013904223) >>> 0;
@@ -1278,7 +1281,7 @@ const buildBinaryRibbon = (seed: number, groups: number, bitsPerGroup = 4) => {
     }
 
     return chunk;
-  }).join(" ");
+  }).join(' ');
 };
 
 const MAIN_BINARY_RIBBON = buildBinaryRibbon(0x51f4, 19);
@@ -1286,20 +1289,20 @@ const CURVED_CARD_BINARY_RIBBON = buildBinaryRibbon(0xc18d, 15);
 
 const mutateBinaryText = (value: string) => {
   return value
-    .split("")
+    .split('')
     .map((character) => {
-      if (character !== "0" && character !== "1") {
+      if (character !== '0' && character !== '1') {
         return character;
       }
 
       // Flip each bit independently with a random chance per tick.
       if (Math.random() < 0.28) {
-        return character === "0" ? "1" : "0";
+        return character === '0' ? '1' : '0';
       }
 
       return character;
     })
-    .join("");
+    .join('');
 };
 
 const BinaryRibbon = ({
@@ -1313,7 +1316,7 @@ const BinaryRibbon = ({
   fontSize,
   fontWeight,
   letterSpacing,
-  startOffset = "50%",
+  startOffset = '50%',
   dy = 0,
 }: {
   pathId: string;
@@ -1381,7 +1384,7 @@ const BinaryRibbon = ({
 };
 
 const MainCurvedCard = ({ className }: { className?: string }) => {
-  const idBase = React.useId().replace(/:/g, "");
+  const idBase = React.useId().replace(/:/g, '');
   const topArcId = `${idBase}-top-binary-arc`;
   const topFadeId = `${idBase}-top-binary-fade`;
 
@@ -1389,7 +1392,7 @@ const MainCurvedCard = ({ className }: { className?: string }) => {
     <svg
       viewBox="0 0 556 396"
       xmlns="http://www.w3.org/2000/svg"
-      className={`w-full h-full ${className || ""}`}
+      className={`h-full w-full ${className || ''}`}
     >
       <defs>
         <radialGradient
@@ -1507,7 +1510,7 @@ const Barrel = ({
     <div className={className}>
       <div className="relative">
         <div
-          className={`size-13 absolute right-[7px] bottom-[7px] border border-white/20 rounded-full flex items-center justify-center ${iconClassName}`}
+          className={`absolute right-[7px] bottom-[7px] flex size-13 items-center justify-center rounded-full border border-white/20 ${iconClassName}`}
         >
           {icon}
         </div>
@@ -1596,7 +1599,7 @@ const Barrel = ({
 
 const Branch = ({ className }: { className?: string }) => {
   const travelPath =
-    "M 5 2 C 5 5 35 33 39.38 40 L 39.38 103 C 40 108 55 122 67.38 133";
+    'M 5 2 C 5 5 35 33 39.38 40 L 39.38 103 C 40 108 55 122 67.38 133';
   return (
     <div className={className} style={{ width: 101, height: 166 }}>
       <svg
@@ -1625,7 +1628,7 @@ const Branch = ({ className }: { className?: string }) => {
           <path
             d="M62.3789 37.9994C62.3789 35.238 64.6175 32.9994 67.3789 32.9994V32.9994C70.1403 32.9994 72.3789 35.238 72.3789 37.9994V37.9994C72.3789 40.7608 70.1403 42.9994 67.3789 42.9994V42.9994C64.6175 42.9994 62.3789 40.7608 62.3789 37.9994V37.9994Z"
             fill="url(#paint0_radial_682_126)"
-            style={{ mixBlendMode: "overlay" }}
+            style={{ mixBlendMode: 'overlay' }}
           />
           <path
             d="M62.3789 36.9994C62.3789 34.238 64.6175 31.9994 67.3789 31.9994C70.1403 31.9994 72.3789 34.238 72.3789 36.9994V37.9994C72.3789 35.7903 70.1403 33.9994 67.3789 33.9994C64.6175 33.9994 62.3789 35.7903 62.3789 37.9994V36.9994ZM72.3789 38.9994C72.3789 41.7608 70.1403 43.9994 67.3789 43.9994C64.6175 43.9994 62.3789 41.7608 62.3789 38.9994V37.9994C62.3789 40.2085 64.6175 41.9994 67.3789 41.9994C70.1403 41.9994 72.3789 40.2085 72.3789 37.9994V38.9994ZM72.3789 37.9994M62.3789 42.9994V32.9994V42.9994M62.3789 42.9994M72.3789 32.9994V42.9994V32.9994"
@@ -1645,7 +1648,7 @@ const Branch = ({ className }: { className?: string }) => {
           <path
             d="M55.3789 132.999C55.3789 126.372 60.7515 120.999 67.3789 120.999V120.999C74.0063 120.999 79.3789 126.372 79.3789 132.999V132.999C79.3789 139.627 74.0063 144.999 67.3789 144.999V144.999C60.7515 144.999 55.3789 139.627 55.3789 132.999V132.999Z"
             fill="url(#paint1_radial_682_126)"
-            style={{ mixBlendMode: "overlay" }}
+            style={{ mixBlendMode: 'overlay' }}
           />
           <path
             d="M55.3789 131.999C55.3789 125.372 60.7515 119.999 67.3789 119.999C74.0063 119.999 79.3789 125.372 79.3789 131.999V132.999C79.3789 126.924 74.0063 121.999 67.3789 121.999C60.7515 121.999 55.3789 126.924 55.3789 132.999V131.999ZM79.3789 133.999C79.3789 140.627 74.0063 145.999 67.3789 145.999C60.7515 145.999 55.3789 140.627 55.3789 133.999V132.999C55.3789 139.075 60.7515 143.999 67.3789 143.999C74.0063 143.999 79.3789 139.075 79.3789 132.999V133.999ZM79.3789 132.999M55.3789 144.999V120.999V144.999M55.3789 144.999M79.3789 120.999V144.999V120.999"
@@ -1664,7 +1667,7 @@ const Branch = ({ className }: { className?: string }) => {
         <path
           d="M62.3789 132.999C62.3789 130.238 64.6175 127.999 67.3789 127.999V127.999C70.1403 127.999 72.3789 130.238 72.3789 132.999V132.999C72.3789 135.761 70.1403 137.999 67.3789 137.999V137.999C64.6175 137.999 62.3789 135.761 62.3789 132.999V132.999Z"
           fill="url(#paint2_radial_682_126)"
-          style={{ mixBlendMode: "overlay" }}
+          style={{ mixBlendMode: 'overlay' }}
         />
         <path
           d="M62.3789 131.999C62.3789 129.238 64.6175 126.999 67.3789 126.999C70.1403 126.999 72.3789 129.238 72.3789 131.999V132.999C72.3789 130.79 70.1403 128.999 67.3789 128.999C64.6175 128.999 62.3789 130.79 62.3789 132.999V131.999ZM72.3789 133.999C72.3789 136.761 70.1403 138.999 67.3789 138.999C64.6175 138.999 62.3789 136.761 62.3789 133.999V132.999C62.3789 135.209 64.6175 136.999 67.3789 136.999C70.1403 136.999 72.3789 135.209 72.3789 132.999V133.999ZM72.3789 132.999M62.3789 137.999V127.999V137.999M62.3789 137.999M72.3789 127.999V137.999V127.999"
@@ -1828,35 +1831,35 @@ const Branch = ({ className }: { className?: string }) => {
       </svg>
       <motion.div
         style={{
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           left: 0,
           width: 20,
           height: 5,
           borderRadius: 9999,
           background:
-            "linear-gradient(180deg, #EB9256 0%, #FFFFFF 40%, #FFFFFF 100%)",
+            'linear-gradient(180deg, #EB9256 0%, #FFFFFF 40%, #FFFFFF 100%)',
           opacity: 0,
           offsetPath: `path('${travelPath}')`,
-          offsetDistance: "0%",
-          offsetRotate: "auto",
+          offsetDistance: '0%',
+          offsetRotate: 'auto',
           filter:
-            "drop-shadow(0 0 3px #FFE033) drop-shadow(0 0 8px #FFB300) drop-shadow(0 0 18px rgba(255,160,0,0.7))",
+            'drop-shadow(0 0 3px #FFE033) drop-shadow(0 0 8px #FFB300) drop-shadow(0 0 18px rgba(255,160,0,0.7))',
         }}
-        animate={{ offsetDistance: "90%", opacity: [0, 1, 1, 0] }}
+        animate={{ offsetDistance: '90%', opacity: [0, 1, 1, 0] }}
         transition={{
           offsetDistance: {
             duration: 2.5,
-            ease: "linear",
+            ease: 'linear',
             repeat: Infinity,
-            repeatType: "loop",
+            repeatType: 'loop',
           },
           opacity: {
             duration: 2.5,
             times: [0, 0.12, 0.88, 1],
-            ease: "linear",
+            ease: 'linear',
             repeat: Infinity,
-            repeatType: "loop",
+            repeatType: 'loop',
           },
         }}
       />

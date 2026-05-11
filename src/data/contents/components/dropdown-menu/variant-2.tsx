@@ -53,7 +53,7 @@ const DropdownMenu2 = () => {
           className="overflow-hidden rounded-sm shadow-sm p-0"
         >
           <img
-            src="https://github.com/t3dotgg.png"
+            src='https://assets.watermelon.sh/wm_alex.png'
             alt="User Avatar"
             className="h-full w-full object-cover"
           />

@@ -17,20 +17,20 @@ type Profile = {
 
 const avatars: readonly Profile[] = [
   {
-    src: 'https://i.pravatar.cc/160?img=12',
-    name: 'Leo Grant',
+    src: 'https://assets.watermelon.sh/wm_ben.png',
+    name: 'Mark',
   },
   {
-    src: 'https://i.pravatar.cc/160?img=28',
-    name: 'Nina Alvarez',
+    src: 'https://assets.watermelon.sh/wm_olivia.png',
+    name: 'Olivia',
   },
   {
-    src: 'https://i.pravatar.cc/160?img=36',
-    name: 'Amara Lewis',
+    src: 'https://assets.watermelon.sh/wm_josh.png',
+    name: 'Josh',
   },
   {
-    src: 'https://i.pravatar.cc/160?img=52',
-    name: 'Noah Bennett',
+    src: 'https://assets.watermelon.sh/wm_emma.png',
+    name: 'Emma',
   },
 ] as const;
 
