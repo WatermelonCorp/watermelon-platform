@@ -311,7 +311,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                     href={item.inspiredByLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base hover:text-foreground transition-colors"
+                    className="text-base hover:text-foreground transition-colors bg-amber-600"
                   >
                     {item.inspiredByName}
                   </a>
