@@ -54,10 +54,8 @@ export function Auth1({
 }: Auth1Props) {
   return (
     <div className="flex min-h-screen w-full flex-col p-1 lg:flex-row">
-
       <section className="bg-background flex flex-1 flex-col items-center justify-center px-6 py-16 sm:px-10 lg:max-w-xl lg:px-16">
         <div className="w-full max-w-sm space-y-8">
-
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
@@ -68,7 +66,6 @@ export function Auth1({
               </span>
             </div>
           </div>
-
 
           <div className="space-y-1">
             <h1 className="text-foreground text-2xl font-extrabold tracking-tight">
@@ -172,7 +169,6 @@ export function Auth1({
             </Button>
           </form>
 
-          {/* Footer */}
           <p className="text-muted-foreground text-center text-sm">
             Don&apos;t have an account?{' '}
             <a
@@ -185,19 +181,11 @@ export function Auth1({
         </div>
       </section>
 
-
       <section className="relative hidden flex-1 flex-col items-center justify-center overflow-hidden rounded-4xl bg-white p-10 lg:flex lg:p-16">
-        <div
-          style={{
-            background: `
-      radial-gradient(45.33% 46.43% at 41.69% 50%, #84FF00 0%, rgba(132, 255, 0, 0) 100%),
-      radial-gradient(28.41% 117.96% at 7.72% 28.75%, #E8FFB5 0%, rgba(255, 255, 255, 0) 100%),
-      radial-gradient(37.39% 69.19% at 107.79% 0%, #B6FF00 0%, rgba(120, 255, 0, 0) 100%),
-      radial-gradient(54.38% 89.75% at 83.46% 89.75%, #D9FF66 0%, rgba(132, 255, 0, 0.6) 100%),
-      #84FF00
-    `,
-          }}
-          className="absolute inset-0 opacity-50"
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
+          alt="Developer workspace"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </section>
     </div>

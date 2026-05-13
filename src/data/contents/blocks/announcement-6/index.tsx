@@ -5,7 +5,7 @@ import { Button } from '@/components/base-ui/button';
 export default function Announcement6() {
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <div className="bg-muted w-full px-4 py-3 text-sm">
+      <div className="bg-muted w-full px-4 py-3 text-sm max-w-7xl">
         <div className="grid w-full items-start gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
           <p className="text-muted-foreground leading-relaxed tracking-wide">
             This website uses cookies to enhance your experience, analyze

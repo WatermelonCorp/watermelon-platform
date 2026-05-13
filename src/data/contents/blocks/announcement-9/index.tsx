@@ -6,8 +6,8 @@ import { FaCookie } from 'react-icons/fa';
 
 export default function Announcement9() {
   return (
-    <div className="flex w-full items-center justify-end px-4 py-6">
-      <div className="bg-muted/50 text-foreground border-border w-full max-w-3xl rounded-lg border px-6 py-5 shadow-sm">
+    <div className="flex w-full items-center justify-center  px-4 py-6">
+      <div className="bg-muted/50 text-foreground border-border w-full max-w-3xl rounded-lg border px-6 py-5 shadow-sm ">
         <div className="flex flex-col gap-4">
           <div className="flex items-start gap-3">
             <FaCookie className="text-primary mt-1 size-5 shrink-0" />

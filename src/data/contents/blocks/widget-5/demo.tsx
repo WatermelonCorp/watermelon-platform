@@ -3,7 +3,7 @@ import { RevenueOverviewWidget } from './index';
 
 export default function Demo() {
   return (
-    <div className="flex min-h-[400px] items-center justify-center p-4">
+    <div className="flex min-h-full items-center justify-center p-4">
       <RevenueOverviewWidget />
     </div>
   );

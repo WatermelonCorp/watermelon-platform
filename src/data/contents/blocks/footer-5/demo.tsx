@@ -63,16 +63,16 @@ export default function Footer5Demo() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full h-full flex items-center justify-center">
       <Footer5
         logo={<FaInfinity className="w-6 h-6" />}
-             brandName="Lumina"
+        brandName="Lumina"
         topNavLabel="Connect"
         socialLinks={socialLinks}
         contactCta={contactCta}
         linkGroups={linkGroups}
-        brandWatermark="orbitra"
-        copyright="© 2026 Orbitra Systems. All rights reserved."
+        brandWatermark="Lumina"
+        copyright="© 2026 Lumina Technologies. All rights reserved."
         legalLinks={legalLinks}
       />
     </div>

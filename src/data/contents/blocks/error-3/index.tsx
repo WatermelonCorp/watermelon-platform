@@ -1,17 +1,14 @@
 'use client';
 
 import { motion } from 'motion/react';
-import {  ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 
 export default function ErrorPage() {
-  const [mounted, setMounted] = useState(false);
-  const [randomData, setRandomData] = useState<string[]>([]);
+  const [_, setRandomData] = useState<string[]>([]);
 
   useEffect(() => {
-    setMounted(true);
-    // Generate random hex codes for the decorative HUD
     const interval = setInterval(() => {
       const newData = Array.from({ length: 5 }).map(() =>
         Math.random().toString(16).substring(2, 10).toUpperCase(),
@@ -21,15 +18,10 @@ export default function ErrorPage() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!mounted) return <div className="min-h-screen bg-black" />;
-
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black font-mono selection:bg-lime-500/30">
-
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center p-4">
-   
 
-        {/* Text Section */}
         <div className="relative z-10 max-w-2xl space-y-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -37,7 +29,7 @@ export default function ErrorPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative inline-block"
           >
-            {/* Glitch text layers */}
+
             <h1
               className="text-8xl font-black tracking-tighter text-transparent select-none md:text-[10rem]"
               style={{ WebkitTextStroke: '2px rgba(132, 204, 22, 0.2)' }}
@@ -82,7 +74,6 @@ export default function ErrorPage() {
             className="border border-lime-500/10 bg-black/40 p-6 backdrop-blur-sm"
           >
             <div className="mb-4 flex items-center justify-center gap-3">
-  
               <h2 className="text-xl font-bold tracking-[0.2em] text-lime-500 uppercase md:text-2xl">
                 Connection Severed
               </h2>

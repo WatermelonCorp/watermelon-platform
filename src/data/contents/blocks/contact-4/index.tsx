@@ -60,7 +60,7 @@ const defaultProps: ContactFormProps = {
   subheadline:
     'We partner with founders and enterprises to design eco-forward strategies that drive measurable impact.',
   contactInfo: {
-    email: 'hello@verdant.studio',
+    email: 'hello@watermelon.studio',
     phone: '+91 98765 43210',
   },
   serviceOptions: [

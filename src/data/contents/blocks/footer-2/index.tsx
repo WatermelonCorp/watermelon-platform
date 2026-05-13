@@ -48,9 +48,9 @@ export function Footer2({
   floatingIcon,
 }: Footer2Props) {
   return (
-    <footer className="bg-background w-full px-4 py-8 sm:px-6 lg:px-8">
+    <footer className="bg-background w-full  px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:gap-6 lg:flex-row">
-        {/* Left Card */}
+
         <div className="bg-primary text-primary-foreground flex min-h-[400px] shrink-0 flex-col justify-between rounded-[2.5rem] p-10 sm:p-12 lg:w-[420px]">
           <div>
             <div className="flex items-center gap-2">

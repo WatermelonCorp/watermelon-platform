@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaGoogle, FaEye, FaEyeSlash, FaLeaf } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Button } from '@/components/base-ui/button';
 import { Input } from '@/components/base-ui/input';
 import { Label } from '@/components/base-ui/label';
@@ -43,17 +43,17 @@ export default function LoginPage({
   };
 
   return (
-    <div className="bg-background flex min-h-screen flex-col">
+    <div className="bg-background flex  w-full min-h-screen flex-col">
       <div className="flex flex-1 flex-col lg:flex-row">
         <div className="bg-background/50 relative hidden flex-col justify-between overflow-hidden p-12 lg:flex lg:w-1/2">
-          <div
-            style={{
-              background:
-                'linear-gradient(99.09deg, rgba(236, 255, 236, 0.15) 12.86%, rgba(210, 255, 180, 0.15) 15.34%, rgba(180, 240, 120, 0.15) 17.82%, rgba(150, 220, 90, 0.15) 18.64%, rgba(132, 204, 22, 0.15) 19.47%, rgba(120, 190, 30, 0.15) 22.77%, rgba(140, 210, 60, 0.15) 26.9%, rgba(170, 225, 90, 0.15) 32.68%, rgba(200, 240, 140, 0.15) 38.46%, rgba(220, 250, 180, 0.15) 41.76%, rgba(210, 245, 160, 0.15) 43.41%, rgba(190, 235, 120, 0.15) 45.06%, rgba(170, 220, 90, 0.15) 46.71%, rgba(145, 205, 55, 0.15) 49.19%, rgba(120, 185, 35, 0.15) 50.84%, rgba(125, 190, 40, 0.15) 52.49%, rgba(145, 205, 60, 0.15) 54.97%, rgba(170, 220, 90, 0.15) 57.45%, rgba(190, 235, 120, 0.15) 59.1%, rgba(200, 240, 135, 0.15) 59.92%, rgba(210, 245, 150, 0.15) 63.23%, rgba(225, 252, 190, 0.15) 70.66%, rgba(255, 255, 255, 0.15) 78.91%, rgba(220, 250, 180, 0.15) 81.39%, rgba(110, 160, 40, 0.15) 87.17%, rgba(70, 100, 20, 0.15) 90.47%, rgba(90, 125, 28, 0.15) 91.3%, rgba(120, 170, 40, 0.15) 92.12%, rgba(150, 200, 60, 0.15) 92.95%, rgba(190, 235, 120, 0.15) 94.6%, rgba(240, 255, 220, 0.15) 95.43%), linear-gradient(0deg, var(--color-lime-400), var(--color-lime-400)), var(--color-lime-100)',
-              backgroundBlendMode: 'hard-light, normal, normal',
-            }}
-            className="absolute inset-0"
-          />
+          <>
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
+              alt="Modern workspace"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30" />
+          </>
         </div>
 
         <div className="flex flex-1 items-center justify-center px-6 py-12 sm:px-12">

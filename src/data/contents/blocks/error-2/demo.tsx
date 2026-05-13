@@ -13,7 +13,7 @@ export default function DemoPage() {
   return (
     <MissingState
       title="Looks like this destination drifted away."
-      description="The page you attempted to open may have been archived, relocated, or is temporarily inaccessible. Continue exploring from a different route below."
+      description="The page you attempted to open may have been archived, relocated, or is temporarily inaccessible."
       actions={[
         {
           label: 'Home',

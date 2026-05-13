@@ -34,7 +34,7 @@ export function Footer1({
   copyright,
 }: Footer1Props) {
   return (
-    <footer className="bg-muted/40 w-full px-4 py-8 sm:px-6 lg:px-8">
+    <footer className=" w-full px-4 py-8 sm:px-6 lg:px-8">
       <div className="bg-background mx-auto max-w-7xl rounded-none border p-8 shadow-sm sm:p-12">
         <div className="flex flex-col justify-between gap-12 xl:flex-row xl:gap-24">
           <div className="shrink-0 space-y-8 xl:w-[400px]">

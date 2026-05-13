@@ -104,7 +104,7 @@ export function Pricing3({
               className={`bg-card relative flex flex-col gap-8 rounded-4xl border p-6 transition-all duration-300 sm:flex-row sm:p-8 md:p-10 ${plan.isPopular ? 'border-primary ring-primary/20 ring-1' : 'border-border'}`}
             >
               {plan.isPopular && plan.popularBadgeText && (
-                <div className="bg-primary text-primary-foreground absolute -top-3 left-6 rounded-full px-4 py-1 text-xs font-bold tracking-widest uppercase shadow-sm sm:left-10">
+                <div className="bg-primary text-primary-foreground absolute -top-3 left-6 rounded-md px-4 py-1 text-xs font-medium   shadow-sm sm:left-10">
                   {plan.popularBadgeText}
                 </div>
               )}
@@ -112,7 +112,7 @@ export function Pricing3({
               <div className="border-border flex flex-1 flex-col items-start border-b pb-8 sm:border-r sm:border-b-0 sm:pr-8 sm:pb-0">
                 <Badge
                   variant="outline"
-                  className="bg-muted/30 mb-6 rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase"
+                  className="bg-muted/30 mb-4 rounded-full px-3  text-xs font-medium "
                 >
                   {plan.name}
                 </Badge>

@@ -13,7 +13,7 @@ import {
 
 export default function Features4() {
   return (
-    <section className="theme-injected flex w-full flex-col items-center justify-center px-6 py-16">
+    <section className="flex w-full flex-col items-center justify-center px-6 py-16">
       <h1 className="text-foreground text-center text-4xl font-semibold tracking-tight md:text-5xl">
         Understand faster, act smarter
       </h1>
@@ -24,7 +24,7 @@ export default function Features4() {
       </p>
 
       <div className="mt-12 grid w-full max-w-6xl items-stretch gap-6 md:grid-cols-3">
-        <Card className="bg-muted/40 flex h-full flex-col rounded-4xl p-0">
+        <Card className="bg-muted/40 flex h-full flex-col rounded-[40px] p-0">
           <CardContent className="flex h-full flex-col gap-8 p-4">
             <div className="text-center">
               <h3 className="text-foreground text-2xl font-semibold">
@@ -36,7 +36,7 @@ export default function Features4() {
               </p>
             </div>
 
-            <div className="bg-background dark:bg-background/60 flex min-h-[350px] flex-col justify-between rounded-4xl border p-4 shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04),inset_0px_2px_0px_0px_rgba(255,255,255,0.05)]">
+            <div className="bg-background dark:bg-background/60 flex min-h-[350px] flex-col justify-between rounded-4xl  p-4 shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.03),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04),inset_0px_2px_0px_0px_rgba(255,255,255,0.05)]">
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground flex items-center gap-1 text-sm">
                   <HiSignal className="text-primary h-4 w-4" />
@@ -98,7 +98,7 @@ export default function Features4() {
               </p>
             </div>
 
-            <div className="bg-background dark:bg-background/60 flex min-h-[350px] flex-col justify-between rounded-4xl border p-4 shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04),inset_0px_2px_0px_0px_rgba(255,255,255,0.05)]">
+            <div className="bg-background dark:bg-background/60 flex min-h-[350px] flex-col justify-between rounded-4xl  p-4 shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.03),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04),inset_0px_2px_0px_0px_rgba(255,255,255,0.05)]">
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground flex items-center gap-1 text-sm">
                   <HiUsers className="text-primary h-4 w-4" />
@@ -155,7 +155,7 @@ export default function Features4() {
               </p>
             </div>
 
-            <div className="bg-background dark:bg-background/60 flex min-h-[350px] flex-col justify-between rounded-4xl border p-4 shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04),inset_0px_2px_0px_0px_rgba(255,255,255,0.05)]">
+            <div className="bg-background dark:bg-background/60 flex min-h-[350px] flex-col justify-between rounded-4xl  p-4 shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.03),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[0px_3px_8px_-1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.04),0px_2px_4px_0px_rgba(0,0,0,0.04),inset_0px_2px_0px_0px_rgba(255,255,255,0.05)]">
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground flex items-center gap-1 text-sm">
                   <HiChartBar className="text-primary h-4 w-4" />

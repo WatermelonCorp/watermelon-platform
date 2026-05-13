@@ -87,7 +87,7 @@ export function Footer4({
                   {logo}
                 </div>
               )}
-              <span className="text-foreground text-2xl font-semibold tracking-tight">
+              <span className="text-primary text-2xl font-semibold tracking-tight">
                 {brandName}
               </span>
             </div>

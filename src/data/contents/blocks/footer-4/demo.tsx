@@ -57,7 +57,7 @@ export default function Footer4Demo() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <Footer4
         logo={<FaInfinity className="h-6 w-6" />}
         brandName="Lumina"
@@ -69,12 +69,12 @@ export default function Footer4Demo() {
         description="Stratum gives every engineering team the observability, deployment pipelines, and incident tooling they need to move at full speed — safely."
         newsletterTitle="Stay in the loop"
         newsletterSubtitle="Get product updates, engineering deep-dives, and early feature access."
-        newsletterPlaceholder="you@company.com"
+        newsletterPlaceholder="you@lumina.com"
         newsletterButtonLabel="Subscribe"
         linkGroups={linkGroups}
         socialLinks={socialLinks}
         legalLinks={legalLinks}
-        copyright="© 2026 Stratum Technologies, Inc. All rights reserved."
+        copyright="© 2026 Lumina Technologies, Inc. All rights reserved."
       />
     </div>
   );

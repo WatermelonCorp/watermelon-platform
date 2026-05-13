@@ -45,14 +45,14 @@ export default function Footer3Demo() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <Footer3
-           logo={<FaInfinity className="w-6 h-6" />}
-                brandName="Lumina"
+        logo={<FaInfinity className="w-6 h-6" />}
+        brandName="Lumina"
         description="Accelerate your digital transformation with our cutting-edge cloud infrastructure and tools."
         socialLinks={socialLinks}
         linkGroups={linkGroups}
-        copyright="© 2026 Velocita Technologies. All rights reserved."
+        copyright="© 2026 Lumina Technologies. All rights reserved."
         legalLinks={legalLinks}
       />
     </div>

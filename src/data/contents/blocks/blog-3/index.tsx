@@ -60,11 +60,11 @@ export default function Blog3({
   return (
     <section
       className={cn(
-        'bg-background w-full px-4 py-16 sm:px-6 md:py-24',
+        'bg-background  w-full px-4 py-16 sm:px-6 md:py-24',
         className,
       )}
     >
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-10 md:gap-14">
+      <div className="mx-auto  flex max-w-2xl flex-col items-center gap-10 md:gap-14">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-foreground max-w-xl text-[1.75rem] leading-tight font-semibold tracking-tight sm:text-3xl md:text-4xl">
             {header.heading}

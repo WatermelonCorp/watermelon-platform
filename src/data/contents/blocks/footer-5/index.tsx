@@ -66,7 +66,7 @@ export function Footer5({
               </span>
             )}
             {socialLinks.length > 0 && (
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-2">
                 {socialLinks.map((link, index) => (
                   <Button
                     key={index}

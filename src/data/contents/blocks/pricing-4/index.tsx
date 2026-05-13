@@ -183,7 +183,7 @@ export default function Pricing4({
                   className={cn(
                     'rounded-full px-8 py-2.5 text-sm font-semibold transition-all duration-300 ease-in-out',
                     activeTabId === tab.id
-                      ? 'bg-background text-foreground ring-border/20 shadow-sm ring-1'
+                      ? 'bg-primary/25 backdrop-blur-sm text-foreground border border-primary/50  shadow-sm '
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50',
                   )}
                   aria-pressed={activeTabId === tab.id}

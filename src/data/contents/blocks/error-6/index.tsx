@@ -67,17 +67,17 @@ function ErrorCode({ code }: Pick<ErrorHeroProps, 'code'>) {
   );
 }
 
-export interface SystemErrorPanelProps extends ErrorHeroProps {}
+
 
 export default function SystemErrorPanel({
   code = '404',
   title = 'This destination isn’t accessible.',
   description = 'The resource you attempted to open may have been moved, archived, or temporarily disconnected from the network.',
   buttonLabel = 'Return to Dashboard',
-}: SystemErrorPanelProps) {
+}: ErrorHeroProps) {
   return (
-    <div className="p-4">
-      <Card className="bg-muted relative overflow-hidden rounded-4xl px-4 sm:px-8 lg:px-14">
+    <div className="p-4 h-full ">
+      <Card className="bg-muted mx-auto  relative overflow-hidden rounded-4xl px-4 sm:px-8 lg:px-14  w-full">
         <BackgroundGrid />
 
         <div className="pointer-events-none relative z-10 grid min-h-[420px] grid-cols-1 gap-10 sm:grid-cols-2 sm:items-center">

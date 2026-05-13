@@ -109,8 +109,8 @@ export default function Career3({
   const filtered = jobs.filter((j) => j.department === active);
 
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-      <div className="flex flex-col items-center text-center">
+    <section className="mx-auto w-full h-full max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="flex  flex-col items-center text-center">
         <Badge
           variant="outline"
           className="mb-4 rounded-full border-neutral-200 bg-neutral-100 px-4 py-1 text-xs font-medium tracking-wide text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400"

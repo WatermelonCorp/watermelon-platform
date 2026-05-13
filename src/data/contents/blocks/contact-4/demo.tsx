@@ -8,7 +8,7 @@ export default function Contact4Demo() {
             headlineAccent="Green Business"
             subheadline="We partner with founders and enterprises to design eco-forward strategies that drive measurable impact."
             contactInfo={{
-                email: "hello@verdant.studio",
+                email: "hello@wm.studio",
                 phone: "+91 98765 43210",
             }}
             serviceOptions={[

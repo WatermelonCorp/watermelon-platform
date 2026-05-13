@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function Error5() {
   return (
-    <div className="bg-background flex min-h-screen w-full flex-col overflow-hidden border font-sans lg:flex-row">
+    <div className="bg-background flex min-h-screen  w-full flex-col overflow-hidden border font-sans lg:flex-row">
       <div className="flex w-full flex-col justify-center px-8 py-16 lg:w-1/2 lg:p-20 xl:p-32">
         <h1 className="text-foreground mb-6 flex items-center text-5xl font-semibold tracking-tight lg:text-6xl xl:text-7xl">
           <span className="text-[10rem]">4</span>

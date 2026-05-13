@@ -63,11 +63,11 @@ export default function Blog2({
   return (
     <section
       className={cn(
-        'bg-background w-full px-4 py-16 sm:px-6 md:py-24',
+        'bg-background w-full  px-4 py-16 sm:px-6 md:py-24',
         className,
       )}
     >
-      <div className="mx-auto max-w-[72rem]">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">
           <h2 className="text-foreground max-w-2xl text-3xl leading-tight font-semibold tracking-tight sm:text-4xl md:text-[2.75rem]">
             {header.heading}
@@ -140,7 +140,7 @@ export default function Blog2({
                         {post.author.role}
                       </span>
                     </div>
-                    <div className="ml-auto flex items-center justify-center rounded-md border border-white/10 bg-transparent px-4 py-1.5 text-xs font-semibold text-zinc-50 shadow-[inset_0_0_2px_0px_rgba(255,255,255,1),0_0_2px_2px_rgba(0,0,0,0.05)] transition-transform duration-300">
+                    <div className="ml-auto flex items-center justify-center rounded-md border border-white/30 bg-background/20 dark:bg-white/20 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-zinc-50 transition-transform duration-300">
                       Read
                     </div>
                   </div>

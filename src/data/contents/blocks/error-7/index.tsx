@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function Error7() {
   return (
-    <div className="bg-background flex min-h-screen w-full flex-col overflow-hidden border font-sans lg:flex-row">
+    <div className="bg-background flex min-h-screen  w-full flex-col overflow-hidden border font-sans lg:flex-row">
       <div className="bg-muted relative h-screen w-full p-2 lg:w-1/2">
         <img
           src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"

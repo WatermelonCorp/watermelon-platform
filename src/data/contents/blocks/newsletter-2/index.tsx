@@ -53,7 +53,7 @@ const Newsletter2: React.FC<Newsletter2Props> = ({
                   <Input
                     type="email"
                     placeholder={placeholder}
-                    className="bg-background/50 dark:bg-background/70 focus-visible:ring-primary/30 focus-visible:border-primary/50 h-12 rounded-xl pl-3 text-base backdrop-blur-2xl sm:h-14 sm:w-full md:w-60"
+                    className="bg-background/50 dark:bg-background/70 focus-visible:ring-primary/30 focus-visible:border-primary/50 h-12 rounded-xl pl-3 text-base backdrop-blur-2xl sm:h-14 sm:w-full "
                     required
                   />
                 </div>

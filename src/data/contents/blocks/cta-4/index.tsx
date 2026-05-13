@@ -200,15 +200,6 @@ export const PerformanceOverview: React.FC<PerformanceOverviewProps> = ({
                                 </p>
                               </div>
                             </div>
-                            <span
-                              className={`shrink-0 text-sm font-bold ${
-                                activity.isPositive
-                                  ? 'text-emerald-500'
-                                  : 'text-rose-500'
-                              }`}
-                            >
-                              {activity.value}
-                            </span>
                           </div>
                         ))}
                       </div>
