@@ -311,7 +311,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                     href={item.inspiredByLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base hover:text-foreground transition-colors bg-amber-600"
+                    className="text-base hover:text-foreground transition-colors"
                   >
                     {item.inspiredByName}
                   </a>
@@ -411,7 +411,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                   onClick={() => setActiveCodeTab('base')}
                   className={`rounded-md px-3 py-1.5 font-medium transition-colors ${activeCodeTab === 'base' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                 >
-                  Base
+                  Custom theme
                 </button>
               </div>
             )}
