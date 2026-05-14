@@ -66,6 +66,7 @@ import {
 // ─── Imports: data registries (used to build nav category lists) ──────────────
 import { allCategories } from "@/data/animated-components-registry";
 import { uiCategories } from "@/data/components-registry";
+import { blockCategories } from "@/data/blocks";
 
 // ─── Imports: routing ────────────────────────────────────────────────────────
 import { Link, useLocation } from "react-router-dom";
@@ -290,9 +291,9 @@ export function AppSidebar() {
   // NOTE: "Basic Usage" and "CLI" pages may not have routes yet; add them when ready.
   const quickStartItems = [
     { title: "Installation", url: "/installation", icon: HardDriveDownload },
-    { title: "Basic Usage", url: "/basic-usage", icon: PlayCircleIcon },
+    // { title: "Basic Usage", url: "/basic-usage", icon: PlayCircleIcon },
     { title: "Framework Support", url: "/framework-support", icon: CodeIcon },
-    { title: "CLI", url: "/cli", icon: ComputerTerminal02Icon },
+    // { title: "CLI", url: "/cli", icon: ComputerTerminal02Icon },
     { title: "Changelog", url: "/changelog", icon: Clock01Icon },
   ];
 
@@ -321,6 +322,17 @@ export function AppSidebar() {
         title: cat.label,
         url: `/components/${cat.slug}`,
         isActive: location.pathname === `/components/${cat.slug}`,
+      })),
+    [location.pathname]
+  );
+
+  // ── Generate blocks category sub-items for the Explore collapsible ──
+  const blockNavCategories = useMemo(
+    () =>
+      blockCategories.map((cat) => ({
+        title: cat.label,
+        url: `/blocks/${cat.slug}`,
+        isActive: location.pathname === `/blocks/${cat.slug}`,
       })),
     [location.pathname]
   );
@@ -416,15 +428,7 @@ export function AppSidebar() {
             <span className="font-semibold text-sidebar-foreground">Explore</span>
           </SidebarGroupLabel>
           <SidebarMenu className="flex flex-col gap-0.5">
-            {/* Component — collapsible, expands to all UI component categories */}
-            <ExploreCollapsibleItem
-              title="Component"
-              titleUrl="/components"
-              icon={Component}
-              items={uiComponentCategories}
-              isAnyChildActive={location.pathname.startsWith("/components")}
-              defaultOpen
-            />
+
             {/* Animated — collapsible, expands to all animated component categories */}
             <ExploreCollapsibleItem
               title="Animated"
@@ -434,8 +438,25 @@ export function AppSidebar() {
               isAnyChildActive={location.pathname.startsWith("/animated-components")}
               defaultOpen
             />
-            {/* Blocks — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Blocks" icon={CubeIcon} />
+
+            {/* Component — collapsible, expands to all UI component categories */}
+            <ExploreCollapsibleItem
+              title="Component"
+              titleUrl="/components"
+              icon={Component}
+              items={uiComponentCategories}
+              isAnyChildActive={location.pathname.startsWith("/components")}
+              defaultOpen
+            />
+            {/* Blocks — collapsible, expands to all UI block categories */}
+            <ExploreCollapsibleItem
+              title="Blocks"
+              titleUrl="/blocks"
+              icon={CubeIcon}
+              items={blockNavCategories}
+              isAnyChildActive={location.pathname.startsWith("/blocks")}
+              defaultOpen
+            />
             {/* Dashboards — coming soon; not expandable yet */}
             <ExploreComingSoonItem title="Dashboards" icon={DashboardSquare01Icon} />
             {/* Templates — coming soon; not expandable yet */}

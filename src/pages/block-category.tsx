@@ -76,18 +76,20 @@ export default function BlockCategoryPage() {
 
       <div className="space-y-12 pb-10">
         <section id={`blocks-${category}`} className="space-y-6">
-          <div className=" mt-2 md:mt-0 space-y-1">
-            <CatalogPageHeader title={label} />
-            <p className="text-sm text-muted-foreground max-w-xl px-2 md:px-4">
-              {description}
-              <span className="ml-2 text-xs text-muted-foreground/60">
-                {allBlocks.length} {allBlocks.length === 1 ? 'block' : 'blocks'}
-              </span>
-            </p>
-          </div>
+          <CatalogPageHeader 
+            title={label}
+            description={
+              <>
+                {description}
+                <span className="ml-2 text-xs text-muted-foreground/60">
+                  {allBlocks.length} {allBlocks.length === 1 ? 'block' : 'blocks'}
+                </span>
+              </>
+            }
+          />
 
           {/* Blocks Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 lg:px-8">
             {visibleBlocks.map((block) => (
               <DashboardCard
                 key={block.slug}

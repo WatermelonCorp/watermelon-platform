@@ -1,6 +1,8 @@
+import React from 'react';
+
 interface CatalogPageHeaderProps {
   title: string;
-  description?: string;
+  description?: React.ReactNode;
 }
 
 export function CatalogPageHeader({ title, description }: CatalogPageHeaderProps) {

@@ -1,9 +1,80 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { registry, allCategories } from '@/data/animated-components-registry';
 import { SEOHead } from '@/components/seo-head';
 import { cn } from '@/lib/utils';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
+
+import AccordianSvg from '@/assets/svgs/accordian-svg';
+import ButtonSvg from '@/assets/svgs/button-svg';
+import CardSvg from '@/assets/svgs/card-svg';
+import CarousalSvg from '@/assets/svgs/carousal-svg';
+import ChipSvg from '@/assets/svgs/chip-svg';
+import DialogSvg from '@/assets/svgs/dialog-svg';
+import DropDownSvg from '@/assets/svgs/drop-down-svg';
+import FilterSvg from '@/assets/svgs/filter-svg';
+import ListSvg from '@/assets/svgs/list-svg';
+import MapSvg from '@/assets/svgs/map-svg';
+import PaginationSvg from '@/assets/svgs/pagination-svg';
+import SliderSvg from '@/assets/svgs/slider-svg';
+import TabsSvg from '@/assets/svgs/tabs-svg';
+import ToggleSvg from '@/assets/svgs/toggle-svg';
+import TooltipSvg from '@/assets/svgs/tooltip-svg';
+import WidgetSvg from '@/assets/svgs/widget-svg';
+
+type SvgComponent = React.FC<React.SVGProps<SVGSVGElement>>;
+
+const categorySvgMap: Record<string, SvgComponent> = {
+  accordion: AccordianSvg,
+  accordian: AccordianSvg,
+  button: ButtonSvg,
+  buttons: ButtonSvg,
+  card: CardSvg,
+  cards: CardSvg,
+  carousel: CarousalSvg,
+  carousal: CarousalSvg,
+  chip: ChipSvg,
+  chips: ChipSvg,
+  dialog: DialogSvg,
+  dialogs: DialogSvg,
+  modal: DialogSvg,
+  dropdown: DropDownSvg,
+  'drop-down': DropDownSvg,
+  filter: FilterSvg,
+  filters: FilterSvg,
+  list: ListSvg,
+  lists: ListSvg,
+  map: MapSvg,
+  maps: MapSvg,
+  pagination: PaginationSvg,
+  slider: SliderSvg,
+  sliders: SliderSvg,
+  tab: TabsSvg,
+  tabs: TabsSvg,
+  toggle: ToggleSvg,
+  toggles: ToggleSvg,
+  switch: ToggleSvg,
+  tooltip: TooltipSvg,
+  tooltips: TooltipSvg,
+  widget: WidgetSvg,
+  widgets: WidgetSvg,
+};
+
+const getCategorySvg = (slug: string): SvgComponent => {
+  const normalizedSlug = slug.toLowerCase();
+  
+  if (categorySvgMap[normalizedSlug]) {
+    return categorySvgMap[normalizedSlug];
+  }
+
+  for (const [key, SvgComp] of Object.entries(categorySvgMap)) {
+    if (normalizedSlug.includes(key)) {
+      return SvgComp;
+    }
+  }
+
+  return WidgetSvg;
+};
 
 export default function AnimatedComponentsPage() {
   // Build category data dynamically from the registry
@@ -77,21 +148,15 @@ export default function AnimatedComponentsPage() {
                     className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-white/20 dark:ring-white/5 pointer-events-none z-10"
                   />
 
-                  <div className="absolute inset-0 flex items-center justify-center bg-neutral-50 dark:bg-neutral-900">
-                    {cat.image ? (
-                      <img
-                        src={cat.image}
-                        alt={`${cat.label} preview`}
-                        loading="lazy"
-                        decoding="async"
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out"
-                      />
-                    ) : (
-                      <div className="text-center space-y-2 p-4">
-                        <div className="text-4xl">✨</div>
-                        <p className="text-sm text-neutral-500 font-medium">{cat.label}</p>
-                      </div>
-                    )}
+                  <div className="absolute inset-0 flex items-center justify-center bg-white dark:bg-black transition-colors duration-300">
+                    {(() => {
+                      const SvgComponent = getCategorySvg(cat.slug);
+                      return (
+                        <div className="w-full h-full p-8 flex items-center justify-center">
+                          <SvgComponent className="w-3/5 h-3/5 transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               </Link>

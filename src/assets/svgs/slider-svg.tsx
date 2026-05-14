@@ -10,8 +10,8 @@ export default function SliderSvg(props: React.SVGProps<SVGSVGElement>) {
             xmlns="http://www.w3.org/2000/svg"
             {...props}
         >
-            <rect x="0.5" y="3.5" width="179" height="9" rx="4.5" className="fill-neutral-50 dark:fill-neutral-900 stroke-neutral-900 dark:stroke-neutral-200" />
-            <circle cx="55.5" cy="7.5" r="7" className="fill-neutral-300 dark:fill-neutral-700 stroke-neutral-900 dark:stroke-neutral-200" />
+            <rect x="0.5" y="3.5" width="179" height="9" rx="4.5" className="fill-white dark:fill-black stroke-neutral-600 dark:stroke-neutral-400" />
+            <circle cx="55.5" cy="7.5" r="7" className="fill-neutral-300 dark:fill-neutral-700 stroke-neutral-600 dark:stroke-neutral-400" />
         </svg>
     );
 }
