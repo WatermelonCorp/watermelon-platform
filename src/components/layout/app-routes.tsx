@@ -9,10 +9,10 @@ import {
   HomePageSkeleton,
   ComponentPageSkeleton,
   DocPageSkeleton,
-  DashboardsPageSkeleton,
-  BlocksPageSkeleton,
-  DashboardPageSkeleton,
-  BlockPageSkeleton,
+  // DashboardsPageSkeleton,
+  // BlocksPageSkeleton,
+  // DashboardPageSkeleton,
+  // BlockPageSkeleton,
 } from "@/components/skeletons";
 
 const HomePage = lazy(() => import("@/pages/home"));
@@ -26,14 +26,15 @@ const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
 const TermsPage = lazy(() => import("@/pages/terms"));
 const PrivacyPage = lazy(() => import("@/pages/privacy"));
 const CopyrightPage = lazy(() => import("@/pages/copyright"));
-const DashboardsPage = lazy(() => import("@/pages/dashboards"));
-const DashboardPage = lazy(() => import("@/pages/dashboard"));
-const BlocksPage = lazy(() => import("@/pages/blocks"));
-const BlockPage = lazy(() => import("@/pages/block"));
+// const DashboardsPage = lazy(() => import("@/pages/dashboards"));
+// const DashboardPage = lazy(() => import("@/pages/dashboard"));
+// const BlocksPage = lazy(() => import("@/pages/blocks"));
+// const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
+// const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const PreviewPage = lazy(() => import("@/pages/preview"));
-// const UiComponentsPage = lazy(() => import("@/pages/components"));
+const UiComponentsPage = lazy(() => import("@/pages/components"));
 const UiCategoryPage = lazy(() => import("@/pages/component-category"));
 
 export function AppRoutes() {
@@ -98,14 +99,14 @@ export function AppRoutes() {
 
 
         {/* New UI component system */}
-        {/* <Route
+        <Route
           path="/components"
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <UiComponentsPage />
             </Suspense>
           }
-        /> */}
+        />
         <Route
           path="/components/:category"
           element={
@@ -166,7 +167,7 @@ export function AppRoutes() {
         />
 
         {/* Dashboard pages */}
-        <Route
+        {/* <Route
           path="/dashboards"
           element={
             <Suspense fallback={<DashboardsPageSkeleton />}>
@@ -181,14 +182,22 @@ export function AppRoutes() {
               <DashboardPage />
             </Suspense>
           }
-        />
+        /> */}
 
         {/* Block pages */}
-        <Route
+        {/* <Route
           path="/blocks"
           element={
             <Suspense fallback={<BlocksPageSkeleton />}>
               <BlocksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blocks/:category"
+          element={
+            <Suspense fallback={<BlocksPageSkeleton />}>
+              <BlockCategoryPage />
             </Suspense>
           }
         />
@@ -199,7 +208,7 @@ export function AppRoutes() {
               <BlockPage />
             </Suspense>
           }
-        />
+        /> */}
 
         {/* 404 */}
         <Route

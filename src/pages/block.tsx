@@ -5,6 +5,7 @@ import { blocks } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { HugeiconsIcon } from '@hugeicons/react';
+import { InspiredBy } from '@/components/registry/inspired-by';
 import { ReloadIcon, ViewIcon, SourceCodeIcon, LaptopIcon, TabletIcon, SmartPhoneIcon } from '@/lib/hugeicons';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PromptItems } from '@/components/prompt-items';
@@ -151,6 +152,9 @@ export default function BlockPage() {
                 </div>
               </div>
             )}
+            <div className="my-4">
+              <InspiredBy inspiredBy={item.inspiredBy} />
+            </div>
 
             <InstallCliCommand
               install={item.install}
@@ -249,6 +253,11 @@ export default function BlockPage() {
                 <p className="text-sm text-muted-foreground line-clamp-2">
                   {item.description}
                 </p>
+
+                <div className="mt-4">
+                  <InspiredBy inspiredBy={item.inspiredBy} />
+                </div>
+
                 <div className="mt-4 max-w-3xl">
                   <InstallCliCommand
                     install={item.install}
