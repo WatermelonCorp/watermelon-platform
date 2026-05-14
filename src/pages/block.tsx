@@ -223,72 +223,90 @@ export default function BlockPage() {
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
         <div className="flex flex-col mb-10">
-          {/* Header - Outside tabs, always visible */}
-
-
-          <div className="px-6 py-4 border-b bg-background shrink-0">
+          {/* ── Header: Breadcrumb + Title ── */}
+          <div className="shrink-0 border-b px-6 py-5">
+            {/* Breadcrumb */}
+            <div className="mb-1.5 flex items-center gap-1 text-xs text-muted-foreground">
+              <Link to="/blocks" className="hover:text-foreground transition-colors">Blocks</Link>
+              <span>/</span>
+              <Link to={`/blocks/${item.category}`} className="capitalize hover:text-foreground transition-colors">{item.category}</Link>
+            </div>
+            {/* Title row */}
             <div className="flex items-start justify-between gap-4">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-1">
-                  <h1 className="text-2xl font-semibold">{item.name}</h1>
-                  {item.dependencies && item.dependencies.length > 0 && (
-                    <div className="flex items-center gap-1.5 ">
-                      {item.dependencies.slice(0, 3).map((dep) => (
-                        <span
-                          key={dep}
-                          className="px-2 py-0.5 rounded bg-muted text-xs"
-                          title={dep}
-                        >
-                          {dep}
-                        </span>
-                      ))}
-                      {item.dependencies.length > 3 && (
-                        <span className="text-xs text-muted-foreground">
-                          +{item.dependencies.length - 3}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {item.description}
-                </p>
-
-                <div className="mt-4">
-                  <InspiredBy inspiredBy={item.inspiredBy} />
-                </div>
-
-                <div className="mt-4 max-w-3xl">
-                  <InstallCliCommand
-                    install={item.install}
-                    slug={item.slug}
-                    name={item.name}
-                    category={item.category}
-                    entityType="block"
-                    source="page"
-                  />
-                </div>
-                {!loadingFiles && (
-                  <div className="mt-4 space-y-2">
-                    <h4 className="text-sm font-medium">Copy for AI</h4>
-                    <PromptItems
-                      files={componentFiles}
-                      dependencies={item.dependencies || []}
-                      componentName={item.name}
-                      componentSlug={item.slug}
-                    />
-                  </div>
-                )}
-              </div>
-              {item.componentNumber && (
-                <div className="flex items-center justify-center shrink-0">
-                  <span className="px-3 py-1 text-sm font-mono font-medium bg-muted text-muted-foreground rounded-md border">
+              <h1 className="text-2xl font-semibold tracking-tight leading-snug">{item.name}</h1>
+              <div className="flex items-center gap-2 shrink-0 pt-0.5">
+                {item.componentNumber && (
+                  <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs font-medium border">
                     {item.componentNumber}
                   </span>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
+
+          {/* ── Divider-based info sections ── */}
+          <div className="divide-y border-b shrink-0">
+
+            {/* Description */}
+            <div className="px-6 py-4">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                {item.description}
+              </p>
+            </div>
+
+            {/* Dependencies */}
+            {item.dependencies && item.dependencies.length > 0 && (
+              <div className="px-6 py-4 space-y-2">
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
+                <div className="flex flex-wrap gap-2">
+                  {item.dependencies.map((dep) => (
+                    <span
+                      key={dep}
+                      className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1)] flex items-center gap-1.5 px-3 py-1 text-sm"
+                    >
+                      {dep}
+                      <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Inspired By */}
+            {item.inspiredBy && (
+              <div className="px-6 py-4">
+                <InspiredBy inspiredBy={item.inspiredBy} />
+              </div>
+            )}
+
+            {/* Copy for AI */}
+            {!loadingFiles && (
+              <div className="px-6 py-4 space-y-3">
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
+                <PromptItems
+                  files={componentFiles}
+                  dependencies={item.dependencies || []}
+                  componentName={item.name}
+                  componentSlug={item.slug}
+                />
+              </div>
+            )}
+
+            {/* Installation */}
+            <div className="px-6 py-4 space-y-3">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
+              <InstallCliCommand
+                install={item.install}
+                slug={item.slug}
+                name={item.name}
+                category={item.category}
+                entityType="block"
+                source="page"
+              />
+            </div>
+
+          </div>
+
 
           {/* Tabs - Take remaining space */}
           <Tabs defaultValue="preview" className="h-[90dvh] shrink-0 flex flex-col min-h-0">

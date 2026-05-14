@@ -1,17 +1,17 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getBlocksByCategory, hasBlockCategory, blockCategories } from '@/data/blocks';
 import { DashboardCard } from '@/components/registry/dashboard-card';
-import { BlockModal } from '@/components/registry/block-modal';
-import type { BlockItem } from '@/data/blocks';
+import { useSidebar } from '@/components/ui/sidebar';
 import { SEOHead } from '@/components/seo-head';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
 const ITEMS_PER_PAGE = 18;
 
 export default function BlockCategoryPage() {
+  const navigate = useNavigate();
+  const { setOpenMobile, setOpen, isMobile } = useSidebar();
   const { category = '' } = useParams<{ category: string }>();
-  const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [prevCategory, setPrevCategory] = useState(category);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
@@ -76,7 +76,7 @@ export default function BlockCategoryPage() {
 
       <div className="space-y-12 pb-10">
         <section id={`blocks-${category}`} className="space-y-6">
-          <CatalogPageHeader 
+          <CatalogPageHeader
             title={label}
             description={
               <>
@@ -95,7 +95,16 @@ export default function BlockCategoryPage() {
                 key={block.slug}
                 item={block}
                 trackType="block"
-                onClick={() => !block.comingSoon && setSelectedBlock(block)}
+                onClick={() => {
+                  if (!block.comingSoon) {
+                    navigate(`/block/${block.slug}`);
+                    if (isMobile) {
+                      setOpenMobile(false);
+                    } else {
+                      setOpen(false);
+                    }
+                  }
+                }}
               />
             ))}
           </div>
@@ -115,12 +124,6 @@ export default function BlockCategoryPage() {
           )}
         </section>
       </div>
-
-      {/* Block Modal */}
-      <BlockModal
-        item={selectedBlock}
-        onClose={() => setSelectedBlock(null)}
-      />
     </>
   );
 }
