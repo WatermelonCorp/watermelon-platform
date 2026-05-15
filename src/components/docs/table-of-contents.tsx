@@ -216,8 +216,8 @@ export function TableOfContents({ items, title = 'On this page', scrollRoot }: T
               <a
                 href={`#${item.id}`}
                 className={`block w-full py-[5px] text-[12px] leading-snug transition-colors duration-200 truncate ${activeId === item.id
-                    ? 'text-gray-900 font-medium dark:text-white'
-                    : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+                  ? 'text-gray-900 font-medium dark:text-white'
+                  : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
                   }`}
               >
                 {item.title}
