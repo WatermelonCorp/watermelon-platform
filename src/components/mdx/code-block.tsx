@@ -153,8 +153,8 @@ export function CodeBlock({
             }
           }}
           size="sm"
-          variant="secondary"
-          className="h-7 px-2 text-xs"
+          variant="ghost"
+          className="absolute right-[2px] top-[2px] p-1 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
         />
       </div>
 

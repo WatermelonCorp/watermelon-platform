@@ -9,16 +9,16 @@ import {
   HomePageSkeleton,
   ComponentPageSkeleton,
   DocPageSkeleton,
-  BlockPageSkeleton,
   BlocksPageSkeleton,
+  BlockPageSkeleton,
   // DashboardsPageSkeleton,
   // BlocksPageSkeleton,
   // DashboardPageSkeleton,
   // BlockPageSkeleton,
 } from "@/components/skeletons";
-import BlockPage from "@/pages/block";
-import BlockCategoryPage from "@/pages/block-category";
 import BlocksPage from "@/pages/blocks";
+import BlockCategoryPage from "@/pages/block-category";
+import BlockPage from "@/pages/block";
 
 const HomePage = lazy(() => import("@/pages/home"));
 const ComponentsPage = lazy(() => import("@/pages/animated-components"));

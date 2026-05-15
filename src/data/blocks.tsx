@@ -86,8 +86,8 @@ export const blocks: BlockItem[] = Object.entries(mdxFiles)
       install: frontmatter.install || [],
     };
   })
-  // Temporary: hide Bento-2 from Blocks listing without removing source files.
-  .filter((item) => item?.slug !== "bento-2")
+  // Temporary: hide all bento blocks (including bento-2 which was missing category) due to copyright
+  .filter((item) => item?.category !== "bento" && !item?.slug.startsWith("bento"))
   .filter((item): item is BlockItem => item !== null)
   .sort((a, b) => {
     // Featured first, then alphabetically
@@ -143,6 +143,7 @@ export const blockCategories: BlockCategory[] = (() => {
     if (!map.has(cat)) map.set(cat, []);
     map.get(cat)!.push(block);
   }
+
 
   return Array.from(map.entries())
     .map(([slug, items]) => {

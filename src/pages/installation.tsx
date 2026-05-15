@@ -2,111 +2,155 @@ import { useState } from 'react';
 import { SEOHead } from '@/components/seo-head';
 import { CodeBlock } from '@/components/mdx';
 import { CopyButton } from '@/components/animate-ui/components/buttons/copy';
-import { DocPage, DocHeader, DocSection, DocText } from '@/components/docs';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { TableOfContents, type TOCItem } from '@/components/docs/table-of-contents';
 
-function PackageTabs({
-  pnpm,
-  npm,
-  yarn,
-  bun,
+// ─── Package Manager Command Block ──────────────────────────────────────────
+
+type PM = 'npm' | 'pnpm' | 'yarn' | 'bun';
+
+function CommandBlock({
+  commands,
+  label,
 }: {
-  pnpm: string;
-  npm: string;
-  yarn: string;
-  bun: string;
+  commands: Record<PM, string>;
+  label?: boolean;
 }) {
-  const [activeTab, setActiveTab] = useState('npm');
-  const commands = { pnpm, npm, yarn, bun };
-  const currentCommand = commands[activeTab as keyof typeof commands];
+  const [active, setActive] = useState<PM>('npm');
+  const current = commands[active];
 
   return (
-    <div className="bg-muted/50 dark:bg-muted/20 group mb-4 overflow-hidden rounded-xl border">
-      {/* Header */}
-      <div className="bg-background/80 dark:bg-background/80 flex items-center justify-between rounded-xl border-b py-2 pr-2 pl-4 backdrop-blur">
-        <div className="flex items-center gap-6">
-          <Tabs
-            value={activeTab}
-            onValueChange={setActiveTab}
-            className="h-auto"
-          >
-            <TabsList className="flex h-9 items-center gap-1.5 bg-transparent p-0">
-              {['pnpm', 'npm', 'yarn', 'bun'].map((pm) => (
-                <TabsTrigger
-                  key={pm}
-                  value={pm}
-                  className="data-[state=active]:bg-primary dark:data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-muted-foreground hover:text-foreground h-7 rounded-md border-none px-3 text-xs font-semibold shadow-none transition-all duration-200"
-                >
-                  {pm}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+    <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 dark:border-white/8 dark:bg-neutral-950 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+      {/* Top bar */}
+      <div className="flex items-center justify-between border-b border-gray-200 px-4 py-2.5 dark:border-white/6">
+        <div className="flex items-center gap-1">
+          {(['pnpm', 'npm', 'yarn', 'bun'] as PM[]).map((pm) => (
+            <button
+              key={pm}
+              onClick={() => setActive(pm)}
+              className={`rounded-md px-3 py-1 text-xs font-medium transition-all duration-150 ${
+                active === pm
+                  ? 'bg-primary text-black'
+                  : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+              }`}
+            >
+              {pm}
+            </button>
+          ))}
         </div>
         <CopyButton
-          content={currentCommand}
-          variant="secondary"
+          content={current}
+          variant="ghost"
           size="sm"
-          className="h-8 w-8 p-0 opacity-0 transition-opacity group-hover:opacity-100"
+          className="size-7 p-0 opacity-0 transition-opacity group-hover:opacity-100 text-gray-500 hover:text-gray-900 dark:text-neutral-500 dark:hover:text-neutral-200"
         />
       </div>
-
-      {/* Code */}
-      <div className=" text-foreground/85 overflow-x-auto p-5 font-mono text-[13px] whitespace-nowrap">
-        <code>{currentCommand}</code>
+      {/* Command */}
+      <div className="px-5 py-4 font-mono text-[13px] text-gray-800 overflow-x-auto whitespace-nowrap dark:text-neutral-300">
+        {label && <span className="text-gray-400 select-none mr-2 dark:text-neutral-600">$</span>}
+        <code>{current}</code>
       </div>
     </div>
   );
 }
 
-function ComponentInstallation() {
+// ─── Framework Selector ──────────────────────────────────────────────────────
+
+function FrameworkTabs() {
+  const [framework, setFramework] = useState<'nextjs' | 'vite'>('nextjs');
+
+  const commands: Record<'nextjs' | 'vite', Record<PM, string>> = {
+    nextjs: {
+      npm: 'npx shadcn@latest init --preset [CODE] --template next',
+      pnpm: 'pnpm dlx shadcn@latest init --preset [CODE] --template next',
+      yarn: 'yarn dlx shadcn@latest init --preset [CODE] --template next',
+      bun: 'bunx --bun shadcn@latest init --preset [CODE] --template next',
+    },
+    vite: {
+      npm: 'npx shadcn@latest init --preset [CODE] --template vite',
+      pnpm: 'pnpm dlx shadcn@latest init --preset [CODE] --template vite',
+      yarn: 'yarn dlx shadcn@latest init --preset [CODE] --template vite',
+      bun: 'bunx --bun shadcn@latest init --preset [CODE] --template vite',
+    },
+  };
+
   return (
-    <Tabs defaultValue="cli" className="w-full">
-      <TabsList className="bg-muted/50 mb-2 h-10 w-fit rounded-lg border p-1">
-        <TabsTrigger
-          value="cli"
-          className="data-[state=active]:bg-background rounded-md px-6 h-6 text-xs transition-all duration-200"
-        >
-          CLI
-        </TabsTrigger>
-        <TabsTrigger
-          value="manual"
-          className="data-[state=active]:bg-background rounded-md px-6 h-6 text-xs transition-all duration-200"
-        >
-          Manual
-        </TabsTrigger>
-      </TabsList>
+    <div className="space-y-3">
+      <div className="flex items-center w-fit rounded-md bg-gray-100 border border-gray-200 dark:bg-neutral-900 dark:border-white/6 overflow-hidden">
+        {(['nextjs', 'vite'] as const).map((fw) => (
+          <button
+            key={fw}
+            onClick={() => setFramework(fw)}
+            className={`px-5 py-1.5 text-xs font-medium transition-all duration-150 ${
+              framework === fw
+                ? 'bg-white rounded-md text-gray-900 shadow-sm dark:bg-white/10 dark:text-white dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]'
+                : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+            }`}
+          >
+            {fw === 'nextjs' ? 'Next.js' : 'Vite'}
+          </button>
+        ))}
+      </div>
+      <CommandBlock commands={commands[framework]} label />
+    </div>
+  );
+}
 
-      <TabsContent value="cli" className="mt-0">
-        <div className="space-y-4">
-          <PackageTabs
-            npm="npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-            pnpm="pnpm dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-            yarn="yarn dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-            bun="bunx --bun shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json"
-          />
-        </div>
-      </TabsContent>
+// ─── Component Install Block ─────────────────────────────────────────────────
 
-      <TabsContent value="manual" className="mt-0">
-        <div className="space-y-8">
-          <div className="space-y-3">
-            <h4 className="text-sm font-medium">
-              1. Install component dependencies
-            </h4>
-            <PackageTabs
-              npm="npm install motion/react"
-              pnpm="pnpm add motion/react"
-              yarn="yarn add motion/react"
-              bun="bun add motion/react"
-            />
+function ComponentInstallTabs() {
+  const [mode, setMode] = useState<'cli' | 'manual'>('cli');
+
+  const cliCmds: Record<PM, string> = {
+    npm: 'npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json',
+    pnpm: 'pnpm dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json',
+    yarn: 'yarn dlx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json',
+    bun: 'bunx --bun shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json',
+  };
+
+  const depCmds: Record<PM, string> = {
+    npm: 'npm install motion',
+    pnpm: 'pnpm add motion',
+    yarn: 'yarn add motion',
+    bun: 'bun add motion',
+  };
+
+  return (
+    <div className="space-y-4">
+      {/* Mode toggle */}
+      <div className="flex items-center w-fit rounded-md bg-gray-100 border border-gray-200 dark:bg-neutral-900 dark:border-white/6 overflow-hidden">
+        {(['cli', 'manual'] as const).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMode(m)}
+            className={`px-5 py-1.5 text-xs font-medium uppercase tracking-wide transition-all duration-150 ${
+              mode === m
+                ? 'bg-white rounded-md text-gray-900 shadow-sm dark:bg-white/10 dark:text-white dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]'
+                : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+            }`}
+          >
+            {m}
+          </button>
+        ))}
+      </div>
+
+      {mode === 'cli' && <CommandBlock commands={cliCmds} label />}
+
+      {mode === 'manual' && (
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-neutral-500">
+              1. Install dependencies
+            </p>
+            <CommandBlock commands={depCmds} label />
           </div>
-          <div className="space-y-3">
-            <h4 className="text-sm font-medium">2. Copy the component code</h4>
-            <DocText>
-              Copy the component source code and paste it into your{' '}
-              <code>components/ui</code> directory.
-            </DocText>
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-neutral-500">
+              2. Copy component source
+            </p>
+            <p className="text-sm text-gray-500 dark:text-neutral-500">
+              Paste the component source into your{' '}
+              <code className="rounded bg-gray-200 px-1.5 py-0.5 text-gray-700 dark:bg-white/6 dark:text-neutral-300">components/ui</code> directory.
+            </p>
             <CodeBlock language="tsx" title="card-split-accordian.tsx">
               {`import { motion } from "motion/react";
 import { useState } from "react";
@@ -135,12 +179,34 @@ export function CardSplitAccordian() {
             </CodeBlock>
           </div>
         </div>
-      </TabsContent>
-    </Tabs>
+      )}
+    </div>
   );
 }
 
+// ─── Step Badge ───────────────────────────────────────────────────────────────
+
+function StepBadge({ n }: { n: number }) {
+  return (
+    <div className="flex size-7 shrink-0 items-center justify-center rounded-full border border-gray-300 bg-gray-100 text-xs font-semibold text-gray-500 dark:border-white/12 dark:bg-white/4 dark:text-neutral-400">
+      {n}
+    </div>
+  );
+}
+
+// ─── TOC items ─────────────────────────────────────────────────────────────
+
+const TOC_ITEMS: TOCItem[] = [
+  { id: 'new-project',      title: 'Start a New Project',    level: 1 },
+  { id: 'existing-project', title: 'Add to Existing Project', level: 1 },
+  { id: 'usage',            title: 'Usage Example',           level: 1 },
+];
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function InstallationPage() {
+  const [scrollRoot, setScrollRoot] = useState<Element | null>(null);
+
   return (
     <>
       <SEOHead
@@ -149,79 +215,96 @@ export default function InstallationPage() {
         keywords="install, setup, npm, nextjs, vite, tailwind, react components, shadcn cli"
       />
 
-      <DocPage>
-        <DocHeader
-          title="Installation"
-          description="Build modern, responsive, and customizable interfaces with ease. Follow these steps to get started with a new project or add Watermelon UI to your existing setup."
-        />
+      {/* Two-column wrapper: article left. TOC is fixed-positioned (see TableOfContents). */}
+      <div
+        className="flex px-4 sm:px-8 relative"
+        ref={el => {
+          if (!el) return;
+          let node: Element | null = el;
+          while (node) {
+            const ov = getComputedStyle(node).overflowY;
+            if (ov === 'auto' || ov === 'scroll') {
+              setScrollRoot(node);
+              return;
+            }
+            node = node.parentElement;
+          }
+        }}
+      >
+        {/* Main content */}
+        <article className="relative min-w-0 max-w-2xl flex-1 pb-32">
 
-        {/* Start a New Project */}
-        <DocSection title="Start a New Project" className="mt-3">
-          <DocText>Initialize a new project using the shadcn CLI:</DocText>
-
-          <div className="mt-5 mb-6 w-full max-w-2xl">
-            <Tabs defaultValue="nextjs" className="w-full">
-              <TabsList className="bg-muted/50 mb-2 h-10 w-fit rounded-lg border p-1">
-                <TabsTrigger
-                  value="nextjs"
-                  className="data-[state=active]:bg-background rounded-md px-6 h-6 text-xs transition-all duration-200"
-                >
-                  Next.js
-                </TabsTrigger>
-                <TabsTrigger
-                  value="vite"
-                  className="data-[state=active]:bg-background rounded-md px-6 h-6 text-xs transition-all duration-200"
-                >
-                  Vite
-                </TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="nextjs" className="mt-0">
-                <PackageTabs
-                  npm="npx shadcn@latest init --preset [CODE] --template next"
-                  pnpm="pnpm dlx shadcn@latest init --preset [CODE] --template next"
-                  yarn="yarn dlx shadcn@latest init --preset [CODE] --template next"
-                  bun="bunx --bun shadcn@latest init --preset [CODE] --template next"
-                />
-              </TabsContent>
-
-              <TabsContent value="vite" className="mt-0">
-                <PackageTabs
-                  npm="npx shadcn@latest init --preset [CODE] --template vite"
-                  pnpm="pnpm dlx shadcn@latest init --preset [CODE] --template vite"
-                  yarn="yarn dlx shadcn@latest init --preset [CODE] --template vite"
-                  bun="bunx --bun shadcn@latest init --preset [CODE] --template vite"
-                />
-              </TabsContent>
-            </Tabs>
+          {/* ── Page Header ── */}
+          <div className="border-b border-gray-200 py-8 dark:border-white/6">
+            <p className="mb-2 text-xs font-medium uppercase tracking-widest text-gray-500 dark:text-neutral-600">Docs</p>
+            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">Installation</h1>
+            <p className="mt-3 text-sm leading-relaxed text-gray-500 max-w-xl dark:text-neutral-500">
+              Build modern, responsive, and customizable interfaces with ease. Follow these steps to get started with a new project or add Watermelon UI to your existing setup.
+            </p>
           </div>
 
-          <DocText className="mb-5">
-            After project initialization, you can add Watermelon components:
-          </DocText>
+          {/* ── Section 1: New Project ── */}
+          <section id="new-project" className="border-b border-gray-200 py-10 space-y-8 dark:border-white/6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Getting started</p>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Start a New Project</h2>
+              <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">Initialize a new project using the shadcn CLI, then add Watermelon components.</p>
+            </div>
 
-          <ComponentInstallation />
-        </DocSection>
+            {/* Step 1 */}
+            <div className="flex gap-4">
+              <StepBadge n={1} />
+              <div className="flex-1 space-y-3 min-w-0">
+                <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Initialize your project</p>
+                <p className="text-sm text-gray-500 dark:text-neutral-500">Choose your framework and run the init command.</p>
+                <FrameworkTabs />
+              </div>
+            </div>
 
-        {/* Existing Project */}
-        <DocSection title="Add to Existing Project" className="mt-3">
-          <DocText className="mb-8">
-            To use Watermelon UI in an existing project, ensure you have{' '}
-            <strong>Tailwind CSS v4</strong> and <strong>shadcn-ui</strong>{' '}
-            already initialized.
-          </DocText>
+            {/* Step 2 */}
+            <div className="flex gap-4">
+              <StepBadge n={2} />
+              <div className="flex-1 space-y-3 min-w-0">
+                <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add a Watermelon component</p>
+                <p className="text-sm text-gray-500 dark:text-neutral-500">Use the CLI to pull any component directly into your project.</p>
+                <ComponentInstallTabs />
+              </div>
+            </div>
+          </section>
 
-          <ComponentInstallation />
-        </DocSection>
+          {/* ── Section 2: Existing Project ── */}
+          <section id="existing-project" className="border-b border-gray-200 py-10 space-y-8 dark:border-white/6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Existing codebase</p>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Add to Existing Project</h2>
+              <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
+                Already have a project? Ensure you have{' '}
+                <span className="text-gray-800 font-medium dark:text-neutral-300">Tailwind CSS v4</span> and{' '}
+                <span className="text-gray-800 font-medium dark:text-neutral-300">shadcn-ui</span> initialized, then:
+              </p>
+            </div>
 
-        {/* Usage */}
-        <DocSection title="Usage Example" className="mt-3">
-          <DocText>
-            Once installed, you can import and use the component like any other
-            shadcn component.
-          </DocText>
-          <CodeBlock language="tsx" title="Usage Example">
-            {`import { CardSplitAccordian } from "@/components/ui/card-split-accordian";
+            <div className="flex gap-4">
+              <StepBadge n={1} />
+              <div className="flex-1 space-y-3 min-w-0">
+                <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add any component</p>
+                <ComponentInstallTabs />
+              </div>
+            </div>
+          </section>
+
+          {/* ── Section 3: Usage ── */}
+          <section id="usage" className="py-10 space-y-6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Usage</p>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Usage Example</h2>
+              <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
+                Once installed, import and use the component like any other shadcn component.
+              </p>
+            </div>
+
+            <CodeBlock language="tsx" title="Usage Example">
+              {`import { CardSplitAccordian } from "@/components/ui/card-split-accordian";
 
 export default function App() {
   return (
@@ -230,9 +313,15 @@ export default function App() {
     </div>
   );
 }`}
-          </CodeBlock>
-        </DocSection>
-      </DocPage>
+            </CodeBlock>
+          </section>
+
+        </article>
+
+        {/* TOC — sticky right column (nav itself is the flex item with self-start) */}
+        <TableOfContents items={TOC_ITEMS} scrollRoot={scrollRoot} />
+
+      </div>
     </>
   );
 }
