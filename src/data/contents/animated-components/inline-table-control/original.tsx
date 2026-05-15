@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'motion/react';
 import { Pencil, X, Check } from 'lucide-react';
 import { GoStack } from 'react-icons/go';
