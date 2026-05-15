@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SEOHead } from '@/components/seo-head';
 import { CodeBlock } from '@/components/mdx';
 import { CopyButton } from '@/components/animate-ui/components/buttons/copy';
+import { TableOfContents, type TOCItem } from '@/components/docs/table-of-contents';
 
 // ─── Package Manager Command Block ──────────────────────────────────────────
 
@@ -28,7 +29,7 @@ function CommandBlock({
               onClick={() => setActive(pm)}
               className={`rounded-md px-3 py-1 text-xs font-medium transition-all duration-150 ${
                 active === pm
-                  ? 'bg-primary text-black shadow-[0_0_12px_rgba(110,231,76,0.35)]'
+                  ? 'bg-primary text-black'
                   : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
               }`}
             >
@@ -193,9 +194,19 @@ function StepBadge({ n }: { n: number }) {
   );
 }
 
+// ─── TOC items ─────────────────────────────────────────────────────────────
+
+const TOC_ITEMS: TOCItem[] = [
+  { id: 'new-project',      title: 'Start a New Project',    level: 1 },
+  { id: 'existing-project', title: 'Add to Existing Project', level: 1 },
+  { id: 'usage',            title: 'Usage Example',           level: 1 },
+];
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function InstallationPage() {
+  const [scrollRoot, setScrollRoot] = useState<Element | null>(null);
+
   return (
     <>
       <SEOHead
@@ -204,79 +215,96 @@ export default function InstallationPage() {
         keywords="install, setup, npm, nextjs, vite, tailwind, react components, shadcn cli"
       />
 
-      <article className="relative w-full max-w-3xl px-4 sm:px-8 pb-32">
+      {/* Two-column wrapper: article left. TOC is fixed-positioned (see TableOfContents). */}
+      <div
+        className="flex px-4 sm:px-8 relative"
+        ref={el => {
+          if (!el) return;
+          let node: Element | null = el;
+          while (node) {
+            const ov = getComputedStyle(node).overflowY;
+            if (ov === 'auto' || ov === 'scroll') {
+              setScrollRoot(node);
+              return;
+            }
+            node = node.parentElement;
+          }
+        }}
+      >
+        {/* Main content */}
+        <article className="relative min-w-0 max-w-2xl flex-1 pb-32">
 
-        {/* ── Page Header ── */}
-        <div className="border-b border-gray-200 py-8 dark:border-white/6">
-          <p className="mb-2 text-xs font-medium uppercase tracking-widest text-gray-500 dark:text-neutral-600">Docs</p>
-          <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">Installation</h1>
-          <p className="mt-3 text-sm leading-relaxed text-gray-500 max-w-xl dark:text-neutral-500">
-            Build modern, responsive, and customizable interfaces with ease. Follow these steps to get started with a new project or add Watermelon UI to your existing setup.
-          </p>
-        </div>
-
-        {/* ── Section 1: New Project ── */}
-        <section className="border-b border-gray-200 py-10 space-y-8 dark:border-white/6">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Getting started</p>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Start a New Project</h2>
-            <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">Initialize a new project using the shadcn CLI, then add Watermelon components.</p>
-          </div>
-
-          {/* Step 1 */}
-          <div className="flex gap-4">
-            <StepBadge n={1} />
-            <div className="flex-1 space-y-3 min-w-0">
-              <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Initialize your project</p>
-              <p className="text-sm text-gray-500 dark:text-neutral-500">Choose your framework and run the init command.</p>
-              <FrameworkTabs />
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="flex gap-4">
-            <StepBadge n={2} />
-            <div className="flex-1 space-y-3 min-w-0">
-              <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add a Watermelon component</p>
-              <p className="text-sm text-gray-500 dark:text-neutral-500">Use the CLI to pull any component directly into your project.</p>
-              <ComponentInstallTabs />
-            </div>
-          </div>
-        </section>
-
-        {/* ── Section 2: Existing Project ── */}
-        <section className="border-b border-gray-200 py-10 space-y-8 dark:border-white/6">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Existing codebase</p>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Add to Existing Project</h2>
-            <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
-              Already have a project? Ensure you have{' '}
-              <span className="text-gray-800 font-medium dark:text-neutral-300">Tailwind CSS v4</span> and{' '}
-              <span className="text-gray-800 font-medium dark:text-neutral-300">shadcn-ui</span> initialized, then:
+          {/* ── Page Header ── */}
+          <div className="border-b border-gray-200 py-8 dark:border-white/6">
+            <p className="mb-2 text-xs font-medium uppercase tracking-widest text-gray-500 dark:text-neutral-600">Docs</p>
+            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">Installation</h1>
+            <p className="mt-3 text-sm leading-relaxed text-gray-500 max-w-xl dark:text-neutral-500">
+              Build modern, responsive, and customizable interfaces with ease. Follow these steps to get started with a new project or add Watermelon UI to your existing setup.
             </p>
           </div>
 
-          <div className="flex gap-4">
-            <StepBadge n={1} />
-            <div className="flex-1 space-y-3 min-w-0">
-              <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add any component</p>
-              <ComponentInstallTabs />
+          {/* ── Section 1: New Project ── */}
+          <section id="new-project" className="border-b border-gray-200 py-10 space-y-8 dark:border-white/6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Getting started</p>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Start a New Project</h2>
+              <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">Initialize a new project using the shadcn CLI, then add Watermelon components.</p>
             </div>
-          </div>
-        </section>
 
-        {/* ── Section 3: Usage ── */}
-        <section className="py-10 space-y-6">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Usage</p>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Usage Example</h2>
-            <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
-              Once installed, import and use the component like any other shadcn component.
-            </p>
-          </div>
+            {/* Step 1 */}
+            <div className="flex gap-4">
+              <StepBadge n={1} />
+              <div className="flex-1 space-y-3 min-w-0">
+                <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Initialize your project</p>
+                <p className="text-sm text-gray-500 dark:text-neutral-500">Choose your framework and run the init command.</p>
+                <FrameworkTabs />
+              </div>
+            </div>
 
-          <CodeBlock language="tsx" title="Usage Example">
-            {`import { CardSplitAccordian } from "@/components/ui/card-split-accordian";
+            {/* Step 2 */}
+            <div className="flex gap-4">
+              <StepBadge n={2} />
+              <div className="flex-1 space-y-3 min-w-0">
+                <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add a Watermelon component</p>
+                <p className="text-sm text-gray-500 dark:text-neutral-500">Use the CLI to pull any component directly into your project.</p>
+                <ComponentInstallTabs />
+              </div>
+            </div>
+          </section>
+
+          {/* ── Section 2: Existing Project ── */}
+          <section id="existing-project" className="border-b border-gray-200 py-10 space-y-8 dark:border-white/6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Existing codebase</p>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Add to Existing Project</h2>
+              <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
+                Already have a project? Ensure you have{' '}
+                <span className="text-gray-800 font-medium dark:text-neutral-300">Tailwind CSS v4</span> and{' '}
+                <span className="text-gray-800 font-medium dark:text-neutral-300">shadcn-ui</span> initialized, then:
+              </p>
+            </div>
+
+            <div className="flex gap-4">
+              <StepBadge n={1} />
+              <div className="flex-1 space-y-3 min-w-0">
+                <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add any component</p>
+                <ComponentInstallTabs />
+              </div>
+            </div>
+          </section>
+
+          {/* ── Section 3: Usage ── */}
+          <section id="usage" className="py-10 space-y-6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-1 dark:text-neutral-600">Usage</p>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Usage Example</h2>
+              <p className="mt-2 text-sm text-gray-500 dark:text-neutral-500">
+                Once installed, import and use the component like any other shadcn component.
+              </p>
+            </div>
+
+            <CodeBlock language="tsx" title="Usage Example">
+              {`import { CardSplitAccordian } from "@/components/ui/card-split-accordian";
 
 export default function App() {
   return (
@@ -285,10 +313,15 @@ export default function App() {
     </div>
   );
 }`}
-          </CodeBlock>
-        </section>
+            </CodeBlock>
+          </section>
 
-      </article>
+        </article>
+
+        {/* TOC — sticky right column (nav itself is the flex item with self-start) */}
+        <TableOfContents items={TOC_ITEMS} scrollRoot={scrollRoot} />
+
+      </div>
     </>
   );
 }
