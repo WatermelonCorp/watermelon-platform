@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { PaintBoardIcon } from "@/lib/hugeicons";
 import { useThemeCss } from "@/contexts/theme-css-context";
@@ -17,10 +17,10 @@ export function GlobalCssInput() {
   const [localCss, setLocalCss] = useState(customGlobalCss);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Sync state if context changes externally
-  useEffect(() => {
-    setLocalCss(customGlobalCss);
-  }, [customGlobalCss]);
+  const handleOpenChange = (open: boolean) => {
+    if (open) setLocalCss(customGlobalCss);
+    setIsOpen(open);
+  };
 
   const handleSave = () => {
     setCustomGlobalCss(localCss);
@@ -28,7 +28,7 @@ export function GlobalCssInput() {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <button
           title="Global CSS Theme"

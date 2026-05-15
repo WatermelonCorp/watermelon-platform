@@ -36,12 +36,14 @@ export const InlineTableControl: React.FC<InlineTableControlProps> = ({
   className = '',
 }) => {
   const [items, setItems] = useState<TableItem[]>(data);
+  const [previousData, setPreviousData] = useState(data);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editValues, setEditValues] = useState<TableItem | null>(null);
 
-  useEffect(() => {
+  if (previousData !== data) {
+    setPreviousData(data);
     setItems(data);
-  }, [data]);
+  }
 
   const handleDone = () => {
     if (editValues) {

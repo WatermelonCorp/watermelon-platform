@@ -140,10 +140,11 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
 
     /* Blur intensity */
     const [prev, setPrev] = useState(value);
-    const blur = Math.min(10, Math.abs(value - prev));
-    useEffect(() => {
+    const [blur, setBlur] = useState(0);
+    if (prev !== value) {
+        setBlur(Math.min(10, Math.abs(value - prev)));
         setPrev(value);
-    }, [value]);
+    }
 
     /* Convert pointer → snapped value */
     const updateFromPointer = useCallback(
