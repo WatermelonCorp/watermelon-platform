@@ -3,6 +3,7 @@ import { SEOHead } from "@/components/seo-head";
 import { uiCategories, uiRegistry } from "@/data/components-registry";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon } from "@/lib/hugeicons";
+import { CatalogPageHeader } from "@/components/layout/catalog-page-header";
 
 export default function ComponentsPage() {
   return (
@@ -13,19 +14,17 @@ export default function ComponentsPage() {
         category="Components"
       />
 
-      <div className="space-y-8 mb-12 px-2 md:px-4">
-        {/* ─ Page header ─ */}
-        <div className="space-y-1.5">
-          <h1 className="text-2xl font-semibold tracking-tight">Components</h1>
-          <p className="text-sm text-muted-foreground max-w-xl">
-            Browse all base components. Live-rendered, copy-paste ready React components for your next project.
-          </p>
-        </div>
+      <CatalogPageHeader
+        title="Components"
+        description="Browse all base components. Live-rendered, copy-paste ready React components for your next project."
+      />
+
+      <div className="flex flex-col gap-6 md:gap-12 mb-12 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
 
         {/* ─ Categories grid ─ */}
         <div className="overflow-hidden">
           <div
-            className="group/grid grid -mr-px -mb-px border-dashed"
+            className="group/grid grid -mr-px -mb-px border-dashed gap-4 md:gap-6 lg:gap-8"
             style={{
               gridTemplateColumns: `repeat(var(--columns, 1), minmax(0, 1fr))`,
             } as React.CSSProperties}
@@ -37,7 +36,7 @@ export default function ComponentsPage() {
               @media (min-width: 640px) and (max-width: 1023px) {
                 .group\\/grid { --columns: 2; }
               }
-              @media (min-width: 1024px) {
+              @media (min-width: 1200px) {
                 .group\\/grid { --columns: 3; }
               }
             `}</style>
@@ -50,10 +49,10 @@ export default function ComponentsPage() {
                   key={cat.slug}
                   to={`/components/${cat.slug}`}
                   id={`ui-category-${cat.slug}`}
-                  className="group/card flex flex-col gap-3 px-4 h-full border-r border-b border-dashed border-border no-underline"
+                  className="group/card flex flex-col gap-3 h-full no-underline"
                 >
                   {/* Title row */}
-                  <div className="flex items-center justify-between border-b py-3">
+                  <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-foreground">{cat.label}</span>
                       <span className="text-xs text-muted-foreground/60">{variantCount}</span>
@@ -65,7 +64,7 @@ export default function ComponentsPage() {
                   </div>
 
                   {/* Description */}
-                  <div className="relative flex min-h-[60px] items-center pb-4">
+                  <div className="relative flex min-h-[40px] items-center pb-4">
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       {cat.description}
                     </p>

@@ -9,11 +9,16 @@ import {
   HomePageSkeleton,
   ComponentPageSkeleton,
   DocPageSkeleton,
-  DashboardsPageSkeleton,
   BlocksPageSkeleton,
-  DashboardPageSkeleton,
   BlockPageSkeleton,
+  // DashboardsPageSkeleton,
+  // BlocksPageSkeleton,
+  // DashboardPageSkeleton,
+  // BlockPageSkeleton,
 } from "@/components/skeletons";
+import BlocksPage from "@/pages/blocks";
+import BlockCategoryPage from "@/pages/block-category";
+import BlockPage from "@/pages/block";
 
 const HomePage = lazy(() => import("@/pages/home"));
 const ComponentsPage = lazy(() => import("@/pages/animated-components"));
@@ -26,11 +31,11 @@ const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
 const TermsPage = lazy(() => import("@/pages/terms"));
 const PrivacyPage = lazy(() => import("@/pages/privacy"));
 const CopyrightPage = lazy(() => import("@/pages/copyright"));
-const DashboardsPage = lazy(() => import("@/pages/dashboards"));
-const DashboardPage = lazy(() => import("@/pages/dashboard"));
-const BlocksPage = lazy(() => import("@/pages/blocks"));
-const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
-const BlockPage = lazy(() => import("@/pages/block"));
+// const DashboardsPage = lazy(() => import("@/pages/dashboards"));
+// const DashboardPage = lazy(() => import("@/pages/dashboard"));
+// const BlocksPage = lazy(() => import("@/pages/blocks"));
+// const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
+// const BlockPage = lazy(() => import("@/pages/block"));
 const ChangelogPage = lazy(() => import("@/pages/changelog"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const PreviewPage = lazy(() => import("@/pages/preview"));
@@ -167,7 +172,7 @@ export function AppRoutes() {
         />
 
         {/* Dashboard pages */}
-        <Route
+        {/* <Route
           path="/dashboards"
           element={
             <Suspense fallback={<DashboardsPageSkeleton />}>
@@ -182,7 +187,7 @@ export function AppRoutes() {
               <DashboardPage />
             </Suspense>
           }
-        />
+        /> */}
 
         {/* Block pages */}
         <Route

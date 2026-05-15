@@ -12,8 +12,8 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import { registry, allCategories } from '@/data/animated-components-registry';
-import { dashboards } from '@/data/dashboards';
-import { blocks } from '@/data/blocks';
+// import { dashboards } from '@/data/dashboards';
+// import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { trackEvent } from '@/lib/analytics';
 import {
@@ -24,8 +24,8 @@ import {
   CommandIcon,
   GridIcon,
   SearchIcon,
-  SidebarLeft01Icon,
-  LayoutIcon,
+  // SidebarLeft01Icon,
+  // LayoutIcon,
 } from '@/lib/hugeicons';
 
 // Page navigation items
@@ -33,8 +33,8 @@ const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: GridIcon, shortcut: 'U' },
   { name: 'Animated Components', href: '/animated-components', icon: Home01Icon, shortcut: 'C' },
-  { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
-  { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
+  // { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
+  // { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
 
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
@@ -92,7 +92,7 @@ export function CommandPalette() {
           trackEvent('command_palette_open', { source: 'button' });
           setOpen(true);
         }}
-        className="group flex h-10 items-center lg:w-90 justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-all hover:border-input hover:bg-muted/50 hover:text-foreground"
+        className="group hidden lg:flex h-9 items-center lg:w-90 justify-between gap-2 rounded-xl bg-gray-100 dark:bg-neutral-800 px-3 text-sm text-muted-foreground transition-all shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] hover:text-foreground"
       >
         <div className="flex items-center gap-2">
           <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4" />
@@ -161,9 +161,7 @@ export function CommandPalette() {
               </CommandGroup>
             ))}
 
-            <CommandSeparator />
-
-            {/* Dashboards */}
+            {/* <CommandSeparator />
             <CommandGroup heading="Dashboards">
               {dashboards.map((dashboard) => (
                 <CommandItem
@@ -181,8 +179,6 @@ export function CommandPalette() {
             </CommandGroup>
 
             <CommandSeparator />
-
-            {/* UI Blocks */}
             <CommandGroup heading="UI Blocks">
               {blocks.map((block) => (
                 <CommandItem
@@ -197,7 +193,7 @@ export function CommandPalette() {
                   <span>{block.name}</span>
                 </CommandItem>
               ))}
-            </CommandGroup>
+            </CommandGroup> */}
           </CommandList>
         </Command>
       </CommandDialog>

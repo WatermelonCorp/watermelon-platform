@@ -1,11 +1,17 @@
+import React from 'react';
+
 interface CatalogPageHeaderProps {
   title: string;
+  description?: React.ReactNode;
 }
 
-export function CatalogPageHeader({ title }: CatalogPageHeaderProps) {
+export function CatalogPageHeader({ title, description }: CatalogPageHeaderProps) {
   return (
-    <div className="px-2 md:px-4 mt-2 md:mt-0">
-      <h1 className="tracking-tight text-sm md:text-base">{title}</h1>
+    <div className="space-y-1.5 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
+      <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
+      {description && (
+        <p className="text-sm text-muted-foreground max-w-xl">{description}</p>
+      )}
     </div>
   );
 }

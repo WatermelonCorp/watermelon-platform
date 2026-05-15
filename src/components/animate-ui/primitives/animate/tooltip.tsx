@@ -96,7 +96,7 @@ function TooltipProvider({
   id,
   openDelay = 700,
   closeDelay = 300,
-  transition = { type: 'spring', stiffness: 300, damping: 35 },
+  transition = { type: 'spring', stiffness: 300, damping: 30 },
 }: TooltipProviderProps) {
   const globalId = React.useId();
   const [currentTooltip, setCurrentTooltip] =

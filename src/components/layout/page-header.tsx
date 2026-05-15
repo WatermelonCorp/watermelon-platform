@@ -30,10 +30,10 @@ export const PageHeader = ({
       className={cn(
         "inline-flex items-center gap-2",
         isPill ? [
-          "bg-background/80 backdrop-blur-md border px-3 py-1.5 rounded-full shadow-sm",
+          "bg-gray-100 dark:bg-neutral-800 backdrop-blur-md border px-3 py-1.5 rounded-full shadow-sm",
           "pointer-events-auto"
         ] : [
-          "h-8 md:h-10 rounded-md px-2 bg-background"
+          "h-7 md:h-9"
         ],
         className
       )}

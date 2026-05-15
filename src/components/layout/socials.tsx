@@ -1,14 +1,15 @@
-import { GithubIcon, Linkedin01Icon, NewTwitterIcon } from "@/lib/hugeicons";
+import { GithubIcon, NewTwitterIcon } from "@/lib/hugeicons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { Linkedin02Icon } from "@hugeicons/core-free-icons";
 
 export const socialItems = {
   title: "Follow Us on",
   items: [
     { title: "X", href: "https://x.com/@watermelonui", icon: <HugeiconsIcon icon={NewTwitterIcon} size={18} /> },
     { title: "GitHub", href: "https://github.com/watermeloncorp", icon: <HugeiconsIcon icon={GithubIcon} size={18} /> },
-    { title: "LinkedIn", href: "https://www.linkedin.com/company/watermelon-corp", icon: <HugeiconsIcon icon={Linkedin01Icon} size={18} /> },
+    { title: "LinkedIn", href: "https://www.linkedin.com/company/watermelon-corp", icon: <HugeiconsIcon icon={Linkedin02Icon} size={18} /> },
   ],
 };
 

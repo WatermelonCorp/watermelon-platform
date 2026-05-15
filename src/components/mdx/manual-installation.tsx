@@ -44,11 +44,11 @@ export function ManualInstallationCmd({
   const command = getCommand(activePackageManager);
 
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-2 pl-0.5">
 
       {/* PM Switcher */}
       <div className="relative w-fit">
-        <div className="flex items-center gap-1 p-1 bg-muted/50 rounded-lg border">
+        <div className="relative flex items-center gap-1 bg-gray-100 dark:bg-neutral-800 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] rounded-lg w-fit">
           {PM_LIST.map((pm) => {
             const isActive = pm === activePackageManager;
 
@@ -64,7 +64,7 @@ export function ManualInstallationCmd({
                   });
                 }}
                 className={cn(
-                  "relative px-3 py-1.5 text-sm font-medium rounded-md",
+                  "relative px-3 py-1.5 text-sm font-medium rounded-lg",
                   isActive
                     ? "text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -73,7 +73,7 @@ export function ManualInstallationCmd({
                 {isActive && (
                   <motion.span
                     layoutId={`pm-manual-pill`}
-                    className="absolute inset-0 rounded-md bg-primary"
+                    className="absolute inset-0 rounded-lg bg-linear-to-b from-lime-400 to-lime-500 border border-lime-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),0_2px_1px_0_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_2px_1px_0_rgba(0,0,0,0.04)] text-white"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -85,8 +85,8 @@ export function ManualInstallationCmd({
       </div>
 
       {/* Command */}
-      <div className="relative group">
-        <div className="bg-muted/50 p-4 rounded-lg font-mono text-sm pr-12 border max-w-full overflow-x-auto">
+      <div className="relative group mt-2">
+        <div className="bg-muted/50 px-3 py-2 rounded-xl border font-mono text-sm pr-12 overflow-x-auto whitespace-nowrap">
           <ScrollFadeEffect orientation="horizontal">
             <AnimatePresence mode="wait">
               <motion.code
@@ -107,7 +107,7 @@ export function ManualInstallationCmd({
         </div>
 
         <CopyButton
-          variant="secondary"
+          variant="ghost"
           size="sm"
           content={command}
           onCopiedChange={() => {
@@ -119,7 +119,7 @@ export function ManualInstallationCmd({
               ...trackingContext,
             });
           }}
-          className="absolute right-2 top-2"
+          className="absolute right-[3px] top-[3px] rounded-xl hover:bg-transparent!"
         />
       </div>
 

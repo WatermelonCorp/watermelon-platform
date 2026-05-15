@@ -11,7 +11,6 @@ import {
   ReloadIcon,
   ArrowUpRight01FreeIcons,
 } from '@/lib/hugeicons';
-import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PromptItems } from '@/components/prompt-items';
 import type { ComponentFile } from '@/lib/types';
 import { InstallationCmd } from '@/components/mdx/installation-cmd';
@@ -126,19 +125,19 @@ export default function AnimatedComponentPage() {
               <span className="text-foreground font-medium">{item.name}</span>
             </div>
 
-            <div className="mb-2 flex items-center justify-between">
+            <div className="mb-2 flex items-center justify-between mt-4">
               <h1 className="text-xl font-semibold">{item.name}</h1>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsCodeOpen(true)}
                   aria-label="Open source code drawer"
-                  className="bg-muted hover:bg-accent flex size-7.5 items-center justify-center rounded-md border transition-colors md:size-10"
+                  className="bg-muted hover:bg-accent flex size-8 items-center justify-center rounded-md border transition-colors md:size-8 lg:size-10"
                 >
                   <HugeiconsIcon icon={SourceCodeIcon} size={16} />
                 </button>
-                <ThemeToggle />
+                {/* <ThemeToggle /> */}
                 {item.componentNumber && (
-                  <span className="bg-muted text-muted-foreground ml-2 rounded-sm px-2 py-0.5 text-xs font-medium backdrop-blur-md">
+                  <span className="bg-muted text-muted-foreground ml-2 rounded-sm px-3.5 py-[4px] font-medium backdrop-blur-md">
                     {item.componentNumber}
                   </span>
                 )}
@@ -367,37 +366,43 @@ export default function AnimatedComponentPage() {
           {/* LEFT DOCS - Scrollable */}
           <div className="w-[40%] flex-1 shrink-0 overflow-y-auto xl:w-[38%]">
             <ScrollFadeEffect>
-              <div className="space-y-4 px-6 py-6 pb-12">
-                <div className="flex items-center justify-between pt-2">
-                  <h1 className="text-2xl font-semibold">{item.name}</h1>
-
+              {/* ── Title row ── */}
+              <div className="shrink-0 border-b px-6 py-5">
+                <div className="mb-1.5 flex items-center gap-1 text-xs text-muted-foreground">
+                  <span className="capitalize">{item.category}</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <h1 className="text-2xl font-semibold tracking-tight leading-snug">{item.name}</h1>
                   {item.componentNumber && (
-                    <span className="bg-muted text-muted-foreground rounded-sm px-2 py-0.5 text-xs font-medium backdrop-blur-md">
+                    <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs font-medium border shrink-0 mt-0.5">
                       {item.componentNumber}
                     </span>
                   )}
                 </div>
-                <p className="text-muted-foreground text-sm">
-                  {item.description}
-                </p>
+              </div>
+
+              {/* ── Divider-based sections ── */}
+              <div className="divide-y">
+
+                {/* Description */}
+                <div className="px-6 py-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
                 {/* Dependencies */}
                 {item.dependencies && item.dependencies.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="mb-2 text-sm font-medium">Dependencies</h4>
+                  <div className="px-6 py-4 space-y-2">
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
                     <div className="flex flex-wrap gap-2">
                       {item.dependencies.map((dep) => (
                         <span
                           key={dep}
-                          className="bg-muted flex items-center gap-1.5 rounded-md px-3 py-1 text-sm"
+                          className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1)] flex items-center gap-1.5 px-3 py-1 text-sm"
                         >
                           {dep}
-                          <img
-                            src="/brand/npm-icon.png"
-                            alt="npm"
-                            width={12}
-                            height={12}
-                            className="inline-block"
-                          />
+                          <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
                         </span>
                       ))}
                     </div>
@@ -406,14 +411,14 @@ export default function AnimatedComponentPage() {
 
                 {/* Inspired By */}
                 {item.inspiredByName && (
-                  <div className="group/inspired-by flex items-center gap-2">
-                    <h4 className="text-sm">Inspired By</h4>
+                  <div className="group/inspired-by px-6 py-4 flex items-end gap-2">
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Inspired by</span>
                     {item.inspiredByLink ? (
                       <a
                         href={item.inspiredByLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-foreground inline-flex items-center text-sm underline underline-offset-4"
+                        className="text-foreground inline-flex items-center text-base hover:text-foreground transition-colors"
                       >
                         {item.inspiredByName}
                         <HugeiconsIcon
@@ -423,16 +428,14 @@ export default function AnimatedComponentPage() {
                         />
                       </a>
                     ) : (
-                      <span className="text-muted-foreground text-sm">
-                        {item.inspiredByName}
-                      </span>
+                      <span className="text-base">{item.inspiredByName}</span>
                     )}
                   </div>
                 )}
 
-                {/* Copy for AI Platforms */}
-                <div className="space-y-2">
-                  <h3 className="font-medium">Copy for AI</h3>
+                {/* Copy for AI */}
+                <div className="px-6 py-4 space-y-3">
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
                   <PromptItems
                     files={componentFiles}
                     dependencies={item.dependencies || []}
@@ -443,53 +446,22 @@ export default function AnimatedComponentPage() {
                   />
                 </div>
 
-                {/* How to use - with Collapsible CodeBlock */}
-                <div className="space-y-4">
-                  <div className="space-y-3">
-                    <h3 className="font-medium">Installation</h3>
-
-                    <Tabs defaultValue="cli" className="w-full">
-                      <TabsList>
-                        <TabsTrigger value="cli">CLI</TabsTrigger>
-                        <TabsTrigger value="manual">Manual</TabsTrigger>
-                      </TabsList>
-                      <TabsContents>
-                        <TabsContent value="cli">
-                          <LayoutGroup id={`install-cli-right-${item.slug}`}>
-                            <InstallationCmd
-                              activeCodeTab={activeVariant}
-                              activePackageManager={activePackageManager}
-                              setActivePackageManager={setActivePackageManager}
-                              item={item}
-                              trackingContext={{
-                                component_slug: item.slug,
-                                component_name: item.name,
-                                category: item.category,
-                                source: 'page',
-                              }}
-                            />
-                          </LayoutGroup>
-                          {/* Import & use */}
-                          <div className="my-4 space-y-4">
-                            <p className="text-muted-foreground text-xs">
-                              Update the import path to match your project
-                              structure
-                            </p>
-                            <h3 className="font-medium">How to use</h3>
-
-                            {demoCode && (
-                              <CodeBlock language="tsx" title="demo.tsx">
-                                {demoCode}
-                              </CodeBlock>
-                            )}
-                          </div>
-                        </TabsContent>
-                        <TabsContent value="manual" className="space-y-6">
-                          {/* Manual install (dependencies-driven) */}
-                          <ManualInstallationCmd
+                {/* Installation */}
+                <div className="px-6 py-4 space-y-4 pb-12">
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
+                  <Tabs defaultValue="cli" className="w-full">
+                    <TabsList className="bg-gray-100 dark:bg-neutral-800">
+                      <TabsTrigger className="text-sm font-normal! h-full" value="cli">CLI</TabsTrigger>
+                      <TabsTrigger className="text-sm font-normal! h-full" value="manual">Manual</TabsTrigger>
+                    </TabsList>
+                    <TabsContents>
+                      <TabsContent value="cli" className="space-y-4 pt-3">
+                        <LayoutGroup id={`install-cli-right-${item.slug}`}>
+                          <InstallationCmd
+                            activeCodeTab={activeVariant}
                             activePackageManager={activePackageManager}
                             setActivePackageManager={setActivePackageManager}
-                            dependencies={item.dependencies}
+                            item={item}
                             trackingContext={{
                               component_slug: item.slug,
                               component_name: item.name,
@@ -497,47 +469,62 @@ export default function AnimatedComponentPage() {
                               source: 'page',
                             }}
                           />
-                          {componentCodeOriginal || componentCodeBase ? (
-                            <div className="space-y-4">
-                              <CodeBlock
-                                showLineNumbers
-                                title={
-                                  activeVariant === 'base' && item.hasVariants
-                                    ? `${item.slug}-base.tsx`
-                                    : `${item.slug}.tsx`
-                                }
-                              >
-                                {activeCode}
-                              </CodeBlock>
-                            </div>
-                          ) : null}
-                          {/* Import & use */}
-                          <div className="space-y-2">
-                            <h4 className="text-muted-foreground text-sm font-medium">
-                              Import & use
-                            </h4>
-                            <p className="text-muted-foreground text-xs">
-                              Update the import path to match your project
-                              structure
-                            </p>
-
-                            {demoCode && (
-                              <CodeBlock language="tsx" title="demo.tsx">
-                                {demoCode}
-                              </CodeBlock>
-                            )}
+                        </LayoutGroup>
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">How to use</p>
+                          {demoCode && (
+                            <CodeBlock language="tsx" title="demo.tsx">
+                              {demoCode}
+                            </CodeBlock>
+                          )}
+                        </div>
+                      </TabsContent>
+                      <TabsContent value="manual" className="space-y-6 pt-3">
+                        <ManualInstallationCmd
+                          activePackageManager={activePackageManager}
+                          setActivePackageManager={setActivePackageManager}
+                          dependencies={item.dependencies}
+                          trackingContext={{
+                            component_slug: item.slug,
+                            component_name: item.name,
+                            category: item.category,
+                            source: 'page',
+                          }}
+                        />
+                        {(componentCodeOriginal || componentCodeBase) ? (
+                          <div className="space-y-4">
+                            <CodeBlock
+                              showLineNumbers
+                              title={
+                                activeVariant === 'base' && item.hasVariants
+                                  ? `${item.slug}-base.tsx`
+                                  : `${item.slug}.tsx`
+                              }
+                            >
+                              {activeCode}
+                            </CodeBlock>
                           </div>
-                        </TabsContent>
-                      </TabsContents>
-                    </Tabs>
-                  </div>
+                        ) : null}
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+                          {demoCode && (
+                            <CodeBlock language="tsx" title="demo.tsx">
+                              {demoCode}
+                            </CodeBlock>
+                          )}
+                        </div>
+                      </TabsContent>
+                    </TabsContents>
+                  </Tabs>
                 </div>
+
               </div>
             </ScrollFadeEffect>
           </div>
 
           {/* RIGHT PREVIEW - Sticky */}
-          <div className="sticky top-0 h-[calc(100dvh-84px)] flex-1 p-6">
+          <div className="sticky top-0 h-[calc(100dvh-84px)] flex-1 pr-4 md:pr-6 lg:pr-8">
             <div className="bg-muted/5 flex h-full flex-col overflow-hidden rounded-2xl border">
               <div className="bg-background/80 flex items-center justify-between gap-2 rounded-t-2xl border-b px-4 py-2 backdrop-blur">
                 {/* Variant toggle */}
@@ -566,7 +553,7 @@ export default function AnimatedComponentPage() {
                   </div>
                 )}
                 <div className="flex items-center gap-2">
-                  <ThemeToggle />
+                  {/* <ThemeToggle /> */}
                   <button
                     onClick={() => setReloadKey((k) => k + 1)}
                     aria-label="Reload component preview"

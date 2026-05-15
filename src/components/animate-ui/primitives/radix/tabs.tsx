@@ -50,7 +50,9 @@ function Tabs(props: TabsProps) {
   );
 }
 
-type TabsHighlightProps = Omit<HighlightProps, 'controlledItems' | 'value'>;
+type TabsHighlightProps = Omit<HighlightProps, 'controlledItems' | 'value'> & {
+  forceUpdateBounds?: boolean;
+};
 
 function TabsHighlight({
   transition = { type: 'spring', stiffness: 200, damping: 25 },
