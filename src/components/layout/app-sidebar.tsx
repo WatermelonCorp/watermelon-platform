@@ -54,11 +54,9 @@ import {
 // Clock01Icon     → Changelog quickstart icon
 // Terminal01Icon  → CLI quickstart icon
 import {
-  PlayCircleIcon,
   Clock01Icon,
   HardDriveDownload,
   CubeIcon,
-  ComputerTerminal02Icon,
   AuctionIcon,
   Component
 } from "@hugeicons/core-free-icons";

@@ -10,7 +10,6 @@ interface DashboardCardProps {
 }
 
 export function DashboardCard({ item, onClick, trackType = "dashboard" }: DashboardCardProps) {
-  const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
 
   const getImageSrcSet = (src: string) => {
     if (!src.startsWith("http")) return undefined;
@@ -29,25 +28,6 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
     };
 
     return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
-  };
-
-
-
-  const handleCopy = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-
-    try {
-      await navigator.clipboard.writeText(cliCommand);
-      trackEvent("install_command_copy", {
-        slug: item.slug,
-        name: item.name,
-        category: item.category,
-        command: cliCommand,
-        source: trackType === "block" ? "block_card" : "dashboard_card",
-      });
-    } catch (err) {
-      console.error("Failed to copy:", err);
-    }
   };
 
   return (
