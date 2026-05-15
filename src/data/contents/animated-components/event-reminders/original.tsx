@@ -17,11 +17,12 @@ export interface Reminder {
 
 const NumberRoller = ({ value }: { value: number }) => {
   const [prevValue, setPrevValue] = React.useState(value);
-  const direction = value >= prevValue ? 1 : -1;
+  const [direction, setDirection] = React.useState(1);
 
-  React.useEffect(() => {
+  if (prevValue !== value) {
+    setDirection(value >= prevValue ? 1 : -1);
     setPrevValue(value);
-  }, [value]);
+  }
 
   const variants = {
     initial: (d: number) => ({

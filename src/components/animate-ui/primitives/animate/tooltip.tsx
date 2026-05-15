@@ -262,13 +262,11 @@ function TooltipOverlay() {
     ],
   });
 
-  React.useEffect(() => {
-    if (currentTooltip) {
-      setRendered({ data: currentTooltip, open: true });
-    } else {
-      setRendered((p) => (p.data ? { ...p, open: false } : p));
-    }
-  }, [currentTooltip]);
+  if (currentTooltip && currentTooltip !== rendered.data) {
+    setRendered({ data: currentTooltip, open: true });
+  } else if (!currentTooltip && rendered.open) {
+    setRendered((p) => (p.data ? { ...p, open: false } : p));
+  }
 
   React.useLayoutEffect(() => {
     if (referenceElRef.current) {

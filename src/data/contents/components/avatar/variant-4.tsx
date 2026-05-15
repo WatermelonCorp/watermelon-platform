@@ -10,8 +10,8 @@ type Profile = {
 };
 
 const profile: Profile = {
-  name: 'Nina Alvarez',
-  avatar: 'https://i.pravatar.cc/160?img=28',
+  name: 'Emma Thompson',
+  avatar: 'https://assets.watermelon.sh/wm_emma.png',
 };
 
 const getInitials = (name: string) =>

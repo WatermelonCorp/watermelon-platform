@@ -12,8 +12,8 @@ type Profile = {
 };
 
 const profile: Profile = {
-  name: 'Leo Grant',
-  avatar: 'https://i.pravatar.cc/160?img=12',
+  name: 'Ben',
+  avatar: 'https://assets.watermelon.sh/wm_ben.png',
   status: 'Available',
 };
 

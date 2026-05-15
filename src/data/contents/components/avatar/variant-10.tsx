@@ -13,8 +13,8 @@ type Profile = {
 };
 
 const profile: Profile = {
-  name: 'Elena Park',
-  avatar: 'https://i.pravatar.cc/160?img=47',
+  name: 'Emma',
+  avatar: 'https://assets.watermelon.sh/wm_emma.png',
   actionLabel: 'Invite',
 };
 
