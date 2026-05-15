@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Notification2 from './index';
 
 export default function Notification2Demo() {

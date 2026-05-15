@@ -1,5 +1,5 @@
 import { Cta1 } from "./index";
-import { FaRocket, FaArrowRight } from "react-icons/fa";
+import {  FaArrowRight } from "react-icons/fa";
 
 export default function Cta1Demo() {
   return (
