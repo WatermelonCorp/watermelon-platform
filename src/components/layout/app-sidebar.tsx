@@ -475,7 +475,7 @@ export function AppSidebar() {
             {/* Row matches the Figma footer: [shield] Legal  [>] */}
             <button
               type="button"
-              className="flex w-full items-center justify-between px-4 py-2 rounded-md hover:bg-accent/20 transition-colors cursor-pointer"
+              className="flex w-full items-center justify-between px-2 py-2 rounded-md hover:bg-accent/20 transition-colors cursor-pointer"
             >
               <span className="flex items-center gap-2 text-sm text-muted-foreground">
                 {/* Shield icon — matches the Figma legal row */}
@@ -521,7 +521,7 @@ export function AppSidebar() {
       </SidebarContent>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <SidebarFooter className="border-t border-border bg-gray-100 dark:bg-neutral-900 dark:border-black shadow-[inset_0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-4">
+      <SidebarFooter className="border-t border-border bg-gray-100 dark:bg-neutral-900 dark:border-black shadow-[inset_0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-2">
 
 
         {/* ── Theme toggle row ──

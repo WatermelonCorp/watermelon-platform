@@ -60,7 +60,7 @@ export default function HomePage() {
         Watermelon UI - High-Quality React Components Registry
       </h1>
 
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col flex-1 gap-12">
         {/* Components Section */}
         <section id="components" className="flex flex-col gap-6">
 
@@ -109,7 +109,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <DashboardFooter />
+        <div className="mt-auto">
+          <DashboardFooter />
+        </div>
 
         <Suspense fallback={null}>
           {selectedItem && (
