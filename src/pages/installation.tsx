@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useId } from 'react';
+import { motion } from 'motion/react';
 import { SEOHead } from '@/components/seo-head';
 import { CodeBlock } from '@/components/mdx';
 import { CopyButton } from '@/components/animate-ui/components/buttons/copy';
@@ -16,24 +17,35 @@ function CommandBlock({
   label?: boolean;
 }) {
   const [active, setActive] = useState<PM>('npm');
+  const uid = useId();
   const current = commands[active];
 
   return (
     <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 dark:border-white/8 dark:bg-neutral-950 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
       {/* Top bar */}
       <div className="flex items-center justify-between border-b border-gray-200 px-4 py-2.5 dark:border-white/6">
-        <div className="flex items-center gap-1">
-          {(['pnpm', 'npm', 'yarn', 'bun'] as PM[]).map((pm) => (
+        <div className="flex items-center gap-0.5">
+          {(['npm', 'pnpm', 'yarn', 'bun'] as PM[]).map((pm) => (
             <button
               key={pm}
               onClick={() => setActive(pm)}
-              className={`rounded-md px-3 py-1 text-xs font-medium transition-all duration-150 ${
-                active === pm
-                  ? 'bg-primary text-black'
-                  : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
-              }`}
+              className="relative px-3 py-1 text-xs font-medium z-10 transition-colors duration-150 rounded-md"
             >
-              {pm}
+              {active === pm && (
+                <motion.span
+                  layoutId={`${uid}-pm-pill`}
+                  className="absolute inset-0 rounded-md bg-primary"
+                  initial={{ opacity: 1 }}
+                  transition={{ type: 'spring', bounce: 0.2, duration: 0.35 }}
+                />
+              )}
+              <span className={`relative ${
+                active === pm
+                  ? 'text-white'
+                  : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+              }`}>
+                {pm}
+              </span>
             </button>
           ))}
         </div>
@@ -57,6 +69,7 @@ function CommandBlock({
 
 function FrameworkTabs() {
   const [framework, setFramework] = useState<'nextjs' | 'vite'>('nextjs');
+  const uid = useId();
 
   const commands: Record<'nextjs' | 'vite', Record<PM, string>> = {
     nextjs: {
@@ -75,18 +88,28 @@ function FrameworkTabs() {
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center w-fit rounded-md bg-gray-100 border border-gray-200 dark:bg-neutral-900 dark:border-white/6 overflow-hidden">
+      <div className="relative flex items-center w-fit rounded-md bg-gray-100 border border-gray-200 dark:bg-neutral-900 dark:border-white/6">
         {(['nextjs', 'vite'] as const).map((fw) => (
           <button
             key={fw}
             onClick={() => setFramework(fw)}
-            className={`px-5 py-1.5 text-xs font-medium transition-all duration-150 ${
-              framework === fw
-                ? 'bg-white rounded-md text-gray-900 shadow-sm dark:bg-white/10 dark:text-white dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]'
-                : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
-            }`}
+            className="relative px-5 py-1.5 text-xs font-medium z-10 transition-colors duration-150 rounded-md"
           >
-            {fw === 'nextjs' ? 'Next.js' : 'Vite'}
+            {framework === fw && (
+              <motion.span
+                layoutId={`${uid}-fw-pill`}
+                className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-white/10 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]"
+                initial={{ opacity: 1 }}
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.35 }}
+              />
+            )}
+            <span className={`relative ${
+              framework === fw
+                ? 'text-gray-900 dark:text-white'
+                : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+            }`}>
+              {fw === 'nextjs' ? 'Next.js' : 'Vite'}
+            </span>
           </button>
         ))}
       </div>
@@ -99,6 +122,7 @@ function FrameworkTabs() {
 
 function ComponentInstallTabs() {
   const [mode, setMode] = useState<'cli' | 'manual'>('cli');
+  const uid = useId();
 
   const cliCmds: Record<PM, string> = {
     npm: 'npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json',
@@ -117,18 +141,28 @@ function ComponentInstallTabs() {
   return (
     <div className="space-y-4">
       {/* Mode toggle */}
-      <div className="flex items-center w-fit rounded-md bg-gray-100 border border-gray-200 dark:bg-neutral-900 dark:border-white/6 overflow-hidden">
+      <div className="relative flex items-center w-fit rounded-md bg-gray-100 border border-gray-200 dark:bg-neutral-900 dark:border-white/6">
         {(['cli', 'manual'] as const).map((m) => (
           <button
             key={m}
             onClick={() => setMode(m)}
-            className={`px-5 py-1.5 text-xs font-medium uppercase tracking-wide transition-all duration-150 ${
-              mode === m
-                ? 'bg-white rounded-md text-gray-900 shadow-sm dark:bg-white/10 dark:text-white dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]'
-                : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
-            }`}
+            className="relative px-5 py-1.5 text-xs font-medium uppercase tracking-wide z-10 transition-colors duration-150 rounded-md"
           >
-            {m}
+            {mode === m && (
+              <motion.span
+                layoutId={`${uid}-mode-pill`}
+                className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-white/10 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]"
+                initial={{ opacity: 1 }}
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.35 }}
+              />
+            )}
+            <span className={`relative ${
+              mode === m
+                ? 'text-gray-900 dark:text-white'
+                : 'text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-300'
+            }`}>
+              {m}
+            </span>
           </button>
         ))}
       </div>
