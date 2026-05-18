@@ -67,7 +67,7 @@ const Section = ({ children, defaultOpen = false, title }: SectionProps) => {
     <Collapsible
       open={open}
       onOpenChange={setOpen}
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-2  "
     >
       <div className="flex items-center justify-between gap-4 px-4">
         <div className="text-sm font-semibold">{title}</div>
@@ -92,7 +92,7 @@ const Collapsible9 = () => {
 
   return (
     <div className="flex w-full items-center justify-center space-y-3">
-      <div className="border-border/70 w-full max-w-md space-y-3 rounded-md border py-4 shadow-sm">
+      <div className="w-full max-w-md space-y-3 rounded-md py-4">
         <Section title="Delivery Address" defaultOpen={false}>
           {addressFields.slice(0, 1).map((field) => (
             <div key={field.id} className="group relative w-full">
@@ -108,7 +108,7 @@ const Collapsible9 = () => {
                 id={field.id}
                 type={field.type}
                 placeholder=" "
-                className="border-border/70 bg-muted/20 dark:bg-background"
+                className="border-border/70 bg-muted/20 dark:bg-background focus-visible:ring-primary/20 focus-visible:border-primary/50"
               />
             </div>
           ))}
@@ -122,7 +122,7 @@ const Collapsible9 = () => {
             <Textarea
               id="address"
               placeholder=" "
-              className="border-border/70 !bg-muted/20 dark:!bg-background"
+              className="border-border/70 !bg-muted/20 dark:!bg-background focus-visible:ring-primary/20 focus-visible:border-primary/50"
             />
           </div>
           {addressFields.slice(1).map((field) => (
@@ -139,7 +139,7 @@ const Collapsible9 = () => {
                 id={field.id}
                 type={field.type}
                 placeholder=" "
-                className="border-border/70 bg-muted/20 dark:bg-background"
+                className="border-border/70 bg-muted/20 dark:bg-background focus-visible:ring-primary/20 focus-visible:border-primary/50"
               />
             </div>
           ))}
@@ -197,7 +197,7 @@ const Collapsible9 = () => {
                   id={`number-${id}`}
                   type="text"
                   placeholder="1234 1234 1234 1234"
-                  className="peer border-border/70 bg-muted/20 dark:bg-background rounded-b-none pr-9 shadow-none"
+                  className="peer border-border/70 bg-muted/20 dark:bg-background focus-visible:ring-primary/20 focus-visible:border-primary/50 rounded-b-none pr-9 shadow-none"
                 />
                 <div className="text-muted-foreground pointer-events-none absolute inset-y-0 right-0 flex items-center justify-center pr-3 peer-disabled:opacity-50">
                   <CreditCardIcon className="size-4" />
@@ -210,7 +210,7 @@ const Collapsible9 = () => {
                     id={`expiry-${id}`}
                     type="text"
                     placeholder="MM / YY"
-                    className="border-border/70 bg-muted/20 dark:bg-background rounded-t-none rounded-r-none shadow-none"
+                    className="border-border/70 bg-muted/20 dark:bg-background focus-visible:ring-primary/20 focus-visible:border-primary/50 rounded-t-none rounded-r-none shadow-none"
                   />
                 </div>
                 <div className="-ms-px min-w-0 flex-1 focus-within:z-1">
@@ -218,7 +218,7 @@ const Collapsible9 = () => {
                     id={`cvc-${id}`}
                     type="text"
                     placeholder="CVC"
-                    className="border-border/70 bg-muted/20 dark:bg-background rounded-t-none rounded-l-none shadow-none"
+                    className="border-border/70 bg-muted/20 dark:bg-background focus-visible:ring-primary/20 focus-visible:border-primary/50 rounded-t-none rounded-l-none shadow-none"
                   />
                 </div>
               </div>

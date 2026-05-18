@@ -69,20 +69,20 @@ const SectionShell = ({ children, title }: SectionShellProps) => {
     <Collapsible
       open={open}
       onOpenChange={setOpen}
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-2 border-0"
     >
       <div className="hover:bg-muted/30 flex items-center justify-between gap-4 rounded-md px-2 py-1.5">
         <div className="text-sm font-semibold">{title}</div>
         <CollapsibleTrigger>
           <Button variant="ghost" size="icon-sm">
             <ChevronDownIcon
-              className={`text-muted-foreground size-4 transition-transform ${open ? 'rotate-180' : ''}`}
+              className={`text-muted-foreground border-0 size-4 transition-transform ${open ? 'rotate-180' : ''}`}
             />
             <span className="sr-only">Toggle {title}</span>
           </Button>
         </CollapsibleTrigger>
       </div>
-      <CollapsibleContent className="flex flex-col gap-2 px-1 pb-1">
+      <CollapsibleContent className="flex flex-col gap-2 px-1 pb-2 border-0 ring-0">
         {children}
       </CollapsibleContent>
     </Collapsible>
@@ -91,7 +91,7 @@ const SectionShell = ({ children, title }: SectionShellProps) => {
 
 const Collapsible5 = () => {
   return (
-    <div className="border-border/70 bg-background w-full max-w-[350px] space-y-3 rounded-xl border p-3.5 shadow-sm">
+    <div className="bg-card w-full max-w-[350px] rounded-xl shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)]">
       <SectionShell title="Price Range">
         <div className="flex items-center justify-between gap-4 px-1">
           <Label htmlFor="min-price" className="shrink-0 text-sm font-medium">
@@ -101,7 +101,7 @@ const Collapsible5 = () => {
             id="min-price"
             type="number"
             placeholder={priceRange.minPlaceholder}
-            className="border-border/70 bg-muted/20 h-9 max-w-56"
+            className="border-border/70 bg-muted/20 focus-visible:border-primary/50 focus-visible:ring-primary/20 h-9 max-w-56"
           />
         </div>
         <div className="flex items-center justify-between gap-4 px-1">
@@ -112,7 +112,7 @@ const Collapsible5 = () => {
             id="max-price"
             type="number"
             placeholder={priceRange.maxPlaceholder}
-            className="border-border/70 bg-muted/20 h-9 max-w-56"
+            className="border-border/70 bg-muted/20 focus-visible:border-primary/50 focus-visible:ring-primary/20 h-9 max-w-56"
           />
         </div>
       </SectionShell>
@@ -137,7 +137,7 @@ const Collapsible5 = () => {
           </div>
         ))}
       </SectionShell>
-      <Separator />
+      <Separator  />
       <SectionShell title="Brand">
         {brands.map((brand) => (
           <div

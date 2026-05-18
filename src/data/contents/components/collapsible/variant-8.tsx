@@ -119,7 +119,7 @@ const Collapsible8 = () => {
           return (
             <DropdownMenuItem
               key={link.label}
-              className="text-sky-600 focus:text-sky-700 dark:text-sky-400 dark:focus:text-sky-300"
+              className=""
             >
               <LinkIcon className="size-4" />
               <span>{link.label}</span>

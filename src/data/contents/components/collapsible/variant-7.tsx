@@ -37,7 +37,7 @@ const Collapsible7 = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <Card className="border-border/70 w-full max-w-md overflow-hidden rounded-none p-0 shadow-xl">
+    <Card className="ring-0 w-full max-w-md overflow-hidden rounded-none p-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)]">
       <Collapsible open={open} onOpenChange={setOpen}>
         <div className="flex items-center justify-between px-6 py-5">
           <CardTitle className="text-base">{helpCard.question}</CardTitle>
@@ -60,7 +60,7 @@ const Collapsible7 = () => {
             <img
               src={helpCard.imageSrc}
               alt={helpCard.imageAlt}
-              className="aspect-video h-70 w-full object-cover"
+              className="aspect-video h-70 w-full object-cover outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
             />
           </CardContent>
         </CollapsibleContent>

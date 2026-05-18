@@ -26,30 +26,30 @@ type Task = {
 
 const tasks: readonly Task[] = [
   {
-    image: 'https://i.pravatar.cc/160?img=21',
+    image: 'https://assets.watermelon.sh/wm_mia.png',
     fallback: 'MC',
-    name: 'Maya Chen',
+    name: 'Mia Chen',
     role: 'Product Designer',
     progress: 88,
   },
   {
-    image: 'https://i.pravatar.cc/160?img=32',
-    fallback: 'OS',
-    name: 'Owen Scott',
+    image: 'https://assets.watermelon.sh/wm_alex.png',
+    fallback: 'AS',
+    name: 'Alex Scott',
     role: 'Frontend Engineer',
     progress: 64,
   },
   {
-    image: 'https://i.pravatar.cc/160?img=30',
-    fallback: 'AL',
-    name: 'Amara Lewis',
+    image: 'https://assets.watermelon.sh/wm_emma.png',
+    fallback: 'EL',
+    name: 'Emma Lewis',
     role: 'Research Lead',
     progress: 76,
   },
   {
-    image: 'https://i.pravatar.cc/160?img=47',
+    image: 'https://assets.watermelon.sh/wm_josh.png',
     fallback: 'JP',
-    name: 'Jordan Price',
+    name: 'Josh Price',
     role: 'Operations Analyst',
     progress: 29,
   },
@@ -71,7 +71,7 @@ const Collapsible3 = () => {
         {visibleTasks.map((task) => (
           <li
             key={task.name}
-            className="border-border/60 flex items-start gap-4 rounded-md border px-3 py-2"
+            className="bg-card flex items-start gap-4 rounded-md px-3 py-2 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)]"
           >
             <Avatar>
               <AvatarImage src={task.image} alt={task.name} />
@@ -81,14 +81,14 @@ const Collapsible3 = () => {
               <div className="text-sm font-medium">{task.name}</div>
               <p className="text-muted-foreground text-xs">{task.role}</p>
             </div>
-            <span className="text-muted-foreground text-sm">{`${task.progress}%`}</span>
+            <span className="text-muted-foreground text-sm self-center">{`${task.progress}%`}</span>
           </li>
         ))}
         <CollapsibleContent className="flex flex-col gap-3">
           {hiddenTasks.map((task) => (
             <li
               key={task.name}
-              className="border-border/60 flex items-start gap-4 rounded-md border px-3 py-2"
+              className="bg-card flex items-start gap-4 rounded-md px-3 py-2 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)]"
             >
               <Avatar>
                 <AvatarImage src={task.image} alt={task.name} />
@@ -98,7 +98,7 @@ const Collapsible3 = () => {
                 <div className="text-sm font-medium">{task.name}</div>
                 <p className="text-muted-foreground text-xs">{task.role}</p>
               </div>
-              <span className="text-muted-foreground text-sm">{`${task.progress}%`}</span>
+              <span className="text-muted-foreground text-sm self-center">{`${task.progress}%`}</span>
             </li>
           ))}
         </CollapsibleContent>

@@ -45,13 +45,13 @@ const FaqRow = ({ defaultOpen = false, item }: FaqRowProps) => {
         </CollapsibleContent>
         <CollapsibleTrigger>
           <span
-            className={`text-[10px] font-medium tracking-[0.12em] uppercase ${
+            className={`text-sm font-medium   ${
               open
                 ? 'text-rose-600 dark:text-rose-400'
-                : 'text-sky-600 dark:text-sky-400'
+                : 'text-primary dark:text-primary'
             }`}
           >
-            {open ? 'Hide answer' : 'Show answer'}
+            {open ? 'Hide ' : 'Show '}
           </span>
         </CollapsibleTrigger>
       </Collapsible>

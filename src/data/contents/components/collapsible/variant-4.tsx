@@ -35,31 +35,31 @@ type UserProfile = {
 
 const users: readonly UserProfile[] = [
   {
-    avatarAlt: 'Maya Chen',
-    avatarSrc: 'https://i.pravatar.cc/160?img=21',
+    avatarAlt: 'Mia Chen',
+    avatarSrc: 'https://assets.watermelon.sh/wm_mia.png',
     bio: 'Product designer focused on onboarding flows, product storytelling, and clean interface systems.',
     fallback: 'MC',
     followers: 142,
-    name: 'Maya Chen',
+    name: 'Mia Chen',
     projects: 6,
   },
   {
-    avatarAlt: 'Owen Scott',
-    avatarSrc: 'https://i.pravatar.cc/160?img=32',
+    avatarAlt: 'Alex Scott',
+    avatarSrc: 'https://assets.watermelon.sh/wm_alex.png',
     bio: 'Frontend engineer building flexible React systems with a focus on performance and implementation detail.',
-    fallback: 'OS',
+    fallback: 'AS',
     followers: 108,
     followed: true,
-    name: 'Owen Scott',
+    name: 'Alex Scott',
     projects: 4,
   },
   {
-    avatarAlt: 'Amara Lewis',
-    avatarSrc: 'https://i.pravatar.cc/160?img=30',
+    avatarAlt: 'Emma Lewis',
+    avatarSrc: 'https://assets.watermelon.sh/wm_emma.png',
     bio: 'Research lead translating user patterns into practical design decisions for product and brand teams.',
-    fallback: 'AL',
+    fallback: 'EL',
     followers: 91,
-    name: 'Amara Lewis',
+    name: 'Emma Lewis',
     projects: 5,
   },
 ] as const;
@@ -87,7 +87,7 @@ const UserRow = ({ user }: UserRowProps) => {
       className="p-3"
     >
       <CollapsibleTrigger className="flex w-full items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Avatar>
             <AvatarImage src={user.avatarSrc} alt={user.avatarAlt} />
             <AvatarFallback>{user.fallback}</AvatarFallback>
@@ -123,7 +123,7 @@ const UserRow = ({ user }: UserRowProps) => {
                 Following
               </Button>
             ) : (
-              <Button className="h-7 rounded-md bg-sky-600 px-3 py-1 text-xs text-white hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400">
+              <Button className="h-7 rounded-md bg-primary px-3 py-1 text-xs text-white hover:bg-sky-700 dark:bg-primary dark:hover:bg-primary">
                 Follow
                 <PlusIcon className="size-3.5" />
               </Button>
@@ -137,7 +137,7 @@ const UserRow = ({ user }: UserRowProps) => {
 
 const Collapsible4 = () => {
   return (
-    <ul className="flex w-full max-w-[350px] flex-col gap-2.5">
+    <ul className="flex w-full max-w-[350px] flex-col ">
       {users.map((user) => (
         <li key={user.name}>
           <UserRow user={user} />
