@@ -55,28 +55,28 @@ const Checkbox12 = () => {
   }
 
   return (
-    <div className='flex items-center gap-3'>
+    <div className="flex items-center gap-3">
       {checkboxColorOptions.map((option) => (
         <CheckboxPrimitive.Root
           key={option.id}
-          data-slot='checkbox'
+          data-slot="checkbox"
           checked={checkedColors[option.id]}
           onCheckedChange={(checked) =>
             handleCheckedChange(option.id, checked === true)
           }
-          className={`peer grid size-7 shrink-0 place-items-center rounded-full border border-transparent shadow-sm outline-none transition-all hover:scale-[1.02] focus-visible:ring-[3px] ${option.className}`}
+          className={`peer grid size-7 shrink-0 place-items-center rounded-full border border-transparent shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.15),inset_0px_-1px_0px_0px_rgba(0,0,0,0.05),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] outline-1 -outline-offset-1 outline-black/10 transition-all hover:scale-[1.02] focus-visible:ring-[3px] dark:outline-white/10 ${option.className}`}
           aria-label={option.ariaLabel}
         >
           <CheckboxPrimitive.Indicator
-            data-slot='checkbox-indicator'
-            className='grid place-items-center text-current transition-none'
+            data-slot="checkbox-indicator"
+            className="grid place-items-center text-current transition-none"
           >
-            <CircleCheckIcon className='size-5 fill-white stroke-current' />
+            <CircleCheckIcon className="size-5 fill-white stroke-current" />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
       ))}
     </div>
-  )
+  );
 }
 
 export default Checkbox12

@@ -45,7 +45,7 @@ const Checkbox9 = () => {
               onCheckedChange={(checked) =>
                 handleCheckedChange(label, checked === true)
               }
-              className='data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+           
             />
             <Label htmlFor={label} className='flex items-center gap-2 text-sm'>
               <Icon className='size-4 text-muted-foreground' aria-hidden='true' />

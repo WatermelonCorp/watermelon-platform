@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/base-ui/card';
+import { Button } from '@/components/base-ui/button';
 
 type TeamMember = {
   fallback: string;
@@ -22,42 +23,43 @@ type TeamMember = {
 
 const members: readonly TeamMember[] = [
   {
-    fallback: 'MC',
-    imageAlt: 'Maya Chen',
-    name: 'Maya Chen',
+    fallback: 'MP',
+    imageAlt: 'Mia Polina',
+    name: 'Mia Polina',
     role: 'Product Designer',
-    src: 'https://i.pravatar.cc/160?img=28',
+    src: 'https://assets.watermelon.sh/wm_mia.png',
   },
   {
-    fallback: 'EL',
-    imageAlt: 'Ethan Lewis',
-    name: 'Ethan Lewis',
+    fallback: 'AG',
+    imageAlt: 'Alex Grant',
+    name: 'Alex Grant',
     role: 'Frontend Engineer',
-    src: 'https://i.pravatar.cc/160?img=36',
+    src: 'https://assets.watermelon.sh/wm_alex.png',
   },
   {
-    fallback: 'AP',
-    imageAlt: 'Ava Patel',
-    name: 'Ava Patel',
+    fallback: 'BL',
+    imageAlt: 'Ben Lewis',
+    name: 'Ben Lewis',
     role: 'Brand Strategist',
-    src: 'https://i.pravatar.cc/160?img=52',
+    src: 'https://assets.watermelon.sh/wm_ben.png',
   },
 ] as const;
 
 const Card3 = () => {
   return (
-    <Card className="border-border/70 w-full max-w-lg shadow-sm">
+    <Card className="w-full max-w-lg shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] ring-0">
       <CardHeader>
         <CardTitle>Project Team</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-3 sm:grid-cols-2">
-        <button
+        <Button
           type="button"
-          className="border-border/50 bg-muted/15 hover:bg-muted/25 flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 text-left transition-colors"
+          variant="outline"
+          className="border-border bg-muted hover:bg-muted/75 flex h-full items-center gap-4 rounded-lg border border-dashed px-4 py-3 text-left transition-colors duration-200"
         >
           <CircleFadingPlusIcon className="text-muted-foreground size-5" />
           <span className="text-sm font-semibold">Invite teammate</span>
-        </button>
+        </Button>
         {members.map((member) => (
           <div
             key={member.name}
@@ -71,7 +73,7 @@ const Card3 = () => {
             </Avatar>
             <div className="flex flex-col">
               <span className="text-sm font-semibold">{member.name}</span>
-              <span className="text-muted-foreground text-sm">
+              <span className="text-muted-foreground text-xs">
                 {member.role}
               </span>
             </div>

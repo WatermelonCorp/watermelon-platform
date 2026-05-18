@@ -38,7 +38,7 @@ const Checkbox8 = () => {
               onCheckedChange={(checked) =>
                 handleCheckedChange(technology, checked === true)
               }
-              className='data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+             
             />
             <Label htmlFor={technology} className='text-sm'>
               {technology}

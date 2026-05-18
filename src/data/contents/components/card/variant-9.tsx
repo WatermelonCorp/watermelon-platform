@@ -17,9 +17,9 @@ const textCard: TextCard = {
 
 const Card9 = () => {
   return (
-    <Card className="max-w-md gap-0 rounded-none border-sky-500/60 bg-transparent shadow-2xl">
+    <Card className="max-w-md gap-0 ring-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)]  ">
       <CardHeader className="pb-3">
-        <CardTitle className="text-sky-700 dark:text-sky-400">
+        <CardTitle className="text-primary">
           {textCard.title}
         </CardTitle>
       </CardHeader>

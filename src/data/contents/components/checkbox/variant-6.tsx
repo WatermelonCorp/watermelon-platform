@@ -26,12 +26,12 @@ const Checkbox6 = () => {
   }
 
   return (
-    <div className='flex items-center gap-2.5'>
+    <div className='flex items-center gap-2.5 '>
       {snacks.map((snack) => (
         <Badge
           key={snack}
           variant='secondary'
-          className='relative rounded-lg px-3 py-4'
+          className='relative rounded-lg px-3 py-4 w-auto'
         >
           <Checkbox
             id={snack}
@@ -39,7 +39,7 @@ const Checkbox6 = () => {
             onCheckedChange={(checked) =>
               handleCheckedChange(snack, checked === true)
             }
-            className={`pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500 ${
+            className={`pointer-events-none absolute left-2 top-1/2 -translate-y-1/2  ${
               selectedSnacks.includes(snack)
                 ? 'opacity-100'
                 : 'opacity-0'

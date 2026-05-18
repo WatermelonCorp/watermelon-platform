@@ -31,26 +31,28 @@ type NoteCardContent = {
   title: string;
 };
 
+
+
 const collaborators: readonly Collaborator[] = [
   {
-    src: 'https://i.pravatar.cc/160?img=28',
+    src: 'https://assets.watermelon.sh/wm_mia.png',
     fallback: 'MC',
-    name: 'Maya Chen',
+    name: 'Mia ',
   },
   {
-    src: 'https://i.pravatar.cc/160?img=41',
-    fallback: 'NG',
-    name: 'Noah Grant',
+    src: 'https://assets.watermelon.sh/wm_alex.png',
+    fallback: 'AG',
+    name: 'Alex Grant',
   },
   {
-    src: 'https://i.pravatar.cc/160?img=60',
-    fallback: 'AL',
-    name: 'Amara Lewis',
+    src: 'https://assets.watermelon.sh/wm_ben.png',
+    fallback: 'BL',
+    name: 'Ben Lewis',
   },
   {
-    src: 'https://i.pravatar.cc/160?img=66',
-    fallback: 'CP',
-    name: 'Clara Patel',
+    src:  'https://assets.watermelon.sh/wm_olivia.png',
+    fallback: 'OP',
+    name: 'Olivia ',
   },
 ] as const;
 

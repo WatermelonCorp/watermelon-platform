@@ -24,7 +24,7 @@ const mediaCard: MediaCard = {
 
 const Card4 = () => {
   return (
-    <Card className="border-border/60 bg-muted/10 max-w-md p-2 shadow-sm">
+    <Card className=" max-w-md rounded-[40px] p-2 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] ring-0">
       <CardHeader className="space-y-1 px-4 pt-3 pb-2">
         <CardTitle className="text-lg">{mediaCard.title}</CardTitle>
         <CardDescription className="max-w-sm text-sm leading-6">
@@ -35,7 +35,7 @@ const Card4 = () => {
         <img
           src={mediaCard.imageSrc}
           alt={mediaCard.imageAlt}
-          className="aspect-4/3 w-full rounded-xl object-cover"
+          className="aspect-4/3 w-full rounded-4xl object-cover shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] outline-1 outline-black/10 -outline-offset-1 dark:outline-white/10"
         />
       </CardContent>
     </Card>

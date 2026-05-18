@@ -23,7 +23,7 @@ const Checkbox3 = () => {
         id={id}
         checked={isChecked}
         onCheckedChange={(checked) => setIsChecked(checked === true)}
-        className='mt-0.5 border-dashed border-input data-checked:border-sky-600 data-checked:bg-sky-600 dark:border-input dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+        className='mt-0.5 border-dashed border-input data-checked:border-primary data-checked:bg-primary dark:border-input dark:data-checked:border-primary dark:data-checked:bg-primary'
       />
       <div className='space-y-1'>
         <Label htmlFor={id} className='text-sm font-medium'>

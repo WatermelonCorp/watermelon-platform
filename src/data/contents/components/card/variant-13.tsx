@@ -26,13 +26,13 @@ type Testimonial = {
 };
 
 const testimonial: Testimonial = {
-  avatarAlt: 'Sara Gomez',
-  avatarSrc: 'https://i.pravatar.cc/160?img=32',
-  fallback: 'SG',
-  handle: '@sarag.design',
+  avatarAlt: 'Mia Gomez',
+  avatarSrc: 'https://assets.watermelon.sh/wm_mia.png',
+  fallback: 'MG',
+  handle: '@mia.design',
   highlightedText:
     'easy to adapt, clean to extend, and reliable inside real product work',
-  name: 'Sara Gomez',
+  name: 'Mia Gomez',
   quoteEnd:
     'That combination made it much easier to move from idea to implementation without reworking everything later.',
   quoteStart:
@@ -52,12 +52,13 @@ const Card13 = () => {
           . {testimonial.quoteEnd}
         </p>
       </CardContent>
-      <CardFooter className="border-border/60 rounded-none justify-between gap-3 border-t pt-5 max-sm:flex-col max-sm:items-stretch">
+      <CardFooter className="border-border/60 justify-between gap-3 rounded-none border-t pt-5 max-sm:flex-col max-sm:items-stretch">
         <div className="flex items-center gap-3">
-          <Avatar className="ring-ring ring-2">
+          <Avatar >
             <AvatarImage
               src={testimonial.avatarSrc}
               alt={testimonial.avatarAlt}
+              className="outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
             />
             <AvatarFallback className="text-xs">
               {testimonial.fallback}

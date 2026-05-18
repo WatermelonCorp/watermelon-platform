@@ -33,7 +33,7 @@ const fields: readonly FormField[] = [
 
 const Card1 = () => {
   return (
-    <Card className="border-border/60 bg-background/95 w-full max-w-md shadow-xl">
+    <Card className="ring-0  bg-background/95 w-full max-w-md shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] ">
       <CardHeader className="space-y-1">
         <CardTitle className="text-xl">Sign in to your workspace</CardTitle>
         <CardDescription className="max-w-sm text-sm leading-6">
@@ -62,7 +62,7 @@ const Card1 = () => {
                   id={field.id}
                   type={field.type}
                   placeholder={field.placeholder}
-                  className="border-border/70 h-11"
+                  className="border-border/70 h-11 focus-visible:ring-primary/20 focus-visible:border-primary/50"
                 />
               </div>
             ))}
@@ -72,7 +72,7 @@ const Card1 = () => {
       <CardFooter className="flex-col gap-2.5 pt-3">
         <Button
           type="submit"
-          className="h-11 w-full bg-sky-600 text-white hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400"
+          className="h-11 w-full"
         >
           Continue
         </Button>

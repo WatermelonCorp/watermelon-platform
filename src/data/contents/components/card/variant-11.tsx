@@ -53,7 +53,7 @@ const profile: Profile = {
   fallback: 'MC',
   handle: '@maya.frames',
   imageAlt: 'Maya Chen',
-  imageSrc: 'https://i.pravatar.cc/160?img=47',
+  imageSrc: 'https://assets.watermelon.sh/wm_mia.png',
   name: 'Maya Chen',
 };
 
@@ -77,7 +77,7 @@ const Card11 = () => {
   const [liked, setLiked] = useState<boolean>(true);
 
   return (
-    <Card className="border-border/70 bg-background max-w-md overflow-hidden rounded-xl shadow-sm">
+    <Card className=" max-w-md overflow-hidden rounded-xl shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] ring-0">
       <CardHeader className="flex items-center justify-between gap-3 px-4">
         <div className="flex items-center gap-3">
           <Avatar className="size-9">

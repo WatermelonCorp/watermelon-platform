@@ -23,12 +23,12 @@ const Checkbox4 = () => {
         id={id}
         checked={isChecked}
         onCheckedChange={(checked) => setIsChecked(checked === true)}
-        className='mt-0.5 data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+        className='mt-0.5 data-checked:border-primary data-checked:bg-primary dark:data-checked:border-primary dark:data-checked:bg-primary'
       />
       <Label
         htmlFor={id}
         className={`text-sm font-medium transition-colors ${
-          isChecked ? 'text-muted-foreground line-through' : ''
+          isChecked ? 'text-muted-foreground line-through ' : ''
         }`}
       >
         {checkboxCopy.label}

@@ -54,7 +54,7 @@ const Checkbox14 = () => {
               id={id}
               checked={selectedSkills.includes(id)}
               onCheckedChange={(checked) => handleCheckedChange(id, checked == true)}
-              className='data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+           
             />
           </Label>
         </li>

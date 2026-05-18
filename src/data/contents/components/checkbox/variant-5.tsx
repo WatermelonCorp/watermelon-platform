@@ -51,7 +51,7 @@ const Checkbox5 = () => {
             handleCheckedChange(option.id, checked === true)
           }
           aria-label={option.ariaLabel}
-          className={`${option.className ?? ''} data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500`.trim()}
+          className={`${option.className ?? ''} `.trim()}
         />
       ))}
     </div>

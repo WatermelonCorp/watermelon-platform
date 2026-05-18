@@ -43,19 +43,19 @@ const Card12 = () => {
   const [liked, setLiked] = useState<boolean>(false);
 
   return (
-    <div className="relative max-w-md overflow-hidden rounded-2xl shadow-lg">
+    <div className="relative max-w-md overflow-hidden rounded-2xl shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)]">
       <div className="relative h-72">
         <img
           src={product.imageSrc}
           alt={product.imageAlt}
-          className="size-full object-cover"
+          className="size-full object-cover outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent" />
+   
       </div>
       <Button
         size="icon"
         onClick={() => setLiked((current) => !current)}
-        className="absolute top-4 right-4 rounded-full border border-white/60 bg-white/85 text-slate-900 shadow-sm backdrop-blur-sm hover:bg-white dark:border-white/15 dark:bg-black/55 dark:text-slate-100 dark:hover:bg-black/70"
+        className="absolute top-4 right-4 rounded-full bg-background/50 backdrop-blur-sm border border-black/10 dark:border-white/10"
       >
         <HeartIcon
           className={cn(
@@ -97,7 +97,7 @@ const Card12 = () => {
           </div>
           <Button
             size="lg"
-            className="bg-sky-600 text-white hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400"
+           
           >
             Add to cart
           </Button>

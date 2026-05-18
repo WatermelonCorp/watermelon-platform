@@ -30,7 +30,7 @@ const Checkbox16 = () => {
         id={id}
         checked={isChecked}
         onCheckedChange={(checked) => setIsChecked(checked === true)}
-        className='mt-0.5 data-checked:border-sky-600 data-checked:bg-sky-600 dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+        className='mt-0.5 data-checked:border-primary data-checked:bg-primary dark:data-checked:border-primary dark:data-checked:bg-primary'
       />
       <div className='grid gap-2.5'>
         <Label htmlFor={id} className='text-sm leading-4 font-medium'>
@@ -46,7 +46,7 @@ const Checkbox16 = () => {
           <Button
             size='sm'
             disabled={!isChecked}
-            className='bg-sky-600 text-white hover:bg-sky-700 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400'
+            className='bg-primary text-white hover:bg-sky-700 dark:bg-primary dark:text-slate-950 dark:hover:bg-primary'
           >
             Continue
           </Button>

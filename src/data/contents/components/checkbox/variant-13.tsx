@@ -48,8 +48,8 @@ const Checkbox13 = () => {
           htmlFor={option.id}
           className={`hover:bg-accent/40 flex items-start gap-3 rounded-2xl border p-3.5 shadow-xs transition-colors ${
             checkedSettings[option.id]
-              ? 'border-sky-600/70 bg-sky-50/80 dark:border-sky-900 dark:bg-sky-950'
-              : 'border-border/70 bg-background'
+              ? 'border-primary/50 bg-primary/5 dark:border-primary dark:bg-primary/10'
+              : 'border-border/70 bg-card'
           }`}
         >
           <Checkbox
@@ -58,7 +58,7 @@ const Checkbox13 = () => {
             onCheckedChange={(checked) =>
               handleCheckedChange(option.id, checked === true)
             }
-            className='mt-0.5 data-checked:border-sky-600 data-checked:bg-sky-600 data-checked:text-white dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500'
+            className='mt-0.5'
           />
           <div className='grid gap-1 font-normal'>
             <p className='text-sm leading-none font-medium'>{option.label}</p>

@@ -22,12 +22,12 @@ const overlayCard: OverlayCard = {
 
 const Card7 = () => {
   return (
-    <Card className="relative max-w-md overflow-hidden border-0 py-0 shadow-sm bg-black/50">
+    <Card className="relative max-w-md overflow-hidden border-0 py-0 ring-0 bg-black/50">
       <CardContent className="px-0">
         <img
           src={overlayCard.imageSrc}
           alt={overlayCard.imageAlt}
-          className="h-72 w-full object-cover opacity-90"
+          className="h-72 w-full object-cover opacity-90 outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
         />
       </CardContent>
       <div className="absolute overflow-hidden inset-x-0 bottom-0 h-40" />

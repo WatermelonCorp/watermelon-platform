@@ -32,7 +32,7 @@ const Card6 = () => {
         <img
           src={mediaCard.imageSrc}
           alt={mediaCard.imageAlt}
-          className="size-full object-cover sm:min-h-full sm:rounded-l-xl"
+          className="size-full object-cover outline-1 -outline-offset-1 outline-black/10 sm:min-h-full sm:rounded-l-xl dark:outline-white/10"
         />
       </CardContent>
       <div className="sm:min-w-60">
@@ -42,8 +42,8 @@ const Card6 = () => {
             {mediaCard.description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="gap-3 py-4 rounded-none">
-          <Button className="bg-sky-600 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-2px_4px_rgba(0,0,0,0.18),0_6px_14px_rgba(14,165,233,0.22)] hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400">
+        <CardFooter className="gap-3 rounded-none py-4">
+          <Button className="shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_4px_rgba(0,0,0,0.08)]">
             {mediaCard.ctaLabel}
           </Button>
         </CardFooter>

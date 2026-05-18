@@ -30,7 +30,7 @@ const mediaCard: MediaCard = {
 
 const Card5 = () => {
   return (
-    <Card className="border-border/70 bg-muted/10 max-w-md overflow-hidden pt-0 shadow-sm">
+    <Card className="border-border/70  max-w-md overflow-hidden pt-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] ring-0">
       <CardContent className="px-0">
         <img
           src={mediaCard.imageSrc}
@@ -45,7 +45,7 @@ const Card5 = () => {
         </CardDescription>
       </CardHeader>
       <CardFooter className="border-border/60 gap-3 border-t pt-5 max-sm:flex-col max-sm:items-stretch">
-        <Button className="bg-sky-600 text-white hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400">
+        <Button >
           {mediaCard.primaryAction}
         </Button>
         <Button variant="outline">{mediaCard.secondaryAction}</Button>

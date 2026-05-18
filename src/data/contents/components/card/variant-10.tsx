@@ -35,7 +35,7 @@ const tabs: readonly CardTab[] = [
 
 const Card10 = () => {
   return (
-    <Card className="border-border/70 w-max bg-neutral-100 shadow-sm dark:bg-neutral-900 py-3">
+    <Card className="bg-muted w-max py-3 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.06),0px_2px_4px_0px_rgba(0,0,0,0.04)] ring-0 ">
       <CardContent className="px-2">
         <Tabs defaultValue={tabs[0].value} className="w-full max-w-sm">
           <TabsList className="w-full justify-start gap-1 bg-transparent shadow-none">
@@ -43,7 +43,7 @@ const Card10 = () => {
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className="text-muted-foreground dark:data-[state=active]:border-border dark:data-[state=active]:bg-background dark:data-[state=active]:text-foreground h-9 rounded-md border border-transparent bg-transparent px-2 data-[state=active]:border-slate-300 data-[state=active]:bg-slate-100 data-[state=active]:text-slate-950 data-[state=active]:shadow-sm"
+                className="text-muted-foreground dark:data-[state=active]:border-border dark:data-[state=active]:bg-primary dark:data-[state=active]:text-foreground h-9 rounded-md border border-transparent bg-transparent px-2 data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
               >
                 {tab.label}
               </TabsTrigger>

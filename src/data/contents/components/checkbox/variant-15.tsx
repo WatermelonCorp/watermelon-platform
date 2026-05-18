@@ -26,7 +26,7 @@ const Checkbox = ({
       checked={checked}
       indeterminate={indeterminate}
       className={cn(
-        'peer relative flex size-4 shrink-0 items-center justify-center rounded-[5px] border border-input bg-background outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 data-checked:border-sky-600 data-checked:bg-sky-600 data-checked:text-white data-indeterminate:border-input data-indeterminate:bg-background data-indeterminate:text-muted-foreground dark:data-checked:border-sky-500 dark:data-checked:bg-sky-500 dark:data-indeterminate:border-input dark:data-indeterminate:bg-input/30 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
+        'peer relative flex size-4 shrink-0 items-center justify-center rounded-[5px] border border-input bg-background outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 data-checked:border-primary data-checked:bg-primary data-checked:text-white data-indeterminate:border-input data-indeterminate:bg-background data-indeterminate:text-muted-foreground dark:data-checked:border-primary dark:data-checked:bg-primary dark:data-indeterminate:border-input dark:data-indeterminate:bg-input/30 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
         className
       )}
       {...props}
