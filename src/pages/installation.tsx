@@ -222,9 +222,9 @@ export function CardSplitAccordian() {
 
 function StepBadge({ n }: { n: number }) {
   return (
-    <div className="flex size-7 shrink-0 items-center justify-center rounded-full border border-gray-300 bg-gray-100 text-xs font-semibold text-gray-500 dark:border-white/12 dark:bg-white/4 dark:text-neutral-400">
-      {n}
-    </div>
+    <span className="text-xs font-bold tracking-[0.15em] text-primary uppercase">
+      Step {n}
+    </span>
   );
 }
 
@@ -286,9 +286,9 @@ export default function InstallationPage() {
             </div>
 
             {/* Step 1 */}
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-2">
               <StepBadge n={1} />
-              <div className="flex-1 space-y-3 min-w-0">
+              <div className="space-y-3 min-w-0">
                 <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Initialize your project</p>
                 <p className="text-sm text-gray-500 dark:text-neutral-500">Choose your framework and run the init command.</p>
                 <FrameworkTabs />
@@ -296,9 +296,9 @@ export default function InstallationPage() {
             </div>
 
             {/* Step 2 */}
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-2">
               <StepBadge n={2} />
-              <div className="flex-1 space-y-3 min-w-0">
+              <div className="space-y-3 min-w-0">
                 <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add a Watermelon component</p>
                 <p className="text-sm text-gray-500 dark:text-neutral-500">Use the CLI to pull any component directly into your project.</p>
                 <ComponentInstallTabs />
@@ -318,9 +318,9 @@ export default function InstallationPage() {
               </p>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-2">
               <StepBadge n={1} />
-              <div className="flex-1 space-y-3 min-w-0">
+              <div className="space-y-3 min-w-0">
                 <p className="text-sm font-medium text-gray-800 dark:text-neutral-300">Add any component</p>
                 <ComponentInstallTabs />
               </div>
