@@ -6,7 +6,6 @@ import { trackEvent } from "@/lib/analytics";
 interface RegistryCardProps {
   item: RegistryItem;
   onClick: (item: RegistryItem) => void;
-  imagePriority?: boolean;
 }
 // const getImageSrcSet = (src: string) => {
 //   if (!src.startsWith("http")) return undefined;
@@ -27,7 +26,7 @@ interface RegistryCardProps {
 //   return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
 // };
 
-export const RegistryCard = memo(function RegistryCard({ item, onClick, imagePriority = false }: RegistryCardProps) {
+export const RegistryCard = memo(function RegistryCard({ item, onClick }: RegistryCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
