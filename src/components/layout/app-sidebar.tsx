@@ -434,7 +434,6 @@ export function AppSidebar() {
               icon={SparklesIcon}
               items={componentCategories}
               isAnyChildActive={location.pathname.startsWith("/animated-components")}
-              defaultOpen
             />
 
             {/* Component — collapsible, expands to all UI component categories */}
@@ -444,7 +443,6 @@ export function AppSidebar() {
               icon={Component}
               items={uiComponentCategories}
               isAnyChildActive={location.pathname.startsWith("/components")}
-              defaultOpen
             />
             {/* Blocks — collapsible, expands to all UI block categories */}
             <ExploreCollapsibleItem
@@ -453,7 +451,6 @@ export function AppSidebar() {
               icon={CubeIcon}
               items={blockNavCategories}
               isAnyChildActive={location.pathname.startsWith("/blocks")}
-              defaultOpen
             />
             {/* Dashboards — coming soon; not expandable yet */}
             <ExploreComingSoonItem title="Dashboards" icon={DashboardSquare01Icon} />
