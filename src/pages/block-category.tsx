@@ -1,12 +1,10 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getBlocksByCategory, hasBlockCategory, blockCategories } from '@/data/blocks';
-import { DashboardCard } from '@/components/registry/dashboard-card';
-import { AnnouncementCard } from '@/components/registry/announcement-card';
+import { ComponentRenderCard } from '@/components/registry/component-render-card';
 import { useSidebar } from '@/components/ui/sidebar';
 import { SEOHead } from '@/components/seo-head';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
-import { cn } from '@/lib/utils';
 
 const ITEMS_PER_PAGE = 18;
 
@@ -91,31 +89,23 @@ export default function BlockCategoryPage() {
           />
 
           {/* Blocks Grid */}
-          <div className={cn(
-            "grid gap-6 px-4 md:px-6 lg:px-8",
-            category?.toLowerCase() === 'announcement' ? "grid-cols-1 xl:grid-cols-2 w-full" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          )}>
-            {visibleBlocks.map((block) => {
-              const CardComponent = category?.toLowerCase() === 'announcement' ? AnnouncementCard : DashboardCard;
-              
-              return (
-                <CardComponent
-                  key={block.slug}
-                  item={block}
-                  trackType="block"
-                  onClick={() => {
-                    if (!block.comingSoon) {
-                      navigate(`/block/${block.slug}`);
-                      if (isMobile) {
-                        setOpenMobile(false);
-                      } else {
-                        setOpen(false);
-                      }
+          <div className="flex flex-col gap-6 px-4 md:px-6 lg:px-8">
+            {visibleBlocks.map((block) => (
+              <ComponentRenderCard
+                key={block.slug}
+                item={block}
+                onClick={() => {
+                  if (!block.comingSoon) {
+                    navigate(`/block/${block.slug}`);
+                    if (isMobile) {
+                      setOpenMobile(false);
+                    } else {
+                      setOpen(false);
                     }
-                  }}
-                />
-              );
-            })}
+                  }
+                }}
+              />
+            ))}
           </div>
 
           {/* Infinite scroll sentinel */}
