@@ -223,94 +223,10 @@ export default function BlockPage() {
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
         <div className="flex flex-col mb-10">
-          {/* ── Header: Breadcrumb + Title ── */}
-          <div className="shrink-0 border-b px-6 py-5">
-            {/* Breadcrumb */}
-            <div className="mb-1.5 flex items-center gap-1 text-xs text-muted-foreground">
-              <Link to="/blocks" className="hover:text-foreground transition-colors">Blocks</Link>
-              <span>/</span>
-              <Link to={`/blocks/${item.category}`} className="capitalize hover:text-foreground transition-colors">{item.category}</Link>
-            </div>
-            {/* Title row */}
-            <div className="flex items-start justify-between gap-4">
-              <h1 className="text-2xl font-semibold tracking-tight leading-snug">{item.name}</h1>
-              <div className="flex items-center gap-2 shrink-0 pt-0.5">
-                {item.componentNumber && (
-                  <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs font-medium border">
-                    {item.componentNumber}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
 
-          {/* ── Divider-based info sections ── */}
-          <div className="divide-y border-b shrink-0">
-
-            {/* Description */}
-            <div className="px-6 py-4">
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                {item.description}
-              </p>
-            </div>
-
-            {/* Dependencies */}
-            {item.dependencies && item.dependencies.length > 0 && (
-              <div className="px-6 py-4 space-y-2">
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
-                <div className="flex flex-wrap gap-2">
-                  {item.dependencies.map((dep) => (
-                    <span
-                      key={dep}
-                      className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1)] flex items-center gap-1.5 px-3 py-1 text-sm"
-                    >
-                      {dep}
-                      <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Inspired By */}
-            {item.inspiredBy && (
-              <div className="px-6 py-4">
-                <InspiredBy inspiredBy={item.inspiredBy} />
-              </div>
-            )}
-
-            {/* Copy for AI */}
-            {!loadingFiles && (
-              <div className="px-6 py-4 space-y-3">
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
-                <PromptItems
-                  files={componentFiles}
-                  dependencies={item.dependencies || []}
-                  componentName={item.name}
-                  componentSlug={item.slug}
-                />
-              </div>
-            )}
-
-            {/* Installation */}
-            <div className="px-6 py-4 space-y-3">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
-              <InstallCliCommand
-                install={item.install}
-                slug={item.slug}
-                name={item.name}
-                category={item.category}
-                entityType="block"
-                source="page"
-              />
-            </div>
-
-          </div>
-
-
-          {/* Tabs - Take remaining space */}
+          {/* ── Preview + Code tabs — immediately at top ── */}
           <Tabs defaultValue="preview" className="h-[90dvh] shrink-0 flex flex-col min-h-0">
-            <div className="flex items-center justify-between px-6 py-2 border-b bg-muted/30 shrink-0">
+            <div className="flex items-center justify-between px-4 py-2 border-y bg-muted/30 shrink-0">
               <TabsList>
                 <TabsTrigger value="preview">
                   <HugeiconsIcon icon={ViewIcon} size={14} />
@@ -323,7 +239,7 @@ export default function BlockPage() {
               </TabsList>
 
               <div className="flex items-center gap-2">
-                <div className="flex items-center bg-muted/50 rounded-md p-1 mr-2 border">
+                <div className="flex items-center bg-muted/50 rounded-md p-1 border">
                   <button
                     onClick={() => setViewMode('desktop')}
                     aria-label="Desktop preview"
@@ -349,17 +265,17 @@ export default function BlockPage() {
                     <HugeiconsIcon icon={SmartPhoneIcon} size={14} />
                   </button>
                 </div>
-                <span className="text-sm text-muted-foreground mr-2">
-                  {item.files.length} files
+                <span className="text-sm text-muted-foreground">
+                  {item.files.length} {item.files.length === 1 ? 'file' : 'files'}
                 </span>
                 <ThemeToggle />
                 <button
-                  className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
+                  className="size-9 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
                   onClick={() => setReloadKey(k => k + 1)}
                   aria-label="Reload block preview"
                   title="Reload preview"
                 >
-                  <HugeiconsIcon icon={ReloadIcon} size={16} />
+                  <HugeiconsIcon icon={ReloadIcon} size={15} />
                 </button>
               </div>
             </div>
@@ -367,8 +283,7 @@ export default function BlockPage() {
             {/* Tab Contents */}
             <TabsContents mode="layout" className="flex-1 min-h-0 relative" style={{ overflow: 'hidden' }}>
               {/* Preview Tab */}
-              <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center p-8">
-                {/* Preview takes full available size or constraint */}
+              <TabsContent value="preview" className="absolute inset-0 overflow-auto bg-muted/5 flex items-start justify-center">
                 <ResponsivePreviewFrame
                   viewport={viewMode}
                   previewUrl={`/preview/block/${item.slug}?reload=${reloadKey}`}
@@ -391,10 +306,7 @@ export default function BlockPage() {
                 <div className="flex-1 flex flex-col min-w-0 relative">
                   {/* File Header */}
                   <div className="px-4 py-2 border-b bg-muted/30 backdrop-blur-sm flex items-center justify-between shrink-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium">{selectedFile || 'Select a file'}</span>
-                    </div>
-                    {/* Copy for AI */}
+                    <span className="text-sm font-medium">{selectedFile || 'Select a file'}</span>
                     {!loadingFiles && (
                       <PromptItems
                         files={componentFiles}
@@ -432,9 +344,77 @@ export default function BlockPage() {
               </TabsContent>
             </TabsContents>
           </Tabs>
-        </div >
-      )
-      }
+
+          {/* ── Title ── */}
+          <div className="px-6 pt-4 pb-3 flex items-center gap-2.5">
+            <h1 className="text-lg font-semibold tracking-tight leading-snug">{item.name}</h1>
+            {item.componentNumber && (
+              <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs font-medium border">
+                {item.componentNumber}
+              </span>
+            )}
+            {item.inspiredBy && (
+              <div className="ml-auto">
+                <InspiredBy inspiredBy={item.inspiredBy} />
+              </div>
+            )}
+          </div>
+
+          {/*
+            ── Installation · Dependencies · Copy for AI ──
+            Each column carries its own border-r; the last column omits it via
+            [&>*:last-child]:border-r-0 so there's no dangling border on the right.
+            The outer border-y closes both the top and bottom cleanly.
+          */}
+          <div className="border-y flex flex-col lg:flex-row [&>*]:border-r [&>*:last-child]:border-r-0 [&>*]:border-b lg:[&>*]:border-b-0">
+
+            {/* Installation — grows to fill space */}
+            <div className="flex-1 min-w-0 px-6 py-4 space-y-2">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
+              <InstallCliCommand
+                install={item.install}
+                slug={item.slug}
+                name={item.name}
+                category={item.category}
+                entityType="block"
+                source="page"
+              />
+            </div>
+
+            {/* Dependencies — fixed width, only shown when present */}
+            {item.dependencies && item.dependencies.length > 0 && (
+              <div className="shrink-0 px-6 py-4 space-y-2">
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
+                <div className="flex flex-wrap gap-2 items-center">
+                  {item.dependencies.map((dep) => (
+                    <span
+                      key={dep}
+                      className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1)] flex items-center gap-1.5 px-3 py-1 text-sm"
+                    >
+                      {dep}
+                      <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Copy for AI */}
+            {!loadingFiles && (
+              <div className="shrink-0 px-6 py-4 space-y-2">
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
+                <PromptItems
+                  files={componentFiles}
+                  dependencies={item.dependencies || []}
+                  componentName={item.name}
+                  componentSlug={item.slug}
+                />
+              </div>
+            )}
+
+          </div>
+        </div>
+      )}
     </>
   );
 }
