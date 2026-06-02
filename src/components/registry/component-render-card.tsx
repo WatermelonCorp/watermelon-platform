@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Maximize01Icon } from '@hugeicons/core-free-icons';
+import { FullScreenIcon } from '@hugeicons/core-free-icons';
 import { Moon02Icon, Sun01Icon } from '@/lib/hugeicons';
 import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'motion/react';
@@ -647,7 +647,7 @@ export function ComponentRenderCard({
                 'hover:bg-accent text-foreground/70 hover:text-foreground',
               )}
             >
-              <HugeiconsIcon icon={Maximize01Icon} size={14} />
+              <HugeiconsIcon icon={FullScreenIcon} size={14} />
             </button>
           </div>
         </div>
