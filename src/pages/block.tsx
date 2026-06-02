@@ -265,9 +265,6 @@ export default function BlockPage() {
                     <HugeiconsIcon icon={SmartPhoneIcon} size={14} />
                   </button>
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  {item.files.length} {item.files.length === 1 ? 'file' : 'files'}
-                </span>
                 <ThemeToggle />
                 <button
                   className="size-9 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"

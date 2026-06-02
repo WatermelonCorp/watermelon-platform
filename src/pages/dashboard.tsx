@@ -330,9 +330,6 @@ export default function DashboardPage() {
                     <HugeiconsIcon icon={SmartPhoneIcon} size={14} />
                   </button>
                 </div>
-                <span className="text-sm text-muted-foreground mr-2">
-                  {item.files.length} files
-                </span>
                 <ThemeToggle />
                 <button
                   className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
