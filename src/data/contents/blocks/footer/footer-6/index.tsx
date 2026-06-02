@@ -99,10 +99,7 @@ export function Footer6({
 
   return (
     <footer className="bg-background text-foreground relative w-full p-2 font-sans">
-      {/* <div className="bg-border/40 absolute top-0 left-4 h-3 w-[1px]" />
-      <div className="bg-border/40 absolute top-0 right-4 h-3 w-[1px]" />
-      <div className="bg-border/40 absolute bottom-0 left-4 h-3 w-[1px]" />
-      <div className="bg-border/40 absolute right-4 bottom-0 h-3 w-[1px]" /> */}
+  
 
       <motion.div
         variants={staggerContainer}

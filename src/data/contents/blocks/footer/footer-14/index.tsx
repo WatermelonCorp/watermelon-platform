@@ -167,7 +167,7 @@ function DefaultLogoIcon() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Hexagonal/diamond mark */}
+   
       <path
         d="M14 2L25 8V20L14 26L3 20V8L14 2Z"
         fill="none"

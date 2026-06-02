@@ -69,12 +69,7 @@ const defaultColumns: Footer15Column[] = [
   },
 ];
 
-// ─── Animation variants ──────────────────────────────────────────────────────────
 
-/**
- * Stagger container – orchestrates children with ~90ms delay between each.
- * Skill: Split and stagger enter animations with ~100ms delay.
- */
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -86,9 +81,7 @@ const staggerContainer: Variants = {
   },
 };
 
-/**
- * Inner stagger for nav columns — slightly faster cascade.
- */
+
 const navStagger: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -100,10 +93,7 @@ const navStagger: Variants = {
   },
 };
 
-/**
- * Standard rise-and-blur entrance used for section-level elements.
- * Skill: combine opacity + blur + translateY with spring(bounce: 0).
- */
+
 const riseItem: Variants = {
   hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
   visible: {
@@ -114,10 +104,7 @@ const riseItem: Variants = {
   },
 };
 
-/**
- * Fine-grained stagger for individual link items within a column.
- * Shorter y-offset since they're smaller elements.
- */
+
 const linkStagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.04 } },
@@ -132,10 +119,7 @@ const linkItem: Variants = {
   },
 };
 
-/**
- * Large hero brand text – dramatic scale + blur entrance.
- * Skill: combine opacity + blur + translateY; uses longer duration for impact.
- */
+
 const heroBrandVariant: Variants = {
   hidden: { opacity: 0, y: 40, filter: 'blur(12px)' },
   visible: {
@@ -146,9 +130,7 @@ const heroBrandVariant: Variants = {
   },
 };
 
-/**
- * CTA button entrance — slight scale + opacity.
- */
+
 const ctaVariant: Variants = {
   hidden: { opacity: 0, y: 10, filter: 'blur(4px)' },
   visible: {
@@ -159,7 +141,7 @@ const ctaVariant: Variants = {
   },
 };
 
-// ─── Default logo icon (star/sparkle mark) ──────────────────────────────────────
+
 
 function DefaultLogoIcon() {
   return (
@@ -171,7 +153,7 @@ function DefaultLogoIcon() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Four-pointed star / sparkle */}
+  
       <path
         d="M12 2L13.5 9.5L20 8L14.5 12L20 16L13.5 14.5L12 22L10.5 14.5L4 16L9.5 12L4 8L10.5 9.5L12 2Z"
         fill="#e8e0cc"
@@ -183,22 +165,9 @@ function DefaultLogoIcon() {
   );
 }
 
-// ─── Copyright badge ─────────────────────────────────────────────────────────────
 
-function CopyrightBadge({ year }: { year: string }) {
-  return (
-    <div className="flex size-[52px] items-center justify-center rounded-full shadow-[inset_0_0_0_2px_#e8e0cc] sm:size-[60px] md:size-[68px]">
-      <span
-        className="text-lg font-semibold text-[#e8e0cc] select-none sm:text-xl md:text-2xl"
-        style={{ fontVariantNumeric: 'tabular-nums' }}
-      >
-        {year}
-      </span>
-    </div>
-  );
-}
 
-// ─── Component ───────────────────────────────────────────────────────────────────
+
 
 export function Footer15({
   logoIcon,
@@ -208,7 +177,7 @@ export function Footer15({
   ctaHref = '#',
   columns = defaultColumns,
   heroBrandName = 'COSMOS',
-  copyrightYear = '©',
+
 }: Footer15Props) {
   return (
     <footer className="w-full overflow-hidden rounded-t-4xl bg-[#2a2a1e] px-4 font-sans antialiased sm:rounded-t-[2.5rem] md:rounded-t-[3rem]">
