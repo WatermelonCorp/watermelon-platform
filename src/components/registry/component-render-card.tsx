@@ -15,11 +15,17 @@ import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckIcon, ChevronDownIcon } from 'lucide-react';
 import type { BlockItem } from '@/data/blocks';
-import { ResponsivePreviewFrame, type PreviewViewport } from '@/components/preview/responsive-preview-frame';
+import {
+  ResponsivePreviewFrame,
+  type PreviewViewport,
+} from '@/components/preview/responsive-preview-frame';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 import { CopyButton } from '@/components/animate-ui/components/buttons/copy';
-import { generatePromptForPlatform, PLATFORM_INFO } from '@/lib/prompt-template';
+import {
+  generatePromptForPlatform,
+  PLATFORM_INFO,
+} from '@/lib/prompt-template';
 import type { ComponentFile } from '@/lib/types';
 import { AnimatedCheck } from '@/components/animated-check';
 
@@ -51,18 +57,25 @@ function buildCommand(pm: PackageManager, base: string): string {
     const parts = base.trim().split(' ');
     const component = parts[parts.length - 1];
     switch (pm) {
-      case 'pnpm': return `pnpm dlx shadcn@latest add ${component}`;
-      case 'bun':  return `bunx --bun shadcn@latest add ${component}`;
-      default:     return `npx shadcn@latest add ${component}`;
+      case 'pnpm':
+        return `pnpm dlx shadcn@latest add ${component}`;
+      case 'bun':
+        return `bunx --bun shadcn@latest add ${component}`;
+      default:
+        return `npx shadcn@latest add ${component}`;
     }
   }
   if (base.startsWith('npm install') || base.startsWith('npm i ')) {
     const pkgs = base.replace(/^npm (install|i) /, '');
     switch (pm) {
-      case 'yarn': return `yarn add ${pkgs}`;
-      case 'pnpm': return `pnpm add ${pkgs}`;
-      case 'bun':  return `bun add ${pkgs}`;
-      default:     return `npm install ${pkgs}`;
+      case 'yarn':
+        return `yarn add ${pkgs}`;
+      case 'pnpm':
+        return `pnpm add ${pkgs}`;
+      case 'bun':
+        return `bun add ${pkgs}`;
+      default:
+        return `npm install ${pkgs}`;
     }
   }
   return base;
@@ -74,8 +87,8 @@ const VIEWPORT_OPTIONS: ReadonlyArray<{
   value: PreviewViewport;
   label: string;
 }> = [
-  { value: 'mobile',  label: 'Mobile'  },
-  { value: 'tablet',  label: 'Tablet'  },
+  { value: 'mobile', label: 'Mobile' },
+  { value: 'tablet', label: 'Tablet' },
   { value: 'desktop', label: 'Desktop' },
 ] as const;
 
@@ -95,9 +108,9 @@ function CardThemeToggle() {
     return (
       <div
         aria-hidden
-        className="flex items-center justify-center size-8 rounded-lg bg-background border border-input/50"
+        className="bg-background border-input/50 flex size-8 items-center justify-center rounded-lg border"
       >
-        <div className="size-4 rounded bg-muted animate-pulse" />
+        <div className="bg-muted size-4 animate-pulse rounded" />
       </div>
     );
   }
@@ -114,8 +127,8 @@ function CardThemeToggle() {
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       className={cn(
-        'flex items-center justify-center size-8 rounded-lg transition-colors',
-        'bg-background border border-input/50',
+        'flex size-8 items-center justify-center rounded-lg transition-colors',
+        'bg-background border-input/50 border',
         'hover:bg-accent text-foreground/70 hover:text-foreground',
       )}
     >
@@ -136,7 +149,7 @@ function ViewportSwitcher({
     <div
       role="group"
       aria-label="Select viewport"
-      className="flex items-center bg-muted/60 rounded-lg p-0.5 gap-px border border-input/30"
+      className="bg-muted/60 border-input/30 flex items-center gap-px rounded-lg border p-0.5"
     >
       {VIEWPORT_OPTIONS.map(({ value: v, label }) => (
         <button
@@ -150,7 +163,7 @@ function ViewportSwitcher({
           aria-pressed={value === v}
           title={`${label} view`}
           className={cn(
-            'px-2.5 py-1 text-xs font-medium rounded-md transition-all duration-150 select-none',
+            'rounded-md px-2.5 py-1 text-xs font-medium transition-all duration-150 select-none',
             value === v
               ? 'bg-background text-foreground shadow-sm'
               : 'text-muted-foreground hover:text-foreground',
@@ -182,9 +195,13 @@ interface CardPromptIconsProps {
  * on the block detail page.
  */
 function CardPromptIcons({ item }: CardPromptIconsProps) {
-  const [fileCodes, setFileCodes] = useState<Record<string, string> | null>(null);
+  const [fileCodes, setFileCodes] = useState<Record<string, string> | null>(
+    null,
+  );
   const [loading, setLoading] = useState(false);
-  const [copiedPlatform, setCopiedPlatform] = useState<CardPlatform | null>(null);
+  const [copiedPlatform, setCopiedPlatform] = useState<CardPlatform | null>(
+    null,
+  );
   const [copyCount, setCopyCount] = useState(0);
 
   /** Load file source on first interaction (lazy). */
@@ -198,7 +215,9 @@ function CardPromptIcons({ item }: CardPromptIconsProps) {
       }),
     );
     const map: Record<string, string> = {};
-    results.forEach(({ name, code }) => { map[name] = code; });
+    results.forEach(({ name, code }) => {
+      map[name] = code;
+    });
     setFileCodes(map);
     setLoading(false);
     return map;
@@ -258,15 +277,15 @@ function CardPromptIcons({ item }: CardPromptIconsProps) {
               void handleCopy(platform);
             }}
             className={cn(
-              'flex items-center justify-center size-7 rounded-lg transition-all',
-              'opacity-80 hover:opacity-100 disabled:opacity-40 disabled:cursor-wait cursor-pointer',
+              'flex size-7 items-center justify-center rounded-lg transition-all',
+              'cursor-pointer opacity-80 hover:opacity-100 disabled:cursor-wait disabled:opacity-40',
             )}
           >
             <AnimatePresence mode="wait">
               {isCopied ? (
                 <AnimatedCheck
                   key={`check-${platform}-${copyCount}`}
-                  className="h-4 w-4 text-primary"
+                  className="text-primary h-4 w-4"
                 />
               ) : (
                 <motion.img
@@ -276,7 +295,7 @@ function CardPromptIcons({ item }: CardPromptIconsProps) {
                   width={16}
                   height={16}
                   className={cn(
-                    'w-4 h-4 object-contain shrink-0',
+                    'h-4 w-4 shrink-0 object-contain',
                     platform === 'V0'
                       ? 'invert dark:invert-0'
                       : platform !== 'LOVABLE'
@@ -310,7 +329,12 @@ interface InlineInstallBarProps {
  * Compact install bar: PM dropdown trigger + animated command text + inline copy button.
  * Sits at the right end of the card title row.
  */
-function InlineInstallBar({ install, slug, name, category }: InlineInstallBarProps) {
+function InlineInstallBar({
+  install,
+  slug,
+  name,
+  category,
+}: InlineInstallBarProps) {
   const [activePm, setActivePm] = useState<PackageManager>('npm');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -319,7 +343,10 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
   useEffect(() => {
     if (!dropdownOpen) return;
     function handleOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     }
@@ -328,7 +355,10 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
   }, [dropdownOpen]);
 
   const baseCommand = useMemo(
-    () => (install && install.length > 0 ? install[0] : `npx shadcn@latest add ${slug}`),
+    () =>
+      install && install.length > 0
+        ? install[0]
+        : `npx shadcn@latest add ${slug}`,
     [install, slug],
   );
 
@@ -367,7 +397,7 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
             setDropdownOpen((v) => !v);
           }}
           className={cn(
-            'flex items-center gap-1 h-7 px-2 rounded-lg border text-xs font-medium',
+            'flex h-7 items-center gap-1 rounded-lg border px-2 text-xs font-medium',
             'bg-muted/60 border-input/30 text-foreground',
             'hover:bg-muted transition-colors select-none',
           )}
@@ -392,10 +422,10 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
               exit={{ opacity: 0, scale: 0.95, y: -4 }}
               transition={{ duration: 0.12, ease: 'easeOut' }}
               className={cn(
-                'absolute left-0 top-[calc(100%+4px)] z-200 min-w-[96px]',
-                'rounded-xl border border-input/40 bg-background/95 backdrop-blur-md',
+                'absolute top-[calc(100%+4px)] left-0 z-200 min-w-[96px]',
+                'border-input/40 bg-background/95 rounded-xl border backdrop-blur-md',
                 'shadow-lg shadow-black/10 dark:shadow-black/40',
-                'py-1 overflow-hidden',
+                'overflow-hidden py-1',
               )}
             >
               {PM_LIST.map((pm) => {
@@ -411,7 +441,7 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
                       selectPm(pm);
                     }}
                     className={cn(
-                      'flex items-center justify-between w-full px-3 py-1.5 text-xs font-medium',
+                      'flex w-full items-center justify-between px-3 py-1.5 text-xs font-medium',
                       'transition-colors select-none',
                       isActive
                         ? 'text-foreground bg-muted/60'
@@ -419,7 +449,9 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
                     )}
                   >
                     <span>{pm}</span>
-                    {isActive && <CheckIcon size={11} className="text-primary shrink-0" />}
+                    {isActive && (
+                      <CheckIcon size={11} className="text-primary shrink-0" />
+                    )}
                   </button>
                 );
               })}
@@ -429,12 +461,14 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
       </div>
 
       {/* ── Command display + inline copy ───────────────────────────── */}
-      <div className={cn(
-        'flex items-center gap-1 h-7 pl-2.5 pr-1',
-        'bg-muted/50 rounded-lg border border-input/30',
-        'font-mono text-[11px] text-muted-foreground',
-        'max-w-[280px] overflow-hidden',
-      )}>
+      <div
+        className={cn(
+          'flex h-7 items-center gap-1 pr-1 pl-2.5',
+          'bg-muted/50 border-input/30 rounded-lg border',
+          'text-muted-foreground font-mono text-[11px]',
+          'max-w-[280px] overflow-hidden',
+        )}
+      >
         {/* Animated command text — truncated, no wrapping */}
         <AnimatePresence mode="wait">
           <motion.span
@@ -443,7 +477,7 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, filter: 'blur(4px)' }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="flex-1 whitespace-nowrap overflow-hidden text-ellipsis min-w-0"
+            className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap"
           >
             {command}
           </motion.span>
@@ -455,7 +489,7 @@ function InlineInstallBar({ install, slug, name, category }: InlineInstallBarPro
           size="xs"
           content={command}
           ariaLabel={`Copy install command for ${name}`}
-          className="shrink-0 size-5 text-muted-foreground hover:text-foreground"
+          className="text-muted-foreground hover:text-foreground size-5 shrink-0"
           onCopiedChange={(copied) => {
             if (!copied) return;
             trackEvent('install_command_copy', {
@@ -545,7 +579,9 @@ export function ComponentRenderCard({
       onKeyDown={handleCardKeyDown}
       onMouseEnter={() => {
         if ('preload' in item) {
-          void (item as BlockItem & { preload?(): Promise<unknown> }).preload?.();
+          void (
+            item as BlockItem & { preload?(): Promise<unknown> }
+          ).preload?.();
         }
       }}
       className={cn(
@@ -558,19 +594,19 @@ export function ComponentRenderCard({
         item.comingSoon
           ? 'cursor-default opacity-60'
           : 'cursor-pointer hover:border-neutral-300 dark:hover:border-white/20',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+        'focus-visible:ring-primary focus-visible:ring-2 focus-visible:outline-none',
       )}
     >
       {/* ── Title Row ───────────────────────────────────────────────────── */}
-      <div className="relative z-50 flex items-center justify-between pt-2 pb-3 px-2 gap-3">
+      <div className="relative z-50 flex items-center justify-between gap-3 px-2 pt-2 pb-3">
         {/* Left — block name + coming soon badge */}
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="text-base font-medium text-foreground truncate leading-tight">
+        <div className="flex min-w-0 items-center gap-2">
+          <span className="text-foreground truncate text-base leading-tight font-medium">
             {item.name}
           </span>
 
           {item.comingSoon && (
-            <span className="shrink-0 px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70">
+            <span className="bg-muted text-foreground/70 shrink-0 rounded-full px-2.5 py-1 text-xs font-medium">
               Coming Soon
             </span>
           )}
@@ -579,13 +615,13 @@ export function ComponentRenderCard({
         {/* Right — brand icons + PM switcher + install command (desktop only) */}
         {!item.comingSoon && (
           <div
-            className="hidden md:flex items-center gap-3 shrink-0"
+            className="hidden shrink-0 items-center gap-3 md:flex"
             onClick={(e) => e.stopPropagation()}
           >
             <CardPromptIcons item={item} />
 
             {/* Divider */}
-            <div className="h-4 w-px bg-border/60" aria-hidden />
+            <div className="bg-border/60 h-4 w-px" aria-hidden />
 
             <InlineInstallBar
               install={item.install}
@@ -615,7 +651,7 @@ export function ComponentRenderCard({
         {/* Decorative inset ring */}
         <div
           aria-hidden
-          className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-white/20 dark:ring-white/5 pointer-events-none z-20"
+          className="pointer-events-none absolute inset-0 z-20 rounded-[20px] ring-1 ring-white/20 ring-inset dark:ring-white/5"
         />
 
         {/* ── Toolbar ───────────────────────────────────────────────────── */}
@@ -642,8 +678,8 @@ export function ComponentRenderCard({
               aria-label={`Open ${item.name} full page`}
               title="Open full page"
               className={cn(
-                'flex items-center justify-center size-8 rounded-lg transition-colors',
-                'bg-background border border-input/50',
+                'flex size-8 items-center justify-center rounded-lg transition-colors',
+                'bg-background border-input/50 border',
                 'hover:bg-accent text-foreground/70 hover:text-foreground',
               )}
             >
@@ -652,25 +688,26 @@ export function ComponentRenderCard({
           </div>
         </div>
 
-        {/* ── Live Component via ResponsivePreviewFrame ─────────────────── */}
-        {/*
-          Uses the same iframe-based scaler as block.tsx so switching to
-          Mobile / Tablet fires real CSS media queries at the correct viewport
-          width instead of just squishing the layout.
-        */}
         <div
           className="w-full"
-          style={{ height: PREVIEW_HEIGHT }}
           onClick={(e) => e.stopPropagation()}
         >
           {item.comingSoon ? (
-            <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+            <div className="text-muted-foreground flex h-[520px] items-center justify-center text-sm">
               Coming Soon
             </div>
-          ) : (
-            <ResponsivePreviewFrame viewport={viewport}>
+          ) : viewport === 'desktop' ? (
+            <div className="w-full min-h-[520px] px-6 py-12">
               <item.component />
-            </ResponsivePreviewFrame>
+            </div>
+          ) : (
+            <div style={{ height: PREVIEW_HEIGHT }} className="w-full">
+              <ResponsivePreviewFrame viewport={viewport}>
+                <div className="px-6 py-12 min-h-full">
+                  <item.component />
+                </div>
+              </ResponsivePreviewFrame>
+            </div>
           )}
         </div>
       </div>
