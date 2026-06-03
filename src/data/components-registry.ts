@@ -15,6 +15,8 @@ export interface UiVariant {
   code: string;
   /** Optional column span for the grid (defaults to 1) */
   colSpan?: number;
+  /** Optional npm dependencies for AI prompt generation */
+  dependencies?: string[];
 }
 
 export interface UiCategory {

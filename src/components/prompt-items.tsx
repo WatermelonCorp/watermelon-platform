@@ -125,7 +125,14 @@ export function PromptItems({
                         key="icon"
                         src={info.icon}
                         alt={info.name}
-                        className={cn("h-4 w-4 object-contain", info.name !== "Lovable" ? "dark:invert" : "")}
+                        className={cn(
+                          "h-4 w-4 object-contain",
+                          platform === "V0"
+                            ? "invert dark:invert-0"           // greyscale in light, colour in dark
+                            : platform !== "LOVABLE"
+                              ? "dark:invert"                  // colour in light, white in dark
+                              : ""                             // Lovable: no invert ever
+                        )}
                         initial={{ opacity: 0, scale: 0.85 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.85 }}

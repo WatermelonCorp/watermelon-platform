@@ -168,7 +168,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
           </div>
 
           {/* Tabs - Take remaining space */}
-          <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0">
+          <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0 gap-0">
             <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/30 shrink-0">
               <TabsList>
                 <TabsTrigger value="preview" className="text-xs">
@@ -342,7 +342,7 @@ export function DashboardModal({ item, onClose }: DashboardModalProps) {
         </div>
 
         {/* Tabs - Take remaining space */}
-        <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <Tabs defaultValue="preview" className="flex-1 flex flex-col min-h-0 overflow-hidden gap-0">
           <div className="flex items-center justify-between px-6 py-2 border-b bg-muted/30 shrink-0">
             <TabsList>
               <TabsTrigger value="preview">

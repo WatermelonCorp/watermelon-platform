@@ -290,7 +290,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Tabs - Take remaining space */}
-          <Tabs defaultValue="preview" className="h-[90dvh] shrink-0 flex flex-col min-h-0 border rounded-xl">
+          <Tabs defaultValue="preview" className="h-[90dvh] shrink-0 flex flex-col min-h-0 border rounded-xl gap-0">
             <div className="flex items-center justify-between px-6 py-2 border-b bg-muted/30 shrink-0">
               <TabsList>
                 <TabsTrigger value="preview">
@@ -330,9 +330,6 @@ export default function DashboardPage() {
                     <HugeiconsIcon icon={SmartPhoneIcon} size={14} />
                   </button>
                 </div>
-                <span className="text-sm text-muted-foreground mr-2">
-                  {item.files.length} files
-                </span>
                 <ThemeToggle />
                 <button
                   className="size-8 md:size-10 rounded-lg border border-input/50 bg-background flex items-center justify-center hover:bg-accent transition-colors"
@@ -378,20 +375,10 @@ export default function DashboardPage() {
                 {/* Code Preview Panel */}
                 <div className="flex-1 flex flex-col min-w-0 relative">
                   {/* File Header */}
-                  <div className="px-4 py-2 border-b bg-muted/30 backdrop-blur-sm flex items-center justify-between shrink-0">
+                  <div className="px-4 border-b bg-muted/30 backdrop-blur-sm flex items-center justify-between shrink-0 h-12.5">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium">{selectedFile || 'Select a file'}</span>
-
                     </div>
-                    {/* Copy for AI */}
-                    {!loadingFiles && (
-                      <PromptItems
-                        files={componentFiles}
-                        dependencies={item.dependencies || []}
-                        componentName={item.name}
-                        componentSlug={item.slug}
-                      />
-                    )}
                   </div>
 
                   {/* Code Content */}

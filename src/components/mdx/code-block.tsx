@@ -117,25 +117,29 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        "group relative rounded-xl border bg-muted/20 overflow-hidden",
+        "group relative rounded-2xl overflow-hidden w-full min-w-0",
+        "bg-gray-100 dark:bg-neutral-800",
+        "shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)]",
         className
       )}
     >
       {/* Header */}
       <div
         className={cn(
-          "flex items-center justify-between pl-4 pr-2 py-2 border-b rounded-t-xl",
-          "bg-background/80 backdrop-blur",
+          "flex items-center justify-between px-4 py-3 border-b border-black/5 dark:border-white/5 rounded-t-2xl",
+          "bg-white/40 dark:bg-neutral-900/40 backdrop-blur-md",
           mobile ? "relative" : "sticky top-0 z-10"
         )}
       >
-        <div className="flex items-center gap-2">
-          <HugeiconsIcon
-            icon={SourceCodeIcon}
-            size={20}
-            className="p-1 border rounded-sm text-primary"
-          />
-          <span className="text-sm font-medium tracking-wide text-muted-foreground">
+        <div className="flex items-center gap-3">
+          <div className="bg-white dark:bg-neutral-800 p-1.5 rounded-lg shadow-sm border border-black/5 dark:border-white/5 flex items-center justify-center">
+            <HugeiconsIcon
+              icon={SourceCodeIcon}
+              size={14}
+              className="text-muted-foreground"
+            />
+          </div>
+          <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
             {title || language}
           </span>
         </div>
@@ -152,48 +156,48 @@ export function CodeBlock({
               });
             }
           }}
-          size="sm"
-          variant="ghost"
-          className="absolute right-[2px] top-[2px] p-1 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
+          className="size-8 bg-white dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] flex items-center justify-center hover:bg-gray-50 dark:hover:bg-neutral-700 transition-colors text-muted-foreground hover:text-foreground p-0!"
         />
       </div>
 
-      {/* Code – no scrolling, no height constraints */}
-      {syntax ? (
-        <syntax.SyntaxHighlighter
-          language={language}
-          style={resolvedTheme === "dark" ? syntax.oneDark : syntax.oneLight}
-          useInlineStyles={true}
-          className="text-foreground"
-          showLineNumbers={mobile ? false : showLineNumbers}
-          customStyle={{
-            margin: 0,
-            padding: "1rem",
-            fontSize: "13px",
-            lineHeight: "1.6",
-            background: "transparent",
-            overflow: "auto",
-            whiteSpace: "pre",
-            wordBreak: "normal",
-          }}
-          codeTagProps={{
-            style: {
-              fontFamily:
-                "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      {/* Code */}
+      <div className="bg-white/50 dark:bg-neutral-900/50">
+        {syntax ? (
+          <syntax.SyntaxHighlighter
+            language={language}
+            style={resolvedTheme === "dark" ? syntax.oneDark : syntax.oneLight}
+            useInlineStyles={true}
+            className="text-foreground"
+            showLineNumbers={mobile ? false : showLineNumbers}
+            customStyle={{
+              margin: 0,
+              padding: "1.25rem",
+              fontSize: "13px",
+              lineHeight: "1.6",
+              background: "transparent",
+              overflow: "auto",
               whiteSpace: "pre",
-            },
-          }}
-          wrapLongLines={false}
-        >
-          {children?.trim() || ""}
-        </syntax.SyntaxHighlighter>
-      ) : (
-        <pre className="m-0 p-4 text-[13px] leading-[1.6] overflow-auto">
-          <code className="whitespace-pre font-mono">
+              wordBreak: "normal",
+            }}
+            codeTagProps={{
+              style: {
+                fontFamily:
+                  "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+                whiteSpace: "pre",
+              },
+            }}
+            wrapLongLines={false}
+          >
             {children?.trim() || ""}
-          </code>
-        </pre>
-      )}
+          </syntax.SyntaxHighlighter>
+        ) : (
+          <pre className="m-0 p-5 text-[13px] leading-[1.6] overflow-auto">
+            <code className="whitespace-pre font-mono">
+              {children?.trim() || ""}
+            </code>
+          </pre>
+        )}
+      </div>
     </div>
   );
 }
