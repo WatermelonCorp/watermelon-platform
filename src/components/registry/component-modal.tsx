@@ -187,7 +187,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             )}
 
             {/* Installation */}
-            <section className="p-4 space-y-3">
+            <section className="p-4 space-y-3 min-w-0">
               <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
               <InstallationCmd
                 activeCodeTab={activeCodeTab}
@@ -205,7 +205,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             </section>
 
             {/* How to Use */}
-            <section className="p-4 space-y-2">
+            <section className="p-4 space-y-2 min-w-0">
               <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">How to use</p>
               <p className="text-muted-foreground text-xs">Update the import path to match your project structure</p>
               {demoCode && (
@@ -214,7 +214,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             </section>
 
             {/* Source Code */}
-            <section className="p-4 space-y-3">
+            <section className="p-4 space-y-3 min-w-0">
               <div className="flex items-center justify-between">
                 <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Source</p>
                 {item.hasVariants && (
@@ -322,7 +322,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             )}
 
             {/* Copy for AI */}
-            <div className="px-6 py-4 space-y-3">
+            <div className="px-6 py-4 space-y-3 min-w-0">
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
               <PromptItems
                 files={componentFiles}
@@ -335,7 +335,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             </div>
 
             {/* Installation */}
-            <div className="px-6 py-4 space-y-3">
+            <div className="px-6 py-4 space-y-3 min-w-0">
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
               <Tabs defaultValue="cli" className="w-full">
                 <TabsList className='bg-gray-100 dark:bg-neutral-800'>

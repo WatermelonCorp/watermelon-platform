@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { CodeBlock } from "@/components/mdx/code-block";
 import { CopyButton } from "@/components/animate-ui/components/buttons/copy";
+import { PromptItems } from "@/components/prompt-items";
 import { cn } from "@/lib/utils";
 import type { UiVariant } from "@/data/components-registry";
 
@@ -136,6 +137,24 @@ export function CodeDialog({ variant, onClose }: CodeDialogProps) {
                   {command}
                 </motion.code>
               </AnimatePresence>
+            </div>
+
+            {/* Copy for AI */}
+            <div className="space-y-3 pt-4 border-t">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
+              <PromptItems
+                files={[
+                  {
+                    name: `${variant.id}.tsx`,
+                    content: variant.code,
+                  },
+                ]}
+                dependencies={variant.dependencies || []}
+                componentName={variant.title}
+                componentSlug={variant.id}
+                category="component"
+                source="code-dialog"
+              />
             </div>
           </div>
 

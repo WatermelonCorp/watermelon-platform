@@ -6,30 +6,28 @@ import { trackEvent } from "@/lib/analytics";
 interface RegistryCardProps {
   item: RegistryItem;
   onClick: (item: RegistryItem) => void;
-  imagePriority?: boolean;
 }
-const getImageSrcSet = (src: string) => {
-  if (!src.startsWith("http")) return undefined;
-  const url = new URL(src);
-  const supportsWidthParams =
-    url.hostname.includes("images.unsplash.com") ||
-    url.hostname.includes("assets.watermelon.sh");
-  if (!supportsWidthParams) return undefined;
+// const getImageSrcSet = (src: string) => {
+//   if (!src.startsWith("http")) return undefined;
+//   const url = new URL(src);
+//   const supportsWidthParams =
+//     url.hostname.includes("images.unsplash.com") ||
+//     url.hostname.includes("assets.watermelon.sh");
+//   if (!supportsWidthParams) return undefined;
 
-  const mk = (width: number) => {
-    const sized = new URL(src);
-    sized.searchParams.set("w", String(width));
-    sized.searchParams.set("q", "75");
-    sized.searchParams.set("format", "auto");
-    return `${sized.toString()} ${width}w`;
-  };
+//   const mk = (width: number) => {
+//     const sized = new URL(src);
+//     sized.searchParams.set("w", String(width));
+//     sized.searchParams.set("q", "75");
+//     sized.searchParams.set("format", "auto");
+//     return `${sized.toString()} ${width}w`;
+//   };
 
-  return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
-};
+//   return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
+// };
 
-export const RegistryCard = memo(function RegistryCard({ item, onClick, imagePriority = false }: RegistryCardProps) {
+export const RegistryCard = memo(function RegistryCard({ item, onClick }: RegistryCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Get the CLI command from item.install (same as component-modal)
@@ -45,10 +43,11 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick, imagePri
     video.muted = true;
 
     if (isHovered) {
-      video.currentTime = 0;
       video.play().catch(() => { });
     } else {
       video.pause();
+      // Reset to our poster frame mark so it stays seamless when unhovered
+      video.currentTime = 0.001;
     }
   }, [isHovered]);
 
@@ -147,42 +146,33 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick, imagePri
           pointer-events-none z-10"
         />
 
-        {/* Static image */}
-        <img
-          src={item.image}
-          srcSet={getImageSrcSet(item.image)}
-          sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
-          alt={`${item.name} preview`}
-          loading={imagePriority ? "eager" : "lazy"}
-          fetchPriority={imagePriority ? "high" : "auto"}
-          decoding="async"
-          className={cn(
-            "absolute inset-0 h-full w-full object-cover",
-            "transition-opacity duration-500 ease-out",
-            isHovered && item.video ? "opacity-0" : "opacity-100"
-          )}
-        />
+        {/* Static image (only if no video is available) */}
+        {/* {!item.video && item.image && (
+          <img
+            src={item.image}
+            srcSet={getImageSrcSet(item.image)}
+            sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
+            alt={`${item.name} preview`}
+            loading={imagePriority ? "eager" : "lazy"}
+            fetchPriority={imagePriority ? "high" : "auto"}
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )} */}
 
         {/* Video preview */}
         {item.video && (
-          <>
-            <video
-              ref={videoRef}
-              src={item.video}
-              muted
-              loop
-              playsInline
-              preload="none"
-              aria-hidden="true"
-              tabIndex={-1}
-              onCanPlayThrough={() => setIsVideoReady(true)}
-              className={cn(
-                "absolute inset-0 h-full w-full object-cover",
-                "transition-opacity duration-100 ease-out",
-                isHovered && isVideoReady ? "opacity-100" : "opacity-0"
-              )}
-            />
-          </>
+          <video
+            ref={videoRef}
+            src={`${item.video}#t=0.001`} // this line is used for play video on specific time and also create the poster
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            tabIndex={-1}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         )}
 
         {/* Bottom fade overlay */}

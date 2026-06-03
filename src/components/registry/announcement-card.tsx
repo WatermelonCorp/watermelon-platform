@@ -3,13 +3,19 @@ import type { BlockItem } from "@/data/blocks";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
-interface DashboardCardProps {
+interface AnnouncementCardProps {
   item: DashboardItem | BlockItem;
   onClick: (item: any) => void;
   trackType?: "dashboard" | "block";
+  previewHeight?: string;
 }
 
-export function DashboardCard({ item, onClick, trackType = "dashboard" }: DashboardCardProps) {
+export function AnnouncementCard({ 
+  item, 
+  onClick, 
+  trackType = "dashboard", 
+  previewHeight = "h-[100px] sm:h-[120px] md:h-[160px] lg:h-[180px]" 
+}: AnnouncementCardProps) {
 
   const getImageSrcSet = (src: string) => {
     if (!src.startsWith("http")) return undefined;
@@ -52,7 +58,7 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
         }
       }}
       className={cn(
-        "group relative block",
+        "group relative block w-full",
         "rounded-4xl p-2",
         "bg-gray-100",
         "dark:bg-neutral-800 dark:border-0",
@@ -71,7 +77,7 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
         <span className="text-base font-medium text-foreground truncate leading-tight">
           {item.name}
         </span>
-
+        
         <div className="flex items-center gap-4 shrink-0">
           {item.comingSoon && (
             <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70">
@@ -83,7 +89,8 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
 
       {/* Preview */}
       <div className={cn(
-        "relative aspect-video w-full overflow-hidden rounded-[20px]",
+        "relative w-full overflow-hidden rounded-[20px]",
+        previewHeight,
         "bg-muted",
         "border border-neutral-200/50 dark:border-white/5",
         "shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.05)]",
@@ -104,11 +111,11 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
             <img
               src={item.image}
               srcSet={getImageSrcSet(item.image)}
-              sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
+              sizes="(min-width: 1280px) 100vw, 100vw"
               alt={`${item.name} preview`}
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-105"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}

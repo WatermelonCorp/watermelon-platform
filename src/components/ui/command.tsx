@@ -9,12 +9,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import {
-  InputGroup,
-  InputGroupAddon,
-} from "@/components/ui/input-group"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { SearchIcon, Tick02Icon } from "@/lib/hugeicons"
+import { SearchIcon } from "@/lib/hugeicons"
 
 function Command({
   className,
@@ -24,7 +20,7 @@ function Command({
     <CommandPrimitive
       data-slot="command"
       className={cn(
-        "bg-popover text-popover-foreground rounded-xl p-1.5 flex size-full flex-col overflow-hidden shadow-lg border border-border/50",
+        "bg-gray-100 dark:bg-neutral-800 text-foreground flex size-full flex-col overflow-hidden",
         className
       )}
       {...props}
@@ -49,7 +45,7 @@ function CommandDialog({
     <Dialog {...props}>
       <DialogContent
         className={cn(
-          "rounded-2xl top-1/4 translate-y-0 overflow-hidden sm:max-w-2xl md:max-w-3xl p-0 shadow-2xl border-2",
+          "rounded-2xl top-1/4 translate-y-0 overflow-hidden sm:max-w-2xl md:max-w-3xl p-0 border border-black/10 dark:border-white/10 shadow-2xl",
           className
         )}
         showCloseButton={showCloseButton}
@@ -70,25 +66,23 @@ function CommandInput({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
-    <div data-slot="command-input-wrapper" className="p-2 pb-0">
-      <InputGroup className="bg-input/40 hover:bg-input/50 transition-colors border-input/40 focus-within:border-input/60 h-11 rounded-xl shadow-sm *:data-[slot=input-group-addon]:pl-3">
+    <div data-slot="command-input-wrapper" className="p-3">
+      <div className="flex items-center bg-white dark:bg-neutral-900 px-3 h-12 rounded-xl border border-black/10 dark:border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-ring/50 transition-all">
+        <HugeiconsIcon
+          icon={SearchIcon}
+          strokeWidth={2}
+          className="size-5 shrink-0 opacity-50 mr-3"
+        />
         <CommandPrimitive.Input
           data-slot="command-input"
           placeholder={placeholder}
           className={cn(
-            "w-full text-base outline-hidden placeholder:text-muted-foreground/60 disabled:cursor-not-allowed disabled:opacity-50",
+            "w-full flex-1 bg-transparent text-base outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
             className
           )}
           {...props}
         />
-        <InputGroupAddon>
-          <HugeiconsIcon
-            icon={SearchIcon}
-            strokeWidth={2}
-            className="size-5 shrink-0 opacity-50 transition-opacity group-focus-within:opacity-70"
-          />
-        </InputGroupAddon>
-      </InputGroup>
+      </div>
     </div>
   )
 }
@@ -101,7 +95,7 @@ function CommandList({
     <CommandPrimitive.List
       data-slot="command-list"
       className={cn(
-        "no-scrollbar max-h-[400px] md:max-h-[500px] scroll-py-2 outline-none overflow-x-hidden overflow-y-auto p-2",
+        "no-scrollbar max-h-[400px] md:max-h-[500px] scroll-py-2 outline-none overflow-x-hidden overflow-y-auto p-2 pt-0",
         className
       )}
       {...props}
@@ -134,7 +128,7 @@ function CommandGroup({
       data-slot="command-group"
       className={cn(
         "text-foreground overflow-hidden p-1.5 mb-2 last:mb-0",
-        "**:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group-heading]]:px-3 **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-semibold **:[[cmdk-group-heading]]:uppercase **:[[cmdk-group-heading]]:tracking-wider **:[[cmdk-group-heading]]:mb-1",
+        "**:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group-heading]]:px-3 **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-[11px] **:[[cmdk-group-heading]]:font-semibold **:[[cmdk-group-heading]]:uppercase **:[[cmdk-group-heading]]:tracking-widest **:[[cmdk-group-heading]]:mb-1",
         className
       )}
       {...props}
@@ -164,24 +158,22 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "data-selected:bg-muted/80 data-selected:text-foreground data-selected:*:[svg]:text-foreground",
-        "relative flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm outline-hidden select-none",
-        "transition-colors duration-150",
-        "in-data-[slot=dialog-content]:rounded-xl",
+        "data-selected:bg-white data-[selected='true']:bg-white dark:data-selected:bg-neutral-900 dark:data-[selected='true']:bg-neutral-900 data-selected:text-foreground data-selected:*:[svg]:text-foreground data-selected:shadow-sm dark:data-selected:shadow-none border border-transparent data-[selected='true']:border-black/5 dark:data-[selected='true']:border-white/5",
+        "relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm outline-hidden select-none",
+        "transition-all duration-150",
         "[&_svg:not([class*='size-'])]:size-5 group/command-item",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40 data-[disabled=true]:cursor-not-allowed",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0",
-        "hover:bg-muted/50",
         className
       )}
       {...props}
     >
       {children}
-      <HugeiconsIcon
+      {/* <HugeiconsIcon
         icon={Tick02Icon}
         strokeWidth={2.5}
         className="ml-auto opacity-0 transition-opacity group-has-data-[slot=command-shortcut]/command-item:hidden group-data-[checked=true]/command-item:opacity-100 text-primary"
-      />
+      /> */}
     </CommandPrimitive.Item>
   )
 }
@@ -194,8 +186,8 @@ function CommandShortcut({
     <span
       data-slot="command-shortcut"
       className={cn(
-        "text-muted-foreground group-data-selected/command-item:text-foreground",
-        "ml-auto text-xs tracking-widest font-mono px-2 py-0.5 rounded bg-muted/50 border border-border/50",
+        "text-muted-foreground group-data-selected/command-item:text-foreground group-data-[selected='true']/command-item:text-foreground",
+        "ml-auto text-[10px] font-mono font-medium min-w-[20px] h-5 px-1 flex items-center justify-center rounded bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10",
         className
       )}
       {...props}
