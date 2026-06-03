@@ -3,9 +3,9 @@ import {
   FaInstagram,
   FaLinkedin,
   FaGithub,
-  FaTerminal,
 } from 'react-icons/fa6';
 import { Footer6 } from '.';
+import LogoIcon from '@/assets/logo-icon';
 
 export default function Footer6Demo() {
   const socialLinks = [
@@ -67,7 +67,7 @@ export default function Footer6Demo() {
   return (
     <div className="bg-background flex min-h-screen w-full items-center justify-center py-12">
       <Footer6
-        logo={<FaTerminal className="text-primary h-5 w-5" />}
+        logo={<LogoIcon className="size-8" />}
         brandName="Watermelon"
         tagLine="WATERMELON CORP"
         headline="Building the foundation for modular web architectures."

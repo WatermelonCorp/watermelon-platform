@@ -40,7 +40,7 @@ export default function Footer10Demo() {
   ];
 
   return (
-    <div className="bg-background flex min-h-screen w-full flex-col justify-end">
+    <div className="bg-background flex  w-full flex-col justify-end">
       <Footer10
         bannerBackgroundImage="https://assets.watermelon.sh/footer-10-bg.avif"
         linkColumns={linkColumns}

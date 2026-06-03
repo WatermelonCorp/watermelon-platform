@@ -10,6 +10,7 @@ import {
   FaXTwitter,
 } from 'react-icons/fa6';
 import { ChevronDown } from 'lucide-react';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Footer12Link {
   label: string;
@@ -117,17 +118,6 @@ const brandItem: Variants = {
   },
 };
 
-function AvyronixMark() {
-  return (
-    <span
-      className="relative block hidden h-[112px] w-[112px] shrink-0 overflow-hidden rounded-full bg-stone-50 sm:h-[138px] sm:w-[138px] md:block"
-      aria-hidden="true"
-    >
-      <span className="absolute top-1/2 left-[-10%] h-[27px] w-[130%] -translate-y-1/2 -rotate-[24deg] bg-neutral-800 sm:h-[32px]" />
-      <span className="absolute inset-[28px] rounded-full border-[27px] border-neutral-800 sm:inset-[34px] sm:border-[32px]" />
-    </span>
-  );
-}
 
 export function Footer12({
   newsletterTitle = 'Keep up to date with our quarterly newsletter, "You’ve got mail."',
@@ -135,8 +125,8 @@ export function Footer12({
   subscribeText = 'Subscribe',
   onSubscribe,
   columns = columnsDefault,
-  brandName = 'Avyronix',
-  copyright = '© 2026 Avyronix Zero Labs, Inc. All rights reserved.',
+  brandName = 'Melon',
+  copyright = '© 2026 Melon , Inc. All rights reserved.',
   socialLinks = socialLinksDefault,
   languageLabel = 'English',
 }: Footer12Props) {
@@ -212,8 +202,8 @@ export function Footer12({
           variants={brandItem}
           className="mx-auto mt-12 flex items-center gap-8 sm:mt-8 sm:gap-14 lg:mt-4"
         >
-          <AvyronixMark />
-          <p className="text-[clamp(0.5rem,20vw,20.25rem)] leading-none font-normal tracking-normal text-stone-50">
+          <LogoIcon className='size-50 hidden md:block' />
+          <p className="text-[clamp(0.7rem,15vw,20.25rem)] leading-none font-normal tracking-normal text-stone-50">
             {brandName}
           </p>
         </motion.div>

@@ -2,13 +2,13 @@
 import { useState, type ReactNode } from 'react';
 import { motion, AnimatePresence, type Variants } from 'motion/react';
 import {
-  FaCube,
   FaChevronDown,
   FaArrowRight,
   FaArrowDown,
   FaBars,
   FaXmark,
 } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Hero3NavItem {
   label: string;
@@ -81,7 +81,7 @@ const item: Variants = {
 
 export function Hero3({
   logo,
-  logoText = 'Vortex',
+  logoText = 'Watermelon',
   navItems = [
     { label: 'Solutions', href: '#', hasDropdown: true },
     { label: 'Technology', href: '#', hasDropdown: true },
@@ -135,7 +135,7 @@ export function Hero3({
             className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
           >
             <span className="text-primary flex items-center justify-center">
-              {logo || <FaCube className="h-5 w-5 fill-white" />}
+              {logo || <LogoIcon className="size-8 text-white" />}
             </span>
             <span>{logoText}</span>
           </a>
@@ -190,7 +190,7 @@ export function Hero3({
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="text-primary flex items-center justify-center">
-                {logo || <FaCube className="h-5 w-5 fill-current" />}
+                {logo || <LogoIcon className="size-8 fill-current" />}
               </span>
               <span>{logoText}</span>
             </a>
@@ -252,7 +252,7 @@ export function Hero3({
 
             <motion.h1
               variants={item}
-              className="text-foreground mb-6 text-4xl font-light tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+              className="text-foreground mb-6 text-4xl font-light tracking-tight sm:text-5xl md:text-6xl lg:text-7xl "
             >
               {titleLine1 && <span className="block">{titleLine1}</span>}
               {titleLine2 && <span className="block">{titleLine2}</span>}

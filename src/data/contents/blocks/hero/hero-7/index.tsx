@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { FaArrowDown, FaArrowRight, FaBars, FaXmark } from "react-icons/fa6";
 import { ChevronDown } from "lucide-react";
+import LogoIcon from "@/assets/logo-icon";
 
 export interface Hero7NavItem {
   label: string;
@@ -77,22 +78,6 @@ const imageVariants: Variants = {
   },
 };
 
-function ApexMark({ className = "text-white" }: { className?: string }) {
-  return (
-    <span
-      className={`relative h-6 w-6 shrink-0 ${className}`}
-      aria-hidden="true"
-    >
-      {Array.from({ length: 8 }).map((_, index) => (
-        <span
-          key={index}
-          className="absolute top-1/2 left-1/2 h-[4px] w-[14px] origin-[1px_2px] rounded-full bg-current"
-          style={{ transform: `rotate(${index * 45}deg) translateX(5px)` }}
-        />
-      ))}
-    </span>
-  );
-}
 
 function FlagIcon() {
   return (
@@ -109,7 +94,7 @@ function FlagIcon() {
 
 export function Hero7({
   logo,
-  logoText = "Apex",
+  logoText = "Watermelon",
   navItems = navItemsDefault,
   signupText = "Sign up",
   signupHref = "#",
@@ -155,9 +140,9 @@ export function Hero7({
           viewport={{ once: true, amount: 0.8 }}
           className="flex items-center justify-between"
         >
-          <a href="#" className="flex min-h-10 items-center gap-4">
-            {logo ?? <ApexMark className="size-4 text-white" />}
-            <span className="text-4xl leading-none font-normal tracking-normal text-blue-950">
+          <a href="#" className="flex min-h-10 items-center gap-2">
+            {logo ?? <LogoIcon className="size-8 text-white" />}
+            <span className="text-2xl leading-none font-normal tracking-normal text-blue-950">
               {logoText}
             </span>
           </a>
@@ -217,7 +202,7 @@ export function Hero7({
             >
               <div className="flex items-center justify-between">
                 <a href="#" className="flex items-center gap-2 text-blue-950">
-                  {logo ?? <ApexMark className="text-blue-950" />}
+                  {logo ?? <LogoIcon className="text-blue-200 size-8" />}
                   <span className="text-2xl font-normal">{logoText}</span>
                 </a>
                 <button

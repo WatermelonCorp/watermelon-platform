@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { AnimatePresence, motion, type Variants } from 'motion/react';
 import { FaArrowRight, FaChevronDown, FaXmark } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Hero9NavItem {
   label: string;
@@ -96,18 +97,10 @@ const backgroundVariants: Variants = {
   },
 };
 
-function MistPeakLogo() {
-  return (
-    <span
-      className="inline-block h-0 w-0 border-x-[8px] border-b-[14px] border-x-transparent border-b-slate-950"
-      aria-hidden="true"
-    />
-  );
-}
 
 export function Hero9({
   logo,
-  logoText = 'MistPeak',
+  logoText = 'Watermelon',
   navItems = defaultNavItems,
   ctaText = 'Book Demo',
   ctaHref = '#',
@@ -139,14 +132,6 @@ export function Hero9({
         />
       </motion.div>
 
-      {/* <div
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(96,165,250,0.7)_0%,rgba(147,197,253,0.44)_26%,rgba(224,242,254,0.18)_52%,rgba(101,163,13,0.12)_100%)]"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-x-0 top-0 h-[46%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.62)_0%,rgba(255,255,255,0.25)_38%,rgba(255,255,255,0)_72%)]"
-        aria-hidden="true"
-      /> */}
 
       <div className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1440px] flex-col px-5 py-4 sm:min-h-screen sm:px-9 lg:px-[58px]">
         <motion.header
@@ -160,7 +145,7 @@ export function Hero9({
             href="#"
             className="inline-flex min-h-10 items-center gap-2.5 text-slate-950 transition-[opacity,transform] duration-200 ease-out hover:opacity-75 active:scale-[0.96]"
           >
-            {logo ?? <MistPeakLogo />}
+            {logo ?? <LogoIcon className='size-8 text-white' />}
             <span className="text-lg leading-none font-normal tracking-[-0.02em]">
               {logoText}
             </span>
@@ -211,7 +196,7 @@ export function Hero9({
             >
               <div className="flex items-center justify-between">
                 <a href="#" className="inline-flex items-center gap-2.5">
-                  {logo ?? <MistPeakLogo />}
+                  {logo ?? <LogoIcon className='size-8 text-zinc-200' />}
                   <span className="text-base font-semibold tracking-[-0.02em]">
                     {logoText}
                   </span>

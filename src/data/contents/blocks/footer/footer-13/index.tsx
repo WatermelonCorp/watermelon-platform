@@ -7,6 +7,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Footer13Link {
   label: string;
@@ -144,45 +145,18 @@ const linkItem: Variants = {
   },
 };
 
-function DefaultLogoIcon() {
-  return (
-    <svg
-      width="30"
-      height="30"
-      viewBox="0 0 30 30"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M15 2.5L4 7.5V15C4 21.075 9 26.5 15 28C21 26.5 26 21.075 26 15V7.5L15 2.5Z"
-        fill="white"
-      />
-
-      <path
-        d="M10 14.5L13.5 18L20 11.5"
-        stroke="#09090b"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export function Footer13({
   heroSrc = 'https://assets.watermelon.sh/footer-13-bg.avif',
   heroAlt = 'A serene mountain landscape at dusk with pine silhouettes',
   logoIcon,
-  brandName = 'AERIN',
+  brandName = 'Watermelon',
   columns = defaultColumns,
   emailPlaceholder = 'Enter your email',
   subscribeLabel = 'Subscribe',
   subscribeTagline = 'Receive calm nature wrapped\nin moonlight silence.',
   onSubscribe,
-  copyright = '© 2026 Aerin Zero Labs, Inc. All rights reserved.',
+  copyright = '© 2026 Watermelon Inc. All rights reserved.',
   socialLinks = defaultSocials,
   bottomLinks = defaultBottomLinks,
 }: Footer13Props) {
@@ -221,7 +195,7 @@ export function Footer13({
             variants={riseItem}
             className="flex shrink-0 items-center gap-2.5 lg:items-start lg:pt-0.5"
           >
-            <span className="shrink-0">{logoIcon ?? <DefaultLogoIcon />}</span>
+            <span className="shrink-0">{logoIcon ?? <LogoIcon className='size-8' />}</span>
             <span className="text-xl font-normal tracking-wider text-white uppercase select-none">
               {brandName}
             </span>
@@ -313,7 +287,7 @@ export function Footer13({
             ))}
           </div>
 
-          {/* Bottom legal links */}
+         
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5">
             {bottomLinks.map((link) => (
               <a

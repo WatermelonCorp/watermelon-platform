@@ -1,5 +1,6 @@
-import { FaLinkedinIn, FaXTwitter, FaInstagram, FaInfinity } from "react-icons/fa6";
+import { FaLinkedinIn, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { Footer3 } from "./index";
+import LogoIcon from "@/assets/logo-icon";
 
 export default function Footer3Demo() {
   const socialLinks = [
@@ -47,12 +48,12 @@ export default function Footer3Demo() {
   return (
     <div className="w-full ">
       <Footer3
-        logo={<FaInfinity className="w-6 h-6" />}
-        brandName="Lumina"
+        logo={<LogoIcon className="size-8" />}
+        brandName="Watermelon"
         description="Accelerate your digital transformation with our cutting-edge cloud infrastructure and tools."
         socialLinks={socialLinks}
         linkGroups={linkGroups}
-        copyright="© 2026 Lumina Technologies. All rights reserved."
+        copyright="© 2026 Watermelon. All rights reserved."
         legalLinks={legalLinks}
       />
     </div>

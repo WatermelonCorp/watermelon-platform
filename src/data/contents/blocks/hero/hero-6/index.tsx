@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { FaBars, FaXmark } from "react-icons/fa6";
+import LogoIcon from "@/assets/logo-icon";
 
 export interface Hero6NavItem {
   label: string;
@@ -43,7 +44,7 @@ const trustedBrandsDefault: Hero6TrustedBrand[] = [
   { name: "Forbes" },
   { name: "healthline" },
   { name: "Bloomberg" },
-  { name: "The Washington Post" },
+  { name: "The Times" },
 ];
 
 const container: Variants = {
@@ -67,19 +68,6 @@ const item: Variants = {
   },
 };
 
-function StreamMark() {
-  return (
-    <span className="relative h-6 w-6 shrink-0" aria-hidden="true">
-      {Array.from({ length: 12 }).map((_, index) => (
-        <span
-          key={index}
-          className="absolute top-1/2 left-1/2 h-[3px] w-[9px] origin-[1px_1.5px] rounded-full bg-white"
-          style={{ transform: `rotate(${index * 30}deg) translateX(6px)` }}
-        />
-      ))}
-    </span>
-  );
-}
 
 function DottedButton({
   href,
@@ -103,7 +91,7 @@ function DottedButton({
 
 export function Hero6({
   logo,
-  logoText = "Stream",
+  logoText = "Watermelon",
   navItems = navItemsDefault,
   headerCtaText = "Learn More",
   headerCtaHref = "#",
@@ -121,7 +109,7 @@ export function Hero6({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-[700px] w-full overflow-hidden text-white antialiased sm:min-h-screen font-sans">
+    <section className="relative flex  w-full overflow-hidden text-white antialiased sm:min-h-screen font-sans">
       <div className="absolute inset-0">
         <img
           src={backgroundImage}
@@ -141,8 +129,8 @@ export function Hero6({
           transition={{ type: "spring", duration: 0.6, bounce: 0 }}
           className="flex items-center justify-between "
         >
-          <a href="#" className="flex min-h-10 items-center gap-2.5">
-            {logo ?? <StreamMark />}
+          <a href="#" className="flex min-h-10 items-center justify-center gap-2.5">
+            {logo ?? <LogoIcon className="size-8" />}
             <span className="text-xl leading-none font-light font-sans tracking-normal text-white">
               {logoText}
               <span className="text-amber-300">.</span>
@@ -188,7 +176,7 @@ export function Hero6({
             >
               <div className="flex items-center justify-between">
                 <a href="#" className="flex items-center gap-2.5">
-                  {logo ?? <StreamMark />}
+                  {logo ?? <LogoIcon className="size-8" />}
                   <span className="text-xl font-medium text-white">
                     {logoText}
                     <span className="text-amber-300">.</span>
@@ -273,7 +261,7 @@ export function Hero6({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
-          className="mx-auto mb-8 w-full max-w-4xl text-center sm:mb-10 lg:mb-12"
+          className="mx-auto mb-8 w-full max-w-4xl text-center sm:mb-20 "
         >
           {trustedTitle && (
             <motion.p
@@ -286,7 +274,7 @@ export function Hero6({
 
           <motion.div
             variants={item}
-            className="mt-5 grid grid-cols-2 items-center justify-items-center gap-x-4 gap-y-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-14 pb-6"
+            className="mt-5 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-5 pb-6"
           >
             {trustedBrands.map((brand) => (
               <span
