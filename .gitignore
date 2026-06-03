@@ -27,3 +27,5 @@ dist-ssr
 .agent
 .cursor
 .cursorignore
+
+/skills/
