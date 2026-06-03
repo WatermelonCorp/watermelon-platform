@@ -1,5 +1,5 @@
+import LogoIcon from '@/assets/logo-icon';
 import { Footer9 } from '.';
-import { FaGem } from 'react-icons/fa6';
 
 export default function Footer9Demo() {
   const socialLinks = [
@@ -29,11 +29,11 @@ export default function Footer9Demo() {
   ];
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-transparent">
+    <div className="flex  w-full items-center justify-center bg-transparent">
       <Footer9
         heading={'Ready to Build\nSomething Great?'}
-        email="hello@apexcraft.studio"
-        emailHref="mailto:hello@apexcraft.studio"
+        email="hello@watermelon.studio"
+        emailHref="mailto:hello@watermelon.studio"
         backgroundImage="https://assets.watermelon.sh/footer-9-bg.avif"
         socialLinks={socialLinks}
         brandLogo={
@@ -41,12 +41,12 @@ export default function Footer9Demo() {
             href="#"
             className="text-primary-foreground inline-flex items-center gap-2"
           >
-            <FaGem className="h-6 w-6" />
-            <span className="text-2xl font-medium">Luminova.</span>
+          <LogoIcon className="size-8" />
+            <span className="text-2xl font-medium">Watermelon</span>
           </a>
         }
         navLinks={navLinks}
-        copyright="© 2026 Luminova. All rights reserved"
+        copyright="© 2026 watermelon. All rights reserved"
         legalLinks={legalLinks}
       />
     </div>

@@ -15,9 +15,9 @@ export default function Hero3Demo() {
   ];
 
   return (
-    <div className="bg-background flex min-h-screen w-full flex-col justify-center">
+    <div className="bg-background flex  w-full flex-col justify-center">
       <Hero3
-        logoText="Vortex"
+        logoText="Watermelon"
         navItems={customNavItems}
         signInText="Sign in"
         signInHref="#"

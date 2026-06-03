@@ -1,13 +1,13 @@
 import { Footer2 } from './index';
 import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import { Hexagon } from 'lucide-react';
+import LogoIcon from '@/assets/logo-icon';
 
 export default function Footer2Demo() {
   return (
     <div className="w-full">
       <Footer2
-        logo={<Hexagon className="h-6 w-6 fill-current" />}
-        brandName="Nexus"
+        logo={<LogoIcon className="size-8" />}
+        brandName="Watermelon"
         tagline="Elevating teamwork to unprecedented heights."
         socialText="Connect with us"
         socialLinks={[
@@ -54,11 +54,11 @@ export default function Footer2Demo() {
           },
         ]}
         newsletterSubtitle="The future of work is here."
-        newsletterTitle="Join the Nexus platform."
+        newsletterTitle="Join the Watermelon platform."
         newsletterPlaceholder="Enter email address"
         newsletterButtonText="Subscribe"
-        copyright="© 2026 Nexus Inc. All rights reserved."
-        floatingIcon={<Hexagon className="h-full w-full fill-current" />}
+        copyright="© 2026 Watermelon Inc. All rights reserved."
+        floatingIcon={<LogoIcon className="h-full w-full fill-current" />}
       />
     </div>
   );

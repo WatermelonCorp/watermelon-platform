@@ -7,6 +7,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 
 
@@ -157,33 +158,13 @@ const heroBrandVariant: Variants = {
 
 
 
-function DefaultLogoIcon() {
-  return (
-    <svg
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-   
-      <path
-        d="M14 2L25 8V20L14 26L3 20V8L14 2Z"
-        fill="none"
-        stroke="#374151"
-        strokeWidth="1.8"
-      />
-      <path d="M14 8L20 11.5V18.5L14 22L8 18.5V11.5L14 8Z" fill="#374151" />
-    </svg>
-  );
-}
+
 
 
 
 export function Footer14({
   logoIcon,
-  brandName = 'AVELINE',
+  brandName = 'Watermelon',
   columns = defaultColumns,
   socialLinks = defaultSocials,
   emailPlaceholder = 'Enter your email',
@@ -192,8 +173,8 @@ export function Footer14({
   onSubscribe,
   statusLabel = 'System status :',
   statusValue = 'Moderate',
-  copyright = '© 2026 Aveline Zero Labs, Inc. All rights reserved.',
-  heroBrandName = 'Aveline',
+  copyright = '© 2026 Melon , Inc. All rights reserved.',
+  heroBrandName = 'Watermelon',
 }: Footer14Props) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -203,7 +184,7 @@ export function Footer14({
   }
 
   return (
-    <footer className="w-full overflow-hidden rounded-b-4xl bg-[#4b6a9b] font-sans antialiased">
+    <footer className="w-full overflow-hidden rounded-4xl bg-[#4b6a9b] font-sans antialiased">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -214,10 +195,10 @@ export function Footer14({
         <div className="mx-auto flex max-w-[1440px] flex-col gap-8 lg:flex-row lg:gap-12 xl:gap-16">
           <motion.div
             variants={riseItem}
-            className="flex shrink-0 items-center gap-2.5 lg:items-start"
+            className="flex shrink-0 items-center gap-2.5 lg:items-start justify-center"
           >
-            <span className="shrink-0">{logoIcon ?? <DefaultLogoIcon />}</span>
-            <span className="text-lg font-light tracking-wider text-gray-100 uppercase select-none">
+            <span className="shrink-0">{logoIcon ?? <LogoIcon className='size-8' />}</span>
+            <span className="text-lg font-normal tracking-wide text-gray-100 uppercase select-none">
               {brandName}
             </span>
           </motion.div>
@@ -253,7 +234,7 @@ export function Footer14({
 
           <motion.div
             variants={riseItem}
-            className="flex w-full shrink-0 flex-col gap-2 sm:max-w-[280px] lg:max-w-sm"
+            className="flex w-full shrink-0 flex-col gap-2 sm:max-w-[200px] lg:max-w-xs"
           >
             <div className="flex items-center gap-0">
               {socialLinks.map((link) => (
@@ -275,7 +256,7 @@ export function Footer14({
               </h3>
               <form onSubmit={handleSubmit} className="mt-2">
                 <div className="flex gap-2 overflow-hidden rounded-none">
-                  <label htmlFor="footer14-email" className="sr-only">
+                  <label htmlFor="footer-14-email" className="sr-only">
                     Email address
                   </label>
                   <input
@@ -283,7 +264,7 @@ export function Footer14({
                     name="email"
                     type="email"
                     placeholder={emailPlaceholder}
-                    className="h-[38px] min-w-0 flex-1 bg-white px-3 text-[13px] font-normal text-gray-900 placeholder:text-gray-400 focus:outline-none"
+                    className="h-[38px] min-w-0 flex-1 bg-white px-3 text-sm font-normal text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   />
 
                   <motion.button
@@ -330,9 +311,9 @@ export function Footer14({
       >
         <p
           aria-hidden="true"
-          className="translate-y-4 text-center font-sans leading-[0.82] font-bold tracking-[-0.02em] text-[#6d8fc0] select-none text-shadow-xs md:translate-y-8"
+          className="translate-y-1 text-center font-sans leading-[0.82] font-bold tracking-[-0.02em] text-[#6d8fc0] select-none text-shadow-xs md:translate-y-8"
           style={{
-            fontSize: 'clamp(3rem, 22vw, 22rem)',
+            fontSize: 'clamp(3rem, 15vw, 22rem)',
             // marginBottom: 'clamp(-0.5rem, -2vw, -4rem)',
           }}
         >

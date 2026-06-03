@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { motion, AnimatePresence, type Variants } from 'motion/react';
 import { FaChevronDown, FaBars, FaXmark, FaArrowRight } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Hero5NavItem {
   label: string;
@@ -120,16 +121,10 @@ export function Hero5({
           <a href="#" className="flex items-center gap-2 text-white">
             <span className="flex items-center justify-center">
               {logo || (
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <polygon points="12,2 22,20 2,20" />
-                </svg>
+                <LogoIcon className='size-6' />
               )}
             </span>
-            <span className="text-sm font-semibold tracking-wide">
+            <span className="text-md font-light tracking-wide">
               {logoText}
             </span>
           </a>
@@ -188,13 +183,7 @@ export function Hero5({
               >
                 <span className="flex items-center justify-center">
                   {logo || (
-                    <svg
-                      className="h-5 w-5"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <polygon points="12,2 22,20 2,20" />
-                    </svg>
+                   <LogoIcon className='size-8'/>
                   )}
                 </span>
                 <span className="text-sm font-semibold tracking-wide">

@@ -1,3 +1,4 @@
+import LogoIcon from '@/assets/logo-icon';
 import { motion, type Variants } from 'motion/react';
 import {
   FaFacebookF,
@@ -133,33 +134,18 @@ const socialIcons = {
   linkedin: FaLinkedinIn,
 };
 
-function BrandMark() {
-  return (
-    <svg
-      className="size-[15px] text-zinc-100"
-      viewBox="0 0 18 18"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M8.993 1.75 10.2 7.8l5.275-1.213-4.462 3.25 4.462 3.25L10.2 11.874 8.993 16.25l-1.194-4.376-5.274 1.213 4.462-3.25-4.462-3.25L7.8 7.8 8.993 1.75Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
 
 export function Footer16({
-  brandName = 'ZENTRIX',
+  brandName = 'MELON',
   tagline = 'Change your future today using marketing\nand growth systems everything you need\nstarts here',
   columns = defaultColumns,
   legalLinks = defaultLegalLinks,
   socials = defaultSocials,
-  copyright = '© 2024 Axiom Zero Labs, Inc. All rights reserved.',
+  copyright = '© 2026 Watermelon, Inc. All rights reserved.',
   backgroundImage = backgroundUrl,
 }: Footer16Props) {
   return (
-    <footer className="relative w-full overflow-hidden bg-zinc-950 font-sans text-zinc-100 antialiased">
+    <footer className="relative w-full overflow-hidden bg-zinc-950 font-sans text-zinc-100 antialiased ">
       <div
         className="absolute inset-0 z-10 bg-cover bg-center sm:-translate-y-16"
         style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -193,11 +179,11 @@ export function Footer16({
                 className="group inline-flex min-h-10 items-start gap-2 text-zinc-50 transition-[opacity,transform] duration-200 ease-out hover:opacity-85 active:scale-[0.96]"
                 aria-label={`${brandName} home`}
               >
-                <BrandMark />
+                <LogoIcon  className='size-8 -translate-y-2' />
                 <span className="text-xl leading-none font-normal tracking-wide">
                   {brandName}
                 </span>
-              </a>
+              </a> 
               <p className="text-md max-w-lg leading-relaxed font-normal text-pretty whitespace-pre-line text-zinc-300/78 sm:text-sm">
                 {tagline}
               </p>

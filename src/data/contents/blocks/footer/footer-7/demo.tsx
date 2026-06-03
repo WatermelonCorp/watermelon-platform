@@ -1,5 +1,6 @@
-import { FaSnowflake, FaArrowRight } from 'react-icons/fa6';
+import {  FaArrowRight } from 'react-icons/fa6';
 import { Footer7 } from '.';
+import LogoIcon from '@/assets/logo-icon';
 
 export default function Footer7Demo() {
   const linkGroups = [
@@ -33,9 +34,9 @@ export default function Footer7Demo() {
   ];
 
   return (
-    <div className="bg-background flex min-h-screen w-full items-center justify-center">
+    <div className="bg-background flex w-full items-center justify-center">
       <Footer7
-        logo={<FaSnowflake />}
+        logo={<LogoIcon className="size-8" />}
         brandName="Watermelon"
         badgeText="Loved by Creators"
         headline="Fresh insights, tutorials, and updates delivered to your inbox."

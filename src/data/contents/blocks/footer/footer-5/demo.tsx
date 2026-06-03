@@ -3,9 +3,9 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaHeadset,
-  FaInfinity,
 } from "react-icons/fa6";
 import { Footer5 } from "./index";
+import LogoIcon from "@/assets/logo-icon";
 
 export default function Footer5Demo() {
   const socialLinks = [
@@ -65,14 +65,14 @@ export default function Footer5Demo() {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <Footer5
-        logo={<FaInfinity className="w-6 h-6" />}
-        brandName="Lumina"
+        logo={<LogoIcon className="size-8 " />}
+        brandName="Melon"
         topNavLabel="Connect"
         socialLinks={socialLinks}
         contactCta={contactCta}
         linkGroups={linkGroups}
-        brandWatermark="Lumina"
-        copyright="© 2026 Lumina Technologies. All rights reserved."
+        brandWatermark="Melon"
+        copyright="© 2026 Watermelon. All rights reserved."
         legalLinks={legalLinks}
       />
     </div>

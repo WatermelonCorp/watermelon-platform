@@ -11,6 +11,7 @@ import {
   FaXmark,
   FaChevronDown,
 } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Hero4NavItem {
   label: string;
@@ -164,7 +165,7 @@ export function Hero4({
             className="flex items-center gap-2 text-lg font-medium tracking-tight text-white"
           >
             <span className="flex items-center justify-center text-white">
-              {logo || <FaStar className="size-6 fill-current" />}
+              {logo || <LogoIcon className="size-8 fill-current" />}
             </span>
             <span className="text-md font-light tracking-wide">{logoText}</span>
           </a>
@@ -227,9 +228,9 @@ export function Hero4({
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="flex items-center justify-center text-white">
-                {logo || <FaStar className="h-4 w-4 fill-current" />}
+                {logo || <LogoIcon className="size-8 fill-current" />}
               </span>
-              <span className="text-sm font-semibold tracking-widest uppercase">
+              <span className="text-xl font-light tracking-wide uppercase">
                 {logoText}
               </span>
             </a>

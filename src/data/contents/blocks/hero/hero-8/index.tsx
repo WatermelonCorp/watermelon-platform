@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { AnimatePresence, motion, type Variants } from 'motion/react';
 import { FaBars, FaChevronDown, FaPlay, FaXmark } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 export interface Hero8NavItem {
   label: string;
@@ -72,28 +73,11 @@ const backgroundVariants: Variants = {
   },
 };
 
-function VeloraMark() {
-  return (
-    <span
-      className="grid h-6 w-6 shrink-0 grid-cols-3 grid-rows-3 gap-1"
-      aria-hidden="true"
-    >
-      <span />
-      <span className="bg-white" />
-      <span />
-      <span className="bg-white" />
-      <span className="bg-white" />
-      <span className="bg-white" />
-      <span />
-      <span className="bg-white" />
-      <span />
-    </span>
-  );
-}
+
 
 export function Hero8({
   logo,
-  logoText = 'Velora',
+  logoText = 'Watermelon',
   navItems = navItemsDefault,
   loginText = 'Login',
   loginHref = '#',
@@ -134,8 +118,8 @@ export function Hero8({
           className="flex items-center justify-between"
         >
           <a href="#" className="flex min-h-10 items-center gap-3">
-            {logo ?? <VeloraMark />}
-            <span className="text-[28px] leading-none font-medium tracking-normal text-white">
+            {logo ?? <LogoIcon className='size-8 ' />}
+            <span className="text-xl leading-none font-medium tracking-normal text-white">
               {logoText}
             </span>
           </a>
@@ -191,8 +175,8 @@ export function Hero8({
             >
               <div className="flex items-center justify-between">
                 <a href="#" className="flex items-center gap-3">
-                  {logo ?? <VeloraMark />}
-                  <span className="text-2xl font-medium">{logoText}</span>
+                  {logo ?? <LogoIcon className='size-8' />}
+                  <span className="text-xl font-medium">{logoText}</span>
                 </a>
                 <button
                   type="button"

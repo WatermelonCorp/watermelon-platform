@@ -1,3 +1,4 @@
+import LogoIcon from '@/assets/logo-icon';
 import * as React from 'react';
 import {
   FaCircle,
@@ -35,15 +36,15 @@ export function Footer11({
   badgeText = 'Loved by Creators',
   heading = 'Want to collaborate with us, explore our tools or just curious to know more?',
   contactLabel = 'Reach out at:',
-  contactEmail = 'hello@novacrest.io',
-  contactEmailHref = 'mailto:hello@novacrest.io',
+  contactEmail = 'hello@watermelon.io',
+  contactEmailHref = 'mailto:hello@watermelon.io',
   navLinks = [
     { label: 'Products', href: '#' },
     { label: 'Company', href: '#' },
     { label: 'Pricing', href: '#' },
     { label: 'Contact', href: '#' },
   ],
-  brandName = 'novacrest.io',
+  brandName = 'watermelon.io',
   brandLogo,
   onScrollToTop,
 }: Footer11Props) {
@@ -114,107 +115,12 @@ export function Footer11({
           <div className="absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-red-800/20 blur-3xl" />
         </div>
 
-        {/* Brand logo + name */}
+
         <div className="relative z-10 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
-          {/* Logo */}
-          <div className="shrink-0">
+         
+          <div className="shrink-0 hidden sm:block">
             {brandLogo || (
-              <svg
-                width="120"
-                height="120"
-                viewBox="0 0 120 120"
-                fill="none"
-                className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-32 lg:w-32"
-              >
-                <rect
-                  x="0"
-                  y="0"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-                <rect
-                  x="26"
-                  y="0"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-
-                {/* Second row */}
-                <rect
-                  x="0"
-                  y="26"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-                <rect
-                  x="26"
-                  y="26"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-
-          
-                <rect
-                  x="26"
-                  y="52"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-                <rect
-                  x="52"
-                  y="52"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-
-              
-                <rect
-                  x="52"
-                  y="78"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-                <rect
-                  x="78"
-                  y="78"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-
-                {/* Connector pieces */}
-                <rect
-                  x="26"
-                  y="78"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-                <rect
-                  x="0"
-                  y="52"
-                  width="22"
-                  height="22"
-                  rx="2"
-                  fill="#52525b"
-                />
-              </svg>
+            <LogoIcon className='size-30 text-white/20 translate-y-2' />
             )}
           </div>
 

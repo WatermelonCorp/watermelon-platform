@@ -75,7 +75,7 @@ export function Footer10({
 
 
   return (
-    <footer className="text-foreground selection:bg-primary/20 w-full py-16">
+    <footer className="text-foreground selection:bg-primary/20 w-full ">
       <div className="mx-auto w-full max-w-7xl bg-[#FFF6F6] pb-10">
         <div className="bg-primary text-primary-foreground relative overflow-hidden rounded-none px-6 py-12 sm:px-12 sm:py-16 md:px-16 lg:py-20">
           {bannerBackgroundImage && (
