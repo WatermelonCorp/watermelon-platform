@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
+    "build": "bun run sitemap && tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "sitemap": "bun run scripts/generate-sitemap.ts",
-    "deploy": "bun run build && bun run sitemap && npx wrangler deploy",
+    "deploy": "bun run build && npx wrangler deploy",
     "prepare": "husky"
   },
   "dependencies": {
