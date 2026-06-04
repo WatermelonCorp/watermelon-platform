@@ -60,7 +60,7 @@ export default function FileUpload3Demo() {
   }, []);
 
   return (
-    <div className="mx-auto w-full max-w-4xl p-4 md:p-8">
+    <div className="mx-auto w-full max-w-4xl p-4 h-full min-h-[400px] flex items-center">
       <FileUploadArea
         title="Asset Upload"
         description="Attach design assets, videos, or documents for your next project."
