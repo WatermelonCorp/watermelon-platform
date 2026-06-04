@@ -155,7 +155,7 @@ const integrations = [
 
 export default function Integrations4() {
   return (
-    <section className="bg-background relative w-full px-4 py-20 md:py-32">
+    <section className="bg-background relative w-full px-4 py-16">
       <div className="mx-auto max-w-5xl">
         <div className="mb-14 flex flex-col items-center gap-5 text-center">
           <h2 className="text-foreground text-4xl font-medium tracking-tight md:text-5xl">
