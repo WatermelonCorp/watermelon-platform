@@ -103,7 +103,7 @@ export function Auth1({
   };
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center px-4 py-12">
+    <div className="flex w-full items-center justify-center px-4 py-12">
       <div className="w-full max-w-sm space-y-5">
         <Card className="border-border bg-muted dark:bg-muted gap-0 rounded-4xl p-2">
           <div className="bg-background h-full w-full rounded-3xl px-2 py-6 shadow-[0_2px_4px_0px_rgba(0,0,0,0.12)]">

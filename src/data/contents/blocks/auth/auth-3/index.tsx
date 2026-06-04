@@ -147,7 +147,7 @@ export function Auth3({
   };
 
   return (
-    <div className="bg-background flex min-h-screen w-full items-center justify-center px-4 py-16">
+    <div className="bg-background flex w-full items-center justify-center px-4 py-16">
       <div className="w-full max-w-md space-y-8">
         <div className="border-border bg-card rounded-none border shadow-sm">
           <Tabs defaultValue="signin" className="w-full">
