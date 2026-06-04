@@ -105,7 +105,7 @@ export default function Team3({
   className,
 }: Team3Props) {
   return (
-    <section className={cn('bg-background w-full py-16 sm:py-24', className)}>
+    <section className={cn('bg-background w-full py-16', className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-foreground text-2xl font-medium tracking-tight sm:text-3xl">

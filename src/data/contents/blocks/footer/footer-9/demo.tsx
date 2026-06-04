@@ -29,7 +29,7 @@ export default function Footer9Demo() {
   ];
 
   return (
-    <div className="flex  w-full items-center justify-center bg-transparent">
+    <div className="flex w-full items-center justify-center bg-transparent">
       <Footer9
         heading={'Ready to Build\nSomething Great?'}
         email="hello@watermelon.studio"

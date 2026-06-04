@@ -703,9 +703,7 @@ export function ComponentRenderCard({
           ) : (
             <div style={{ height: PREVIEW_HEIGHT }} className="w-full">
               <ResponsivePreviewFrame viewport={viewport}>
-                <div className="px-6 py-12 min-h-full">
-                  <item.component />
-                </div>
+                <item.component />
               </ResponsivePreviewFrame>
             </div>
           )}

@@ -9,7 +9,7 @@ export default function Footer11Demo() {
   ];
 
   return (
-    <div className="flex  w-full items-end justify-center bg-zinc-950">
+    <div className="flex w-full items-end justify-center bg-zinc-950">
       <Footer11
         badgeText="Loved by Creators"
         heading="Want to collaborate with us, explore our tools or just curious to know more?"

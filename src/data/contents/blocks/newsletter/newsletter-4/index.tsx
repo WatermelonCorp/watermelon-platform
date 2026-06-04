@@ -63,7 +63,7 @@ export default function Newsletter4({
   return (
     <section
       className={cn(
-        'bg-background flex min-h-screen items-center justify-center p-4 sm:p-6 md:p-8',
+        'bg-background flex items-center justify-center p-4 sm:p-6',
         className,
       )}
     >

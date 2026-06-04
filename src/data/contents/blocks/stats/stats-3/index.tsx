@@ -1,6 +1,5 @@
 'use client';
 
-
 import { FaStar, FaBolt, FaServer, FaRocket } from 'react-icons/fa';
 import { SiVercel, SiProducthunt } from 'react-icons/si';
 

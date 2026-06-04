@@ -42,7 +42,7 @@ const faqs = [
 
 export default function Faq4Demo() {
   return (
-    <div className="bg-background min-h-screen w-full py-10">
+    <div className="bg-background w-full">
       <Faq4
         badge="/ FAQs"
         title="Frequently asked question"

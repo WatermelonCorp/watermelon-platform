@@ -41,7 +41,7 @@ const faqs = [
 
 export default function Faq1Demo() {
   return (
-    <div className="bg-background min-h-screen w-full py-10">
+    <div className="bg-background w-full">
       <Faq1
         badge="Frequently asked questions"
         title={

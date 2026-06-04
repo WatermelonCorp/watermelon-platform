@@ -72,7 +72,7 @@ export const PerformanceOverview: React.FC<PerformanceOverviewProps> = ({
   const activeData = periods.find((p) => p.id === activeDefault) || periods[0];
 
   return (
-    <section className="bg-background w-full py-16 md:py-24">
+    <section className="bg-background w-full py-16">
       <div className="group border-border bg-primary/5 relative isolate mx-auto flex h-auto min-h-[400px] max-w-[370px] items-center justify-center overflow-hidden rounded-3xl border px-4 pt-12 sm:max-w-2xl sm:px-6 md:max-w-5xl lg:h-[450px] lg:px-8 lg:pt-0">
         <div
           aria-hidden="true"

@@ -225,7 +225,7 @@ export const Team2: React.FC<Team2Props> = ({
   return (
     <section
       className={cn(
-        'bg-background w-full overflow-hidden py-16 md:py-24',
+        'bg-background w-full overflow-hidden py-16',
         className,
       )}
     >

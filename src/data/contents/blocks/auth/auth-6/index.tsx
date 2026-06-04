@@ -76,7 +76,7 @@ export function Auth6({
   };
 
   return (
-    <div className="bg-background flex min-h-screen w-full items-center justify-center px-4 py-16">
+    <div className="bg-background flex h-full w-full items-center justify-center px-4">
       <div className="flex w-full max-w-sm flex-col items-center gap-6">
         <div className="bg-primary flex h-14 w-14 items-center justify-center rounded-2xl">
           {brandIcon ?? (

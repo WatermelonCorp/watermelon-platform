@@ -55,7 +55,7 @@ export function Auth2({
   onSubmit,
 }: Auth2Props) {
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex w-full h-full flex-col justify-center">
       <main className="flex flex-1 items-center justify-center px-2">
         <div className="bg-muted w-full max-w-md space-y-3 rounded-4xl p-3 shadow-[inset_0_0_2px_0.5px_rgba(0,0,0,0.05)]">
           <div className="bg-background rounded-3xl p-4 shadow-xs sm:p-8">
