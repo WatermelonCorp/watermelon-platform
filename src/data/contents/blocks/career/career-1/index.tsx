@@ -311,7 +311,7 @@ export default function Career1({
     value === 'all' ? jobs.length : jobs.filter((j) => j.department === value).length;
 
   return (
-    <section className={cn('w-full bg-background py-16 sm:py-24', className)}>
+    <section className={cn('w-full bg-background py-8', className)}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
    

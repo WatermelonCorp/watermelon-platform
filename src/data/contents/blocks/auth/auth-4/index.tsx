@@ -43,7 +43,7 @@ export default function LoginPage({
   };
 
   return (
-    <div className="bg-background flex  w-full min-h-screen flex-col">
+    <div className="bg-background flex w-full min-h-screen flex-col">
       <div className="flex flex-1 flex-col lg:flex-row">
         <div className="bg-background/50 relative hidden flex-col justify-between overflow-hidden p-12 lg:flex lg:w-1/2">
           <>
