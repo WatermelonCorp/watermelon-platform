@@ -115,7 +115,7 @@ export function Footer7({
                         <li key={linkIndex}>
                           <a
                             href={link.href}
-                            className="hover:text-foreground text-sm text-white/70 transition-colors"
+                            className="hover:text-white text-sm text-white/70 transition-colors"
                           >
                             {link.label}
                           </a>
