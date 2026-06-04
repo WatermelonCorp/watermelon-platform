@@ -91,7 +91,7 @@ export default function Team1({
   className,
 }: Team1Props) {
   return (
-    <section className={cn('bg-background py-24 md:py-32', className)}>
+    <section className={cn('bg-background py-16', className)}>
       <div className="container mx-auto px-4 md:px-6">
 
         <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center text-center md:mb-24">
