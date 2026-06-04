@@ -1,6 +1,7 @@
 'use client'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpRight01Icon, ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import { motion, type Variants } from 'motion/react';
 
 export interface LinkItem {
     label: string;
@@ -22,6 +23,36 @@ export interface Footer22Props {
     emailContact?: string;
     bottomLinks?: LinkItem[];
 }
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.05,
+        },
+    },
+};
+
+const riseItem: Variants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.6, bounce: 0 },
+    },
+};
+
+const gridItem: Variants = {
+    hidden: { opacity: 0, scale: 0.98 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.8, ease: 'easeOut' },
+    },
+};
 
 export default function Footer22({
     brandName = "WATERMELON",
@@ -76,7 +107,13 @@ export default function Footer22({
     ]
 }: Footer22Props) {
     return (
-        <footer className="w-full bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100 font-sans transition-colors duration-300">
+        <motion.footer
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="w-full bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100 font-sans transition-colors duration-300"
+        >
 
             {/* Top Section */}
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-20 pb-16">
@@ -85,7 +122,7 @@ export default function Footer22({
                     {/* Left: Offer Columns */}
                     <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
                         {offerColumns.map((col, idx) => (
-                            <div key={idx} className="flex flex-col gap-6">
+                            <motion.div key={idx} variants={riseItem} className="flex flex-col gap-6">
                                 <h4 className="font-semibold text-[13px] tracking-wide uppercase text-neutral-900 dark:text-neutral-100">
                                     {col.title}
                                 </h4>
@@ -98,12 +135,12 @@ export default function Footer22({
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
                     {/* Right: Newsletter & Contact */}
-                    <div className="lg:col-span-4 flex flex-col gap-10 lg:pl-10">
+                    <motion.div variants={riseItem} className="lg:col-span-4 flex flex-col gap-10 lg:pl-10">
                         {/* Newsletter */}
                         <div className="flex flex-col gap-3">
                             <h3 className="text-[22px] font-medium tracking-tight text-neutral-900 dark:text-neutral-100">{newsletterHeadline}</h3>
@@ -130,12 +167,12 @@ export default function Footer22({
                                 {contactDescription}
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
 
                 {/* Middle Email/Reach Out Section */}
-                <div className="pt-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+                <motion.div variants={riseItem} className="pt-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
 
                     <div className="flex flex-col gap-4">
                         <span className="text-neutral-500 dark:text-neutral-400 text-lg md:text-xl font-normal">Reach out at:</span>
@@ -153,11 +190,11 @@ export default function Footer22({
                         ))}
                     </div>
 
-                </div>
+                </motion.div>
             </div>
 
             {/* Bottom Banner with Pixel-Perfect Mosaic Grid */}
-            <div className="relative w-full overflow-hidden bg-white dark:bg-[#0a0a0a]">
+            <motion.div variants={gridItem} className="relative w-full overflow-hidden bg-white dark:bg-[#0a0a0a]">
 
                 {/* CSS Mosaic Grid Generation */}
                 <div className="absolute inset-0 flex flex-col w-full h-full">
@@ -195,8 +232,8 @@ export default function Footer22({
                     </span>
                 </div>
 
-            </div>
+            </motion.div>
 
-        </footer>
+        </motion.footer>
     );
 }

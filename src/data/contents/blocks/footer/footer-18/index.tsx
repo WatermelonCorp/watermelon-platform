@@ -1,8 +1,39 @@
 'use client'
 
-import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight01Icon, ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
+import { motion, type Variants } from 'motion/react';
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.05,
+        },
+    },
+};
+
+const riseItem: Variants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.6, bounce: 0 },
+    },
+};
+
+const giantTextVariant: Variants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.8, bounce: 0 },
+    },
+};
 
 export interface Footer18Props {
     newsletterHeading?: string;
@@ -71,7 +102,13 @@ export default function Footer18({
     const displayExploreText = exploreText === "Explore" ? `Explore ${brandName}` : exploreText;
 
     return (
-        <footer className="relative w-full bg-neutral-50 dark:bg-neutral-950/70 text-neutral-600 dark:text-neutral-400 font-sans overflow-hidden min-h-screen flex flex-col justify-between transition-colors duration-300">
+        <motion.footer
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="relative w-full bg-neutral-50 dark:bg-neutral-950/70 text-neutral-600 dark:text-neutral-400 font-sans overflow-hidden min-h-screen flex flex-col justify-between transition-colors duration-300"
+        >
             {/* ── Noise Background ── */}
             <div
                 className="absolute inset-0 opacity-[0.05] dark:opacity-[0.04] pointer-events-none mix-blend-multiply dark:mix-blend-overlay transition-opacity duration-300"
@@ -86,7 +123,7 @@ export default function Footer18({
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-12">
 
                     {/* Left: Newsletter Box */}
-                    <div className="w-full lg:w-[450px] shrink-0 bg-white dark:bg-[#171717] shadow-sm dark:shadow-none border border-neutral-100 dark:border-transparent rounded-md p-6 md:p-8 flex flex-col justify-between min-h-[300px] md:min-h-[420px] transition-colors duration-300">
+                    <motion.div variants={riseItem} className="w-full lg:w-[450px] shrink-0 bg-white dark:bg-[#171717] shadow-sm dark:shadow-none border border-neutral-100 dark:border-transparent rounded-md p-6 md:p-8 flex flex-col justify-between min-h-[300px] md:min-h-[420px] transition-colors duration-300">
                         <h2 className="text-3xl md:text-4xl text-neutral-900 dark:text-neutral-400 font-medium tracking-tight whitespace-pre-line leading-[1.1] transition-colors duration-300">
                             {newsletterHeading}
                         </h2>
@@ -105,13 +142,13 @@ export default function Footer18({
                                 <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
                             </button>
                         </form>
-                    </div>
+                    </motion.div>
 
                     {/* Right: Columns */}
                     <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 md:gap-8 pt-4">
 
                         {/* Column 1: Features & Address */}
-                        <div className="flex flex-col gap-10 md:gap-12">
+                        <motion.div variants={riseItem} className="flex flex-col gap-10 md:gap-12">
                             <div className="flex flex-col gap-4">
                                 <h4 className="font-medium text-neutral-900 dark:text-neutral-200 transition-colors duration-300">Features</h4>
                                 <ul className="flex flex-col gap-3">
@@ -136,10 +173,10 @@ export default function Footer18({
                                     {address}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Column 2: Recites */}
-                        <div className="flex flex-col gap-4">
+                        <motion.div variants={riseItem} className="flex flex-col gap-4">
                             <h4 className="font-medium text-neutral-900 dark:text-neutral-200 transition-colors duration-300">Recites</h4>
                             <ul className="flex flex-col gap-3">
                                 {recites.map((link, idx) => (
@@ -150,10 +187,10 @@ export default function Footer18({
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </motion.div>
 
                         {/* Column 3: Pricing & Explore */}
-                        <div className="flex flex-col justify-between gap-12 h-full">
+                        <motion.div variants={riseItem} className="flex flex-col justify-between gap-12 h-full">
                             <div className="flex flex-col gap-4">
                                 <h4 className="font-medium text-neutral-900 dark:text-neutral-200 transition-colors duration-300">Pricing</h4>
                                 <ul className="flex flex-col gap-3">
@@ -176,7 +213,7 @@ export default function Footer18({
                                     <HugeiconsIcon icon={ArrowUpRight01Icon} size={22} className="text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-600 dark:group-hover:text-white transition-colors" />
                                 </a>
                             </div>
-                        </div>
+                        </motion.div>
 
                     </div>
                 </div>
@@ -187,7 +224,7 @@ export default function Footer18({
             <div className="relative z-10 w-full flex flex-col mt-auto">
                 <div className="max-w-[1500px] w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8 md:mb-4">
 
-                    <div className="flex flex-wrap gap-x-8 gap-y-4">
+                    <motion.div variants={riseItem} className="flex flex-wrap gap-x-8 gap-y-4">
                         {bottomNav.map((link, idx) => (
                             <a
                                 key={idx}
@@ -197,9 +234,9 @@ export default function Footer18({
                                 {link.label}
                             </a>
                         ))}
-                    </div>
+                    </motion.div>
 
-                    <div className="flex flex-wrap gap-x-8 gap-y-4">
+                    <motion.div variants={riseItem} className="flex flex-wrap gap-x-8 gap-y-4">
                         {socialLinks.map((link, idx) => (
                             <a
                                 key={idx}
@@ -210,12 +247,12 @@ export default function Footer18({
                                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={12} className="text-neutral-400 dark:text-neutral-600 group-hover:text-neutral-900 dark:group-hover:text-neutral-200 transition-colors" />
                             </a>
                         ))}
-                    </div>
+                    </motion.div>
 
                 </div>
 
                 {/* Giant Brand Name */}
-                <div className="w-full flex justify-center">
+                <motion.div variants={giantTextVariant} className="w-full flex justify-center">
                     <svg
                         className="w-full h-auto select-none transition-colors duration-300"
                         viewBox={`0 0 ${Math.max(brandName.length * 90, 400)} 110`}
@@ -235,8 +272,8 @@ export default function Footer18({
                             {brandName.toUpperCase()}
                         </text>
                     </svg>
-                </div>
+                </motion.div>
             </div>
-        </footer>
+        </motion.footer>
     );
 }

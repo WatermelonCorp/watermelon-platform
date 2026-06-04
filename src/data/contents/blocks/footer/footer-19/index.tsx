@@ -1,8 +1,29 @@
 'use client'
 
-import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon, LanguageCircleIcon, SparklesIcon } from "@hugeicons/core-free-icons";
+import { motion, type Variants } from 'motion/react';
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.05,
+        },
+    },
+};
+
+const riseItem: Variants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.6, bounce: 0 },
+    },
+};
 
 export interface FooterColumn {
   title: string;
@@ -68,7 +89,13 @@ export default function Footer19({
   ],
 }: Footer19Props) {
   return (
-    <footer className="relative w-full bg-[#0A0A0B] text-neutral-300 font-sans overflow-hidden selection:bg-violet-500/30">
+    <motion.footer
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      className="relative w-full bg-[#0A0A0B] text-neutral-300 font-sans overflow-hidden selection:bg-violet-500/30"
+    >
       {/* ── Background Effects ── */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Bottom Left Glow */}
@@ -88,7 +115,7 @@ export default function Footer19({
         
         {/* ── Top Section: Newsletter ── */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24 mb-24">
-          <div className="max-w-xl">
+          <motion.div variants={riseItem} className="max-w-xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2.5 h-2.5 rounded-full bg-violet-600 shadow-[0_0_12px_rgba(124,58,237,0.8)]" />
               <span className="text-sm font-medium text-neutral-200">{badgeText}</span>
@@ -96,9 +123,9 @@ export default function Footer19({
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-light leading-[1.1] text-white tracking-tight whitespace-pre-line">
               {newsletterHeading}
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="w-full max-w-md lg:mt-auto">
+          <motion.div variants={riseItem} className="w-full max-w-md lg:mt-auto">
             <form className="flex w-full h-14" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
@@ -114,19 +141,19 @@ export default function Footer19({
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
 
         {/* ── Middle Section: Links & Logo ── */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
-          <div className="flex items-center gap-2 text-white">
+          <motion.div variants={riseItem} className="flex items-center gap-2 text-white">
             {brandLogo}
             <span className="text-xl md:text-2xl font-medium tracking-tight">{brandName}</span>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24 lg:gap-32">
             {navColumns.map((col, idx) => (
-              <div key={idx} className="flex flex-col gap-6">
+              <motion.div key={idx} variants={riseItem} className="flex flex-col gap-6">
                 <h4 className="text-xs font-semibold tracking-wider text-white uppercase">
                   {col.title}
                 </h4>
@@ -142,13 +169,13 @@ export default function Footer19({
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* ── Bottom Section: Meta ── */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 text-xs text-neutral-500">
+        <motion.div variants={riseItem} className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 text-xs text-neutral-500">
           <p>{copyright}</p>
           
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-16">
@@ -170,9 +197,9 @@ export default function Footer19({
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
 
       </div>
-    </footer>
+    </motion.footer>
   );
 }

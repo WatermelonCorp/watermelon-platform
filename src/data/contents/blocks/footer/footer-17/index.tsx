@@ -1,6 +1,37 @@
-
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
+import { motion, type Variants } from 'motion/react';
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.05,
+        },
+    },
+};
+
+const riseItem: Variants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.6, bounce: 0 },
+    },
+};
+
+const giantTextVariant: Variants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.8, bounce: 0 },
+    },
+};
 
 export interface FooterColumn {
     title: string;
@@ -51,7 +82,13 @@ export default function Footer17({
     ],
 }: Footer17Props) {
     return (
-        <footer className="relative w-full bg-neutral-50 dark:bg-neutral-950/70 text-neutral-600 dark:text-neutral-400 font-sans overflow-hidden transition-colors duration-300">
+        <motion.footer
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="relative w-full bg-neutral-50 dark:bg-neutral-950/70 text-neutral-600 dark:text-neutral-400 font-sans overflow-hidden transition-colors duration-300"
+        >
             {/* ── Noise Background ── */}
             <div
                 className="absolute inset-0 opacity-[0.05] dark:opacity-[0.04] pointer-events-none mix-blend-multiply dark:mix-blend-overlay"
@@ -71,7 +108,7 @@ export default function Footer17({
 
                 {/* ── Top Section ── */}
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
-                    <div className="flex flex-col gap-4 lg:w-1/2">
+                    <motion.div variants={riseItem} className="flex flex-col gap-4 lg:w-1/2">
                         <h2 className="text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] text-neutral-900 dark:text-neutral-300 tracking-tight whitespace-pre-line transition-colors duration-300">
                             {heading}
                         </h2>
@@ -88,11 +125,11 @@ export default function Footer17({
                             <path d="M6 4v10h10" />
                             <path d="M12 10l4 4-4 4" />
                         </svg>
-                    </div>
+                    </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 lg:w-1/2 lg:justify-end">
                         {navColumns.map((col, idx) => (
-                            <div key={idx} className="flex flex-col gap-6">
+                            <motion.div key={idx} variants={riseItem} className="flex flex-col gap-6">
                                 <h4 className="text-lg font-medium text-neutral-900 dark:text-neutral-200 transition-colors duration-300">
                                     {col.title}
                                 </h4>
@@ -108,13 +145,13 @@ export default function Footer17({
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
 
                 {/* ── Middle Section: Divider & Socials ── */}
-                <div className="flex flex-col md:flex-row items-center gap-4 mt-24">
+                <motion.div variants={riseItem} className="flex flex-col md:flex-row items-center gap-4 mt-24">
                     <div className="hidden md:block h-px bg-neutral-200 dark:bg-neutral-800 flex-1 transition-colors duration-300"></div>
                     <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 md:gap-12 w-full md:w-auto">
                         {socialLinks.map((link, idx) => (
@@ -132,13 +169,13 @@ export default function Footer17({
                             </a>
                         ))}
                     </div>
-                </div>
+                </motion.div>
 
                 {/* ── Lower Section: Giant Text & Legal ── */}
                 <div className="flex flex-col w-full relative">
 
                     {/* Giant Brand Name */}
-                    <div className="w-full flex justify-center relative mb-8">
+                    <motion.div variants={giantTextVariant} className="w-full flex justify-center relative mb-8">
                         <svg
                             className="w-full h-auto select-none transition-colors duration-300"
                             viewBox={`0 0 ${Math.max(brandName.length * 60, 300)} 105`}
@@ -158,9 +195,9 @@ export default function Footer17({
                         </svg>
 
                         <div className="w-full absolute bottom-0 inset-x-0 h-px bg-neutral-200 dark:bg-neutral-800 mb-2 sm:mb-4 md:mb-6 lg:mb-10 z-10 transition-colors duration-300"></div>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 text-sm text-neutral-500 transition-colors duration-300">
+                    <motion.div variants={riseItem} className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 text-sm text-neutral-500 transition-colors duration-300">
                         <p className="max-w-2xl leading-relaxed whitespace-pre-line">
                             {legalText}
                         </p>
@@ -176,10 +213,10 @@ export default function Footer17({
                                 </a>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
             </div>
-        </footer>
+        </motion.footer>
     );
 }

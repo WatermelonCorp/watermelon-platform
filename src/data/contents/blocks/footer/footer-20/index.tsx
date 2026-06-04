@@ -1,8 +1,39 @@
 'use client'
 
-import React from 'react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpRight01Icon, Facebook02Icon, NewTwitterIcon } from '@hugeicons/core-free-icons';
+import { motion, type Variants } from 'motion/react';
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.05,
+        },
+    },
+};
+
+const riseItem: Variants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.6, bounce: 0 },
+    },
+};
+
+const giantTextVariant: Variants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', duration: 0.8, bounce: 0 },
+    },
+};
 
 export interface Footer20Props {
     brandName?: string;
@@ -41,7 +72,13 @@ export default function Footer20({
     }
 }: Footer20Props) {
     return (
-        <footer className="relative w-full bg-[#f4f4f2] dark:bg-[#0a0a0a] text-neutral-600 dark:text-neutral-400 font-sans overflow-hidden flex flex-col justify-between transition-colors duration-300 border-t border-neutral-200 dark:border-neutral-800">
+        <motion.footer
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="relative w-full bg-[#f4f4f2] dark:bg-[#0a0a0a] text-neutral-600 dark:text-neutral-400 font-sans overflow-hidden flex flex-col justify-between transition-colors duration-300 border-t border-neutral-200 dark:border-neutral-800"
+        >
             {/* Main content wrapper with dashed borders */}
             <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-16 pt-20 md:pt-32 flex flex-col border-x border-dashed border-neutral-300 dark:border-neutral-800">
                 
@@ -49,7 +86,7 @@ export default function Footer20({
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-10 md:mb-16 lg:mb-24">
                     
                     {/* Left Column (Brand info) */}
-                    <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6 md:gap-8">
+                    <motion.div variants={riseItem} className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6 md:gap-8">
                         {/* Logo */}
                         <div className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-current shrink-0">
@@ -68,13 +105,13 @@ export default function Footer20({
                             {email}
                             <HugeiconsIcon icon={ArrowUpRight01Icon} size={18} className="text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
                         </a>
-                    </div>
+                    </motion.div>
 
                     {/* Right Columns (Links) */}
                     <div className="lg:col-span-7 xl:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-8">
                         
                         {/* The Good */}
-                        <div className="flex flex-col gap-6">
+                        <motion.div variants={riseItem} className="flex flex-col gap-6">
                             <h4 className="font-medium text-neutral-900 dark:text-neutral-100">The Good</h4>
                             <ul className="flex flex-col gap-3">
                                 {links.good.map((link, idx) => (
@@ -85,10 +122,10 @@ export default function Footer20({
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </motion.div>
 
                         {/* The Boring */}
-                        <div className="flex flex-col gap-6">
+                        <motion.div variants={riseItem} className="flex flex-col gap-6">
                             <h4 className="font-medium text-neutral-900 dark:text-neutral-100">The Boring</h4>
                             <ul className="flex flex-col gap-3">
                                 {links.boring.map((link, idx) => (
@@ -99,10 +136,10 @@ export default function Footer20({
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </motion.div>
 
                         {/* The Cool */}
-                        <div className="flex flex-col gap-6">
+                        <motion.div variants={riseItem} className="flex flex-col gap-6">
                             <h4 className="font-medium text-neutral-900 dark:text-neutral-100">The Cool</h4>
                             <ul className="flex flex-col gap-3">
                                 {links.cool.filter(link => !link.icon).map((link, idx) => (
@@ -121,12 +158,12 @@ export default function Footer20({
                                     ))}
                                 </li>
                             </ul>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
                 {/* Giant Text SVG */}
-                <div className="w-full flex justify-center md:mt-auto pb-0">
+                <motion.div variants={giantTextVariant} className="w-full flex justify-center md:mt-auto pb-0">
                     <svg
                         className="w-full h-auto select-none transition-colors duration-300"
                         viewBox={`0 30 ${Math.max(brandName.length * 80, 400)} 80`}
@@ -156,8 +193,8 @@ export default function Footer20({
                             {brandName}
                         </text>
                     </svg>
-                </div>
+                </motion.div>
             </div>
-        </footer>
+        </motion.footer>
     );
 }
