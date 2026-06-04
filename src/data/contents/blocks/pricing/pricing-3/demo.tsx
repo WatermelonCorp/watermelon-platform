@@ -45,7 +45,7 @@ const demoPlans = [
 
 export default function Pricing3Demo() {
   return (
-    <div className="w-full h-full min-h-screen">
+    <div className="w-full h-full flex justify-center items-center">
       <Pricing3 
         badgeText="Subscription Plans"
         title="Flexible plans designed for growth"

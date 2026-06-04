@@ -54,7 +54,7 @@ const dummyPlans = [
 
 export default function Pricing1Demo() {
   return (
-    <div className="py-20 w-full flex justify-center items-center bg-background">
+    <div className="w-full h-full flex justify-center items-center bg-background">
       <Pricing1 plans={dummyPlans} />
     </div>
   );

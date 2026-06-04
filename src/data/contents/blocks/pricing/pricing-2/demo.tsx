@@ -63,7 +63,7 @@ const dummyTiers = [
 
 export default function Pricing2Demo() {
   return (
-    <div className="w-full flex justify-center items-center bg-background min-h-screen">
+    <div className="w-full h-full flex justify-center items-center bg-background">
       <Pricing2 
         title="Simple, transparent pricing for teams of all sizes"
         subtitle="Choose the plan that fits your needs. No hidden fees, ever."
