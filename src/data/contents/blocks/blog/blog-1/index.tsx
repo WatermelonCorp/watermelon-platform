@@ -48,7 +48,7 @@ export default function Blog1({
   return (
     <section
       className={cn(
-        'w-full bg-background px-4 py-16 sm:px-6 md:py-24',
+        'w-full bg-background px-4 py-8',
         className,
       )}
     >
