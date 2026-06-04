@@ -65,6 +65,9 @@ export function Hero2({
 }: Hero2Props) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+    const [activeLink, setActiveLink] = useState<string | null>(
+        navLinks.find((link) => link.active)?.label || navLinks[0]?.label || null
+    );
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 15 },
@@ -120,9 +123,13 @@ export function Hero2({
                                 >
                                     <a
                                         href={link.href}
+                                        onClick={(e) => {
+                                            if (link.href === "#") e.preventDefault();
+                                            setActiveLink(link.label);
+                                        }}
                                         className={cn(
                                             "text-sm font-medium transition-colors flex items-center gap-1.5",
-                                            (hoveredLink === link.label || (!hoveredLink && link.active)) ? "text-slate-900 font-semibold" : "text-slate-400"
+                                            (hoveredLink === link.label || (!hoveredLink && activeLink === link.label)) ? "text-slate-900 font-semibold" : "text-slate-400"
                                         )}
                                     >
                                         {link.label}
@@ -131,7 +138,7 @@ export function Hero2({
                                         )}
                                     </a>
                                     {/* Active/Hover Indicator Dot */}
-                                    {(hoveredLink === link.label || (!hoveredLink && link.active)) && (
+                                    {(hoveredLink === link.label || (!hoveredLink && activeLink === link.label)) && (
                                         <motion.span
                                             layoutId="activeDot"
                                             className="absolute -bottom-1.5 w-1 h-1 rounded-full bg-[oklch(0.6378_0.1051_172.72)]"
@@ -145,7 +152,7 @@ export function Hero2({
 
                     {/* Desktop Sign in button */}
                     <div className="hidden md:block">
-                        <Button variant="outline" className="rounded-full px-7 h-10 text-sm font-medium bg-white/60 backdrop-blur-md shadow-[0_0_0_1px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.8),0_1px_2px_rgba(0,0,0,0.04),0_2px_4px_rgba(0,0,0,0.02)] hover:bg-white/60 transition-all text-slate-900 border-0">
+                        <Button variant="outline" className="rounded-full px-7 h-10 text-sm font-medium bg-white/60 backdrop-blur-md shadow-[0_0_0_1px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.8),0_1px_2px_rgba(0,0,0,0.04),0_2px_4px_rgba(0,0,0,0.02)] hover:text-black transition-all text-slate-900 border-0">
                             {signInLabel}
                         </Button>
                     </div>
@@ -178,9 +185,14 @@ export function Hero2({
                                 <a
                                     key={link.label}
                                     href={link.href}
+                                    onClick={(e) => {
+                                        if (link.href === "#") e.preventDefault();
+                                        setActiveLink(link.label);
+                                        setIsMobileMenuOpen(false);
+                                    }}
                                     className={cn(
                                         "text-2xl font-semibold flex items-center gap-2",
-                                        link.active ? "text-slate-900" : "text-slate-400"
+                                        activeLink === link.label ? "text-slate-900" : "text-slate-400"
                                     )}
                                 >
                                     {link.label}

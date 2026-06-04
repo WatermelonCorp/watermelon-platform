@@ -124,7 +124,7 @@ export default function Hero4({
                     transition={{ duration: 0.9, delay: 0.15, ease: 'easeOut' }}
                 >
                     {/* Logo */}
-                    <a href="/" className="flex items-center gap-2.5 shrink-0 group">
+                    <a href="/" className="flex items-center gap-2.5 shrink-0 group/logo">
                         {/* Asterisk / snowflake icon */}
                         <motion.svg
                             width="26"
@@ -141,7 +141,7 @@ export default function Hero4({
                             <line x1="4.5" y1="4.5" x2="21.5" y2="21.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
                             <line x1="21.5" y1="4.5" x2="4.5" y2="21.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
                         </motion.svg>
-                        <span className="text-white text-lg font-semibold tracking-tight group-hover:tracking-wide transition-all duration-300">
+                        <span className="text-white text-lg font-semibold tracking-tight transition-all duration-300">
                             {brandName}
                         </span>
                     </a>
@@ -152,16 +152,16 @@ export default function Hero4({
                             <motion.a
                                 key={idx}
                                 href={link.href}
-                                className="flex items-center gap-1 text-white/75 hover:text-white text-[14px] font-medium transition-colors duration-200 relative group"
+                                className="flex items-center gap-1 text-white/75 hover:text-white text-[14px] font-medium transition-colors duration-200 relative group/nav"
                                 initial={{ opacity: 0, y: -12 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.25 + idx * 0.07 }}
                             >
                                 {link.label}
                                 {link.hasDropdown && (
-                                    <ChevronDown size={14} strokeWidth={2} className="text-white/50 group-hover:text-white/80 transition-colors" />
+                                    <ChevronDown size={14} strokeWidth={2} className="text-white/50 group-hover/nav:text-white/80 transition-colors" />
                                 )}
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white/60 group-hover:w-full transition-all duration-300" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white/60 group-hover/nav:w-full transition-all duration-300" />
                             </motion.a>
                         ))}
                     </div>
@@ -272,7 +272,7 @@ export default function Hero4({
                             {/* Primary — white filled pill */}
                             <motion.a
                                 href={primaryCtaHref}
-                                className="relative bg-white text-[#0d0b0f] rounded-full px-7 py-3 text-[14px] font-semibold overflow-hidden group"
+                                className="relative bg-white text-[#0d0b0f] rounded-full px-7 py-3 text-[14px] font-semibold overflow-hidden group/btn"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: 1.55 }}
@@ -280,8 +280,8 @@ export default function Hero4({
                                 whileTap={{ scale: 0.96 }}
                             >
                                 {/* Hover sweep — dark fills from bottom */}
-                                <span className="absolute inset-0 bg-[#0d0b0f] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full" />
-                                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                                <span className="absolute inset-0 bg-[#0d0b0f] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out rounded-full" />
+                                <span className="relative z-10 group-hover/btn:text-white transition-colors duration-300">
                                     {primaryCtaLabel}
                                 </span>
                             </motion.a>
