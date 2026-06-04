@@ -65,7 +65,7 @@ export default function Footer6Demo() {
   ];
 
   return (
-    <div className="bg-background flex min-h-screen w-full items-center justify-center py-12">
+    <div className="bg-background flex w-full items-center justify-center py-12">
       <Footer6
         logo={<FaTerminal className="text-primary h-5 w-5" />}
         brandName="Watermelon"

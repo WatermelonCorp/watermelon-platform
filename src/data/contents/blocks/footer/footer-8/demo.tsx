@@ -20,7 +20,7 @@ export default function Footer8Demo() {
   ];
 
   return (
-    <div className="bg-background flex min-h-screen w-full items-center justify-center">
+    <div className="bg-background flex w-full items-center justify-center">
       <Footer8
         tagline="Let's build something great"
         email="contact@novacraft.io"

@@ -33,7 +33,7 @@ export default function Footer7Demo() {
   ];
 
   return (
-    <div className="bg-background flex min-h-screen w-full items-center justify-center">
+    <div className="bg-background flex w-full items-center justify-center">
       <Footer7
         logo={<FaSnowflake />}
         brandName="Watermelon"
