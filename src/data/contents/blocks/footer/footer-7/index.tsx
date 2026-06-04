@@ -28,7 +28,7 @@ export interface Footer7Props {
 
 export function Footer7({
   logo,
-  brandName = 'NovaCraft',
+  brandName = 'Watermelon',
   badgeText = 'Loved by Creators',
   headline = 'Fresh insights, tutorials, and updates delivered to your inbox.',
   inputPlaceholder = 'Enter your email',
@@ -50,7 +50,7 @@ export function Footer7({
       )}
 
       <div className="relative z-10">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <div className="mx-auto max-w-7xl px-6 sm:px-12">
           <div className="flex flex-col gap-8 pt-6 pb-10 lg:flex-row lg:items-end lg:justify-between lg:pt-10 lg:pb-14">
             <div className="flex max-w-xl flex-col gap-5">
               {badgeText && (
@@ -64,7 +64,7 @@ export function Footer7({
                   </span>
                 </div>
               )}
-              <h2 className="text-foreground text-3xl leading-tight font-light tracking-tight sm:text-4xl lg:text-5xl">
+              <h2 className="text-white text-3xl leading-tight font-light tracking-tight sm:text-4xl lg:text-5xl">
                 {headline}
               </h2>
             </div>
@@ -75,7 +75,7 @@ export function Footer7({
               <Input
                 type="email"
                 placeholder={inputPlaceholder}
-                className="border-border bg-muted h-12 min-h-12 flex-1 rounded-none border px-4 text-sm text-white placeholder:text-white/70 focus-visible:border-orange-600/50 focus-visible:ring-orange-600/30"
+                className="border-white/5 bg-white/10  h-12 min-h-12 flex-1 rounded-none border px-4 text-sm text-white placeholder:text-white/70  focus-visible:border-orange-600/50 focus-visible:ring-orange-600/30"
               />
               <Button
                 type="submit"
@@ -94,11 +94,11 @@ export function Footer7({
           <div className="flex flex-col gap-10 pb-6 lg:flex-row lg:items-start lg:gap-8">
             <div className="flex flex-1 items-center gap-3 lg:pt-1">
               {logo && (
-                <div className="text-foreground flex h-6 w-6 shrink-0 items-center justify-center [&>svg]:h-full [&>svg]:w-full">
+                <div className="text-white flex h-6 w-6 shrink-0 items-center justify-center [&>svg]:h-full [&>svg]:w-full">
                   {logo}
                 </div>
               )}
-              <span className="text-foreground text-base font-medium tracking-tight">
+              <span className="text-white text-base font-medium tracking-tight">
                 {brandName}
               </span>
             </div>
@@ -130,10 +130,26 @@ export function Footer7({
         </div>
 
         {brandWatermark && (
-          <div className="mx-auto w-full px-1 text-center md:px-12">
-            <span className="block text-6xl leading-none font-bold text-white opacity-30 select-none sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[14rem]">
-              {brandWatermark}
-            </span>
+          <div className="flex w-full items-center justify-center">
+            <svg
+              className="h-auto w-full  transition-colors duration-300 select-none"
+              viewBox={`0 0 ${Math.max(brandWatermark.length * 90, 400)} 110`}
+              preserveAspectRatio="xMidYMid meet"
+              aria-label={brandWatermark}
+            >
+              <text
+                x="50%"
+                y="105"
+                dominantBaseline="alphabetic"
+                textAnchor="middle"
+                textLength="90%"
+                lengthAdjust="spacing"
+                className="fill-white/30 font-sans font-bold tracking-tighter"
+                fontSize="160"
+              >
+                {brandWatermark}
+              </text>
+            </svg>
           </div>
         )}
       </div>

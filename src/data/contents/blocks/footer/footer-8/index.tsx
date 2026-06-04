@@ -130,11 +130,29 @@ export function Footer8({
           <motion.a
             variants={slideUpVariants}
             href={emailHref}
-            className="group inline-flex items-center gap-3 sm:gap-4 md:gap-5"
+            className="group flex w-full items-center justify-between gap-3 sm:gap-4 md:gap-5"
           >
-            <span className="text-3xl leading-none font-medium tracking-normal text-white/90 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-              {email}
-            </span>
+            <div className="flex w-full items-center overflow-hidden">
+              <svg
+                className="h-auto w-full transition-colors duration-300 select-none"
+                viewBox={`0 0 ${Math.max(email.length * 70, 400)} 160`}
+                preserveAspectRatio="xMidYMid meet"
+                aria-label={email}
+              >
+                <text
+                  x="0"
+                  y="130"
+                  dominantBaseline="alphabetic"
+                  textAnchor="start"
+                  textLength="100%"
+                  lengthAdjust="spacing"
+                  className="fill-white/90 font-sans font-medium tracking-normal transition-colors group-hover:fill-white"
+                  fontSize="140"
+                >
+                  {email}
+                </text>
+              </svg>
+            </div>
             <span className="flex shrink-0 items-center justify-center text-white transition-transform duration-300 group-hover:translate-x-4">
               {emailIcon || (
                 <FaArrowRight className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />

@@ -193,10 +193,10 @@ export function Footer13({
         <div className="flex flex-col gap-10 border-b border-white/[0.07] pb-8 lg:flex-col lg:gap-8 xl:gap-8">
           <motion.div
             variants={riseItem}
-            className="flex shrink-0 items-center gap-2.5 lg:items-start lg:pt-0.5"
+            className="flex shrink-0 items-center gap-2 "
           >
-            <span className="shrink-0">{logoIcon ?? <LogoIcon className='size-8' />}</span>
-            <span className="text-xl font-normal tracking-wider text-white uppercase select-none">
+            <span className="shrink-0">{logoIcon ?? <LogoIcon className='size-8 dark:text-white text-zinc-200' />}</span>
+            <span className="text-xl font-normal tracking-wide text-white uppercase select-none">
               {brandName}
             </span>
           </motion.div>

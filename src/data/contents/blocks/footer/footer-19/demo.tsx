@@ -1,6 +1,5 @@
 import Footer19 from "./index";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { SparklesIcon } from "@hugeicons/core-free-icons";
+import LogoIcon from "@/assets/logo-icon";
 
 export default function Footer19Demo() {
   const customNavColumns = [
@@ -48,11 +47,7 @@ export default function Footer19Demo() {
         newsletterButtonText="Stay Updated"
         brandName="Watermelon"
         brandLogo={
-          <HugeiconsIcon
-            icon={SparklesIcon}
-            size={24}
-            className="text-violet-500 fill-violet-500/20"
-          />
+          <LogoIcon className="text-violet-500 size-8" />
         }
         navColumns={customNavColumns}
         copyright="© 2026 Watermelon Labs, Inc. All rights reserved."

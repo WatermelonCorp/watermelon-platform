@@ -14,8 +14,8 @@ export default function Footer11Demo() {
         badgeText="Loved by Creators"
         heading="Want to collaborate with us, explore our tools or just curious to know more?"
         contactLabel="Reach out at:"
-        contactEmail="hello@watermelon.io"
-        contactEmailHref="mailto:hello@watermelon.io"
+        contactEmail="hello@watermelon.sh"
+        contactEmailHref="mailto:hello@watermelon.sh"
         navLinks={navLinks}
         brandName="Watermelon"
       />

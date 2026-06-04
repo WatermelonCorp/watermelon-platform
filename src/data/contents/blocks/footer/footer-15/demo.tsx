@@ -2,7 +2,7 @@ import { Footer15 } from '.';
 
 export default function Footer15Demo() {
   return (
-    <div className="flex min-h-[70vh] w-full items-end bg-[#f5f0e6]">
+    <div className="flex  w-full items-end ">
       <Footer15 />
     </div>
   );

@@ -195,10 +195,10 @@ export function Footer14({
         <div className="mx-auto flex max-w-[1440px] flex-col gap-8 lg:flex-row lg:gap-12 xl:gap-16">
           <motion.div
             variants={riseItem}
-            className="flex shrink-0 items-center gap-2.5 lg:items-start justify-center"
+            className="flex shrink-0 gap-2.5 items-start justify-start -translate-y-2"
           >
-            <span className="shrink-0">{logoIcon ?? <LogoIcon className='size-8' />}</span>
-            <span className="text-lg font-normal tracking-wide text-gray-100 uppercase select-none">
+            <span className="shrink-0">{logoIcon ?? <LogoIcon className='size-8 text-blue-200/50' />}</span>
+            <span className="text-lg font-normal tracking-wide text-gray-100 uppercase select-none mt-0.5">
               {brandName}
             </span>
           </motion.div>

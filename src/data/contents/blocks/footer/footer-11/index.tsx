@@ -36,8 +36,8 @@ export function Footer11({
   badgeText = 'Loved by Creators',
   heading = 'Want to collaborate with us, explore our tools or just curious to know more?',
   contactLabel = 'Reach out at:',
-  contactEmail = 'hello@watermelon.io',
-  contactEmailHref = 'mailto:hello@watermelon.io',
+  contactEmail = 'hello@watermelon.sh',
+  contactEmailHref = 'mailto:hello@watermelon.sh',
   navLinks = [
     { label: 'Products', href: '#' },
     { label: 'Company', href: '#' },
@@ -57,7 +57,7 @@ export function Footer11({
   };
 
   return (
-    <footer className="w-full">
+    <footer className="w-full overflow-hidden">
       <div className="relative bg-zinc-950 px-6 pt-8 pb-10 sm:px-10 md:px-16 lg:px-20">
         <div className="flex items-center justify-between">
           <div className="inline-flex items-center gap-2">
@@ -116,17 +116,32 @@ export function Footer11({
         </div>
 
 
-        <div className="relative z-10 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
-         
-          <div className="shrink-0 hidden sm:block">
+        <div className="relative z-10 flex w-full flex-col items-center justify-center gap-6 overflow-hidden sm:flex-row sm:gap-8">
+          <div className="hidden shrink-0 sm:block">
             {brandLogo || (
-            <LogoIcon className='size-30 text-white/20 translate-y-2' />
+              <LogoIcon className="size-20  text-white/20 lg:size-32" />
             )}
           </div>
 
-          <span className="text-5xl font-bold tracking-tight text-white/20 sm:text-6xl md:text-7xl lg:text-[10rem] xl:text-9xl">
-            {brandName}
-          </span>
+          <svg
+            className="h-auto w-full flex-1 select-none"
+            viewBox={`0 0 ${Math.max(brandName.length * 90, 400)} 100`}
+            preserveAspectRatio="xMidYMid meet"
+            aria-label={brandName}
+          >
+            <text
+              x="0%"
+              y="100%"
+              dominantBaseline="alphabetic"
+              textAnchor="start"
+              textLength="90%"
+              lengthAdjust="spacing"
+              className="fill-white/20 font-sans font-bold tracking-tight"
+              fontSize="140"
+            >
+              {brandName}
+            </text>
+          </svg>
         </div>
       </div>
     </footer>

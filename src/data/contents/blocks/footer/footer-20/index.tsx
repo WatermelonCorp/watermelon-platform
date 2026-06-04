@@ -3,6 +3,7 @@
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpRight01Icon, Facebook02Icon, NewTwitterIcon } from '@hugeicons/core-free-icons';
 import { motion, type Variants } from 'motion/react';
+import LogoIcon from '@/assets/logo-icon';
 
 const staggerContainer: Variants = {
     hidden: { opacity: 0 },
@@ -89,10 +90,8 @@ export default function Footer20({
                     <motion.div variants={riseItem} className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6 md:gap-8">
                         {/* Logo */}
                         <div className="flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-current shrink-0">
-                                <path d="M12 2V22M2 12H22M4.92893 4.92893L19.0711 19.0711M4.92893 19.0711L19.0711 4.92893" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                            <span className="font-bold tracking-widest uppercase text-sm mt-0.5">{brandName.toUpperCase()}</span>
+                           <LogoIcon className='size-8 text-zinc-300' />
+                            <span className="font-medium tracking-wide text-lg mt-0.5">{brandName}</span>
                         </div>
 
                         {/* Description */}

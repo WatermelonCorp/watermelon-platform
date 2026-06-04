@@ -251,8 +251,8 @@ export function Hero7({
               variants={copyItem}
               className="text-[clamp(3.3rem,8vw,5.15rem)] max-w-7xl w-full  leading-[0.96] font-normal tracking-normal  text-blue-950 "
             >
-              <span className="block">{title}</span>
-              <span className="mt-1 block font-serif text-[0.88em] leading-[0.92] font-normal italic">
+              <span className="block tracking-tight">{title}</span>
+              <span className="mt-1 block font-serif text-[0.88em] leading-[0.95] font-normal italic">
                 {titleAccent}
               </span>
             </motion.h1>

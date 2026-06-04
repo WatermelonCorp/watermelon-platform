@@ -200,12 +200,30 @@ export function Footer12({
 
         <motion.div
           variants={brandItem}
-          className="mx-auto mt-12 flex items-center gap-8 sm:mt-8 sm:gap-14 lg:mt-4"
+          className="mx-auto mt-12 flex w-full items-center justify-center  overflow-hidden sm:mt-8 lg:mt-4"
         >
-          <LogoIcon className='size-50 hidden md:block' />
-          <p className="text-[clamp(0.7rem,15vw,20.25rem)] leading-none font-normal tracking-normal text-stone-50">
-            {brandName}
-          </p>
+          <div className="hidden shrink-0 md:block">
+            <LogoIcon className="size-20 lg:size-60" />
+          </div>
+          <svg
+            className="h-auto w-full flex-1 select-none"
+            viewBox={`0 0 ${Math.max(brandName.length * 90, 400)} 110`}
+            preserveAspectRatio="xMidYMid meet"
+            aria-label={brandName}
+          >
+            <text
+              x="50%"
+              y="98%"
+              dominantBaseline="alphabetic"
+              textAnchor="middle"
+              textLength="90%"
+              lengthAdjust="spacing"
+              className="fill-stone-50 font-sans font-normal tracking-wider"
+              fontSize="130"
+            >
+              {brandName}
+            </text>
+          </svg>
         </motion.div>
 
         <motion.div

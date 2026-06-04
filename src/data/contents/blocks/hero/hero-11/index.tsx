@@ -224,7 +224,7 @@ export function Hero11({
           <div className="max-w-[540px]">
             <motion.h1
               variants={contentItem}
-              className="text-[clamp(3.05rem,5.05vw,5.35rem)] leading-[1.02] font-medium tracking-[-0.045em] text-balance whitespace-pre-line text-teal-950"
+              className="text-[clamp(3.05rem,5.05vw,5.35rem)] leading-[1.02] font-medium tracking-[-0.045em]  text-balance whitespace-pre-line text-teal-950"
             >
               {title}
             </motion.h1>

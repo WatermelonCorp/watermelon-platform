@@ -165,10 +165,35 @@ export function Footer16({
       >
         <motion.div
           variants={wordmarkVariants}
-          className="pointer-events-none absolute top-[45%] left-1/2 w-[118vw] -translate-x-1/2 bg-linear-to-b from-zinc-600 to-zinc-900 bg-clip-text text-center text-[clamp(5.2rem,25vw,19.75rem)] leading-[0.72] font-medium tracking-wider text-transparent select-none text-shadow-2xs sm:top-[15%] lg:top-[17%]"
+          className="pointer-events-none absolute top-[43%] left-1/2 flex w-[118vw] -translate-x-1/2 justify-center overflow-hidden sm:top-[20%] lg:top-[12%]"
           aria-hidden="true"
         >
-          {brandName}
+          <svg
+            className="h-auto w-full select-none"
+            viewBox={`0 0 ${Math.max(brandName.length * 90, 400)} 160`}
+            preserveAspectRatio="xMidYMid meet"
+            aria-label={brandName}
+          >
+            <defs>
+              <linearGradient id="brandGrad16" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#52525b" />
+                <stop offset="100%" stopColor="#18181b" />
+              </linearGradient>
+            </defs>
+            <text
+              x="50%"
+              y="50%"
+              dominantBaseline="alphabetic"
+              textAnchor="middle"
+              textLength="80%"
+              lengthAdjust="spacing"
+              className="font-sans font-medium tracking-tigth"
+              fill="url(#brandGrad16)"
+              fontSize="100"
+            >
+              {brandName}
+            </text>
+          </svg>
         </motion.div>
 
         <div className="relative z-10 border-t border-white/10 bg-black/1 px-4 pt-9 pb-7 shadow-[0_-24px_80px_rgba(9,10,14,0.34)] backdrop-blur-xs sm:px-12 sm:pt-11 sm:pb-8 lg:pt-[46px]">

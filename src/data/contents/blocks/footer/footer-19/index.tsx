@@ -135,7 +135,7 @@ export default function Footer19({
               />
               <button
                 type="submit"
-                className="h-full px-6 bg-indigo-700 transition-colors border border-indigo-800 flex items-center justify-center gap-2 text-sm font-medium text-white cursor-pointer"
+                className="h-full px-6 bg-violet-700 transition-colors border border-violet-800 flex items-center justify-center gap-2 text-sm font-medium text-white cursor-pointer"
               >
                 {newsletterButtonText}
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />

@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { Button } from '@/components/base-ui/button';
 import { Input } from '@/components/base-ui/input';
 import { Separator } from '@/components/base-ui/separator';
-import { MdRocketLaunch, MdArrowForward } from 'react-icons/md';
+import {  MdArrowForward } from 'react-icons/md';
+import LogoIcon from '@/assets/logo-icon';
 
 
 
@@ -54,7 +55,7 @@ export interface Auth6Props {
 
 export function Auth6({
   brandIcon,
-  heading = 'Get started with Orbit',
+  heading = 'Get started with Watermelon',
   description = 'Launch your next project in seconds. Sign up or log in below.',
   socialProviders = [],
   dividerText = 'or',
@@ -80,7 +81,7 @@ export function Auth6({
       <div className="flex w-full max-w-sm flex-col items-center gap-6">
         <div className="bg-primary flex h-14 w-14 items-center justify-center rounded-2xl">
           {brandIcon ?? (
-            <MdRocketLaunch className="text-primary-foreground h-7 w-7" />
+            <LogoIcon className="text-primary-foreground h-7 w-7" />
           )}
         </div>
 

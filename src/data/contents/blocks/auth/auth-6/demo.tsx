@@ -4,7 +4,7 @@ import { FaGoogle, FaGithub, FaApple } from "react-icons/fa";
 export default function Auth6Demo() {
   return (
     <Auth6
-      heading="Get started with Orbit"
+      heading="Get started with Watermelon"
       description="Launch your next project in seconds. Sign up or log in below."
       socialProviders={[
         {

@@ -9,10 +9,10 @@ import {
   MdLock,
   MdEmail,
   MdArrowForward,
-  MdAutoAwesome,
 } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import LogoIcon from '@/assets/logo-icon';
 
 
 
@@ -46,7 +46,7 @@ export interface Auth5Props {
 
 
 export function Auth5({
-  brandName = 'Nucleus',
+  brandName = 'Watermelon',
   submitLabel = 'Sign in',
   onSubmit,
   signUpHref = '#',
@@ -59,7 +59,7 @@ export function Auth5({
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
-                <MdAutoAwesome className="text-primary-foreground h-4 w-4" />
+                <LogoIcon className="text-primary-foreground size-4" />
               </span>
               <span className="text-foreground text-xl font-bold tracking-tight">
                 {brandName}

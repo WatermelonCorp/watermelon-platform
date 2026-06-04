@@ -83,7 +83,7 @@ export function Footer4({
 
             <div className="flex items-center gap-2">
               {logo && (
-                <div className="text-foreground flex size-6 items-center justify-center">
+                <div className="text-primary flex size-6 items-center justify-center">
                   {logo}
                 </div>
               )}

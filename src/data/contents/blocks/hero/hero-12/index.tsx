@@ -1,5 +1,6 @@
 'use client'
 
+import LogoIcon from '@/assets/logo-icon';
 import { ArrowRight, ArrowDown, Globe } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -99,25 +100,7 @@ export default function Hero3({
                 >
                     {/* Logo */}
                     <a href="/" className="flex items-center gap-2.5 shrink-0 group">
-                        <motion.svg
-                            width="28"
-                            height="28"
-                            viewBox="0 0 28 28"
-                            fill="none"
-                            className="text-white"
-                            whileHover={{ rotate: 90 }}
-                            transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        >
-                            <circle cx="14" cy="14" r="4" fill="currentColor" />
-                            <circle cx="14" cy="4" r="2.5" fill="currentColor" />
-                            <circle cx="14" cy="24" r="2.5" fill="currentColor" />
-                            <circle cx="4" cy="14" r="2.5" fill="currentColor" />
-                            <circle cx="24" cy="14" r="2.5" fill="currentColor" />
-                            <circle cx="7" cy="7" r="2" fill="currentColor" />
-                            <circle cx="21" cy="7" r="2" fill="currentColor" />
-                            <circle cx="7" cy="21" r="2" fill="currentColor" />
-                            <circle cx="21" cy="21" r="2" fill="currentColor" />
-                        </motion.svg>
+                       <LogoIcon className='size-8 text-white' />
                         <span className="text-white text-xl font-semibold tracking-tight group-hover:tracking-wide transition-all duration-300">
                             {brandName}
                         </span>

@@ -236,17 +236,26 @@ export function Footer15({
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         className="relative flex items-end justify-center overflow-hidden px-4 pt-10 sm:px-6 sm:pt-14 md:pt-20"
-        style={{ minHeight: 'clamp(120px, 18vw, 260px)' }}
       >
-        <p
-          aria-hidden="true"
-          className="translate-y-4 text-center font-sans leading-[0.82] font-bold tracking-[-0.02em] text-[#e8e0cc] will-change-transform select-none text-shadow-sm md:translate-y-8"
-          style={{
-            fontSize: 'clamp(4rem, 14vw, 20rem)',
-          }}
+        <svg
+          className="h-auto w-full translate-y-2 select-none md:translate-y-6"
+          viewBox={`0 0 ${Math.max(heroBrandName.length * 90, 400)} 110`}
+          preserveAspectRatio="xMidYMid meet"
+          aria-label={heroBrandName}
         >
-          {heroBrandName}
-        </p>
+          <text
+            x="50%"
+            y="100%"
+            dominantBaseline="alphabetic"
+            textAnchor="middle"
+            textLength="95%"
+            lengthAdjust="spacing"
+            className="fill-[#e8e0cc] font-sans font-semibold  text-shadow-sm"
+            fontSize="160"
+          >
+            {heroBrandName}
+          </text>
+        </svg>
       </motion.div>
     </footer>
   );

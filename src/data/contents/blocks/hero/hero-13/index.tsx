@@ -3,6 +3,7 @@
 import React from 'react';
 import { Play, ChevronDown } from 'lucide-react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
+import LogoIcon from '@/assets/logo-icon';
 
 interface NavLink {
     label: string;
@@ -125,22 +126,7 @@ export default function Hero4({
                 >
                     {/* Logo */}
                     <a href="/" className="flex items-center gap-2.5 shrink-0 group/logo">
-                        {/* Asterisk / snowflake icon */}
-                        <motion.svg
-                            width="26"
-                            height="26"
-                            viewBox="0 0 26 26"
-                            fill="none"
-                            className="text-white"
-                            whileHover={{ rotate: 180 }}
-                            transition={{ duration: 0.5, ease: 'easeInOut' }}
-                        >
-                            {/* 8-pointed star / asterisk shape */}
-                            <line x1="13" y1="1" x2="13" y2="25" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-                            <line x1="1" y1="13" x2="25" y2="13" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-                            <line x1="4.5" y1="4.5" x2="21.5" y2="21.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-                            <line x1="21.5" y1="4.5" x2="4.5" y2="21.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-                        </motion.svg>
+                       <LogoIcon className='size-8 text-white' />
                         <span className="text-white text-lg font-semibold tracking-tight transition-all duration-300">
                             {brandName}
                         </span>
