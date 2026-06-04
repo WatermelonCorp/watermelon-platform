@@ -275,15 +275,21 @@ function formatCategoryName(category: string): string {
 // ─────────────────────────────────────────────────────────────────────────────
 export function AppSidebar() {
   const location = useLocation();
-  const { isMobile, setOpenMobile } = useSidebar();
+  const { isMobile, setOpenMobile, setOpen } = useSidebar();
   const { resolvedTheme, setTheme } = useTheme();
 
-  // ── Close mobile sidebar whenever the route changes ──
+  // ── Close sidebar on route change ──
+  // • Always close the mobile sheet (slide-over) on any navigation.
+  // • Also collapse the desktop sidebar when the user opens a block detail
+  //   page (/block/:slug) — those pages are wide and benefit from the extra
+  //   space, and this is where the user lands after clicking a card.
   useEffect(() => {
     if (isMobile) {
       setOpenMobile(false);
+    } else if (location.pathname.startsWith('/block/')) {
+      setOpen(false);
     }
-  }, [isMobile, location.pathname, location.search, location.hash, setOpenMobile]);
+  }, [isMobile, location.pathname, setOpenMobile, setOpen,]);
 
   // ── Quickstart items — each has a unique icon per the Figma design ──
   // NOTE: "Basic Usage" and "CLI" pages may not have routes yet; add them when ready.

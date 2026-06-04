@@ -2,7 +2,6 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getBlocksByCategory, hasBlockCategory, blockCategories } from '@/data/blocks';
 import { ComponentRenderCard } from '@/components/registry/component-render-card';
-import { useSidebar } from '@/components/ui/sidebar';
 import { SEOHead } from '@/components/seo-head';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
@@ -10,7 +9,6 @@ const ITEMS_PER_PAGE = 18;
 
 export default function BlockCategoryPage() {
   const navigate = useNavigate();
-  const { setOpenMobile, setOpen, isMobile } = useSidebar();
   const { category = '' } = useParams<{ category: string }>();
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [prevCategory, setPrevCategory] = useState(category);
@@ -97,11 +95,6 @@ export default function BlockCategoryPage() {
                 onClick={() => {
                   if (!block.comingSoon) {
                     navigate(`/block/${block.slug}`);
-                    if (isMobile) {
-                      setOpenMobile(false);
-                    } else {
-                      setOpen(false);
-                    }
                   }
                 }}
               />
