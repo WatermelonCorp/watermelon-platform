@@ -2,7 +2,7 @@ import Notification4 from './index';
 
 export default function Notification4Demo() {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-background p-4">
+    <div className="flex h-full w-full items-center justify-center bg-background">
       <Notification4 />
     </div>
   );

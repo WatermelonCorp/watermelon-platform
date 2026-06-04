@@ -349,7 +349,7 @@ export default function Notification3({
   return (
     <section
       className={cn(
-        'bg-background flex min-h-screen items-center justify-center',
+        'bg-background flex items-center justify-center',
         className,
       )}
     >
