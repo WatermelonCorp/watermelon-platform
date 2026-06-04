@@ -46,11 +46,11 @@ const DropdownMenu12 = () => {
         >
           <DropdownMenuLabel className="flex items-center gap-3 rounded-lg p-1">
             <div className="relative">
-              <Avatar className="h-9 w-9 rounded-md">
+              <Avatar className="h-9 w-9 rounded-full overflow-hidden">
                 <AvatarImage
-                  src="https://github.com/ThePrimeagen.png"
-                  alt="ThePrimeagen"
-                  className="rounded-md"
+                  src="https://assets.watermelon.sh/wm_ben.png"
+                  alt="Ben"
+                  className="rounded-full "
                 />
                 <AvatarFallback className="text-xs">TP</AvatarFallback>
               </Avatar>

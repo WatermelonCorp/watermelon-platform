@@ -129,10 +129,11 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
   const innerSize = size * 0.68;
 
   const [prev, setPrev] = useState(value);
-  const blur = Math.min(10, Math.abs(value - prev));
-  useEffect(() => {
+  const [blur, setBlur] = useState(0);
+  if (prev !== value) {
+    setBlur(Math.min(10, Math.abs(value - prev)));
     setPrev(value);
-  }, [value]);
+  }
 
   const updateFromPointer = useCallback(
     (x: number, y: number) => {

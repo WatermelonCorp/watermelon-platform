@@ -72,4 +72,10 @@ export {
   UnfoldMoreIcon,
   UserIcon,
   ViewIcon,
+  CubeIcon,
+  DashboardSquare01Icon,
+  Layout01Icon,
+  SparklesIcon,
+  Alert01Icon,
+  Clock01Icon
 } from '@hugeicons/core-free-icons';

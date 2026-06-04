@@ -61,10 +61,10 @@ export function Pagination({
     return digit !== prevDigit ? (prevTick ?? 0) + 1 : (prevTick ?? 0);
   });
 
-  React.useEffect(() => {
+  if (prevDigits.join("") !== digits.join("")) {
     setPrevTicks(nextTicks);
     setPrevDigits(digits);
-  }, [digits, nextTicks]);
+  }
 
   const paginate = (dir: number) => {
     const next = Math.min(totalPages, Math.max(1, currentPage + dir));

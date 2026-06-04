@@ -65,7 +65,7 @@ export function useAutoHeight<T extends HTMLElement = HTMLDivElement>(
     const el = ref.current;
     if (!el) return;
 
-    setHeight(measure());
+    const frame = requestAnimationFrame(() => setHeight(measure()));
 
     if (roRef.current) {
       roRef.current.disconnect();
@@ -85,18 +85,12 @@ export function useAutoHeight<T extends HTMLElement = HTMLDivElement>(
     roRef.current = ro;
 
     return () => {
+      cancelAnimationFrame(frame);
       ro.disconnect();
       roRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
-
-  React.useLayoutEffect(() => {
-    if (height === 0) {
-      const next = measure();
-      if (next !== 0) setHeight(next);
-    }
-  }, [height, measure]);
 
   return { ref, height } as const;
 }

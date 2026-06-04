@@ -29,11 +29,6 @@ import { data } from "../data"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { setTheme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const activeTeam = data.teams[0]
 
@@ -41,7 +36,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     if (item.title === "Appearance") {
       return {
         ...item,
-        rightIcon: mounted ? (resolvedTheme === "dark" ? IconSun : IconMoon) : item.rightIcon,
+        rightIcon: resolvedTheme === "dark" ? IconSun : IconMoon,
         onClick: () => {
           setTheme(resolvedTheme === "dark" ? "light" : "dark")
         },

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { CodeBlock } from "@/components/mdx/code-block";
 import { CopyButton } from "@/components/animate-ui/components/buttons/copy";
+import { PromptItems } from "@/components/prompt-items";
 import { cn } from "@/lib/utils";
 import type { UiVariant } from "@/data/components-registry";
 
@@ -69,23 +70,23 @@ export function CodeDialog({ variant, onClose }: CodeDialogProps) {
   return (
     <Dialog open={!!variant} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
-        className="max-w-xs sm:max-w-3xl lg:max-w-5xl w-full p-0 overflow-hidden gap-0"
+        className="bg-background max-w-xs sm:max-w-3xl lg:max-w-5xl w-full p-0 overflow-hidden gap-0 rounded-2xl border"
         showCloseButton
       >
         {/* ─ Header ─ */}
-        <DialogHeader className="px-5 pt-5 pb-4 border-b">
-          <DialogTitle className="text-base font-semibold">
+        <DialogHeader className="px-6 py-4 border-b">
+          <DialogTitle className="text-lg font-semibold tracking-tight leading-snug">
             CLI Command
           </DialogTitle>
         </DialogHeader>
 
-        <div className="overflow-y-auto max-h-[calc(90vh-8rem)] px-5 py-5 space-y-7">
+        <div className="overflow-y-auto max-h-[calc(90vh-8rem)] px-6 py-6 space-y-7">
           {/* ─ CLI Section ─ */}
           <div className="space-y-3">
             {/* PM tabs + copy row */}
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center justify-between gap-1">
               {/* PM Tabs */}
-              <div className="flex items-center gap-0.5 bg-muted/60 rounded-lg p-0.5 border w-fit">
+              <div className="relative flex items-center gap-1 bg-gray-100 dark:bg-neutral-800 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] rounded-xl w-fit p-1">
                 {PM_LIST.map((pm) => {
                   const isActive = activePm === pm;
                   return (
@@ -94,7 +95,7 @@ export function CodeDialog({ variant, onClose }: CodeDialogProps) {
                       id={`pm-tab-${pm}`}
                       onClick={() => setActivePm(pm)}
                       className={cn(
-                        "relative px-3 py-1.5 text-xs font-medium rounded-md transition-colors select-none",
+                        "relative px-3 py-1 text-sm font-medium rounded-lg transition-colors select-none",
                         isActive
                           ? "text-primary-foreground"
                           : "text-muted-foreground hover:text-foreground"
@@ -104,7 +105,7 @@ export function CodeDialog({ variant, onClose }: CodeDialogProps) {
                         <motion.span
                           layoutId="ui-pm-pill"
                           transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                          className="absolute inset-0 rounded-md bg-primary"
+                          className="absolute inset-0 rounded-lg bg-linear-to-b from-lime-400 to-lime-500 border border-lime-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),0_2px_1px_0_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_2px_1px_0_rgba(0,0,0,0.04)] text-white"
                         />
                       )}
                       <span className="relative z-10">{pm}</span>
@@ -116,14 +117,14 @@ export function CodeDialog({ variant, onClose }: CodeDialogProps) {
               {/* Copy CLI */}
               <CopyButton
                 content={command}
-                variant="secondary"
+                variant="ghost"
                 size="sm"
-                className="h-7 w-7"
+                className="h-7 w-7 p-4"
               />
             </div>
 
             {/* Command display */}
-            <div className="relative rounded-lg border bg-muted/40 px-4 py-3 font-mono text-sm overflow-x-auto">
+            <div className="relative bg-muted/50 px-3 py-2 rounded-xl border font-mono text-sm overflow-x-auto whitespace-nowrap">
               <AnimatePresence mode="wait">
                 <motion.code
                   key={activePm}
@@ -136,6 +137,24 @@ export function CodeDialog({ variant, onClose }: CodeDialogProps) {
                   {command}
                 </motion.code>
               </AnimatePresence>
+            </div>
+
+            {/* Copy for AI */}
+            <div className="space-y-3 pt-4 border-t">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
+              <PromptItems
+                files={[
+                  {
+                    name: `${variant.id}.tsx`,
+                    content: variant.code,
+                  },
+                ]}
+                dependencies={variant.dependencies || []}
+                componentName={variant.title}
+                componentSlug={variant.id}
+                category="component"
+                source="code-dialog"
+              />
             </div>
           </div>
 

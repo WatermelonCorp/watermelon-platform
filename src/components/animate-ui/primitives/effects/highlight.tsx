@@ -227,10 +227,7 @@ function Highlight<T extends React.ElementType = 'div'>({
     setBoundsState((prev) => (prev === null ? prev : null));
   }, []);
 
-  React.useEffect(() => {
-    if (value !== undefined) setActiveValue(value);
-    else if (defaultValue !== undefined) setActiveValue(defaultValue);
-  }, [value, defaultValue]);
+  const resolvedActiveValue = value ?? activeValue ?? defaultValue;
 
   const id = React.useId();
 
@@ -240,9 +237,9 @@ function Highlight<T extends React.ElementType = 'div'>({
     if (!container) return;
 
     const onScroll = () => {
-      if (!activeValue) return;
+      if (!resolvedActiveValue) return;
       const activeEl = container.querySelector<HTMLElement>(
-        `[data-value="${activeValue}"][data-highlight="true"]`,
+        `[data-value="${resolvedActiveValue}"][data-highlight="true"]`,
       );
       if (activeEl)
         safeSetBoundsRef.current?.(activeEl.getBoundingClientRect());
@@ -250,7 +247,7 @@ function Highlight<T extends React.ElementType = 'div'>({
 
     container.addEventListener('scroll', onScroll, { passive: true });
     return () => container.removeEventListener('scroll', onScroll);
-  }, [mode, activeValue]);
+  }, [mode, resolvedActiveValue]);
 
   const render = (children: React.ReactNode) => {
     if (mode === 'parent') {
@@ -304,7 +301,7 @@ function Highlight<T extends React.ElementType = 'div'>({
     <HighlightContext.Provider
       value={{
         mode,
-        activeValue,
+        activeValue: resolvedActiveValue,
         setActiveValue: safeSetActiveValue,
         id,
         hover,

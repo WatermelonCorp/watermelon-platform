@@ -22,13 +22,62 @@ export interface ChangelogEntry {
 }
 
 export const changelogData: ChangelogEntry[] = [
-   {
+  {
+    version: '2.0.0',
+    date: 'May 15, 2026',
+    stats: [
+      {
+        label: 'Total blocks',
+        count: 123,
+        href: '/blocks',
+      },
+    ],
+    sections: [
+      {
+        title: 'New Blocks',
+        items: [
+          {
+            text: 'Added 123 new blocks to the registry, significantly expanding the library of ready-to-use layouts.',
+          },
+        ],
+      },
+      {
+        title: 'Removed',
+        items: [
+          {
+            text: 'Removed Bento and Dashboard board components from the registry.',
+          },
+        ],
+      },
+      {
+        title: 'UI / UX Fixes',
+        items: [
+          {
+            text: 'Resolved multiple UI inconsistencies and improved visual polish across the platform.',
+          },
+          {
+            text: 'Improved spacing, hierarchy, and interaction patterns on core pages.',
+          },
+        ],
+      },
+      {
+        title: 'Revamp',
+        items: [
+          {
+            text: 'Full platform revamp with refreshed design system, updated layouts, and improved developer experience.',
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     version: '1.2.7',
     date: 'Apr 14, 2026',
     stats: [
       {
-        label: 'New Shadcn Variants',
-        count: 180,
+        label: 'Total Non Animated Variants',
+        count: 350,
         href: '/components',
       },
     ],

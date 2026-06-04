@@ -1,17 +1,15 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getBlocksByCategory, hasBlockCategory, blockCategories } from '@/data/blocks';
-import { DashboardCard } from '@/components/registry/dashboard-card';
-import { BlockModal } from '@/components/registry/block-modal';
-import type { BlockItem } from '@/data/blocks';
+import { ComponentRenderCard } from '@/components/registry/component-render-card';
 import { SEOHead } from '@/components/seo-head';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
 const ITEMS_PER_PAGE = 18;
 
 export default function BlockCategoryPage() {
+  const navigate = useNavigate();
   const { category = '' } = useParams<{ category: string }>();
-  const [selectedBlock, setSelectedBlock] = useState<BlockItem | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [prevCategory, setPrevCategory] = useState(category);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
@@ -76,24 +74,29 @@ export default function BlockCategoryPage() {
 
       <div className="space-y-12 pb-10">
         <section id={`blocks-${category}`} className="space-y-6">
-          <div className=" mt-2 md:mt-0 space-y-1">
-            <CatalogPageHeader title={label} />
-            <p className="text-sm text-muted-foreground max-w-xl px-2 md:px-4">
-              {description}
-              <span className="ml-2 text-xs text-muted-foreground/60">
-                {allBlocks.length} {allBlocks.length === 1 ? 'block' : 'blocks'}
-              </span>
-            </p>
-          </div>
+          <CatalogPageHeader
+            title={label}
+            description={
+              <>
+                {description}
+                <span className="ml-2 text-xs text-muted-foreground/60">
+                  {allBlocks.length} {allBlocks.length === 1 ? 'block' : 'blocks'}
+                </span>
+              </>
+            }
+          />
 
           {/* Blocks Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-col gap-6 px-4 md:px-6 lg:px-8">
             {visibleBlocks.map((block) => (
-              <DashboardCard
+              <ComponentRenderCard
                 key={block.slug}
                 item={block}
-                trackType="block"
-                onClick={() => !block.comingSoon && setSelectedBlock(block)}
+                onClick={() => {
+                  if (!block.comingSoon) {
+                    navigate(`/block/${block.slug}`);
+                  }
+                }}
               />
             ))}
           </div>
@@ -113,12 +116,6 @@ export default function BlockCategoryPage() {
           )}
         </section>
       </div>
-
-      {/* Block Modal */}
-      <BlockModal
-        item={selectedBlock}
-        onClose={() => setSelectedBlock(null)}
-      />
     </>
   );
 }

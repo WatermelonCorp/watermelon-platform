@@ -96,7 +96,7 @@ function TooltipProvider({
   id,
   openDelay = 700,
   closeDelay = 300,
-  transition = { type: 'spring', stiffness: 300, damping: 35 },
+  transition = { type: 'spring', stiffness: 300, damping: 30 },
 }: TooltipProviderProps) {
   const globalId = React.useId();
   const [currentTooltip, setCurrentTooltip] =
@@ -262,13 +262,11 @@ function TooltipOverlay() {
     ],
   });
 
-  React.useEffect(() => {
-    if (currentTooltip) {
-      setRendered({ data: currentTooltip, open: true });
-    } else {
-      setRendered((p) => (p.data ? { ...p, open: false } : p));
-    }
-  }, [currentTooltip]);
+  if (currentTooltip && currentTooltip !== rendered.data) {
+    setRendered({ data: currentTooltip, open: true });
+  } else if (!currentTooltip && rendered.open) {
+    setRendered((p) => (p.data ? { ...p, open: false } : p));
+  }
 
   React.useLayoutEffect(() => {
     if (referenceElRef.current) {

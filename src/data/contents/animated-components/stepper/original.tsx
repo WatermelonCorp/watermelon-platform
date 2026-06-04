@@ -64,10 +64,10 @@ export function Stepper({
     return digit !== prevDigit ? (prevTick ?? 0) + 1 : (prevTick ?? 0);
   });
 
-  React.useEffect(() => {
+  if (prevDigits.join("") !== digits.join("")) {
     setPrevTicks(nextTicks);
     setPrevDigits(digits);
-  }, [digits, nextTicks]);
+  }
 
   const step = (dir: number) => {
     const next = Math.min(max, Math.max(min, current + dir));
