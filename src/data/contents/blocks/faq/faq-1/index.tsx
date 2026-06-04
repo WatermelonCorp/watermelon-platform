@@ -34,7 +34,7 @@ export function Faq1({
 }: Faq1Props) {
   return (
     <section
-      className={cn('mx-auto w-full max-w-4xl px-4 py-16 md:py-24', className)}
+      className={cn('mx-auto w-full max-w-4xl px-4 py-16', className)}
     >
       <div className="mb-12 flex flex-col items-center text-center">
         {badge && (
