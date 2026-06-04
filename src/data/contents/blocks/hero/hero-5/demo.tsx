@@ -2,9 +2,9 @@ import { Hero5 } from '.';
 
 export default function Hero5Demo() {
   return (
-    <div className="flex min-h-screen w-full flex-col justify-center bg-black">
+    <div className="flex  w-full flex-col justify-center bg-black">
       <Hero5
-        logoText="Apex Creative"
+        logoText="Watermelon"
         navItems={[
           { label: 'Services', href: '#', hasDropdown: true },
           { label: 'Plans', href: '#', hasDropdown: true },

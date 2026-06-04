@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import { motion, type Variants } from 'motion/react';
 import { FaArrowRight } from 'react-icons/fa6';
+import LogoIcon from '@/assets/logo-icon';
 
 
 
@@ -143,44 +144,21 @@ const ctaVariant: Variants = {
 
 
 
-function DefaultLogoIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-  
-      <path
-        d="M12 2L13.5 9.5L20 8L14.5 12L20 16L13.5 14.5L12 22L10.5 14.5L4 16L9.5 12L4 8L10.5 9.5L12 2Z"
-        fill="#e8e0cc"
-        stroke="#e8e0cc"
-        strokeWidth="0.5"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-
 
 
 
 export function Footer15({
   logoIcon,
-  brandName = 'COSMOS',
+  brandName = 'Watermelon',
   description = 'Craft adaptive systems, enhance results,\nand launch effortlessly with next-\ngeneration AI capabilities.',
   ctaLabel = 'Explore now',
   ctaHref = '#',
   columns = defaultColumns,
-  heroBrandName = 'COSMOS',
+  heroBrandName = 'Watermelon',
 
 }: Footer15Props) {
   return (
-    <footer className="w-full overflow-hidden rounded-t-4xl bg-[#2a2a1e] px-4 font-sans antialiased sm:rounded-t-[2.5rem] md:rounded-t-[3rem]">
+    <footer className="w-full overflow-hidden rounded-t-4xl bg-[#2a2a1e] font-sans antialiased sm:rounded-t-[2.5rem] md:rounded-t-[3rem]">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -195,9 +173,9 @@ export function Footer15({
           >
             <div className="flex items-center gap-2">
               <span className="shrink-0">
-                {logoIcon ?? <DefaultLogoIcon />}
+                {logoIcon ?? <LogoIcon className="size-8 text-[#a8a08c]" />}
               </span>
-              <span className="text-lg font-medium tracking-[0.12em] text-[#e8e0cc] uppercase select-none">
+              <span className="text-lg font-medium  text-[#e8e0cc] uppercase select-none">
                 {brandName}
               </span>
             </div>
@@ -224,7 +202,7 @@ export function Footer15({
           <motion.nav
             variants={navStagger}
             aria-label="Footer navigation"
-            className="grid max-w-[540px] w-full grid-cols-2 sm:grid-cols-4 gap-y-8"
+            className="grid w-full max-w-[540px] grid-cols-2 gap-y-8 sm:grid-cols-4"
           >
             {columns.map((col) => (
               <motion.div key={col.title} variants={riseItem} className="">
@@ -262,9 +240,9 @@ export function Footer15({
       >
         <p
           aria-hidden="true"
-          className="translate-y-4 text-center font-sans leading-[0.82] font-bold tracking-[-0.02em] text-[#e8e0cc] will-change-transform select-none md:translate-y-12"
+          className="translate-y-4 text-center font-sans leading-[0.82] font-bold tracking-[-0.02em] text-[#e8e0cc] will-change-transform select-none text-shadow-sm md:translate-y-8"
           style={{
-            fontSize: 'clamp(4rem, 16vw, 20rem)',
+            fontSize: 'clamp(4rem, 14vw, 20rem)',
           }}
         >
           {heroBrandName}

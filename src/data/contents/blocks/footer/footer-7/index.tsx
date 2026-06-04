@@ -40,7 +40,6 @@ export function Footer7({
 }: Footer7Props) {
   return (
     <footer className="relative w-full overflow-hidden">
-      {/* Background Image */}
       {backgroundImage && (
         <img
           src={backgroundImage}

@@ -2,9 +2,9 @@ import { Hero4 } from '.';
 
 export default function Hero4Demo() {
   return (
-    <div className="flex min-h-screen w-full flex-col justify-center bg-slate-950">
+    <div className="flex  w-full flex-col justify-center bg-slate-950">
       <Hero4
-        logoText="Luminary"
+        logoText="Watermelon"
         navItems={[
           { label: 'Products', href: '#' },
           { label: 'Solutions', href: '#' },
@@ -17,9 +17,9 @@ export default function Hero4Demo() {
         getStartedHref="#"
         badgeText="CRAFTED FOR TOMORROW"
         titleLine1="Where Creativity"
-        titleLine2Start="Meets "
+        titleLine2Start="Meets"
         titleLine2Accent="Brilliance"
-        description="Luminary helps teams design, prototype, and ship with cutting-edge tools that turn bold ideas into lasting digital experiences."
+        description="Watermelon helps teams design, prototype, and ship with cutting-edge tools that turn bold ideas into lasting digital experiences."
         primaryCtaText="Get Started"
         primaryCtaHref="#"
         secondaryCtaText="Watch Demo"

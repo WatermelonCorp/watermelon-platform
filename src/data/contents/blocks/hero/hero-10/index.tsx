@@ -83,7 +83,7 @@ function MobileMenuIcon() {
 }
 
 export function Hero10({
-  brandName = 'Calmora',
+  brandName = 'Watermelon',
   navItems = defaultNavItems,
   ctaText = 'Sign up',
   ctaHref = '#',
@@ -250,7 +250,7 @@ export function Hero10({
 
           <motion.p
             variants={contentItem}
-            className="mt-6 max-w-[570px] text-[clamp(1rem,1.35vw,1.16rem)] leading-[1.42] font-normal text-pretty whitespace-pre-line text-slate-700"
+            className="mt-6 max-w-[570px] text-[clamp(1rem,1.35vw,1.16rem)] leading-[1.42] font-normal text-pretty whitespace-pre-line sm:text-slate-700 text-slate-900 bg-white/5 backdrop-blur-[2px] mask-l-form-90% mask-r-form-90% mask-b-from-90%"
           >
             {description}
           </motion.p>

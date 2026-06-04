@@ -14,10 +14,10 @@ export default function Footer11Demo() {
         badgeText="Loved by Creators"
         heading="Want to collaborate with us, explore our tools or just curious to know more?"
         contactLabel="Reach out at:"
-        contactEmail="hello@novacrest.io"
-        contactEmailHref="mailto:hello@novacrest.io"
+        contactEmail="hello@watermelon.io"
+        contactEmailHref="mailto:hello@watermelon.io"
         navLinks={navLinks}
-        brandName="novacrest.io"
+        brandName="Watermelon"
       />
     </div>
   );

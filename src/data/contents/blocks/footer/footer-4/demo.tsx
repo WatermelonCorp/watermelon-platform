@@ -1,12 +1,12 @@
 import {
   FaBoltLightning,
   FaGithub,
-  FaInfinity,
   FaLinkedinIn,
   FaXTwitter,
   FaYoutube,
 } from 'react-icons/fa6';
 import { Footer4 } from './index';
+import LogoIcon from '@/assets/logo-icon';
 
 export default function Footer4Demo() {
   const linkGroups = [
@@ -59,8 +59,8 @@ export default function Footer4Demo() {
   return (
     <div className="w-full ">
       <Footer4
-        logo={<FaInfinity className="h-6 w-6" />}
-        brandName="Lumina"
+        logo={<LogoIcon className="size-8" />}
+        brandName="Watermelon"
         badge={{
           icon: <FaBoltLightning className="h-3 w-3" />,
           label: 'Now in public beta',
@@ -69,12 +69,12 @@ export default function Footer4Demo() {
         description="Stratum gives every engineering team the observability, deployment pipelines, and incident tooling they need to move at full speed — safely."
         newsletterTitle="Stay in the loop"
         newsletterSubtitle="Get product updates, engineering deep-dives, and early feature access."
-        newsletterPlaceholder="you@lumina.com"
+        newsletterPlaceholder="you@watermelon.com"
         newsletterButtonLabel="Subscribe"
         linkGroups={linkGroups}
         socialLinks={socialLinks}
         legalLinks={legalLinks}
-        copyright="© 2026 Lumina Technologies, Inc. All rights reserved."
+        copyright="© 2026 Watermelon, Inc. All rights reserved."
       />
     </div>
   );

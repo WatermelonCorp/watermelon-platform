@@ -1,5 +1,6 @@
-import { FaInfinity } from "react-icons/fa6";
+
 import { Footer1 } from "./index";
+import LogoIcon from "@/assets/logo-icon";
 
 export default function Footer1Demo() {
   const linkGroups = [
@@ -53,14 +54,14 @@ export default function Footer1Demo() {
   return (
     <div className="w-full">
       <Footer1
-        logo={<FaInfinity className="w-6 h-6" />}
-        brandName="Lumina"
+        logo={<LogoIcon className="size-8" />}
+        brandName="Watermelon"
         newsletterTitle="Stay in the loop."
         newsletterDescription="By subscribing you agree to our Terms & Conditions and Privacy Policy. You can unsubscribe at any time."
         newsletterPlaceholder="Enter your email"
         newsletterButtonText="Subscribe"
         linkGroups={linkGroups}
-        copyright="© 2026 Lumina Inc. All rights reserved."
+        copyright="© 2026 Watermelon, Inc. All rights reserved."
       />
     </div>
   );

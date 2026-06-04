@@ -23,8 +23,8 @@ export default function Footer8Demo() {
     <div className="bg-background flex w-full items-center justify-center">
       <Footer8
         tagline="Let's build something great"
-        email="contact@novacraft.io"
-        emailHref="mailto:contact@novacraft.io"
+        email="contact@watermelon.sh"
+        emailHref="mailto:contact@watermelon.io"
         backgroundImage="https://assets.watermelon.sh/footer-8-bg.avif"
         personInfo={{
           name: 'Elena Vasquez',
@@ -32,7 +32,7 @@ export default function Footer8Demo() {
           location: 'Brooklyn, NY',
         }}
         linkColumns={linkColumns}
-        copyright="© 2026 novacraft"
+        copyright="© 2026 Watermelon"
       />
     </div>
   );

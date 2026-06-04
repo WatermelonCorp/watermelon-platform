@@ -80,7 +80,7 @@ function MenuIcon() {
 }
 
 export function Hero11({
-  brandName = 'HONEY',
+  brandName = 'Watermelon',
   navItems = defaultNavItems,
   ctaText = 'Shop Now',
   ctaHref = '#',
@@ -144,23 +144,24 @@ export function Hero11({
               </a>
             ))}
           </nav>
+          <div className="flex gap-2">
+            <motion.a
+              href={ctaHref}
+              whileTap={{ scale: 0.96 }}
+              className="hidden min-h-10 items-center justify-center bg-teal-950 px-6 text-sm leading-none font-normal text-stone-100 shadow-[0_1px_2px_rgba(15,23,42,0.14)] transition-[background-color,box-shadow,transform] duration-200 ease-out hover:bg-teal-900 hover:shadow-[0_2px_7px_rgba(15,23,42,0.18)] sm:inline-flex"
+            >
+              {ctaText}
+            </motion.a>
 
-          <motion.a
-            href={ctaHref}
-            whileTap={{ scale: 0.96 }}
-            className="hidden min-h-11 items-center justify-center bg-teal-950 px-6 text-sm leading-none font-normal text-stone-100 shadow-[0_1px_2px_rgba(15,23,42,0.14)] transition-[background-color,box-shadow,transform] duration-200 ease-out hover:bg-teal-900 hover:shadow-[0_2px_7px_rgba(15,23,42,0.18)] sm:inline-flex"
-          >
-            {ctaText}
-          </motion.a>
-
-          <button
-            type="button"
-            aria-label="Open navigation menu"
-            onClick={() => setMobileOpen(true)}
-            className="inline-flex size-10 items-center justify-center bg-teal-950 text-stone-100 shadow-[0_1px_2px_rgba(15,23,42,0.14)] transition-[background-color,transform] duration-200 ease-out hover:bg-teal-900 active:scale-[0.96] lg:hidden"
-          >
-            <MenuIcon />
-          </button>
+            <button
+              type="button"
+              aria-label="Open navigation menu"
+              onClick={() => setMobileOpen(true)}
+              className="inline-flex size-10 items-center justify-center bg-teal-950 text-stone-100 shadow-[0_1px_2px_rgba(15,23,42,0.14)] transition-[background-color,transform] duration-200 ease-out hover:bg-teal-900 active:scale-[0.96] lg:hidden"
+            >
+              <MenuIcon />
+            </button>
+          </div>
         </motion.header>
 
         <AnimatePresence initial={false}>
@@ -230,7 +231,7 @@ export function Hero11({
 
             <motion.p
               variants={contentItem}
-              className="mt-5 max-w-[350px] text-[clamp(1rem,1.2vw,1.18rem)] leading-[1.42] font-medium text-pretty whitespace-pre-line text-stone-900/82"
+              className="mt-5 max-w-[350px] bg-white/10 mask-r-from-80% text-[clamp(1rem,1.2vw,1.18rem)] leading-[1.42] font-medium text-pretty whitespace-pre-line text-stone-900/82 backdrop-blur-[1px]"
             >
               {description}
             </motion.p>
