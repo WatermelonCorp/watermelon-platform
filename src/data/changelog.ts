@@ -24,11 +24,11 @@ export interface ChangelogEntry {
 export const changelogData: ChangelogEntry[] = [
   {
     version: '2.0.0',
-    date: 'May 15, 2026',
+    date: 'June 4, 2026',
     stats: [
       {
         label: 'Total blocks',
-        count: 123,
+        count: 152,
         href: '/blocks',
       },
     ],
@@ -38,6 +38,9 @@ export const changelogData: ChangelogEntry[] = [
         items: [
           {
             text: 'Added 123 new blocks to the registry, significantly expanding the library of ready-to-use layouts.',
+          },
+          {
+            text: 'Added 29 premium Hero and Footer sections, providing more high-quality landing page building blocks.',
           },
         ],
       },
