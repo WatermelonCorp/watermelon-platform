@@ -510,10 +510,10 @@ export default function BlockPage() {
 
       {/* ================= DESKTOP / TABLET ================= */}
       {!isMobile && (
-        <div className="flex flex-col mb-10">
+        <div className="flex flex-col ">
 
           {/* ── Preview + Code tabs — immediately at top ── */}
-          <Tabs defaultValue="preview" className="h-[90dvh] shrink-0 flex flex-col min-h-0 gap-0">
+          <Tabs defaultValue="preview" className="h-[calc(100dvh-74px)] shrink-0 flex flex-col min-h-0 gap-0">
             {/* ── Navbar bar ── */}
             <div className="flex items-center justify-between px-4 py-2 border-y bg-muted/30 shrink-0">
               {/* Left: tab switcher */}

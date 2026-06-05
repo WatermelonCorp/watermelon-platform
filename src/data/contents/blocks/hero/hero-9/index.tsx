@@ -116,7 +116,7 @@ export function Hero9({
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <section className="relative isolate min-h-[760px] w-full overflow-hidden bg-sky-300 font-sans text-slate-950 antialiased sm:min-h-screen">
+    <section className="relative isolate  w-full overflow-hidden bg-sky-300 font-sans text-slate-950 antialiased min-h-screen">
       <motion.div
         variants={backgroundVariants}
         initial="hidden"
@@ -128,7 +128,7 @@ export function Hero9({
         <img
           src={backgroundImage}
           alt=""
-          className="h-full w-full object-cover object-center outline outline-1 outline-black/10"
+          className="h-full w-full object-cover object-center  outline-1 outline-black/10"
         />
       </motion.div>
 
@@ -194,7 +194,7 @@ export function Hero9({
               transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
               className="fixed inset-x-4 top-4 z-50 rounded-[28px] bg-white/90 p-4 text-slate-950 shadow-[0_24px_80px_rgba(15,23,42,0.22)] outline outline-1 outline-white/70 backdrop-blur-xl lg:hidden"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-3">
                 <a href="#" className="inline-flex items-center gap-2.5">
                   {logo ?? <LogoIcon className='size-8 text-zinc-200' />}
                   <span className="text-base font-semibold tracking-[-0.02em]">

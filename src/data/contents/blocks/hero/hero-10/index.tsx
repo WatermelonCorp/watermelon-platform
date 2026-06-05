@@ -98,7 +98,7 @@ export function Hero10({
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <section className="relative isolate min-h-[760px] w-full overflow-hidden bg-slate-200 font-sans text-slate-900 antialiased sm:min-h-screen">
+    <section className="relative isolate min-h-screen w-full overflow-hidden bg-slate-200 font-sans text-slate-900 antialiased">
       <motion.div
         variants={backgroundVariants}
         initial="hidden"
@@ -152,24 +152,25 @@ export function Hero10({
               </a>
             ))}
           </nav>
+          <div className='flex gap-2'>
+            <motion.a
+              href={ctaHref}
+              whileTap={{ scale: 0.96 }}
+              className="hidden min-h-10 items-center gap-2 rounded-full border border-sky-900/90 bg-white/10 px-5 text-sm leading-none font-medium text-slate-900 shadow-[0_1px_1px_rgba(255,255,255,0.45)_inset] backdrop-blur-md transition-[background-color,border-color,transform] duration-200 ease-out hover:border-sky-950 hover:bg-white/28 sm:inline-flex"
+            >
+              <span>{ctaText}</span>
+              <FaArrowRight className="size-3" />
+            </motion.a>
 
-          <motion.a
-            href={ctaHref}
-            whileTap={{ scale: 0.96 }}
-            className="hidden min-h-10 items-center gap-2 rounded-full border border-sky-900/90 bg-white/10 px-5 text-sm leading-none font-medium text-slate-900 shadow-[0_1px_1px_rgba(255,255,255,0.45)_inset] backdrop-blur-md transition-[background-color,border-color,transform] duration-200 ease-out hover:border-sky-950 hover:bg-white/28 sm:inline-flex"
-          >
-            <span>{ctaText}</span>
-            <FaArrowRight className="size-3" />
-          </motion.a>
-
-          <button
-            type="button"
-            aria-label="Open navigation menu"
-            onClick={() => setMobileOpen(true)}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-sky-900/70 bg-white/16 text-slate-900 backdrop-blur-md transition-[background-color,transform] duration-200 ease-out hover:bg-white/30 active:scale-[0.96] lg:hidden"
-          >
-            <MobileMenuIcon />
-          </button>
+            <button
+              type="button"
+              aria-label="Open navigation menu"
+              onClick={() => setMobileOpen(true)}
+              className="inline-flex size-10 items-center justify-center rounded-full border border-sky-900/70 bg-white/16 text-slate-900 backdrop-blur-md transition-[background-color,transform] duration-200 ease-out hover:bg-white/30 active:scale-[0.96] lg:hidden"
+            >
+              <MobileMenuIcon />
+            </button>
+          </div>
         </motion.header>
 
         <AnimatePresence initial={false}>
@@ -181,7 +182,7 @@ export function Hero10({
               transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
               className="fixed inset-x-4 top-4 z-50 rounded-[28px] bg-white/86 p-4 text-slate-950 shadow-[0_24px_80px_rgba(15,23,42,0.22)] outline outline-1 outline-white/70 backdrop-blur-xl lg:hidden"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-3">
                 <a
                   href="#"
                   className="font-serif text-2xl font-medium tracking-[-0.035em]"
@@ -250,7 +251,7 @@ export function Hero10({
 
           <motion.p
             variants={contentItem}
-            className="mt-6 max-w-[570px] text-[clamp(1rem,1.35vw,1.16rem)] leading-[1.42] font-normal text-pretty whitespace-pre-line sm:text-slate-700 text-slate-900 bg-white/5 backdrop-blur-[2px] mask-l-form-90% mask-r-form-90% mask-b-from-90%"
+            className="mask-l-form-90% mask-r-form-90% mt-6 max-w-[570px] bg-white/5 mask-b-from-90% text-[clamp(1rem,1.35vw,1.16rem)] leading-[1.42] font-normal text-pretty whitespace-pre-line text-slate-900 backdrop-blur-[2px] sm:text-slate-700"
           >
             {description}
           </motion.p>
@@ -271,11 +272,11 @@ export function Hero10({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="mb-5 flex flex-col gap-4 sm:mb-7 sm:flex-row sm:items-end sm:justify-between"
+          className="mb-0 flex flex-col items-center gap-4 sm:mb-7 sm:flex-row sm:items-end sm:justify-between"
         >
           <motion.div
             variants={contentItem}
-            className="inline-flex w-fit items-center gap-3 rounded-full bg-white/14 pr-4 text-sm font-semibold text-slate-800 shadow-[0_0px_1px_rgba(255,255,255,0.5)_inset] backdrop-blur-sm p-px"
+            className="inline-flex w-fit items-center gap-3 rounded-full bg-white/14 p-px pr-4 text-sm font-semibold text-slate-800 shadow-[0_0px_1px_rgba(255,255,255,0.5)_inset] backdrop-blur-sm"
           >
             <span className="grid size-7 place-items-center rounded-full bg-slate-800 text-white outline -outline-offset-1 outline-white/10">
               <FaArrowRight className="size-3 -rotate-45" />

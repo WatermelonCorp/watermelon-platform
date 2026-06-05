@@ -93,7 +93,7 @@ export function Hero11({
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <section className="relative isolate min-h-[690px] w-full overflow-hidden bg-stone-100 font-sans text-teal-950 antialiased sm:min-h-screen">
+    <section className="relative isolate  w-full overflow-hidden bg-stone-100 font-sans text-teal-950 antialiased min-h-screen">
       <motion.div
         variants={backgroundVariants}
         initial="hidden"
@@ -173,7 +173,7 @@ export function Hero11({
               transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
               className="fixed inset-x-4 top-4 z-50 bg-stone-50/92 p-4 text-teal-950 shadow-[0_24px_80px_rgba(15,23,42,0.22)] outline outline-1 outline-white/70 backdrop-blur-xl lg:hidden"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-3">
                 <a
                   href="#"
                   className="text-xl font-semibold tracking-[-0.025em]"
