@@ -17,7 +17,7 @@ type ViewportSize = {
 };
 
 const VIEWPORTS: Record<Exclude<PreviewViewport, 'desktop'>, ViewportSize> = {
-  tablet: { width: 768, height: 1024 },
+  tablet: { width: 767, height: 1024 },
   mobile: { width: 390, height: 844 },
 };
 
@@ -73,10 +73,19 @@ async function syncDocumentStyles(frameDocument: Document): Promise<void> {
     frameRoot.style.cssText = parentRoot.style.cssText;
   }
 
-  const existingNodes = Array.from(frameDocument.head.querySelectorAll('[data-preview-style]'));
-  const existingMap = new Map(existingNodes.map(node => [node.textContent || (node as HTMLLinkElement).href, node]));
+  const existingNodes = Array.from(
+    frameDocument.head.querySelectorAll('[data-preview-style]'),
+  );
+  const existingMap = new Map(
+    existingNodes.map((node) => [
+      node.textContent || (node as HTMLLinkElement).href,
+      node,
+    ]),
+  );
 
-  const styles = document.head.querySelectorAll('style, link[rel="stylesheet"]');
+  const styles = document.head.querySelectorAll(
+    'style, link[rel="stylesheet"]',
+  );
   const seenKeys = new Set<string>();
   const loadPromises: Promise<void>[] = [];
 
@@ -87,14 +96,16 @@ async function syncDocumentStyles(frameDocument: Document): Promise<void> {
     if (!existingMap.has(key)) {
       const clone = node.cloneNode(true) as HTMLElement;
       clone.setAttribute('data-preview-style', 'true');
-      
+
       if (clone.tagName === 'LINK') {
-        loadPromises.push(new Promise((resolve) => {
-          clone.onload = () => resolve();
-          clone.onerror = () => resolve();
-        }));
+        loadPromises.push(
+          new Promise((resolve) => {
+            clone.onload = () => resolve();
+            clone.onerror = () => resolve();
+          }),
+        );
       }
-      
+
       frameDocument.head.appendChild(clone);
     }
   });
@@ -158,7 +169,9 @@ export function ResponsivePreviewFrame({
 
       if (!previewUrl) {
         await syncDocumentStyles(frameDocument);
-        setMountNode(frameDocument.getElementById('preview-root') as HTMLDivElement | null);
+        setMountNode(
+          frameDocument.getElementById('preview-root') as HTMLDivElement | null,
+        );
       }
       setIsFrameReady(true);
     };
@@ -202,13 +215,17 @@ export function ResponsivePreviewFrame({
 
     syncDocumentStyles(frameDocument);
 
-    const rootObserver = new MutationObserver(() => syncDocumentStyles(frameDocument));
+    const rootObserver = new MutationObserver(() =>
+      syncDocumentStyles(frameDocument),
+    );
     rootObserver.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class', 'style'],
     });
 
-    const headObserver = new MutationObserver(() => syncDocumentStyles(frameDocument));
+    const headObserver = new MutationObserver(() =>
+      syncDocumentStyles(frameDocument),
+    );
     headObserver.observe(document.head, {
       childList: true,
       subtree: true,
@@ -223,42 +240,51 @@ export function ResponsivePreviewFrame({
   }, [mountNode, previewUrl]);
 
   const frameClasses = cn(
-    'relative bg-background border shadow-sm overflow-hidden transition-all duration-300 ease-in-out',
-    viewport === 'desktop' ? 'h-full w-full rounded-md' : 'rounded-[2rem] border-4',
+    'relative  bg-background shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_2px_-1px_rgba(0,0,0,0.10),0px_2px_4px_0px_rgba(0,0,0,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.2),0px_1px_2px_-1px_rgba(0,0,0,0.16),0px_2px_4px_0px_rgba(0,0,0,0.15)] outline -outline-offset-1 outline-black/10 dark:outline-white/20 overflow-hidden transition-all duration-300 ease-in-out',
+    viewport === 'desktop' ? 'h-full w-full rounded-md' : 'rounded-[2rem]',
   );
 
   const frameWidth = frameSize?.width ?? '100%';
   const frameHeight = frameSize?.height ?? '100%';
 
   return (
-    <div ref={containerRef} className={cn('relative h-full w-full', className)}>
-      <div
-        className={frameClasses}
-        style={{
-          width: frameWidth,
-          height: frameHeight,
-          transform: viewport === 'desktop' ? undefined : `scale(${scale})`,
-          transformOrigin: 'top center',
-          margin: viewport === 'desktop' ? undefined : '0 auto',
-        }}
-      >
-        <iframe
-          ref={frameRef}
-          title={`responsive-preview-${viewport}`}
-          className={cn(
-            "h-full w-full border-0 bg-transparent transition-opacity duration-300",
-            !isFrameReady ? "opacity-0" : "opacity-100"
+    <div
+      className={cn(
+        'bg-muted/20 relative h-full w-full py-1',
+        viewport === 'desktop' && 'px-1',
+        className,
+      )}
+    >
+      <div ref={containerRef} className="relative h-full w-full">
+        <div
+          className={frameClasses}
+          style={{
+            width: frameWidth,
+            height: frameHeight,
+            transform: viewport === 'desktop' ? undefined : `scale(${scale})`,
+            transformOrigin: 'top center',
+            margin: viewport === 'desktop' ? undefined : '0 auto',
+          }}
+        >
+          <iframe
+            ref={frameRef}
+            title={`responsive-preview-${viewport}`}
+            className={cn(
+              'h-full w-full border-0 bg-transparent transition-opacity duration-300',
+              !isFrameReady ? 'opacity-0' : 'opacity-100',
+            )}
+            sandbox="allow-scripts allow-same-origin"
+            allowTransparency
+          />
+          {!isFrameReady && (
+            <div className="bg-background text-muted-foreground absolute inset-0 z-10 flex items-center justify-center text-sm">
+              <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+              Loading preview...
+            </div>
           )}
-          sandbox="allow-scripts allow-same-origin"
-          allowTransparency
-        />
-        {!isFrameReady && (
-          <div className="absolute inset-0 flex items-center justify-center bg-background text-sm text-muted-foreground z-10">
-            <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
-            Loading preview...
-          </div>
-        )}
-        {!previewUrl && mountNode ? createPortal(children, mountNode) : null}
+
+          {!previewUrl && mountNode ? createPortal(children, mountNode) : null}
+        </div>
       </div>
     </div>
   );

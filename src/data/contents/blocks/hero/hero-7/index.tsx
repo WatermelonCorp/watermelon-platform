@@ -112,7 +112,7 @@ export function Hero7({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="relative isolate flex min-h-[720px] w-full overflow-hidden bg-sky-200 text-blue-950 antialiased sm:min-h-screen font-sans">
+    <section className="relative isolate flex  w-full overflow-hidden bg-sky-200 text-blue-950 antialiased min-h-screen font-sans">
       <div className="absolute inset-0 bg-sky-200" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_31%_22%,rgba(255,255,255,0.42),transparent_34%),linear-gradient(180deg,rgba(191,219,254,0.96)_0%,rgba(219,234,254,0.86)_42%,rgba(239,246,255,0.42)_100%)]" />
 
@@ -198,9 +198,9 @@ export function Hero7({
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
               transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-              className="fixed inset-x-4 top-4 z-50 rounded-2xl bg-white/92 p-4 shadow-2xl shadow-blue-950/10 outline outline-1 outline-black/10 backdrop-blur-xl md:hidden"
+              className="fixed inset-x-4 top-4 z-50 rounded-2xl bg-white/92 p-4 shadow-2xl shadow-blue-950/10  outline-1 outline-black/10 backdrop-blur-xl md:hidden"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-3">
                 <a href="#" className="flex items-center gap-2 text-blue-950">
                   {logo ?? <LogoIcon className="text-blue-200 size-8" />}
                   <span className="text-2xl font-normal">{logoText}</span>

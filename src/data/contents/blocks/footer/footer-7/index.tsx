@@ -39,7 +39,7 @@ export function Footer7({
   brandWatermark,
 }: Footer7Props) {
   return (
-    <footer className="relative w-full overflow-hidden">
+    <footer className="relative w-full overflow-hidden ">
       {backgroundImage && (
         <img
           src={backgroundImage}

@@ -93,7 +93,7 @@ export function Hero8({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="relative isolate flex min-h-[720px] w-full overflow-hidden bg-cyan-950 font-sans text-white antialiased sm:min-h-screen">
+    <section className="relative isolate flex w-full overflow-hidden bg-cyan-950 font-sans text-white antialiased min-h-screen">
       <motion.div
         variants={backgroundVariants}
         initial="hidden"
@@ -173,7 +173,7 @@ export function Hero8({
               transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
               className="fixed inset-x-4 top-4 z-50 rounded-2xl bg-cyan-950/88 p-4 shadow-2xl shadow-cyan-950/50 outline outline-1 outline-white/10 backdrop-blur-xl md:hidden"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-3">
                 <a href="#" className="flex items-center gap-3">
                   {logo ?? <LogoIcon className='size-8' />}
                   <span className="text-xl font-medium">{logoText}</span>

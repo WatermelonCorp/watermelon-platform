@@ -109,7 +109,7 @@ export function Hero6({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="relative flex  w-full overflow-hidden text-white antialiased sm:min-h-screen font-sans">
+    <section className="relative flex  w-full overflow-hidden text-white antialiased min-h-screen font-sans">
       <div className="absolute inset-0">
         <img
           src={backgroundImage}
@@ -174,7 +174,7 @@ export function Hero6({
               transition={{ type: "spring", duration: 0.3, bounce: 0 }}
               className="fixed inset-x-4 top-4 z-50 rounded-2xl bg-sky-950/92 p-4 shadow-2xl shadow-sky-950/50  outline-1 outline-white/10 backdrop-blur-xl md:hidden"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-3">
                 <a href="#" className="flex items-center gap-2.5">
                   {logo ?? <LogoIcon className="size-8" />}
                   <span className="text-xl font-medium text-white">
@@ -217,7 +217,7 @@ export function Hero6({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.38 }}
-          className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-start pt-16 pb-12 text-center sm:pt-20 lg:pt-24"
+          className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-start pt-26 pb-12 text-center sm:pt-20 lg:pt-24"
         >
           <motion.h1
             variants={item}
@@ -261,7 +261,7 @@ export function Hero6({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
-          className="mx-auto mb-8 w-full max-w-4xl text-center sm:mb-20 "
+          className="mx-auto mb-12 w-full max-w-4xl text-center sm:mb-20 "
         >
           {trustedTitle && (
             <motion.p

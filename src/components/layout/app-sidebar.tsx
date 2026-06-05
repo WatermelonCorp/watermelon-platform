@@ -289,7 +289,8 @@ export function AppSidebar() {
     } else if (location.pathname.startsWith('/block/')) {
       setOpen(false);
     }
-  }, [isMobile, location.pathname, setOpenMobile, setOpen,]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, isMobile]);
 
   // ── Quickstart items — each has a unique icon per the Figma design ──
   // NOTE: "Basic Usage" and "CLI" pages may not have routes yet; add them when ready.
@@ -367,8 +368,8 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="p-0">
       {/* ─── Header: logo + collapse trigger ─────────────────────────────── */}
-      <SidebarHeader className="p-4 px-6 bg-gray-100 dark:bg-neutral-900 border-b border-border dark:border-black shadow-[0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)] z-10">
-        <div className="flex items-center justify-between py-1 transition-colors duration-200 ease-in-out">
+      <SidebarHeader className="p-3.5 px-6 bg-gray-100 dark:bg-neutral-900 border-b border-border dark:border-black shadow-[0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)] z-10">
+        <div className="flex items-center justify-between  transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
         </div>
@@ -404,12 +405,12 @@ export function AppSidebar() {
             Flat list — not collapsible. Each item has a unique icon.
             Matches the Figma "Quickstart" block with generous row heights.
         */}
-        <SidebarGroup>
+        <SidebarGroup >
           {/* Section heading — bold label matching Figma typography */}
-          <SidebarGroupLabel className="px-2 min-h-8">
-            <span className="font-semibold text-sidebar-foreground">Quickstart</span>
+          <SidebarGroupLabel className="px-2 min-h-8 mt-2">
+            <span className="font-semibold text-sidebar-foreground text-[14px] 0">Quickstart</span>
           </SidebarGroupLabel>
-          <SidebarMenu className="flex flex-col gap-0.5">
+          <SidebarMenu className="flex flex-col gap-0.5 ">
             {quickStartItems.map((item) => (
               <QuickstartNavItem
                 key={item.title}
@@ -429,7 +430,7 @@ export function AppSidebar() {
         <SidebarGroup>
           {/* Section heading */}
           <SidebarGroupLabel className="px-2 min-h-8">
-            <span className="font-semibold text-sidebar-foreground">Explore</span>
+            <span className="font-semibold text-sidebar-foreground text-[14px]">Explore</span>
           </SidebarGroupLabel>
           <SidebarMenu className="flex flex-col gap-0.5">
 

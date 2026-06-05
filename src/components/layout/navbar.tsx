@@ -113,17 +113,17 @@ export const Navbar = () => {
   }, [location.pathname, params]);
 
   return (
-    <header className="sticky top-0 z-20 py-4 ">
+    <header className="sticky top-0 z-20 py-0.5 ">
       {/* Progressive blur effect - fades from top (blurry) to bottom (clear) */}
       <ProgressiveBlur
         direction="top"
         blurLayers={8}
         blurIntensity={1.2}
-        className="pointer-events-none absolute inset-0 rounded-t-xl bg-background/90"
+        className="pointer-events-none absolute inset-0  rounded-t-xl bg-background/90 "
       />
 
       {/* Navbar content */}
-      <nav className="relative z-10 flex items-center justify-between gap-2 px-4 md:px-6 lg:px-8">
+      <nav className="relative z-10 flex items-center justify-between gap-2 px-4 md:px-6 lg:pl-5 lg:pr-4">
         {/* Left: Sidebar trigger + logo on mobile/collapsed */}
         <div className="flex shrink-0 items-center gap-2">
           {(state === 'collapsed' || isMobile) && (
@@ -136,9 +136,10 @@ export const Navbar = () => {
               }}
               animate={{ opacity: 1, scale: 1, x: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.3 }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 "
             >
-              <SidebarTrigger className="bg-gray-100 dark:bg-neutral-800 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] size-9" />
+              <SidebarTrigger className="bg-gray-100 dark:bg-neutral-800 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] size-9
+              "  />
             </motion.div>
           )}
         </div>

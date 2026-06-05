@@ -304,10 +304,10 @@ export default function Hero4({
                         transition={{ duration: 1, delay: 2 }}
                     >
                         <div className="flex -space-x-2">
-                            {[11, 32, 43].map((i) => (
+                            {["wm_alex.png", "wm_olivia.png", "wm_mia.png"].map((i) => (
                                 <div key={i} className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-[#0d0b0f] bg-white/5 backdrop-blur-md overflow-hidden relative">
                                     <img 
-                                        src={`https://i.pravatar.cc/100?img=${i}`} 
+                                        src={`https://assets.watermelon.sh/${i}`} 
                                         alt="User avatar" 
                                         className="absolute inset-0 h-full w-full object-cover opacity-80" 
                                     />
