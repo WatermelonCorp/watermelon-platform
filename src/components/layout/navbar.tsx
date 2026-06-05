@@ -29,7 +29,7 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
 };
 
 export const Navbar = () => {
-  const { state, isMobile,setOpen } = useSidebar();
+  const { state, isMobile } = useSidebar();
   const location = useLocation();
   const params = useParams();
 
