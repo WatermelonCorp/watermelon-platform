@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogTitle,
@@ -45,10 +46,14 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
 
   const [demoCode, setDemoCode] = useState<string>('');
   const [componentCodeBase, setComponentCodeBase] = useState<string>('');
-  const [componentCodeOriginal, setComponentCodeOriginal] = useState<string>('');
-  const [activeCodeTab, setActiveCodeTab] = useState<'base' | 'original'>('original');
+  const [componentCodeOriginal, setComponentCodeOriginal] =
+    useState<string>('');
+  const [activeCodeTab, setActiveCodeTab] = useState<'base' | 'original'>(
+    'original',
+  );
   const [reloadKey, setReloadKey] = useState(0);
-  const [activePackageManager, setActivePackageManager] = useState<PackageManager>('npm');
+  const [activePackageManager, setActivePackageManager] =
+    useState<PackageManager>('npm');
 
   useEffect(() => {
     if (!item) return;
@@ -56,7 +61,9 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
     item.demoCode[activeCodeTab]().then((code) => {
       if (isActive) setDemoCode(code);
     });
-    return () => { isActive = false; };
+    return () => {
+      isActive = false;
+    };
   }, [item, activeCodeTab]);
 
   useEffect(() => {
@@ -70,7 +77,9 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
         }
       },
     );
-    return () => { isActive = false; };
+    return () => {
+      isActive = false;
+    };
   }, [item]);
 
   useEffect(() => {
@@ -94,8 +103,12 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
 
   const componentFiles: ComponentFile[] = [
     ...(demoCode ? [{ name: 'demo.tsx', content: demoCode }] : []),
-    ...(componentCodeBase ? [{ name: `${item.slug}-base.tsx`, content: componentCodeBase }] : []),
-    ...(componentCodeOriginal ? [{ name: `${item.slug}.tsx`, content: componentCodeOriginal }] : []),
+    ...(componentCodeBase
+      ? [{ name: `${item.slug}-base.tsx`, content: componentCodeBase }]
+      : []),
+    ...(componentCodeOriginal
+      ? [{ name: `${item.slug}.tsx`, content: componentCodeOriginal }]
+      : []),
   ];
 
   const ActiveComponent =
@@ -145,7 +158,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           </div>
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto divide-y">
+          <div className="flex-1 divide-y overflow-y-auto">
             {/* Preview */}
             <section className="bg-muted/20 p-4">
               <div className="mb-3 flex items-center justify-between">
@@ -168,18 +181,30 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
 
             {/* Description */}
             <section className="p-4">
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {item.description}
+              </p>
             </section>
 
             {/* Dependencies */}
             {item.dependencies && item.dependencies?.length > 0 && (
-              <section className="p-4 space-y-2">
-                <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
+              <section className="space-y-2 p-4">
+                <p className="text-muted-foreground text-[10px] font-medium tracking-wider uppercase">
+                  Dependencies
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   {item.dependencies.map((dep) => (
-                    <span key={dep} className="bg-muted flex items-center gap-1 rounded px-2 py-0.5 text-xs">
+                    <span
+                      key={dep}
+                      className="bg-muted flex items-center gap-1 rounded px-2 py-0.5 text-xs"
+                    >
                       {dep}
-                      <img src="/brand/npm-icon.png" width={10} height={10} alt="" />
+                      <img
+                        src="/brand/npm-icon.png"
+                        width={10}
+                        height={10}
+                        alt=""
+                      />
                     </span>
                   ))}
                 </div>
@@ -187,48 +212,85 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             )}
 
             {/* Installation */}
-            <section className="p-4 space-y-3 min-w-0">
-              <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
+            <section className="min-w-0 space-y-3 p-4">
+              <p className="text-muted-foreground text-[10px] font-medium tracking-wider uppercase">
+                Installation
+              </p>
               <InstallationCmd
                 activeCodeTab={activeCodeTab}
                 activePackageManager={activePackageManager}
                 setActivePackageManager={setActivePackageManager}
                 item={item}
-                trackingContext={{ component_slug: item.slug, component_name: item.name, category: item.category, source: 'modal' }}
+                trackingContext={{
+                  component_slug: item.slug,
+                  component_name: item.name,
+                  category: item.category,
+                  source: 'modal',
+                }}
               />
               <ManualInstallationCmd
                 activePackageManager={activePackageManager}
                 setActivePackageManager={setActivePackageManager}
                 dependencies={item.dependencies}
-                trackingContext={{ component_slug: item.slug, component_name: item.name, category: item.category, source: 'modal' }}
+                trackingContext={{
+                  component_slug: item.slug,
+                  component_name: item.name,
+                  category: item.category,
+                  source: 'modal',
+                }}
               />
             </section>
 
             {/* How to Use */}
-            <section className="p-4 space-y-2 min-w-0">
-              <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">How to use</p>
-              <p className="text-muted-foreground text-xs">Update the import path to match your project structure</p>
+            <section className="min-w-0 space-y-2 p-4">
+              <p className="text-muted-foreground text-[10px] font-medium tracking-wider uppercase">
+                How to use
+              </p>
+              <p className="text-muted-foreground text-xs">
+                Update the import path to match your project structure
+              </p>
               {demoCode && (
-                <CodeBlock language="tsx" title="demo.tsx">{demoCode}</CodeBlock>
+                <CodeBlock language="tsx" title="demo.tsx">
+                  {demoCode}
+                </CodeBlock>
               )}
             </section>
 
             {/* Source Code */}
-            <section className="p-4 space-y-3 min-w-0">
+            <section className="min-w-0 space-y-3 p-4">
               <div className="flex items-center justify-between">
-                <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Source</p>
+                <p className="text-muted-foreground text-[10px] font-medium tracking-wider uppercase">
+                  Source
+                </p>
                 {item.hasVariants && (
-                  <Tabs value={activeCodeTab} onValueChange={(v: any) => setActiveCodeTab(v)} className="w-[180px]">
+                  <Tabs
+                    value={activeCodeTab}
+                    onValueChange={(v: any) => setActiveCodeTab(v)}
+                    className="w-[180px]"
+                  >
                     <TabsList className="grid w-full grid-cols-2">
-                      <TabsTrigger value="original" className="text-xs">Original</TabsTrigger>
-                      <TabsTrigger value="base" className="text-xs">Base</TabsTrigger>
+                      <TabsTrigger value="original" className="text-xs">
+                        Original
+                      </TabsTrigger>
+                      <TabsTrigger value="base" className="text-xs">
+                        shadcn 
+                      </TabsTrigger>
                     </TabsList>
                   </Tabs>
                 )}
               </div>
               {(componentCodeOriginal || componentCodeBase) && (
-                <CodeBlock showLineNumbers title={activeCodeTab === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
-                  {activeCodeTab === 'base' ? componentCodeBase : componentCodeOriginal}
+                <CodeBlock
+                  showLineNumbers
+                  title={
+                    activeCodeTab === 'base'
+                      ? `${item.slug}-base.tsx`
+                      : `${item.slug}.tsx`
+                  }
+                >
+                  {activeCodeTab === 'base'
+                    ? componentCodeBase
+                    : componentCodeOriginal}
                 </CodeBlock>
               )}
             </section>
@@ -246,21 +308,24 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
         className="bg-background flex h-[90vh] w-[90vw] max-w-none flex-row gap-0 overflow-hidden rounded-2xl border p-0 sm:max-w-none"
       >
         <DialogTitle className="sr-only">{item.name}</DialogTitle>
-        <DialogDescription className="sr-only">{item.description}</DialogDescription>
+        <DialogDescription className="sr-only">
+          {item.description}
+        </DialogDescription>
 
         {/* ── Left Panel: Docs ─────────────────────────────────────────────── */}
         <div className="relative flex h-full w-[38%] flex-col border-r">
-
           {/* Sticky Header */}
           <div className="shrink-0 border-b px-6 py-4">
-            <div className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
+            <div className="text-muted-foreground mb-1 flex items-center gap-1 text-xs">
               <span>Components</span>
               <span>/</span>
               <span className="capitalize">{item.category}</span>
             </div>
             <div className="flex items-start justify-between gap-3">
-              <h2 className="text-lg font-semibold tracking-tight leading-snug">{item.name}</h2>
-              <div className="flex items-center gap-2 shrink-0 pt-0.5">
+              <h2 className="text-lg leading-snug font-semibold tracking-tight">
+                {item.name}
+              </h2>
+              <div className="flex shrink-0 items-center gap-2 pt-0.5">
                 {item.componentNumber && (
                   <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs font-medium">
                     {item.componentNumber}
@@ -270,7 +335,7 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
                   to={`/animated-components/${item.slug}`}
                   onClick={onClose}
                   aria-label={`Open ${item.name} full page`}
-                  className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-xs hover:underline hover:underline-offset-2 transition-colors"
+                  className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-xs transition-colors hover:underline hover:underline-offset-2"
                 >
                   Full page
                   <HugeiconsIcon icon={ArrowUpRight01FreeIcons} size={12} />
@@ -280,22 +345,33 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
           </div>
 
           {/* Scrollable Body */}
-          <div className="flex-1 overflow-y-auto divide-y">
-
+          <div className="flex-1 divide-y overflow-y-auto">
             {/* Description */}
             <div className="px-6 py-4">
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {item.description}
+              </p>
             </div>
 
             {/* Dependencies */}
             {item.dependencies && item.dependencies.length > 0 && (
-              <div className="px-6 py-4 space-y-2">
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
+              <div className="space-y-2 px-6 py-4">
+                <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                  Dependencies
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {item.dependencies.map((dep) => (
-                    <span key={dep} className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] flex items-center gap-1.5 px-3 py-1 text-sm">
+                    <span
+                      key={dep}
+                      className="flex items-center gap-1.5 rounded-lg bg-gray-100 px-3 py-1 text-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:bg-neutral-800 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)]"
+                    >
                       {dep}
-                      <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
+                      <img
+                        src="/brand/npm-icon.png"
+                        alt="npm"
+                        width={10}
+                        height={10}
+                      />
                     </span>
                   ))}
                 </div>
@@ -304,14 +380,16 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
 
             {/* Inspired By */}
             {item.inspiredByName && (
-              <div className="px-6 py-3 flex items-end gap-2">
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Inspired by</span>
+              <div className="flex items-baseline gap-1.5 px-6 py-3">
+                <span className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                  Inspired by
+                </span>
                 {item.inspiredByLink ? (
                   <a
                     href={item.inspiredByLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base hover:text-foreground transition-colors"
+                    className="hover:text-foreground relative text-sm transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
                   >
                     {item.inspiredByName}
                   </a>
@@ -322,8 +400,10 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             )}
 
             {/* Copy for AI */}
-            <div className="px-6 py-4 space-y-3 min-w-0">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
+            <div className="min-w-0 space-y-3 px-6 py-4">
+              <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                Copy for AI
+              </p>
               <PromptItems
                 files={componentFiles}
                 dependencies={item.dependencies || []}
@@ -335,56 +415,106 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             </div>
 
             {/* Installation */}
-            <div className="px-6 py-4 space-y-3 min-w-0">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
+            <div className="min-w-0 space-y-3 px-6 py-4">
+              <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                Installation
+              </p>
               <Tabs defaultValue="cli" className="w-full">
-                <TabsList className='bg-gray-100 dark:bg-neutral-800'>
-                  <TabsTrigger className='text-sm font-normal! h-full' value="cli">CLI</TabsTrigger>
-                  <TabsTrigger className='text-sm font-normal! h-full' value="manual">Manual</TabsTrigger>
+                <TabsList className="bg-gray-100 dark:bg-neutral-800">
+                  <TabsTrigger
+                    className="h-full text-sm font-normal!"
+                    value="cli"
+                  >
+                    CLI
+                  </TabsTrigger>
+                  <TabsTrigger
+                    className="h-full text-sm font-normal!"
+                    value="manual"
+                  >
+                    Manual
+                  </TabsTrigger>
                 </TabsList>
                 <TabsContents>
-                  <TabsContent value="cli" className="data-[state=inactive]:hidden space-y-4 pt-3">
+                  <TabsContent
+                    value="cli"
+                    className="space-y-4 pt-3 data-[state=inactive]:hidden"
+                  >
                     <LayoutGroup id={layoutGroupId}>
                       <InstallationCmd
                         activeCodeTab={activeCodeTab}
                         activePackageManager={activePackageManager}
                         setActivePackageManager={setActivePackageManager}
                         item={item}
-                        trackingContext={{ component_slug: item.slug, component_name: item.name, category: item.category, source: 'modal' }}
+                        trackingContext={{
+                          component_slug: item.slug,
+                          component_name: item.name,
+                          category: item.category,
+                          source: 'modal',
+                        }}
                       />
                     </LayoutGroup>
                     <div className="space-y-2">
-                      <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-                      {demoCode && <CodeBlock language="tsx" title="demo.tsx">{demoCode}</CodeBlock>}
+                      <p className="text-muted-foreground text-xs">
+                        Update the import path to match your project structure
+                      </p>
+                      {demoCode && (
+                        <CodeBlock language="tsx" title="demo.tsx">
+                          {demoCode}
+                        </CodeBlock>
+                      )}
                     </div>
                   </TabsContent>
-                  <TabsContent value="manual" className="data-[state=inactive]:hidden space-y-4 pt-3">
+                  <TabsContent
+                    value="manual"
+                    className="space-y-4 pt-3 data-[state=inactive]:hidden"
+                  >
                     <ManualInstallationCmd
                       activePackageManager={activePackageManager}
                       setActivePackageManager={setActivePackageManager}
                       dependencies={item.dependencies}
-                      trackingContext={{ component_slug: item.slug, component_name: item.name, category: item.category, source: 'modal' }}
+                      trackingContext={{
+                        component_slug: item.slug,
+                        component_name: item.name,
+                        category: item.category,
+                        source: 'modal',
+                      }}
                     />
                     {(componentCodeOriginal || componentCodeBase) && (
-                      <CodeBlock showLineNumbers title={activeCodeTab === 'base' ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
-                        {activeCodeTab === 'base' ? componentCodeBase : componentCodeOriginal}
+                      <CodeBlock
+                        showLineNumbers
+                        title={
+                          activeCodeTab === 'base'
+                            ? `${item.slug}-base.tsx`
+                            : `${item.slug}.tsx`
+                        }
+                      >
+                        {activeCodeTab === 'base'
+                          ? componentCodeBase
+                          : componentCodeOriginal}
                       </CodeBlock>
                     )}
                     <div className="space-y-2">
-                      <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-                      {demoCode && <CodeBlock language="tsx" title="demo.tsx">{demoCode}</CodeBlock>}
+                      <p className="text-muted-foreground text-xs">
+                        Update the import path to match your project structure
+                      </p>
+                      {demoCode && (
+                        <CodeBlock language="tsx" title="demo.tsx">
+                          {demoCode}
+                        </CodeBlock>
+                      )}
                     </div>
                   </TabsContent>
                 </TabsContents>
               </Tabs>
             </div>
-
           </div>
         </div>
 
         {/* ── Right Panel: Preview & Code ──────────────────────────────────── */}
-        <Tabs defaultValue="preview" className="flex h-full min-w-0 flex-1 flex-col overflow-hidden">
-
+        <Tabs
+          defaultValue="preview"
+          className="flex h-full min-w-0 flex-1 flex-col overflow-hidden"
+        >
           {/* Toolbar */}
           <div className="relative flex shrink-0 items-center justify-between border-b px-4 py-2">
             <TabsList>
@@ -420,41 +550,61 @@ export function ComponentModal({ item, onClose }: ComponentModalProps) {
             <div className="flex items-center gap-2 pr-8">
               <ThemeToggle />
               <button
-                className="size-7 md:size-9 bg-gray-100 dark:bg-neutral-800 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] flex items-center justify-center hover:bg-accent transition-colors"
+                className="hover:bg-accent flex size-7 items-center justify-center rounded-xl bg-gray-100 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] transition-colors md:size-9 dark:bg-neutral-800 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)]"
                 onClick={handleReload}
                 aria-label="Reload component preview"
               >
+                
                 <HugeiconsIcon icon={ReloadIcon} size={16} />
               </button>
+              <DialogClose  />
             </div>
           </div>
 
           {/* Content */}
           <div className="relative flex-1 overflow-hidden">
             <TabsContents mode="layout" className="h-full">
-
-              <TabsContent value="preview" className="absolute inset-0 overflow-hidden border-none shadow-none data-[state=inactive]:hidden">
+              <TabsContent
+                value="preview"
+                className="absolute inset-0 overflow-hidden border-none shadow-none data-[state=inactive]:hidden"
+              >
                 <div className="from-muted/50 flex h-full items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] via-transparent to-transparent p-10">
                   <ActiveComponent key={`${reloadKey}-${activeCodeTab}`} />
                 </div>
               </TabsContent>
 
-              <TabsContent value="code" className="absolute inset-0 data-[state=inactive]:hidden">
+              <TabsContent
+                value="code"
+                className="absolute inset-0 data-[state=inactive]:hidden"
+              >
                 <div className="h-full space-y-6 overflow-y-auto p-4">
                   {(componentCodeOriginal || componentCodeBase) && (
-                    <CodeBlock showLineNumbers title={activeCodeTab === 'base' && item.hasVariants ? `${item.slug}-base.tsx` : `${item.slug}.tsx`}>
-                      {activeCodeTab === 'base' ? componentCodeBase : componentCodeOriginal}
+                    <CodeBlock
+                      showLineNumbers
+                      title={
+                        activeCodeTab === 'base' && item.hasVariants
+                          ? `${item.slug}-base.tsx`
+                          : `${item.slug}.tsx`
+                      }
+                    >
+                      {activeCodeTab === 'base'
+                        ? componentCodeBase
+                        : componentCodeOriginal}
                     </CodeBlock>
                   )}
-                  {demoCode && <CodeBlock language="tsx" title="demo.tsx">{demoCode}</CodeBlock>}
-                  <p className="text-muted-foreground text-xs">Update the import path to match your project structure</p>
+                  {demoCode && (
+                    <CodeBlock language="tsx" title="demo.tsx">
+                      {demoCode}
+                    </CodeBlock>
+                  )}
+                  <p className="text-muted-foreground text-xs">
+                    Update the import path to match your project structure
+                  </p>
                 </div>
               </TabsContent>
-
             </TabsContents>
           </div>
         </Tabs>
-
       </DialogContent>
     </Dialog>
   );
