@@ -125,7 +125,7 @@ export default function AnimatedComponentPage() {
               <span className="text-foreground font-medium">{item.name}</span>
             </div>
 
-            <div className="mb-2 flex items-center justify-between mt-4">
+            <div className="mt-4 mb-2 flex items-center justify-between">
               <h1 className="text-xl font-semibold">{item.name}</h1>
               <div className="flex items-center gap-2">
                 <button
@@ -368,13 +368,15 @@ export default function AnimatedComponentPage() {
             <ScrollFadeEffect>
               {/* ── Title row ── */}
               <div className="shrink-0 border-b px-6 py-5">
-                <div className="mb-1.5 flex items-center gap-1 text-xs text-muted-foreground">
+                <div className="text-muted-foreground mb-1.5 flex items-center gap-1 text-xs">
                   <span className="capitalize">{item.category}</span>
                 </div>
                 <div className="flex items-start justify-between gap-4">
-                  <h1 className="text-2xl font-semibold tracking-tight leading-snug">{item.name}</h1>
+                  <h1 className="text-2xl leading-snug font-semibold tracking-tight">
+                    {item.name}
+                  </h1>
                   {item.componentNumber && (
-                    <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs font-medium border shrink-0 mt-0.5">
+                    <span className="bg-muted text-muted-foreground mt-0.5 shrink-0 rounded border px-2 py-0.5 text-xs font-medium">
                       {item.componentNumber}
                     </span>
                   )}
@@ -383,26 +385,32 @@ export default function AnimatedComponentPage() {
 
               {/* ── Divider-based sections ── */}
               <div className="divide-y">
-
                 {/* Description */}
                 <div className="px-6 py-4">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Dependencies */}
                 {item.dependencies && item.dependencies.length > 0 && (
-                  <div className="px-6 py-4 space-y-2">
-                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Dependencies</p>
+                  <div className="space-y-2 px-6 py-4">
+                    <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                      Dependencies
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {item.dependencies.map((dep) => (
                         <span
                           key={dep}
-                          className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1)] flex items-center gap-1.5 px-3 py-1 text-sm"
+                          className="flex items-center gap-1.5 rounded-lg bg-gray-100 px-3 py-1 text-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08)] dark:bg-neutral-800 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1)]"
                         >
                           {dep}
-                          <img src="/brand/npm-icon.png" alt="npm" width={10} height={10} />
+                          <img
+                            src="/brand/npm-icon.png"
+                            alt="npm"
+                            width={10}
+                            height={10}
+                          />
                         </span>
                       ))}
                     </div>
@@ -411,31 +419,30 @@ export default function AnimatedComponentPage() {
 
                 {/* Inspired By */}
                 {item.inspiredByName && (
-                  <div className="group/inspired-by px-6 py-4 flex items-end gap-2">
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Inspired by</span>
+                  <div className="flex items-baseline gap-1.5 px-6 py-3">
+                    <span className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                      Inspired by
+                    </span>
                     {item.inspiredByLink ? (
                       <a
                         href={item.inspiredByLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-foreground inline-flex items-center text-base hover:text-foreground transition-colors"
+                        className="hover:text-foreground relative text-sm transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
                       >
                         {item.inspiredByName}
-                        <HugeiconsIcon
-                          icon={ArrowUpRight01FreeIcons}
-                          size={14}
-                          className="-translate-x-5 opacity-0 transition group-hover/inspired-by:translate-x-1 group-hover/inspired-by:opacity-100"
-                        />
                       </a>
                     ) : (
-                      <span className="text-base">{item.inspiredByName}</span>
+                      <span className="text-sm">{item.inspiredByName}</span>
                     )}
                   </div>
                 )}
 
                 {/* Copy for AI */}
-                <div className="px-6 py-4 space-y-3">
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Copy for AI</p>
+                <div className="space-y-3 px-6 py-4">
+                  <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                    Copy for AI
+                  </p>
                   <PromptItems
                     files={componentFiles}
                     dependencies={item.dependencies || []}
@@ -447,12 +454,24 @@ export default function AnimatedComponentPage() {
                 </div>
 
                 {/* Installation */}
-                <div className="px-6 py-4 space-y-4 pb-12">
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Installation</p>
+                <div className="space-y-4 px-6 py-4 pb-12">
+                  <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                    Installation
+                  </p>
                   <Tabs defaultValue="cli" className="w-full">
                     <TabsList className="bg-gray-100 dark:bg-neutral-800">
-                      <TabsTrigger className="text-sm font-normal! h-full" value="cli">CLI</TabsTrigger>
-                      <TabsTrigger className="text-sm font-normal! h-full" value="manual">Manual</TabsTrigger>
+                      <TabsTrigger
+                        className="h-full text-sm font-normal!"
+                        value="cli"
+                      >
+                        CLI
+                      </TabsTrigger>
+                      <TabsTrigger
+                        className="h-full text-sm font-normal!"
+                        value="manual"
+                      >
+                        Manual
+                      </TabsTrigger>
                     </TabsList>
                     <TabsContents>
                       <TabsContent value="cli" className="space-y-4 pt-3">
@@ -471,8 +490,13 @@ export default function AnimatedComponentPage() {
                           />
                         </LayoutGroup>
                         <div className="space-y-2">
-                          <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
-                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">How to use</p>
+                          <p className="text-muted-foreground text-xs">
+                            Update the import path to match your project
+                            structure
+                          </p>
+                          <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+                            How to use
+                          </p>
                           {demoCode && (
                             <CodeBlock language="tsx" title="demo.tsx">
                               {demoCode}
@@ -492,7 +516,7 @@ export default function AnimatedComponentPage() {
                             source: 'page',
                           }}
                         />
-                        {(componentCodeOriginal || componentCodeBase) ? (
+                        {componentCodeOriginal || componentCodeBase ? (
                           <div className="space-y-4">
                             <CodeBlock
                               showLineNumbers
@@ -507,7 +531,10 @@ export default function AnimatedComponentPage() {
                           </div>
                         ) : null}
                         <div className="space-y-2">
-                          <p className="text-xs text-muted-foreground">Update the import path to match your project structure</p>
+                          <p className="text-muted-foreground text-xs">
+                            Update the import path to match your project
+                            structure
+                          </p>
                           {demoCode && (
                             <CodeBlock language="tsx" title="demo.tsx">
                               {demoCode}
@@ -518,7 +545,6 @@ export default function AnimatedComponentPage() {
                     </TabsContents>
                   </Tabs>
                 </div>
-
               </div>
             </ScrollFadeEffect>
           </div>
@@ -548,7 +574,7 @@ export default function AnimatedComponentPage() {
                           : 'text-muted-foreground hover:text-foreground'
                       }`}
                     >
-                      Base
+                      Custom Theme
                     </button>
                   </div>
                 )}
