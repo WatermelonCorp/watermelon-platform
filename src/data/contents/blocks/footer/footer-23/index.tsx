@@ -4,10 +4,6 @@ import { type FormEvent } from 'react';
 import { motion, type Variants } from 'motion/react';
 import {
   ArrowRight,
-  MessageSquare,
-  Settings,
-  Moon,
-  ChevronDown,
 } from 'lucide-react';
 import LogoIcon from '@/assets/logo-icon';
 
@@ -159,13 +155,6 @@ const wordmarkSlam: Variants = {
 };
 
 
-const utilityFade: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-};
 
 
 export default function Footer23({
@@ -182,7 +171,6 @@ export default function Footer23({
   subscribeLabel = 'Subscribe',
   onSubscribe,
   columns = defaultColumns,
-  language = 'English',
 }: Footer23Props) {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
