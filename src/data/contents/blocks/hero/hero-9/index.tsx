@@ -169,7 +169,7 @@ export function Hero9({
           <motion.a
             href={ctaHref}
             whileTap={{ scale: 0.96 }}
-            className="group hidden min-h-10 items-center gap-2 rounded-full bg-white/92 px-5 text-[13px] leading-none font-medium text-slate-950 shadow-[0_1px_2px_rgba(15,23,42,0.08),0_12px_30px_rgba(255,255,255,0.18)] backdrop-blur-md transition-[background-color,box-shadow,transform] duration-200 ease-out hover:bg-white hover:shadow-[0_2px_4px_rgba(15,23,42,0.1),0_16px_36px_rgba(255,255,255,0.26)] sm:inline-flex"
+            className="group hidden min-h-10 items-center gap-2 rounded-full bg-white/92 px-5 text-sm leading-none font-medium text-slate-950 shadow-[0_1px_2px_rgba(15,23,42,0.08),0_12px_30px_rgba(255,255,255,0.18)] backdrop-blur-md transition-[background-color,box-shadow,transform] duration-200 ease-out hover:bg-white hover:shadow-[0_2px_4px_rgba(15,23,42,0.1),0_16px_36px_rgba(255,255,255,0.26)] sm:inline-flex"
           >
             <span>{ctaText}</span>
             <FaArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
