@@ -1,395 +1,185 @@
-"use client";
+import { useState } from "react";
+import { motion } from "motion/react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon, ArrowDown01Icon, Menu01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
+import { Button } from "@/components/ui/button";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-/* ─────────────────────────────────────────────────────────────
-   Hero1 — Premium full-screen hero with bottom-left background
-   grid image, large left-aligned headline, interactive pill CTA,
-   and clean responsive design.
-
-   Usage (UI Library template):
-   ─────────────────────────────────────────────────────────────
-   <Hero1
-     brand="Aurevia"
-     navLinks={[
-       { label: "Products", href: "#", active: true },
-       { label: "About",    href: "#" },
-       { label: "Features", href: "#" },
-       { label: "Support",  href: "#" },
-     ]}
-     headline={<>The goal's the focus,<br />time's the marker.</>}
-     ctaLabel="Let's Move Forward Today"
-     ctaHref="#"
-     description="Advanced wind turbines that take energy production to new heights."
-     socialLinks={[
-       { label: "Linkedin",  href: "#" },
-       { label: "Instagram", href: "#" },
-       { label: "Behance",   href: "#" },
-     ]}
-   />
-   ───────────────────────────────────────────────────────────── */
-
-export interface NavLink {
-    label: string;
-    href: string;
-    active?: boolean;
+interface Hero27Props {
+  titleLine1?: string;
+  titleLine2?: string;
+  subtitle?: string;
+  primaryActionText?: string;
+  secondaryActionText?: string;
+  backgroundImage?: string;
 }
 
-export interface SocialLink {
-    label: string;
-    href: string;
-}
+export default function Hero27({
+  titleLine1 = "Unlock The Extraordinary",
+  titleLine2 = "Power Of Experiences",
+  subtitle = "Elevate the way people interact with your brand. Launch and scale experiential with Way.",
+  primaryActionText = "Book Tickets",
+  secondaryActionText = "Our Exhibitions",
+  backgroundImage = "https://assets.watermelon.sh/hero-27.avif",
+}: Hero27Props) {
+  const [activeTab, setActiveTab] = useState("Home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navItems = ["Home", "Products", "About", "Features", "Support"];
 
-export interface Hero1Props {
-    /** Brand / logo name shown top-left */
-    brand?: React.ReactNode;
-    /** Navigation links rendered in the center of the navbar */
-    navLinks?: NavLink[];
-    /** Main headline — can be a string or JSX (e.g. with <br />) */
-    headline?: React.ReactNode;
-    /** CTA button label */
-    ctaLabel?: string;
-    /** CTA button href */
-    ctaHref?: string;
-    /** Small description text at the bottom-left */
-    description?: string;
-    /** Social links rendered at the bottom-right */
-    socialLinks?: SocialLink[];
-    /** Sign-in / auth button label */
-    signInLabel?: string;
-    /** Sign-in href */
-    signInHref?: string;
-    /** Callback for when a nav link is clicked */
-    onNavLinkClick?: (link: NavLink) => void;
-    /** Additional wrapper CSS classes */
-    className?: string;
-}
+  return (
+    <section className="relative flex min-h-dvh w-full flex-col overflow-hidden bg-[#88B0D3]">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      />
 
-const DEFAULT_NAV: NavLink[] = [
-    { label: "Products", href: "#", active: true },
-    { label: "About", href: "#" },
-    { label: "Features", href: "#" },
-    { label: "Support", href: "#" },
-];
+      {/* Header / Navigation */}
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-50 flex w-full items-center justify-between px-6 py-6 md:px-10 lg:px-12"
+      >
+        {/* Logo */}
+        <div className="flex items-center gap-2 text-white">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
+          </svg>
+          <span className="text-xl font-medium tracking-tight sm:text-2xl">Melon</span>
+        </div>
 
-const DEFAULT_SOCIAL: SocialLink[] = [
-    { label: "Linkedin", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "Behance", href: "#" },
-];
-
-export default function Hero1({
-    brand = "Watermelon",
-    navLinks = DEFAULT_NAV,
-    headline = (
-        <>
-            The goal&apos;s the focus,
-            <br />
-            time&apos;s the marker.
-        </>
-    ),
-    ctaLabel = "Let's Move Forward Today",
-    ctaHref = "#",
-    description = "Advanced wind turbines that take energy\n production to new heights.",
-    socialLinks = DEFAULT_SOCIAL,
-    signInLabel = "Sign in",
-    signInHref = "#",
-    onNavLinkClick,
-    className,
-}: Hero1Props) {
-    const [links, setLinks] = useState<NavLink[]>(navLinks);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    const handleNavLinkClick = (clickedLink: NavLink, e: React.MouseEvent) => {
-        // Avoid default navigation behavior for smooth demo purposes if needed
-        if (onNavLinkClick) {
-            e.preventDefault();
-            onNavLinkClick(clickedLink);
-        }
-        setLinks(
-            links.map((link) => ({
-                ...link,
-                active: link.label === clickedLink.label,
-            }))
-        );
-        setIsMobileMenuOpen(false);
-    };
-
-    // Stagger variants for content entrance animation
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.1,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 24 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any },
-        },
-    };
-
-    const backgroundVariants = {
-        hidden: { opacity: 0, scale: 1.05 },
-        visible: {
-            opacity: 0.9,
-            scale: 1,
-            transition: { duration: 1.2, ease: "easeOut" as any },
-        },
-    };
-
-    return (
-        <section
-            className={cn(
-                "relative w-full min-h-screen flex flex-col justify-between overflow-hidden text-white selection:bg-white selection:text-black",
-                className
-            )}
-            style={{ backgroundColor: "#06060c" }}
-        >
-            {/* ── Background Grid Image ── */}
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={backgroundVariants}
-                className="absolute bottom-0 left-0 w-full sm:w-[85%] md:w-[65%] h-[80%] md:h-[75%] pointer-events-none select-none z-0 overflow-hidden"
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1 lg:flex lg:gap-2">
+          {navItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => setActiveTab(item)}
+              className={`relative rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
+                activeTab === item ? "text-neutral-950" : "text-white hover:text-white/80"
+              }`}
             >
-                <img
-                    src={"https://assets.watermelon.sh/hero-1.avif"}
-                    alt="Purple grid structure background"
-                    className="absolute inset-0 h-full w-full object-cover object-bottom-left opacity-90"
-                />
-                {/* Radial fade — top & right edges blend into the dark bg */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background:
-                            "radial-gradient(ellipse 80% 70% at 20% 80%, transparent 40%, #06060c 85%)",
-                    }}
-                />
-            </motion.div>
-
-            {/* ── Header / Navbar ── */}
-            <motion.header
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12 lg:px-20"
-            >
-                {/* Brand Logo */}
-                <a href="/" className="flex items-center gap-1 group">
-                    {typeof brand === "string" ? (
-                        <span className="relative text-white font-semibold text-lg tracking-tight select-none">
-                            {brand}
-                            <span className="absolute -top-1 -right-2 text-xs text-white select-none">
-                                •
-                            </span>
-                        </span>
-                    ) : (
-                        brand
-                    )}
-                </a>
-
-                {/* Desktop Navigation Links */}
-                <nav className="hidden md:block">
-                    <ul className="flex items-center gap-12 lg:gap-16">
-                        {links.map((link) => (
-                            <li key={link.label} className="relative py-1">
-                                <a
-                                    href={link.href}
-                                    onClick={(e) => handleNavLinkClick(link, e)}
-                                    className={cn(
-                                        "text-base font-medium transition-colors duration-300 relative px-0.5 tracking-wide",
-                                        link.active
-                                            ? "text-white"
-                                            : "text-white/60 hover:text-white"
-                                    )}
-                                >
-                                    {link.label}
-                                    {link.active && (
-                                        <motion.span
-                                            layoutId="activeUnderline"
-                                            className="absolute left-0 right-0 bottom-[-4px] h-[1.5px] bg-white"
-                                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                        />
-                                    )}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-
-                {/* Desktop Sign in button */}
-                <div className="hidden md:block ml-4">
-                    <a
-                        href={signInHref}
-                        className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-white text-white text-base font-medium bg-transparent hover:border-white/50 hover:bg-white/5 transition-all duration-300"
-                    >
-                        {signInLabel}
-                    </a>
-                </div>
-
-                {/* Mobile Hamburger Menu Button */}
-                <button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-colors z-50 relative"
-                    aria-label="Toggle navigation menu"
-                >
-                    <div className="w-4 h-4 flex flex-col justify-between items-center relative">
-                        <span
-                            className={cn(
-                                "w-full h-[1.5px] bg-white transition-all duration-300 absolute left-0",
-                                isMobileMenuOpen ? "rotate-45 top-[7px]" : "top-[2px]"
-                            )}
-                        />
-                        <span
-                            className={cn(
-                                "w-full h-[1.5px] bg-white transition-all duration-300 absolute left-0 top-[7px]",
-                                isMobileMenuOpen && "opacity-0"
-                            )}
-                        />
-                        <span
-                            className={cn(
-                                "w-full h-[1.5px] bg-white transition-all duration-300 absolute left-0",
-                                isMobileMenuOpen ? "-rotate-45 top-[7px]" : "top-[12px]"
-                            )}
-                        />
-                    </div>
-                </button>
-            </motion.header>
-
-            {/* ── Mobile Navigation Drawer ── */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="fixed inset-0 bg-[#06060c]/98 backdrop-blur-md z-40 flex flex-col justify-between px-6 py-24 md:hidden"
-                    >
-                        {/* Nav links stack */}
-                        <nav className="flex flex-col gap-6 mt-8">
-                            {links.map((link, idx) => (
-                                <motion.div
-                                    key={link.label}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: idx * 0.05 }}
-                                >
-                                    <a
-                                        href={link.href}
-                                        onClick={(e) => handleNavLinkClick(link, e)}
-                                        className={cn(
-                                            "text-3xl font-semibold transition-colors duration-200 block",
-                                            link.active ? "text-white" : "text-white/50"
-                                        )}
-                                    >
-                                        {link.label}
-                                    </a>
-                                </motion.div>
-                            ))}
-                        </nav>
-
-                        {/* Bottom buttons & info */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.25 }}
-                            className="flex flex-col gap-6"
-                        >
-                            <a
-                                href={signInHref}
-                                className="w-full py-3.5 rounded-full border border-white/20 text-white text-center text-base font-medium bg-white/5 hover:bg-white/10 transition-colors"
-                            >
-                                {signInLabel}
-                            </a>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* ── Main Hero Content Area ── */}
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="relative z-10 flex-1 flex flex-col justify-between px-6 pt-12 pb-10 md:px-12 lg:px-20 md:pt-16 md:pb-12"
-            >
-                {/* Top Section: Headline & CTA Button */}
-                <div className="flex flex-col gap-8 md:gap-10 max-w-[850px] mt-[5vh]">
-                    {/* Main Headline */}
-                    <motion.h1
-                        variants={itemVariants}
-                        className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.08] tracking-[-0.04em] text-white"
-                    >
-                        {headline}
-                    </motion.h1>
-
-                    {/* CTA Pill Button with Hover Micro-animations */}
-                    <motion.div variants={itemVariants} className="w-fit">
-                        <a
-                            href={ctaHref}
-                            className="inline-flex w-fit items-center gap-4 bg-white text-black font-medium text-sm p-1 pl-4 rounded-lg hover:bg-white/90 transition-all duration-300 shadow-[0_4px_16px_rgba(255,255,255,0.06)] group"
-                        >
-                            <span>{ctaLabel}</span>
-                            <span className="w-8 h-8 rounded-md bg-black flex items-center justify-center shrink-0 overflow-hidden relative">
-                                {/* Arrow up-right with custom sliding movement on hover */}
-                                <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 ease-out group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />
-                            </span>
-                        </a>
-                    </motion.div>
-                </div>
-
-                {/* Bottom Section: Description & Controls */}
+              {activeTab === item && (
                 <motion.div
-                    variants={itemVariants}
-                    className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 lg:gap-10 mt-auto pt-16 w-full relative"
-                >
-                    {/* Top Row / Left Column: Muted Description paragraph */}
-                    <div className="md:max-w-3xl">
-                        <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed font-normal whitespace-pre-line">
-                            {description}
-                        </p>
-                    </div>
+                  layoutId="activeTabIndicatorHero27"
+                  className="absolute inset-0 -z-10 rounded-full bg-white shadow-sm"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              {item}
+            </button>
+          ))}
+        </nav>
 
-                    {/* Bottom Row / Center & Right Columns */}
-                    <div className="flex flex-col md:flex-row md:items-end justify-between lg:justify-end gap-10 pb-1 w-full lg:w-auto">
-                        {/* Premium Social Links (Left on tablet, Right on Desktop) */}
-                        <div className="flex items-center gap-6 lg:gap-12 order-1 lg:order-2">
-                            {socialLinks.map((social) => (
-                                <a
-                                    key={social.label}
-                                    href={social.href}
-                                    className="text-white text-base lg:text-lg hover:text-white/80 transition-colors duration-250 tracking-wide"
-                                >
-                                    {social.label}
-                                </a>
-                            ))}
-                        </div>
+        {/* Right Actions */}
+        <div className="flex items-center gap-4">
+          <Button className="hidden h-10 rounded-full bg-white px-6 text-sm font-medium text-neutral-950 transition-all hover:bg-neutral-100 md:flex">
+            Sign up
+          </Button>
 
-                        {/* Floating scroll indicator (Right on tablet, Center on Desktop) */}
-                        <div className="hidden md:flex items-center gap-3 text-white text-sm lg:text-base tracking-wide order-2 lg:order-1 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:bottom-1">
-                            <span>Scroll to Discover</span>
-                            <motion.span
-                                animate={{ y: [0, 4, 0] }}
-                                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-                            >
-                                <ArrowDown className="w-4 h-4 text-white" strokeWidth={1.5} />
-                            </motion.span>
-                        </div>
-                    </div>
-                </motion.div>
-            </motion.div>
-        </section>
-    );
+          <div className="hidden cursor-pointer items-center gap-1.5 text-sm font-medium text-white transition-opacity hover:opacity-80 md:flex">
+            <span className="text-base leading-none">🇬🇧</span>
+            <span>EN</span>
+            <HugeiconsIcon icon={ArrowDown01Icon} className="size-4" />
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex size-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
+          >
+            <HugeiconsIcon icon={isMobileMenuOpen ? Cancel01Icon : Menu01Icon} className="size-6" />
+          </button>
+        </div>
+
+        {/* Mobile Navigation Dropdown */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute left-0 top-full mt-2 w-full px-4 lg:hidden"
+          >
+            <div className="overflow-hidden rounded-2xl bg-white/95 shadow-xl backdrop-blur-md">
+              <nav className="flex flex-col p-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => {
+                      setActiveTab(item);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`rounded-xl px-4 py-3 text-left text-base font-medium transition-colors ${
+                      activeTab === item
+                        ? "bg-neutral-100 text-neutral-950"
+                        : "text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900"
+                    }`}
+                  >
+                    {item}
+                  </button>
+                ))}
+                <div className="mt-4 border-t border-neutral-100 pt-4 md:hidden">
+                  <Button className="h-12 w-full rounded-full bg-neutral-950 text-base font-medium text-white hover:bg-neutral-800">
+                    Sign up
+                  </Button>
+                </div>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </motion.header>
+
+      {/* Main Content */}
+      <div className="container relative z-10 mt-10 flex flex-1 flex-col items-center justify-center px-4 pb-32 text-center sm:mt-16 md:mt-0 lg:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="mx-auto flex w-full max-w-4xl flex-col items-center"
+        >
+          {/* Title */}
+          <h1 className="mb-6 flex w-full flex-col items-center text-white">
+            <span className="text-center text-[44px] font-medium leading-[1.1] tracking-tight sm:text-6xl md:text-7xl lg:text-[84px] lg:whitespace-nowrap">
+              {titleLine1}
+            </span>
+            <span className="mt-1 text-center font-serif text-[46px] italic leading-[1.1] tracking-tight sm:text-6xl md:text-7xl lg:text-[84px] lg:whitespace-nowrap">
+              {titleLine2}
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mx-auto mb-10 max-w-[600px] text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
+            {subtitle}
+          </p>
+
+          {/* Actions */}
+          <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
+            <Button
+              size="lg"
+              className="h-14 rounded-full bg-[#1A1A1A] px-8 text-base font-medium text-white transition-all hover:bg-black"
+            >
+              {primaryActionText}
+            </Button>
+
+            <button className="group flex items-center gap-2 text-base font-medium text-neutral-900 transition-opacity hover:opacity-70">
+              {secondaryActionText}
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                className="size-5 transition-transform group-hover:translate-x-1"
+              />
+            </button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+        className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-neutral-900"
+      >
+        <span className="text-sm font-medium tracking-wide">Scroll to Discover</span>
+        <HugeiconsIcon icon={ArrowDown01Icon} className="size-4" />
+      </motion.div>
+    </section>
+  );
 }

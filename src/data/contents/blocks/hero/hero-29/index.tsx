@@ -1,395 +1,184 @@
-"use client";
+import { useState } from "react";
+import { motion } from "motion/react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon, Menu01Icon, Cancel01Icon, StarIcon } from "@hugeicons/core-free-icons";
+import { Button } from "@/components/ui/button";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-/* ─────────────────────────────────────────────────────────────
-   Hero1 — Premium full-screen hero with bottom-left background
-   grid image, large left-aligned headline, interactive pill CTA,
-   and clean responsive design.
-
-   Usage (UI Library template):
-   ─────────────────────────────────────────────────────────────
-   <Hero1
-     brand="Aurevia"
-     navLinks={[
-       { label: "Products", href: "#", active: true },
-       { label: "About",    href: "#" },
-       { label: "Features", href: "#" },
-       { label: "Support",  href: "#" },
-     ]}
-     headline={<>The goal's the focus,<br />time's the marker.</>}
-     ctaLabel="Let's Move Forward Today"
-     ctaHref="#"
-     description="Advanced wind turbines that take energy production to new heights."
-     socialLinks={[
-       { label: "Linkedin",  href: "#" },
-       { label: "Instagram", href: "#" },
-       { label: "Behance",   href: "#" },
-     ]}
-   />
-   ───────────────────────────────────────────────────────────── */
-
-export interface NavLink {
-    label: string;
-    href: string;
-    active?: boolean;
+interface Hero29Props {
+  title?: string;
+  ratingText?: string;
+  primaryActionText?: string;
+  consultationText?: string;
+  descriptionText?: string;
+  backgroundImage?: string;
+  avatarUrl?: string;
 }
 
-export interface SocialLink {
-    label: string;
-    href: string;
-}
+export default function Hero29({
+  title = "Shape the future by investing\nin professional advisory",
+  ratingText = "Over 200+ Rate Us",
+  primaryActionText = "Talk Strategy",
+  consultationText = "CALL US TODAY FOR FREE CONSULTATION",
+  descriptionText = "Gain clarity, reduce risk, and make confident decisions with expert guidance in finance, law, tax and strategy. Our team helps you turn complexity into opportunity.",
+  backgroundImage = "https://assets.watermelon.sh/hero-29.avif",
+  // Placeholder avatar using Unsplash
+  avatarUrl = "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64&q=80",
+}: Hero29Props) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navItems = [
+    { label: "Features", hasDropdown: true },
+    { label: "Company", hasDropdown: true },
+    { label: "Customers", hasDropdown: false },
+    { label: "Security", hasDropdown: false },
+  ];
 
-export interface Hero1Props {
-    /** Brand / logo name shown top-left */
-    brand?: React.ReactNode;
-    /** Navigation links rendered in the center of the navbar */
-    navLinks?: NavLink[];
-    /** Main headline — can be a string or JSX (e.g. with <br />) */
-    headline?: React.ReactNode;
-    /** CTA button label */
-    ctaLabel?: string;
-    /** CTA button href */
-    ctaHref?: string;
-    /** Small description text at the bottom-left */
-    description?: string;
-    /** Social links rendered at the bottom-right */
-    socialLinks?: SocialLink[];
-    /** Sign-in / auth button label */
-    signInLabel?: string;
-    /** Sign-in href */
-    signInHref?: string;
-    /** Callback for when a nav link is clicked */
-    onNavLinkClick?: (link: NavLink) => void;
-    /** Additional wrapper CSS classes */
-    className?: string;
-}
+  return (
+    <section className="relative flex min-h-dvh w-full flex-col overflow-hidden bg-neutral-900">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      />
+      
+      {/* Subtle overlay to ensure text legibility */}
+      <div className="absolute inset-0 z-0 bg-black/10" />
 
-const DEFAULT_NAV: NavLink[] = [
-    { label: "Products", href: "#", active: true },
-    { label: "About", href: "#" },
-    { label: "Features", href: "#" },
-    { label: "Support", href: "#" },
-];
+      {/* Header / Navigation */}
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-50 flex w-full items-center justify-between px-6 py-6 md:px-10 lg:px-12"
+      >
+        {/* Left: Logo */}
+        <div className="flex items-center gap-3 text-white">
+          <div className="flex size-6 items-center justify-center rounded-full border-[3.5px] border-white" />
+          <span className="font-serif text-3xl italic tracking-wide">Melon</span>
+        </div>
 
-const DEFAULT_SOCIAL: SocialLink[] = [
-    { label: "Linkedin", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "Behance", href: "#" },
-];
+        {/* Right: Nav & Actions */}
+        <div className="flex items-center gap-4 lg:gap-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-8 lg:flex">
+            {navItems.map((item) => (
+              <button
+                key={item.label}
+                className="flex items-center gap-1 text-[15px] font-normal text-white/90 transition-colors hover:text-white"
+              >
+                {item.label}
+                {item.hasDropdown && <HugeiconsIcon icon={ArrowDown01Icon} className="size-3.5 opacity-70" />}
+              </button>
+            ))}
+          </nav>
 
-export default function Hero1({
-    brand = "Watermelon",
-    navLinks = DEFAULT_NAV,
-    headline = (
-        <>
-            The goal&apos;s the focus,
-            <br />
-            time&apos;s the marker.
-        </>
-    ),
-    ctaLabel = "Let's Move Forward Today",
-    ctaHref = "#",
-    description = "Advanced wind turbines that take energy\n production to new heights.",
-    socialLinks = DEFAULT_SOCIAL,
-    signInLabel = "Sign in",
-    signInHref = "#",
-    onNavLinkClick,
-    className,
-}: Hero1Props) {
-    const [links, setLinks] = useState<NavLink[]>(navLinks);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+          {/* Actions & Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            <Button className="hidden h-10 rounded-full border border-white/40 bg-transparent px-8 text-sm font-medium text-white transition-colors hover:bg-white/10 lg:flex">
+              Contact
+            </Button>
 
-    const handleNavLinkClick = (clickedLink: NavLink, e: React.MouseEvent) => {
-        // Avoid default navigation behavior for smooth demo purposes if needed
-        if (onNavLinkClick) {
-            e.preventDefault();
-            onNavLinkClick(clickedLink);
-        }
-        setLinks(
-            links.map((link) => ({
-                ...link,
-                active: link.label === clickedLink.label,
-            }))
-        );
-        setIsMobileMenuOpen(false);
-    };
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex size-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
+            >
+              <HugeiconsIcon icon={isMobileMenuOpen ? Cancel01Icon : Menu01Icon} className="size-6" />
+            </button>
+          </div>
+        </div>
 
-    // Stagger variants for content entrance animation
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.1,
-            },
-        },
-    };
+        {/* Mobile Navigation Dropdown */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute left-0 top-full mt-2 w-full px-4 lg:hidden"
+          >
+            <div className="overflow-hidden rounded-2xl bg-black/90 shadow-xl backdrop-blur-md">
+              <nav className="flex flex-col p-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-white transition-colors hover:bg-white/10"
+                  >
+                    {item.label}
+                    {item.hasDropdown && <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 text-white/50" />}
+                  </button>
+                ))}
+                <div className="mt-4 border-t border-white/10 pt-4">
+                  <Button className="h-12 w-full rounded-full border border-white/40 bg-transparent text-base font-medium text-white hover:bg-white/10">
+                    Contact
+                  </Button>
+                </div>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </motion.header>
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 24 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any },
-        },
-    };
-
-    const backgroundVariants = {
-        hidden: { opacity: 0, scale: 1.05 },
-        visible: {
-            opacity: 0.9,
-            scale: 1,
-            transition: { duration: 1.2, ease: "easeOut" as any },
-        },
-    };
-
-    return (
-        <section
-            className={cn(
-                "relative w-full min-h-screen flex flex-col justify-between overflow-hidden text-white selection:bg-white selection:text-black",
-                className
-            )}
-            style={{ backgroundColor: "#06060c" }}
+      {/* Main Hero Content */}
+      <div className="container mx-auto relative z-10 flex flex-1 flex-col items-center justify-center px-4 pb-20 pt-10 text-center sm:pb-32 md:pt-0">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="mx-auto flex w-full max-w-5xl flex-col items-center"
         >
-            {/* ── Background Grid Image ── */}
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={backgroundVariants}
-                className="absolute bottom-0 left-0 w-full sm:w-[85%] md:w-[65%] h-[80%] md:h-[75%] pointer-events-none select-none z-0 overflow-hidden"
-            >
-                <img
-                    src={"https://assets.watermelon.sh/hero-1.avif"}
-                    alt="Purple grid structure background"
-                    className="absolute inset-0 h-full w-full object-cover object-bottom-left opacity-90"
-                />
-                {/* Radial fade — top & right edges blend into the dark bg */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background:
-                            "radial-gradient(ellipse 80% 70% at 20% 80%, transparent 40%, #06060c 85%)",
-                    }}
-                />
-            </motion.div>
+          {/* Star Rating */}
+          <div className="mb-5 flex flex-col items-center gap-1.5">
+            <div className="flex items-center gap-[2px] text-white">
+              {[...Array(5)].map((_, i) => (
+                <HugeiconsIcon key={i} icon={StarIcon} className="size-6 fill-current" />
+              ))}
+            </div>
+            <span className="font-normal tracking-wide text-white/90">
+              {ratingText}
+            </span>
+          </div>
 
-            {/* ── Header / Navbar ── */}
-            <motion.header
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12 lg:px-20"
-            >
-                {/* Brand Logo */}
-                <a href="/" className="flex items-center gap-1 group">
-                    {typeof brand === "string" ? (
-                        <span className="relative text-white font-semibold text-lg tracking-tight select-none">
-                            {brand}
-                            <span className="absolute -top-1 -right-2 text-xs text-white select-none">
-                                •
-                            </span>
-                        </span>
-                    ) : (
-                        brand
-                    )}
-                </a>
+          {/* Headline */}
+          <h1 className="mb-10 whitespace-pre-line text-4xl font-medium leading-[1.05] tracking-tighter text-white sm:text-[42px] md:text-[52px] lg:text-[60px] xl:text-[76px]">
+            {title}
+          </h1>
 
-                {/* Desktop Navigation Links */}
-                <nav className="hidden md:block">
-                    <ul className="flex items-center gap-12 lg:gap-16">
-                        {links.map((link) => (
-                            <li key={link.label} className="relative py-1">
-                                <a
-                                    href={link.href}
-                                    onClick={(e) => handleNavLinkClick(link, e)}
-                                    className={cn(
-                                        "text-base font-medium transition-colors duration-300 relative px-0.5 tracking-wide",
-                                        link.active
-                                            ? "text-white"
-                                            : "text-white/60 hover:text-white"
-                                    )}
-                                >
-                                    {link.label}
-                                    {link.active && (
-                                        <motion.span
-                                            layoutId="activeUnderline"
-                                            className="absolute left-0 right-0 bottom-[-4px] h-[1.5px] bg-white"
-                                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                        />
-                                    )}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
+          {/* Primary Action */}
+          <Button
+            size="lg"
+            className="h-14 rounded-full bg-white px-12 text-base font-medium text-neutral-900 transition-all hover:scale-105 hover:bg-neutral-100 hover:shadow-lg"
+          >
+            {primaryActionText}
+          </Button>
+        </motion.div>
+      </div>
 
-                {/* Desktop Sign in button */}
-                <div className="hidden md:block ml-4">
-                    <a
-                        href={signInHref}
-                        className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-white text-white text-base font-medium bg-transparent hover:border-white/50 hover:bg-white/5 transition-all duration-300"
-                    >
-                        {signInLabel}
-                    </a>
-                </div>
+      {/* Bottom Floating Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+        className="relative z-10 flex w-full flex-col items-center justify-between gap-6 px-6 pb-8 md:flex-row md:items-end lg:px-12"
+      >
+        {/* Left Consultation Pill */}
+        <div className="flex w-fit shrink-0 cursor-pointer items-center gap-4 rounded-full border border-white/10 bg-black/40 py-2 pl-2 pr-6 shadow-xl backdrop-blur-md transition-colors hover:bg-black/50">
+          <div className="relative shrink-0">
+            <img src={avatarUrl} alt="Consultant" className="size-10 rounded-full object-cover" />
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="size-2 shrink-0 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+            <span className="whitespace-nowrap text-[11px] font-medium tracking-wide text-white sm:text-xs md:text-sm">
+              {consultationText}
+            </span>
+          </div>
+        </div>
 
-                {/* Mobile Hamburger Menu Button */}
-                <button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-colors z-50 relative"
-                    aria-label="Toggle navigation menu"
-                >
-                    <div className="w-4 h-4 flex flex-col justify-between items-center relative">
-                        <span
-                            className={cn(
-                                "w-full h-[1.5px] bg-white transition-all duration-300 absolute left-0",
-                                isMobileMenuOpen ? "rotate-45 top-[7px]" : "top-[2px]"
-                            )}
-                        />
-                        <span
-                            className={cn(
-                                "w-full h-[1.5px] bg-white transition-all duration-300 absolute left-0 top-[7px]",
-                                isMobileMenuOpen && "opacity-0"
-                            )}
-                        />
-                        <span
-                            className={cn(
-                                "w-full h-[1.5px] bg-white transition-all duration-300 absolute left-0",
-                                isMobileMenuOpen ? "-rotate-45 top-[7px]" : "top-[12px]"
-                            )}
-                        />
-                    </div>
-                </button>
-            </motion.header>
-
-            {/* ── Mobile Navigation Drawer ── */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="fixed inset-0 bg-[#06060c]/98 backdrop-blur-md z-40 flex flex-col justify-between px-6 py-24 md:hidden"
-                    >
-                        {/* Nav links stack */}
-                        <nav className="flex flex-col gap-6 mt-8">
-                            {links.map((link, idx) => (
-                                <motion.div
-                                    key={link.label}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: idx * 0.05 }}
-                                >
-                                    <a
-                                        href={link.href}
-                                        onClick={(e) => handleNavLinkClick(link, e)}
-                                        className={cn(
-                                            "text-3xl font-semibold transition-colors duration-200 block",
-                                            link.active ? "text-white" : "text-white/50"
-                                        )}
-                                    >
-                                        {link.label}
-                                    </a>
-                                </motion.div>
-                            ))}
-                        </nav>
-
-                        {/* Bottom buttons & info */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.25 }}
-                            className="flex flex-col gap-6"
-                        >
-                            <a
-                                href={signInHref}
-                                className="w-full py-3.5 rounded-full border border-white/20 text-white text-center text-base font-medium bg-white/5 hover:bg-white/10 transition-colors"
-                            >
-                                {signInLabel}
-                            </a>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* ── Main Hero Content Area ── */}
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="relative z-10 flex-1 flex flex-col justify-between px-6 pt-12 pb-10 md:px-12 lg:px-20 md:pt-16 md:pb-12"
-            >
-                {/* Top Section: Headline & CTA Button */}
-                <div className="flex flex-col gap-8 md:gap-10 max-w-[850px] mt-[5vh]">
-                    {/* Main Headline */}
-                    <motion.h1
-                        variants={itemVariants}
-                        className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.08] tracking-[-0.04em] text-white"
-                    >
-                        {headline}
-                    </motion.h1>
-
-                    {/* CTA Pill Button with Hover Micro-animations */}
-                    <motion.div variants={itemVariants} className="w-fit">
-                        <a
-                            href={ctaHref}
-                            className="inline-flex w-fit items-center gap-4 bg-white text-black font-medium text-sm p-1 pl-4 rounded-lg hover:bg-white/90 transition-all duration-300 shadow-[0_4px_16px_rgba(255,255,255,0.06)] group"
-                        >
-                            <span>{ctaLabel}</span>
-                            <span className="w-8 h-8 rounded-md bg-black flex items-center justify-center shrink-0 overflow-hidden relative">
-                                {/* Arrow up-right with custom sliding movement on hover */}
-                                <ArrowUpRight className="w-4 h-4 text-white transition-transform duration-300 ease-out group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />
-                            </span>
-                        </a>
-                    </motion.div>
-                </div>
-
-                {/* Bottom Section: Description & Controls */}
-                <motion.div
-                    variants={itemVariants}
-                    className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 lg:gap-10 mt-auto pt-16 w-full relative"
-                >
-                    {/* Top Row / Left Column: Muted Description paragraph */}
-                    <div className="md:max-w-3xl">
-                        <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed font-normal whitespace-pre-line">
-                            {description}
-                        </p>
-                    </div>
-
-                    {/* Bottom Row / Center & Right Columns */}
-                    <div className="flex flex-col md:flex-row md:items-end justify-between lg:justify-end gap-10 pb-1 w-full lg:w-auto">
-                        {/* Premium Social Links (Left on tablet, Right on Desktop) */}
-                        <div className="flex items-center gap-6 lg:gap-12 order-1 lg:order-2">
-                            {socialLinks.map((social) => (
-                                <a
-                                    key={social.label}
-                                    href={social.href}
-                                    className="text-white text-base lg:text-lg hover:text-white/80 transition-colors duration-250 tracking-wide"
-                                >
-                                    {social.label}
-                                </a>
-                            ))}
-                        </div>
-
-                        {/* Floating scroll indicator (Right on tablet, Center on Desktop) */}
-                        <div className="hidden md:flex items-center gap-3 text-white text-sm lg:text-base tracking-wide order-2 lg:order-1 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:bottom-1">
-                            <span>Scroll to Discover</span>
-                            <motion.span
-                                animate={{ y: [0, 4, 0] }}
-                                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-                            >
-                                <ArrowDown className="w-4 h-4 text-white" strokeWidth={1.5} />
-                            </motion.span>
-                        </div>
-                    </div>
-                </motion.div>
-            </motion.div>
-        </section>
-    );
+        {/* Right Description Text */}
+        <div className="max-w-[500px]">
+          <p className="text-center text-sm leading-relaxed text-white/90 sm:text-base md:text-left">
+            {descriptionText}
+          </p>
+        </div>
+      </motion.div>
+    </section>
+  );
 }
