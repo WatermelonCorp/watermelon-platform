@@ -1,65 +1,50 @@
-import { lazy, Suspense } from "react";
-import {
-  Routes,
-  Route,
-  useMatch,
-} from "react-router-dom";
-import { PageLayout } from "@/components/layout/page-layout";
+import { lazy, Suspense } from 'react';
+import { Routes, Route, useMatch } from 'react-router-dom';
+import { PageLayout } from '@/components/layout/page-layout';
 import {
   HomePageSkeleton,
   ComponentPageSkeleton,
   DocPageSkeleton,
   BlocksPageSkeleton,
   BlockPageSkeleton,
-  DashboardPageSkeleton,
   DashboardsPageSkeleton,
-  // DashboardsPageSkeleton,
-  // BlocksPageSkeleton,
-  // DashboardPageSkeleton,
-  // BlockPageSkeleton,
-} from "@/components/skeletons";
-import BlocksPage from "@/pages/blocks";
-import BlockCategoryPage from "@/pages/block-category";
-import BlockPage from "@/pages/block";
-import DashboardPage from "@/pages/dashboard";
-import DashboardsPage from "@/pages/dashboards";
+  DashboardPageSkeleton,
+} from '@/components/skeletons';
+import BlocksPage from '@/pages/blocks';
+import BlockCategoryPage from '@/pages/block-category';
+import BlockPage from '@/pages/block';
 
-const HomePage = lazy(() => import("@/pages/home"));
-const ComponentsPage = lazy(() => import("@/pages/animated-components"));
-const ComponentPage = lazy(() => import("@/pages/animated-component"));
-const CategoryPage = lazy(() => import("@/pages/animated-category"));
+const HomePage = lazy(() => import('@/pages/home'));
+const ComponentsPage = lazy(() => import('@/pages/animated-components'));
+const ComponentPage = lazy(() => import('@/pages/animated-component'));
+const CategoryPage = lazy(() => import('@/pages/animated-category'));
 
-const InstallationPage = lazy(() => import("@/pages/installation"));
-const FrameworkSupportPage = lazy(() => import("@/pages/framework-support"));
+const InstallationPage = lazy(() => import('@/pages/installation'));
+const FrameworkSupportPage = lazy(() => import('@/pages/framework-support'));
 
-const TermsPage = lazy(() => import("@/pages/terms"));
-const PrivacyPage = lazy(() => import("@/pages/privacy"));
-const CopyrightPage = lazy(() => import("@/pages/copyright"));
-// const DashboardsPage = lazy(() => import("@/pages/dashboards"));
-// const DashboardPage = lazy(() => import("@/pages/dashboard"));
+const TermsPage = lazy(() => import('@/pages/terms'));
+const PrivacyPage = lazy(() => import('@/pages/privacy'));
+const CopyrightPage = lazy(() => import('@/pages/copyright'));
+const DashboardsPage = lazy(() => import('@/pages/dashboards'));
+const DashboardPage = lazy(() => import('@/pages/dashboard'));
 // const BlocksPage = lazy(() => import("@/pages/blocks"));
 // const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
 // const BlockPage = lazy(() => import("@/pages/block"));
-const ChangelogPage = lazy(() => import("@/pages/changelog"));
-const NotFoundPage = lazy(() => import("@/pages/not-found"));
-const PreviewPage = lazy(() => import("@/pages/preview"));
-const UiComponentsPage = lazy(() => import("@/pages/components"));
-const UiCategoryPage = lazy(() => import("@/pages/component-category"));
+const ChangelogPage = lazy(() => import('@/pages/changelog'));
+const NotFoundPage = lazy(() => import('@/pages/not-found'));
+const PreviewPage = lazy(() => import('@/pages/preview'));
+const UiComponentsPage = lazy(() => import('@/pages/components'));
+const UiCategoryPage = lazy(() => import('@/pages/component-category'));
 
 export function AppRoutes() {
-  const isComponentPage = useMatch("/animated-components/:slug");
-  const isUiCategoryPage = useMatch("/components/:category");
-  const isPreview = useMatch("/preview/:type/:slug");
+  const isComponentPage = useMatch('/animated-components/:slug');
+  const isUiCategoryPage = useMatch('/components/:category');
+  const isPreview = useMatch('/preview/:type/:slug');
 
   if (isPreview) {
     return (
       <Routes>
-        <Route
-          path="/preview/:type/:slug"
-          element={
-            <PreviewPage />
-          }
-        />
+        <Route path="/preview/:type/:slug" element={<PreviewPage />} />
       </Routes>
     );
   }
@@ -105,7 +90,6 @@ export function AppRoutes() {
             </Suspense>
           }
         />
-
 
         {/* New UI component system */}
         <Route
@@ -189,7 +173,7 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DashboardPageSkeleton />}>
               <DashboardPage />
-            </Suspense> 
+            </Suspense>
           }
         />
 

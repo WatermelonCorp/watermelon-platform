@@ -154,6 +154,33 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
   defaultOpen?: boolean;
   icon?: IconSvgElement;
 }) {
+  // When there are no sub-items, render a plain flat link row — no collapsible,
+  // no chevron, no CollapsibleContent — so clicking causes zero layout shift.
+  if (items.length === 0) {
+    return (
+      <SidebarMenuItem>
+        <SidebarMenuButton
+          asChild
+          size="default"
+          isActive={isAnyChildActive}
+          className="h-10 px-2 w-full"
+        >
+          <Link
+            to={titleUrl ?? "#"}
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+          >
+            <HugeiconsIcon
+              icon={icon || GridIcon}
+              size={18}
+              className="shrink-0 text-muted-foreground"
+            />
+            {title}
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    );
+  }
+
   return (
     <SidebarMenuItem>
       {/* Collapsible wraps the trigger row + the sub-item list */}
@@ -459,8 +486,14 @@ export function AppSidebar() {
               items={blockNavCategories}
               isAnyChildActive={location.pathname.startsWith("/blocks")}
             />
-            {/* Dashboards — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Dashboards" icon={DashboardSquare01Icon} />
+            {/* Dashboards — live; links directly to /dashboards */}
+            <ExploreCollapsibleItem
+              title="Dashboards"
+              titleUrl="/dashboards"
+              icon={DashboardSquare01Icon}
+              items={[]}
+              isAnyChildActive={location.pathname.startsWith("/dashboard")}
+            />
             {/* Templates — coming soon; not expandable yet */}
             <ExploreComingSoonItem title="Templates" icon={Layout01Icon} />
           </SidebarMenu>
@@ -583,3 +616,4 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
+
