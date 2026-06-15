@@ -11,6 +11,8 @@ import {
   DocPageSkeleton,
   BlocksPageSkeleton,
   BlockPageSkeleton,
+  DashboardPageSkeleton,
+  DashboardsPageSkeleton,
   // DashboardsPageSkeleton,
   // BlocksPageSkeleton,
   // DashboardPageSkeleton,
@@ -19,6 +21,8 @@ import {
 import BlocksPage from "@/pages/blocks";
 import BlockCategoryPage from "@/pages/block-category";
 import BlockPage from "@/pages/block";
+import DashboardPage from "@/pages/dashboard";
+import DashboardsPage from "@/pages/dashboards";
 
 const HomePage = lazy(() => import("@/pages/home"));
 const ComponentsPage = lazy(() => import("@/pages/animated-components"));
@@ -172,7 +176,7 @@ export function AppRoutes() {
         />
 
         {/* Dashboard pages */}
-        {/* <Route
+        <Route
           path="/dashboards"
           element={
             <Suspense fallback={<DashboardsPageSkeleton />}>
@@ -185,9 +189,9 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DashboardPageSkeleton />}>
               <DashboardPage />
-            </Suspense>
+            </Suspense> 
           }
-        /> */}
+        />
 
         {/* Block pages */}
         <Route
