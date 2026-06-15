@@ -47,10 +47,11 @@ export default function DashboardsPage() {
         <section id="dashboards" className="space-y-6">
           <CatalogPageHeader
             title="Dashboards"
+            description="Explore our collection of pre-built dashboard templates with charts, tables, and analytics components."
           />
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
             {visibleDashboards.map((item) => (
               <DashboardCard
                 key={item.slug}
