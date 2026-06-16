@@ -4,9 +4,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon, StarIcon, Menu01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 
-// The background image provided by the user
 
-// Placeholder assets using Unsplash
 const PLACEHOLDER_AVATARS = [
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64&q=80",
   "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64&q=80",
