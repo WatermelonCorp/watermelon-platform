@@ -1,4 +1,3 @@
-'use client';
 
 import { Button } from '@/components/base-ui/button';
 import { Input } from '@/components/base-ui/input';

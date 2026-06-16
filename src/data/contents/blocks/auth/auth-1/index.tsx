@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { Button } from '@/components/base-ui/button';
 import { Input } from '@/components/base-ui/input';
@@ -162,7 +160,7 @@ export function Auth1({
 
                 <Button
                   type="submit"
-                  className="from-primary to-primary/70 dark:to-primary/60 h-11 w-full bg-gradient-to-b text-sm font-semibold"
+                  className="from-primary to-primary/70 dark:to-primary/60 h-11 w-full bg-linear-to-b text-sm font-semibold"
                 >
                   {submitLabel}
                 </Button>

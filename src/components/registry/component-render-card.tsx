@@ -645,7 +645,7 @@ export function ComponentRenderCard({
           'border border-neutral-200/50 dark:border-white/5',
           'shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.05)]',
           'dark:shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.2)]',
-          'bg-background',
+          'bg-white dark:bg-background',
         )}
       >
         {/* Decorative inset ring */}
@@ -659,7 +659,7 @@ export function ComponentRenderCard({
           className={cn(
             'sticky top-0 z-10 w-full',
             'flex items-center justify-between px-3',
-            'bg-background/90 backdrop-blur-md',
+            'bg-white dark:bg-background/90 backdrop-blur-md',
             'border-b border-neutral-200/40 dark:border-white/5',
           )}
           style={{ height: TOOLBAR_HEIGHT }}
@@ -689,7 +689,7 @@ export function ComponentRenderCard({
         </div>
 
         <div
-          className="w-full"
+          className="w-full bg-white dark:bg-background"
           onClick={(e) => e.stopPropagation()}
         >
           {item.comingSoon ? (

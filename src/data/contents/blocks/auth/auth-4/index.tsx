@@ -1,4 +1,3 @@
-'use client';
 
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
