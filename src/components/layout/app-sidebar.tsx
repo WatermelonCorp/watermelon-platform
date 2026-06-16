@@ -167,7 +167,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
         >
           <Link
             to={titleUrl ?? "#"}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+            className="flex items-center gap-2 text-sm"
           >
             <HugeiconsIcon
               icon={icon || GridIcon}
@@ -307,13 +307,15 @@ export function AppSidebar() {
 
   // ── Close sidebar on route change ──
   // • Always close the mobile sheet (slide-over) on any navigation.
-  // • Also collapse the desktop sidebar when the user opens a block detail
-  //   page (/block/:slug) — those pages are wide and benefit from the extra
-  //   space, and this is where the user lands after clicking a card.
+  // • Also collapse the desktop sidebar when the user opens a block or dashboard
+  //   detail page — those pages are wide and benefit from the extra space.
   useEffect(() => {
     if (isMobile) {
       setOpenMobile(false);
-    } else if (location.pathname.startsWith('/block/')) {
+    } else if (
+      location.pathname.startsWith('/block/') ||
+      location.pathname.startsWith('/dashboard/')
+    ) {
       setOpen(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
