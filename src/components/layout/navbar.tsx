@@ -119,7 +119,7 @@ export const Navbar = () => {
         direction="top"
         blurLayers={8}
         blurIntensity={1.2}
-        className="pointer-events-none absolute inset-0  rounded-t-xl bg-background/90 "
+        className="pointer-events-none absolute inset-0  rounded-t-xl bg-white/90 dark:bg-background/90 "
       />
 
       {/* Navbar content */}

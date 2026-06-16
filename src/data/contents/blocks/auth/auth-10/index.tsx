@@ -1,209 +1,237 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/base-ui/button';
-import { Input } from '@/components/base-ui/input';
-import { Separator } from '@/components/base-ui/separator';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/base-ui/card';
-import { MdLock, MdEmail, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import { FaGithub, FaMicrosoft, FaSlack } from 'react-icons/fa';
+import { motion, type Variants } from "motion/react";
 
-export interface SocialProvider {
-  /** Display name of the provider */
-  name: string;
-  /** React node for the provider icon */
-  icon: React.ReactNode;
-  /** Callback fired when this provider is clicked */
-  onClick?: () => void;
-}
+// Custom Google SVG Icon
+const GoogleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="1em" height="1em" {...props}>
+    <path
+      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+      fill="#4285F4"
+    />
+    <path
+      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.16v2.84C3.99 20.53 7.7 23 12 23z"
+      fill="#34A853"
+    />
+    <path
+      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.16C1.43 8.55 1 10.22 1 12s.43 3.45 1.16 4.93l3.68-2.84z"
+      fill="#FBBC05"
+    />
+    <path
+      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.16 7.07l3.68 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+      fill="#EA4335"
+    />
+  </svg>
+);
 
-export interface Auth1Props {
-  /** Brand / product name */
-  brandName?: string;
-  /** Short descriptor below the brand */
-  brandDescriptor?: string;
-  /** Badge text shown above the heading */
-  badgeText?: string;
-  /** Main heading */
-  heading?: string;
-  /** Sub-copy below the heading */
-  subheading?: string;
-  /** Email field label */
-  emailLabel?: string;
-  /** Email field placeholder */
-  emailPlaceholder?: string;
-  /** Password field label */
-  passwordLabel?: string;
-  /** Password field placeholder */
-  passwordPlaceholder?: string;
-  /** Label for the primary submit button */
-  submitLabel?: string;
-  /** Social / OAuth providers */
-  socialProviders?: SocialProvider[];
-  /** Text between social buttons and email form */
-  dividerText?: string;
-  /** Forgot password link text */
-  forgotPasswordText?: string;
-  /** Callback when forgot password is clicked */
-  onForgotPassword?: () => void;
-  /** Bottom prompt text (before the link) */
-  bottomPromptText?: string;
-  /** Bottom prompt link text */
-  bottomPromptLinkText?: string;
-  /** Callback when bottom prompt link is clicked */
-  onBottomPromptClick?: () => void;
-  /** Callback when form is submitted */
-  onSubmit?: (email: string, password: string) => void;
-  /** Footer note text */
-  footerNote?: string;
-}
+// Custom Apple SVG Icon
+const AppleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702z" />
+  </svg>
+);
 
-const DEFAULT_SOCIAL_PROVIDERS: SocialProvider[] = [
-  {
-    name: 'GitHub',
-    icon: <FaGithub className="h-4 w-4" />,
-  },
-  {
-    name: 'Microsoft',
-    icon: <FaMicrosoft className="h-4 w-4" />,
-  },
-  {
-    name: 'Slack',
-    icon: <FaSlack className="h-4 w-4" />,
-  },
-];
+export default function Auth10() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
 
-export function Auth1({
-  heading = 'Access your workspace',
-  subheading = 'Connect with your team and deploy with confidence.',
-
-  submitLabel = 'Continue to workspace',
-  socialProviders = DEFAULT_SOCIAL_PROVIDERS,
-  dividerText = 'or use your credentials',
-
-  bottomPromptText = 'First time here?',
-  bottomPromptLinkText = 'Request an invite',
-  onBottomPromptClick,
-  onSubmit,
-}: Auth1Props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit?.(email, password);
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+      },
+    },
   };
 
   return (
-    <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="w-full max-w-sm space-y-5">
-        <Card className="border-border bg-muted dark:bg-muted gap-0 rounded-4xl p-2">
-          <div className="bg-background h-full w-full rounded-3xl px-2 py-6 shadow-[0_2px_4px_0px_rgba(0,0,0,0.12)]">
-            <CardHeader className="space-y-3 pb-4 text-center">
-              <div className="space-y-1">
-                <CardTitle className="text-xl font-extrabold tracking-tight sm:text-2xl">
-                  {heading}
-                </CardTitle>
-                <CardDescription className="text-sm leading-relaxed">
-                  {subheading}
-                </CardDescription>
-              </div>
-            </CardHeader>
+    <div className="flex min-h-screen w-full flex-col bg-[#050505] font-sans text-neutral-200 antialiased selection:bg-blue-500/30 selection:text-white lg:flex-row">
+      {/* Left Image Panel */}
+      <div className="relative flex w-full flex-col justify-between overflow-hidden p-8 md:p-12 lg:w-1/2 min-h-[50vh] lg:min-h-screen">
+        {/* Background Image */}
+        <img
+          src="https://assets.watermelon.sh/auth-10.avif"
+          alt="Abstract gradient background"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-            <CardContent className="space-y-4">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <div className="relative">
-                    <MdEmail className="text-muted-foreground absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2" />
-                    <Input
-                      id="auth5-email"
-                      type="email"
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="bg-muted focus-visible:ring-primary/20 focus-visible:border-primary/50 h-9 pl-10"
-                      required
-                    />
-                  </div>
+        {/* Top Header */}
+        <div className="relative z-10 flex w-full items-center justify-center pt-4">
+          <span className="text-2xl md:text-3xl lg:text-4xl font-serif tracking-tight text-black">Watermelon</span>
+        </div>
 
-                  <div className="relative">
-                    <MdLock className="text-muted-foreground absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2" />
-                    <Input
-                      id="auth5-password"
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="bg-muted focus-visible:ring-primary/20 focus-visible:border-primary/50 h-9 pr-10 pl-10"
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword((v) => !v)}
-                      className="text-muted-foreground hover:text-foreground absolute top-1/2 right-3 -translate-y-1/2 transition-colors"
-                      aria-label="Toggle password visibility"
-                    >
-                      {showPassword ? (
-                        <MdVisibilityOff className="h-4 w-4" />
-                      ) : (
-                        <MdVisibility className="h-4 w-4" />
-                      )}
-                    </button>
-                  </div>
-                </div>
+        {/* Bottom Content */}
+        <div className="relative z-10 mb-8 flex w-full flex-col items-center justify-center text-center">
+          <p className="mb-4 text-base md:text-lg lg:text-xl font-medium text-white/90">
+            You can easily
+          </p>
+          <h1 className="text-2xl font-medium leading-[1.2] tracking-tight text-white md:text-4xl lg:text-5xl">
+            Get access your personal
+            <br />
+            hub for clarity and
+            <br />
+            productivity
+          </h1>
+        </div>
+      </div>
 
-                <Button
-                  type="submit"
-                  className="from-primary to-primary/70 dark:to-primary/60 h-11 w-full bg-gradient-to-b text-sm font-semibold"
-                >
-                  {submitLabel}
-                </Button>
-              </form>
-              <div className="flex items-center gap-3">
-                <Separator className="flex-1" />
-                <span className="text-muted-foreground shrink-0 text-xs">
-                  {dividerText}
-                </span>
-                <Separator className="flex-1" />
-              </div>
+      {/* Right Form Panel */}
+      <div className="flex w-full flex-col items-center justify-center p-6 sm:p-12 lg:w-1/2">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-md md:max-w-lg xl:max-w-xl"
+        >
+          {/* Titles */}
+          <motion.div variants={itemVariants} className="mb-10">
+            <h2 className="text-3xl font-medium tracking-tight text-white">
+              Get Started Now
+            </h2>
+          </motion.div>
 
-              <div className="grid grid-cols-3 gap-2.5">
-                {socialProviders.map((provider) => (
-                  <Button
-                    key={provider.name}
-                    variant="outline"
-                    type="button"
-                    className="bg-muted h-10 gap-1.5 border-0 text-xs font-medium shadow-xs"
-                    onClick={provider.onClick}
-                  >
-                    {provider.icon}
-                  </Button>
-                ))}
-              </div>
-            </CardContent>
-          </div>
-
-          <CardFooter className="justify-center border-0 pt-5">
-            <p className="text-muted-foreground text-sm">
-              {bottomPromptText}{' '}
-              <button
-                type="button"
-                onClick={onBottomPromptClick}
-                className="text-primary font-semibold underline-offset-4 transition-all hover:underline"
+          {/* Form */}
+          <form className="flex flex-col gap-5">
+            {/* Name */}
+            <motion.div variants={itemVariants} className="flex flex-col gap-2">
+              <label
+                htmlFor="name"
+                className="text-sm font-medium text-neutral-200"
               >
-                {bottomPromptLinkText}
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Enter your name"
+                className="w-full rounded-xl border border-neutral-800 bg-transparent px-4 py-3.5 text-sm text-white placeholder:text-neutral-500 focus:border-neutral-600 focus:bg-[#111] focus:outline-none focus:ring-1 focus:ring-neutral-600"
+              />
+            </motion.div>
+
+            {/* Email */}
+            <motion.div variants={itemVariants} className="flex flex-col gap-2">
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-neutral-200"
+              >
+                Email address
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full rounded-xl border border-neutral-800 bg-transparent px-4 py-3.5 text-sm text-white placeholder:text-neutral-500 focus:border-neutral-600 focus:bg-[#111] focus:outline-none focus:ring-1 focus:ring-neutral-600"
+              />
+            </motion.div>
+
+            {/* Password */}
+            <motion.div variants={itemVariants} className="flex flex-col gap-2">
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-neutral-200"
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                placeholder="***********"
+                className="w-full rounded-xl border border-neutral-800 bg-transparent px-4 py-3.5 text-sm text-white placeholder:text-neutral-500 focus:border-neutral-600 focus:bg-[#111] focus:outline-none focus:ring-1 focus:ring-neutral-600"
+              />
+            </motion.div>
+
+            {/* Checkbox */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-2 flex items-center gap-3"
+            >
+              <input
+                id="terms"
+                type="checkbox"
+                className="h-4 w-4 rounded border-neutral-700 bg-transparent text-[#0275d8] focus:ring-[#0275d8] focus:ring-offset-0"
+              />
+              <label htmlFor="terms" className="text-[13px] text-neutral-300">
+                I agree to the{" "}
+                <a href="#" className="underline hover:text-white">
+                  terms & policy
+                </a>
+              </label>
+            </motion.div>
+
+            {/* Sign Up Button */}
+            <motion.div variants={itemVariants} className="mt-4">
+              <button
+                type="submit"
+                className="w-full rounded-[14px] bg-[#0c74b4] py-3.5 text-sm font-medium text-white transition-all hover:bg-[#0a6299] active:scale-[0.98]"
+              >
+                Signup
               </button>
-            </p>
-          </CardFooter>
-        </Card>
+            </motion.div>
+          </form>
+
+          {/* Divider */}
+          <motion.div
+            variants={itemVariants}
+            className="relative my-8 flex items-center"
+          >
+            <div className="grow border-t border-neutral-800"></div>
+            <span className="px-4 text-[13px] text-neutral-500">Or</span>
+            <div className="grow border-t border-neutral-800"></div>
+          </motion.div>
+
+          {/* Social Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 gap-4"
+          >
+            <button
+              type="button"
+              className="flex items-center justify-center gap-3 rounded-xl border border-neutral-700 bg-transparent py-3 text-[13px] font-medium text-white transition-colors hover:bg-neutral-900"
+            >
+              <GoogleIcon className="text-lg" />
+              Sign in with Google
+            </button>
+            <button
+              type="button"
+              className="flex items-center justify-center gap-3 rounded-xl border border-neutral-700 bg-transparent py-3 text-[13px] font-medium text-white transition-colors hover:bg-neutral-900"
+            >
+              <AppleIcon className="text-lg" />
+              Sign in with Apple
+            </button>
+          </motion.div>
+
+          {/* Footer */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-12 text-center text-[13px] text-neutral-400"
+          >
+            Have an account?{" "}
+            <a
+              href="#"
+              className="font-semibold text-[#0c74b4] hover:underline"
+            >
+              Sign In
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

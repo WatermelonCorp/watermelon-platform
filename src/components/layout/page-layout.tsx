@@ -49,11 +49,11 @@ export function PageLayout({
       <ScrollProgressContainer
         ref={containerRef}
         onScroll={handleScroll}
-        className="flex-1 overflow-y-auto rounded-xl m-2 bg-background border md:m-0"
+        className="flex-1 overflow-y-auto rounded-xl m-2 bg-white dark:bg-background border md:m-0"
       >
         {showNavbar && <Navbar />}
 
-        <main className="flex flex-col gap-4 min-h-[calc(100vh-10.5rem)]">
+        <main className="flex flex-col gap-4 min-h-[calc(100vh-10.5rem)] bg-white dark:bg-background">
           {children}
         </main>
 
