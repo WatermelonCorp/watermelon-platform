@@ -132,7 +132,7 @@ export function Auth6({
           />
           <Button
             type="submit"
-            className="from-primary to-primary/70 dark:to-primary/50 h-10 w-full cursor-pointer gap-2 rounded-lg bg-gradient-to-b text-sm font-semibold shadow-[inset_0_2px_0_0_rgba(255,255,255,0.15)]"
+            className="from-primary to-primary/70 dark:to-primary/50 h-10 w-full cursor-pointer gap-2 rounded-lg bg-linear-to-b text-sm font-semibold shadow-[inset_0_2px_0_0_rgba(255,255,255,0.15)]"
           >
             {emailButtonLabel}
             <MdArrowForward className="h-4 w-4" />
