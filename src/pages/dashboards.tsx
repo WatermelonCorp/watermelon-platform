@@ -1,14 +1,14 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { dashboards, type DashboardItem } from '@/data/dashboards';
+import { useNavigate } from 'react-router-dom';
+import { dashboards } from '@/data/dashboards';
 import { SEOHead } from '@/components/seo-head';
 import { DashboardCard } from '@/components/registry/dashboard-card';
-import { DashboardModal } from '@/components/registry/dashboard-modal';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 
 const ITEMS_PER_PAGE = 18;
 
 export default function DashboardsPage() {
-  const [selectedItem, setSelectedItem] = useState<DashboardItem | null>(null);
+  const navigate = useNavigate();
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
@@ -47,15 +47,19 @@ export default function DashboardsPage() {
         <section id="dashboards" className="space-y-6">
           <CatalogPageHeader
             title="Dashboards"
+            description="Explore our collection of pre-built dashboard templates with charts, tables, and analytics components."
           />
 
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-6 lg:px-8 mt-4 md:mt-8">
             {visibleDashboards.map((item) => (
               <DashboardCard
                 key={item.slug}
                 item={item}
-                onClick={(item) => setSelectedItem(item)}
+                onClick={(clicked) => {
+                  if (!clicked.comingSoon) {
+                    navigate(`/dashboard/${clicked.slug}`);
+                  }
+                }}
               />
             ))}
           </div>
@@ -66,13 +70,8 @@ export default function DashboardsPage() {
               <div className="h-5 w-5 border-2 border-muted-foreground/40 border-t-transparent rounded-full animate-spin" />
             </div>
           )}
-        </section >
-
-        <DashboardModal
-          item={selectedItem}
-          onClose={() => setSelectedItem(null)}
-        />
-      </div >
+        </section>
+      </div>
     </>
   );
 }

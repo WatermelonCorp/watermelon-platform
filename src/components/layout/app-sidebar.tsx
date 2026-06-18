@@ -154,6 +154,33 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
   defaultOpen?: boolean;
   icon?: IconSvgElement;
 }) {
+  // When there are no sub-items, render a plain flat link row — no collapsible,
+  // no chevron, no CollapsibleContent — so clicking causes zero layout shift.
+  if (items.length === 0) {
+    return (
+      <SidebarMenuItem>
+        <SidebarMenuButton
+          asChild
+          size="default"
+          isActive={isAnyChildActive}
+          className="h-10 px-2 w-full"
+        >
+          <Link
+            to={titleUrl ?? "#"}
+            className="flex items-center gap-2 text-sm"
+          >
+            <HugeiconsIcon
+              icon={icon || GridIcon}
+              size={18}
+              className="shrink-0 text-muted-foreground"
+            />
+            {title}
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    );
+  }
+
   return (
     <SidebarMenuItem>
       {/* Collapsible wraps the trigger row + the sub-item list */}
@@ -280,13 +307,15 @@ export function AppSidebar() {
 
   // ── Close sidebar on route change ──
   // • Always close the mobile sheet (slide-over) on any navigation.
-  // • Also collapse the desktop sidebar when the user opens a block detail
-  //   page (/block/:slug) — those pages are wide and benefit from the extra
-  //   space, and this is where the user lands after clicking a card.
+  // • Also collapse the desktop sidebar when the user opens a block or dashboard
+  //   detail page — those pages are wide and benefit from the extra space.
   useEffect(() => {
     if (isMobile) {
       setOpenMobile(false);
-    } else if (location.pathname.startsWith('/block/')) {
+    } else if (
+      location.pathname.startsWith('/block/') ||
+      location.pathname.startsWith('/dashboard/')
+    ) {
       setOpen(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -459,8 +488,14 @@ export function AppSidebar() {
               items={blockNavCategories}
               isAnyChildActive={location.pathname.startsWith("/blocks")}
             />
-            {/* Dashboards — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Dashboards" icon={DashboardSquare01Icon} />
+            {/* Dashboards — live; links directly to /dashboards */}
+            <ExploreCollapsibleItem
+              title="Dashboards"
+              titleUrl="/dashboards"
+              icon={DashboardSquare01Icon}
+              items={[]}
+              isAnyChildActive={location.pathname.startsWith("/dashboard")}
+            />
             {/* Templates — coming soon; not expandable yet */}
             <ExploreComingSoonItem title="Templates" icon={Layout01Icon} />
           </SidebarMenu>
@@ -583,3 +618,4 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
+

@@ -23,6 +23,74 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: '2.0.1',
+    date: 'June 16, 2026',
+    stats: [
+      {
+        label: 'Total blocks',
+        count: 180,
+        href: '/blocks',
+      },
+      {
+        label: 'Total dashboards',
+        count: 1,
+        href: '/dashboard',
+      },
+    ],
+    sections: [
+      {
+        title: 'New Blocks',
+        items: [
+          {
+            text: 'Added 17 new Hero sections to the registry with modern layouts, animations, and conversion-focused designs.',
+          },
+          {
+            text: 'Added 4 new Footer sections featuring enhanced navigation, social links, and responsive layouts.',
+          },
+          {
+            text: 'Added 7 new Authentication sections including Sign In, Sign Up and Split-Screen variants.',
+          },
+          {
+            text: 'Added 1 new CTA section designed to improve engagement and conversion rates.',
+          },
+        ],
+      },
+      {
+        title: 'New Dashboard',
+        items: [
+          {
+            text: 'Added a new Web3 Dashboard with portfolio analytics, lending metrics, APY tracking, market insights, and DeFi management tools.',
+          },
+        ],
+      },
+      {
+        title: 'Dashboard Page Revamp',
+        items: [
+          {
+            text: 'Completely redesigned the Dashboard page with improved layout structure, visual hierarchy, and navigation.',
+          },
+          {
+            text: 'Enhanced responsiveness and overall user experience across desktop and mobile devices.',
+          },
+        ],
+      },
+      {
+        title: 'Bug Fixes',
+        items: [
+          {
+            text: 'Fixed various component rendering issues across the registry.',
+          },
+          {
+            text: 'Resolved styling inconsistencies, spacing problems, and responsive layout edge cases.',
+          },
+          {
+            text: 'Improved component stability and addressed multiple minor UI bugs.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     version: '2.0.0',
     date: 'June 4, 2026',
     stats: [
