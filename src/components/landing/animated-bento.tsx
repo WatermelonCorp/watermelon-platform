@@ -1,8 +1,72 @@
+"use client";
+
+import { useState } from "react";
 import { motion, type Variants } from "motion/react";
 import Heading from "./heading";
 import Container from "./container";
+import { SelectAIAgent } from "@/data/contents/animated-components/select-ai-agent/original";
+import { MorphingButton } from "@/data/contents/animated-components/morphing-button/original";
+import { KnobSlider } from "@/data/contents/animated-components/knob-slider/original";
+import { CarouselSlider } from "@/data/contents/animated-components/carousel-slider/original";
+
+import { HugeiconsIcon } from '@hugeicons/react';
+import {
+  ChatGptIcon,
+  ClaudeIcon,
+  GoogleGeminiIcon,
+} from '@hugeicons/core-free-icons';
+
+const slides = [
+    { id: 1, img: "https://prourls.link/ORXBVr" },
+    { id: 2, img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=500&auto=format&fit=crop" },
+    { id: 3, img: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=500&auto=format&fit=crop" },
+    { id: 4, img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=500&auto=format&fit=crop" },
+    { id: 5, img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=500&auto=format&fit=crop" },
+    { id: 6, img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=500&auto=format&fit=crop" },
+];
+
+const AGENTS = [
+  {
+    id: 'chatgpt',
+    name: 'Chatgpt',
+    icon: (
+      <HugeiconsIcon
+        icon={ChatGptIcon}
+        size={24}
+        color="#2b2b2b"
+        strokeWidth={1.5}
+      />
+    ),
+  },
+  {
+    id: 'gemini',
+    name: 'Gemini',
+    icon: (
+      <HugeiconsIcon
+        icon={GoogleGeminiIcon}
+        size={24}
+        color="#003355"
+        strokeWidth={1.5}
+      />
+    ),
+  },
+  {
+    id: 'claude',
+    name: 'Claude',
+    icon: (
+      <HugeiconsIcon
+        icon={ClaudeIcon}
+        size={24}
+        color="#D97757"
+        strokeWidth={1.5}
+      />
+    ),
+  },
+];
 
 export default function AnimatedBento() {
+  const [knobValue, setKnobValue] = useState(24);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,7 +106,7 @@ export default function AnimatedBento() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Heading as="h2" variant="big" className="text-balance text-foreground font-sans">
-              Bring your UI to life.
+              Interactions that <span className="text-primary">delight</span>.
             </Heading>
           </motion.div>
           <motion.p variants={itemVariants} className="mt-6 text-sm text-white/50 text-pretty max-w-2xl font-mono uppercase tracking-widest">
@@ -51,51 +115,69 @@ export default function AnimatedBento() {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[420px]"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
           {/* Top Left - Wide */}
-          <motion.div variants={itemVariants} className="md:col-span-2 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          <motion.div variants={itemVariants} className="md:col-span-2 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex flex-col items-center justify-center text-center p-6">
-               <div className="w-12 h-12 border border-dashed border-white/30 flex items-center justify-center mb-4 group-hover:rotate-90 group-hover:border-primary transition-all duration-500">
-                  <span className="text-primary font-bold tracking-widest">+</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ AI AGENT ]"}</span>
                </div>
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ ANIMATED COMPONENT ]"}</span>
+               <div className="scale-[0.8] md:scale-[0.9] origin-center mt-6">
+                 <SelectAIAgent agents={AGENTS} />
+               </div>
             </div>
           </motion.div>
           
           {/* Top Right - Square-ish */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex items-center justify-center p-6">
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ HOVER EFFECTS ]"}</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ MORPHING BUTTON ]"}</span>
+               </div>
+               <div className="scale-[0.8] origin-center mt-6 flex justify-center w-full">
+                 <MorphingButton buttonText="Notify Me" onSubmit={() => console.log('notified')} />
+               </div>
             </div>
           </motion.div>
           
-          {/* Bottom Left - Square-ish */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          {/* Bottom Left - Carousel */}
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex items-center justify-center p-6">
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ TRAILS ]"}</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ KNOB SLIDER ]"}</span>
+               </div>
+               <div className="scale-[0.8] md:scale-[0.9] origin-center mt-6 flex justify-center w-full">
+                 <KnobSlider
+                     value={knobValue}
+                     onChange={setKnobValue}
+                     min={0}
+                     max={99}
+                     size={220}
+                 />
+               </div>
             </div>
           </motion.div>
           
@@ -118,16 +200,21 @@ export default function AnimatedBento() {
             </div>
           </motion.div>
           
-          {/* Bottom Right - Square-ish */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          {/* Bottom Right - Carousel Slider */}
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex flex-col items-center justify-center p-6">
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ TRANSITIONS ]"}</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ SLIDER ]"}</span>
+               </div>
+               <div className="scale-[0.8] origin-center mt-6">
+                  <CarouselSlider slides={slides} />
+               </div>
             </div>
           </motion.div>
         </motion.div>

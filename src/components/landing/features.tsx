@@ -56,7 +56,7 @@ export default function Features() {
               variant="big"
               className="text-foreground font-sans text-balance"
             >
-              Why choose Watermelon UI?
+              Why choose <span className="text-primary">Watermelon</span>  UI?
             </Heading>
           </motion.div>
         </motion.div>
@@ -146,8 +146,8 @@ export default function Features() {
                 <h3 className="text-foreground mb-3 text-xl font-bold tracking-widest uppercase">
                   Powerful Theming
                 </h3>
-                <p className="max-w-lg text-sm leading-relaxed tracking-widest text-pretty text-white/50 uppercase">
-                  Tweak CSS variables just like you&apos;d adjust Tailwind
+                <p className="max-w-lg text-sm leading-relaxed tracking-widest text-balance text-white/50 uppercase">
+                  Tweak CSS variables just like <br className='hidden md:block lg:hidden' /> you&apos;d adjust Tailwind
                   classes. Add your own tokens, and every component instantly
                   inherits your brand&apos;s unique DNA.
                 </p>
