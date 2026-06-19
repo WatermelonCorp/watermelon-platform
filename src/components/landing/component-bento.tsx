@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, type Variants } from "motion/react";
 import Heading from "./heading";
 import Container from "./container";

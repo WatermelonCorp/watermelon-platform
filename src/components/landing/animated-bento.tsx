@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion, type Variants } from "motion/react";
 import Heading from "./heading";
