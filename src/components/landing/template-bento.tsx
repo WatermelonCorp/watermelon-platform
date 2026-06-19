@@ -1,8 +1,31 @@
-import { motion, type Variants } from "motion/react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, type Variants, AnimatePresence } from "motion/react";
 import Heading from "./heading";
 import Container from "./container";
 
+const IMAGES = [
+  "https://assets.watermelon.sh/lp-hero-01.avif",
+  "https://assets.watermelon.sh/lp-footer-01.avif",
+  "https://assets.watermelon.sh/lp-hero-02.avif",
+  "https://assets.watermelon.sh/lp-footer-02.avif",
+  "https://assets.watermelon.sh/lp-hero-03.avif",
+  "https://assets.watermelon.sh/lp-footer-03.avif",
+  "https://assets.watermelon.sh/lp-hero-05.avif",
+  "https://assets.watermelon.sh/lp-hero-04.avif"
+];
+
 export default function TemplateBento() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,7 +47,7 @@ export default function TemplateBento() {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden bg-background font-mono">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-background font-mono">
       {/* Decorative Technical Borders */}
       <div className="hidden lg:block absolute top-0 left-0 w-full border-t border-white/5" />
 
@@ -42,7 +65,7 @@ export default function TemplateBento() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Heading as="h2" variant="big" className="text-balance text-foreground font-sans">
-              Production Ready Templates.
+              Production Ready <span className="text-primary">Templates</span>
             </Heading>
           </motion.div>
           <motion.p variants={itemVariants} className="mt-6 text-sm text-white/50 text-pretty max-w-2xl font-mono uppercase tracking-widest leading-relaxed">
@@ -56,7 +79,7 @@ export default function TemplateBento() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          <motion.div variants={itemVariants} className="w-full h-[500px] md:h-[700px] border border-white/10 bg-black/40 backdrop-blur-md relative group cursor-crosshair hover:bg-white/2 transition-colors duration-300">
+          <motion.div variants={itemVariants} className="w-full h-[700px] md:h-[1000px] border border-white/10 bg-black/40 backdrop-blur-md relative group cursor-crosshair hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
@@ -85,11 +108,19 @@ export default function TemplateBento() {
                 {/* Technical background grid */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[24px_24px]"></div>
                 
-                <div className="flex-1 w-full border border-dashed border-white/20 flex flex-col items-center justify-center bg-white/1 relative z-10 group-hover:border-primary/50 transition-colors duration-500">
-                  <span className="text-white/40 group-hover:text-primary transition-colors duration-500 text-sm md:text-base font-mono mb-4 uppercase tracking-widest">
-                    {"> RENDER_FULL_PAGE_TEMPLATE"}
-                  </span>
-                  <div className="w-24 h-px bg-white/20 group-hover:bg-primary transition-colors duration-500"></div>
+                <div className="flex-1 w-full border border-white/20 flex flex-col items-center justify-center bg-black relative z-10 overflow-hidden group-hover:border-primary/50 transition-colors duration-500">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentIndex}
+                      src={IMAGES[currentIndex]}
+                      initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, scale: 1.02, filter: "blur(4px)" }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="w-full h-full object-cover object-top"
+                      alt={`Template preview ${currentIndex + 1}`}
+                    />
+                  </AnimatePresence>
                 </div>
                 
                 <div className="mt-2 md:mt-4 relative z-10 w-full overflow-hidden">

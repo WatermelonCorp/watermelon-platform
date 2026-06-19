@@ -8,10 +8,10 @@ import { useEffect, useState } from 'react';
 import BgFrame from './bg-frame';
 
 const ROTATING_WORDS = [
-  'designers.',
-  'developers.',
-  'builders.',
-  'creators.',
+  'designers',
+  'developers',
+  'builders',
+  'creators',
 ] as const;
 
 const HERO_IMAGES = Array.from({ length: 10 }).map(

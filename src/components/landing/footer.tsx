@@ -1,5 +1,6 @@
 import { ArrowUpRight01Icon, NewTwitterIcon, GithubIcon, DiscordIcon } from "hugeicons-react";
 import { cn } from "@/lib/utils";
+import LogoIcon from "@/assets/logo-icon";
 
 export default function Footer() {
   return (
@@ -22,11 +23,11 @@ export default function Footer() {
                <div className="text-primary font-mono text-xs tracking-widest mb-6 flex items-center gap-2">
                  <span className="opacity-70">{"//"}</span> WATERMELON UI
                </div>
-               <h3 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-balance font-sans">
-                 Building the future <br className="hidden lg:block"/> of interfaces.
+               <h3 className="text-3xl md:text-5xl tracking-tight mb-6 text-balance font-sans">
+                 Building the future <br className="hidden lg:block"/> of interfaces
                </h3>
                <p className="text-white/50 mb-8 max-w-md text-pretty text-sm leading-relaxed">
-                 Watermelon UI is the foundational layer for modern web applications—beautifully designed, perfectly animated, and deeply technical.
+                 Watermelon UI is the foundational layer for modern web applications—beautifully designed, perfectly animated, and deeply technical
                </p>
                
                <a href="/docs" className="inline-flex items-center justify-center px-8 py-4 text-xs font-bold text-background bg-primary uppercase tracking-widest hover:bg-primary/90 transition-colors active:scale-[0.96] w-fit">
@@ -78,7 +79,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 px-2 w-full">
                <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(163,255,18,0.6)]" />
-                  <span className="text-xs font-mono text-primary tracking-widest uppercase">Built for developers.</span>
+                  <span className="text-xs font-mono text-primary tracking-widest uppercase">Built for developers</span>
                </div>
                
                {/* Cool loading bar graphic */}
@@ -99,11 +100,8 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12 w-full xl:w-auto">
               {/* Logo / Left */}
               <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 border border-white/20 flex flex-wrap items-center justify-center p-1.5 gap-0.5 relative group bg-white/5">
-                   <div className="w-2 h-2 bg-primary" />
-                   <div className="w-2 h-2 bg-white/20" />
-                   <div className="w-2 h-2 bg-white/20" />
-                   <div className="w-2 h-2 bg-primary" />
+                 <div className="w-8 h-8 flex items-center justify-center relative group">
+                   <LogoIcon className="w-full h-full text-primary" />
                  </div>
                  <span className="font-bold text-lg tracking-tight font-sans text-white/90">Watermelon UI</span>
               </div>

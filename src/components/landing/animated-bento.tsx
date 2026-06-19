@@ -88,7 +88,7 @@ export default function AnimatedBento() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-background font-mono">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-background font-mono">
       {/* Decorative Technical Borders */}
       <div className="hidden lg:block absolute top-0 left-0 w-full border-t border-white/5" />
       
@@ -106,7 +106,7 @@ export default function AnimatedBento() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Heading as="h2" variant="big" className="text-balance text-foreground font-sans">
-              Interactions that <span className="text-primary">delight</span>.
+              Interactions that <span className="text-primary">delight</span>
             </Heading>
           </motion.div>
           <motion.p variants={itemVariants} className="mt-6 text-sm text-white/50 text-pretty max-w-2xl font-mono uppercase tracking-widest">
@@ -115,14 +115,14 @@ export default function AnimatedBento() {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[420px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[420px]"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {/* Top Left - Wide */}
-          <motion.div variants={itemVariants} className="md:col-span-2 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
+          {/* Top Left */}
+          <motion.div key="card-agent" variants={itemVariants} className="md:col-span-1 lg:col-span-2 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
@@ -140,7 +140,7 @@ export default function AnimatedBento() {
           </motion.div>
           
           {/* Top Right - Square-ish */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
+          <motion.div key="card-morphing" variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
@@ -158,7 +158,7 @@ export default function AnimatedBento() {
           </motion.div>
           
           {/* Bottom Left - Carousel */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
+          <motion.div key="card-knob" variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
@@ -181,8 +181,8 @@ export default function AnimatedBento() {
             </div>
           </motion.div>
           
-          {/* Bottom Middle - The label text card */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-primary/20 bg-primary/5 backdrop-blur-sm group">
+          {/* Bottom Middle - The label text card (hidden below lg) */}
+          <motion.div key="card-100" variants={itemVariants} className="hidden lg:block lg:col-span-1 h-full w-full relative border border-primary/20 bg-primary/5 backdrop-blur-sm group">
             {/* Corner Accents - Primary Colored */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary"></div>
@@ -201,7 +201,7 @@ export default function AnimatedBento() {
           </motion.div>
           
           {/* Bottom Right - Carousel Slider */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
+          <motion.div key="card-carousel" variants={itemVariants} className="md:col-span-1 lg:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>

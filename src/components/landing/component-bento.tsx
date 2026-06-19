@@ -1,6 +1,12 @@
+"use client";
+
 import { motion, type Variants } from "motion/react";
 import Heading from "./heading";
 import Container from "./container";
+import Checkbox16 from "@/data/contents/components/checkbox/variant-16";
+import Switch3 from "@/data/contents/components/switch/variant-3";
+import Tabs7 from "@/data/contents/components/tabs/variant-7";
+import Breadcrumb7 from "@/data/contents/components/breadcrumb/variant-7";
 
 export default function ComponentsBento() {
   const containerVariants: Variants = {
@@ -24,7 +30,7 @@ export default function ComponentsBento() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-background font-mono">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-background font-mono">
       {/* Decorative Technical Borders */}
       <div className="hidden lg:block absolute top-0 left-0 w-full border-t border-white/5" />
       <div className="hidden lg:block absolute bottom-0 left-0 w-full border-b border-white/5" />
@@ -44,7 +50,7 @@ export default function ComponentsBento() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Heading as="h2" variant="big" className="text-balance text-foreground font-sans text-left md:text-right">
-              Building blocks.
+              Building <span className="text-primary">blocks</span>
             </Heading>
           </motion.div>
           <motion.p variants={itemVariants} className="mt-6 text-sm text-white/50 text-pretty max-w-lg font-mono uppercase tracking-widest leading-relaxed text-left md:text-right">
@@ -53,64 +59,81 @@ export default function ComponentsBento() {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[200px]"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-[240px]"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {/* Big Feature Block */}
-          <motion.div variants={itemVariants} className="md:col-span-2 md:row-span-2 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          {/* Top Left - Tabs 7 */}
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex flex-col items-center justify-center text-center p-8">
-               <div className="w-20 h-20 border border-dashed border-white/30 mb-6 flex items-center justify-center group-hover:border-primary group-hover:scale-105 transition-all duration-500">
-                 <span className="text-primary text-2xl font-bold tracking-widest">+</span>
+            <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ TABS ]"}</span>
                </div>
-               <span className="text-white/40 text-sm font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ STRUCTURAL COMPONENTS ]"}</span>
+               <div className="scale-[0.9] origin-center w-full mt-6 flex justify-center">
+                 <Tabs7 />
+               </div>
             </div>
           </motion.div>
 
-          {/* Top Right small */}
-          <motion.div variants={itemVariants} className="md:col-span-2 md:row-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          {/* Top Right - Checkbox 16 */}
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex items-center justify-center p-6">
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ INPUT FIELDS & FORMS ]"}</span>
+            <div className="w-full h-full flex items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ CHECKBOX ]"}</span>
+               </div>
+               <div className="scale-[0.9] origin-center mt-6">
+                 <Checkbox16 />
+               </div>
             </div>
           </motion.div>
 
-          {/* Bottom Right 1 */}
-          <motion.div variants={itemVariants} className="md:col-span-1 md:row-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          {/* Bottom Left - Switch 3 */}
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex flex-col items-center justify-center p-6">
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ BUTTONS ]"}</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ SWITCH ]"}</span>
+               </div>
+               <div className="scale-[0.9] origin-center flex justify-center w-full mt-6">
+                 <Switch3 />
+               </div>
             </div>
           </motion.div>
 
-          {/* Bottom Right 2 */}
-          <motion.div variants={itemVariants} className="md:col-span-1 md:row-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300 cursor-crosshair">
+          {/* Bottom Right - Breadcrumb 7 */}
+          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
 
-            <div className="w-full h-full flex flex-col items-center justify-center p-6">
-               <span className="text-white/40 text-xs font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ TOGGLES ]"}</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+               <div className="absolute top-6 left-6 z-10">
+                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ BREADCRUMB ]"}</span>
+               </div>
+               <div className="scale-[0.9] origin-center mt-6">
+                 <Breadcrumb7 />
+               </div>
             </div>
           </motion.div>
         </motion.div>

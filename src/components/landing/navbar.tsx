@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GithubIcon, NewTwitterIcon, Menu01Icon, Cancel01Icon } from "hugeicons-react";
 import { cn } from "@/lib/utils";
+import LogoIcon from "@/assets/logo-icon";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,11 +28,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 rounded-md bg-primary/10 border border-primary/20 flex flex-wrap items-center justify-center p-1.5 gap-0.5 relative transition-transform duration-300 group-hover:scale-105">
-             <div className="w-2 h-2 bg-primary rounded-full" />
-             <div className="w-2 h-2 bg-primary rounded-full opacity-50" />
-             <div className="w-2 h-2 bg-primary rounded-full opacity-50" />
-             <div className="w-2 h-2 bg-primary rounded-full" />
+          <div className="w-8 h-8 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">
+             <LogoIcon className="w-full h-full text-primary" />
           </div>
           <span className="font-mono font-bold text-sm tracking-widest uppercase">Watermelon UI</span>
         </Link>
