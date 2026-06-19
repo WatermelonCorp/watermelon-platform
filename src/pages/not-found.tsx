@@ -25,7 +25,7 @@ export default function NotFoundPage() {
 
         <div className="flex items-center gap-3 mt-8">
           <Link
-            to="/"
+            to="/home"
             className="inline-flex items-center justify-center h-9 px-4 text-sm font-medium rounded-md bg-foreground text-background hover:bg-foreground/90 transition-colors"
           >
             Go Home

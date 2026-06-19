@@ -15,6 +15,7 @@ import BlockCategoryPage from '@/pages/block-category';
 import BlockPage from '@/pages/block';
 
 const HomePage = lazy(() => import('@/pages/home'));
+const LandingPage = lazy(() => import('@/pages/landing'));
 const ComponentsPage = lazy(() => import('@/pages/animated-components'));
 const ComponentPage = lazy(() => import('@/pages/animated-component'));
 const CategoryPage = lazy(() => import('@/pages/animated-category'));
@@ -40,6 +41,7 @@ export function AppRoutes() {
   const isComponentPage = useMatch('/animated-components/:slug');
   const isUiCategoryPage = useMatch('/components/:category');
   const isPreview = useMatch('/preview/:type/:slug');
+  const isLanding = useMatch('/');
 
   if (isPreview) {
     return (
@@ -49,12 +51,21 @@ export function AppRoutes() {
     );
   }
 
+  // Landing page renders without PageLayout (no sidebar, no navbar, no skeleton)
+  if (isLanding) {
+    return (
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    );
+  }
+
   return (
     <PageLayout showScrollProgress={!isComponentPage && !isUiCategoryPage}>
       <Routes>
-        {/* Home page with card grid skeleton */}
+        {/* Home page (previously /) now at /home */}
         <Route
-          path="/"
+          path="/home"
           element={
             <Suspense fallback={<HomePageSkeleton />}>
               <HomePage />
@@ -216,3 +227,4 @@ export function AppRoutes() {
     </PageLayout>
   );
 }
+

@@ -3,7 +3,7 @@ import LogoSVG from "@/assets/logo-icon"
 
 const Logo = () => {
   return (
-    <Link to="/" className="flex items-center gap-1.5">
+    <Link to="/home" className="flex items-center gap-1.5">
       <div className="size-9 rounded-lg bg-lime-500 flex items-center justify-center">
         {/* <img
           src="/logo-64.png"
@@ -28,7 +28,7 @@ const Logo = () => {
 
 const LogoIcon = () => {
   return (
-    <Link to="/" className="flex items-center gap-2 bg-background rounded-md px-2 py-1">
+    <Link to="/home" className="flex items-center gap-2 bg-background rounded-md px-2 py-1">
       <div className="size-7 rounded-lg bg-primary flex items-center justify-center">
         <img
           src="/logo-64.png"
