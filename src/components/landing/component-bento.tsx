@@ -28,7 +28,7 @@ export default function ComponentsBento() {
   };
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-background font-mono">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-[#101010] font-mono">
       {/* Decorative Technical Borders */}
       <div className="hidden lg:block absolute top-0 left-0 w-full border-t border-white/5" />
       <div className="hidden lg:block absolute bottom-0 left-0 w-full border-b border-white/5" />

@@ -70,7 +70,7 @@ export default function Testimonial() {
   const marqueeItems = [...testimonials, ...testimonials];
 
   return (
-    <section className="bg-background relative overflow-hidden py-24 md:py-32 font-mono">
+    <section className="bg-[#101010] relative overflow-hidden py-24 md:py-32 font-mono">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 hidden w-full border-t border-white/5 lg:block" />
 
@@ -161,9 +161,6 @@ export default function Testimonial() {
           ))}
         </motion.div>
       </div>
-
-      {/* Decorative gradient radial at the bottom */}
-      <div className="bg-primary/5 pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[800px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
     </section>
   );
 }

@@ -31,7 +31,7 @@ export default function Features() {
   };
 
   return (
-    <section className="bg-background relative overflow-hidden py-24 font-mono md:py-32">
+    <section className="bg-[#101010] relative overflow-hidden py-24 font-mono md:py-32">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[24px_24px]"></div>
 

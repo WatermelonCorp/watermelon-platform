@@ -89,7 +89,7 @@ export default function Stats() {
   };
 
   return (
-    <section className="bg-background relative w-full overflow-hidden py-24 font-mono md:py-32">
+    <section className="bg-[#101010] relative w-full overflow-hidden py-24 font-mono md:py-32">
       {/* Decorative Technical Borders */}
       <div className="absolute top-0 left-0 hidden w-full border-t border-white/5 lg:block" />
       <div className="absolute bottom-0 left-0 hidden w-full border-b border-white/5 lg:block" />
@@ -162,7 +162,7 @@ export default function Stats() {
             <motion.div
               key={stat.id}
               variants={itemVariants}
-              className="group relative border border-white/10 bg-black/40 backdrop-blur-md transition-colors duration-300 hover:bg-white/2"
+              className="group relative border border-white/10 bg-neutral-950 backdrop-blur-md transition-colors duration-300 hover:bg-white/2"
             >
               {/* Corner Accents on the box */}
               <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/40"></div>
