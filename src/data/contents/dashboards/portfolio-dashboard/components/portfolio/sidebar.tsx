@@ -73,12 +73,9 @@ export function DashboardSidebar() {
   
 
   return (
-    <Sidebar className="border-r border-border portfolio-dashboard">
+    <Sidebar className="border-border portfolio-dashboard border-r">
       <SidebarHeader className="h-16 flex-row items-center justify-between border-b px-4">
         <Logo />
-        <Button variant="outline" size="icon" className="size-10">
-          <ChevronLeft />
-        </Button>
       </SidebarHeader>
       <SidebarContent className="px-2 py-5">
         {groups.map((group) => (
@@ -89,19 +86,25 @@ export function DashboardSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 {group.items.map(([Icon, label, href, count]) => {
-                  const isActive = label === "Overview";
+                  const isActive = label === 'Overview';
                   return (
-                    <SidebarMenuItem key={label} >
+                    <SidebarMenuItem key={label}>
                       <SidebarMenuButton
                         asChild
                         isActive={isActive}
-                        className={`h-11 rounded-xl px-3 text-sm dark:data-active:bg-zinc-800 data-active:bg-white ${isActive ? "text-primary hover:text-primary shadow-border  border-0" : "text-foreground"}`}
+                        className={`h-11 rounded-xl px-3 text-sm data-active:bg-white dark:data-active:bg-zinc-800 ${isActive ? 'text-primary hover:text-primary shadow-border border-0' : 'text-foreground'}`}
                       >
                         <Link to={href}>
-                          <Icon className={`size-5 ${isActive ? "text-primary" : "text-foreground"}`} />
-                          <span className={`${isActive ? "text-primary" : "text-foreground"}`}>{label}</span>
+                          <Icon
+                            className={`size-5 ${isActive ? 'text-primary' : 'text-foreground'}`}
+                          />
+                          <span
+                            className={`${isActive ? 'text-primary' : 'text-foreground'}`}
+                          >
+                            {label}
+                          </span>
                           {count ? (
-                            <span className="ml-auto rounded-sm bg-white dark:bg-zinc-800 px-2 py-0.5 text-xs shadow-border ">
+                            <span className="shadow-border ml-auto rounded-sm bg-white px-2 py-0.5 text-xs dark:bg-zinc-800">
                               {count}
                             </span>
                           ) : null}
@@ -116,30 +119,36 @@ export function DashboardSidebar() {
         ))}
       </SidebarContent>
       <SidebarFooter className="gap-4 p-4">
-        <Card className="gap-4 rounded-2xl p-4 shadow-border">
+        <Card className="shadow-border gap-4 rounded-2xl p-4">
           <div className="flex justify-end">
-            <Button variant="ghost" size="icon" className="size-8 shadow-border">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="shadow-border size-8"
+            >
               <X className="size-4" />
             </Button>
           </div>
           <div className="flex justify-between text-sm">
             <span>Policy queries today</span>
-            <strong className="tabular-nums font-medium">714/1000</strong>
+            <strong className="font-medium tabular-nums">714/1000</strong>
           </div>
           <div className="flex gap-1">
             {Array.from({ length: 30 }).map((_, i) => (
               <span
                 key={i}
-                className={`h-4 w-1 rounded-full ${i < 16 ? "bg-primary" : "bg-muted"}`}
+                className={`h-4 w-1 rounded-full ${i < 16 ? 'bg-primary' : 'bg-muted'}`}
               />
             ))}
           </div>
-          <Button className="min-h-10 shadow-primary border border-primary">Upgrade plan <ArrowUpRight className="size-4" /></Button>
+          <Button className="shadow-primary border-primary min-h-10 border">
+            Upgrade plan <ArrowUpRight className="size-4" />
+          </Button>
         </Card>
         <div className="space-y-1">
           <Button
             variant="ghost"
-            className="h-10 w-full justify-start gap-3 px-2 text-muted-foreground"
+            className="text-muted-foreground h-10 w-full justify-start gap-3 px-2"
           >
             <HelpCircle />
             Help
@@ -147,7 +156,7 @@ export function DashboardSidebar() {
           <ThemeToggle />
           <Button
             variant="ghost"
-            className="h-10 w-full justify-start gap-3 px-2 text-muted-foreground"
+            className="text-muted-foreground h-10 w-full justify-start gap-3 px-2"
           >
             <UserRound />
             Profile
