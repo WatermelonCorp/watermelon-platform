@@ -5,7 +5,6 @@ import { Link} from "react-router-dom";
 import {
   ArrowUpRight,
   BadgeHelp,
-  ChevronLeft,
   FileText,
   FolderOpen,
   HelpCircle,
@@ -17,7 +16,7 @@ import {
   UserRound,
   UsersRound,
   X,
-} from "lucide-react";
+} from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
