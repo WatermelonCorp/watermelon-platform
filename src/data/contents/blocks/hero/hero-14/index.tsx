@@ -114,7 +114,7 @@ export default function Hero14({
   backgroundImage = 'https://assets.watermelon.sh/hero-14-bg.avif',
 }: Hero14Props) {
   return (
-    <section className="relative isolate flex min-h-screen w-full overflow-hidden bg-slate-950  text-white antialiased ">
+    <section className="relative isolate flex min-h-screen w-full overflow-hidden bg-slate-950 text-white antialiased">
       <motion.div
         className="relative flex min-h-[680px] w-full flex-col overflow-hidden bg-slate-950 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] md:min-h-[720px]"
         initial="hidden"
@@ -129,14 +129,13 @@ export default function Hero14({
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-
         <motion.nav
           variants={riseVariants}
           className="relative z-10 mx-auto flex min-h-14 w-full max-w-[76rem] items-center justify-between border-b border-white/[0.06] px-5 py-3 sm:px-8 lg:px-12"
         >
           <a
             href="#"
-            className="group/brand inline-flex min-h-10 items-center gap-2 text-md font-normal text-white transition-[opacity,transform] duration-200 ease-out hover:opacity-85 active:scale-[0.96]"
+            className="group/brand text-md inline-flex min-h-10 items-center gap-2 font-normal text-white transition-[opacity,transform] duration-200 ease-out hover:opacity-85 active:scale-[0.96]"
           >
             <LogoIcon className="size-8" />
             <span>{brandName}</span>
@@ -166,7 +165,7 @@ export default function Hero14({
           </a>
         </motion.nav>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-[76rem] flex-1 flex-col items-center px-5 pt-14 pb-10 text-center sm:px-8 sm:pt-20 lg:px-12">
+        <div className="relative z-10 mx-auto flex w-full max-w-[76rem] flex-1 flex-col items-center px-5 pt-14 pb-10 text-center sm:px-8 sm:pt-20 lg:px-12 2xl:max-w-7xl">
           <motion.div
             variants={riseVariants}
             className="inline-flex min-h-8 items-center gap-2 rounded-full bg-white/10 px-4 text-[11px] font-semibold text-white/74 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_10px_28px_rgba(15,23,42,0.16)] backdrop-blur-md"
@@ -177,7 +176,7 @@ export default function Hero14({
 
           <motion.h1
             variants={riseVariants}
-            className="mt-6 max-w-4xl text-[clamp(2.7rem,4.5vw,4.6rem)] leading-[0.98] font-light tracking-normal text-balance text-white"
+            className="mt-6 max-w-4xl text-[clamp(2.7rem,4.5vw,6.6rem)] leading-[0.98] font-light tracking-normal text-balance text-white 2xl:max-w-7xl"
           >
             <span className="block">{headingLine1}</span>
             <span className="mt-1 block font-serif text-[1.12em] leading-[0.92] font-normal text-white italic">

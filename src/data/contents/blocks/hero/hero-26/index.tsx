@@ -193,13 +193,13 @@ export default function Hero26({
         src={backgroundImage}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center "
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
         variants={bgVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       />
-      <div className='absolute inset-0 h-full w-full bg-black/25'></div>
+      <div className="absolute inset-0 h-full w-full bg-black/25"></div>
 
       {/* ── Main layout ───────────────────────────────────────────────── */}
       <motion.div
@@ -252,7 +252,7 @@ export default function Hero26({
         </motion.nav>
 
         {/* ── Hero content ─────────────────────────────────────────────── */}
-        <div className="relative z-10 flex flex-1 flex-col px-6 pt-10 pb-0 sm:px-10 lg:px-14">
+        <div className="relative z-10 flex flex-1 flex-col px-6 pt-10 pb-0 sm:px-10 lg:px-14 2xl:pt-40">
           {/* Stars + social proof */}
           <motion.div variants={starsVariants} className="flex flex-col gap-1">
             <div className="flex items-center gap-0.5">
@@ -268,7 +268,7 @@ export default function Hero26({
                 </svg>
               ))}
             </div>
-            <p className="text-md tracking-wide font-normal text-white/80">
+            <p className="text-md font-normal tracking-wide text-white/80">
               {socialProofLabel}
             </p>
           </motion.div>
@@ -276,7 +276,7 @@ export default function Hero26({
           {/* Heading */}
           <motion.h1
             variants={headingVariants}
-            className="mt-4 max-w-xl text-[clamp(2.8rem,6vw,4.5rem)] leading-[1.02] font-normal tracking-[-0.025em] text-balance text-white sm:max-w-2xl"
+            className="mt-4 max-w-md text-[clamp(2.8rem,5vw,6.5rem)] leading-[1.02] font-normal tracking-[-0.025em] text-balance text-white sm:max-w-2xl"
           >
             {headingLine1}
           </motion.h1>
@@ -284,7 +284,7 @@ export default function Hero26({
           {/* Description */}
           <motion.p
             variants={subtitleVariants}
-            className="mt-5 max-w-sm text-md leading-[1.55] font-normal text-pretty text-white/80 sm:max-w-md"
+            className="text-md mt-5 max-w-sm leading-[1.55] font-normal text-pretty text-white/80 sm:max-w-md"
           >
             {description}
           </motion.p>
@@ -308,17 +308,16 @@ export default function Hero26({
               variants={ctaItemVariants}
               href={appleHref}
               aria-label="Download on the App Store"
-              className="inline-flex size-10 items-center justify-center rounded-full  text-white"
+              className="inline-flex size-10 items-center justify-center rounded-full text-white"
             >
               <AppleIcon className="size-full" />
             </motion.a>
-
 
             <motion.a
               variants={ctaItemVariants}
               href={androidHref}
               aria-label="Download on Google Play"
-              className="inline-flex size-10 items-center justify-center  text-white "
+              className="inline-flex size-10 items-center justify-center text-white"
             >
               <AndroidIcon className="size-full" />
             </motion.a>
@@ -331,7 +330,7 @@ export default function Hero26({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
-          className="relative z-20 mt-auto grid grid-cols-2 sm:grid-cols-4 mb-10 place-items-center"
+          className="relative z-20 mt-auto mb-10 grid grid-cols-2 place-items-center sm:grid-cols-4"
         >
           {features.map((feature, i) => {
             const Icon = iconMap[feature.icon];
@@ -339,13 +338,13 @@ export default function Hero26({
               <motion.div
                 key={`${feature.title}-${i}`}
                 variants={featureCardVariants}
-                className="md:flex items-start gap-3 px-5 py-4 sm:px-6 sm:py-5 hidden"
+                className="hidden items-start gap-3 px-5 py-4 sm:px-6 sm:py-5 md:flex"
               >
                 <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-white/20 text-white/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]">
                   <Icon className="size-6" strokeWidth={1.75} />
                 </span>
                 <span className="leading-none">
-                  <span className="block text-md font-normal text-white">
+                  <span className="text-md block font-normal text-white">
                     {feature.title}
                   </span>
                   <span className="mt-1 block text-sm leading-[1.4] font-normal text-white/80">

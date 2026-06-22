@@ -157,7 +157,7 @@ export default function Hero24({
           </a>
         </motion.nav>
 
-        <div className="relative z-10 flex flex-1 flex-col justify-start pt-20 sm:pt-32 md:pt-24">
+        <div className="relative z-10 flex flex-1 flex-col justify-start pt-20 sm:pt-32 md:pt-24 2xl:pt-50">
           <div className="max-w-4xl">
             <motion.h1
               variants={copyVariants}
