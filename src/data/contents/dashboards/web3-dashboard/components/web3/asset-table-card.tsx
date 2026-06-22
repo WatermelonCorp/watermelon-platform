@@ -1,3 +1,6 @@
+"use client";
+
+import * as React from "react";
 import { ArrowRight, ChevronsUpDown, MoreVertical, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,6 +36,42 @@ export function AssetTableCard({
   valueLabel,
   external,
 }: AssetTableCardProps) {
+  const [sortField, setSortField] = React.useState<"balance" | "value" | null>(null);
+  const [sortDir, setSortDir] = React.useState<"asc" | "desc">("desc");
+
+  const handleSort = (field: "balance" | "value") => {
+    if (sortField === field) {
+      if (sortDir === "desc") {
+        setSortDir("asc");
+      } else {
+        setSortField(null);
+        setSortDir("desc");
+      }
+    } else {
+      setSortField(field);
+      setSortDir("desc");
+    }
+  };
+
+  const sortedAssets = React.useMemo(() => {
+    if (!sortField) return assets;
+    
+    return [...assets].sort((a, b) => {
+      const parseValue = (val: string) => {
+        return parseFloat(val.replace(/[^0-9.-]+/g, "")) || 0;
+      };
+
+      const valA = parseValue(a[sortField]);
+      const valB = parseValue(b[sortField]);
+
+      if (sortDir === "asc") {
+        return valA - valB;
+      } else {
+        return valB - valA;
+      }
+    });
+  }, [assets, sortField, sortDir]);
+
   return (
     <Card className="rounded-2xl bg-card dark:bg-muted shadow-primary ring-0 py-4 p-2 gap-2">
       <CardHeader className="flex items-center justify-between px-2  ">
@@ -47,22 +86,28 @@ export function AssetTableCard({
             <TableHeader className="bg-muted rounded-md">
               <TableRow className="hover:bg-muted rounded-md   ">
                 <TableHead className="h-9 text-sm font-medium">Asset</TableHead>
-                <TableHead className="h-9 text-sm font-medium">
+                <TableHead 
+                  className="h-9 text-sm font-medium cursor-pointer select-none transition-colors hover:text-foreground"
+                  onClick={() => handleSort("balance")}
+                >
                   <span className="inline-flex items-center gap-1">
                     Balance
-                    <ChevronsUpDown className="size-4" />
+                    <ChevronsUpDown className={`size-4 ${sortField === "balance" ? "text-foreground" : "text-muted-foreground"}`} />
                   </span>
                 </TableHead>
-                <TableHead className="h-9 text-sm font-medium">
+                <TableHead 
+                  className="h-9 text-sm font-medium cursor-pointer select-none transition-colors hover:text-foreground"
+                  onClick={() => handleSort("value")}
+                >
                   <span className="inline-flex items-center gap-1">
                     {valueLabel}
-                    <ChevronsUpDown className="size-4" />
+                    <ChevronsUpDown className={`size-4 ${sortField === "value" ? "text-foreground" : "text-muted-foreground"}`} />
                   </span>
                 </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody >
-              {assets.map((asset) => (
+              {sortedAssets.map((asset) => (
                 <TableRow key={asset.asset} className="border-border/70 border-y bg-white dark:bg-black hover:dark:bg-muted">
                   <TableCell className="h-12 bg-transparent">
                     <span className="inline-flex items-center gap-3 font-medium ">
