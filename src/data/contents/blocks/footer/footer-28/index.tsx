@@ -294,13 +294,9 @@ export default function Footer28() {
       className="relative w-full overflow-hidden font-sans antialiased selection:bg-white/20"
       aria-label="Site footer"
     >
-
       <GradientBlobBg />
 
-      {/* ── Content container — sits above the gradient ── */}
       <div className="relative z-10">
-
-        {/* ═══ TOP SECTION: Logo + Tagline ════════════════════════════════ */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -322,8 +318,7 @@ export default function Footer28() {
           {/* Tagline */}
           <motion.p
             variants={riseUp}
-            /* text-pretty prevents orphans (Skill: Text Wrapping) */
-            className="text-pretty max-w-md text-sm leading-relaxed text-white/60 sm:text-[15px]"
+            className="max-w-md text-sm leading-relaxed text-pretty text-white/60 sm:text-[15px]"
           >
             Bock was founded with the goal of tung B2B marketing to the next
             performance level. We combine analytical thinking, strategic action
@@ -336,10 +331,6 @@ export default function Footer28() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          /*
-            3-column layout matching image: Contact | Nav | Support.
-            Vertical dividers created with border-r on first two cells.
-          */
           className="grid grid-cols-1 divide-y divide-white/15 border-b border-white/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-3"
         >
           {/* ── CONTACT US ── */}
@@ -348,7 +339,7 @@ export default function Footer28() {
             className="px-6 py-8 sm:px-8 md:px-12 lg:px-14"
           >
             {/* Column heading */}
-            <h3 className="text-balance mb-5 text-[11px] font-semibold tracking-[0.15em] text-white/50 uppercase">
+            <h3 className="mb-5 text-[11px] font-semibold tracking-[0.15em] text-balance text-white/50 uppercase">
               CONTACT US
             </h3>
 
@@ -356,21 +347,21 @@ export default function Footer28() {
               <motion.a
                 href={`mailto:${contactInfo.email}`}
                 variants={linkItem}
-                className="text-pretty inline-block text-[13px] leading-snug text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
+                className="inline-block text-[13px] leading-snug text-pretty text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
               >
                 {contactInfo.email}
               </motion.a>
               <motion.a
                 href={`tel:${contactInfo.phone}`}
                 variants={linkItem}
-                className="text-pretty inline-block text-[13px] leading-snug text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
+                className="inline-block text-[13px] leading-snug text-pretty text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
               >
                 {contactInfo.phone}
               </motion.a>
               <motion.p
                 variants={linkItem}
                 /* text-pretty prevents orphan in address (Skill: Text Wrapping) */
-                className="text-pretty text-[13px] leading-relaxed text-white/80"
+                className="text-[13px] leading-relaxed text-pretty text-white/80"
               >
                 {contactInfo.address}
               </motion.p>
@@ -382,7 +373,7 @@ export default function Footer28() {
             variants={riseUp}
             className="px-6 py-8 sm:px-8 md:px-14 lg:px-20"
           >
-            <h3 className="text-balance mb-5 text-[11px] font-semibold tracking-[0.15em] text-white/50 uppercase">
+            <h3 className="mb-5 text-[11px] font-semibold tracking-[0.15em] text-balance text-white/50 uppercase">
               NAVIGATION
             </h3>
 
@@ -396,7 +387,7 @@ export default function Footer28() {
                   key={link.label}
                   href={link.href}
                   variants={linkItem}
-                  className="text-pretty inline-block w-fit text-[13px] leading-snug text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
+                  className="inline-block w-fit text-[13px] leading-snug text-pretty text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
                 >
                   {link.label}
                 </motion.a>
@@ -404,16 +395,11 @@ export default function Footer28() {
             </motion.nav>
           </motion.div>
 
-          {/* ── SUPPORT ── */}
           <motion.div
             variants={riseUp}
-            /*
-              On sm it spans 2 cols then goes into 3-col grid on lg.
-              Divider is added by the parent divide-* utilities.
-            */
             className="px-6 py-8 sm:col-span-2 sm:border-t sm:border-white/15 sm:px-8 md:px-14 lg:col-span-1 lg:border-t-0 lg:border-l lg:border-white/15 lg:px-20"
           >
-            <h3 className="text-balance mb-5 text-[11px] font-semibold tracking-[0.15em] text-white/50 uppercase">
+            <h3 className="mb-5 text-[11px] font-semibold tracking-[0.15em] text-balance text-white/50 uppercase">
               SUPPORT
             </h3>
 
@@ -427,7 +413,7 @@ export default function Footer28() {
                   key={link.label}
                   href={link.href}
                   variants={linkItem}
-                  className="text-pretty inline-block w-fit text-[13px] leading-snug text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
+                  className="inline-block w-fit text-[13px] leading-snug text-pretty text-white/80 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
                 >
                   {link.label}
                 </motion.a>
@@ -450,22 +436,14 @@ export default function Footer28() {
               href={social.href}
               variants={socialItemVariant}
               whileTap={{ scale: 0.97 }}
-              /*
-                Minimum hit area: py-4 gives at least 48px height on all social cells.
-                Skill: min hit area ≥ 40px.
-                Transition-specific (Skill): transition-[color] not transition-all.
-              */
               className="group flex items-center justify-center gap-2 py-4 text-[11px] font-semibold tracking-[0.14em] text-white/55 transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-none"
               aria-label={social.label}
             >
               <span>{social.label}</span>
-              {/*
-                Icon animation (Skill): uses group-hover translate for contextual
-                directional motion — up-right indicates external link.
-              */}
+
               <HugeiconsIcon
                 icon={ArrowUpRight01Icon}
-                className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </motion.a>
           ))}
