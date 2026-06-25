@@ -191,7 +191,7 @@ export default function Hero22({
           </div>
         </motion.nav>
 
-        <div className="relative z-10 grid flex-1 grid-cols-1 items-start gap-10 pt-14 lg:grid-cols-[minmax(0,0.88fr)_minmax(28rem,1fr)] lg:pt-20">
+        <div className="relative z-10 grid flex-1 grid-cols-1 items-start gap-10 pt-14 lg:grid-cols-[minmax(0,0.88fr)_minmax(28rem,1fr)] lg:pt-20 2xl:mt-30">
           <div className="max-w-4xl">
             <motion.h1
               variants={copyVariants}
@@ -236,7 +236,7 @@ export default function Hero22({
 
         <motion.div
           variants={featureRowVariants}
-          className="absolute bottom-20 left-7 z-20  flex-wrap items-center gap-8 sm:left-2 lg:left-[5.25rem] sm:flex lg:gap-12"
+          className="absolute bottom-20 left-7 z-20 flex-wrap items-center gap-8 sm:left-2 sm:flex lg:left-[5.25rem] lg:gap-12"
         >
           {features.map((feature) => {
             const Icon = iconMap[feature.icon];
