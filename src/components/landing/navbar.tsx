@@ -39,14 +39,14 @@ export default function Navbar() {
         {/* Right side */}
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 border border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5 transition-colors">
+            <a href="https://github.com/WatermelonCorp/watermelon-platform" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 border border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5 transition-colors">
               <GithubIcon className="w-4 h-4" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 border border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5 transition-colors">
+            <a href="https://x.com/watermelonui" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 border border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5 transition-colors">
               <NewTwitterIcon className="w-4 h-4" />
             </a>
           </div>
-          <Link to="#get-started" className="flex items-center h-10 bg-primary text-background font-mono font-bold tracking-widest uppercase px-6 text-xs hover:bg-primary/90 transition-colors active:scale-[0.96]">
+          <Link to="/home" className="flex items-center h-10 bg-primary text-background font-mono font-bold tracking-widest uppercase px-6 text-xs hover:bg-primary/90 transition-colors active:scale-[0.96]">
             Get Started
           </Link>
         </div>
@@ -67,10 +67,10 @@ export default function Navbar() {
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/50 shadow-lg p-4 flex flex-col gap-4 animate-fade-in-up">
 
           <div className="flex items-center justify-center gap-8 p-4 border-t border-border/50 mt-2">
-            <a href="https://github.com" className="text-muted-foreground hover:text-foreground"><GithubIcon className="w-6 h-6" /></a>
-            <a href="https://twitter.com" className="text-muted-foreground hover:text-foreground"><NewTwitterIcon className="w-6 h-6" /></a>
+            <a href="https://github.com/WatermelonCorp/watermelon-platform" className="text-muted-foreground hover:text-foreground"><GithubIcon className="w-6 h-6" /></a>
+            <a href="https://x.com/watermelonui" className="text-muted-foreground hover:text-foreground"><NewTwitterIcon className="w-6 h-6" /></a>
           </div>
-          <Link to="#get-started" className="w-full text-center bg-primary text-background font-mono font-bold tracking-widest uppercase px-4 py-4 text-xs hover:bg-primary/90 transition-colors active:scale-[0.96] mt-2">
+          <Link to="/home" className="w-full text-center bg-primary text-background font-mono font-bold tracking-widest uppercase px-4 py-4 text-xs hover:bg-primary/90 transition-colors active:scale-[0.96] mt-2">
             Get Started
           </Link>
         </div>

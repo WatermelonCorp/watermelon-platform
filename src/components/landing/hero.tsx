@@ -213,7 +213,7 @@ export default function Hero() {
               <ArrowUpRight01Icon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <a
-              href="https://github.com"
+              href="https://github.com/WatermelonCorp/watermelon-platform"
               target="_blank"
               rel="noreferrer"
               className="text-foreground inline-flex items-center justify-center border border-white/10 px-8 py-3 text-sm font-bold transition-all hover:bg-white/5 active:scale-[0.97]"
