@@ -1,6 +1,5 @@
 import React from 'react'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import { SidebarProvider } from '@/components/ui/sidebar'
 import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { ThemeProvider } from 'next-themes'
@@ -25,12 +24,10 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
           >
             <TooltipProvider>
               <TooltipProviderAnimate>
-                <SidebarProvider>
-                  <ThemeCssProvider>
-                    <Toaster />
-                    {children}
-                  </ThemeCssProvider>
-                </SidebarProvider>
+                <ThemeCssProvider>
+                  <Toaster />
+                  {children}
+                </ThemeCssProvider>
               </TooltipProviderAnimate>
             </TooltipProvider>
           </ThemeProvider>
