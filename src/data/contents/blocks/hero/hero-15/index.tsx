@@ -197,8 +197,11 @@ export default function Hero15({
         </motion.nav>
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center px-6 pt-16 pb-10 text-center sm:px-12 sm:pt-20 lg:px-24">
-          <motion.div variants={softReveal} className="mx-auto max-w-4xl">
-            <h1 className="text-[clamp(2.9rem,6.1vw,4.55rem)] leading-[0.98] font-light tracking-normal text-balance text-white/95">
+          <motion.div
+            variants={softReveal}
+            className="mx-auto max-w-4xl 2xl:max-w-7xl"
+          >
+            <h1 className="text-[clamp(2.9rem,6.1vw,6.55rem)] leading-[0.98] font-light tracking-normal text-balance text-white/95">
               <span className="block">{headingLine1}</span>
               <span className="mt-1 block font-serif text-[1.06em] leading-[0.92] font-normal text-white italic">
                 {headingLine2}
@@ -208,7 +211,7 @@ export default function Hero15({
 
           <motion.p
             variants={softReveal}
-            className="mt-5 max-w-lg text-sm leading-7 font-normal text-pretty text-white/70 sm:text-sm"
+            className="mt-5 max-w-lg text-sm leading-7 font-normal text-pretty text-white/70 sm:text-sm 2xl:text-lg"
           >
             {description}
           </motion.p>
@@ -237,15 +240,15 @@ export default function Hero15({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.8 }}
-            className="mt-auto w-full sm:pb-24 md:pb-12-"
+            className="md:pb-12- mt-auto w-full sm:pb-24"
           >
             <motion.p
               variants={softReveal}
-              className="text-sm font-light text-white/50"
+              className="text-sm font-light text-white/50 2xl:text-lg"
             >
               {trustedEyebrow}
             </motion.p>
-            <div className="mx-auto mt-5 flex max-w-lg flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            <div className="mx-auto mt-5 flex max-w-lg flex-wrap items-center justify-center gap-x-8 gap-y-4 2xl:max-w-2xl">
               {trustedBrands.map((brand) => (
                 <motion.div
                   key={`${brand.mark}-${brand.name}`}
@@ -253,7 +256,7 @@ export default function Hero15({
                   className="flex items-center gap-1.5 text-white/40"
                 >
                   <TrustedMark mark={brand.mark} />
-                  <span className="text-2xl font-semibold tracking-[-0.03em]">
+                  <span className="text-2xl font-semibold tracking-[-0.03em] 2xl:text-3xl">
                     {brand.name}
                   </span>
                 </motion.div>

@@ -147,7 +147,7 @@ export default function Hero25({
           {/* Brand */}
           <a
             href="#"
-            className="inline-flex min-h-10 items-center gap-2 text-lg font-medium  text-zinc-100 transition-opacity duration-200 hover:opacity-75"
+            className="inline-flex min-h-10 items-center gap-2 text-lg font-medium text-zinc-100 transition-opacity duration-200 hover:opacity-75"
           >
             <LogoIcon className="size-8 text-zinc-100" />
             {brandName}
@@ -169,7 +169,7 @@ export default function Hero25({
           {/* Sign up CTA */}
           <a
             href={signupHref}
-            className="inline-flex min-h-10 items-center justify-center rounded-full  bg-zinc-50  px-5 text-sm font-medium text-zinc-900 shadow-[0_1px_3px_rgba(0,0,0,0.06),inset_0_0_0_1px_rgba(255,255,255,1)] backdrop-blur-sm transition-[background-color,box-shadow,transform] duration-200 hover:bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.10)] active:scale-[0.96]"
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-zinc-50 px-5 text-sm font-medium text-zinc-900 shadow-[0_1px_3px_rgba(0,0,0,0.06),inset_0_0_0_1px_rgba(255,255,255,1)] backdrop-blur-sm transition-[background-color,box-shadow,transform] duration-200 hover:bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.10)] active:scale-[0.96]"
           >
             {signupLabel}
           </a>
@@ -180,7 +180,7 @@ export default function Hero25({
           {/* Heading */}
           <motion.h1
             variants={headingVariants}
-            className="max-w-sm text-center text-[clamp(2.5rem,5.5vw,3.625rem)] leading-[1.12] font-medium tracking-[-0.032em] text-balance text-zinc-900 sm:max-w-xl md:max-w-2xl"
+            className="max-w-md text-center text-[clamp(2.5rem,5.5vw,5.5rem)] leading-[1.03] font-medium tracking-[-0.032em] text-balance text-zinc-900 sm:max-w-xl md:max-w-4xl 2xl:max-w-7xl"
           >
             <span className="block">{headingLine1}</span>
             <span className="block">{headingLine2}</span>
@@ -189,7 +189,7 @@ export default function Hero25({
           {/* Description */}
           <motion.p
             variants={subtitleVariants}
-            className="mt-5 max-w-xs text-center text-[0.9375rem] leading-[1.5] font-medium text-pretty text-zinc-700 sm:max-w-sm"
+            className="mt-5 max-w-xs text-center text-sm leading-[1.5] font-medium text-pretty text-zinc-700 sm:max-w-sm 2xl:text-lg"
           >
             {description}
           </motion.p>

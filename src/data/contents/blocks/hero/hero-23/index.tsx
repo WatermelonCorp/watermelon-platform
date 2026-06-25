@@ -142,7 +142,7 @@ export default function Hero23({
           variants={imageVariants}
           src={backgroundImage}
           alt=""
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center "
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
         />
 
         <motion.nav
@@ -151,7 +151,7 @@ export default function Hero23({
         >
           <a
             href="#"
-            className="inline-flex min-h-10 items-center text-lg font-medium tracking-[-0.035em] text-white transition-[transform] duration-200 ease-out  active:scale-[0.96]"
+            className="inline-flex min-h-10 items-center text-lg font-medium tracking-[-0.035em] text-white transition-[transform] duration-200 ease-out active:scale-[0.96]"
           >
             {brandName}
           </a>
@@ -176,11 +176,11 @@ export default function Hero23({
           </a>
         </motion.nav>
 
-        <div className="relative z-10 flex flex-1 flex-col justify-start pt-16  sm:pt-20 ">
+        <div className="relative z-10 flex flex-1 flex-col justify-start pt-16 sm:pt-20 2xl:mt-30">
           <div className="max-w-4xl">
             <motion.h1
               variants={copyVariants}
-              className="max-w-4xl text-[clamp(3.25rem,5.5vw,5.4rem)] leading-[1.02] font-normal tracking-tighter text-balance text-white"
+              className="max-w-4xl text-[clamp(3.25rem,5.5vw,6.4rem)] leading-[1.02] font-normal tracking-tighter text-balance text-white"
             >
               <span className="block">{headingLine1}</span>
               <span className="block">
@@ -222,10 +222,10 @@ export default function Hero23({
 
         <motion.blockquote
           variants={footerVariants}
-          className="absolute bottom-16  z-20 max-w-2xl text-sm leading-[1.45] font-normal text-yellow-300/70 italic sm:left-12 lg:left-16 px-2"
+          className="absolute bottom-16 z-20 max-w-2xl px-2 text-sm leading-[1.45] font-normal text-yellow-300/70 italic sm:left-12 lg:left-16"
         >
           <p>{quote}</p>
-          <footer className="mt-4 text-sm font-medium  text-yellow-300/70 uppercase">
+          <footer className="mt-4 text-sm font-medium text-yellow-300/70 uppercase">
             {quoteAuthor}
           </footer>
         </motion.blockquote>

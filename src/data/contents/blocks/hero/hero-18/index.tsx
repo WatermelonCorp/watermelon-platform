@@ -113,7 +113,6 @@ export default function Hero18({
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-top"
         />
 
-
         <motion.nav
           variants={navVariants}
           className="relative z-20 mx-auto flex h-12 w-full max-w-7xl items-center justify-between"
@@ -146,15 +145,15 @@ export default function Hero18({
           </a>
         </motion.nav>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center pt-[18.3rem] pb-14 text-center sm:pt-[20.6rem] md:pt-[18.8rem] lg:pt-[18.2rem]">
+        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center pt-[18.3rem] pb-14 text-center sm:pt-[20.6rem] md:pt-[18.8rem] lg:pt-[18.2rem] 2xl:max-w-7xl">
           <motion.h1
             variants={riseVariants}
-            className="max-w-5xl text-[clamp(2.55rem,6.5vw,4.25rem)] leading-[0.97] font-light tracking-[-0.045em] text-balance text-white"
+            className="max-w-5xl text-[clamp(2.55rem,5vw,6.25rem)] leading-[0.97] font-light tracking-[-0.045em] text-balance text-white 2xl:max-w-7xl"
           >
             <span className="block">{headingPrefix}</span>
             <span className="block">
               {headingMiddle}{' '}
-              <span className="font-[Georgia,serif]  font-normal tracking-[-0.055em] text-[#a06355] italic">
+              <span className="font-[Georgia,serif] font-normal tracking-[-0.055em] text-[#a06355] italic">
                 {headingHighlight}
               </span>
             </span>
@@ -162,7 +161,7 @@ export default function Hero18({
 
           <motion.p
             variants={riseVariants}
-            className="mt-4 max-w-lg text-md leading-wide font-normal text-pretty text-neutral-100/80"
+            className="text-md leading-wide mt-4 max-w-lg font-normal text-pretty text-neutral-100/80"
           >
             {description}
           </motion.p>

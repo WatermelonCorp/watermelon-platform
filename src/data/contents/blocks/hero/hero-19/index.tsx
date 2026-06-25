@@ -167,17 +167,17 @@ export default function Hero19({
         </motion.nav>
 
         <div className="relative z-10 flex flex-1 items-center pt-10 pb-12 sm:pt-14 lg:pt-4">
-          <div className="max-w-[39rem]">
+          <div className="max-w-2xl 2xl:max-w-7xl">
             <motion.p
               variants={copyVariants}
-              className="text-[0.72rem] leading-none font-medium text-white/95"
+              className="text-xs leading-none font-medium text-white/95 2xl:text-sm"
             >
               {eyebrow} <span aria-hidden="true">-&gt;</span>
             </motion.p>
 
             <motion.h1
               variants={copyVariants}
-              className="mt-5 max-w-[38rem] text-[clamp(3rem,5.25vw,4.4rem)] leading-[1.04] font-normal tracking-[-0.055em] text-balance text-white"
+              className="mt-5 max-w-2xl text-[clamp(3rem,5.25vw,6rem)] leading-[1.04] font-normal tracking-[-0.055em] text-balance text-white 2xl:max-w-7xl"
             >
               <span className="block">{headingLine1}</span>
               <span className="block">{headingLine2}</span>
@@ -185,7 +185,7 @@ export default function Hero19({
 
             <motion.p
               variants={copyVariants}
-              className="mt-5 max-w-[31rem] text-[0.78rem] leading-[1.55] font-medium text-pretty text-white/85"
+              className="mt-5 max-w-[31rem] text-[0.78rem] leading-[1.55] font-medium text-pretty text-white/85 2xl:text-lg"
             >
               {description}
             </motion.p>
