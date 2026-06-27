@@ -7,18 +7,58 @@ import {
 import { cn } from '@/lib/utils';
 import LogoIcon from '@/assets/logo-icon';
 
+function Crosshair({ position }: { position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' }) {
+  const isTop = position.startsWith('top');
+  const isLeft = position.endsWith('left');
+  
+  return (
+    <div className={cn(
+      "pointer-events-none absolute h-8 w-8",
+      isTop ? "top-0" : "bottom-0",
+      isLeft ? "left-0" : "right-0"
+    )}>
+      <div className={cn("absolute h-full w-px bg-white/10", isTop ? "top-0" : "bottom-0", isLeft ? "left-4" : "right-4")} />
+      <div className={cn("absolute h-px w-full bg-white/10", isTop ? "top-4" : "bottom-4", isLeft ? "left-0" : "right-0")} />
+    </div>
+  );
+}
+
+function FooterLinkColumn({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-5">
+      <div className="text-primary mb-2 flex gap-2 font-mono text-xs tracking-widest">
+        <span className="opacity-70">{'//'}</span> {title}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} className="text-sm text-white/50 transition-colors hover:text-white">
+      {children}
+    </a>
+  );
+}
+
+function SocialLink({ href, icon: Icon }: { href: string; icon: React.ElementType }) {
+  return (
+    <a
+      href={href}
+      className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/2 text-white/50 transition-all hover:border-white/30 hover:text-white"
+    >
+      <Icon className="h-4 w-4" />
+    </a>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-background text-foreground relative mt-24 overflow-hidden border-t border-white/5 font-mono">
       {/* Decorative Technical Crosshairs at the very edges */}
-      <div className="pointer-events-none absolute top-0 left-0 h-8 w-8">
-        <div className="absolute top-0 left-4 h-full w-px bg-white/10" />
-        <div className="absolute top-4 left-0 h-px w-full bg-white/10" />
-      </div>
-      <div className="pointer-events-none absolute top-0 right-0 h-8 w-8">
-        <div className="absolute top-0 right-4 h-full w-px bg-white/10" />
-        <div className="absolute top-4 right-0 h-px w-full bg-white/10" />
-      </div>
+      <Crosshair position="top-left" />
+      <Crosshair position="top-right" />
 
       <div className="relative z-10 container mx-auto px-4 pt-20 pb-12 md:px-8 lg:px-12 xl:px-16">
         {/* Top Grid */}
@@ -48,94 +88,24 @@ export default function Footer() {
 
           {/* Right Side: Links (span 7) */}
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-7 lg:pl-8">
-            {/* Link Column 1 */}
-            <div className="flex flex-col gap-5">
-              <div className="text-primary mb-2 flex gap-2 font-mono text-xs tracking-widest">
-                <span className="opacity-70">{'//'}</span> PRODUCT
-              </div>
-              <a
-                href="/animated-components"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Animated
-              </a>
-              <a
-                href="/components"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Components
-              </a>
-              {/* <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Templates</a> */}
-              <a
-                href="/blocks"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Blocks
-              </a>
-              <a
-                href="/dashboards"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Dashboards
-              </a>
-              {/* <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Figma Kit</a> */}
-            </div>
-            {/* Link Column 2 */}
-            {/* <div className="flex flex-col gap-5">
-                 <div className="text-primary font-mono text-xs mb-2 tracking-widest flex gap-2"><span className="opacity-70">{"//"}</span> RESOURCES</div>
-                 <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Docs</a>
-                 <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Examples</a>
-                 <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Showcase</a>
-                 <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Blog</a>
-               </div> */}
-            {/* Link Column 3 */}
-            <div className="flex flex-col gap-5">
-              <div className="text-primary mb-2 flex gap-2 font-mono text-xs tracking-widest">
-                <span className="opacity-70">{'//'}</span> COMMUNITY
-              </div>
-              <a
-                href=""
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Discord
-              </a>
-              <a
-                href="https://github.com/WatermelonCorp/watermelon-platform"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://x.com/watermelonui"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                X (Twitter)
-              </a>
-            </div>
-            {/* Link Column 4 */}
-            <div className="flex flex-col gap-5">
-              <div className="text-primary mb-2 flex gap-2 font-mono text-xs tracking-widest">
-                <span className="opacity-70">{'//'}</span> COMPANY
-              </div>
-              <a
-                href="/terms"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Terms
-              </a>
-              <a
-                href="/privacy"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Privacy
-              </a>
-              <a
-                href="/copyright"
-                className="text-sm text-white/50 transition-colors hover:text-white"
-              >
-                Copyright
-              </a>
-            </div>
+            <FooterLinkColumn title="PRODUCT">
+              <FooterLink href="/animated-components">Animated</FooterLink>
+              <FooterLink href="/components">Components</FooterLink>
+              <FooterLink href="/blocks">Blocks</FooterLink>
+              <FooterLink href="/dashboards">Dashboards</FooterLink>
+            </FooterLinkColumn>
+
+            <FooterLinkColumn title="COMMUNITY">
+              <FooterLink href="">Discord</FooterLink>
+              <FooterLink href="https://github.com/WatermelonCorp/watermelon-platform">GitHub</FooterLink>
+              <FooterLink href="https://x.com/watermelonui">X (Twitter)</FooterLink>
+            </FooterLinkColumn>
+
+            <FooterLinkColumn title="COMPANY">
+              <FooterLink href="/terms">Terms</FooterLink>
+              <FooterLink href="/privacy">Privacy</FooterLink>
+              <FooterLink href="/copyright">Copyright</FooterLink>
+            </FooterLinkColumn>
           </div>
 
           {/* Vertical divider line for desktop */}
@@ -215,38 +185,17 @@ export default function Footer() {
               <span className="opacity-70">{'//'}</span> CONNECT
             </div>
             <div className="flex items-center gap-4">
-              <a
-                href="https://x.com/watermelonui"
-                className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/2 text-white/50 transition-all hover:border-white/30 hover:text-white"
-              >
-                <NewTwitterIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/WatermelonCorp/watermelon-platform"
-                className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/2 text-white/50 transition-all hover:border-white/30 hover:text-white"
-              >
-                <GithubIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/2 text-white/50 transition-all hover:border-white/30 hover:text-white"
-              >
-                <DiscordIcon className="h-4 w-4" />
-              </a>
+              <SocialLink href="https://x.com/watermelonui" icon={NewTwitterIcon} />
+              <SocialLink href="https://github.com/WatermelonCorp/watermelon-platform" icon={GithubIcon} />
+              <SocialLink href="#" icon={DiscordIcon} />
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Decorative Crosshairs */}
-      <div className="pointer-events-none absolute bottom-0 left-0 h-8 w-8">
-        <div className="absolute bottom-0 left-4 h-full w-px bg-white/10" />
-        <div className="absolute bottom-4 left-0 h-px w-full bg-white/10" />
-      </div>
-      <div className="pointer-events-none absolute right-0 bottom-0 h-8 w-8">
-        <div className="absolute right-4 bottom-0 h-full w-px bg-white/10" />
-        <div className="absolute right-0 bottom-4 h-px w-full bg-white/10" />
-      </div>
+      <Crosshair position="bottom-left" />
+      <Crosshair position="bottom-right" />
     </footer>
   );
 }

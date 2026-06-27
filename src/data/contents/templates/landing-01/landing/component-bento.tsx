@@ -5,6 +5,48 @@ import Checkbox16 from "@/data/contents/components/checkbox/variant-16";
 import Switch3 from "@/data/contents/components/switch/variant-3";
 import Tabs7 from "@/data/contents/components/tabs/variant-7";
 import Breadcrumb7 from "@/data/contents/components/breadcrumb/variant-7";
+import { cn } from "@/lib/utils";
+
+function ComponentCard({
+  title,
+  variants,
+  className,
+  innerClassName,
+  children,
+}: {
+  title: string;
+  variants: Variants;
+  className?: string;
+  innerClassName?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      variants={variants}
+      className={cn(
+        "h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300",
+        className
+      )}
+    >
+      {/* Corner Accents */}
+      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
+      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
+      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
+
+      <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden text-center">
+        <div className="absolute top-6 left-6 z-10">
+          <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">
+            {title}
+          </span>
+        </div>
+        <div className={cn("scale-[0.9] origin-center flex justify-center w-full mt-6", innerClassName)}>
+          {children}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function ComponentsBento() {
   const containerVariants: Variants = {
@@ -64,76 +106,40 @@ export default function ComponentsBento() {
           viewport={{ once: true, margin: "-50px" }}
         >
           {/* Top Left - Tabs 7 */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ TABS ]"}</span>
-               </div>
-               <div className="scale-[0.9] origin-center w-full mt-6 flex justify-center">
-                 <Tabs7 />
-               </div>
-            </div>
-          </motion.div>
+          <ComponentCard 
+            title="[ TABS ]" 
+            variants={itemVariants} 
+            className="md:col-span-1"
+          >
+            <Tabs7 />
+          </ComponentCard>
 
           {/* Top Right - Checkbox 16 */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ CHECKBOX ]"}</span>
-               </div>
-               <div className="scale-[0.9] origin-center mt-6">
-                 <Checkbox16 />
-               </div>
-            </div>
-          </motion.div>
+          <ComponentCard 
+            title="[ CHECKBOX ]" 
+            variants={itemVariants} 
+            className="md:col-span-1"
+          >
+            <Checkbox16 />
+          </ComponentCard>
 
           {/* Bottom Left - Switch 3 */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ SWITCH ]"}</span>
-               </div>
-               <div className="scale-[0.9] origin-center flex justify-center w-full mt-6">
-                 <Switch3 />
-               </div>
-            </div>
-          </motion.div>
+          <ComponentCard 
+            title="[ SWITCH ]" 
+            variants={itemVariants} 
+            className="md:col-span-1"
+          >
+            <Switch3 />
+          </ComponentCard>
 
           {/* Bottom Right - Breadcrumb 7 */}
-          <motion.div variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ BREADCRUMB ]"}</span>
-               </div>
-               <div className="scale-[0.9] origin-center mt-6">
-                 <Breadcrumb7 />
-               </div>
-            </div>
-          </motion.div>
+          <ComponentCard 
+            title="[ BREADCRUMB ]" 
+            variants={itemVariants} 
+            className="md:col-span-1"
+          >
+            <Breadcrumb7 />
+          </ComponentCard>
         </motion.div>
       </Container>
     </section>

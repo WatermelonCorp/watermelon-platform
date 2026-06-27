@@ -6,6 +6,7 @@ import { SelectAIAgent } from "@/data/contents/animated-components/select-ai-age
 import { MorphingButton } from "@/data/contents/animated-components/morphing-button/original";
 import { KnobSlider } from "@/data/contents/animated-components/knob-slider/original";
 import { CarouselSlider } from "@/data/contents/animated-components/carousel-slider/original";
+import { cn } from "@/lib/utils";
 
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
@@ -62,6 +63,47 @@ const AGENTS = [
   },
 ];
 
+function FeatureCard({
+  title,
+  variants,
+  className,
+  innerClassName,
+  children,
+}: {
+  title: string;
+  variants: Variants;
+  className?: string;
+  innerClassName?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      variants={variants}
+      className={cn(
+        "h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300",
+        className
+      )}
+    >
+      {/* Corner Accents */}
+      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
+      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
+      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
+
+      <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        <div className="absolute top-6 left-6 z-10">
+          <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">
+            {title}
+          </span>
+        </div>
+        <div className={cn("origin-center flex justify-center w-full", innerClassName)}>
+          {children}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function AnimatedBento() {
   const [knobValue, setKnobValue] = useState(24);
 
@@ -117,67 +159,42 @@ export default function AnimatedBento() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
         >
           {/* Top Left */}
-          <motion.div key="card-agent" variants={itemVariants} className="md:col-span-1 lg:col-span-2 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ AI AGENT ]"}</span>
-               </div>
-               <div className="scale-[0.8] md:scale-[0.9] origin-center mt-6">
-                 <SelectAIAgent agents={AGENTS} />
-               </div>
-            </div>
-          </motion.div>
+          <FeatureCard 
+            title="[ AI AGENT ]" 
+            variants={itemVariants} 
+            className="md:col-span-1 lg:col-span-2"
+            innerClassName="scale-[0.8] md:scale-[0.9] mt-6"
+          >
+            <SelectAIAgent agents={AGENTS} />
+          </FeatureCard>
           
           {/* Top Right - Square-ish */}
-          <motion.div key="card-morphing" variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ MORPHING BUTTON ]"}</span>
-               </div>
-               <div className="scale-[0.8] origin-center mt-6 flex justify-center w-full">
-                 <MorphingButton buttonText="Notify Me" onSubmit={() => console.log('notified')} />
-               </div>
-            </div>
-          </motion.div>
+          <FeatureCard 
+            title="[ MORPHING BUTTON ]" 
+            variants={itemVariants} 
+            className="md:col-span-1"
+            innerClassName="scale-[0.8] mt-6"
+          >
+            <MorphingButton buttonText="Notify Me" onSubmit={() => console.log('notified')} />
+          </FeatureCard>
           
           {/* Bottom Left - Carousel */}
-          <motion.div key="card-knob" variants={itemVariants} className="md:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ KNOB SLIDER ]"}</span>
-               </div>
-               <div className="scale-[0.8] md:scale-[0.9] origin-center mt-6 flex justify-center w-full">
-                 <KnobSlider
-                     value={knobValue}
-                     onChange={setKnobValue}
-                     min={0}
-                     max={99}
-                     size={220}
-                 />
-               </div>
-            </div>
-          </motion.div>
+          <FeatureCard 
+            title="[ KNOB SLIDER ]" 
+            variants={itemVariants} 
+            className="md:col-span-1"
+            innerClassName="scale-[0.8] md:scale-[0.9] mt-6"
+          >
+            <KnobSlider
+                value={knobValue}
+                onChange={setKnobValue}
+                min={0}
+                max={99}
+                size={220}
+            />
+          </FeatureCard>
           
           {/* Bottom Middle - The label text card (hidden below lg) */}
           <motion.div key="card-100" variants={itemVariants} className="hidden lg:block lg:col-span-1 h-full w-full relative border border-primary/20 bg-primary/5 backdrop-blur-sm group">
@@ -199,22 +216,14 @@ export default function AnimatedBento() {
           </motion.div>
           
           {/* Bottom Right - Carousel Slider */}
-          <motion.div key="card-carousel" variants={itemVariants} className="md:col-span-1 lg:col-span-1 h-full w-full relative border border-white/10 bg-black/40 backdrop-blur-md group hover:bg-white/2 transition-colors duration-300">
-            {/* Corner Accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/40"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/40"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40"></div>
-
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute top-6 left-6 z-10">
-                 <span className="text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-white/80 transition-colors">{"[ SLIDER ]"}</span>
-               </div>
-               <div className="scale-[0.8] origin-center mt-6">
-                  <CarouselSlider slides={slides} />
-               </div>
-            </div>
-          </motion.div>
+          <FeatureCard 
+            title="[ SLIDER ]" 
+            variants={itemVariants} 
+            className="md:col-span-1 lg:col-span-1"
+            innerClassName="scale-[0.8] mt-6"
+          >
+            <CarouselSlider slides={slides} />
+          </FeatureCard>
         </motion.div>
       </Container>
     </section>

@@ -1,14 +1,26 @@
 import { motion } from 'motion/react';
+import { cn } from "@/lib/utils";
 
-export function PremiumComponent() {
+function VisualWrapper({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-full items-center justify-end overflow-hidden opacity-100 md:flex md:w-1/2"
+      className={cn(
+        "pointer-events-none absolute top-0 right-0 bottom-0 hidden w-full items-center justify-end overflow-hidden opacity-100 md:flex md:w-1/2",
+        className
+      )}
       style={{
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%)',
         maskImage: 'linear-gradient(to right, transparent, black 20%)',
       }}
     >
+      {children}
+    </div>
+  );
+}
+
+export function PremiumComponent() {
+  return (
+    <VisualWrapper>
       <div className="relative flex h-[360px] w-[360px] items-center justify-end">
         <svg
           className="absolute right-0 h-[360px] w-[360px]"
@@ -138,19 +150,13 @@ export function PremiumComponent() {
           })}
         </svg>
       </div>
-    </div>
+    </VisualWrapper>
   );
 }
 
 export function ThemingComponent() {
   return (
-    <div
-      className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-full items-center justify-end overflow-hidden p-8 opacity-100 md:flex md:w-1/2"
-      style={{
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%)',
-        maskImage: 'linear-gradient(to right, transparent, black 20%)',
-      }}
-    >
+    <VisualWrapper className="p-8">
       <div className="relative flex w-[280px] flex-col justify-center gap-8">
         {/* Top Info block */}
         <div className="flex flex-col gap-2">
@@ -209,19 +215,13 @@ export function ThemingComponent() {
           />
         </div>
       </div>
-    </div>
+    </VisualWrapper>
   );
 }
 
 export function OpenSourceComponent() {
   return (
-    <div
-      className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-full items-center justify-end overflow-hidden opacity-100 md:flex md:w-1/2"
-      style={{
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%)',
-        maskImage: 'linear-gradient(to right, transparent, black 20%)',
-      }}
-    >
+    <VisualWrapper>
       <div className="relative mr-8 flex h-[360px] w-[180px] items-center justify-end">
         <svg
           width="120"
@@ -275,19 +275,13 @@ export function OpenSourceComponent() {
           />
         </svg>
       </div>
-    </div>
+    </VisualWrapper>
   );
 }
 
 export function ProductionReadyComponent() {
   return (
-    <div
-      className="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-full items-center justify-end overflow-hidden opacity-100 md:flex md:w-1/2"
-      style={{
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%)',
-        maskImage: 'linear-gradient(to right, transparent, black 20%)',
-      }}
-    >
+    <VisualWrapper>
       <div className="relative mr-8 flex h-[360px] w-[180px] items-center justify-end">
         <div className="flex flex-col gap-3">
           {/* Status Header */}
@@ -328,6 +322,6 @@ export function ProductionReadyComponent() {
           />
         </div>
       </div>
-    </div>
+    </VisualWrapper>
   );
 }

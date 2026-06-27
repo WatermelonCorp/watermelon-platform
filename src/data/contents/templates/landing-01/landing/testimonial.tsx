@@ -165,6 +165,85 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }) {
+  const platform = platformConfig[t.platform];
+  const PlatformIcon = platform.icon;
+
+  return (
+    <div className="group relative w-[350px] shrink-0 cursor-crosshair border border-white/10 bg-black/40 backdrop-blur-md transition-colors duration-300 md:w-[450px]">
+      {/* Corner Accents */}
+      <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/40" />
+      <div className="absolute top-0 right-0 h-2 w-2 border-t border-r border-white/40" />
+      <div className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-white/40" />
+      <div className="absolute right-0 bottom-0 h-2 w-2 border-r border-b border-white/40" />
+
+      <div className="flex h-full w-full flex-col p-8 whitespace-normal">
+        {/* Platform Badge + X Icon */}
+        <div className="mb-5 flex items-center justify-between">
+          <div
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${platform.bgColor}`}
+          >
+            <PlatformIcon
+              className={`h-3 w-3 ${platform.color}`}
+            />
+            <span
+              className={`text-[10px] font-bold tracking-widest ${platform.color}`}
+            >
+              {platform.label}
+            </span>
+          </div>
+          <a
+            href={t.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/20 transition-colors duration-200 hover:text-white/60"
+            aria-label={`Visit ${t.author}'s X profile`}
+          >
+            <XIcon className="h-4 w-4" />
+          </a>
+        </div>
+
+        {/* Testimonial Content */}
+        <p className="group-hover:text-primary mb-8 grow font-mono text-sm leading-relaxed tracking-wide text-white/80 transition-colors duration-300">
+          &quot;{t.content}&quot;
+        </p>
+
+        {/* Author Info */}
+        <div className="mt-auto flex items-center gap-3 border-t border-white/5 pt-6">
+          <div className="group-hover:border-primary relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-white/20 transition-colors duration-300">
+            <img
+              src={t.avatar}
+              alt={t.author}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const fallback = target.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'flex';
+              }}
+            />
+            <div
+              className="text-primary absolute inset-0 hidden items-center justify-center bg-white/5 text-xs font-bold"
+              style={{ display: 'none' }}
+            >
+              {t.author.charAt(0).toUpperCase()}
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-bold tracking-widest text-white/90 uppercase">
+              {t.author}
+            </span>
+            <span className="mt-0.5 text-[10px] tracking-widest text-white/40">
+              {t.handle}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonial() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -244,88 +323,9 @@ export default function Testimonial() {
             duration: 40,
           }}
         >
-          {marqueeItems.map((t, index) => {
-            const platform = platformConfig[t.platform];
-            const PlatformIcon = platform.icon;
-
-            return (
-              <div
-                key={`${t.id}-${index}`}
-                className="group relative w-[350px] shrink-0 cursor-crosshair border border-white/10 bg-black/40 backdrop-blur-md transition-colors duration-300 md:w-[450px]"
-              >
-                {/* Corner Accents */}
-                <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/40" />
-                <div className="absolute top-0 right-0 h-2 w-2 border-t border-r border-white/40" />
-                <div className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-white/40" />
-                <div className="absolute right-0 bottom-0 h-2 w-2 border-r border-b border-white/40" />
-
-                <div className="flex h-full w-full flex-col p-8 whitespace-normal">
-                  {/* Platform Badge + X Icon */}
-                  <div className="mb-5 flex items-center justify-between">
-                    <div
-                      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${platform.bgColor}`}
-                    >
-                      <PlatformIcon
-                        className={`h-3 w-3 ${platform.color}`}
-                      />
-                      <span
-                        className={`text-[10px] font-bold tracking-widest ${platform.color}`}
-                      >
-                        {platform.label}
-                      </span>
-                    </div>
-                    <a
-                      href={t.profileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/20 transition-colors duration-200 hover:text-white/60"
-                      aria-label={`Visit ${t.author}'s X profile`}
-                    >
-                      <XIcon className="h-4 w-4" />
-                    </a>
-                  </div>
-
-                  {/* Testimonial Content */}
-                  <p className="group-hover:text-primary mb-8 grow font-mono text-sm leading-relaxed tracking-wide text-white/80 transition-colors duration-300">
-                    &quot;{t.content}&quot;
-                  </p>
-
-                  {/* Author Info */}
-                  <div className="mt-auto flex items-center gap-3 border-t border-white/5 pt-6">
-                    <div className="group-hover:border-primary relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-white/20 transition-colors duration-300">
-                      <img
-                        src={t.avatar}
-                        alt={t.author}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback =
-                            target.nextElementSibling as HTMLElement;
-                          if (fallback) fallback.style.display = 'flex';
-                        }}
-                      />
-                      <div
-                        className="text-primary absolute inset-0 hidden items-center justify-center bg-white/5 text-xs font-bold"
-                        style={{ display: 'none' }}
-                      >
-                        {t.author.charAt(0).toUpperCase()}
-                      </div>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold tracking-widest text-white/90 uppercase">
-                        {t.author}
-                      </span>
-                      <span className="mt-0.5 text-[10px] tracking-widest text-white/40">
-                        {t.handle}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {marqueeItems.map((t, index) => (
+            <TestimonialCard key={`${t.id}-${index}`} testimonial={t} />
+          ))}
         </motion.div>
       </div>
     </section>
