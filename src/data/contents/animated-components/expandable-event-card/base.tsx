@@ -22,7 +22,7 @@ export default function ExpandableEventCard({
       <motion.div
         layoutId={layoutId}
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer overflow-hidden rounded-xl bg-card border border-border hover:border-primary/30 transition-colors group shadow-sm"
+        className="cursor-pointer overflow-hidden rounded-xl bg-card border border-border hover:border-primary/30 transition-colors group shadow-sm theme-injected"
       >
         <motion.div layoutId={`image-container-${layoutId}`} className="relative h-48 w-full overflow-hidden">
           <motion.img 
