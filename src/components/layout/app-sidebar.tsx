@@ -12,21 +12,21 @@ import {
   SidebarRail,
   SidebarTrigger,
   useSidebar,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
 // ─── Imports: shadcn collapsible (used for Legal section in footer) ───────────
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from '@/components/ui/collapsible';
 
 // ─── Imports: shadcn switch (theme toggle in footer) ─────────────────────────
-import { Switch } from "@/components/ui/switch";
+import { Switch } from '@/components/ui/switch';
 
 // ─── Imports: HugeIcons wrapper ───────────────────────────────────────────────
 // IconSvgElement is the exact type the HugeiconsIcon `icon` prop accepts
-import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
 
 // ─── Imports: icons from the project's shared hugeicons barrel ────────────────
 // ArrowRight01Icon → right-chevron on Explore items and Legal row
@@ -46,7 +46,7 @@ import {
   DashboardSquare01Icon,
   Layout01Icon,
   SparklesIcon,
-} from "@/lib/hugeicons";
+} from '@/lib/hugeicons';
 
 // ─── Imports: icons sourced directly from core-free-icons ────────────────────
 // These aren't re-exported from the shared barrel yet, so we pull them directly.
@@ -58,29 +58,29 @@ import {
   HardDriveDownload,
   CubeIcon,
   AuctionIcon,
-  Component
-} from "@hugeicons/core-free-icons";
+  Component,
+} from '@hugeicons/core-free-icons';
 
 // ─── Imports: data registries (used to build nav category lists) ──────────────
-import { allCategories } from "@/data/animated-components-registry";
-import { uiCategories } from "@/data/components-registry";
-import { blockCategories } from "@/data/blocks";
+import { allCategories } from '@/data/animated-components-registry';
+import { uiCategories } from '@/data/components-registry';
+import { blockCategories } from '@/data/blocks';
 
 // ─── Imports: routing ────────────────────────────────────────────────────────
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 
 // ─── Imports: React hooks ─────────────────────────────────────────────────────
-import { memo, useCallback, useEffect, useMemo } from "react";
+import { memo, useCallback, useEffect, useMemo } from 'react';
 
 // ─── Imports: layout components ──────────────────────────────────────────────
-import { Logo } from "./logo";
-import { Socials } from "./socials";
+import { Logo } from './logo';
+import { Socials } from './socials';
 
 // ─── Imports: next-themes for the theme toggle switch ────────────────────────
-import { useTheme } from "next-themes";
+import { useTheme } from 'next-themes';
 
 // ─── Imports: analytics helper ────────────────────────────────────────────────
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent } from '@/lib/analytics';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // QuickstartItem type — each item in the Quickstart flat list
@@ -110,17 +110,17 @@ const QuickstartNavItem = memo(function QuickstartNavItem({
         asChild
         size="default"
         isActive={isActive}
-        className="h-10 px-2 gap-2"
+        className="h-10 gap-2 px-2"
       >
         <Link
           to={url}
-          className="flex items-center text-muted-foreground hover:text-foreground text-sm"
+          className="text-muted-foreground hover:text-foreground flex items-center text-sm"
         >
           {/* Per-item icon — each quickstart item has a unique icon per the design */}
           <HugeiconsIcon
             icon={icon}
             size={18}
-            className="shrink-0 text-muted-foreground"
+            className="text-muted-foreground shrink-0"
           />
           {title}
         </Link>
@@ -163,16 +163,16 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
           asChild
           size="default"
           isActive={isAnyChildActive}
-          className="h-10 px-2 w-full"
+          className="h-10 w-full px-2"
         >
           <Link
-            to={titleUrl ?? "#"}
+            to={titleUrl ?? '#'}
             className="flex items-center gap-2 text-sm"
           >
             <HugeiconsIcon
               icon={icon || GridIcon}
               size={18}
-              className="shrink-0 text-muted-foreground"
+              className="text-muted-foreground shrink-0"
             />
             {title}
           </Link>
@@ -190,14 +190,14 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
           <SidebarMenuButton
             size="default"
             isActive={isAnyChildActive}
-            className="h-10 px-2 justify-between w-full"
+            className="h-10 w-full justify-between px-2"
           >
             {/* Left cluster: grid icon + label (label is a link if titleUrl provided) */}
             <span className="flex items-center gap-2 text-sm">
               <HugeiconsIcon
                 icon={icon || GridIcon}
                 size={18}
-                className="shrink-0 text-muted-foreground"
+                className="text-muted-foreground shrink-0"
               />
               {titleUrl ? (
                 // Allow navigating to the index page without closing the collapsible
@@ -216,14 +216,14 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
             <HugeiconsIcon
               icon={ArrowDown01Icon}
               size={16}
-              className="shrink-0 text-muted-foreground/60 transition-transform group-data-[state=closed]/collapsible:-rotate-90"
+              className="text-muted-foreground/60 shrink-0 transition-transform group-data-[state=closed]/collapsible:-rotate-90"
             />
           </SidebarMenuButton>
         </CollapsibleTrigger>
 
         {/* ── Sub-item list — indented with a left accent border ── */}
         <CollapsibleContent>
-          <SidebarMenu className="mt-1 ml-2 border-l border-border/60 pl-2 pr-2.5">
+          <SidebarMenu className="border-border/60 mt-1 ml-2 border-l pr-2.5 pl-2">
             {items.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
@@ -234,7 +234,7 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
                 >
                   <Link
                     to={item.url}
-                    className="text-muted-foreground hover:text-foreground text-xs mb-0.5"
+                    className="text-muted-foreground hover:text-foreground mb-0.5 text-xs"
                   >
                     {item.title}
                   </Link>
@@ -252,37 +252,40 @@ const ExploreCollapsibleItem = memo(function ExploreCollapsibleItem({
 // ExploreComingSoonItem — Non-expandable Explore row with a "Soon" badge.
 // Used for Blocks, Dashboards, Templates until their pages are ready.
 // ─────────────────────────────────────────────────────────────────────────────
-const ExploreComingSoonItem = memo(function ExploreComingSoonItem({
-  title,
-  icon,
-}: {
-  title: string;
-  icon?: IconSvgElement;
-}) {
-  return (
-    <SidebarMenuItem>
-      <SidebarMenuButton
-        size="default"
-        disabled
-        className="h-10 px-2 justify-between opacity-60 cursor-default"
-      >
-        {/* Left cluster: grid icon + label */}
-        <span className="flex items-center gap-2 text-sm">
-          <HugeiconsIcon
-            icon={icon || GridIcon}
-            size={18}
-            className="shrink-0 text-muted-foreground"
-          />
-          {title}
-        </span>
-        {/* Right: coming-soon pill badge */}
-        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-lime-400">
-          Soon
-        </span>
-      </SidebarMenuButton>
-    </SidebarMenuItem>
-  );
-});
+
+//use for lock medule in sidebar
+
+// const ExploreComingSoonItem = memo(function ExploreComingSoonItem({
+//   title,
+//   icon,
+// }: {
+//   title: string;
+//   icon?: IconSvgElement;
+// }) {
+//   return (
+//     <SidebarMenuItem>
+//       <SidebarMenuButton
+//         size="default"
+//         disabled
+//         className="h-10 px-2 justify-between opacity-60 cursor-default"
+//       >
+//         {/* Left cluster: grid icon + label */}
+//         <span className="flex items-center gap-2 text-sm">
+//           <HugeiconsIcon
+//             icon={icon || GridIcon}
+//             size={18}
+//             className="shrink-0 text-muted-foreground"
+//           />
+//           {title}
+//         </span>
+//         {/* Right: coming-soon pill badge */}
+//         <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-lime-400">
+//           Soon
+//         </span>
+//       </SidebarMenuButton>
+//     </SidebarMenuItem>
+//   );
+// });
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper — format a category slug to a human-readable label
@@ -314,7 +317,8 @@ export function AppSidebar() {
       setOpenMobile(false);
     } else if (
       location.pathname.startsWith('/block/') ||
-      location.pathname.startsWith('/dashboard/')
+      location.pathname.startsWith('/dashboard/') ||
+      location.pathname.startsWith('/template/')
     ) {
       setOpen(false);
     }
@@ -324,18 +328,18 @@ export function AppSidebar() {
   // ── Quickstart items — each has a unique icon per the Figma design ──
   // NOTE: "Basic Usage" and "CLI" pages may not have routes yet; add them when ready.
   const quickStartItems = [
-    { title: "Installation", url: "/installation", icon: HardDriveDownload },
+    { title: 'Installation', url: '/installation', icon: HardDriveDownload },
     // { title: "Basic Usage", url: "/basic-usage", icon: PlayCircleIcon },
-    { title: "Framework Support", url: "/framework-support", icon: CodeIcon },
+    { title: 'Framework Support', url: '/framework-support', icon: CodeIcon },
     // { title: "CLI", url: "/cli", icon: ComputerTerminal02Icon },
-    { title: "Changelog", url: "/changelog", icon: Clock01Icon },
+    { title: 'Changelog', url: '/changelog', icon: Clock01Icon },
   ];
 
   // ── Legal links — shown in a collapsible in the footer ──
   const legalLinks = [
-    { title: "Terms", url: "/terms" },
-    { title: "Privacy", url: "/privacy" },
-    { title: "Copyright", url: "/copyright" },
+    { title: 'Terms', url: '/terms' },
+    { title: 'Privacy', url: '/privacy' },
+    { title: 'Copyright', url: '/copyright' },
   ];
 
   // ── Generate animated-component category sub-items for the Explore collapsible ──
@@ -344,9 +348,10 @@ export function AppSidebar() {
       allCategories.map((category) => ({
         title: formatCategoryName(category),
         url: `/animated-components/category/${category}`,
-        isActive: location.pathname === `/animated-components/category/${category}`,
+        isActive:
+          location.pathname === `/animated-components/category/${category}`,
       })),
-    [location.pathname]
+    [location.pathname],
   );
 
   // ── Generate UI-component category sub-items for the Explore collapsible ──
@@ -357,7 +362,7 @@ export function AppSidebar() {
         url: `/components/${cat.slug}`,
         isActive: location.pathname === `/components/${cat.slug}`,
       })),
-    [location.pathname]
+    [location.pathname],
   );
 
   // ── Generate blocks category sub-items for the Explore collapsible ──
@@ -368,63 +373,66 @@ export function AppSidebar() {
         url: `/blocks/${cat.slug}`,
         isActive: location.pathname === `/blocks/${cat.slug}`,
       })),
-    [location.pathname]
+    [location.pathname],
   );
 
   // ── Theme toggle ──
-  const isDark = resolvedTheme === "dark";
+  const isDark = resolvedTheme === 'dark';
   const handleThemeToggle = useCallback(
     (checked: boolean) => {
       // checked=true → user wants dark; checked=false → light
-      setTheme(checked ? "dark" : "light");
+      setTheme(checked ? 'dark' : 'light');
     },
-    [setTheme]
+    [setTheme],
   );
 
   // ── Search bar click — opens the existing CommandPalette via ⌘K event ──
   const handleSearchClick = useCallback(() => {
-    trackEvent("command_palette_open", { source: "sidebar_search" });
+    trackEvent('command_palette_open', { source: 'sidebar_search' });
     // The CommandPalette component listens for this keyboard event globally
     document.dispatchEvent(
-      new KeyboardEvent("keydown", {
-        key: "k",
+      new KeyboardEvent('keydown', {
+        key: 'k',
         metaKey: true,
         bubbles: true,
-      })
+      }),
     );
   }, []);
 
   return (
     <Sidebar variant="inset" className="p-0">
       {/* ─── Header: logo + collapse trigger ─────────────────────────────── */}
-      <SidebarHeader className="p-3.5 px-6 bg-gray-100 dark:bg-neutral-900 border-b border-border dark:border-black shadow-[0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)] z-10">
-        <div className="flex items-center justify-between  transition-colors duration-200 ease-in-out">
+      <SidebarHeader className="border-border z-10 border-b bg-gray-100 p-3.5 px-6 shadow-[0_1.5px_0_0_rgba(255,255,255,1)] dark:border-black dark:bg-neutral-900 dark:shadow-[0_0.5px_0_0_rgba(255,255,255,0.1)]">
+        <div className="flex items-center justify-between transition-colors duration-200 ease-in-out">
           <Logo />
           <SidebarTrigger />
         </div>
       </SidebarHeader>
 
       {/* ─── Content ──────────────────────────────────────────────────────── */}
-      <SidebarContent className="scrollbar-hide px-2 bg-gray-100 dark:bg-neutral-900">
-
+      <SidebarContent className="scrollbar-hide bg-gray-100 px-2 dark:bg-neutral-900">
         {/* ── Search trigger bar ──
             Matches the Figma search row: magnifying glass + "search" text + ⌘K badge.
             Clicking dispatches the keydown event that opens CommandPalette.
         */}
-        <SidebarGroup className="px-2 pt-1 pb-2 mt-4 lg:hidden">
+        <SidebarGroup className="mt-4 px-2 pt-1 pb-2 lg:hidden">
           <button
             type="button"
             onClick={handleSearchClick}
             aria-label="Open search (⌘K)"
-            className="flex h-10 w-full items-center justify-between gap-2 rounded-lg border border-input/50 bg-background px-3 text-sm text-muted-foreground transition-colors hover:border-input hover:bg-muted/50 hover:text-foreground"
+            className="border-input/50 bg-background text-muted-foreground hover:border-input hover:bg-muted/50 hover:text-foreground flex h-10 w-full items-center justify-between gap-2 rounded-lg border px-3 text-sm transition-colors"
           >
             {/* Left: search icon + placeholder */}
             <div className="flex items-center gap-2">
-              <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4 shrink-0" />
+              <HugeiconsIcon
+                icon={SearchIcon}
+                strokeWidth={2}
+                className="size-4 shrink-0"
+              />
               <span>search</span>
             </div>
             {/* Right: keyboard shortcut badge */}
-            <kbd className="pointer-events-none flex h-5 select-none items-center gap-0.5 rounded-md border border-input/50 bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground leading-none">
+            <kbd className="border-input/50 bg-muted/50 text-muted-foreground pointer-events-none flex h-5 items-center gap-0.5 rounded-md border px-1.5 font-mono text-[10px] leading-none font-medium select-none">
               <HugeiconsIcon icon={CommandIcon} size={13} />K
             </kbd>
           </button>
@@ -434,12 +442,14 @@ export function AppSidebar() {
             Flat list — not collapsible. Each item has a unique icon.
             Matches the Figma "Quickstart" block with generous row heights.
         */}
-        <SidebarGroup >
+        <SidebarGroup>
           {/* Section heading — bold label matching Figma typography */}
-          <SidebarGroupLabel className="px-2 min-h-8 mt-2">
-            <span className="font-semibold text-sidebar-foreground text-[14px] 0">Quickstart</span>
+          <SidebarGroupLabel className="mt-2 min-h-8 px-2">
+            <span className="text-sidebar-foreground 0 text-[14px] font-semibold">
+              Quickstart
+            </span>
           </SidebarGroupLabel>
-          <SidebarMenu className="flex flex-col gap-0.5 ">
+          <SidebarMenu className="flex flex-col gap-0.5">
             {quickStartItems.map((item) => (
               <QuickstartNavItem
                 key={item.title}
@@ -458,18 +468,21 @@ export function AppSidebar() {
         */}
         <SidebarGroup>
           {/* Section heading */}
-          <SidebarGroupLabel className="px-2 min-h-8">
-            <span className="font-semibold text-sidebar-foreground text-[14px]">Explore</span>
+          <SidebarGroupLabel className="min-h-8 px-2">
+            <span className="text-sidebar-foreground text-[14px] font-semibold">
+              Explore
+            </span>
           </SidebarGroupLabel>
           <SidebarMenu className="flex flex-col gap-0.5">
-
             {/* Animated — collapsible, expands to all animated component categories */}
             <ExploreCollapsibleItem
               title="Animated"
               titleUrl="/animated-components"
               icon={SparklesIcon}
               items={componentCategories}
-              isAnyChildActive={location.pathname.startsWith("/animated-components")}
+              isAnyChildActive={location.pathname.startsWith(
+                '/animated-components',
+              )}
             />
 
             {/* Component — collapsible, expands to all UI component categories */}
@@ -478,7 +491,7 @@ export function AppSidebar() {
               titleUrl="/components"
               icon={Component}
               items={uiComponentCategories}
-              isAnyChildActive={location.pathname.startsWith("/components")}
+              isAnyChildActive={location.pathname.startsWith('/components')}
             />
             {/* Blocks — collapsible, expands to all UI block categories */}
             <ExploreCollapsibleItem
@@ -486,7 +499,7 @@ export function AppSidebar() {
               titleUrl="/blocks"
               icon={CubeIcon}
               items={blockNavCategories}
-              isAnyChildActive={location.pathname.startsWith("/blocks")}
+              isAnyChildActive={location.pathname.startsWith('/blocks')}
             />
             {/* Dashboards — live; links directly to /dashboards */}
             <ExploreCollapsibleItem
@@ -494,10 +507,16 @@ export function AppSidebar() {
               titleUrl="/dashboards"
               icon={DashboardSquare01Icon}
               items={[]}
-              isAnyChildActive={location.pathname.startsWith("/dashboard")}
+              isAnyChildActive={location.pathname.startsWith('/dashboard')}
             />
-            {/* Templates — coming soon; not expandable yet */}
-            <ExploreComingSoonItem title="Templates" icon={Layout01Icon} />
+            {/* Templates — live; links directly to /templates */}
+            <ExploreCollapsibleItem
+              title="Templates"
+              titleUrl="/templates"
+              icon={Layout01Icon}
+              items={[]}
+              isAnyChildActive={location.pathname.startsWith('/template')}
+            />
           </SidebarMenu>
         </SidebarGroup>
 
@@ -509,16 +528,20 @@ export function AppSidebar() {
           that use `group` + their own data-state (e.g. data-state="expanded"),
           which silently breaks the selector. Naming the group prevents that.
         */}
-        <Collapsible className="mt-auto mb-2 group/legal">
+        <Collapsible className="group/legal mt-auto mb-2">
           <CollapsibleTrigger asChild>
             {/* Row matches the Figma footer: [shield] Legal  [>] */}
             <button
               type="button"
-              className="flex w-full items-center justify-between px-2 py-2 rounded-md hover:bg-accent/20 transition-colors cursor-pointer"
+              className="hover:bg-accent/20 flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-2 transition-colors"
             >
-              <span className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="text-muted-foreground flex items-center gap-2 text-sm">
                 {/* Shield icon — matches the Figma legal row */}
-                <HugeiconsIcon icon={AuctionIcon} size={18} className="shrink-0" />
+                <HugeiconsIcon
+                  icon={AuctionIcon}
+                  size={18}
+                  className="shrink-0"
+                />
                 Legal
               </span>
               {/*
@@ -529,13 +552,13 @@ export function AppSidebar() {
               <HugeiconsIcon
                 icon={ArrowRight01Icon}
                 size={16}
-                className="shrink-0 text-muted-foreground/60 transition-transform duration-200 group-data-[state=open]/legal:rotate-90"
+                className="text-muted-foreground/60 shrink-0 transition-transform duration-200 group-data-[state=open]/legal:rotate-90"
               />
             </button>
           </CollapsibleTrigger>
           <CollapsibleContent>
             {/* Legal sub-items — indented with a left accent border */}
-            <SidebarMenu className="mt-1 ml-4 border-l border-border/60 pl-2">
+            <SidebarMenu className="border-border/60 mt-1 ml-4 border-l pl-2">
               {legalLinks.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
@@ -556,18 +579,15 @@ export function AppSidebar() {
             </SidebarMenu>
           </CollapsibleContent>
         </Collapsible>
-
       </SidebarContent>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <SidebarFooter className="border-t border-border bg-gray-100 dark:bg-neutral-900 dark:border-black shadow-[inset_0_1.5px_0_0_rgba(255,255,255,1)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] px-2">
-
-
+      <SidebarFooter className="border-border border-t bg-gray-100 px-2 shadow-[inset_0_1.5px_0_0_rgba(255,255,255,1)] dark:border-black dark:bg-neutral-900 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]">
         {/* ── Theme toggle row ──
             Matches the Figma footer row: [moon icon] Light/Dark Mode  [switch]
         */}
         <div className="flex items-center justify-between px-2 py-2 lg:hidden">
-          <span className="flex items-center gap-2 text-sm text-muted-foreground">
+          <span className="text-muted-foreground flex items-center gap-2 text-sm">
             {/* Moon crescent SVG — matches the Figma icon exactly */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -585,7 +605,7 @@ export function AppSidebar() {
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
             {/* Label reflects current theme — "Light Mode" in light, "Dark Mode" in dark */}
-            {isDark ? "Dark Mode" : "Light Mode"}
+            {isDark ? 'Dark Mode' : 'Light Mode'}
           </span>
           {/* Shadcn Switch — controlled by next-themes resolvedTheme */}
           <Switch
@@ -599,18 +619,19 @@ export function AppSidebar() {
             "Socials" label above the icon row, matching the Figma footer layout.
         */}
         <div className="px-2 pt-1 pb-0.5">
-          <span className="text-xs font-medium text-muted-foreground">Socials</span>
+          <span className="text-muted-foreground text-xs font-medium">
+            Socials
+          </span>
         </div>
         {/* Social icon row — reuses the existing Socials component, stripped of its border/bg */}
         <div className="px-1">
-          <Socials className="border-0 bg-transparent p-0 justify-start gap-2" />
+          <Socials className="justify-start gap-2 border-0 bg-transparent p-0" />
         </div>
 
         {/* ── Copyright notice ── */}
-        <span className="text-[10px] mt-1 px-2 text-muted-foreground">
+        <span className="text-muted-foreground mt-1 px-2 text-[10px]">
           © {new Date().getFullYear()} Watermelon. All rights reserved.
         </span>
-
       </SidebarFooter>
 
       {/* Sidebar rail — invisible drag handle that lets users resize the sidebar */}
@@ -618,4 +639,3 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-

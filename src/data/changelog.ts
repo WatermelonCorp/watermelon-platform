@@ -23,6 +23,62 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: '2.1.0',
+    date: 'June 26, 2026',
+    stats: [
+      {
+        label: 'Total blocks',
+        count: 194,
+        href: '/blocks',
+      },
+      {
+        label: 'Total dashboards',
+        count: 2,
+        href: '/dashboard',
+      },
+    ],
+    sections: [
+      {
+        title: 'New Blocks',
+        items: [
+          {
+            text: 'Added 10 new Hero sections featuring modern layouts, interactive elements, and conversion-focused designs.',
+          },
+          {
+            text: 'Added 4 new Footer sections with improved navigation, responsive structures, and enhanced content organization.',
+          },
+        ],
+      },
+      {
+        title: 'New Dashboard',
+        items: [
+          {
+            text: 'Added a new Insurance Portfolio Dashboard with policy management, claims monitoring, renewal tracking, portfolio risk analysis, and AI-powered operational insights.',
+          },
+        ],
+      },
+      {
+        title: 'Watermelon UI Landing Launch',
+        items: [
+          {
+            text: 'Released the official Watermelon UI landing page, showcasing the component registry, dashboards, templates, and design system.',
+          },
+        ],
+      },
+      {
+        title: 'Improvements',
+        items: [
+          {
+            text: 'Enhanced component consistency across the registry for a more polished developer experience.',
+          },
+          {
+            text: 'Improved responsiveness and visual refinement throughout blocks, dashboards, and templates.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     version: '2.0.1',
     date: 'June 16, 2026',
     stats: [

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { dashboards } from '@/data/dashboards';
 import { blocks } from '@/data/blocks';
+import { templates } from '@/data/templates';
 
 export default function PreviewPage() {
   const { type, slug } = useParams<{ type: string; slug: string }>();
@@ -10,6 +11,8 @@ export default function PreviewPage() {
     Component = dashboards.find((d) => d.slug === slug)?.component;
   } else if (type === 'block') {
     Component = blocks.find((b) => b.slug === slug)?.component;
+  } else if (type === 'template') {
+    Component = templates.find((t) => t.slug === slug)?.component;
   }
 
   if (!Component) {
