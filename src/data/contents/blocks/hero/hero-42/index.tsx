@@ -1,16 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import {
-  Activity,
-  ArrowUpRight,
-  ChevronDown,
-  ChevronsRight,
-  Globe,
-  Heart,
-  Mail,
-  
-  Wifi,
-  Zap,
-} from "lucide-react";
+import { ArrowUpRight, ChevronDown, Globe } from 'lucide-react';
 import LogoIcon from "@/assets/logo-icon";
 import { FaGoogle } from "react-icons/fa6";
 import { AdobeXdIcon, MicrosoftIcon, StripeIcon } from "hugeicons-react";
@@ -115,15 +104,6 @@ const brandCardVariants: Variants = {
   },
 };
 
-// ─── Brand data (Lucide icons only — no custom SVG) ────────────────────────
-const BRANDS = [
-  { Icon: Activity,      label: "novo",         italic: true  },
-  { Icon: Wifi,          label: "TeliayCygate",  italic: false },
-  { Icon: Heart,         label: "Medtronic",     italic: false },
-  { Icon: ChevronsRight, label: "customer.io",   italic: false },
-  { Icon: Mail,          label: "Fastmail",      italic: false },
-  { Icon: Zap,           label: "Medtronic",     italic: false },
-] as const;
 
 // ─── Component ─────────────────────────────────────────────────────────────
 

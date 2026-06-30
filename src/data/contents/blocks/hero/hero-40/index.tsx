@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Globe, Command, Box, Cloud } from "lucide-react"; 
+import { ArrowRight } from 'lucide-react'; 
 import LogoIcon from "@/assets/logo-icon";
 import { FaGoogle } from "react-icons/fa6";
 import { AdobeXdIcon, MicrosoftIcon, StripeIcon } from "hugeicons-react";

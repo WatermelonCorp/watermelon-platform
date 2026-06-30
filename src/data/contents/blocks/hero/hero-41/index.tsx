@@ -106,12 +106,6 @@ export default function Hero41() {
     { name: "FAQs", dropdown: false },
   ];
 
-  const logos = [
-    { variant: 1 as const, label: "logoipsum" },
-    { variant: 2 as const, label: "logoipsum" },
-    { variant: 3 as const, label: "logoipsum" },
-    { variant: 4 as const, label: "logoipsum" },
-  ];
 
   return (
     <>
