@@ -22,7 +22,7 @@ export default function ExpandableProfileCard({
       <motion.div
         layoutId={layoutId}
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer relative h-64 w-full overflow-hidden rounded-xl border border-border group shadow-sm"
+        className="cursor-pointer relative h-64 w-100 overflow-hidden rounded-xl border border-border group shadow-sm"
         whileHover="hover"
       >
         <motion.img 
