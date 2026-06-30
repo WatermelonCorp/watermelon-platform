@@ -28,6 +28,8 @@ const PrivacyPage = lazy(() => import('@/pages/privacy'));
 const CopyrightPage = lazy(() => import('@/pages/copyright'));
 const DashboardsPage = lazy(() => import('@/pages/dashboards'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
+const TemplatesPage = lazy(() => import('@/pages/templates'));
+const TemplatePage = lazy(() => import('@/pages/template'));
 // const BlocksPage = lazy(() => import("@/pages/blocks"));
 // const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
 // const BlockPage = lazy(() => import("@/pages/block"));
@@ -184,6 +186,24 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DashboardPageSkeleton />}>
               <DashboardPage />
+            </Suspense>
+          }
+        />
+
+        {/* Template pages */}
+        <Route
+          path="/templates"
+          element={
+            <Suspense fallback={<DashboardsPageSkeleton />}>
+              <TemplatesPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/template/:slug"
+          element={
+            <Suspense fallback={<DashboardPageSkeleton />}>
+              <TemplatePage />
             </Suspense>
           }
         />
