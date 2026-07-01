@@ -315,6 +315,8 @@ export default function Bento1({ className }: Bento1Props) {
               bentoCardClass,
               'min-h-[280px] flex-col items-stretch gap-8 p-0! md:col-span-3 md:flex-row',
             )}
+            onMouseEnter={() => setHoveredCard(3)}
+            onMouseLeave={() => setHoveredCard(null)}
           >
             <div className="relative z-10 flex flex-1 flex-col items-start justify-center gap-3 p-6 md:p-8">
               <h3 className="text-foreground flex items-center gap-2 text-2xl font-semibold">
@@ -351,27 +353,57 @@ export default function Bento1({ className }: Bento1Props) {
                 {/* Mockup UI */}
                 <div className="bg-background border-border relative flex min-h-[220px] w-full flex-col gap-4 overflow-hidden rounded-tl-2xl border-t border-l p-4 pt-8 shadow-sm">
                   {/* Mock Document Content */}
-                  <div className="bg-muted mb-2 h-5 w-3/4 rounded-md transition-all duration-700 ease-out group-hover:w-[80%]" />
-                  <div className="bg-muted/50 h-3 w-full rounded-md transition-all delay-75 duration-700 ease-out group-hover:w-[95%]" />
-                  <div className="bg-muted/50 h-3 w-5/6 rounded-md transition-all delay-100 duration-700 ease-out group-hover:w-[85%]" />
+                  <motion.div 
+                    className="bg-muted mb-2 h-5 rounded-md" 
+                    initial={{ width: "75%" }}
+                    animate={hoveredCard === 3 ? { width: "80%" } : { width: "75%" }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                  />
+                  <motion.div 
+                    className="bg-muted/50 h-3 rounded-md" 
+                    initial={{ width: "100%" }}
+                    animate={hoveredCard === 3 ? { width: "95%" } : { width: "100%" }}
+                    transition={{ duration: 0.7, delay: 0.075, ease: "easeOut" }}
+                  />
+                  <motion.div 
+                    className="bg-muted/50 h-3 rounded-md" 
+                    initial={{ width: "83.333333%" }}
+                    animate={hoveredCard === 3 ? { width: "85%" } : { width: "83.333333%" }}
+                    transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+                  />
 
                   {/* Cursor 1 */}
-                  <div className="absolute top-14 left-[20%] z-20 flex flex-col items-start drop-shadow-md transition-all duration-700 ease-out group-hover:translate-x-8 group-hover:translate-y-3">
+                  <motion.div 
+                    className="absolute top-14 left-[20%] z-20 flex flex-col items-start drop-shadow-md"
+                    initial={{ x: 0, y: 0 }}
+                    animate={hoveredCard === 3 ? { x: 32, y: 12 } : { x: 0, y: 0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                  >
                     <MousePointer2 className="size-4 -rotate-12 fill-rose-500 text-rose-500" />
                     <div className="mt-1 ml-2 rounded-md rounded-tl-none bg-rose-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
                       Sarah
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="bg-muted/50 h-3 w-11/12 rounded-md transition-all delay-200 duration-700 ease-out group-hover:w-[90%]" />
+                  <motion.div 
+                    className="bg-muted/50 h-3 rounded-md" 
+                    initial={{ width: "91.666667%" }}
+                    animate={hoveredCard === 3 ? { width: "90%" } : { width: "91.666667%" }}
+                    transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                  />
 
                   {/* Cursor 2 */}
-                  <div className="absolute right-[25%] bottom-10 z-20 flex flex-col items-start drop-shadow-md transition-all duration-700 ease-out group-hover:-translate-x-6 group-hover:-translate-y-4">
+                  <motion.div 
+                    className="absolute right-[25%] bottom-10 z-20 flex flex-col items-start drop-shadow-md"
+                    initial={{ x: 0, y: 0 }}
+                    animate={hoveredCard === 3 ? { x: -24, y: -16 } : { x: 0, y: 0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                  >
                     <MousePointer2 className="size-4 -rotate-12 fill-blue-500 text-blue-500" />
                     <div className="mt-1 ml-2 rounded-md rounded-tl-none bg-blue-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
                       Alex
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
