@@ -52,7 +52,7 @@ export default function HomePage() {
         title="React Components, Dashboards & Blocks"
         description="Explore our collection of high-quality, customizable React components built with modularity and performance in mind."
         schema={organizationSchema}
-        image="/og-image.png"
+        image="/og-image.avif"
       />
 
       <h1 className="sr-only">
