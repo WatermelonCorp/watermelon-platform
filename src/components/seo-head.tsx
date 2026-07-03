@@ -36,7 +36,7 @@ export function SEOHead({
   const absoluteUrl = canonical || `${siteUrl}${currentPath}`;
   const absoluteImage = image
     ? (image.startsWith('http') ? image : `${siteUrl}${image}`)
-    : generateOgImageUrl({ title, description, category });
+    : generateOgImageUrl();
 
   return (
     <Helmet>
