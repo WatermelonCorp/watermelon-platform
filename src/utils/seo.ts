@@ -12,7 +12,7 @@ export const siteConfig = {
   twitterHandle: '@watermelonui',
 };
 
-export const generateOgImageUrl = (params: {
+export const generateOgImageUrl = (_params: {
   title: string;
   description?: string;
   category?: string;
