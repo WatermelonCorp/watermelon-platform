@@ -77,7 +77,7 @@ export function AppSidebar({
 
   return (
     <>
-      <Sidebar collapsible="icon" className="bg-sidebar border-r">
+      <Sidebar collapsible="icon" className="librar bg-sidebar border-r">
         <SidebarHeader
           className={cn(
             'group relative flex h-21 flex-row items-center border-b p-0 transition-[padding] duration-200',
@@ -166,7 +166,7 @@ export function AppSidebar({
                   aria-label="Toggle theme"
                   variant="ghost"
                   size="icon"
-                  className="text-nav-muted size-11 bg-transparent! hover:bg-transparent!"
+                  className="text-muted-foreground size-11 bg-transparent! hover:bg-transparent!"
                   onClick={toggleTheme}
                 >
                   <ThemeIcon className="size-5" />
@@ -202,7 +202,7 @@ function MobileBottomNavigation({
   );
 
   return (
-    <div className="bg-sidebar/95 fixed inset-x-0 bottom-0 z-50 flex h-16 items-center justify-around border-t px-2 backdrop-blur-md md:hidden">
+    <div className="bg-sidebar/95 fixed inset-x-0 bottom-0 z-50 grid h-16 grid-cols-5 items-center border-t px-2 backdrop-blur-md md:hidden">
       {mobilePrimaryNavigation.map((item) => {
         const active = item.section === activeSection;
         const activeSubItem =
@@ -220,14 +220,14 @@ function MobileBottomNavigation({
               <DropdownMenuTrigger
                 render={
                   <Button
+                    aria-label={label}
                     variant="ghost"
                     className={cn(
-                      'text-nav-muted hover:text-nav-active h-full flex-1 flex-col gap-1 px-0 py-0 hover:bg-transparent',
-                      active && 'text-nav-active font-semibold',
+                      'text-muted-foreground hover:text-foreground h-full w-full min-w-0 px-0 py-0 hover:bg-transparent',
+                      active && 'text-primary hover:text-primary',
                     )}
                   >
                     <Icon className="size-5 shrink-0" />
-                    <span className="text-xxs leading-none">{label}</span>
                   </Button>
                 }
               />
@@ -235,7 +235,7 @@ function MobileBottomNavigation({
                 side="top"
                 align="center"
                 sideOffset={8}
-                className="bg-popover z-50 w-48 rounded-lg border p-2 shadow-lg"
+                className="librar bg-popover z-50 w-48 rounded-lg border p-2 shadow-lg"
               >
                 <DropdownMenuGroup>
                   <DropdownMenuLabel className="text-muted-foreground px-2 py-1.5 text-xs font-semibold tracking-wider uppercase">
@@ -252,7 +252,7 @@ function MobileBottomNavigation({
                         key={subItem.href}
                         className={cn(
                           'rounded-lg',
-                          subItemActive && 'bg-secondary text-nav-active',
+                          subItemActive && 'bg-secondary text-primary',
                         )}
                         render={
                           <Link
@@ -276,13 +276,13 @@ function MobileBottomNavigation({
           <Link
             key={item.section}
             href={item.href}
+            aria-label={item.label}
             className={cn(
-              'text-nav-muted hover:text-nav-active flex h-full flex-1 flex-col items-center justify-center gap-1 transition-colors',
-              active && 'text-nav-active font-semibold',
+              'text-muted-foreground hover:text-foreground flex h-full min-w-0 items-center justify-center transition-colors',
+              active && 'text-primary hover:text-primary',
             )}
           >
             <Icon className="size-5 shrink-0" />
-            <span className="text-xxs leading-none">{item.label}</span>
           </Link>
         );
       })}
@@ -294,18 +294,17 @@ function MobileBottomNavigation({
               aria-label="Open more navigation"
               variant="ghost"
               className={cn(
-                'text-nav-muted hover:text-nav-active h-full flex-1 flex-col gap-1 px-0 py-0 hover:bg-transparent',
-                moreActive && 'text-nav-active font-semibold',
+                'text-muted-foreground hover:text-foreground h-full w-full min-w-0 px-0 py-0 hover:bg-transparent',
+                moreActive && 'text-primary hover:text-primary',
               )}
             >
               <Ellipsis className="size-5 shrink-0" />
-              <span className="text-xxs leading-none">More</span>
             </Button>
           }
         />
         <SheetContent
           side="bottom"
-          className="max-h-[85dvh] gap-0 rounded-t-3xl px-4 pt-2 pb-[calc(1rem+env(safe-area-inset-bottom))] md:hidden"
+          className="librar max-h-[85dvh] gap-0 rounded-t-3xl px-4 pt-2 pb-[calc(1rem+env(safe-area-inset-bottom))] md:hidden"
         >
           <div className="bg-border mx-auto mb-2 h-1 w-10 rounded-full" />
           <SheetHeader className="px-0 pt-2 pb-3">
@@ -325,7 +324,7 @@ function MobileBottomNavigation({
                     </span>
                     <span className="min-w-0 text-left">
                       <span className="text-muted-foreground block text-xs font-normal">
-                        Library branch
+                        Librar branch
                       </span>
                       <span className="block truncate text-sm font-semibold">
                         {selectedOrg}
@@ -340,7 +339,7 @@ function MobileBottomNavigation({
               align="center"
               side="top"
               sideOffset={8}
-              className="bg-popover z-70 w-[calc(100vw-2rem)] max-w-sm rounded-xl border p-2 shadow-lg"
+              className="librar bg-popover z-70 w-[calc(100vw-2rem)] max-w-sm rounded-xl border p-2 shadow-lg"
             >
               <DropdownMenuGroup>
                 <DropdownMenuLabel className="text-muted-foreground px-2 py-1.5 text-xs font-semibold tracking-wider uppercase">
@@ -353,7 +352,7 @@ function MobileBottomNavigation({
                     onClick={() => setSelectedOrg(organization)}
                     className={cn(
                       'flex items-center justify-between rounded-lg px-2 py-2.5',
-                      organization === selectedOrg && 'text-nav-active',
+                      organization === selectedOrg && 'text-primary',
                     )}
                   >
                     <span>{organization}</span>
@@ -377,8 +376,8 @@ function MobileBottomNavigation({
                   href={item.href}
                   onClick={() => setMoreOpen(false)}
                   className={cn(
-                    'text-nav-muted hover:bg-accent hover:text-accent-foreground flex h-12 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
-                    active && 'bg-secondary text-nav-active',
+                    'text-muted-foreground hover:bg-accent hover:text-accent-foreground flex h-12 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
+                    active && 'bg-secondary text-primary',
                   )}
                 >
                   <span className="bg-secondary flex size-9 shrink-0 items-center justify-center rounded-lg [&_svg]:size-5">
@@ -392,9 +391,8 @@ function MobileBottomNavigation({
               href="/help-support"
               onClick={() => setMoreOpen(false)}
               className={cn(
-                'text-nav-muted hover:bg-accent hover:text-accent-foreground flex h-12 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
-                activeSection === 'help-support' &&
-                  'bg-secondary text-nav-active',
+                'text-muted-foreground hover:bg-accent hover:text-accent-foreground flex h-12 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
+                activeSection === 'help-support' && 'bg-secondary text-primary',
               )}
             >
               <span className="bg-secondary flex size-9 shrink-0 items-center justify-center rounded-lg">
@@ -407,9 +405,8 @@ function MobileBottomNavigation({
                 href="/settings"
                 onClick={() => setMoreOpen(false)}
                 className={cn(
-                  'text-nav-muted hover:bg-accent hover:text-accent-foreground flex h-12 min-w-0 flex-1 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
-                  activeSection === 'settings' &&
-                    'bg-secondary text-nav-active',
+                  'text-muted-foreground hover:bg-accent hover:text-accent-foreground flex h-12 min-w-0 flex-1 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-colors',
+                  activeSection === 'settings' && 'bg-secondary text-primary',
                 )}
               >
                 <span className="bg-secondary flex size-9 shrink-0 items-center justify-center rounded-lg">
@@ -421,7 +418,7 @@ function MobileBottomNavigation({
                 aria-label="Toggle theme"
                 variant="ghost"
                 size="icon"
-                className="text-nav-muted size-11 bg-transparent! hover:bg-transparent!"
+                className="text-muted-foreground size-11 bg-transparent! hover:bg-transparent!"
                 onClick={onToggleTheme}
               >
                 <ThemeIcon className="size-5" />

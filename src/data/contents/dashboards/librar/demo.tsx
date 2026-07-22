@@ -2,6 +2,6 @@ import './dashboard.css';
 
 import DashboardView from './dashboardView';
 
-export default function LibraryDashboardDemo() {
+export default function LibrarDemo() {
   return <DashboardView />;
 }

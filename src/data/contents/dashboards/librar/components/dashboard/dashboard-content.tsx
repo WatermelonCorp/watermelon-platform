@@ -65,7 +65,7 @@ export function DashboardContent() {
 
         <section className="grid grid-cols-1 gap-8 @4xl/dashboard:grid-cols-2">
           <RecentActivity />
-          <LibraryIntelligence />
+          <LibrarIntelligence />
         </section>
       </div>
     </>
@@ -78,14 +78,14 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 function DashboardHeader() {
   return (
-    <div className="mb-6 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-start sm:justify-between">
-      <div>
-        <h1 className="text-xl leading-tight font-bold tracking-tight">
+    <div className="mb-8 flex items-start justify-between gap-3 sm:mb-10">
+      <div className="min-w-0">
+        <h1 className="text-lg leading-tight font-bold tracking-tight sm:text-xl">
           Good Morning <span className="italic">Librarian</span>
         </h1>
         <div className="mt-2 flex flex-col gap-1 text-sm sm:flex-row sm:items-center">
           <p className="text-muted-foreground font-medium italic">
-            Springfield Public Library
+            Springfield Branch
           </p>
           <span className="text-foreground hidden sm:inline">•</span>
           <p className="text-muted-foreground font-medium">
@@ -93,7 +93,7 @@ function DashboardHeader() {
           </p>
         </div>
       </div>
-      <Button variant="secondary" size="lg">
+      <Button variant="secondary" className="shrink-0 self-start sm:h-11">
         <span>Export</span>
         <Download01Icon className="size-5 -scale-y-100" />
       </Button>
@@ -257,11 +257,11 @@ function RecentActivity() {
   );
 }
 
-function LibraryIntelligence() {
+function LibrarIntelligence() {
   return (
     <div className="flex h-full flex-col">
       <div className="flex items-center justify-between">
-        <SectionTitle>Library Intelligence</SectionTitle>
+        <SectionTitle>Librar Intelligence</SectionTitle>
         <Button
           variant="ghost"
           size="sm"

@@ -117,9 +117,9 @@ export function SidebarNavigationItem({
                   key={subItem.href}
                   href={subItem.href}
                   className={cn(
-                    'text-nav-muted hover:bg-muted hover:text-foreground flex h-11 w-full items-center gap-3 rounded-lg px-3.5 font-medium outline-hidden transition-colors [&_svg]:size-5 [&_svg]:shrink-0',
+                    'text-muted-foreground hover:bg-muted hover:text-foreground flex h-11 w-full items-center gap-3 rounded-lg px-3.5 font-medium outline-hidden transition-colors [&_svg]:size-5 [&_svg]:shrink-0',
                     subActive &&
-                      'bg-card text-nav-active hover:bg-card hover:text-nav-active border shadow-xs',
+                      'bg-card text-primary hover:bg-card hover:text-primary border shadow-xs',
                   )}
                 >
                   <SubIcon className="size-5 shrink-0" />

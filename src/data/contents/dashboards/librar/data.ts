@@ -71,10 +71,10 @@ export const primaryNavigation: NavigationItem[] = [
     section: 'opac',
   },
   {
-    label: 'Library Intelligence',
-    href: '/library-intelligence',
+    label: 'Librar Intelligence',
+    href: '/librar-intelligence',
     icon: IntelligenceIcon,
-    section: 'library-intelligence',
+    section: 'librar-intelligence',
   },
   {
     label: 'Reports',
@@ -94,9 +94,9 @@ export const contentSections = new Set([
 ]);
 
 export const organizations = [
-  'Springfield Public Library',
-  'Shelbyville Library',
-  'Capitol City Library',
+  'Springfield Branch',
+  'Shelbyville Branch',
+  'Capitol City Branch',
   'Ogdenville Archives',
 ] as const;
 

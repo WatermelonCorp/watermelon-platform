@@ -106,19 +106,19 @@ export function CollectionDonutChart({
               style={{ transition: 'opacity 300ms ease-in-out' }}
             />
           ))}
+          <Label
+            position="center"
+            content={() => (
+              <DonutCenter
+                datum={activeIndex === null ? undefined : data[activeIndex]}
+                fallbackValue={total}
+                fallbackLabel={label}
+                center={center}
+                innerRadius={innerRadius}
+              />
+            )}
+          />
         </Pie>
-        <Label
-          position="center"
-          content={() => (
-            <DonutCenter
-              datum={activeIndex === null ? undefined : data[activeIndex]}
-              fallbackValue={total}
-              fallbackLabel={label}
-              center={center}
-              innerRadius={innerRadius}
-            />
-          )}
-        />
       </PieChart>
     </div>
   );

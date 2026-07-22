@@ -140,7 +140,7 @@ export function CirculationChart() {
               </Button>
             }
           />
-          <DropdownMenuContent align="end" className="w-32">
+          <DropdownMenuContent align="end" className="librar w-32">
             <DropdownMenuGroup>
               {(['weekly', 'monthly', 'yearly'] as const).map((option) => (
                 <DropdownMenuItem

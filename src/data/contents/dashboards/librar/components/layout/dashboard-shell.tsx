@@ -17,7 +17,7 @@ export function DashboardShell({
   return (
     <SidebarProvider defaultOpen>
       <OrganizationProvider>
-        <main className="library-dashboard bg-background flex h-screen w-full min-w-0 overflow-hidden">
+        <main className="librar bg-background flex h-screen w-full min-w-0 overflow-hidden">
           <AppSidebar
             activeSection={activeSection}
             activeSubsection={activeSubsection}

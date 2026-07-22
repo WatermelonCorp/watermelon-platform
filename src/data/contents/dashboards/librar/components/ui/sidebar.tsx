@@ -423,7 +423,7 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<'li'>) {
 }
 
 const sidebarMenuButtonVariants = cva(
-  'peer/menu-button group/menu-button flex w-full items-center rounded-lg border border-transparent font-medium text-nav-muted transition-colors hover:bg-muted hover:text-foreground outline-hidden focus-visible:ring-2 focus-visible:ring-sidebar-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:shrink-0 [&>span:last-child]:truncate data-active:border-border data-active:bg-card data-active:text-nav-active data-active:shadow-[1.35px_2.7px_32.45px_rgba(158,158,158,0.08)] data-active:hover:bg-card data-active:hover:text-nav-active',
+  'peer/menu-button group/menu-button flex w-full items-center rounded-lg border border-transparent font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground outline-hidden focus-visible:ring-2 focus-visible:ring-sidebar-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:shrink-0 [&>span:last-child]:truncate data-active:border-border data-active:bg-card data-active:text-primary data-active:shadow-[1.35px_2.7px_32.45px_rgba(158,158,158,0.08)] data-active:hover:bg-card data-active:hover:text-primary',
   {
     variants: {
       variant: {
@@ -490,6 +490,7 @@ function SidebarMenuButton({
     <Tooltip>
       {comp}
       <TooltipContent
+        className="librar"
         side="right"
         align="center"
         hidden={state !== 'collapsed' || isMobile}
@@ -628,7 +629,7 @@ function SidebarMenuSubButton({
     props: mergeProps<'a'>(
       {
         className: cn(
-          'flex h-11 min-w-0 items-center gap-3 rounded-lg border border-transparent px-3.5 font-medium text-nav-muted outline-hidden transition-colors group-data-[collapsible=icon]:hidden hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-5 [&>svg]:shrink-0 data-active:border-border data-active:bg-card data-active:text-nav-active data-active:shadow-[1.35px_2.7px_32.45px_rgba(158,158,158,0.08)] data-active:hover:bg-card data-active:hover:text-nav-active',
+          'flex h-11 min-w-0 items-center gap-3 rounded-lg border border-transparent px-3.5 font-medium text-muted-foreground outline-hidden transition-colors group-data-[collapsible=icon]:hidden hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-5 [&>svg]:shrink-0 data-active:border-border data-active:bg-card data-active:text-primary data-active:shadow-[1.35px_2.7px_32.45px_rgba(158,158,158,0.08)] data-active:hover:bg-card data-active:hover:text-primary',
           className,
         ),
       },

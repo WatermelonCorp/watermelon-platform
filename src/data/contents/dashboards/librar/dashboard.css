@@ -1,20 +1,4 @@
-@theme inline {
-  --text-xxs: 0.625rem;
-  --color-success: var(--success);
-  --color-success-icon: var(--success-icon);
-  --color-success-foreground: var(--success-foreground);
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-insight: var(--insight);
-  --color-insight-foreground: var(--insight-foreground);
-  --color-nav-active: var(--nav-active);
-  --color-nav-muted: var(--nav-muted);
-  --color-chart-print: var(--chart-print);
-  --color-chart-digital: var(--chart-digital);
-  --color-chart-media: var(--chart-media);
-}
-
-.library-dashboard {
+.librar {
   --background: #ffffff;
   --foreground: #0a1b39;
   --card: #ffffff;
@@ -45,8 +29,6 @@
   --warning-foreground: #ffffff;
   --insight: #c803c8;
   --insight-foreground: #ffffff;
-  --nav-active: #ff5150;
-  --nav-muted: #8f8f8f;
   --radius: 0.5rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #0a1b39;
@@ -70,8 +52,20 @@
   color: var(--foreground);
 }
 
-.dark .library-dashboard,
-.library-dashboard.dark {
+.librar .text-success {
+  color: var(--success);
+}
+
+.librar .text-warning {
+  color: var(--warning);
+}
+
+.librar .text-insight {
+  color: var(--insight);
+}
+
+.dark .librar,
+.librar.dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

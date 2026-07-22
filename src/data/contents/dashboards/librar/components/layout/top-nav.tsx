@@ -61,7 +61,7 @@ export function TopNav() {
         <div className="hidden md:order-3 md:block">
           <DropdownMenu>
             <DropdownMenuTrigger
-              aria-label={`Select library branch. Current branch: ${selectedOrg}`}
+              aria-label={`Select Librar branch. Current branch: ${selectedOrg}`}
               className="flex h-10 cursor-pointer items-center justify-center gap-1.5 md:h-11"
             >
               <div className="bg-foreground text-background dark:bg-muted flex size-10 items-center justify-center rounded-md md:size-11">
@@ -72,7 +72,7 @@ export function TopNav() {
 
             <DropdownMenuContent
               align="end"
-              className="bg-popover z-50 w-60 rounded-lg border p-2 shadow-lg"
+              className="librar bg-popover z-50 w-60 rounded-lg border p-2 shadow-lg"
             >
               <DropdownMenuGroup>
                 <DropdownMenuLabel className="text-muted-foreground px-2 py-1.5 text-xs font-semibold tracking-wider uppercase">
@@ -83,11 +83,11 @@ export function TopNav() {
                   <DropdownMenuItem
                     key={org}
                     onClick={() => setSelectedOrg(org)}
-                    className={cn(org === selectedOrg && 'text-nav-active')}
+                    className={cn(org === selectedOrg && 'text-primary')}
                   >
                     <span>{org}</span>
                     {org === selectedOrg && (
-                      <Check className="text-nav-active size-4" />
+                      <Check className="text-primary size-4" />
                     )}
                   </DropdownMenuItem>
                 ))}
@@ -108,7 +108,7 @@ export function TopNav() {
         </div>
 
         <Button
-          aria-label={mobileSearchOpen ? 'Close search' : 'Search library'}
+          aria-label={mobileSearchOpen ? 'Close search' : 'Search Librar'}
           aria-pressed={mobileSearchOpen}
           variant="secondary"
           size="icon-lg"
@@ -145,7 +145,7 @@ export function TopNav() {
             />
             <DropdownMenuContent
               align="end"
-              className="z-50 w-[calc(100vw-2rem)] max-w-80"
+              className="librar z-50 w-[calc(100vw-2rem)] max-w-80"
             >
               <DropdownMenuGroup>
                 <DropdownMenuLabel className="text-muted-foreground flex items-center justify-between px-2 py-1.5 text-xs font-semibold tracking-wider uppercase">
