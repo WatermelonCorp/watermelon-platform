@@ -1,4 +1,4 @@
-.supademo-dashboard,
+.demostack-dashboard,
 [data-mobile='true'][data-sidebar='sidebar'] {
   --background: oklch(0.985 0.002 250);
   --foreground: oklch(0.145 0 0);
@@ -37,8 +37,8 @@
   color: var(--foreground);
 }
 
-.supademo-dashboard.dark,
-.dark .supademo-dashboard,
+.demostack-dashboard.dark,
+.dark .demostack-dashboard,
 .dark [data-mobile='true'][data-sidebar='sidebar'] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -70,17 +70,17 @@
   --shadow-primary: inset 0 2px 0 rgb(255 255 255 / 20%);
 }
 
-.supademo-dashboard .shadow-border,
+.demostack-dashboard .shadow-border,
 [data-mobile='true'][data-sidebar='sidebar'] .shadow-border {
   box-shadow: var(--shadow-border);
 }
 
-.supademo-dashboard .shadow-border-hover,
+.demostack-dashboard .shadow-border-hover,
 [data-mobile='true'][data-sidebar='sidebar'] .shadow-border-hover {
   box-shadow: var(--shadow-border-hover);
 }
 
-.supademo-dashboard .shadow-primary,
+.demostack-dashboard .shadow-primary,
 [data-mobile='true'][data-sidebar='sidebar'] .shadow-primary {
   box-shadow: var(--shadow-primary);
 }

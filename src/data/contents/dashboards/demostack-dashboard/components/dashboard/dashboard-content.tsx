@@ -81,7 +81,7 @@ function DashboardTips() {
     <section className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
-          <h2 className="text-lg font-semibold">Supademo Tips</h2>
+          <h2 className="text-lg font-semibold">Demostack Tips</h2>
           <p className="text-muted-foreground">
             Drive successful outcomes across multiple departments and
             interactive demos
@@ -109,7 +109,7 @@ function DashboardTips() {
               key={tip.title}
               className="flex w-64 shrink-0 flex-col items-start gap-4"
             >
-              <div className="relative h-44 w-64 overflow-hidden rounded-2xl">
+              <div className="relative aspect-[3/2] w-64 overflow-hidden rounded-2xl">
                 <img
                   src={tip.image}
                   alt=""
@@ -154,15 +154,17 @@ function ResourcesSection() {
           return (
             <article
               key={resource.label}
-              className="flex flex-col items-start gap-3"
+              className="group flex flex-col items-start gap-3"
             >
-              <div className="bg-muted shadow-border flex h-32 w-full items-center justify-center overflow-hidden rounded-xl">
-                <div className="relative flex size-20 items-center justify-center">
+              <div className="bg-muted shadow-border flex h-32 w-full items-center justify-center overflow-hidden rounded-xl transition-transform duration-200 ease-out group-hover:-translate-y-0.5 motion-reduce:transform-none">
+                <div className="relative flex size-20 items-center justify-center transition-transform duration-200 ease-out group-hover:-translate-y-1 group-hover:rotate-1 motion-reduce:transform-none">
                   <BgFolderVector className="absolute inset-0 size-full" />
-                  <Icon className="relative z-10 mt-4 size-6" />
+                  <Icon className="relative z-10 mt-4 size-6 transition-transform duration-200 ease-out group-hover:scale-110 motion-reduce:transform-none" />
                 </div>
               </div>
-              <h3 className="font-medium">{resource.label}</h3>
+              <h3 className="font-medium transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none">
+                {resource.label}
+              </h3>
             </article>
           );
         })}
@@ -179,21 +181,21 @@ function InspirationList() {
         {inspiredDemos.map((item) => (
           <article
             key={item.title}
-            className="bg-muted shadow-border flex h-18 w-full items-center justify-between rounded-2xl py-4 pr-8 pl-6"
+            className="bg-muted shadow-border group flex h-18 w-full items-center justify-between rounded-2xl py-4 pr-8 pl-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transform-none"
           >
             <div className="flex items-center gap-4">
-              <div className="relative size-10 shrink-0 overflow-hidden">
+              <div className="flex size-8 shrink-0 items-center justify-center">
                 <img
                   src={item.image}
                   alt=""
-                  width={40}
-                  height={40}
-                  className="size-full object-cover"
+                  width={28}
+                  height={28}
+                  className="max-h-7 max-w-7 object-contain transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:transform-none"
                 />
               </div>
               <h3 className="font-medium">{item.title}</h3>
             </div>
-            <ArrowUpRight className="text-muted-foreground size-6" />
+            <ArrowUpRight className="text-muted-foreground size-6 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
           </article>
         ))}
       </div>

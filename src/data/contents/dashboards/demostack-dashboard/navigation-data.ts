@@ -5,7 +5,7 @@ import {
   HomeIcon,
   NavTitleIcon,
   ShowcasesIcon,
-  SupademosIcon,
+  DemostacksIcon,
   VideosIcon,
 } from './assets/icons';
 
@@ -26,7 +26,7 @@ export const companies = [
 
 export const workspaceNavigation: NavigationItem[] = [
   { name: 'Home', href: '/', icon: HomeIcon },
-  { name: 'Supademos', href: '/supademos', icon: SupademosIcon },
+  { name: 'Demostacks', href: '/demostacks', icon: DemostacksIcon },
   { name: 'Showcases', href: '/showcases', icon: ShowcasesIcon },
   { name: 'Videos', href: '/videos', icon: VideosIcon, badge: 'Beta' },
   { name: 'Demo Hub', href: '/demo-hub', icon: GroupGenericIcon },
@@ -41,7 +41,7 @@ export const adminNavigation: NavigationItem[] = [
 
 export const pageDetails = {
   '/': { title: 'Home', icon: NavTitleIcon },
-  '/supademos': { title: 'Supademos', icon: SupademosIcon },
+  '/demostacks': { title: 'Demostacks', icon: DemostacksIcon },
   '/showcases': { title: 'Showcases', icon: ShowcasesIcon },
   '/videos': { title: 'Videos', icon: VideosIcon },
   '/demo-hub': { title: 'Demo Hub', icon: GroupGenericIcon },

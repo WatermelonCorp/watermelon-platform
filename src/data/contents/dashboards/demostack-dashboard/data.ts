@@ -1,20 +1,5 @@
 import type { ComponentType } from 'react';
 import {
-  appIntroduction,
-  dashboardFrameOne,
-  dashboardFrameThree,
-  dashboardFrameTwo,
-  inspireFour,
-  inspireOne,
-  inspireThree,
-  inspireTwo,
-  teamDemo,
-  tipFour,
-  tipOne,
-  tipThree,
-  tipTwo,
-} from './assets/images';
-import {
   DashboardFolderPlusIcon,
   DashboardImagesIcon,
   DashboardVideoIcon,
@@ -24,7 +9,23 @@ import {
   FigSparkleIcon,
 } from './assets/icons';
 
-export type Supademo = {
+const dashboardAssetPath = '/content/dashboards/demostack-dashboard';
+
+const dashboardFrameOne = `${dashboardAssetPath}/dashboard-frame-one.webp`;
+const dashboardFrameTwo = `${dashboardAssetPath}/dashboard-frame-two.webp`;
+const dashboardFrameThree = `${dashboardAssetPath}/dashboard-frame-three.webp`;
+const inspireOne = `${dashboardAssetPath}/inspire-one.svg`;
+const inspireTwo = `${dashboardAssetPath}/inspire-two.svg`;
+const inspireThree = `${dashboardAssetPath}/inspire-three.svg`;
+const inspireFour = `${dashboardAssetPath}/inspire-four.svg`;
+const tipOne = `${dashboardAssetPath}/tip-one.webp`;
+const tipTwo = `${dashboardAssetPath}/tip-two.webp`;
+const tipThree = `${dashboardAssetPath}/tip-three.webp`;
+const tipFour = `${dashboardAssetPath}/tip-four.webp`;
+const appIntroduction = `${dashboardAssetPath}/app-introduction.webp`;
+const teamDemo = `${dashboardAssetPath}/team-demo.webp`;
+
+export type Demostack = {
   id: string;
   title: string;
   author: string;
@@ -40,8 +41,8 @@ export const dashboardActions: Array<{
   icon: ComponentType<{ className?: string }>;
 }> = [
   {
-    title: 'Create a Supademo',
-    description: 'Record an example Supademo in under 2 minutes',
+    title: 'Create a Demostack',
+    description: 'Record an example Demostack in under 2 minutes',
     image: dashboardFrameOne,
     icon: DashboardFolderPlusIcon,
   },
@@ -85,18 +86,18 @@ export const dashboardTips = [
 export const dashboardResources = [
   { label: 'Learning Academy', icon: FigGraduationIcon },
   { label: 'Knowledge Base', icon: FigLightbulbIcon },
-  { label: 'How we use Supademo', icon: FigPlayIcon },
+  { label: 'How we use Demostack', icon: FigPlayIcon },
   { label: 'Product Updates', icon: FigSparkleIcon },
 ] as const;
 
 export const inspiredDemos = [
-  { title: 'Turo Mobile App', image: inspireOne },
-  { title: 'Stripe Demo', image: inspireTwo },
-  { title: 'Slack Demo', image: inspireThree },
-  { title: 'Semrush Demo', image: inspireFour },
+  { title: 'Mobile App Demo', image: inspireOne },
+  { title: 'Payment Flow Demo', image: inspireTwo },
+  { title: 'Team Workspace Demo', image: inspireThree },
+  { title: 'Analytics Platform Demo', image: inspireFour },
 ] as const;
 
-export const supademos: Supademo[] = [
+export const demostacks: Demostack[] = [
   {
     id: 'monitor-demo-performance',
     title: 'Manage Product De...',
@@ -135,8 +136,8 @@ export const supademos: Supademo[] = [
   },
 ];
 
-export const supademoAuthors = [
-  ...new Set(supademos.map((supademo) => supademo.author)),
+export const demostackAuthors = [
+  ...new Set(demostacks.map((demostack) => demostack.author)),
 ];
 
 export const sortLabels = {

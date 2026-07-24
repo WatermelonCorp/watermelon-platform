@@ -326,7 +326,7 @@ export function ShowcasesIcon({ className }: { className?: string }) {
   );
 }
 
-export function SupademosIcon({ className }: { className?: string }) {
+export function DemostacksIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}

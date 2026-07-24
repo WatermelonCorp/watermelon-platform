@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { BuildingIcon, CaretUpDownIcon } from '../../assets/icons';
-import { supademoLogo } from '../../assets/images';
+import { DemostackLogo } from '../../assets/logo';
 import { SidebarNavigationItem } from './sidebar-navigation-item';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
@@ -72,11 +72,8 @@ export function AppSidebar() {
           >
             {collapsed ? (
               <div className="group/logo relative flex size-10 shrink-0 items-center justify-center">
-                <img
-                  src={supademoLogo}
-                  alt="Supademo"
-                  width={32}
-                  height={32}
+                <DemostackLogo
+                  aria-label="Demostack"
                   className="size-8 shrink-0 transition-opacity duration-200 group-hover/logo:opacity-0"
                 />
                 <Button
@@ -91,14 +88,8 @@ export function AppSidebar() {
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <img
-                  src={supademoLogo}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="size-7"
-                />
-                <span className="text-lg font-semibold">Supademo</span>
+                <DemostackLogo className="size-7" />
+                <span className="text-lg font-semibold">Demostack</span>
               </div>
             )}
             {!collapsed && (
@@ -269,7 +260,7 @@ export function AppSidebar() {
           >
             <Avatar className="size-10 border">
               <AvatarImage
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=256&h=256"
+                src="https://api.dicebear.com/10.x/notionists/svg"
                 alt="Vansh Patel"
               />
               <AvatarFallback>VP</AvatarFallback>

@@ -42,25 +42,25 @@ import {
 } from '../ui/tooltip';
 import {
   sortLabels,
-  supademoAuthors,
-  supademos,
+  demostackAuthors,
+  demostacks,
   type SortMode,
-  type Supademo,
+  type Demostack,
   type ViewMode,
 } from '../../data';
 import { cn } from '../../lib/utils';
 
-export function SupademosContent() {
+export function DemostacksContent() {
   const [sort, setSort] = useState<SortMode>('recent');
   const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
   const [view, setView] = useState<ViewMode>('grid');
 
-  const visibleSupademos = useMemo(() => {
+  const visibleDemostacks = useMemo(() => {
     const filtered = selectedAuthors.length
-      ? supademos.filter((supademo) =>
-          selectedAuthors.includes(supademo.author),
+      ? demostacks.filter((demostack) =>
+          selectedAuthors.includes(demostack.author),
         )
-      : supademos;
+      : demostacks;
 
     if (sort === 'ascending') {
       return [...filtered].sort((a, b) => a.title.localeCompare(b.title));
@@ -73,11 +73,11 @@ export function SupademosContent() {
 
   return (
     <TooltipProvider delay={300}>
-      <Tabs defaultValue="supademos" className="min-w-0">
+      <Tabs defaultValue="demostacks" className="min-w-0">
         <main className="w-full min-w-0 px-4 py-6 sm:p-7">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-semibold">Team Supademos</h2>
+              <h2 className="text-xl font-semibold">Team Demostacks</h2>
               <Tooltip>
                 <TooltipTrigger
                   render={
@@ -85,21 +85,21 @@ export function SupademosContent() {
                       variant="ghost"
                       size="icon-xs"
                       className="text-muted-foreground rounded-full"
-                      aria-label="About Team Supademos"
+                      aria-label="About Team Demostacks"
                     >
                       <Info className="size-4" />
                     </Button>
                   }
                 />
                 <TooltipContent>
-                  Supademos shared with everyone in your workspace
+                  Demostacks shared with everyone in your workspace
                 </TooltipContent>
               </Tooltip>
             </div>
 
             <div className="flex w-full flex-wrap items-center justify-between gap-3 sm:w-auto sm:flex-nowrap sm:justify-start sm:gap-4">
               <TabsList className="shadow-border h-10! gap-0 rounded-xl">
-                <PrimaryTab value="supademos">Supademos</PrimaryTab>
+                <PrimaryTab value="demostacks">Demostacks</PrimaryTab>
                 <PrimaryTab value="screenshots">Screenshots</PrimaryTab>
               </TabsList>
               <DropdownMenu>
@@ -114,7 +114,7 @@ export function SupademosContent() {
                 <DropdownMenuContent align="end" className="w-48">
                   <DropdownMenuItem>
                     <Plus />
-                    New Supademo
+                    New Demostack
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Plus />
@@ -125,12 +125,12 @@ export function SupademosContent() {
             </div>
           </div>
 
-          <TabsContent value="supademos">
+          <TabsContent value="demostacks">
             <Tabs
               defaultValue="shared"
               className="mt-8 min-w-0 gap-6 sm:mt-10 sm:gap-8"
             >
-              <SupademosToolbar
+              <DemostacksToolbar
                 sort={sort}
                 setSort={setSort}
                 selectedAuthors={selectedAuthors}
@@ -139,18 +139,18 @@ export function SupademosContent() {
                 setView={setView}
               />
               <TabsContent value="shared">
-                <SupademoCollection demos={visibleSupademos} view={view} />
+                <DemostackCollection demos={visibleDemostacks} view={view} />
               </TabsContent>
               <TabsContent value="personal">
                 <EmptyState
-                  title="No personal Supademos yet"
-                  description="Supademos visible only to you will appear here."
+                  title="No personal Demostacks yet"
+                  description="Demostacks visible only to you will appear here."
                 />
               </TabsContent>
               <TabsContent value="archive">
                 <EmptyState
                   title="Archive is empty"
-                  description="Archived Supademos will appear here."
+                  description="Archived Demostacks will appear here."
                 />
               </TabsContent>
             </Tabs>
@@ -185,7 +185,7 @@ function PrimaryTab({
   );
 }
 
-type SupademosToolbarProps = {
+type DemostacksToolbarProps = {
   sort: SortMode;
   setSort: (sort: SortMode) => void;
   selectedAuthors: string[];
@@ -194,14 +194,14 @@ type SupademosToolbarProps = {
   setView: (view: ViewMode) => void;
 };
 
-function SupademosToolbar({
+function DemostacksToolbar({
   sort,
   setSort,
   selectedAuthors,
   setSelectedAuthors,
   view,
   setView,
-}: SupademosToolbarProps) {
+}: DemostacksToolbarProps) {
   function toggleAuthor(author: string, checked: boolean) {
     setSelectedAuthors(
       checked
@@ -279,7 +279,7 @@ function SupademosToolbar({
           <DropdownMenuContent align="end" className="w-52">
             <DropdownMenuGroup>
               <DropdownMenuLabel>Filter by creator</DropdownMenuLabel>
-              {supademoAuthors.map((author) => (
+              {demostackAuthors.map((author) => (
                 <DropdownMenuCheckboxItem
                   key={author}
                   checked={selectedAuthors.includes(author)}
@@ -366,17 +366,17 @@ function WorkspaceTab({
   );
 }
 
-function SupademoCollection({
+function DemostackCollection({
   demos,
   view,
 }: {
-  demos: Supademo[];
+  demos: Demostack[];
   view: ViewMode;
 }) {
   if (!demos.length) {
     return (
       <EmptyState
-        title="No matching Supademos"
+        title="No matching Demostacks"
         description="Clear or change the active creator filters."
       />
     );
@@ -390,9 +390,9 @@ function SupademoCollection({
           : 'space-y-3',
       )}
     >
-      {demos.map((supademo) => (
+      {demos.map((demostack) => (
         <article
-          key={supademo.id}
+          key={demostack.id}
           className={cn(
             'group min-w-0 cursor-pointer',
             view === 'list' &&
@@ -406,7 +406,7 @@ function SupademoCollection({
             )}
           >
             <img
-              src={supademo.image}
+              src={demostack.image}
               alt=""
               width={1280}
               height={720}
@@ -423,17 +423,17 @@ function SupademoCollection({
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0 flex-1">
                 <h3 className="group-hover:text-primary truncate font-medium transition-colors">
-                  {supademo.title}
+                  {demostack.title}
                 </h3>
               </div>
-              <CardMenu title={supademo.title} />
+              <CardMenu title={demostack.title} />
             </div>
             <div className="text-muted-foreground flex min-w-0 items-center gap-2 text-xs">
               <Avatar size="sm" className="shrink-0">
-                <AvatarImage src={supademo.avatar} alt={supademo.author} />
-                <AvatarFallback>{supademo.initials}</AvatarFallback>
+                <AvatarImage src={demostack.avatar} alt={demostack.author} />
+                <AvatarFallback>{demostack.initials}</AvatarFallback>
               </Avatar>
-              <span className="truncate">{supademo.author}</span>
+              <span className="truncate">{demostack.author}</span>
               <span aria-hidden>·</span>
               <time className="shrink-0" dateTime="2026-03-02">
                 Mar 02

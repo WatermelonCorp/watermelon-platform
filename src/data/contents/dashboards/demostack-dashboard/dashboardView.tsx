@@ -1,7 +1,7 @@
 'use client';
 
 import { DashboardContent } from './components/dashboard/dashboard-content';
-import { SupademosContent } from './components/dashboard/supademos-content';
+import { DemostacksContent } from './components/dashboard/demostacks-content';
 import { DashboardShell } from './components/layout/dashboard-shell';
 import {
   DashboardNavigationProvider,
@@ -13,7 +13,7 @@ function DashboardRoute() {
 
   return (
     <DashboardShell>
-      {pathname === '/supademos' ? <SupademosContent /> : <DashboardContent />}
+      {pathname === '/demostacks' ? <DemostacksContent /> : <DashboardContent />}
     </DashboardShell>
   );
 }

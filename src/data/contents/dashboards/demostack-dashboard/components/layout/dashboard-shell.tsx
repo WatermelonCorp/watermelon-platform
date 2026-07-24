@@ -11,7 +11,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
   return (
     <SidebarProvider
       defaultOpen
-      className="supademo-dashboard h-svh min-h-0 gap-2.5 overflow-hidden"
+      className="demostack-dashboard h-svh min-h-0 gap-2.5 overflow-hidden"
       style={
         {
           '--sidebar-width': '16rem',
