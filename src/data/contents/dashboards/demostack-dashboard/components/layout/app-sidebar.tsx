@@ -55,19 +55,19 @@ export function AppSidebar() {
   return (
     <Sidebar
       collapsible="icon"
-      className="m-1.5 h-[calc(100svh-0.75rem)]! w-[calc(var(--sidebar-width)-0.75rem)]! border-none! group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)-0.75rem)]! [&>[data-sidebar=sidebar]]:bg-transparent"
+      className="m-1.5 h-[calc(100svh-0.75rem)]! w-[calc(var(--sidebar-width)-0.75rem)]! overflow-hidden! border-none! group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)-0.75rem)]! [&>[data-sidebar=sidebar]]:bg-transparent"
     >
       <SidebarHeader className="p-0">
         <div
           className={cn(
             'bg-card shadow-border flex shrink-0 flex-col rounded-2xl border',
-            collapsed ? 'items-center py-2' : 'p-3 pt-3.5',
+            collapsed ? 'p-2' : 'p-3 pt-3.5',
           )}
         >
           <div
             className={cn(
               'flex w-full items-center',
-              collapsed ? 'justify-center' : 'justify-between',
+              collapsed ? 'justify-start' : 'justify-between',
             )}
           >
             {collapsed ? (
@@ -118,7 +118,7 @@ export function AppSidebar() {
                 className={cn(
                   'focus-visible:ring-ring transition-colors outline-none focus-visible:ring-2',
                   collapsed
-                    ? 'hover:ring-accent mx-auto flex rounded-full hover:ring-4'
+                    ? 'hover:ring-accent flex rounded-full hover:ring-4'
                     : 'bg-muted hover:bg-accent flex w-full items-center justify-between rounded-xl p-2 text-left',
                 )}
               >
@@ -223,8 +223,8 @@ export function AppSidebar() {
 
       <SidebarContent
         className={cn(
-          'gap-6 overflow-x-hidden! overflow-y-auto! py-4',
-          collapsed ? 'px-0' : 'px-3',
+          'gap-6 overflow-x-hidden! overflow-y-auto! py-4 transition-[padding] duration-200 ease-out',
+          collapsed ? 'px-1' : 'px-3',
         )}
       >
         <NavigationGroup
@@ -255,7 +255,7 @@ export function AppSidebar() {
           <DropdownMenuTrigger
             className={cn(
               'hover:bg-accent/50 flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left transition-colors outline-none',
-              collapsed && 'mx-auto size-12 justify-center rounded-full p-0',
+              collapsed && 'ml-0.5 size-12 justify-center rounded-full p-0',
             )}
           >
             <Avatar className="size-10 border">

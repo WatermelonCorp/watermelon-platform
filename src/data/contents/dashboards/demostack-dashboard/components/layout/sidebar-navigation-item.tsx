@@ -22,7 +22,6 @@ export function SidebarNavigationItem({ item }: { item: NavigationItem }) {
         className={cn(
           'rounded-xl px-3 text-base font-normal',
           active && 'shadow-border font-medium',
-          collapsed && 'mx-auto',
         )}
         render={
           <DashboardLink
