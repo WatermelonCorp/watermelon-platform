@@ -61,13 +61,13 @@ export function AppSidebar() {
         <div
           className={cn(
             'bg-card shadow-border flex shrink-0 flex-col rounded-2xl border',
-            collapsed ? 'p-2' : 'p-3 pt-3.5',
+            collapsed ? 'items-center p-2' : 'p-3 pt-3.5',
           )}
         >
           <div
             className={cn(
               'flex w-full items-center',
-              collapsed ? 'justify-start' : 'justify-between',
+              collapsed ? 'justify-center' : 'justify-between',
             )}
           >
             {collapsed ? (
@@ -118,7 +118,7 @@ export function AppSidebar() {
                 className={cn(
                   'focus-visible:ring-ring transition-colors outline-none focus-visible:ring-2',
                   collapsed
-                    ? 'hover:ring-accent flex rounded-full hover:ring-4'
+                    ? 'hover:ring-accent mx-auto flex rounded-full hover:ring-4'
                     : 'bg-muted hover:bg-accent flex w-full items-center justify-between rounded-xl p-2 text-left',
                 )}
               >
