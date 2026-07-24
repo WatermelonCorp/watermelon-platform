@@ -24,7 +24,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
         <div className="bg-background relative z-50 shrink-0 md:px-1.5 md:pt-1.5">
           <TopNav />
         </div>
-        <div className="flex min-h-0 flex-1 overflow-y-auto md:px-1.5 md:pb-1.5">
+        <div className="min-h-0 flex-1 overflow-y-auto md:px-1.5 md:pb-1.5">
           <div className="bg-background flex min-h-full w-full flex-col border-x border-b md:rounded-b-2xl">
             {children}
           </div>
