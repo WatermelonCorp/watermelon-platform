@@ -2,15 +2,59 @@
 
 import { useRef, useState } from 'react';
 import { ArrowUpRight, ChevronRight, X } from 'lucide-react';
-import { BgFolderVector } from '../../assets/icons';
+import {
+  BgFolderVector,
+  DashboardFolderPlusIcon,
+  DashboardImagesIcon,
+  DashboardVideoIcon,
+} from '../../assets/icons';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import {
-  dashboardActions,
-  dashboardResources,
-  dashboardTips,
-  inspiredDemos,
-} from '../../data';
+import { dashboardResources, inspiredDemos } from '../../data';
+
+const dashboardActions = [
+  {
+    title: 'Create a Demostack',
+    description: 'Record an example Demostack in under 2 minutes',
+    image: 'https://assets.watermelon.sh/components/bg-element-wave.webp',
+    icon: DashboardFolderPlusIcon,
+  },
+  {
+    title: 'Interactive Tutorial',
+    description: 'Get a high-level platform overview in a few clicks',
+    image: 'https://assets.watermelon.sh/components/bg-element-neon.webp',
+    icon: DashboardVideoIcon,
+  },
+  {
+    title: 'Explore Gallery',
+    description: 'Get inspired with examples and use cases',
+    image: 'https://assets.watermelon.sh/components/bg-element-sky.webp',
+    icon: DashboardImagesIcon,
+  },
+] as const;
+
+const dashboardTips = [
+  {
+    title: 'Use case tips from the CEO',
+    description: 'Our high-level recommendation',
+    image: 'https://assets.watermelon.sh/components/demostack-tip-1.webp',
+  },
+  {
+    title: 'Personalized outbound',
+    description: 'Use variables to send personalized demos at scale',
+    image: 'https://assets.watermelon.sh/components/demostack-tip-2.webp',
+  },
+  {
+    title: 'Tradeshow and expo demos',
+    description: 'Include in email sequences or follow-ups',
+    image: 'https://assets.watermelon.sh/components/demostack-tip-3.webp',
+  },
+  {
+    title: 'Modular onboarding emails',
+    description: 'Include in email sequences or follow-ups',
+    image: 'https://assets.watermelon.sh/components/demostack-tip-4.webp',
+  },
+] as const;
 
 export function DashboardContent() {
   return (

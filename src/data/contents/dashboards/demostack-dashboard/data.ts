@@ -1,8 +1,4 @@
-import type { ComponentType } from 'react';
 import {
-  DashboardFolderPlusIcon,
-  DashboardImagesIcon,
-  DashboardVideoIcon,
   FigGraduationIcon,
   FigLightbulbIcon,
   FigPlayIcon,
@@ -11,17 +7,10 @@ import {
 
 const dashboardAssetPath = '/content/dashboards/demostack-dashboard';
 
-const dashboardFrameOne = `${dashboardAssetPath}/dashboard-frame-one.webp`;
-const dashboardFrameTwo = `${dashboardAssetPath}/dashboard-frame-two.webp`;
-const dashboardFrameThree = `${dashboardAssetPath}/dashboard-frame-three.webp`;
 const inspireOne = `${dashboardAssetPath}/inspire-one.svg`;
 const inspireTwo = `${dashboardAssetPath}/inspire-two.svg`;
 const inspireThree = `${dashboardAssetPath}/inspire-three.svg`;
 const inspireFour = `${dashboardAssetPath}/inspire-four.svg`;
-const tipOne = `${dashboardAssetPath}/tip-one.webp`;
-const tipTwo = `${dashboardAssetPath}/tip-two.webp`;
-const tipThree = `${dashboardAssetPath}/tip-three.webp`;
-const tipFour = `${dashboardAssetPath}/tip-four.webp`;
 const appIntroduction = `${dashboardAssetPath}/app-introduction.webp`;
 const teamDemo = `${dashboardAssetPath}/team-demo.webp`;
 
@@ -33,55 +22,6 @@ export type Demostack = {
   avatar: string;
   image: string;
 };
-
-export const dashboardActions: Array<{
-  title: string;
-  description: string;
-  image: string;
-  icon: ComponentType<{ className?: string }>;
-}> = [
-  {
-    title: 'Create a Demostack',
-    description: 'Record an example Demostack in under 2 minutes',
-    image: dashboardFrameOne,
-    icon: DashboardFolderPlusIcon,
-  },
-  {
-    title: 'Interactive Tutorial',
-    description: 'Get a high-level platform overview in a few clicks',
-    image: dashboardFrameTwo,
-    icon: DashboardVideoIcon,
-  },
-  {
-    title: 'Explore Gallery',
-    description: 'Get inspired with examples and use cases',
-    image: dashboardFrameThree,
-    icon: DashboardImagesIcon,
-  },
-];
-
-export const dashboardTips = [
-  {
-    title: 'Use case tips from the CEO',
-    description: 'Our high-level recommendation',
-    image: tipOne,
-  },
-  {
-    title: 'Personalized outbound',
-    description: 'Use variables to send personalized demos at scale',
-    image: tipTwo,
-  },
-  {
-    title: 'Tradeshow and expo demos',
-    description: 'Include in email sequences or follow-ups',
-    image: tipThree,
-  },
-  {
-    title: 'Modular onboarding emails',
-    description: 'Include in email sequences or follow-ups',
-    image: tipFour,
-  },
-] as const;
 
 export const dashboardResources = [
   { label: 'Learning Academy', icon: FigGraduationIcon },
