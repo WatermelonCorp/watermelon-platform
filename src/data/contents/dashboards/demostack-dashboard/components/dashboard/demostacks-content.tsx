@@ -40,15 +40,31 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '../ui/tooltip';
-import {
-  sortLabels,
-  demostackAuthors,
-  demostacks,
-  type SortMode,
-  type Demostack,
-  type ViewMode,
-} from '../../data';
+import { demostacks, type Demostack } from '../../data';
 import { cn } from '../../lib/utils';
+
+const demostackAuthors = [
+  ...new Set(demostacks.map((demostack) => demostack.author)),
+];
+
+const sortLabels = {
+  recent: 'Recent',
+  ascending: 'Title A-Z',
+  descending: 'Title Z-A',
+} as const;
+
+type SortMode = keyof typeof sortLabels;
+type ViewMode = 'grid' | 'list';
+
+function getInitials(name: string) {
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+}
 
 export function DemostacksContent() {
   const [sort, setSort] = useState<SortMode>('recent');
@@ -431,7 +447,7 @@ function DemostackCollection({
             <div className="text-muted-foreground flex min-w-0 items-center gap-2 text-xs">
               <Avatar size="sm" className="shrink-0">
                 <AvatarImage src={demostack.avatar} alt={demostack.author} />
-                <AvatarFallback>{demostack.initials}</AvatarFallback>
+                <AvatarFallback>{getInitials(demostack.author)}</AvatarFallback>
               </Avatar>
               <span className="truncate">{demostack.author}</span>
               <span aria-hidden>·</span>

@@ -7,10 +7,17 @@ import {
   DashboardFolderPlusIcon,
   DashboardImagesIcon,
   DashboardVideoIcon,
+  FigGraduationIcon,
+  FigLightbulbIcon,
+  FigPlayIcon,
+  FigSparkleIcon,
+  InspireFourIcon,
+  InspireOneIcon,
+  InspireThreeIcon,
+  InspireTwoIcon,
 } from '../../assets/icons';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { dashboardResources, inspiredDemos } from '../../data';
 
 const dashboardActions = [
   {
@@ -54,6 +61,20 @@ const dashboardTips = [
     description: 'Include in email sequences or follow-ups',
     image: 'https://assets.watermelon.sh/components/demostack-tip-4.webp',
   },
+] as const;
+
+const inspiredDemos = [
+  { title: 'Mobile App Demo', icon: InspireOneIcon },
+  { title: 'Payment Flow Demo', icon: InspireTwoIcon },
+  { title: 'Team Workspace Demo', icon: InspireThreeIcon },
+  { title: 'Analytics Platform Demo', icon: InspireFourIcon },
+] as const;
+
+const dashboardResources = [
+  { label: 'Learning Academy', icon: FigGraduationIcon },
+  { label: 'Knowledge Base', icon: FigLightbulbIcon },
+  { label: 'How we use Demostack', icon: FigPlayIcon },
+  { label: 'Product Updates', icon: FigSparkleIcon },
 ] as const;
 
 export function DashboardContent() {
@@ -222,26 +243,24 @@ function InspirationList() {
     <section className="flex flex-1 flex-col items-start gap-8">
       <h2 className="text-lg font-semibold">Get Inspired</h2>
       <div className="flex w-full flex-col gap-2">
-        {inspiredDemos.map((item) => (
-          <article
-            key={item.title}
-            className="bg-muted shadow-border group flex h-18 w-full items-center justify-between rounded-2xl py-4 pr-8 pl-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transform-none"
-          >
-            <div className="flex items-center gap-4">
-              <div className="flex size-8 shrink-0 items-center justify-center">
-                <img
-                  src={item.image}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="max-h-7 max-w-7 object-contain transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:transform-none"
-                />
+        {inspiredDemos.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <article
+              key={item.title}
+              className="bg-muted shadow-border group flex h-18 w-full items-center justify-between rounded-2xl py-4 pr-8 pl-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transform-none"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex size-8 shrink-0 items-center justify-center">
+                  <Icon className="max-h-7 max-w-7 transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:transform-none" />
+                </div>
+                <h3 className="font-medium">{item.title}</h3>
               </div>
-              <h3 className="font-medium">{item.title}</h3>
-            </div>
-            <ArrowUpRight className="text-muted-foreground size-6 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
-          </article>
-        ))}
+              <ArrowUpRight className="text-muted-foreground size-6 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
+            </article>
+          );
+        })}
       </div>
     </section>
   );
