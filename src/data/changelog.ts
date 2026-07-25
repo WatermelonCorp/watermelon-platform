@@ -23,6 +23,72 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: '2.1.1',
+    date: 'June 30, 2026',
+    stats: [
+      {
+        label: 'Total animated components',
+        count: 134,
+        href: '/components',
+      },
+      {
+        label: 'Total Templates',
+        count: 1,
+        href: '/templates',
+      },
+      {
+        label: 'Total Blocks',
+        count: 204,
+        href: '/blocks',
+      },
+    ],
+    sections: [
+      {
+        title: 'Animated Components',
+        items: [
+          {
+            text: 'Added 10 premium animated components featuring polished micro-interactions, smooth transitions, shared layout animations, and production-ready APIs.',
+          },
+        ],
+      },
+      {
+        title: 'Animated Widgets',
+        items: [
+          {
+            text: 'Introduced 6 interactive animated widgets designed for dashboards and landing pages, including highly customizable motion and responsive behavior.',
+          },
+        ],
+      },
+      {
+        title: 'New Landing Page Template',
+        items: [
+          {
+            text: 'Released a complete SaaS landing page template with responsive sections, modern animations, pricing, testimonials, FAQs, and conversion-focused layouts.',
+          },
+        ],
+      },
+      {
+        title: 'New Blocks',
+        items: [
+          {
+            text: 'Added 10 new website blocks, including Hero, FAQ, Footer, Features, CTA, Stats, Testimonials, Pricing, Logos, and Contact sections.',
+          },
+        ],
+      },
+      {
+        title: 'Improvements',
+        items: [
+          {
+            text: 'Refined animation performance across the registry with smoother motion, improved timing, and reduced layout shifts.',
+          },
+          {
+            text: 'Enhanced component consistency, responsiveness, accessibility, and overall developer experience throughout the library.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     version: '2.1.0',
     date: 'June 26, 2026',
     stats: [

@@ -56,7 +56,7 @@ export const BlockImageCard = memo(function BlockImageCard({
         <div
           className={cn(
             'absolute inset-0 flex items-end',
-            'bg-gradient-to-t from-black/60 via-black/10 to-transparent',
+            'bg-linear-to-t from-black/60 via-black/10 to-transparent',
             'opacity-0 transition-opacity duration-300',
             'group-hover:opacity-100',
           )}
