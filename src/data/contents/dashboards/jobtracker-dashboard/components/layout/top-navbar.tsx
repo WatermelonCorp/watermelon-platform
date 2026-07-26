@@ -37,7 +37,7 @@ export function TopNavbar() {
           <Button
             variant="ghost"
             size="icon-lg"
-            className="md:hidden"
+            className="lg:hidden"
             aria-label="Toggle sidebar"
           >
             <CollapseIcon className="size-6" />
