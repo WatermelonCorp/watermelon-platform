@@ -140,9 +140,9 @@ export const circulationData: Record<
 export const collectionOverview = {
   label: 'Items',
   segments: [
-    { label: 'Print', count: 5245, color: 'print' },
-    { label: 'Digital', count: 4745, color: 'digital' },
-    { label: 'Media', count: 2497, color: 'media' },
+    { label: 'Print', count: 5245, opacity: 1 },
+    { label: 'Digital', count: 4745, opacity: 0.72 },
+    { label: 'Media', count: 2497, opacity: 0.4 },
   ],
 } as const;
 

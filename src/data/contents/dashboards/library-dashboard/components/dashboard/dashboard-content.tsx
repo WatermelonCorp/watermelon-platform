@@ -172,7 +172,8 @@ function CollectionOverview() {
   const chartData = segments.map((segment) => ({
     name: segment.label,
     value: segment.count,
-    fill: `var(--chart-${segment.color})`,
+    fill: "var(--primary)",
+    fillOpacity: segment.opacity,
   }))
 
   return (
@@ -200,7 +201,8 @@ function CollectionOverview() {
                   <span
                     className="size-3.5 shrink-0 rounded-sm"
                     style={{
-                      backgroundColor: `var(--chart-${segment.color})`,
+                      backgroundColor: "var(--primary)",
+                      opacity: segment.opacity,
                     }}
                   />
                   <span>{segment.label}</span>

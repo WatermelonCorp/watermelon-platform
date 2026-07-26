@@ -34,16 +34,6 @@
   --sidebar-accent-foreground: #ff5150;
   --sidebar-border: #e4e4e4;
   --sidebar-ring: #ff5150;
-  --chart-print: #fb0100;
-  --chart-digital: #ff5150;
-  --chart-media: #ffacac;
-  --chart-print-inner: #ff5150;
-  --chart-print-outer: #fb0100;
-  --chart-digital-inner: #fa6867;
-  --chart-digital-outer: #c30908;
-  --chart-media-inner: #ffacac;
-  --chart-media-outer: #ff5150;
-
   background-color: var(--background);
   color: var(--foreground);
 }

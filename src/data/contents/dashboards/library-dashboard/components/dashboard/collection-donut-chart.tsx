@@ -12,6 +12,7 @@ export type CollectionDonutDatum = {
   name: string
   value: number
   fill: string
+  fillOpacity: number
 }
 
 type CollectionDonutChartProps = {
@@ -66,6 +67,7 @@ export function CollectionDonutChart({
             <Cell
               key={`cell-${index}`}
               fill={entry.fill}
+              fillOpacity={entry.fillOpacity}
               opacity={activeIndex === null || activeIndex === index ? 1 : 0.35}
               style={{ transition: "opacity 300ms ease-in-out" }}
             />
