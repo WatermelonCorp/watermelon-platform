@@ -1,13 +1,17 @@
-"use client"
+'use client';
 
-import { useState } from "react"
+import { useState } from 'react';
 
-import { Bell, Check, Search, X } from "lucide-react"
+import { Bell, Check, Search, X } from 'lucide-react';
 
-import { ArrowDown01Icon, BuildingIcon, DashboardIcon } from "../../assets/icons"
-import { useOrganization } from "./organization-provider"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
+import {
+  ArrowDown01Icon,
+  BuildingIcon,
+  DashboardIcon,
+} from '../../assets/icons';
+import { useOrganization } from './organization-provider';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,22 +20,22 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
-import { SidebarTrigger } from "../ui/sidebar"
-import { organizations, topNavNotifications } from "../../data"
-import { cn } from "../../lib/utils"
+} from '@/components/ui/dropdown-menu';
+import { SidebarTrigger } from '@/components/ui/sidebar';
+import { organizations, topNavNotifications } from '../../data';
+import { cn } from '@/lib/utils';
 
 export function TopNav() {
-  const { selectedOrg, setSelectedOrg } = useOrganization()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
+  const { selectedOrg, setSelectedOrg } = useOrganization();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   return (
     <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b px-4 md:h-21 md:px-6">
       <div
         className={cn(
-          "flex items-center gap-2 text-lg font-medium",
-          mobileSearchOpen && "hidden md:flex"
+          'flex items-center gap-2 text-lg font-medium',
+          mobileSearchOpen && 'hidden md:flex',
         )}
       >
         <SidebarTrigger size="icon-lg" className="shrink-0 lg:hidden" />
@@ -79,7 +83,9 @@ export function TopNav() {
                   <DropdownMenuItem
                     key={org}
                     onClick={() => setSelectedOrg(org)}
-                    className={cn(org === selectedOrg && "text-primary font-semibold")}
+                    className={cn(
+                      org === selectedOrg && 'text-primary font-semibold',
+                    )}
                   >
                     <span>{org}</span>
                     {org === selectedOrg && (
@@ -104,7 +110,7 @@ export function TopNav() {
         </div>
 
         <Button
-          aria-label={mobileSearchOpen ? "Close search" : "Search library"}
+          aria-label={mobileSearchOpen ? 'Close search' : 'Search library'}
           aria-pressed={mobileSearchOpen}
           variant="secondary"
           size="icon-lg"
@@ -118,27 +124,24 @@ export function TopNav() {
           )}
         </Button>
 
-        <div className={cn("order-2", mobileSearchOpen && "hidden md:block")}>
+        <div className={cn('order-2', mobileSearchOpen && 'hidden md:block')}>
           <DropdownMenu>
             <DropdownMenuTrigger
-              render={
-                <Button
-                  aria-label="Notifications"
-                  variant="secondary"
-                  size="icon-lg"
-                  className="relative"
-                >
-                  <Bell className="size-5" />
-                  {topNavNotifications.some(
-                    (notification) => notification.unread
-                  ) && (
-                      <span className="absolute top-1/2 left-1/2 size-5 -translate-x-1/2 -translate-y-1/2">
-                        <span className="absolute top-0 right-0 size-2 rounded-full bg-red-500" />
-                      </span>
-                    )}
-                </Button>
-              }
-            />
+              aria-label="Notifications"
+              className={cn(
+                buttonVariants({ variant: 'secondary', size: 'icon-lg' }),
+                'relative size-10 md:size-11',
+              )}
+            >
+              <Bell className="size-5" />
+              {topNavNotifications.some(
+                (notification) => notification.unread,
+              ) && (
+                <span className="absolute top-1/2 left-1/2 size-5 -translate-x-1/2 -translate-y-1/2">
+                  <span className="absolute top-0 right-0 size-2 rounded-full bg-red-500" />
+                </span>
+              )}
+            </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
               className="z-50 w-[calc(100vw-2rem)] max-w-80"
@@ -149,9 +152,9 @@ export function TopNav() {
                   <span className="font-normal tracking-normal normal-case">
                     {
                       topNavNotifications.filter(
-                        (notification) => notification.unread
+                        (notification) => notification.unread,
                       ).length
-                    }{" "}
+                    }{' '}
                     unread
                   </span>
                 </DropdownMenuLabel>
@@ -179,15 +182,15 @@ export function TopNav() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   className="text-primary justify-center"
-                  render={
-                    <a href="#" onClick={(e) => e.preventDefault()}>View all notifications</a>
-                  }
-                />
+                  onClick={(event) => event.preventDefault()}
+                >
+                  View all notifications
+                </DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
     </header>
-  )
+  );
 }
