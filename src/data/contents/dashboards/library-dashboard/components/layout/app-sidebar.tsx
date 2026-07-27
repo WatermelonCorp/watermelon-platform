@@ -172,7 +172,7 @@ export function AppSidebar({
     <>
       <Sidebar
         collapsible="icon"
-        className="bg-sidebar z-50 overflow-visible border-r"
+        className="bg-sidebar border-r"
         style={
           {
             '--sidebar-width': '18.125rem',
@@ -229,7 +229,7 @@ export function AppSidebar({
           )}
         </SidebarHeader>
 
-        <SidebarContent className="overflow-visible px-4.5 pt-6 pb-2 group-data-[collapsible=icon]:overflow-visible">
+        <SidebarContent className="px-4.5 pt-6 pb-2">
           <SidebarMenu className="gap-1.5">
             {primaryNavigation.map((item) => (
               <SidebarNavigationItem

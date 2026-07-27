@@ -1,8 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { ArrowDown01Icon } from '../../assets/icons';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import {
   SidebarMenuButton,
   SidebarMenuItem,
@@ -32,10 +39,11 @@ export function SidebarNavigationItem({
   const { state } = useSidebar();
   const collapsed = state === 'collapsed';
   const [open, setOpen] = useState(false);
+  const [flyoutOpen, setFlyoutOpen] = useState(false);
+  const flyoutCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const subItems = item.subItems;
   const hasSubItems = Boolean(subItems?.length);
   const showSubItems = !collapsed && open && hasSubItems;
-  const showFlyout = collapsed && hasSubItems;
 
   const activeChild = activeSubsection
     ? subItems?.find((subItem) => subItem.href.endsWith(`/${activeSubsection}`))
@@ -51,12 +59,69 @@ export function SidebarNavigationItem({
     }
   }
 
+  function openFlyout() {
+    if (flyoutCloseTimer.current) {
+      clearTimeout(flyoutCloseTimer.current);
+    }
+
+    setFlyoutOpen(true);
+  }
+
+  function scheduleFlyoutClose() {
+    flyoutCloseTimer.current = setTimeout(() => {
+      setFlyoutOpen(false);
+    }, 120);
+  }
+
   return (
-    <SidebarMenuItem
-      className={cn(showFlyout && 'group/sidebar-item relative')}
-    >
+    <SidebarMenuItem>
       <div className="relative">
-        {hasSubItems ? (
+        {collapsed && hasSubItems ? (
+          <DropdownMenu open={flyoutOpen} onOpenChange={setFlyoutOpen}>
+            <DropdownMenuTrigger
+              aria-label={displayedLabel}
+              onPointerEnter={openFlyout}
+              onPointerLeave={scheduleFlyoutClose}
+              className={cn(
+                librarySidebarMenuButtonClassName,
+                'flex w-full items-center',
+                active && 'text-primary',
+              )}
+            >
+              <DisplayedIcon />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              side="right"
+              align="start"
+              sideOffset={8}
+              onPointerEnter={openFlyout}
+              onPointerLeave={scheduleFlyoutClose}
+              className="z-[100] w-48 rounded-lg p-2"
+            >
+              <DropdownMenuLabel className="px-2 pb-2">
+                {item.label}
+              </DropdownMenuLabel>
+              {subItems?.map((subItem) => {
+                const SubIcon = subItem.icon;
+                const subActive = isActiveSubItem(subItem.href);
+
+                return (
+                  <DropdownMenuItem
+                    key={subItem.href}
+                    className={cn(
+                      'text-muted-foreground flex h-11 items-center gap-3 rounded-lg px-3.5 font-medium [&_svg]:size-5 [&_svg]:text-current!',
+                      subActive &&
+                        'bg-card text-primary focus:bg-card focus:text-primary font-semibold',
+                    )}
+                  >
+                    <SubIcon />
+                    <span>{subItem.label}</span>
+                  </DropdownMenuItem>
+                );
+              })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : hasSubItems ? (
           <SidebarMenuButton
             isActive={active}
             onClick={toggleOpen}
@@ -117,33 +182,6 @@ export function SidebarNavigationItem({
             );
           })}
         </SidebarMenuSub>
-      ) : null}
-
-      {showFlyout ? (
-        <div className="bg-popover text-popover-foreground pointer-events-none invisible absolute top-0 left-full z-[100] ml-2 w-48 rounded-lg border p-2 opacity-0 shadow-lg transition-opacity group-focus-within/sidebar-item:pointer-events-auto group-focus-within/sidebar-item:visible group-focus-within/sidebar-item:opacity-100 group-hover/sidebar-item:pointer-events-auto group-hover/sidebar-item:visible group-hover/sidebar-item:opacity-100 before:absolute before:top-0 before:-left-2 before:h-full before:w-2 before:content-['']">
-          <p className="px-2 pb-2 font-medium">{item.label}</p>
-          <div className="space-y-1">
-            {subItems?.map((subItem) => {
-              const SubIcon = subItem.icon;
-              const subActive = isActiveSubItem(subItem.href);
-              return (
-                <a
-                  key={subItem.href}
-                  href={subItem.href}
-                  onClick={(e) => e.preventDefault()}
-                  className={cn(
-                    'text-muted-foreground hover:bg-muted hover:text-foreground flex h-11 w-full items-center gap-3 rounded-lg px-3.5 font-medium outline-hidden transition-colors [&_svg]:size-5 [&_svg]:shrink-0',
-                    subActive &&
-                      'bg-card text-primary hover:bg-card hover:text-primary border font-semibold shadow-xs',
-                  )}
-                >
-                  <SubIcon className="size-5 shrink-0" />
-                  <span>{subItem.label}</span>
-                </a>
-              );
-            })}
-          </div>
-        </div>
       ) : null}
     </SidebarMenuItem>
   );
