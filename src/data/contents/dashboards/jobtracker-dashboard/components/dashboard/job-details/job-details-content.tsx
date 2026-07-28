@@ -1,5 +1,6 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { EstimatesContent } from "./estimates-content";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../ui/tabs";
 import { jobEstimates } from "../../../data";
 import { useDashboardNavigation } from "../../navigation";
 
@@ -26,7 +27,7 @@ export function JobDetailsContent() {
             <TabsTrigger
               key={tab}
               value={tab.toLowerCase()}
-              className="h-full flex-none px-4 text-base font-normal after:bottom-[-1px]! data-active:text-primary data-active:after:bg-primary"
+              className="h-full flex-none px-4 text-base font-normal after:bottom-[-1px]! data-active:text-primary data-active:after:bg-primary data-[state=active]:text-primary data-[state=active]:after:bg-primary"
             >
               {tab}
             </TabsTrigger>

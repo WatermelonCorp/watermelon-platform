@@ -1,9 +1,13 @@
 import type { CSSProperties, ReactNode } from "react";
 
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/components/ui/sidebar";
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 import { AppSidebar } from "./app-sidebar";
 import { TopNavbar } from "./top-navbar";
-import { SidebarInset, SidebarProvider } from "../ui/sidebar";
-import { TooltipProvider } from "../ui/tooltip";
 
 type DashboardShellProps = {
   children: ReactNode;
@@ -13,6 +17,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
   return (
     <TooltipProvider>
       <SidebarProvider
+        open
         className="jobtracker-dashboard h-svh min-h-0 overflow-hidden"
         style={
           {
@@ -22,7 +27,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
         }
       >
         <AppSidebar />
-        <SidebarInset className="h-svh overflow-hidden">
+        <SidebarInset className="h-svh overflow-hidden bg-background">
           <TopNavbar />
           <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto">
             {children}

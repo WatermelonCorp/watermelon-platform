@@ -1,4 +1,20 @@
 import type { ComponentType, SVGProps } from "react";
+import { Archive, Check } from "lucide-react";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+
 import { DashboardLink } from "../navigation";
 
 import {
@@ -10,21 +26,7 @@ import {
   JobTimeIcon,
   SearchIcon,
 } from "../../assets/icons";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import { Input } from "../ui/input";
-import { Separator } from "../ui/separator";
 import { jobs, type Job, type JobStatus } from "../../data";
-import { cn } from "../../lib/utils";
-import { Archive, Check } from "lucide-react";
 
 type JobColumn = {
   status: JobStatus;
@@ -215,10 +217,7 @@ function JobCard({ job }: { job: Job }) {
       className="block rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
       aria-label={`Open ${job.title}`}
     >
-      <Card
-        size="sm"
-        className="gap-0 py-0 shadow-none ring-0 transition-colors hover:bg-accent"
-      >
+      <Card className="gap-0 py-0 shadow-none ring-0 transition-colors hover:bg-accent">
         <CardHeader className="px-4 py-3">
           <CardTitle>{job.title}</CardTitle>
           <CardAction>

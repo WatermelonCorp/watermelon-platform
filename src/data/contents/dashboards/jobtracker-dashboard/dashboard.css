@@ -1,5 +1,9 @@
 .jobtracker-dashboard,
-[data-mobile="true"][data-sidebar="sidebar"] {
+body:has(.jobtracker-dashboard) [data-mobile="true"][data-sidebar="sidebar"],
+body:has(.jobtracker-dashboard) [data-slot="dropdown-menu-content"],
+body:has(.jobtracker-dashboard) [data-slot="select-content"],
+body:has(.jobtracker-dashboard) [data-slot="sheet-content"],
+body:has(.jobtracker-dashboard) [data-slot="tooltip-content"] {
   --background: #ffffff;
   --foreground: #0a1b39;
   --card: #ffffff;
@@ -31,7 +35,11 @@
 }
 
 .dark .jobtracker-dashboard,
-.dark [data-mobile="true"][data-sidebar="sidebar"] {
+.dark body:has(.jobtracker-dashboard) [data-mobile="true"][data-sidebar="sidebar"],
+.dark body:has(.jobtracker-dashboard) [data-slot="dropdown-menu-content"],
+.dark body:has(.jobtracker-dashboard) [data-slot="select-content"],
+.dark body:has(.jobtracker-dashboard) [data-slot="sheet-content"],
+.dark body:has(.jobtracker-dashboard) [data-slot="tooltip-content"] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

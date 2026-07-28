@@ -1,12 +1,11 @@
 import {
-  CollapseIcon,
   CustomersIcon,
   JobsIcon,
   MenuIcon,
   NotificationIcon,
 } from "../../assets/icons";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants, Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,10 +14,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { SidebarTrigger } from "../ui/sidebar";
+} from "@/components/ui/dropdown-menu";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+
 import { currentUser, notifications } from "../../data";
-import { useIsMobile } from "../../hooks/use-mobile";
 import { CircleHelp, LogOut, Settings, UserRound } from "lucide-react";
 import { useDashboardNavigation } from "../navigation";
 
@@ -33,16 +34,11 @@ export function TopNavbar() {
   return (
     <header className="flex h-16 shrink-0 items-center justify-between px-4 sm:px-6 lg:px-10">
       <div className="flex min-w-0 items-center gap-3">
-        <SidebarTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon-lg"
-            className="lg:hidden"
-            aria-label="Toggle sidebar"
-          >
-            <CollapseIcon className="size-6" />
-          </Button>
-        </SidebarTrigger>
+        <SidebarTrigger
+          size="icon-lg"
+          className="md:hidden"
+          aria-label="Toggle sidebar"
+        />
         <PageIcon className="hidden size-5 shrink-0 md:block" />
         <span className="truncate text-lg font-medium tracking-tight">
           {currentPage.label}
@@ -72,18 +68,15 @@ function NotificationsMenu({ align, collisionPadding }: MenuPositioningProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button
-            variant="secondary"
-            size="icon-lg"
-            className="relative rounded-full"
-            aria-label="Open notifications"
-          >
-            <NotificationIcon className="size-5" />
-            <span className="absolute top-2 right-2 size-2 rounded-full bg-red-500 ring-2 ring-sidebar" />
-          </Button>
-        }
-      />
+        className={cn(
+          buttonVariants({ variant: "secondary", size: "icon-lg" }),
+          "relative rounded-full",
+        )}
+        aria-label="Open notifications"
+      >
+        <NotificationIcon className="size-5" />
+        <span className="absolute top-2 right-2 size-2 rounded-full bg-red-500 ring-2 ring-sidebar" />
+      </DropdownMenuTrigger>
       <DropdownMenuContent
         align={align}
         sideOffset={8}
@@ -130,21 +123,18 @@ function ProfileMenu({ align, collisionPadding }: MenuPositioningProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button
-            variant="secondary"
-            size="lg"
-            className="gap-1 rounded-full p-1 pr-1.5"
-            aria-label="Open profile menu"
-          >
-            <Avatar className="size-8">
-              <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
-              <AvatarFallback>VP</AvatarFallback>
-            </Avatar>
-            <MenuIcon className="size-4" />
-          </Button>
-        }
-      />
+        className={cn(
+          buttonVariants({ variant: "secondary", size: "lg" }),
+          "gap-1 rounded-full p-1 pr-1.5",
+        )}
+        aria-label="Open profile menu"
+      >
+        <Avatar className="size-8">
+          <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
+          <AvatarFallback>VP</AvatarFallback>
+        </Avatar>
+        <MenuIcon className="size-4" />
+      </DropdownMenuTrigger>
       <DropdownMenuContent
         align={align}
         sideOffset={8}
