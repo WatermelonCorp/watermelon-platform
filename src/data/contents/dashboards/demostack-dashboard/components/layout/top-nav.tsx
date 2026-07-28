@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from '../ui/input-group';
-import { SidebarTrigger } from '../ui/sidebar';
+} from '@/components/ui/input-group';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Bell, Blocks } from 'lucide-react';
 import { NavCmdIcon, NavSearchIcon } from '../../assets/icons';
 import { adminNavigation, workspaceNavigation } from '../../navigation-data';
@@ -43,7 +43,7 @@ export function TopNav() {
   return (
     <header className="bg-background flex shrink-0 items-center justify-between gap-2 border px-4 py-4 md:gap-4 md:rounded-t-2xl md:px-6">
       <div className="flex min-w-0 flex-1 items-center gap-3 md:gap-4">
-        <SidebarTrigger className="shrink-0 md:hidden" />
+        <SidebarTrigger className="shrink-0 lg:hidden" />
 
         <div className="hidden shrink-0 items-center gap-1.5 md:flex">
           <TitleIcon aria-hidden="true" className="size-5" />
@@ -54,7 +54,7 @@ export function TopNav() {
 
         <InputGroup
           id="top-nav-search"
-          className="bg-card border-border flex-1 md:max-w-72"
+          className="bg-card border-border h-9 flex-1 md:max-w-72"
         >
           <InputGroupAddon className="pl-2">
             <span aria-hidden="true" className="flex items-center">
@@ -63,6 +63,7 @@ export function TopNav() {
           </InputGroupAddon>
           <InputGroupInput
             ref={searchInputRef}
+            className="h-full"
             aria-label="Quick search"
             placeholder="Quick search for demo..."
             value={searchQuery}

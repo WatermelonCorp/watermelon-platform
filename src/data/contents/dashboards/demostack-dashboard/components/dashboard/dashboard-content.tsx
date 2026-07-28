@@ -16,8 +16,8 @@ import {
   InspireThreeIcon,
   InspireTwoIcon,
 } from '../../assets/icons';
-import { Button } from '../ui/button';
-import { Card, CardContent } from '../ui/card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 
 const dashboardActions = [
   {
@@ -104,7 +104,7 @@ function DashboardActionCard({
   const Icon = action.icon;
 
   return (
-    <Card className="shadow-border gap-8 rounded-2xl py-4 ring-0">
+    <Card className="shadow-border gap-8 rounded-2xl py-4 ring-0 transition-transform duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transform-none">
       <CardContent className="flex flex-col items-start gap-8">
         <div className="relative flex size-11 items-center justify-center overflow-hidden rounded-lg">
           <img
