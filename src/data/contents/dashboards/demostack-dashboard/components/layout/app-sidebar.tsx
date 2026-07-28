@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { type CSSProperties, useEffect, useState } from 'react';
 import {
   Blocks,
   ChevronDown,
@@ -11,12 +11,11 @@ import {
   Sun,
   User,
 } from 'lucide-react';
-import { useTheme } from 'next-themes';
 import { BuildingIcon, CaretUpDownIcon } from '../../assets/icons';
 import { DemostackLogo } from '../../assets/logo';
 import { SidebarNavigationItem } from './sidebar-navigation-item';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Button } from '../ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,7 +26,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 import {
   Sidebar,
   SidebarContent,
@@ -35,39 +34,70 @@ import {
   SidebarHeader,
   SidebarMenu,
   useSidebar,
-} from '../ui/sidebar';
+} from '@/components/ui/sidebar';
+import { cn } from '@/lib/utils';
 import {
   adminNavigation,
   companies,
   workspaceNavigation,
 } from '../../navigation-data';
-import { cn } from '../../lib/utils';
 
 export function AppSidebar() {
   const { isMobile, setOpen, setOpenMobile, state } = useSidebar();
-  const { resolvedTheme, setTheme } = useTheme();
   const collapsed = !isMobile && state === 'collapsed';
   const [membersOpen, setMembersOpen] = useState(false);
+  const [dark, setDark] = useState(() => {
+    if (typeof window === 'undefined') return false;
+
+    const storedTheme = localStorage.getItem('theme');
+    return (
+      storedTheme === 'dark' ||
+      (!storedTheme &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    );
+  });
   const [selectedCompany, setSelectedCompany] = useState<
     (typeof companies)[number]
   >(companies[0]);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark);
+  }, [dark]);
+
+  function toggleTheme() {
+    const nextDark = !dark;
+    localStorage.setItem('theme', nextDark ? 'dark' : 'light');
+    setDark(nextDark);
+  }
+
   return (
     <Sidebar
       collapsible="icon"
-      className="m-1.5 h-[calc(100svh-0.75rem)]! w-[calc(var(--sidebar-width)-0.75rem)]! overflow-hidden! border-none! group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)-0.75rem)]! [&>[data-sidebar=sidebar]]:bg-transparent"
+      className={cn(
+        'overflow-hidden!',
+        !isMobile &&
+          'm-1.5 h-[calc(100svh-0.75rem)]! w-[calc(var(--sidebar-width)-0.75rem)]! border-none! group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)-0.75rem)]! [&>[data-sidebar=sidebar]]:bg-transparent',
+      )}
+      style={
+        {
+          '--sidebar-width': '16rem',
+          '--sidebar-width-icon': '4rem',
+        } as CSSProperties
+      }
     >
       <SidebarHeader className="p-0">
         <div
           className={cn(
             'bg-card shadow-border flex shrink-0 flex-col rounded-2xl border',
-            collapsed ? 'items-center p-2' : 'p-3 pt-3.5',
+            collapsed
+              ? 'w-[calc(var(--sidebar-width-icon)-0.75rem)]! items-center p-2'
+              : 'p-3 pt-3.5',
           )}
         >
           <div
             className={cn(
               'flex w-full items-center',
-              collapsed ? 'justify-center' : 'justify-between',
+              collapsed ? 'justify-center' : 'justify-between px-2',
             )}
           >
             {collapsed ? (
@@ -107,7 +137,12 @@ export function AppSidebar() {
             )}
           </div>
 
-          <div className="mt-3 w-full">
+          <div
+            className={cn(
+              'mt-3 w-full',
+              collapsed && 'flex justify-center',
+            )}
+          >
             <DropdownMenu>
               <DropdownMenuTrigger
                 aria-label={
@@ -118,7 +153,7 @@ export function AppSidebar() {
                 className={cn(
                   'focus-visible:ring-ring transition-colors outline-none focus-visible:ring-2',
                   collapsed
-                    ? 'hover:ring-accent mx-auto flex rounded-full hover:ring-4'
+                    ? 'hover:ring-accent flex size-10 shrink-0 items-center justify-center rounded-full hover:ring-4'
                     : 'bg-muted hover:bg-accent flex w-full items-center justify-between rounded-xl p-2 text-left',
                 )}
               >
@@ -164,8 +199,7 @@ export function AppSidebar() {
                     <DropdownMenuRadioItem
                       key={company.name}
                       value={company.name}
-                      closeOnClick
-                      className="data-checked:text-primary! data-checked:**:text-primary! py-2.5 data-checked:font-semibold"
+                      className="data-checked:text-primary! data-checked:**:text-primary! data-[state=checked]:text-primary! data-[state=checked]:**:text-primary! py-2.5 data-checked:font-semibold data-[state=checked]:font-semibold"
                     >
                       <div className="flex flex-col">
                         <span className="text-sm">{company.name}</span>
@@ -293,12 +327,10 @@ export function AppSidebar() {
               Account Settings
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={() =>
-                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-              }
+              onClick={toggleTheme}
             >
-              {resolvedTheme === 'dark' ? <Sun /> : <Moon />}
-              {resolvedTheme === 'dark' ? 'Light mode' : 'Dark mode'}
+              {dark ? <Sun /> : <Moon />}
+              {dark ? 'Light mode' : 'Dark mode'}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem variant="destructive">

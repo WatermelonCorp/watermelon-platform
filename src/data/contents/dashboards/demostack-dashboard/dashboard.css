@@ -1,5 +1,9 @@
 .demostack-dashboard,
-[data-mobile='true'][data-sidebar='sidebar'] {
+body:has(.demostack-dashboard)
+  [data-mobile='true'][data-sidebar='sidebar'],
+body:has(.demostack-dashboard) [data-slot='dropdown-menu-content'],
+body:has(.demostack-dashboard) [data-slot='sheet-content'],
+body:has(.demostack-dashboard) [data-slot='tooltip-content'] {
   --background: oklch(0.985 0.002 250);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -39,7 +43,12 @@
 
 .demostack-dashboard.dark,
 .dark .demostack-dashboard,
-.dark [data-mobile='true'][data-sidebar='sidebar'] {
+.dark
+  body:has(.demostack-dashboard)
+  [data-mobile='true'][data-sidebar='sidebar'],
+.dark body:has(.demostack-dashboard) [data-slot='dropdown-menu-content'],
+.dark body:has(.demostack-dashboard) [data-slot='sheet-content'],
+.dark body:has(.demostack-dashboard) [data-slot='tooltip-content'] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -71,16 +80,22 @@
 }
 
 .demostack-dashboard .shadow-border,
-[data-mobile='true'][data-sidebar='sidebar'] .shadow-border {
+body:has(.demostack-dashboard)
+  [data-mobile='true'][data-sidebar='sidebar']
+  .shadow-border {
   box-shadow: var(--shadow-border);
 }
 
 .demostack-dashboard .shadow-border-hover,
-[data-mobile='true'][data-sidebar='sidebar'] .shadow-border-hover {
+body:has(.demostack-dashboard)
+  [data-mobile='true'][data-sidebar='sidebar']
+  .shadow-border-hover {
   box-shadow: var(--shadow-border-hover);
 }
 
 .demostack-dashboard .shadow-primary,
-[data-mobile='true'][data-sidebar='sidebar'] .shadow-primary {
+body:has(.demostack-dashboard)
+  [data-mobile='true'][data-sidebar='sidebar']
+  .shadow-primary {
   box-shadow: var(--shadow-primary);
 }

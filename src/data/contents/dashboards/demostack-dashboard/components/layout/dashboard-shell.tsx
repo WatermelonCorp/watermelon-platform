@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { AppSidebar } from './app-sidebar';
 import { TopNav } from './top-nav';
-import { SidebarProvider } from '../ui/sidebar';
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 type DashboardShellProps = {
   children: ReactNode;

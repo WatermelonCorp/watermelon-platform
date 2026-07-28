@@ -19,8 +19,8 @@ import {
   UserRound,
   Users,
 } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Button } from '../ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button, buttonVariants } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -32,16 +32,16 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+} from '@/components/ui/dropdown-menu';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '../ui/tooltip';
+} from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
 import { demostacks, type Demostack } from '../../data';
-import { cn } from '../../lib/utils';
 
 const demostackAuthors = [
   ...new Set(demostacks.map((demostack) => demostack.author)),
@@ -88,7 +88,7 @@ export function DemostacksContent() {
   }, [selectedAuthors, sort]);
 
   return (
-    <TooltipProvider delay={300}>
+    <TooltipProvider>
       <Tabs defaultValue="demostacks" className="min-w-0">
         <main className="w-full min-w-0 px-4 py-6 sm:p-7">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
@@ -96,17 +96,15 @@ export function DemostacksContent() {
               <h2 className="text-xl font-semibold">Team Demostacks</h2>
               <Tooltip>
                 <TooltipTrigger
-                  render={
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      className="text-muted-foreground rounded-full"
-                      aria-label="About Team Demostacks"
-                    >
-                      <Info className="size-4" />
-                    </Button>
-                  }
-                />
+                  className={buttonVariants({
+                    variant: 'ghost',
+                    size: 'icon-xs',
+                    className: 'text-muted-foreground rounded-full',
+                  })}
+                  aria-label="About Team Demostacks"
+                >
+                  <Info className="size-4" />
+                </TooltipTrigger>
                 <TooltipContent>
                   Demostacks shared with everyone in your workspace
                 </TooltipContent>
@@ -120,13 +118,14 @@ export function DemostacksContent() {
               </TabsList>
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <Button size="lg" className="shadow-primary rounded-xl">
-                      Create
-                      <Plus className="size-5" />
-                    </Button>
-                  }
-                />
+                  className={buttonVariants({
+                    size: 'lg',
+                    className: 'shadow-primary rounded-xl',
+                  })}
+                >
+                  Create
+                  <Plus className="size-5" />
+                </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
                   <DropdownMenuItem>
                     <Plus />
@@ -194,7 +193,7 @@ function PrimaryTab({
   return (
     <TabsTrigger
       value={value}
-      className="data-active:bg-primary/10 data-active:text-primary flex-none rounded-lg px-3 data-active:shadow-none!"
+      className="data-active:bg-primary/10 data-active:text-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary flex-none rounded-lg px-3 data-active:shadow-none! data-[state=active]:shadow-none!"
     >
       {children}
     </TabsTrigger>
@@ -244,17 +243,16 @@ function DemostacksToolbar({
       <div className="flex w-full flex-wrap items-center gap-2 pb-3 lg:w-auto lg:gap-3 lg:pb-2">
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-card text-muted-foreground shadow-border mr-auto rounded-xl border-0"
-              >
-                <ArrowDownWideNarrow className="size-5" />
-                {sortLabels[sort]}
-              </Button>
-            }
-          />
+            className={buttonVariants({
+              variant: 'outline',
+              size: 'lg',
+              className:
+                'bg-card text-muted-foreground shadow-border mr-auto rounded-xl border-0',
+            })}
+          >
+            <ArrowDownWideNarrow className="size-5" />
+            {sortLabels[sort]}
+          </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-48">
             <DropdownMenuRadioGroup
               value={sort}
@@ -272,26 +270,24 @@ function DemostacksToolbar({
 
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={
-              <Button
-                variant="outline"
-                size="lg"
-                className={cn(
-                  'bg-card text-muted-foreground shadow-border rounded-xl border-0',
-                  selectedAuthors.length && 'bg-muted',
-                )}
-                aria-label="Filter by creator"
-              >
-                <Filter className="size-5" />
-                <span className="hidden sm:inline">Filter</span>
-                {selectedAuthors.length > 0 && (
-                  <span className="bg-primary text-primary-foreground flex size-5 items-center justify-center rounded-full text-xs">
-                    {selectedAuthors.length}
-                  </span>
-                )}
-              </Button>
-            }
-          />
+            className={buttonVariants({
+              variant: 'outline',
+              size: 'lg',
+              className: cn(
+                'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+                selectedAuthors.length && 'bg-muted',
+              ),
+            })}
+            aria-label="Filter by creator"
+          >
+            <Filter className="size-5" />
+            <span className="hidden sm:inline">Filter</span>
+            {selectedAuthors.length > 0 && (
+              <span className="bg-primary text-primary-foreground flex size-5 items-center justify-center rounded-full text-xs">
+                {selectedAuthors.length}
+              </span>
+            )}
+          </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-52">
             <DropdownMenuGroup>
               <DropdownMenuLabel>Filter by creator</DropdownMenuLabel>
@@ -318,17 +314,16 @@ function DemostacksToolbar({
 
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={
-              <Button
-                variant="outline"
-                size="icon-lg"
-                className="bg-card text-muted-foreground shadow-border rounded-xl border-0"
-                aria-label="Folder options"
-              >
-                <FolderPlus className="size-5" />
-              </Button>
-            }
-          />
+            className={buttonVariants({
+              variant: 'outline',
+              size: 'icon-lg',
+              className:
+                'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+            })}
+            aria-label="Folder options"
+          >
+            <FolderPlus className="size-5" />
+          </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-44">
             <DropdownMenuItem>
               <FolderPlus />
@@ -374,7 +369,7 @@ function WorkspaceTab({
   return (
     <TabsTrigger
       value={value}
-      className="data-active:text-primary data-active:after:bg-primary px-2 text-sm sm:px-4 sm:text-base"
+      className="data-active:text-primary data-active:after:bg-primary data-[state=active]:text-primary data-[state=active]:after:bg-primary px-2 text-sm sm:px-4 sm:text-base"
     >
       <Icon className="size-4 sm:size-5" />
       {children}
@@ -466,17 +461,15 @@ function CardMenu({ title }: { title: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon-xs"
-            className="text-muted-foreground rounded-full"
-            aria-label={`More options for ${title}`}
-          >
-            <EllipsisVertical className="size-4" />
-          </Button>
-        }
-      />
+        className={buttonVariants({
+          variant: 'ghost',
+          size: 'icon-xs',
+          className: 'text-muted-foreground rounded-full',
+        })}
+        aria-label={`More options for ${title}`}
+      >
+        <EllipsisVertical className="size-4" />
+      </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-44">
         <DropdownMenuItem>
           <ExternalLink />
