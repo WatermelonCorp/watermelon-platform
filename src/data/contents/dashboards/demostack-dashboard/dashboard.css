@@ -36,7 +36,9 @@ body:has(.demostack-dashboard) [data-slot='tooltip-content'] {
     0 0 0 0.5px oklch(0 0 0 / 8%), 0 1px 2px -1px oklch(0 0 0 / 8%),
     0 2px 4px oklch(0 0 0 / 6%);
   --shadow-primary: inset 0 1px 0 rgb(255 255 255 / 30%);
+}
 
+.demostack-dashboard {
   background-color: var(--background);
   color: var(--foreground);
 }
