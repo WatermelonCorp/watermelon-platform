@@ -1,27 +1,27 @@
-import { Button } from "../ui/button";
-import {
-  type NavigationItem,
-  SidebarNavigationItem,
-} from "./sidebar-navigation-item";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+
+import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
-  SidebarTrigger,
   useSidebar,
-} from "../ui/sidebar";
+} from "@/components/ui/sidebar";
+
 import {
-  CollapseIcon,
+  type NavigationItem,
+  SidebarNavigationItem,
+} from "./sidebar-navigation-item";
+import {
   CustomersIcon,
   JobsIcon,
   LogoutIcon,
   SettingsIcon,
 } from "../../assets/icons";
 import { Logo } from "../../assets/logo";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 import { DashboardLink } from "../navigation";
 
 type SidebarItem = NavigationItem & {
@@ -42,7 +42,7 @@ function Brand() {
   const { isMobile, setOpenMobile } = useSidebar();
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center px-3">
       <DashboardLink
         href="/"
         aria-label="JobTracker home"
@@ -58,11 +58,6 @@ function Brand() {
           JOB <span className="text-primary">TRACKER</span>
         </span>
       </DashboardLink>
-      <SidebarTrigger asChild>
-        <Button variant="ghost" size="icon-lg" aria-label="Toggle sidebar">
-          <CollapseIcon className="size-6 transition-transform duration-200 group-data-[state=collapsed]:rotate-180" />
-        </Button>
-      </SidebarTrigger>
     </div>
   );
 }
@@ -75,7 +70,7 @@ function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon-lg"
-      className="hover:bg-secondary/80 group-data-[collapsible=icon]:hidden"
+      className="size-10 shrink-0 rounded-xl text-muted-foreground hover:!bg-background hover:!text-foreground group-data-[collapsible=icon]:hidden"
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-label={`Switch to ${dark ? "light" : "dark"} theme`}
     >
@@ -87,10 +82,10 @@ function ThemeToggle() {
 
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="icon" className="border-none">
+    <Sidebar collapsible="offcanvas" className="border-none">
       <SidebarHeader className="gap-6 p-3 transition-[padding] duration-200 group-data-[collapsible=icon]:p-2">
         <Brand />
-        <SidebarMenu>
+        <SidebarMenu className="gap-2">
           {primaryNavigationItems.map((item) => (
             <SidebarNavigationItem key={item.label} item={item} />
           ))}
@@ -100,7 +95,7 @@ export function AppSidebar() {
       <SidebarContent />
 
       <SidebarFooter className="p-3 transition-[padding] duration-200 group-data-[collapsible=icon]:p-2">
-        <SidebarMenu>
+        <SidebarMenu className="gap-2">
           {utilityNavigationItems.map((item) => (
             <SidebarNavigationItem
               key={item.label}

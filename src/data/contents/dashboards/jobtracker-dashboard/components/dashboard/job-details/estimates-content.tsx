@@ -30,22 +30,21 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { AddIcon } from "../../../assets/icons";
-import { Button } from "../../ui/button";
+import { buttonVariants, Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../ui/select";
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -53,9 +52,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../ui/table";
+} from "@/components/ui/table";
+import { cn } from "@/lib/utils";
+
+import { AddIcon } from "../../../assets/icons";
 import type { EstimateLineItem, EstimateSection } from "../../../data";
-import { cn } from "../../../lib/utils";
 
 type EstimatesContentProps = {
   sections: EstimateSection[];
@@ -294,7 +295,6 @@ export function EstimatesContent({ sections }: EstimatesContentProps) {
       onDragEnd={handleDragEnd}
     >
       <Table
-        containerClassName="overscroll-x-contain"
         className="min-w-[56rem] table-fixed text-sm sm:text-base"
       >
         <colgroup>
@@ -691,17 +691,14 @@ function LineItemActions({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon-lg"
-            className="rounded-full text-muted-foreground"
-            aria-label={`Actions for ${itemName}`}
-          >
-            <EllipsisVertical className="size-5" />
-          </Button>
-        }
-      />
+        className={cn(
+          buttonVariants({ variant: "ghost", size: "icon-lg" }),
+          "rounded-full text-muted-foreground",
+        )}
+        aria-label={`Actions for ${itemName}`}
+      >
+        <EllipsisVertical className="size-5" />
+      </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
         <DropdownMenuItem>
           <Pencil />

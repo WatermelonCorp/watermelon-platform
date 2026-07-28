@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { EllipsisVertical, Pencil, Trash2 } from "lucide-react";
 
-import { AddIcon, SearchIcon } from "../../assets/icons";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants, Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Input } from "../ui/input";
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -19,7 +18,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
+import { cn } from "@/lib/utils";
+
+import { AddIcon, SearchIcon } from "../../assets/icons";
 import { customers } from "../../data";
 
 export function CustomersContent() {
@@ -75,17 +77,14 @@ function CustomerActions({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon-lg"
-            className="rounded-full text-muted-foreground"
-            aria-label={`Actions for ${name}`}
-          >
-            <EllipsisVertical className="size-5" />
-          </Button>
-        }
-      />
+        className={cn(
+          buttonVariants({ variant: "ghost", size: "icon-lg" }),
+          "rounded-full text-muted-foreground",
+        )}
+        aria-label={`Actions for ${name}`}
+      >
+        <EllipsisVertical className="size-5" />
+      </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-36">
         <DropdownMenuItem>
           <Pencil />
@@ -106,7 +105,6 @@ function CustomerTable() {
 
   return (
     <Table
-      containerClassName="overscroll-x-contain"
       className="min-w-[46rem] table-fixed text-sm sm:text-base"
     >
       <colgroup>
