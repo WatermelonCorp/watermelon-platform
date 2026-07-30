@@ -9,14 +9,14 @@ import {
 } from '@/components/ui/input-group';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Bell, Blocks } from 'lucide-react';
-import { NavCmdIcon, NavSearchIcon } from '../../assets/icons';
-import { adminNavigation, workspaceNavigation } from '../../navigation-data';
-import { useDashboardNavigation } from '../navigation';
+import { NavCmdIcon, NavSearchIcon } from './icons';
+import { adminNavigation, workspaceNavigation } from '../../data';
+import { useLocation } from './navigation';
 
 const navigationItems = [...workspaceNavigation, ...adminNavigation];
 
-export function TopNav() {
-  const { pathname } = useDashboardNavigation();
+export function DashboardTopbar() {
+  const { pathname } = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const currentPage =
@@ -53,7 +53,7 @@ export function TopNav() {
         </div>
 
         <InputGroup
-          id="top-nav-search"
+          id="dashboard-topbar-search"
           className="bg-card border-border h-9 flex-1 md:max-w-72"
         >
           <InputGroupAddon className="pl-2">
@@ -91,7 +91,7 @@ export function TopNav() {
             type="button"
             variant="outline"
             size="icon-lg"
-            className="bg-card shadow-border hidden rounded-full border-0 md:inline-flex xl:hidden"
+            className="bg-card hidden rounded-full border-0 md:inline-flex xl:hidden"
             aria-label="Add Extension"
           >
             <Blocks aria-hidden="true" className="size-4" />
@@ -100,7 +100,7 @@ export function TopNav() {
             type="button"
             variant="outline"
             size="lg"
-            className="bg-card shadow-border hidden rounded-full border-0 px-4 xl:inline-flex"
+            className="bg-card hidden rounded-full border-0 px-4 xl:inline-flex"
           >
             <Blocks aria-hidden="true" className="size-4" />
             <span className="text-xs leading-none">Add Extension</span>
@@ -111,7 +111,7 @@ export function TopNav() {
           type="button"
           variant="outline"
           size="icon-lg"
-          className="bg-card shadow-border rounded-full border-0"
+          className="bg-card rounded-full border-0"
           aria-label="Notifications"
         >
           <Bell aria-hidden="true" className="size-4" />

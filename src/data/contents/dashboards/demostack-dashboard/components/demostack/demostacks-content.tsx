@@ -112,7 +112,7 @@ export function DemostacksContent() {
             </div>
 
             <div className="flex w-full flex-wrap items-center justify-between gap-3 sm:w-auto sm:flex-nowrap sm:justify-start sm:gap-4">
-              <TabsList className="shadow-border h-10! gap-0 rounded-xl">
+              <TabsList className="h-10! gap-0 rounded-xl">
                 <PrimaryTab value="demostacks">Demostacks</PrimaryTab>
                 <PrimaryTab value="screenshots">Screenshots</PrimaryTab>
               </TabsList>
@@ -120,7 +120,7 @@ export function DemostacksContent() {
                 <DropdownMenuTrigger
                   className={buttonVariants({
                     size: 'lg',
-                    className: 'shadow-primary rounded-xl',
+                    className: 'rounded-xl',
                   })}
                 >
                   Create
@@ -193,7 +193,7 @@ function PrimaryTab({
   return (
     <TabsTrigger
       value={value}
-      className="data-active:bg-primary/10 data-active:text-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary flex-none rounded-lg px-3 data-active:shadow-none! data-[state=active]:shadow-none!"
+      className="data-active:bg-primary/10 data-active:text-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary flex-none rounded-lg px-3"
     >
       {children}
     </TabsTrigger>
@@ -247,7 +247,7 @@ function DemostacksToolbar({
               variant: 'outline',
               size: 'lg',
               className:
-                'bg-card text-muted-foreground shadow-border mr-auto rounded-xl border-0',
+                'bg-card text-muted-foreground mr-auto rounded-xl border-0',
             })}
           >
             <ArrowDownWideNarrow className="size-5" />
@@ -274,7 +274,7 @@ function DemostacksToolbar({
               variant: 'outline',
               size: 'lg',
               className: cn(
-                'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+                'bg-card text-muted-foreground rounded-xl border-0',
                 selectedAuthors.length && 'bg-muted',
               ),
             })}
@@ -318,7 +318,7 @@ function DemostacksToolbar({
               variant: 'outline',
               size: 'icon-lg',
               className:
-                'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+                'bg-card text-muted-foreground rounded-xl border-0',
             })}
             aria-label="Folder options"
           >
@@ -340,7 +340,7 @@ function DemostacksToolbar({
           variant="outline"
           size="icon-lg"
           className={cn(
-            'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+            'bg-card text-muted-foreground rounded-xl border-0',
             view === 'list' && 'bg-muted',
           )}
           aria-label={view === 'grid' ? 'Use list view' : 'Use grid view'}

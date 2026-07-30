@@ -11,8 +11,8 @@ import {
   Sun,
   User,
 } from 'lucide-react';
-import { BuildingIcon, CaretUpDownIcon } from '../../assets/icons';
-import { DemostackLogo } from '../../assets/logo';
+import { BuildingIcon, CaretUpDownIcon } from './icons';
+import { DemostackLogo } from './logo';
 import { SidebarNavigationItem } from './sidebar-navigation-item';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -40,9 +40,9 @@ import {
   adminNavigation,
   companies,
   workspaceNavigation,
-} from '../../navigation-data';
+} from '../../data';
 
-export function AppSidebar() {
+export function DashboardSidebar() {
   const { isMobile, setOpen, setOpenMobile, state } = useSidebar();
   const collapsed = !isMobile && state === 'collapsed';
   const [membersOpen, setMembersOpen] = useState(false);
@@ -73,11 +73,11 @@ export function AppSidebar() {
   return (
     <Sidebar
       collapsible="icon"
-      className={cn(
-        isMobile ? 'overflow-hidden!' : 'overflow-visible!',
-        !isMobile &&
-          'm-1.5 h-[calc(100svh-0.75rem)]! w-[calc(var(--sidebar-width)-0.75rem)]! border-none! group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)-0.75rem)]! [&>[data-sidebar=sidebar]]:bg-transparent',
-      )}
+      // className={cn(
+      //   isMobile ? 'overflow-hidden!' : 'overflow-visible!',
+      //   !isMobile &&
+      //     'm-1.5 h-[calc(100svh-0.75rem)]! w-[calc(var(--sidebar-width)-0.75rem)]! border-none! group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)-0.75rem)]! [&>[data-sidebar=sidebar]]:bg-transparent',
+      // )}
       style={
         {
           '--sidebar-width': '16rem',
@@ -88,7 +88,7 @@ export function AppSidebar() {
       <SidebarHeader className="p-0">
         <div
           className={cn(
-            'bg-card shadow-border flex shrink-0 flex-col rounded-2xl border',
+            'bg-card flex shrink-0 flex-col rounded-2xl border',
             collapsed
               ? 'w-[calc(var(--sidebar-width-icon)-0.75rem)]! items-center p-2'
               : 'p-3 pt-3.5',
