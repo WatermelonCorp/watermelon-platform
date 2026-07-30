@@ -24,7 +24,7 @@ export const demostacks: Demostack[] = [
     author: 'Abiola Ahmed',
     avatar:
       'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&q=80&w=96&h=96',
-    image: 'https://assets.watermelon.sh/components/stockroom-tour.png',
+    image: 'https://assets.watermelon.sh/components/stockroom-tour-3x2.png',
   },
   {
     id: 'introduction-to-app',
@@ -32,7 +32,7 @@ export const demostacks: Demostack[] = [
     author: 'Vansh P.',
     avatar:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=96&h=96',
-    image: 'https://assets.watermelon.sh/components/gridwise-tour.png',
+    image: 'https://assets.watermelon.sh/components/gridwise-tour-3x2.png',
   },
   {
     id: 'monitor-detail-performance',
@@ -41,7 +41,16 @@ export const demostacks: Demostack[] = [
     avatar:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=96&h=96',
     image:
-      'https://assets.watermelon.sh/components/support-request-tour.png',
+      'https://assets.watermelon.sh/components/support-request-tour-3x2.png',
+  },
+  {
+    id: 'revenue-overview-tour',
+    title: 'Northpeak Revenue Overview',
+    author: 'Maya R.',
+    avatar:
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=96&h=96',
+    image:
+      'https://assets.watermelon.sh/components/analytics-dashboard-3x2.png',
   },
 ];
 
@@ -55,9 +64,76 @@ export type NavigationItem = {
 };
 
 export const companies = [
-  { name: 'My Company', role: 'Admin' },
-  { name: 'Acme Corporation', role: 'Member' },
-  { name: 'Tiktok Inc', role: 'Admin' },
+  {
+    name: 'My Company',
+    role: 'Admin',
+    members: [
+      {
+        name: 'Maya',
+        avatar:
+          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256&h=256',
+        initials: 'M',
+      },
+    ],
+  },
+  {
+    name: 'Acme Corporation',
+    role: 'Member',
+    members: [
+      {
+        name: 'Abiola Ahmed',
+        avatar:
+          'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&q=80&w=256&h=256',
+        initials: 'AA',
+      },
+      {
+        name: 'Ava C',
+        avatar:
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=256&h=256',
+        initials: 'AC',
+      },
+    ],
+  },
+  {
+    name: 'Tiktok Inc',
+    role: 'Admin',
+    members: [
+      {
+        name: 'Vansh Patel',
+        avatar:
+          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=256&h=256',
+        initials: 'VP',
+      },
+    ],
+  },
+] as const;
+
+export const currentUser = {
+  name: 'Vansh Patel',
+  email: 'vanshpatel@gmail.com',
+  avatar: 'https://api.dicebear.com/10.x/notionists/svg',
+  initials: 'VP',
+} as const;
+
+export const notifications = [
+  {
+    id: 'demostack-shared',
+    title: 'New Demostack shared',
+    description: 'Abiola Ahmed shared a Demostack with you.',
+    time: '2 min ago',
+  },
+  {
+    id: 'showcase-published',
+    title: 'Showcase published',
+    description: 'Your latest showcase is now live.',
+    time: '1 hour ago',
+  },
+  {
+    id: 'workspace-invitation',
+    title: 'Workspace invitation',
+    description: 'You were invited to join Acme Corporation.',
+    time: 'Yesterday',
+  },
 ] as const;
 
 export const workspaceNavigation: NavigationItem[] = [
@@ -72,7 +148,7 @@ export const adminNavigation: NavigationItem[] = [
   { name: 'Analytics', href: '/analytics', icon: ChartNoAxesCombined },
   { name: 'Theme', href: '/theme', icon: Palette },
   { name: 'Integration', href: '/integration', icon: Plug },
-  { name: 'Settings', href: '/settings', icon: Settings },
+  { name: 'Settings', href: '/settings', icon: Settings }
 ];
 
 export const pageDetails = {
