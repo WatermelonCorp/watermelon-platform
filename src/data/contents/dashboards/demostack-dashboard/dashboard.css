@@ -81,6 +81,16 @@ body:has(.demostack-dashboard) [data-slot='tooltip-content'] {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+body:has(.demostack-dashboard) [data-slot='tooltip-content'] {
+  background-color: var(--foreground) !important;
+  color: var(--background) !important;
+}
+
+body:has(.demostack-dashboard) [data-slot='tooltip-content'] > svg {
+  background-color: var(--foreground) !important;
+  fill: var(--foreground) !important;
+}
+
 /* custom classes */
 .no-scrollbar,
 .no-scrollbar * {
