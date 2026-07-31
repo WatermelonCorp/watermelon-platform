@@ -145,7 +145,7 @@ export function DashboardSidebar() {
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="mt-6 px-2.75 group-data-[collapsible=icon]:overflow-x-hidden! group-data-[collapsible=icon]:overflow-y-auto!">
+      <SidebarContent className="pt-6 pb-3 px-2.75 group-data-[collapsible=icon]:overflow-x-hidden! group-data-[collapsible=icon]:overflow-y-auto!">
         {[
           { label: 'Workspace', items: workspaceNavigation },
           { label: 'Admin', items: adminNavigation },
