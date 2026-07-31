@@ -15,9 +15,8 @@ import {
   InspireOneIcon,
   InspireThreeIcon,
   InspireTwoIcon,
-} from '../../assets/icons';
+} from './icons';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 
 const dashboardActions = [
   {
@@ -79,7 +78,7 @@ const dashboardResources = [
 
 export function DashboardContent() {
   return (
-    <div className="mx-auto w-full max-w-6xl space-y-9 px-4 py-6 sm:p-7">
+    <div className="mx-auto w-full max-w-6xl space-y-10.5 px-4 py-6 md:px-7 md:py-8">
       <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {dashboardActions.map((action) => (
           <DashboardActionCard key={action.title} action={action} />
@@ -104,24 +103,25 @@ function DashboardActionCard({
   const Icon = action.icon;
 
   return (
-    <Card className="shadow-border hover:shadow-border-hover gap-8 rounded-2xl py-4 ring-0 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transform-none">
-      <CardContent className="flex flex-col items-start gap-8">
-        <div className="relative flex size-11 items-center justify-center overflow-hidden rounded-lg">
-          <img
-            src={action.image}
-            alt=""
-            width={44}
-            height={44}
-            className="absolute inset-0 size-full object-cover"
-          />
-          <Icon className="text-primary-foreground relative z-10 size-6" />
-        </div>
-        <div className="flex w-full flex-col gap-1">
-          <p className="font-medium">{action.title}</p>
-          <p className="text-muted-foreground text-sm">{action.description}</p>
-        </div>
-      </CardContent>
-    </Card>
+    <div className="flex w-full flex-col items-start gap-8 rounded-2xl border px-4 pt-4 pb-3.5 transition-colors hover:bg-secondary">
+      <div className="relative flex size-11 items-center justify-center overflow-hidden rounded-lg">
+        <img
+          src={action.image}
+          alt=""
+          width={44}
+          height={44}
+          className="absolute inset-0 size-full object-cover"
+        />
+        <Icon className="text-primary-foreground relative z-10 size-6" />
+      </div>
+
+      <div className="flex w-full flex-col gap-1">
+        <p className="font-medium">{action.title}</p>
+        <p className="text-muted-foreground text-sm leading-4.5">
+          {action.description}
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -144,23 +144,23 @@ function DashboardTips() {
 
   return (
     <section className="flex flex-col gap-8">
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0 flex-1">
           <h2 className="text-lg font-semibold">Demostack Tips</h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mt-2 max-w-prose">
             Drive successful outcomes across multiple departments and
             interactive demos
           </p>
         </div>
+
         <Button
-          variant="outline"
-          size="sm"
+          variant="secondary"
           onClick={() => setVisible(false)}
-          className="bg-card shadow-border rounded-full border-0"
+          className="h-auto shrink-0 self-start rounded-full px-5 py-3"
           aria-label="Close tips"
         >
-          Close
-          <X />
+          Close Tips
+          <X className="size-4.5" />
         </Button>
       </div>
 
@@ -172,7 +172,7 @@ function DashboardTips() {
           {dashboardTips.map((tip) => (
             <article
               key={tip.title}
-              className="flex w-64 shrink-0 flex-col items-start gap-4"
+              className="group flex w-64 shrink-0 flex-col items-start gap-4"
             >
               <div className="relative aspect-[3/2] w-64 overflow-hidden rounded-2xl">
                 <img
@@ -180,9 +180,10 @@ function DashboardTips() {
                   alt=""
                   width={256}
                   height={176}
-                  className="size-full object-cover"
+                  className="size-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover:scale-105"
                 />
               </div>
+
               <div className="flex w-full flex-col gap-1">
                 <h3 className="font-medium">{tip.title}</h3>
                 <p className="text-muted-foreground text-sm">
@@ -193,12 +194,13 @@ function DashboardTips() {
           ))}
         </div>
 
-        <div className="from-background via-background/70 absolute top-0 right-0 h-64 w-36 bg-gradient-to-l to-transparent" />
+        <div className="from-background via-background/70 absolute top-0 right-0 h-64 w-16 bg-gradient-to-l to-transparent md:w-36" />
+
         <Button
           variant="outline"
           size="icon-lg"
           onClick={scrollRight}
-          className="bg-card shadow-border absolute top-28 right-0 z-10 rounded-full border-0"
+          className="bg-secondary absolute top-28 right-0 z-10 flex rounded-full border-0"
           aria-label="Show more tips"
         >
           <ChevronRight className="size-5" />
@@ -207,7 +209,6 @@ function DashboardTips() {
     </section>
   );
 }
-
 function ResourcesSection() {
   return (
     <section className="flex flex-1 flex-col items-start gap-8 lg:max-w-lg">
@@ -217,20 +218,20 @@ function ResourcesSection() {
           const Icon = resource.icon;
 
           return (
-            <article
+            <div
               key={resource.label}
-              className="group flex flex-col items-start gap-3"
+              className="group flex flex-col items-start gap-3 cursor-pointer"
             >
-              <div className="bg-muted shadow-border group-hover:shadow-border-hover flex h-32 w-full items-center justify-center overflow-hidden rounded-xl transition-[transform,box-shadow] duration-200 ease-out group-hover:-translate-y-0.5 motion-reduce:transform-none">
-                <div className="relative flex size-20 items-center justify-center transition-transform duration-200 ease-out group-hover:-translate-y-1 group-hover:rotate-1 motion-reduce:transform-none">
+              <div className="bg-secondary flex h-32 w-full items-center justify-center overflow-hidden rounded-xl">
+                <div className="relative flex size-20 items-center justify-center transition-transform duration-200 ease-out group-hover:-translate-y-1 group-hover:rotate-1">
                   <BgFolderVector className="absolute inset-0 size-full" />
-                  <Icon className="relative z-10 mt-4 size-6 transition-transform duration-200 ease-out group-hover:scale-110 motion-reduce:transform-none" />
+                  <Icon className="relative z-10 mt-4 size-6 transition-transform duration-200 ease-out group-hover:scale-110" />
                 </div>
               </div>
-              <h3 className="font-medium transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none">
+              <h3 className="font-medium">
                 {resource.label}
               </h3>
-            </article>
+            </div>
           );
         })}
       </div>
@@ -247,18 +248,18 @@ function InspirationList() {
           const Icon = item.icon;
 
           return (
-            <article
+            <div
               key={item.title}
-              className="bg-muted shadow-border hover:shadow-border-hover group flex h-18 w-full items-center justify-between rounded-2xl py-4 pr-8 pl-6 transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transform-none"
+              className="bg-secondary group flex h-18 w-full items-center justify-between rounded-2xl py-4 pr-8 pl-6 cursor-pointer"
             >
               <div className="flex items-center gap-4">
                 <div className="flex size-8 shrink-0 items-center justify-center">
-                  <Icon className="max-h-7 max-w-7 transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:transform-none" />
+                  <Icon className="max-h-7 max-w-7 transition-transform duration-200 ease-out group-hover:scale-105" />
                 </div>
                 <h3 className="font-medium">{item.title}</h3>
               </div>
-              <ArrowUpRight className="text-muted-foreground size-6 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
-            </article>
+              <ArrowUpRight className="text-muted-foreground size-6 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </div>
           );
         })}
       </div>

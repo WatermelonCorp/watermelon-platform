@@ -37,7 +37,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
@@ -74,8 +73,8 @@ export function DemostacksContent() {
   const visibleDemostacks = useMemo(() => {
     const filtered = selectedAuthors.length
       ? demostacks.filter((demostack) =>
-          selectedAuthors.includes(demostack.author),
-        )
+        selectedAuthors.includes(demostack.author),
+      )
       : demostacks;
 
     if (sort === 'ascending') {
@@ -88,102 +87,89 @@ export function DemostacksContent() {
   }, [selectedAuthors, sort]);
 
   return (
-    <TooltipProvider>
-      <Tabs defaultValue="demostacks" className="min-w-0">
-        <main className="w-full min-w-0 px-4 py-6 sm:p-7">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-2">
-              <h2 className="text-xl font-semibold">Team Demostacks</h2>
-              <Tooltip>
-                <TooltipTrigger
-                  className={buttonVariants({
-                    variant: 'ghost',
-                    size: 'icon-xs',
-                    className: 'text-muted-foreground rounded-full',
-                  })}
-                  aria-label="About Team Demostacks"
-                >
-                  <Info className="size-4" />
-                </TooltipTrigger>
-                <TooltipContent>
-                  Demostacks shared with everyone in your workspace
-                </TooltipContent>
-              </Tooltip>
-            </div>
-
-            <div className="flex w-full flex-wrap items-center justify-between gap-3 sm:w-auto sm:flex-nowrap sm:justify-start sm:gap-4">
-              <TabsList className="shadow-border h-10! gap-0 rounded-xl">
-                <PrimaryTab value="demostacks">Demostacks</PrimaryTab>
-                <PrimaryTab value="screenshots">Screenshots</PrimaryTab>
-              </TabsList>
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  className={buttonVariants({
-                    size: 'lg',
-                    className: 'shadow-primary rounded-xl',
-                  })}
-                >
-                  Create
-                  <Plus className="size-5" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48">
-                  <DropdownMenuItem>
-                    <Plus />
-                    New Demostack
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Plus />
-                    New Screenshot
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+    <Tabs defaultValue="demostacks">
+      <main className="mx-auto w-full max-w-6xl px-4 py-6 md:px-7 md:py-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
+          <div className="flex items-center gap-2">
+            <h2 className="text-2xl font-semibold">Team Demostacks</h2>
+            <Tooltip>
+              <TooltipTrigger>
+                <Info className="size-4.5" />
+              </TooltipTrigger>
+              <TooltipContent>
+                Demostacks shared with everyone in your workspace
+              </TooltipContent>
+            </Tooltip>
           </div>
 
-          <TabsContent value="demostacks">
-            <Tabs
-              defaultValue="shared"
-              className="mt-8 min-w-0 gap-6 sm:mt-10 sm:gap-8"
-            >
-              <DemostacksToolbar
-                sort={sort}
-                setSort={setSort}
-                selectedAuthors={selectedAuthors}
-                setSelectedAuthors={setSelectedAuthors}
-                view={view}
-                setView={setView}
-              />
-              <TabsContent value="shared">
-                <DemostackCollection demos={visibleDemostacks} view={view} />
-              </TabsContent>
-              <TabsContent value="personal">
-                <EmptyState
-                  title="No personal Demostacks yet"
-                  description="Demostacks visible only to you will appear here."
-                />
-              </TabsContent>
-              <TabsContent value="archive">
-                <EmptyState
-                  title="Archive is empty"
-                  description="Archived Demostacks will appear here."
-                />
-              </TabsContent>
-            </Tabs>
-          </TabsContent>
-          <TabsContent value="screenshots">
-            <EmptyState
-              title="No screenshots yet"
-              description="Create a screenshot to see it in this workspace."
-              className="mt-10"
+          <div className="flex w-full min-w-0 items-center gap-2 sm:ml-auto sm:w-auto sm:gap-4">
+            <TabsList className="bg-secondary h-auto w-full min-w-0 flex-1 gap-1 rounded-[14px] p-1 group-data-horizontal/tabs:h-auto sm:w-auto sm:flex-none sm:gap-3">
+              <TabCapsule value="demostacks">Demostacks</TabCapsule>
+              <TabCapsule value="screenshots">Screenshots</TabCapsule>
+            </TabsList>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="h-11 shrink-0 gap-1 rounded-xl px-3 text-base sm:px-4">
+                  Create <Plus />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem>
+                  <Plus />
+                  New Demostack
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Plus />
+                  New Screenshot
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+
+        <TabsContent value="demostacks">
+          <Tabs
+            defaultValue="shared"
+            className="mt-6 gap-4 md:mt-10.5! md:gap-8"
+          >
+            <DemostacksToolbar
+              sort={sort}
+              setSort={setSort}
+              selectedAuthors={selectedAuthors}
+              setSelectedAuthors={setSelectedAuthors}
+              view={view}
+              setView={setView}
             />
-          </TabsContent>
-        </main>
-      </Tabs>
-    </TooltipProvider>
+            <TabsContent value="shared">
+              <DemostackCollection demos={visibleDemostacks} view={view} />
+            </TabsContent>
+            <TabsContent value="personal">
+              <EmptyState
+                title="No personal Demostacks yet"
+                description="Demostacks visible only to you will appear here."
+              />
+            </TabsContent>
+            <TabsContent value="archive">
+              <EmptyState
+                title="Archive is empty"
+                description="Archived Demostacks will appear here."
+              />
+            </TabsContent>
+          </Tabs>
+        </TabsContent>
+        <TabsContent value="screenshots">
+          <EmptyState
+            title="No screenshots yet"
+            description="Create a screenshot to see it in this workspace."
+            className="mt-10"
+          />
+        </TabsContent>
+      </main>
+    </Tabs>
   );
 }
 
-function PrimaryTab({
+function TabCapsule({
   value,
   children,
 }: {
@@ -193,7 +179,7 @@ function PrimaryTab({
   return (
     <TabsTrigger
       value={value}
-      className="data-active:bg-primary/10 data-active:text-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary flex-none rounded-lg px-3 data-active:shadow-none! data-[state=active]:shadow-none!"
+      className="data-active:bg-primary/10 data-active:text-primary h-9 min-w-0 flex-1 gap-2 rounded-[10px] px-3 py-2.5 text-sm sm:flex-none sm:px-6 sm:py-3 sm:text-base"
     >
       {children}
     </TabsTrigger>
@@ -226,8 +212,11 @@ function DemostacksToolbar({
   }
 
   return (
-    <div className="flex min-w-0 flex-col gap-4 border-b lg:flex-row lg:items-end lg:justify-between">
-      <TabsList variant="line">
+    <div className="flex flex-col gap-4 border-b lg:flex-row lg:items-end lg:justify-between">
+      <TabsList
+        variant="line"
+        className="h-11 w-full max-w-full gap-0 rounded-none bg-transparent p-0 group-data-horizontal/tabs:h-11 sm:w-auto"
+      >
         <WorkspaceTab value="shared" icon={Users}>
           <span className="sm:hidden">Team</span>
           <span className="hidden sm:inline">Shared with Team</span>
@@ -242,18 +231,16 @@ function DemostacksToolbar({
 
       <div className="flex w-full flex-wrap items-center gap-2 pb-3 lg:w-auto lg:gap-3 lg:pb-2">
         <DropdownMenu>
-          <DropdownMenuTrigger
-            className={buttonVariants({
-              variant: 'outline',
-              size: 'lg',
-              className:
-                'bg-card text-muted-foreground shadow-border mr-auto rounded-xl border-0',
-            })}
-          >
-            <ArrowDownWideNarrow className="size-5" />
-            {sortLabels[sort]}
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="text-muted-foreground mr-auto h-11 gap-1 rounded-xl px-4 py-3"
+            >
+              <ArrowDownWideNarrow className="size-5" />
+              {sortLabels[sort]}
+            </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
+          <DropdownMenuContent align="start" className="w-48">
             <DropdownMenuRadioGroup
               value={sort}
               onValueChange={(value) => setSort(value as SortMode)}
@@ -269,24 +256,23 @@ function DemostacksToolbar({
         </DropdownMenu>
 
         <DropdownMenu>
-          <DropdownMenuTrigger
-            className={buttonVariants({
-              variant: 'outline',
-              size: 'lg',
-              className: cn(
-                'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className={cn(
+                'text-muted-foreground h-11 gap-1 rounded-xl px-4 py-3',
                 selectedAuthors.length && 'bg-muted',
-              ),
-            })}
-            aria-label="Filter by creator"
-          >
-            <Filter className="size-5" />
-            <span className="hidden sm:inline">Filter</span>
-            {selectedAuthors.length > 0 && (
-              <span className="bg-primary text-primary-foreground flex size-5 items-center justify-center rounded-full text-xs">
-                {selectedAuthors.length}
-              </span>
-            )}
+              )}
+              aria-label="Filter by creator"
+            >
+              <Filter className="size-5" />
+              <span className="hidden sm:inline">Filter</span>
+              {selectedAuthors.length > 0 && (
+                <span className="bg-primary text-primary-foreground flex size-5 items-center justify-center rounded-full text-xs">
+                  {selectedAuthors.length}
+                </span>
+              )}
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-52">
             <DropdownMenuGroup>
@@ -313,16 +299,14 @@ function DemostacksToolbar({
         </DropdownMenu>
 
         <DropdownMenu>
-          <DropdownMenuTrigger
-            className={buttonVariants({
-              variant: 'outline',
-              size: 'icon-lg',
-              className:
-                'bg-card text-muted-foreground shadow-border rounded-xl border-0',
-            })}
-            aria-label="Folder options"
-          >
-            <FolderPlus className="size-5" />
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="text-muted-foreground size-11 rounded-xl"
+              aria-label="Folder options"
+            >
+              <FolderPlus className="size-5" />
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-44">
             <DropdownMenuItem>
@@ -338,9 +322,8 @@ function DemostacksToolbar({
 
         <Button
           variant="outline"
-          size="icon-lg"
           className={cn(
-            'bg-card text-muted-foreground shadow-border rounded-xl border-0',
+            'text-muted-foreground size-11 rounded-xl',
             view === 'list' && 'bg-muted',
           )}
           aria-label={view === 'grid' ? 'Use list view' : 'Use grid view'}
@@ -369,9 +352,9 @@ function WorkspaceTab({
   return (
     <TabsTrigger
       value={value}
-      className="data-active:text-primary data-active:after:bg-primary data-[state=active]:text-primary data-[state=active]:after:bg-primary px-2 text-sm sm:px-4 sm:text-base"
+      className="data-active:text-primary data-active:after:bg-primary h-11 min-w-0 flex-1 justify-center gap-1.5 rounded-none px-2 py-2 text-sm sm:flex-none sm:justify-start sm:gap-2 sm:pr-6 sm:pl-4 sm:text-base group-data-horizontal/tabs:after:-bottom-px"
     >
-      <Icon className="size-4 sm:size-5" />
+      <Icon className="size-5" />
       {children}
     </TabsTrigger>
   );
@@ -405,41 +388,41 @@ function DemostackCollection({
         <article
           key={demostack.id}
           className={cn(
-            'group min-w-0 cursor-pointer',
+            'group cursor-pointer',
             view === 'list' &&
-              'hover:bg-muted/40 flex w-full max-w-full items-center gap-3 overflow-hidden rounded-2xl border p-3 transition sm:gap-4',
+            'hover:bg-muted/40 flex w-full max-w-full items-center gap-3 overflow-hidden rounded-2xl border p-3 transition sm:gap-4',
           )}
         >
           <div
             className={cn(
-              'relative aspect-video overflow-hidden rounded-2xl border',
+              'relative aspect-[3/2] overflow-hidden rounded-2xl border',
               view === 'list' && 'w-2/5 max-w-44 shrink-0',
             )}
           >
             <img
               src={demostack.image}
               alt=""
-              width={1280}
-              height={720}
-              className="size-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-105"
+              width={1200}
+              height={800}
+              className="size-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover:scale-105"
             />
           </div>
 
           <div
             className={cn(
-              'min-w-0 space-y-2',
+              'space-y-2',
               view === 'grid' ? 'mt-4' : 'flex-1',
             )}
           >
             <div className="flex items-center justify-between gap-3">
-              <div className="min-w-0 flex-1">
+              <div className="flex-1">
                 <h3 className="group-hover:text-primary truncate font-medium transition-colors">
                   {demostack.title}
                 </h3>
               </div>
               <CardMenu title={demostack.title} />
             </div>
-            <div className="text-muted-foreground flex min-w-0 items-center gap-2 text-xs">
+            <div className="text-muted-foreground flex items-center gap-2 text-xs">
               <Avatar size="sm" className="shrink-0">
                 <AvatarImage src={demostack.avatar} alt={demostack.author} />
                 <AvatarFallback>{getInitials(demostack.author)}</AvatarFallback>
