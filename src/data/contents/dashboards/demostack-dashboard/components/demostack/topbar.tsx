@@ -208,7 +208,7 @@ export function DashboardTopbar() {
                   <Bell aria-hidden="true" className="size-4.5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-80">
+              <DropdownMenuContent align="end" className="w-72">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>Notifications</DropdownMenuLabel>
                   <DropdownMenuSeparator />
