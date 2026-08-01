@@ -1,7 +1,8 @@
 .library-dashboard,
-[data-mobile='true'][data-sidebar='sidebar'],
-[data-slot='dropdown-menu-content'],
-[data-slot='sheet-content'] {
+body:has(.library-dashboard) [data-mobile='true'][data-sidebar='sidebar'],
+body:has(.library-dashboard) [data-slot='dropdown-menu-content'],
+body:has(.library-dashboard) [data-slot='sheet-content'],
+body:has(.library-dashboard) [data-slot='tooltip-content'] {
   --background: #ffffff;
   --foreground: #0a1b39;
   --card: #ffffff;
@@ -18,7 +19,7 @@
   --accent-foreground: #485066;
   --destructive: #ff5150;
   --border: #ededed;
-  --input: #f7f7f7;
+  --input: var(--secondary);
   --ring: #ff5150;
   --chart-1: #ff5150;
   --chart-2: #0a1b39;
@@ -34,15 +35,17 @@
   --sidebar-accent-foreground: #ff5150;
   --sidebar-border: #e4e4e4;
   --sidebar-ring: #ff5150;
+  --input-placeholder: #485066;
   background-color: var(--background);
   color: var(--foreground);
 }
 
 .library-dashboard.dark,
 .dark .library-dashboard,
-.dark [data-mobile='true'][data-sidebar='sidebar'],
-.dark [data-slot='dropdown-menu-content'],
-.dark [data-slot='sheet-content'] {
+.dark body:has(.library-dashboard) [data-mobile='true'][data-sidebar='sidebar'],
+.dark body:has(.library-dashboard) [data-slot='dropdown-menu-content'],
+.dark body:has(.library-dashboard) [data-slot='sheet-content'],
+.dark body:has(.library-dashboard) [data-slot='tooltip-content'] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -59,7 +62,7 @@
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --input: var(--secondary);
   --ring: oklch(0.556 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
@@ -69,10 +72,26 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --input-placeholder: oklch(0.72 0.04 269);
+}
+
+body:has(.library-dashboard) [data-slot='tooltip-content'] {
+  background-color: var(--foreground) !important;
+  color: var(--background) !important;
+}
+
+body:has(.library-dashboard) [data-slot='tooltip-content'] > svg {
+  background-color: var(--foreground) !important;
+  fill: var(--foreground) !important;
 }
 
 .library-dashboard .bg-input {
   background-color: var(--input);
+}
+
+.library-dashboard input::placeholder,
+.library-dashboard textarea::placeholder {
+  color: var(--input-placeholder);
 }
 
 .library-dashboard * {
@@ -81,5 +100,17 @@
 }
 
 .library-dashboard *::-webkit-scrollbar {
+  display: none;
+}
+
+/* custom classes */
+.no-scrollbar,
+.no-scrollbar * {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar *::-webkit-scrollbar {
   display: none;
 }

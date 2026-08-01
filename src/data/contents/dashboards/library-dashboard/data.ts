@@ -1,3 +1,5 @@
+import type { ComponentType, SVGProps } from 'react';
+
 import {
   AiIdeaIcon,
   Alert02Icon,
@@ -5,10 +7,84 @@ import {
   BookMinusIcon,
   BookOpen02Icon,
   BookPlusIcon,
+  CatalogIcon,
   CheckoutIcon,
+  CirculationIcon,
+  DashboardIcon,
+  IntelligenceIcon,
   MembersIcon,
+  OpacIcon,
+  ReportsIcon,
   ReturnIcon,
-} from './assets/icons';
+} from './components/library/icons';
+
+export type NavigationIcon = ComponentType<SVGProps<SVGSVGElement>>;
+
+export type NavigationItem = {
+  label: string;
+  href: string;
+  icon: NavigationIcon;
+  section: string;
+  subItems?: {
+    label: string;
+    href: string;
+    icon: NavigationIcon;
+  }[];
+};
+
+export const primaryNavigation: NavigationItem[] = [
+  {
+    label: 'Dashboard',
+    href: '/',
+    icon: DashboardIcon,
+    section: 'dashboard',
+  },
+  {
+    label: 'Catalog',
+    href: '/catalog',
+    icon: CatalogIcon,
+    section: 'catalog',
+    subItems: [
+      { label: 'Items', href: '/catalog/items', icon: CatalogIcon },
+      {
+        label: 'Categories',
+        href: '/catalog/categories',
+        icon: ReportsIcon,
+      },
+      { label: 'Authors', href: '/catalog/authors', icon: MembersIcon },
+    ],
+  },
+  {
+    label: 'Circulation',
+    href: '/circulation',
+    icon: CirculationIcon,
+    section: 'circulation',
+  },
+  {
+    label: 'Members',
+    href: '/members',
+    icon: MembersIcon,
+    section: 'members',
+  },
+  {
+    label: 'OPAC',
+    href: '/opac',
+    icon: OpacIcon,
+    section: 'opac',
+  },
+  {
+    label: 'Library Intelligence',
+    href: '/library-intelligence',
+    icon: IntelligenceIcon,
+    section: 'library-intelligence',
+  },
+  {
+    label: 'Reports',
+    href: '/reports',
+    icon: ReportsIcon,
+    section: 'reports',
+  },
+];
 
 export const organizations = [
   'Springfield Public Library',
@@ -57,7 +133,7 @@ export const metrics = [
     value: '140',
     note: '+12 today',
     icon: MembersIcon,
-    iconClassName: 'text-[#3B82F6]',
+    iconClassName: 'text-[#A855F7]',
   },
   {
     label: 'items Borrowed',
@@ -140,9 +216,9 @@ export const circulationData: Record<
 export const collectionOverview = {
   label: 'Items',
   segments: [
-    { label: 'Print', count: 5245, opacity: 1 },
-    { label: 'Digital', count: 4745, opacity: 0.72 },
-    { label: 'Media', count: 2497, opacity: 0.4 },
+    { label: 'Print', count: 5245, color: '#f10806' },
+    { label: 'Digital', count: 4745, color: '#ff5150' },
+    { label: 'Media', count: 2497, color: '#ffacac' },
   ],
 } as const;
 
@@ -165,7 +241,7 @@ export const recentActivity = [
       { text: 'checked out ', muted: true },
       { text: '"The Cartographer\u2019s Secret"' },
     ],
-    time: '2 minutes ago',
+    time: '2 min ago',
     dateTime: '2026-02-19T08:58:00',
   },
   {

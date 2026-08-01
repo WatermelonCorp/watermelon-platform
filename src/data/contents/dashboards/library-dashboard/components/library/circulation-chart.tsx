@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 
 import { buttonVariants } from '@/components/ui/button';
-import { ArrowDown01Icon } from '../../assets/icons';
+import { ArrowDown01Icon } from './icons';
 import {
   type ChartConfig,
   ChartContainer,
@@ -43,7 +43,7 @@ const circulationChartConfig = {
   },
   returns: {
     label: 'Returns',
-    color: 'var(--muted-foreground)',
+    color: 'color-mix(in oklch, var(--primary) 55%, black)',
   },
 } satisfies ChartConfig;
 
@@ -111,6 +111,7 @@ const weeklyTooltipFormatter = new Intl.DateTimeFormat('en-US', {
   weekday: 'short',
   month: 'short',
   day: 'numeric',
+  year: 'numeric',
   timeZone: 'UTC',
 });
 const datedTooltipFormatter = new Intl.DateTimeFormat('en-US', {
@@ -133,33 +134,35 @@ function formatTooltipDate(timeframe: CirculationTimeframe, value: number) {
 
 export function CirculationChart() {
   const [timeframe, setTimeframe] = useState<CirculationTimeframe>('weekly');
+  const [activeLabel, setActiveLabel] = useState<number | null>(null);
   const gradientId = useId().replace(/:/g, '');
 
   return (
-    <div>
+    <div className="flex h-full flex-col">
       <div className="flex w-full items-center justify-between">
-        <h2 className="text-lg font-semibold">Collection Circulation</h2>
+        <h2 className="text-lg font-medium">Collection Circulation</h2>
         <DropdownMenu>
           <DropdownMenuTrigger
             className={cn(
-              buttonVariants({ variant: 'ghost', size: 'sm' }),
-              'capitalize',
+              buttonVariants({ variant: 'ghost', size: 'lg' }),
+              'text-accent-foreground capitalize',
             )}
           >
             {timeframe}
-            <ArrowDown01Icon className="text-muted-foreground size-4" />
+            <ArrowDown01Icon className="size-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-32">
+          <DropdownMenuContent align="end" className="w-32 p-1.5 shadow-lg">
             <DropdownMenuGroup>
               {(['weekly', 'monthly', 'yearly'] as const).map((option) => (
                 <DropdownMenuItem
                   key={option}
                   onClick={() => setTimeframe(option)}
                   className={cn(
-                    timeframe === option && 'text-primary font-semibold',
+                    'rounded-lg capitalize',
+                    timeframe === option && 'text-primary font-medium',
                   )}
                 >
-                  {option[0].toUpperCase() + option.slice(1)}
+                  {option}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuGroup>
@@ -169,32 +172,48 @@ export function CirculationChart() {
 
       <ChartContainer
         config={circulationChartConfig}
-        className="bg-card mt-5 h-84 w-full [&_.recharts-surface]:overflow-visible"
+        className="mt-5 aspect-auto h-72 w-full grow [&_.recharts-surface]:overflow-visible"
         onMouseDown={(event) => event.preventDefault()}
       >
         <AreaChart
           data={circulationData[timeframe]}
           accessibilityLayer={false}
-          margin={{ left: 0, right: 0, top: 16, bottom: 24 }}
+          margin={{ left: 4, right: 4, top: 12, bottom: 4 }}
           style={{ overflow: 'visible' }}
+          onMouseMove={(state) => {
+            const label = state?.activeLabel;
+            setActiveLabel(
+              typeof label === 'number'
+                ? label
+                : label != null
+                  ? Number(label)
+                  : null,
+            );
+          }}
+          onMouseLeave={() => setActiveLabel(null)}
         >
           <defs>
             <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.15} />
+              <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.18} />
               <stop
                 offset="95%"
                 stopColor="var(--primary)"
-                stopOpacity={0.01}
+                stopOpacity={0.02}
               />
             </linearGradient>
           </defs>
-          <CartesianGrid vertical horizontal={false} stroke="var(--border)" />
+          <CartesianGrid
+            vertical
+            horizontal={false}
+            stroke="var(--border)"
+            strokeDasharray="0"
+          />
           {chartMidpoints[timeframe].map((midpoint) => (
             <ReferenceLine
               key={midpoint}
               x={midpoint}
               stroke="var(--border)"
-              strokeDasharray="8 8"
+              strokeDasharray="6 6"
             />
           ))}
           <XAxis
@@ -202,32 +221,38 @@ export function CirculationChart() {
             type="number"
             domain={chartDomains[timeframe]}
             stroke="var(--muted-foreground)"
-            fontSize={12}
+            fontSize={14}
             tickLine={false}
             axisLine={false}
             ticks={chartTicks[timeframe]}
             minTickGap={0}
             interval={0}
             padding={{ left: 0, right: 0 }}
-            tick={({ x, y, payload }) => (
-              <text
-                x={x}
-                y={y}
-                dy={16}
-                fill="var(--muted-foreground)"
-                fontSize={12}
-                textAnchor="middle"
-                className="font-medium"
-              >
-                {chartFormatters[timeframe](payload.value)}
-              </text>
-            )}
+            tick={({ x, y, payload }) => {
+              const isActive = activeLabel === payload.value;
+              return (
+                <text
+                  x={x}
+                  y={y}
+                  dy={14}
+                  fill={
+                    isActive
+                      ? 'var(--secondary-foreground)'
+                      : 'var(--muted-foreground)'
+                  }
+                  fontSize={14}
+                  textAnchor="middle"
+                  className="font-medium"
+                >
+                  {chartFormatters[timeframe](payload.value)}
+                </text>
+              );
+            }}
           />
           <ChartTooltip
             cursor={{
               stroke: 'var(--primary)',
-              strokeWidth: 1,
-              className: '!stroke-primary',
+              strokeWidth: 1.5,
             }}
             content={({ active, payload }) => {
               if (!active || !payload?.length) return null;
@@ -235,29 +260,33 @@ export function CirculationChart() {
               const point = payload[0].payload as CirculationDataPoint;
 
               return (
-                <div className="bg-foreground text-background border-foreground/10 z-50 flex w-52 flex-col gap-2 rounded-lg border p-3 text-xs shadow-md">
-                  <div className="border-background/20 flex items-center gap-2 border-b pb-2">
-                    <Calendar className="text-background/80 size-4" />
-                    <span className="text-background font-semibold">
+                <div className="bg-foreground text-background z-50 flex min-w-40 flex-col rounded-[6px] shadow-[0px_6px_14px_rgba(24,39,75,0.12),0px_10px_32px_rgba(24,39,75,0.1)]">
+                  <div className="flex items-center gap-1 px-2.5 py-1.5">
+                    <Calendar className="size-3 opacity-80" />
+                    <span className="text-[9px] tracking-tight opacity-90">
                       {formatTooltipDate(timeframe, point.timestamp)}
                     </span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="bg-primary size-2 shrink-0 rounded-xs" />
-                        <span className="text-background/80">Checkouts</span>
+                  <div className="flex flex-col gap-2 px-2 pb-2">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-1">
+                        <span className="bg-primary size-1.5 shrink-0 rounded-[1px]" />
+                        <span className="text-[10px] leading-[1.2] opacity-80">
+                          Checkouts
+                        </span>
                       </div>
-                      <span className="text-background font-semibold">
+                      <span className="text-[10px] leading-[1.2] font-medium">
                         {point.checkouts.toLocaleString()}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="bg-muted-foreground size-2 shrink-0 rounded-xs" />
-                        <span className="text-background/80">Returns</span>
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-1">
+                        <span className="bg-primary/60 size-1.5 shrink-0 rounded-[1px]" />
+                        <span className="text-[10px] leading-[1.2] opacity-80">
+                          Returns
+                        </span>
                       </div>
-                      <span className="text-background font-semibold">
+                      <span className="text-[10px] leading-[1.2] font-medium">
                         {point.returns.toLocaleString()}
                       </span>
                     </div>
@@ -267,10 +296,10 @@ export function CirculationChart() {
             }}
           />
           <Area
-            type="monotone"
+            type="linear"
             dataKey="checkouts"
             stroke="var(--primary)"
-            strokeWidth={1.5}
+            strokeWidth={1.75}
             fillOpacity={1}
             fill={`url(#${gradientId})`}
             dot={false}
@@ -282,14 +311,14 @@ export function CirculationChart() {
             }}
           />
           <Line
-            type="monotone"
+            type="linear"
             dataKey="returns"
-            stroke="var(--muted-foreground)"
+            stroke="color-mix(in oklch, var(--primary) 55%, black)"
             strokeWidth={1.5}
             dot={false}
             activeDot={{
               r: 4,
-              stroke: 'var(--muted-foreground)',
+              stroke: 'color-mix(in oklch, var(--primary) 55%, black)',
               strokeWidth: 2,
               fill: 'var(--card)',
             }}

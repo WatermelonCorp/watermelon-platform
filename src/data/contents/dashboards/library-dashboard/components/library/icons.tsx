@@ -123,6 +123,27 @@ export function BackwardIcon(props: IconProps) {
   )
 }
 
+export function BellIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M7.5 15C7.5 15.663 7.76339 16.2989 8.23223 16.7678C8.70107 17.2366 9.33696 17.5 10 17.5C10.663 17.5 11.2989 17.2366 11.7678 16.7678C12.2366 16.2989 12.5 15.663 12.5 15"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4.37499 8.125C4.37499 6.63316 4.96763 5.20242 6.02252 4.14752C7.07741 3.09263 8.50815 2.5 9.99999 2.5C11.4918 2.5 12.9226 3.09263 13.9775 4.14752C15.0324 5.20242 15.625 6.63316 15.625 8.125C15.625 10.9234 16.2734 13.1719 16.7891 14.0625C16.8438 14.1574 16.8727 14.2649 16.8728 14.3745C16.8729 14.484 16.8442 14.5916 16.7896 14.6865C16.735 14.7815 16.6564 14.8604 16.5617 14.9154C16.467 14.9705 16.3595 14.9996 16.25 15H3.74999C3.6406 14.9993 3.5333 14.97 3.43881 14.9149C3.34432 14.8597 3.26596 14.7808 3.21155 14.6859C3.15714 14.591 3.12859 14.4835 3.12875 14.3741C3.12892 14.2647 3.1578 14.1572 3.21249 14.0625C3.72734 13.1719 4.37499 10.9227 4.37499 8.125Z"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 export function BookMinusIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
