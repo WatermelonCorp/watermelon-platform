@@ -1,7 +1,13 @@
-import './dashboard.css';
-
-import DashboardView from './dashboardView';
+import DashboardLayout from './dashboard-layout';
+import { DashboardContent } from './components/library/dashboard-content';
+import { ThemeProvider } from './components/library/theme-provider';
 
 export default function LibraryDashboardDemo() {
-  return <DashboardView />;
+  return (
+    <ThemeProvider>
+      <DashboardLayout>
+        <DashboardContent />
+      </DashboardLayout>
+    </ThemeProvider>
+  );
 }
