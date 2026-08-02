@@ -5,6 +5,7 @@ import {
   DocumentIcon,
   DownloadIcon,
   EyeIcon,
+  EyeOffIcon,
   InfoIcon,
   ProjectIcon,
 } from './icons'
@@ -114,7 +115,7 @@ export function ApiKeysPage() {
                 aria-label={showKey ? 'Hide project key' : 'Show project key'}
                 onClick={() => setShowKey((value) => !value)}
               >
-                <EyeIcon />
+                {showKey ? <EyeOffIcon /> : <EyeIcon />}
               </Button>
               <Button
                 type="button"
