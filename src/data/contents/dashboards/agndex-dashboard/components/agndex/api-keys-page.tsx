@@ -43,12 +43,21 @@ function SecurityNote() {
 
 export function ApiKeysPage() {
   const [showKey, setShowKey] = useState(false)
+  const [idCopied, setIdCopied] = useState(false)
+  const [keyCopied, setKeyCopied] = useState(false)
   const [envCopied, setEnvCopied] = useState(false)
 
+  function copyWithFeedback(
+    value: string,
+    setCopied: (copied: boolean) => void,
+  ) {
+    copyText(value)
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1500)
+  }
+
   function copyEnv() {
-    copyText(envFileContents)
-    setEnvCopied(true)
-    window.setTimeout(() => setEnvCopied(false), 1500)
+    copyWithFeedback(envFileContents, setEnvCopied)
   }
 
   return (
@@ -82,9 +91,11 @@ export function ApiKeysPage() {
                 size="icon"
                 className="size-5 text-muted-foreground"
                 aria-label="Copy project ID"
-                onClick={() => copyText(projectCredentials.projectId)}
+                onClick={() =>
+                  copyWithFeedback(projectCredentials.projectId, setIdCopied)
+                }
               >
-                <CopyIcon />
+                {idCopied ? <CheckIcon /> : <CopyIcon />}
               </Button>
             </div>
           </div>
@@ -111,9 +122,11 @@ export function ApiKeysPage() {
                 size="icon"
                 className="size-5 text-muted-foreground"
                 aria-label="Copy project key"
-                onClick={() => copyText(projectCredentials.projectKey)}
+                onClick={() =>
+                  copyWithFeedback(projectCredentials.projectKey, setKeyCopied)
+                }
               >
-                <CopyIcon />
+                {keyCopied ? <CheckIcon /> : <CopyIcon />}
               </Button>
             </div>
           </div>
