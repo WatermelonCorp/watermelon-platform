@@ -241,8 +241,8 @@ export function DashboardSidebar() {
     <Sidebar collapsible="icon" className="h-full border-none">
       <SidebarHeader
         className={cn(
-          'flex-row items-center border-b border-sidebar-border transition-[padding]',
-          collapsed ? 'justify-start px-3 py-4' : 'justify-between gap-4.75 p-4',
+          'h-16 flex-row items-center border-b border-sidebar-border transition-[padding] md:h-20',
+          collapsed ? 'justify-start px-3' : 'justify-between gap-4.75 px-4',
         )}
       >
         {!collapsed && (
