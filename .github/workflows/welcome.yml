@@ -21,12 +21,11 @@ jobs:
             const { data: userPrs } = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              state: 'all',
-              creator: creator
+              state: 'all'
             });
             
             // Check if this is their first pull request
-            if (userPrs.length === 1) {
+            if (userPrs.filter(pr=>pr.user.login===creator).length === 1) {
               const body = `🎉 Welcome to Watermelon Platform, @${creator}! Thanks for opening your very first pull request here. 🍉\n\nBefore we begin reviewing, please make sure you've read our [Contributing Guide](https://github.com/watermeloncorp/watermelon-platform/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/watermeloncorp/watermelon-platform/blob/main/CODE_OF_CONDUCT.md).\n\nA maintainer will be along shortly to take a look.`;
               
               await github.rest.issues.createComment({
