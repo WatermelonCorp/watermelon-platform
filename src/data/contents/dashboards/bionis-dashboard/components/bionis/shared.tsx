@@ -205,18 +205,25 @@ export function ScoreDonut({
       '(prefers-reduced-motion: reduce)',
     ).matches
 
-    setOffset(circumference)
-
     if (reducedMotion) {
-      setOffset(targetOffset)
-      return
+      const frame = requestAnimationFrame(() => {
+        setOffset(targetOffset)
+      })
+      return () => cancelAnimationFrame(frame)
     }
 
-    const frame = requestAnimationFrame(() => {
-      setOffset(targetOffset)
+    let nextFrame: number
+    const firstFrame = requestAnimationFrame(() => {
+      setOffset(circumference)
+      nextFrame = requestAnimationFrame(() => {
+        setOffset(targetOffset)
+      })
     })
 
-    return () => cancelAnimationFrame(frame)
+    return () => {
+      cancelAnimationFrame(firstFrame)
+      if (nextFrame) cancelAnimationFrame(nextFrame)
+    }
   }, [circumference, targetOffset])
 
   return (
