@@ -89,7 +89,6 @@ export const wellnessByTimeline = {
   '7d': {
     condition: 'Great Condition',
     score: 78,
-    color: '#1975f2',
     summary: {
       before: 'Recovery is strong today. Sleep debt detected, ',
       highlight: '2',
@@ -99,7 +98,6 @@ export const wellnessByTimeline = {
   '14d': {
     condition: 'Good Condition',
     score: 72,
-    color: '#1975f2',
     summary: {
       before: 'Solid two-week trend. Sleep dipped on ',
       highlight: '3',
@@ -109,7 +107,6 @@ export const wellnessByTimeline = {
   '30d': {
     condition: 'Fair Condition',
     score: 64,
-    color: '#f59e0b',
     summary: {
       before: 'Mixed month overall. Recovery lagged after ',
       highlight: '5',
@@ -119,7 +116,6 @@ export const wellnessByTimeline = {
   '90d': {
     condition: 'Steady Progress',
     score: 69,
-    color: '#2762ea',
     summary: {
       before: 'Quarterly trend is improving. Watch the ',
       highlight: '8',
@@ -153,7 +149,6 @@ export type KeyMetric = {
   value: string
   unit: string
   icon: KeyMetricIcon
-  iconBg: string
   trend: {
     direction: 'up' | 'down'
     emphasis: string
@@ -169,7 +164,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '58',
       unit: 'bpm',
       icon: 'heart',
-      iconBg: '#f72e2e',
+
       trend: {
         direction: 'up',
         emphasis: '2 bpm',
@@ -182,7 +177,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '8,241',
       unit: 'steps',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '82%',
@@ -195,7 +190,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '6.2',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'down',
         emphasis: '78%',
@@ -208,7 +203,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '84',
       unit: '/100',
       icon: 'battery',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'down',
         emphasis: 'High -',
@@ -223,7 +218,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '60',
       unit: 'bpm',
       icon: 'heart',
-      iconBg: '#f72e2e',
+
       trend: {
         direction: 'up',
         emphasis: '1 bpm',
@@ -236,7 +231,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '7,640',
       unit: 'steps',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '76%',
@@ -249,7 +244,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '6.5',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'down',
         emphasis: '81%',
@@ -262,7 +257,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '79',
       unit: '/100',
       icon: 'battery',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'up',
         emphasis: 'Steady -',
@@ -277,7 +272,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '62',
       unit: 'bpm',
       icon: 'heart',
-      iconBg: '#f72e2e',
+
       trend: {
         direction: 'down',
         emphasis: '3 bpm',
@@ -290,7 +285,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '6,980',
       unit: 'steps',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'down',
         emphasis: '70%',
@@ -303,7 +298,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '5.9',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'down',
         emphasis: '74%',
@@ -316,7 +311,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '71',
       unit: '/100',
       icon: 'battery',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'down',
         emphasis: 'Moderate -',
@@ -331,7 +326,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '59',
       unit: 'bpm',
       icon: 'heart',
-      iconBg: '#f72e2e',
+
       trend: {
         direction: 'up',
         emphasis: '4 bpm',
@@ -344,7 +339,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '8,050',
       unit: 'steps',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '81%',
@@ -357,7 +352,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '6.8',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'up',
         emphasis: '85%',
@@ -370,7 +365,7 @@ export const keyMetricsByTimeline: Record<TimelineOptionValue, KeyMetric[]> = {
       value: '76',
       unit: '/100',
       icon: 'battery',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'up',
         emphasis: 'Improving -',
@@ -1135,7 +1130,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '7.1',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'up',
         emphasis: '0.4hrs',
@@ -1148,7 +1143,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '8,540',
       unit: '',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '+320',
@@ -1161,7 +1156,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '54',
       unit: 'ms',
       icon: 'heartbeat',
-      iconBg: '#3b82f6',
+
       trend: {
         direction: 'down',
         emphasis: '-3ms',
@@ -1174,7 +1169,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '76',
       unit: '/100',
       icon: 'nurse',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'up',
         emphasis: '+4pts',
@@ -1189,7 +1184,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '6.9',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'up',
         emphasis: '0.2hrs',
@@ -1202,7 +1197,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '8,210',
       unit: '',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '+180',
@@ -1215,7 +1210,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '52',
       unit: 'ms',
       icon: 'heartbeat',
-      iconBg: '#3b82f6',
+
       trend: {
         direction: 'down',
         emphasis: '-1ms',
@@ -1228,7 +1223,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '74',
       unit: '/100',
       icon: 'nurse',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'up',
         emphasis: '+2pts',
@@ -1243,7 +1238,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '6.8',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'down',
         emphasis: '0.1hrs',
@@ -1256,7 +1251,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '7,950',
       unit: '',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '+410',
@@ -1269,7 +1264,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '50',
       unit: 'ms',
       icon: 'heartbeat',
-      iconBg: '#3b82f6',
+
       trend: {
         direction: 'down',
         emphasis: '-4ms',
@@ -1282,7 +1277,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '71',
       unit: '/100',
       icon: 'nurse',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'up',
         emphasis: '+1pt',
@@ -1297,7 +1292,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '7.2',
       unit: 'hrs',
       icon: 'moon',
-      iconBg: '#6366f1',
+
       trend: {
         direction: 'up',
         emphasis: '0.5hrs',
@@ -1310,7 +1305,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '8,620',
       unit: '',
       icon: 'walk',
-      iconBg: '#19c035',
+
       trend: {
         direction: 'up',
         emphasis: '+530',
@@ -1323,7 +1318,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '56',
       unit: 'ms',
       icon: 'heartbeat',
-      iconBg: '#3b82f6',
+
       trend: {
         direction: 'up',
         emphasis: '+2ms',
@@ -1336,7 +1331,7 @@ export const trendsMetricsByTimeline: Record<TimelineOptionValue, TrendsMetric[]
       value: '78',
       unit: '/100',
       icon: 'nurse',
-      iconBg: '#22d3ee',
+
       trend: {
         direction: 'up',
         emphasis: '+5pts',
@@ -1420,17 +1415,41 @@ export type RecoveryFactor = {
   label: string
   value: string
   fillPercentage: number
-  color: string
   icon: 'moon' | 'walk' | 'warning' | 'alert' | 'bed'
 }
 
-export const recoveryFactors: RecoveryFactor[] = [
-  { id: 'sleep', label: 'Sleep duration', value: '0.88', fillPercentage: 88, color: '#0f6f57', icon: 'moon' },
-  { id: 'steps', label: 'Daily steps', value: '+0.62', fillPercentage: 62, color: '#007fe3', icon: 'walk' },
-  { id: 'stress', label: 'Stress events', value: '-0.54', fillPercentage: 54, color: '#ef9e29', icon: 'warning' },
-  { id: 'screen', label: 'Late screen time', value: '-0.41', fillPercentage: 41, color: '#e24a4a', icon: 'alert' },
-  { id: 'bedtime', label: 'Consistent bedtime', value: '+0.74', fillPercentage: 74, color: '#1c9e75', icon: 'bed' },
-]
+export const recoveryFactorsByTimeline: Record<TimelineOptionValue, RecoveryFactor[]> = {
+  '7d': [
+    { id: 'sleep', label: 'Sleep duration', value: '0.88', fillPercentage: 88, icon: 'moon' },
+    { id: 'steps', label: 'Daily steps', value: '+0.62', fillPercentage: 62, icon: 'walk' },
+    { id: 'stress', label: 'Stress events', value: '-0.54', fillPercentage: 54, icon: 'warning' },
+    { id: 'screen', label: 'Late screen time', value: '-0.41', fillPercentage: 41, icon: 'alert' },
+    { id: 'bedtime', label: 'Consistent bedtime', value: '+0.74', fillPercentage: 74, icon: 'bed' },
+  ],
+  '14d': [
+    { id: 'sleep', label: 'Sleep duration', value: '0.81', fillPercentage: 81, icon: 'moon' },
+    { id: 'steps', label: 'Daily steps', value: '+0.70', fillPercentage: 70, icon: 'walk' },
+    { id: 'stress', label: 'Stress events', value: '-0.48', fillPercentage: 48, icon: 'warning' },
+    { id: 'screen', label: 'Late screen time', value: '-0.35', fillPercentage: 35, icon: 'alert' },
+    { id: 'bedtime', label: 'Consistent bedtime', value: '+0.80', fillPercentage: 80, icon: 'bed' },
+  ],
+  '30d': [
+    { id: 'sleep', label: 'Sleep duration', value: '0.76', fillPercentage: 76, icon: 'moon' },
+    { id: 'steps', label: 'Daily steps', value: '+0.58', fillPercentage: 58, icon: 'walk' },
+    { id: 'stress', label: 'Stress events', value: '-0.62', fillPercentage: 62, icon: 'warning' },
+    { id: 'screen', label: 'Late screen time', value: '-0.50', fillPercentage: 50, icon: 'alert' },
+    { id: 'bedtime', label: 'Consistent bedtime', value: '+0.68', fillPercentage: 68, icon: 'bed' },
+  ],
+  '90d': [
+    { id: 'sleep', label: 'Sleep duration', value: '0.85', fillPercentage: 85, icon: 'moon' },
+    { id: 'steps', label: 'Daily steps', value: '+0.75', fillPercentage: 75, icon: 'walk' },
+    { id: 'stress', label: 'Stress events', value: '-0.38', fillPercentage: 38, icon: 'warning' },
+    { id: 'screen', label: 'Late screen time', value: '-0.29', fillPercentage: 29, icon: 'alert' },
+    { id: 'bedtime', label: 'Consistent bedtime', value: '+0.84', fillPercentage: 84, icon: 'bed' },
+  ],
+}
+
+export const recoveryFactors = recoveryFactorsByTimeline['7d']
 
 export type HeatmapTile = 'low' | 'med' | 'high'
 
@@ -1447,31 +1466,109 @@ export type HeatmapColumn = {
   tiles: HeatmapTileData[]
 }
 
-const rawHeatmapLevels: HeatmapTile[][] = [
-  ['low', 'low', 'med', 'med', 'high'],
-  ['med', 'med', 'high', 'high', 'high'],
-  ['low', 'low', 'med', 'high', 'high'],
-  ['high', 'high', 'high', 'high', 'high'],
-  ['low', 'med', 'med', 'med', 'high'],
-  ['med', 'low', 'med', 'med', 'high'],
-  ['low', 'med', 'high', 'high', 'low'],
-]
+export type HeatmapData = {
+  columns: HeatmapColumn[]
+  dateLabels: string[]
+}
 
-const heatmapDates = [
-  ['Mar 19', 'Mar 20', 'Mar 21', 'Mar 22', 'Mar 23'],
-  ['Mar 24', 'Mar 25', 'Mar 26', 'Mar 27', 'Mar 28'],
-  ['Mar 29', 'Mar 30', 'Mar 31', 'Apr 1', 'Apr 2'],
-  ['Apr 3', 'Apr 4', 'Apr 5', 'Apr 6', 'Apr 7'],
-  ['Apr 8', 'Apr 9', 'Apr 10', 'Apr 11', 'Apr 12'],
-  ['Apr 13', 'Apr 14', 'Apr 15', 'Apr 16', 'Apr 17'],
-  ['Apr 18', 'Apr 19', 'Apr 20', 'Apr 21', 'Apr 22'],
-]
+const heatmapLevelsByTimeline: Record<TimelineOptionValue, HeatmapTile[][]> = {
+  '7d': [
+    ['low', 'med', 'high', 'high', 'high'],
+    ['med', 'med', 'high', 'high', 'high'],
+    ['low', 'med', 'med', 'high', 'high'],
+    ['high', 'high', 'high', 'high', 'high'],
+    ['med', 'med', 'high', 'high', 'high'],
+    ['high', 'high', 'high', 'high', 'high'],
+    ['med', 'high', 'high', 'high', 'high'],
+  ],
+  '14d': [
+    ['low', 'low', 'med', 'med', 'high'],
+    ['med', 'med', 'high', 'high', 'high'],
+    ['low', 'low', 'med', 'high', 'high'],
+    ['high', 'high', 'high', 'high', 'high'],
+    ['low', 'med', 'med', 'med', 'high'],
+    ['med', 'low', 'med', 'med', 'high'],
+    ['low', 'med', 'high', 'high', 'low'],
+  ],
+  '30d': [
+    ['low', 'med', 'med', 'low', 'med'],
+    ['med', 'high', 'med', 'high', 'high'],
+    ['low', 'low', 'med', 'med', 'high'],
+    ['high', 'med', 'high', 'high', 'med'],
+    ['low', 'med', 'low', 'med', 'high'],
+    ['med', 'high', 'high', 'med', 'high'],
+    ['high', 'high', 'med', 'high', 'high'],
+  ],
+  '90d': [
+    ['med', 'med', 'high', 'high', 'high'],
+    ['high', 'high', 'high', 'med', 'high'],
+    ['med', 'low', 'med', 'high', 'high'],
+    ['high', 'high', 'high', 'high', 'high'],
+    ['low', 'med', 'med', 'high', 'high'],
+    ['high', 'high', 'high', 'high', 'high'],
+    ['med', 'high', 'high', 'high', 'high'],
+  ],
+}
 
-export const recoveryHeatmapData: HeatmapColumn[] = rawHeatmapLevels.map(
-  (colLevels, colIdx) => ({
+const heatmapDatesByTimeline: Record<TimelineOptionValue, { dates: string[][]; labels: string[] }> = {
+  '7d': {
+    dates: [
+      ['Apr 16', 'Apr 16', 'Apr 16', 'Apr 16', 'Apr 16'],
+      ['Apr 17', 'Apr 17', 'Apr 17', 'Apr 17', 'Apr 17'],
+      ['Apr 18', 'Apr 18', 'Apr 18', 'Apr 18', 'Apr 18'],
+      ['Apr 19', 'Apr 19', 'Apr 19', 'Apr 19', 'Apr 19'],
+      ['Apr 20', 'Apr 20', 'Apr 20', 'Apr 20', 'Apr 20'],
+      ['Apr 21', 'Apr 21', 'Apr 21', 'Apr 21', 'Apr 21'],
+      ['Apr 22', 'Apr 22', 'Apr 22', 'Apr 22', 'Apr 22'],
+    ],
+    labels: ['Apr 16', 'Apr 18', 'Apr 20', 'Apr 22'],
+  },
+  '14d': {
+    dates: [
+      ['Apr 9', 'Apr 9', 'Apr 10', 'Apr 10', 'Apr 10'],
+      ['Apr 11', 'Apr 11', 'Apr 12', 'Apr 12', 'Apr 12'],
+      ['Apr 13', 'Apr 13', 'Apr 14', 'Apr 14', 'Apr 14'],
+      ['Apr 15', 'Apr 15', 'Apr 16', 'Apr 16', 'Apr 16'],
+      ['Apr 17', 'Apr 17', 'Apr 18', 'Apr 18', 'Apr 18'],
+      ['Apr 19', 'Apr 19', 'Apr 20', 'Apr 20', 'Apr 20'],
+      ['Apr 21', 'Apr 21', 'Apr 22', 'Apr 22', 'Apr 22'],
+    ],
+    labels: ['Apr 9', 'Apr 13', 'Apr 17', 'Apr 22'],
+  },
+  '30d': {
+    dates: [
+      ['Mar 23', 'Mar 24', 'Mar 25', 'Mar 26', 'Mar 27'],
+      ['Mar 28', 'Mar 29', 'Mar 30', 'Mar 31', 'Apr 1'],
+      ['Apr 2', 'Apr 3', 'Apr 4', 'Apr 5', 'Apr 6'],
+      ['Apr 7', 'Apr 8', 'Apr 9', 'Apr 10', 'Apr 11'],
+      ['Apr 12', 'Apr 13', 'Apr 14', 'Apr 15', 'Apr 16'],
+      ['Apr 17', 'Apr 18', 'Apr 19', 'Apr 20', 'Apr 21'],
+      ['Apr 22', 'Apr 23', 'Apr 24', 'Apr 25', 'Apr 26'],
+    ],
+    labels: ['Mar 23', 'Apr 2', 'Apr 12', 'Apr 22'],
+  },
+  '90d': {
+    dates: [
+      ['Jan 22', 'Jan 28', 'Feb 3', 'Feb 9', 'Feb 15'],
+      ['Feb 16', 'Feb 20', 'Feb 24', 'Feb 28', 'Mar 4'],
+      ['Mar 5', 'Mar 9', 'Mar 13', 'Mar 17', 'Mar 21'],
+      ['Mar 22', 'Mar 26', 'Mar 30', 'Apr 3', 'Apr 7'],
+      ['Apr 8', 'Apr 11', 'Apr 14', 'Apr 17', 'Apr 20'],
+      ['Apr 21', 'Apr 22', 'Apr 22', 'Apr 22', 'Apr 22'],
+      ['Apr 22', 'Apr 22', 'Apr 22', 'Apr 22', 'Apr 22'],
+    ],
+    labels: ['Jan 22', 'Feb 20', 'Mar 21', 'Apr 22'],
+  },
+}
+
+export function getRecoveryHeatmap(timeline: TimelineOptionValue): HeatmapData {
+  const levels = heatmapLevelsByTimeline[timeline]
+  const config = heatmapDatesByTimeline[timeline]
+
+  const columns: HeatmapColumn[] = levels.map((colLevels, colIdx) => ({
     id: `col-${colIdx + 1}`,
     tiles: colLevels.map((level, tileIdx) => {
-      const dateStr = heatmapDates[colIdx]?.[tileIdx] ?? `Day ${colIdx * 5 + tileIdx + 1}`
+      const dateStr = config.dates[colIdx]?.[tileIdx] ?? `Day ${colIdx * 5 + tileIdx + 1}`
       const score =
         level === 'low'
           ? 25 + ((colIdx * 7 + tileIdx * 3) % 20)
@@ -1493,7 +1590,13 @@ export const recoveryHeatmapData: HeatmapColumn[] = rawHeatmapLevels.map(
         status,
       }
     }),
-  }),
-)
+  }))
 
-export const heatmapDateLabels = ['Mar 19', 'Apr 2', 'Apr 17', 'Apr 28']
+  return {
+    columns,
+    dateLabels: config.labels,
+  }
+}
+
+export const recoveryHeatmapData = getRecoveryHeatmap('7d').columns
+export const heatmapDateLabels = getRecoveryHeatmap('7d').dateLabels

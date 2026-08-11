@@ -1,6 +1,7 @@
 import {
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
   type ComponentType,
@@ -15,7 +16,12 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
+  Pie,
+  PieChart,
   ResponsiveContainer,
+  Scatter,
+  ScatterChart,
   Tooltip,
   XAxis,
   YAxis,
@@ -60,14 +66,17 @@ import {
 import { cn } from '@/lib/utils'
 
 export const CHART_THEME_COLORS = {
-  recovery: '#19c035',
-  sleep: '#3b82f6',
-  indigo: '#6366f1',
-  teal: '#14b8a6',
+  recovery: 'var(--chart-steps)',
+  sleep: 'var(--chart-sleep)',
+  prediction: 'var(--insight-prediction)',
+  actions: 'var(--insight-actions)',
+  improving: 'var(--live)',
+  outlook: 'var(--chart-period)',
+  tooltipBg: 'var(--chart-tooltip-bg)',
   heatmap: {
-    low: '#d8faff',
-    med: '#22d3ee',
-    high: '#0091a8',
+    low: 'var(--heatmap-low)',
+    med: 'var(--heatmap-med)',
+    high: 'var(--heatmap-high)',
   },
 } as const
 
@@ -80,7 +89,16 @@ const metricIcons: Record<
   moon: MoonStarsIcon,
   battery: BatteryChargingIcon,
   heartbeat: HeartbeatFilledIcon,
-  nurse: NurseFilledIcon,
+  nurse: HeartbeatFilledIcon,
+}
+
+const metricIconBgMap: Record<KeyMetricIcon, string> = {
+  heart: 'var(--metric-heart)',
+  walk: 'var(--metric-steps)',
+  moon: 'var(--metric-sleep)',
+  battery: 'var(--metric-recovery)',
+  heartbeat: 'var(--metric-vital)',
+  nurse: 'var(--metric-vital)',
 }
 
 export function KeyMetricCard({
@@ -104,7 +122,7 @@ export function KeyMetricCard({
         <div className="flex min-w-0 items-center gap-2">
           <span
             className="flex size-7 shrink-0 items-center justify-center rounded-md text-white"
-            style={{ backgroundColor: metric.iconBg }}
+            style={{ backgroundColor: metricIconBgMap[metric.icon] }}
           >
             <Icon className="size-3.5" />
           </span>
@@ -128,17 +146,14 @@ export function KeyMetricCard({
             align="end"
             className="bionis-dashboard min-w-max"
           >
-            <DropdownMenuItem className="whitespace-nowrap">
+            <DropdownMenuItem>
               View details
             </DropdownMenuItem>
-            <DropdownMenuItem className="whitespace-nowrap">
+            <DropdownMenuItem>
               View trend
             </DropdownMenuItem>
-            <DropdownMenuItem className="whitespace-nowrap">
+            <DropdownMenuItem>
               Compare periods
-            </DropdownMenuItem>
-            <DropdownMenuItem className="whitespace-nowrap">
-              Hide metric
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -146,8 +161,8 @@ export function KeyMetricCard({
 
       <div className="flex flex-col gap-3">
         <p className="leading-none">
-          <span className="text-[1.75rem] font-medium">{metric.value}</span>{' '}
-          <span className="text-base font-normal">{metric.unit}</span>
+          <span className="text-2.5xl font-medium">{metric.value}</span>{' '}
+          <span className="font-normal">{metric.unit}</span>
         </p>
         <div className="flex items-center gap-2">
           <TrendUpIcon
@@ -169,20 +184,12 @@ type ScoreDonutProps = HTMLAttributes<HTMLDivElement> & {
   value: number
   max?: number
   label?: string
-  color?: string
 }
-
-const CX = 56.5
-const CY = 57
-const OUTER_RADIUS = 53.675
-const OUTER_STROKE = 5.65
-const INNER_RADIUS = 48.45
-const INNER_STROKE = 5.1
 
 const CHART_ANIMATION_MS = 900
 const AXIS_TICK = {
-  fill: 'var(--chart-axis)',
-  fontSize: 14,
+  fill: 'var(--muted-foreground)',
+  fontSize: 10,
   fontFamily: 'Geist, sans-serif',
 } as const
 
@@ -190,94 +197,79 @@ export function ScoreDonut({
   value,
   max = 100,
   label = 'Score',
-  color,
   className,
   style,
   ...props
 }: ScoreDonutProps) {
-  const circumference = 2 * Math.PI * INNER_RADIUS
+  const chartColor = 'var(--score)'
   const progress = Math.min(Math.max(value / max, 0), 1)
-  const targetOffset = circumference * (1 - progress)
-  const [offset, setOffset] = useState(circumference)
 
-  useEffect(() => {
-    const reducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches
-
-    if (reducedMotion) {
-      const frame = requestAnimationFrame(() => {
-        setOffset(targetOffset)
-      })
-      return () => cancelAnimationFrame(frame)
-    }
-
-    let nextFrame: number
-    const firstFrame = requestAnimationFrame(() => {
-      setOffset(circumference)
-      nextFrame = requestAnimationFrame(() => {
-        setOffset(targetOffset)
-      })
-    })
-
-    return () => {
-      cancelAnimationFrame(firstFrame)
-      if (nextFrame) cancelAnimationFrame(nextFrame)
-    }
-  }, [circumference, targetOffset])
+  const pieData = [
+    { name: 'Score', value: progress },
+    { name: 'Remaining', value: Math.max(1 - progress, 0) },
+  ]
 
   return (
     <div
       className={cn('relative size-28.5 shrink-0', className)}
-      style={
-        {
-          ...style,
-          ...(color ? { '--score': color } : null),
-        } as CSSProperties
-      }
+      style={style}
       {...props}
     >
-      <svg
-        viewBox="0 0 113 114"
-        className="size-full -rotate-90"
-        aria-hidden
-      >
-        <circle
-          cx={CX}
-          cy={CY}
-          r={OUTER_RADIUS}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={OUTER_STROKE}
-          className="text-(--score)/5"
-        />
-        <circle
-          cx={CX}
-          cy={CY}
-          r={INNER_RADIUS}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={INNER_STROKE}
-          className="text-(--score)/10"
-        />
-        <circle
-          cx={CX}
-          cy={CY}
-          r={INNER_RADIUS}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={INNER_STROKE}
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          className="text-(--score) transition-[stroke-dashoffset] duration-[900ms] ease-out"
-        />
-      </svg>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+          <Pie
+            data={[{ value: 1 }]}
+            cx="50%"
+            cy="50%"
+            innerRadius="90%"
+            outerRadius="100%"
+            startAngle={90}
+            endAngle={-270}
+            dataKey="value"
+            stroke="none"
+            isAnimationActive={false}
+          >
+            <Cell fill={chartColor} fillOpacity={0.05} />
+          </Pie>
+          <Pie
+            data={[{ value: 1 }]}
+            cx="50%"
+            cy="50%"
+            innerRadius="82%"
+            outerRadius="90%"
+            startAngle={90}
+            endAngle={-270}
+            dataKey="value"
+            stroke="none"
+            isAnimationActive={false}
+          >
+            <Cell fill={chartColor} fillOpacity={0.1} />
+          </Pie>
+          <Pie
+            data={pieData}
+            cx="50%"
+            cy="50%"
+            innerRadius="82%"
+            outerRadius="90%"
+            startAngle={90}
+            endAngle={-270}
+            dataKey="value"
+            stroke="none"
+            cornerRadius={10}
+            isAnimationActive
+            animationDuration={CHART_ANIMATION_MS}
+            animationEasing="ease-out"
+          >
+            <Cell key="score" fill={chartColor} />
+            <Cell key="remaining" fill="transparent" />
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-xs leading-[1.4] text-muted-foreground">
           {label}
         </span>
-        <span className="text-[1.733rem] font-medium leading-[1.4] tabular-nums">
+        <span className="text-2.5xl font-medium leading-[1.4] tabular-nums">
           {value}
         </span>
       </div>
@@ -291,23 +283,23 @@ type ChartTooltipItemProps = {
   color?: string
 }
 
-function ChartTooltipItem({ label, value, color }: ChartTooltipItemProps) {
+function ChartTooltipItem({
+  label,
+  value,
+  color = 'var(--foreground)',
+}: ChartTooltipItemProps) {
   return (
     <div className="flex items-center justify-between gap-3 rounded-md border border-border/40 bg-background px-2 py-1.5">
       <div className="flex items-center gap-1.5 min-w-0">
-        {color ? (
-          <span
-            className={cn(
-              'size-1.5 rounded-xs shrink-0',
-              color.startsWith('#') ? `bg-[${color}]` : color,
-            )}
-          />
-        ) : null}
-        <span className="truncate text-[11px] font-medium text-foreground">
+        <span
+          className="size-1.5 rounded-xs shrink-0"
+          style={{ backgroundColor: color }}
+        />
+        <span className="truncate text-xxs font-medium text-foreground">
           {label}
         </span>
       </div>
-      <span className="text-[11px] font-medium text-foreground shrink-0">
+      <span className="text-xxs font-medium text-foreground shrink-0">
         {value}
       </span>
     </div>
@@ -316,23 +308,23 @@ function ChartTooltipItem({ label, value, color }: ChartTooltipItemProps) {
 
 type ChartTooltipFrameProps = {
   title?: ReactNode
-  showCalendarIcon?: boolean
+  icon?: ComponentType<SVGProps<SVGSVGElement>>
   children: ReactNode
 }
 
 function ChartTooltipFrame({
   title,
-  showCalendarIcon = true,
+  icon: Icon,
   children,
 }: ChartTooltipFrameProps) {
   return (
-    <div className="bionis-dashboard flex min-w-36 flex-col gap-1 rounded-lg border bg-[var(--chart-tooltip-bg,#fafafa)]! dark:bg-[#171717]! p-1.5 text-xs shadow-md">
+    <div className="bionis-dashboard flex min-w-36 flex-col gap-1 rounded-lg border bg-(--chart-tooltip-bg)! p-1.5 text-xs shadow-md">
       {title ? (
         <div className="flex items-center gap-1.5 px-2 py-1 text-muted-foreground">
-          {showCalendarIcon ? (
-            <CalendarIcon className="size-3 text-muted-foreground shrink-0" />
+          {Icon ? (
+            <Icon className="size-3 text-muted-foreground shrink-0" />
           ) : null}
-          <span className="text-[11px] font-normal text-[#676767] dark:text-muted-foreground">
+          <span className="text-xxs font-normal text-muted-foreground">
             {title}
           </span>
         </div>
@@ -342,63 +334,76 @@ function ChartTooltipFrame({
   )
 }
 
-function SleepTooltip({
+export type ChartTooltipItemConfig = {
+  label: string | ((point?: any) => string)
+  dataKey: string
+  formatValue?: (value: any, point?: any) => ReactNode
+  color?: string
+}
+
+export type ChartTooltipProps = {
+  active?: boolean
+  payload?: Array<{
+    name?: string
+    dataKey?: string | number
+    value?: any
+    color?: string
+    fill?: string
+    stroke?: string
+    payload?: Record<string, any>
+  }>
+  label?: ReactNode
+  icon?: ComponentType<SVGProps<SVGSVGElement>>
+  items?: ChartTooltipItemConfig[]
+}
+
+export function ChartTooltip({
   active,
   payload,
   label,
-}: {
-  active?: boolean
-  payload?: Array<{ value?: number }>
-  label?: string
-}) {
+  icon,
+  items,
+}: ChartTooltipProps) {
   if (!active || !payload?.length) return null
-  const hours = payload[0]?.value
-  const isRange = typeof label === 'string' && label.includes('–')
-
-  return (
-    <ChartTooltipFrame title={label} showCalendarIcon={false}>
-      <ChartTooltipItem
-        label={isRange ? 'Avg sleep' : 'Sleep'}
-        value={typeof hours === 'number' ? `${hours}h` : '—'}
-        color={CHART_THEME_COLORS.sleep}
-      />
-    </ChartTooltipFrame>
-  )
-}
-
-function ActivityTooltip({
-  active,
-  payload,
-}: {
-  active?: boolean
-  payload?: Array<{
-    dataKey?: string | number
-    value?: number
-    payload?: ActivityTrendPoint
-  }>
-}) {
-  if (!active || !payload?.length) return null
-
   const point = payload[0]?.payload
-  const steps = payload.find((item) => item.dataKey === 'steps')?.value
-  const recovery = payload.find((item) => item.dataKey === 'recovery')?.value
+  const titleText = point?.fullDate ?? point?.label ?? label ?? '—'
+
+  if (items && items.length > 0) {
+    return (
+      <ChartTooltipFrame title={titleText} icon={icon}>
+        {items.map((item) => {
+          const val =
+            point?.[item.dataKey] ??
+            payload.find((p) => p.dataKey === item.dataKey)?.value
+          const displayLabel =
+            typeof item.label === 'function' ? item.label(point) : item.label
+          const displayVal = item.formatValue
+            ? item.formatValue(val, point)
+            : (val ?? '—')
+
+          return (
+            <ChartTooltipItem
+              key={item.dataKey}
+              label={displayLabel}
+              value={displayVal}
+              color={item.color}
+            />
+          )
+        })}
+      </ChartTooltipFrame>
+    )
+  }
 
   return (
-    <ChartTooltipFrame title={point?.fullDate ?? point?.label ?? '—'}>
-      <ChartTooltipItem
-        label="Steps"
-        value={
-          typeof steps === 'number'
-            ? `${(Math.round(steps * 10) / 10).toFixed(1)}k`
-            : '—'
-        }
-        color={CHART_THEME_COLORS.recovery}
-      />
-      <ChartTooltipItem
-        label="Recovery"
-        value={typeof recovery === 'number' ? Math.round(recovery * 10) : '—'}
-        color={CHART_THEME_COLORS.sleep}
-      />
+    <ChartTooltipFrame title={titleText} icon={icon}>
+      {payload.map((p, idx) => (
+        <ChartTooltipItem
+          key={String(p.dataKey ?? idx)}
+          label={String(p.name ?? p.dataKey ?? '')}
+          value={String(p.value ?? '—')}
+          color={p.color ?? p.fill ?? p.stroke}
+        />
+      ))}
     </ChartTooltipFrame>
   )
 }
@@ -480,7 +485,7 @@ function SleepAxisTick({
       x={tickX}
       y={tickY + 8}
       textAnchor="middle"
-      fill="#a1a1aa"
+      fill="var(--muted-foreground)"
       fontSize={10}
       fontFamily="Geist, sans-serif"
     >
@@ -517,16 +522,18 @@ export function SleepBreakdownChart({
         <div className="flex items-center gap-3">
           <span
             className="flex size-8 shrink-0 items-center justify-center rounded-lg text-white"
-            style={{ backgroundColor: CHART_THEME_COLORS.indigo }}
+            style={{ backgroundColor: CHART_THEME_COLORS.prediction }}
           >
             <MoonStarsIcon className="size-4.5" />
           </span>
           <h3 className="text-lg font-medium">Sleep breakdown</h3>
         </div>
-        <span className="h-8 inline-flex shrink-0 items-center gap-2 rounded-xl bg-(--chart-warn-bg) py-1 pr-4 pl-3 text-sm font-medium text-(--chart-warn)">
-          <WarningFilledIcon className="size-5" />
-          {flaggedNights} nights flagged
-        </span>
+        {flaggedNights > 0 ? (
+          <span className="h-8 inline-flex shrink-0 items-center gap-2 rounded-xl bg-(--chart-warn-bg) py-1 pr-4 pl-3 text-sm font-medium text-(--chart-warn)">
+            <WarningFilledIcon className="size-5" />
+            {flaggedNights} {flaggedNights === 1 ? 'night' : 'nights'} flagged
+          </span>
+        ) : null}
       </div>
 
       <div className="h-82.5 w-full min-w-0">
@@ -558,7 +565,24 @@ export function SleepBreakdownChart({
               tick={AXIS_TICK}
               width={36}
             />
-            <Tooltip cursor={false} content={<SleepTooltip />} />
+            <Tooltip
+              cursor={false}
+              content={
+                <ChartTooltip
+                  items={[
+                    {
+                      label: (point) =>
+                        typeof point?.label === 'string' && point.label.includes('–')
+                          ? 'Avg sleep'
+                          : 'Sleep',
+                      dataKey: 'hours',
+                      formatValue: (v) => (typeof v === 'number' ? `${v}h` : '—'),
+                      color: CHART_THEME_COLORS.sleep,
+                    },
+                  ]}
+                />
+              }
+            />
             <Bar
               dataKey="hours"
               shape={<SleepBarShape />}
@@ -597,7 +621,7 @@ function ActivityAxisTick({
       x={tickX}
       y={tickY + 10}
       textAnchor="middle"
-      fill="#a1a1aa"
+      fill="var(--muted-foreground)"
       fontSize={10}
       fontFamily="Geist, sans-serif"
     >
@@ -641,11 +665,11 @@ export function ActivityTrendChart({
       <div className="flex flex-wrap items-center justify-center gap-3.5 sm:justify-end">
         <div className="flex items-center gap-2 text-sm font-medium text-(--chart-axis)">
           <span className="size-2 rounded-full bg-(--chart-steps)" />
-          Steps (Ã·1000)
+          Steps (÷1000)
         </div>
         <div className="flex items-center gap-2 text-sm font-medium text-(--chart-axis)">
           <span className="size-2 rounded-full bg-(--chart-recovery)" />
-          Recovery score (Ã·10)
+          Recovery score (÷10)
         </div>
       </div>
 
@@ -715,7 +739,29 @@ export function ActivityTrendChart({
                 strokeDasharray: '4 4',
                 strokeOpacity: 0.35,
               }}
-              content={<ActivityTooltip />}
+              content={
+                <ChartTooltip
+                  icon={CalendarIcon}
+                  items={[
+                    {
+                      label: 'Steps',
+                      dataKey: 'steps',
+                      formatValue: (v) =>
+                        typeof v === 'number'
+                          ? `${(Math.round(v * 10) / 10).toFixed(1)}k`
+                          : '—',
+                      color: CHART_THEME_COLORS.recovery,
+                    },
+                    {
+                      label: 'Recovery',
+                      dataKey: 'recovery',
+                      formatValue: (v) =>
+                        typeof v === 'number' ? Math.round(v * 10) : '—',
+                      color: CHART_THEME_COLORS.sleep,
+                    },
+                  ]}
+                />
+              }
             />
             <Area
               type="monotone"
@@ -748,36 +794,6 @@ export function ActivityTrendChart({
   )
 }
 
-function SleepRecoveryTooltip({
-  active,
-  payload,
-}: {
-  active?: boolean
-  payload?: Array<{
-    payload?: SleepRecoveryTrendPoint
-  }>
-}) {
-  if (!active || !payload?.length) return null
-  const point = payload[0]?.payload
-  if (!point) return null
-  const { sleepHrs: sleep, recoveryScore: recovery } = point
-
-  return (
-    <ChartTooltipFrame title={point.fullDate}>
-      <ChartTooltipItem
-        label="Sleep"
-        value={typeof sleep === 'number' ? `${sleep}h` : '—'}
-        color={CHART_THEME_COLORS.recovery}
-      />
-      <ChartTooltipItem
-        label="Recovery"
-        value={typeof recovery === 'number' ? `${recovery}%` : '—'}
-        color={CHART_THEME_COLORS.sleep}
-      />
-    </ChartTooltipFrame>
-  )
-}
-
 function SleepRecoveryAxisTick({
   x,
   y,
@@ -801,7 +817,7 @@ function SleepRecoveryAxisTick({
       x={tickX}
       y={tickY + 10}
       textAnchor="middle"
-      fill="#a1a1aa"
+      fill="var(--muted-foreground)"
       fontSize={10}
       fontFamily="Geist, sans-serif"
     >
@@ -831,7 +847,7 @@ export function SleepRecoveryTrendChart({
         <div className="flex items-center gap-3">
           <span
             className="flex size-8 shrink-0 items-center justify-center rounded-lg text-white"
-            style={{ backgroundColor: CHART_THEME_COLORS.indigo }}
+            style={{ backgroundColor: CHART_THEME_COLORS.prediction }}
           >
             <MoonStarsIcon className="size-4.5" />
           </span>
@@ -839,7 +855,7 @@ export function SleepRecoveryTrendChart({
             Sleep & recovery over time
           </h3>
         </div>
-        <span className="inline-flex shrink-0 items-center rounded-xl bg-[rgba(0,178,90,0.1)] px-3 py-1 text-sm font-medium tracking-tight text-[#00b25a]">
+        <span className="h-8 inline-flex shrink-0 items-center rounded-xl bg-(--live)/10 px-3 py-1 text-sm font-medium text-(--live)">
           Improving
         </span>
       </div>
@@ -914,7 +930,25 @@ export function SleepRecoveryTrendChart({
                 strokeDasharray: '4 4',
                 strokeOpacity: 0.35,
               }}
-              content={<SleepRecoveryTooltip />}
+              content={
+                <ChartTooltip
+                  icon={CalendarIcon}
+                  items={[
+                    {
+                      label: 'Sleep',
+                      dataKey: 'sleepHrs',
+                      formatValue: (v) => (typeof v === 'number' ? `${v}h` : '—'),
+                      color: CHART_THEME_COLORS.recovery,
+                    },
+                    {
+                      label: 'Recovery',
+                      dataKey: 'recoveryScore',
+                      formatValue: (v) => (typeof v === 'number' ? `${v}%` : '—'),
+                      color: CHART_THEME_COLORS.sleep,
+                    },
+                  ]}
+                />
+              }
             />
             <Area
               type="monotone"
@@ -929,7 +963,7 @@ export function SleepRecoveryTrendChart({
               activeDot={{
                 r: 4,
                 fill: CHART_THEME_COLORS.recovery,
-                stroke: '#ffffff',
+                stroke: 'var(--background)',
                 strokeWidth: 2,
               }}
             />
@@ -947,7 +981,7 @@ export function SleepRecoveryTrendChart({
               activeDot={{
                 r: 4,
                 fill: CHART_THEME_COLORS.sleep,
-                stroke: '#ffffff',
+                stroke: 'var(--background)',
                 strokeWidth: 2,
               }}
             />
@@ -969,6 +1003,14 @@ const factorIcons: Record<
   bed: BedIcon,
 }
 
+const factorColorMap: Record<string, string> = {
+  sleep: 'var(--metric-vital)',
+  steps: 'var(--bionis-blue)',
+  stress: 'var(--prediction-warn)',
+  screen: 'var(--prediction-danger)',
+  bedtime: 'var(--vital-good)',
+}
+
 export function RecoveryFactorsCard({
   factors = recoveryFactors,
   className,
@@ -987,59 +1029,63 @@ export function RecoveryFactorsCard({
     <article
       className={cn(
         'flex min-h-90 flex-1 flex-col justify-between rounded-2xl border p-4 md:p-5',
-        'bg-[linear-gradient(180deg,rgba(20,184,166,0.12)_0%,transparent_42%)] dark:bg-[linear-gradient(180deg,rgba(20,184,166,0.08)_0%,transparent_42%)]',
         className,
       )}
+      style={{
+        background: `linear-gradient(180deg, color-mix(in srgb, ${CHART_THEME_COLORS.actions} 12%, transparent) 0%, transparent 42%)`,
+      }}
     >
-      {/* Header */}
       <div className="flex items-center justify-between gap-2 mb-4">
         <div className="flex items-center gap-2">
           <span
-            className="flex size-[28px] items-center justify-center rounded-[7.6px] text-white shadow-2xs"
-            style={{ backgroundColor: CHART_THEME_COLORS.teal }}
+            className="flex size-7 items-center justify-center rounded-lg text-white shadow-2xs"
+            style={{ backgroundColor: CHART_THEME_COLORS.actions }}
           >
-            <BlingFilledIcon className="size-[16px]" />
+            <BlingFilledIcon className="size-4" />
           </span>
-          <h3 className="text-base font-medium tracking-tight">
+          <h3 className="font-medium tracking-tight">
             Recovery factors
           </h3>
         </div>
-        <span className="inline-flex shrink-0 items-center rounded-[12px] bg-white px-2.5 py-2 text-xs font-medium text-[#4a85e4] dark:bg-card">
+        <span
+          className="inline-flex shrink-0 items-center rounded-xl bg-background px-2.5 py-2 text-xs font-medium dark:bg-card"
+          style={{ color: CHART_THEME_COLORS.outlook }}
+        >
           7 days outlook
         </span>
       </div>
 
-      {/* Factors List */}
       <div className="flex flex-col gap-3">
         {factors.map((factor, idx) => {
           const Icon = factorIcons[factor.icon]
+          const factorColor = factorColorMap[factor.id] || 'var(--bionis-blue)'
           return (
             <div
               key={factor.id}
-              className="flex items-center justify-between gap-3 rounded-[12px] bg-[#f9f9f9] p-3 dark:bg-muted/50 transition-all duration-300 hover:bg-[#f3f4f6] dark:hover:bg-muted/80"
+              className="flex items-center justify-between gap-3 rounded-xl bg-muted/50 p-3"
             >
               <div className="flex items-center gap-2.5 min-w-0 flex-1">
                 <Icon
                   className="size-5 shrink-0"
-                  style={{ color: factor.color }}
+                  style={{ color: factorColor }}
                 />
-                <span className="truncate text-base font-medium tracking-tight">
+                <span className="truncate font-medium tracking-tight">
                   {factor.label}
                 </span>
               </div>
 
               <div className="flex items-center gap-2 shrink-0 w-48 sm:w-52 justify-end">
-                <div className="relative h-4 w-32 sm:w-36 rounded-[8px] bg-[#ebecec] dark:bg-muted overflow-hidden">
+                <div className="relative h-4 w-32 sm:w-36 rounded-lg bg-muted overflow-hidden">
                   <div
-                    className="h-full rounded-[8px] transition-all duration-700 ease-out"
+                    className="h-full rounded-lg transition-all duration-700 ease-out"
                     style={{
                       width: mounted ? `${factor.fillPercentage}%` : '0%',
                       transitionDelay: `${idx * 100}ms`,
-                      backgroundColor: factor.color,
+                      backgroundColor: factorColor,
                     }}
                   />
                 </div>
-                <span className="w-11 text-right text-base font-medium tracking-tight">
+                <span className="w-11 text-right font-medium tracking-tight">
                   {factor.value}
                 </span>
               </div>
@@ -1052,15 +1098,31 @@ export function RecoveryFactorsCard({
 }
 
 const tileColorMap: Record<HeatmapTile, string> = {
-  low: 'bg-[#d8faff] dark:bg-cyan-950/70 hover:opacity-75',
-  med: 'bg-[#22d3ee] dark:bg-cyan-500 hover:opacity-75',
-  high: 'bg-[#0091a8] dark:bg-cyan-700 hover:opacity-75',
+  low: 'bg-(--heatmap-low)',
+  med: 'bg-(--heatmap-med)',
+  high: 'bg-(--heatmap-high)',
 }
 
 const tileDotColorMap: Record<HeatmapTile, string> = {
-  low: 'bg-[#00b4d8]',
-  med: 'bg-[#06b6d4]',
-  high: 'bg-[#0091a8]',
+  low: CHART_THEME_COLORS.heatmap.low,
+  med: CHART_THEME_COLORS.heatmap.med,
+  high: CHART_THEME_COLORS.heatmap.high,
+}
+
+function HeatmapScatterTooltip({ active, payload }: any) {
+  if (!active || !payload?.length) return null
+  const tile = payload[0]?.payload
+  if (!tile) return null
+
+  return (
+    <ChartTooltipFrame title={tile.date} icon={CalendarIcon}>
+      <ChartTooltipItem
+        label={tile.status}
+        value={`${tile.score}%`}
+        color={tileDotColorMap[tile.level as HeatmapTile]}
+      />
+    </ChartTooltipFrame>
+  )
 }
 
 export function RecoveryHeatmapCard({
@@ -1072,102 +1134,69 @@ export function RecoveryHeatmapCard({
   dateLabels?: string[]
   className?: string
 }) {
-  const [mounted, setMounted] = useState(false)
-  const [hoverPos, setHoverPos] = useState<{
-    active: boolean
-    tile: HeatmapTileData | null
-    x: number
-    y: number
-  }>({
-    active: false,
-    tile: null,
-    x: 0,
-    y: 0,
-  })
-  const cardRef = useRef<HTMLDivElement>(null)
+  const scatterData = useMemo(() => {
+    const points: Array<{
+      x: number
+      y: number
+      id: string
+      level: HeatmapTile
+      score: number
+      date: string
+      status: string
+    }> = []
 
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setMounted(true))
-    return () => cancelAnimationFrame(frame)
-  }, [])
-
-  const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>,
-    tile: HeatmapTileData,
-  ) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    setHoverPos({
-      active: true,
-      tile,
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+    data.forEach((col, colIdx) => {
+      col.tiles.forEach((tile, rowIdx) => {
+        points.push({
+          x: colIdx,
+          y: 4 - rowIdx,
+          id: tile.id,
+          level: tile.level,
+          score: tile.score,
+          date: tile.date,
+          status: tile.status,
+        })
+      })
     })
-  }
-
-  const handleMouseLeave = () => {
-    setHoverPos((prev) => ({ ...prev, active: false }))
-  }
+    return points
+  }, [data])
 
   return (
     <article
-      ref={cardRef}
-      onMouseLeave={handleMouseLeave}
       className={cn(
-        'relative flex min-h-90 flex-1 flex-col justify-between rounded-2xl border p-4 md:p-5',
-        'bg-[linear-gradient(180deg,rgba(34,211,238,0.12)_0%,transparent_42%)] dark:bg-[linear-gradient(180deg,rgba(34,211,238,0.08)_0%,transparent_42%)]',
+        'flex min-h-90 flex-1 flex-col justify-between rounded-2xl border p-4 md:p-5',
         className,
       )}
+      style={{
+        background: `linear-gradient(180deg, color-mix(in srgb, ${CHART_THEME_COLORS.heatmap.med} 12%, transparent) 0%, transparent 42%)`,
+      }}
     >
-      {/* Persistently Mounted Recharts-like Floating Tooltip */}
-      <div
-        className="pointer-events-none absolute left-0 top-0 z-40"
-        style={{
-          transform: `translate3d(${hoverPos.x}px, ${hoverPos.y - 12}px, 0) translate(-50%, -100%)`,
-          transition:
-            'transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 150ms ease-out',
-          opacity: hoverPos.active && hoverPos.tile ? 1 : 0,
-        }}
-      >
-        {hoverPos.tile && (
-          <ChartTooltipFrame title={hoverPos.tile.date}>
-            <ChartTooltipItem
-              label={hoverPos.tile.status}
-              value={`${hoverPos.tile.score}%`}
-              color={tileDotColorMap[hoverPos.tile.level]}
-            />
-          </ChartTooltipFrame>
-        )}
-      </div>
-
-      {/* Header */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-2">
           <span
-            className="flex size-[28px] items-center justify-center rounded-[7.6px] text-white shadow-2xs"
+            className="flex size-7 items-center justify-center rounded-lg text-white shadow-2xs"
             style={{ backgroundColor: CHART_THEME_COLORS.heatmap.med }}
           >
-            <BatteryChargingIcon className="size-[16px]" />
+            <BatteryChargingIcon className="size-4" />
           </span>
-          <h3 className="text-base font-medium tracking-tight">
+          <h3 className="font-medium tracking-tight">
             Recovery heatmap
           </h3>
         </div>
 
-        {/* Legend */}
         <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground">
           <span>Low</span>
-          <div className="flex items-center gap-[2px]">
+          <div className="flex items-center gap-0.5">
             <span
-              className="size-[12px] rounded-xs dark:bg-cyan-950"
+              className="size-3 rounded-xs"
               style={{ backgroundColor: CHART_THEME_COLORS.heatmap.low }}
             />
             <span
-              className="size-[12px] rounded-xs dark:bg-cyan-500"
+              className="size-3 rounded-xs"
               style={{ backgroundColor: CHART_THEME_COLORS.heatmap.med }}
             />
             <span
-              className="size-[12px] rounded-xs dark:bg-cyan-700"
+              className="size-3 rounded-xs"
               style={{ backgroundColor: CHART_THEME_COLORS.heatmap.high }}
             />
           </div>
@@ -1175,35 +1204,55 @@ export function RecoveryHeatmapCard({
         </div>
       </div>
 
-      {/* Grid Matrix */}
-      <div className="flex flex-col gap-3 pt-2">
-        <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
-          {data.map((col, colIdx) => (
-            <div key={col.id} className="flex flex-col gap-1">
-              {col.tiles.map((tile, tileIdx) => (
-                <div
-                  key={tile.id}
-                  onMouseMove={(e) => handleMouseMove(e, tile)}
-                  className={cn(
-                    'h-[37px] rounded-[6px] transition-opacity duration-200 cursor-pointer',
-                    mounted ? 'opacity-100' : 'opacity-0',
-                    tileColorMap[tile.level],
-                  )}
-                  style={{
-                    transitionDelay: `${colIdx * 35 + tileIdx * 12}ms`,
-                  }}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+      <div className="h-64 w-full min-w-0">
+        <ResponsiveContainer width="100%" height="100%">
+          <ScatterChart margin={{ top: 8, right: 8, left: 8, bottom: 12 }}>
+            <XAxis
+              type="number"
+              dataKey="x"
+              domain={[-0.5, 6.5]}
+              ticks={[0, 2, 4, 6]}
+              tickFormatter={(val: number) =>
+                dateLabels[Math.round(val / 2)] || ''
+              }
+              axisLine={false}
+              tickLine={false}
+              tick={AXIS_TICK}
+            />
+            <YAxis
+              type="number"
+              dataKey="y"
+              domain={[-0.5, 4.5]}
+              hide
+            />
+            <Tooltip cursor={false} content={<HeatmapScatterTooltip />} />
+            <Scatter
+              data={scatterData}
+              shape={(props: any) => {
+                const { xAxis, yAxis, cx, cy, payload } = props
+                if (typeof cx !== 'number' || typeof cy !== 'number') return <g />
+                const colW = (xAxis?.width ?? 0) / 7
+                const rowH = (yAxis?.height ?? 0) / 5
+                const w = Math.max(colW - 6, 8)
+                const h = Math.max(rowH - 4, 8)
 
-        {/* X-Axis Dates */}
-        <div className="flex items-center justify-between text-sm text-[#61728c] dark:text-muted-foreground px-1 pt-1 font-normal">
-          {dateLabels.map((date) => (
-            <span key={date}>{date}</span>
-          ))}
-        </div>
+                return (
+                  <rect
+                    x={cx - w / 2}
+                    y={cy - h / 2}
+                    width={w}
+                    height={h}
+                    rx={6}
+                    className="transition-opacity duration-200 hover:opacity-75 cursor-pointer"
+                    fill={tileDotColorMap[payload.level as HeatmapTile]}
+                  />
+                )
+              }}
+              isAnimationActive
+              animationDuration={CHART_ANIMATION_MS}
+            />
+          </ScatterChart>
+        </ResponsiveContainer>
       </div>
     </article>
   )

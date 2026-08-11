@@ -51,6 +51,15 @@ const profileMetricIcons: Record<
   nurse: NurseFilledIcon,
 }
 
+const profileMetricIconBgMap: Record<KeyMetricIcon, string> = {
+  heart: 'var(--metric-heart)',
+  walk: 'var(--metric-steps)',
+  moon: 'var(--metric-sleep)',
+  battery: 'var(--metric-recovery)',
+  heartbeat: 'var(--metric-vital)',
+  nurse: 'var(--metric-vital)',
+}
+
 const notificationIcons: Record<
   NotificationIcon,
   ComponentType<SVGProps<SVGSVGElement>>
@@ -382,7 +391,7 @@ export function DashboardTopbar() {
                         >
                           <span
                             className="flex size-6 shrink-0 items-center justify-center rounded-md text-white"
-                            style={{ backgroundColor: metric.iconBg }}
+                            style={{ backgroundColor: profileMetricIconBgMap[metric.icon] }}
                           >
                             <Icon className="size-3" />
                           </span>

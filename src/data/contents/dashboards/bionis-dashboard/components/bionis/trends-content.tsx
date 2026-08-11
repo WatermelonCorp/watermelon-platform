@@ -15,7 +15,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
+  getRecoveryHeatmap,
   getSleepRecoveryTrend,
+  recoveryFactorsByTimeline,
   timelineOptions,
   trendsMetricsByTimeline,
   type TimelineOptionValue,
@@ -28,10 +30,11 @@ export function TrendsContent() {
     'Last 7 days'
   const metrics = trendsMetricsByTimeline[timeline]
   const trendData = getSleepRecoveryTrend(timeline)
+  const factors = recoveryFactorsByTimeline[timeline]
+  const heatmap = getRecoveryHeatmap(timeline)
 
   return (
     <div className="flex flex-col gap-8">
-      {/* Page Header */}
       <div className="flex items-center justify-between gap-3">
         <div className="flex flex-col gap-1 min-w-0">
           <h1 className="truncate text-xl font-medium tracking-tight md:text-2xl">
@@ -74,22 +77,23 @@ export function TrendsContent() {
         </DropdownMenu>
       </div>
 
-      {/* Top 4 Stat Cards */}
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.map((metric) => (
           <KeyMetricCard key={metric.id} metric={metric} />
         ))}
       </section>
 
-      {/* Sleep & recovery over time Chart */}
       <section>
-        <SleepRecoveryTrendChart data={trendData} />
+        <SleepRecoveryTrendChart key={`trend-${timeline}`} data={trendData} />
       </section>
 
-      {/* Recovery Factors & Recovery Heatmap Section */}
       <section className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-        <RecoveryFactorsCard />
-        <RecoveryHeatmapCard />
+        <RecoveryFactorsCard key={`factors-${timeline}`} factors={factors} />
+        <RecoveryHeatmapCard
+          key={`heatmap-${timeline}`}
+          data={heatmap.columns}
+          dateLabels={heatmap.dateLabels}
+        />
       </section>
     </div>
   )

@@ -162,7 +162,7 @@ export function DashboardContent() {
         </div>
 
         <div className="flex flex-1 items-center justify-center">
-          <ScoreDonut value={wellness.score} color={wellness.color} />
+          <ScoreDonut value={wellness.score} />
         </div>
       </section>
 

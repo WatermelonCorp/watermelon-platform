@@ -45,20 +45,20 @@ body:has(.bionis-dashboard) [data-slot="tooltip-content"] {
   --sidebar-muted-foreground: oklch(0.5138 0 0);
   --promo-gradient-from: #f7f9fc;
   --promo-gradient-to: #4d8dff;
+  --bionis-blue: #1975f2;
   --live: #00b153;
-  --score: #1975f2;
-  --chart-sleep: #3b82f6;
-  --chart-sleep-fill: rgb(59 130 246 / 10%);
+  --score: var(--bionis-blue);
+  --chart-sleep: var(--bionis-blue);
+  --chart-sleep-fill: color-mix(in srgb, var(--bionis-blue) 10%, transparent);
   --chart-steps: #19c035;
-  --chart-recovery: #3b82f6;
+  --chart-recovery: var(--bionis-blue);
   --chart-axis: #485066;
   --chart-grid: #e5e7eb;
   --chart-warn: #c57d00;
   --chart-warn-bg: #fef6e7;
-  --chart-period: #4a85e4;
-  --chart-period-bg: #f2faff;
+  --chart-period: color-mix(in srgb, var(--bionis-blue) 85%, white);
+  --chart-period-bg: color-mix(in srgb, var(--bionis-blue) 8%, transparent);
   --chart-tooltip-bg: #fafafa;
-  --tooltip-bg: #fafafa;
   --insight-prediction: #6366f1;
   --insight-vitals: #f72e2e;
   --insight-actions: #14b8a6;
@@ -71,8 +71,17 @@ body:has(.bionis-dashboard) [data-slot="tooltip-content"] {
   --source-oracle: #5946f9;
   --source-sharepoint: #09aff7;
   --source-concur: #ff4fa3;
-  --source-email: #09aff7;
   --trend: #2c9c5d;
+  --metric-heart: #f72e2e;
+  --metric-steps: #19c035;
+  --metric-sleep: #6366f1;
+  --metric-recovery: #22d3ee;
+  --metric-vital: #269b6a;
+  --metric-warn: #f59e0b;
+  --heatmap-base: #22d3ee;
+  --heatmap-med: var(--heatmap-base);
+  --heatmap-low: color-mix(in srgb, var(--heatmap-base) 20%, white);
+  --heatmap-high: color-mix(in srgb, var(--heatmap-base) 75%, black);
   --font-serif: "Instrument Serif", serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 }
@@ -131,25 +140,31 @@ body:has(.bionis-dashboard) [data-mobile="true"][data-sidebar="sidebar"] {
   --sidebar-muted-foreground: oklch(0.725 0 0);
   --promo-gradient-from: #090d16;
   --promo-gradient-to: #1d4ed8;
-  --score: #4d8dff;
-  --chart-sleep: #3b82f6;
-  --chart-sleep-fill: rgb(59 130 246 / 18%);
+  --bionis-blue: #4d8dff;
+  --score: var(--bionis-blue);
+  --chart-sleep: var(--bionis-blue);
+  --chart-sleep-fill: color-mix(in srgb, var(--bionis-blue) 18%, transparent);
   --chart-steps: #19c035;
-  --chart-recovery: #3b82f6;
+  --chart-recovery: var(--bionis-blue);
   --chart-axis: oklch(0.708 0 0);
   --chart-grid: oklch(1 0 0 / 12%);
   --chart-warn: #f0b429;
   --chart-warn-bg: rgb(240 180 41 / 12%);
-  --chart-period: #4a85e4;
-  --chart-period-bg: rgb(74 133 228 / 12%);
+  --chart-period: color-mix(in srgb, var(--bionis-blue) 90%, white);
+  --chart-period-bg: color-mix(in srgb, var(--bionis-blue) 15%, transparent);
   --chart-tooltip-bg: #171717;
-  --tooltip-bg: #171717;
   --insight-prediction: #818cf8;
   --insight-vitals: #f87171;
   --insight-actions: #2dd4bf;
   --vital-good: #34d399;
   --prediction-warn: #f0b429;
   --prediction-danger: #f87171;
+  --metric-heart: #f87171;
+  --metric-steps: #34d399;
+  --metric-sleep: #818cf8;
+  --metric-recovery: #38bdf8;
+  --metric-vital: #34d399;
+  --metric-warn: #f0b429;
 }
 
 .bionis-dashboard .font-serif {
@@ -161,6 +176,14 @@ body:has(.bionis-dashboard) [data-mobile="true"][data-sidebar="sidebar"] {
 }
 
 /* custom classes */
+.text-2\.5xl {
+  font-size: 1.75rem;
+}
+
+.text-xxs {
+  font-size: 0.6875rem;
+}
+
 .sidebar-badge-shadow {
   filter: drop-shadow(0 0.0125rem 0.125rem rgba(0, 0, 0, 0.05));
 }
