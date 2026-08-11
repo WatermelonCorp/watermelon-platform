@@ -2,10 +2,8 @@ import {
   useEffect,
   useId,
   useMemo,
-  useRef,
   useState,
   type ComponentType,
-  type CSSProperties,
   type HTMLAttributes,
   type ReactNode,
   type SVGProps,
@@ -56,7 +54,6 @@ import {
   type ActivityTrendPoint,
   type HeatmapColumn,
   type HeatmapTile,
-  type HeatmapTileData,
   type KeyMetric,
   type KeyMetricIcon,
   type RecoveryFactor,
@@ -89,7 +86,7 @@ const metricIcons: Record<
   moon: MoonStarsIcon,
   battery: BatteryChargingIcon,
   heartbeat: HeartbeatFilledIcon,
-  nurse: HeartbeatFilledIcon,
+  nurse: NurseFilledIcon,
 }
 
 const metricIconBgMap: Record<KeyMetricIcon, string> = {
@@ -97,8 +94,8 @@ const metricIconBgMap: Record<KeyMetricIcon, string> = {
   walk: 'var(--metric-steps)',
   moon: 'var(--metric-sleep)',
   battery: 'var(--metric-recovery)',
-  heartbeat: 'var(--metric-vital)',
-  nurse: 'var(--metric-vital)',
+  heartbeat: 'var(--bionis-blue)',
+  nurse: 'var(--metric-recovery)',
 }
 
 export function KeyMetricCard({
@@ -1095,12 +1092,6 @@ export function RecoveryFactorsCard({
       </div>
     </article>
   )
-}
-
-const tileColorMap: Record<HeatmapTile, string> = {
-  low: 'bg-(--heatmap-low)',
-  med: 'bg-(--heatmap-med)',
-  high: 'bg-(--heatmap-high)',
 }
 
 const tileDotColorMap: Record<HeatmapTile, string> = {
