@@ -1,104 +1,73 @@
-# Contributing
+# Contributing to Watermelon Platform
 
-Thanks for contributing to Watermelon Platform! We welcome all contributions. Please note that by participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Also, if you are using AI tools (Copilot, ChatGPT, etc.) to generate code, please review our [AI Usage Policy](AI_POLICY.md).
+Thanks for helping improve the platform behind `ui.watermelon.sh`.
 
-This guide focuses on adding new components to the registry.
+## Quick Start
 
-## Setup
-
-1. Install dependencies: `bun install`
-2. Start the dev server: `bun run dev`
-
-## Create A Branch
-
-1. Sync your local `dev`: `git checkout dev` then `git pull`
-2. Create a feature branch: `git checkout -b feature/<component-slug>`
-
-## Add A Component
-
-1. Pick a kebab-case slug for the component, for example `animated-button`.
-2. Create `src/data/contents/components/<slug>/index.tsx`.
-3. Create `src/data/contents/components/<slug>/demo.tsx`.
-4. Create `src/data/contents/registry/<slug>.mdx`.
-5. Match the slug across all locations: MDX frontmatter `slug`, the folder name, and any references in your MDX content.
-6. **Component Numbering**: Check the last used `componentNumber` in the registry and increment it by 1. You can also run `bun scripts/fix-mdx-numbers.ts` to automatically fix and reorder numbers.
-7. Use this frontmatter shape in the MDX file:
-
-```mdx
----
-title: Animated Button
-slug: animated-button
-category: buttons
-description: A button with a smooth hover animation.
-image: /previews/animated-button.jpg
-video: /previews/animated-button.mp4
-componentNumber: 1
-dependencies: ['motion/react']
-install:
-  - npx shadcn@latest add https://registry.watermelon.sh/r/animated-button.json
----
+```bash
+git clone https://github.com/WatermelonCorp/watermelon-platform.git
+cd watermelon-platform
+bun install
+bun run dev
 ```
 
-## Add A Block
+Before opening a pull request, run:
 
-1. Create a new folder under `src/data/contents/blocks/<slug>/`.
-2. Create `src/data/contents/blocks/<slug>/demo.tsx` (the main export from this file will be rendered in the preview).
-3. Create `src/data/contents/blocks/<slug>/<slug>.mdx` for documentation and metadata.
-4. Add any supporting components or files within the same folder.
-5. **Block Numbering**: Check the last used `componentNumber` for blocks and increment it. Or run `bun scripts/fix-mdx-numbers.ts`.
-6. Use this frontmatter shape in the MDX file:
-
-```mdx
----
-title: Feature Section
-slug: feature-section
-category: sections
-description: A modern feature grid section.
-image: /blocks/feature-section.png
-video: /blocks/feature-section.mp4
-componentNumber: 1
-dependencies: ['lucide-react']
-install:
-  - npx shadcn@latest add https://registry.watermelon.sh/r/feature-section.json
----
+```bash
+bun run lint
+bun run build
 ```
 
-## Add A Dashboard
+## Ways To Contribute
 
-1. Create a new folder under `src/data/contents/dashboards/<slug>/`.
-2. Create `src/data/contents/dashboards/<slug>/demo.tsx`.
-3. Create `src/data/contents/dashboards/<slug>/<slug>.mdx`.
-4. Place all dashboard-specific layouts, views, and data files within this folder to keep it self-contained.
-5. **Dashboard Numbering**: Check the last used `componentNumber` for dashboards and increment it. Or run `bun scripts/fix-mdx-numbers.ts`.
-6. Use this frontmatter shape in the MDX file:
+- fix bugs or regressions
+- improve docs and contributor workflows
+- add or refine animated components
+- add or refine blocks, dashboards, or templates
+- improve accessibility, performance, or SEO
 
-```mdx
----
-title: Admin
-slug: admin
-category: dashboard
-description: A comprehensive admin interface.
-image: /dashboards/admin.webp
-video: /dashboards/admin.mp4
-componentNumber: 1
-dependencies: ['recharts']
-install:
-  - npx shadcn@latest add https://registry.watermelon.sh/r/admin-dashboard.json
----
-```
+For larger feature work, please open an issue or discussion first so effort does not drift.
 
-## Run Checks
+## Content Workflows
 
-1. Lint: `bun run lint`
-2. Build: `bun run build`
+### Animated Components
 
-## Submit Your PR
+1. Create or update files under `src/data/contents/animated-components/<slug>/`.
+2. Add or update the matching MDX entry in `src/data/contents/registry/<slug>.mdx`.
+3. Keep the folder name, frontmatter `slug`, and install command aligned.
 
-1. Push your branch: `git push -u origin feature/<component-slug>`
-2. Open a pull request targeting the `dev` branch.
-3. Provide a short summary and screenshots or a video of the component demo.
+### Blocks
 
-## Tips
+1. Create or update files under `src/data/contents/blocks/<category>/<slug>/`.
+2. Add or update `<slug>.mdx` in that same folder.
+3. Keep demos responsive and self-contained.
 
-1. Keep demos focused and responsive.
-2. Prefer small, composable APIs in `index.tsx` and keep `demo.tsx` as a usage example only.
+### Dashboards
+
+1. Create or update files under `src/data/contents/dashboards/<slug>/`.
+2. Add or update `<slug>.mdx` in that same folder.
+3. Keep dashboard-specific code colocated with the entry.
+
+### Templates
+
+1. Create or update files under `src/data/contents/templates/<slug>/`.
+2. Add or update `<slug>.mdx` in that same folder.
+3. Prefer realistic examples that help people ship faster.
+
+## Pull Request Guidelines
+
+1. Use a branch instead of pushing directly to `main`.
+2. Keep the PR focused on one improvement or one content area.
+3. Explain the user-facing change clearly.
+4. Include screenshots or recordings for visual changes.
+5. Update docs when setup, content structure, or workflows change.
+
+## Quality Bar
+
+- match the existing TypeScript and styling patterns
+- keep demos readable and mobile-friendly
+- avoid unnecessary dependencies
+- prefer accessibility and clarity over cleverness
+- call out any breaking changes directly in the PR
+
+By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
