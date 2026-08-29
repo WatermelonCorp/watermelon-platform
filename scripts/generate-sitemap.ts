@@ -6,9 +6,12 @@
  * automatically shows up in the sitemap on the next build — no manual edits here.
  *
  * URL patterns are kept in sync with src/components/layout/app-routes.tsx:
+ *   - Home:                /home
  *   - Animated components: /animated-components/:slug
  *                          /animated-components/category/:category
  *   - UI components:       /components/:category
+ *   - Dashboards:          /dashboard/:slug
+ *   - Templates:           /template/:slug
  *   - Blocks:              /block/:slug
  *                          /blocks/:category
  *
@@ -16,6 +19,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 import matter from 'gray-matter';
 
 const BASE_URL = 'https://ui.watermelon.sh';
@@ -38,6 +42,17 @@ function findMdxFiles(dir: string): string[] {
 
 /** File last-modified date as YYYY-MM-DD (real <lastmod>, not the build date). */
 function fileDate(file: string): string {
+  try {
+    const gitDate = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cs', '--', file],
+      { cwd: process.cwd(), encoding: 'utf-8' },
+    ).trim();
+    if (gitDate) return gitDate;
+  } catch {
+    // Fall back to filesystem mtime when git metadata is unavailable.
+  }
+
   return fs.statSync(file).mtime.toISOString().split('T')[0];
 }
 
@@ -46,8 +61,11 @@ const today = new Date().toISOString().split('T')[0];
 // ── Static pages (must mirror the real routes in app-routes.tsx) ──────────────
 const staticRoutes: RouteEntry[] = [
   '',
+  '/home',
   '/animated-components',
   '/components',
+  '/dashboards',
+  '/templates',
   '/blocks',
   '/installation',
   '/framework-support',
@@ -75,6 +93,28 @@ const routes: RouteEntry[] = [...staticRoutes];
       path: `/animated-components/category/${encodeURIComponent(category)}`,
       lastmod: today,
     });
+  }
+}
+
+// ── Dashboards — contents/dashboards/*/*.mdx ────────────────────────────────
+// Mirrors dashboards.tsx: every dashboard frontmatter with slug + title maps
+// to /dashboard/:slug and is listed from the same MDX content source.
+{
+  for (const file of findMdxFiles(path.join(CONTENTS_DIR, 'dashboards'))) {
+    const { slug, title } = matter(fs.readFileSync(file, 'utf-8')).data;
+    if (!slug || !title) continue;
+    routes.push({ path: `/dashboard/${slug}`, lastmod: fileDate(file) });
+  }
+}
+
+// ── Templates — contents/templates/*/*.mdx ──────────────────────────────────
+// Mirrors templates.tsx: every template frontmatter with slug + title maps to
+// /template/:slug and is listed from the same MDX content source.
+{
+  for (const file of findMdxFiles(path.join(CONTENTS_DIR, 'templates'))) {
+    const { slug, title } = matter(fs.readFileSync(file, 'utf-8')).data;
+    if (!slug || !title) continue;
+    routes.push({ path: `/template/${slug}`, lastmod: fileDate(file) });
   }
 }
 
