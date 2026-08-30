@@ -30,6 +30,18 @@ export default function DevelopersPage() {
           </DocCard>
         </DocSection>
 
+        <DocSection title="How To Use MCP">
+          <DocText>
+            The easiest setup is to use the hosted Watermelon MCP server. In any MCP-compatible client, add a new remote MCP server and use <code>https://mcp.watermelon.sh/mcp</code> as the server URL. Once connected, your client should be able to call the read-only Watermelon catalog tools without scraping the site manually.
+          </DocText>
+          <DocText>
+            If you are using a GPT- or Claude-style client with MCP support, open that client’s MCP or tools settings, create a new server connection, paste <code>https://mcp.watermelon.sh/mcp</code>, and save it. After that, ask the model to list catalog entries, fetch a specific Watermelon entry, or summarize the catalog structure.
+          </DocText>
+          <DocText>
+            If your client only supports local MCP servers, clone the <a href="https://github.com/WatermelonCorp/watermelon-platform" className="rounded-sm bg-muted px-2 py-px text-black dark:text-white">watermelon-platform</a> repository and run <code>bun run mcp</code> from the project root. That starts the local Watermelon MCP server for source-aware development workflows.
+          </DocText>
+        </DocSection>
+
         <DocSection title="Named Docs">
           <DocText>
             If you are searching by name, Watermelon also publishes dedicated pages for <a href="/developers/auth" className="rounded-sm bg-muted px-2 py-px text-black dark:text-white">Watermelon UI Auth Docs</a> and <a href="/developers/mcp" className="rounded-sm bg-muted px-2 py-px text-black dark:text-white">Watermelon UI MCP Docs</a>. Those pages explain the current access model, hosted MCP endpoint, and how to connect from GPT- or Claude-compatible MCP clients.
