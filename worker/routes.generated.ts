@@ -418,6 +418,8 @@ export const knownRoutes = [
   "/dashboard/web3-dashboard",
   "/dashboards",
   "/developers",
+  "/developers/auth",
+  "/developers/mcp",
   "/framework-support",
   "/home",
   "/installation",

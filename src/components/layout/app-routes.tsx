@@ -29,6 +29,8 @@ const CopyrightPage = lazy(() => import('@/pages/copyright'));
 const AboutPage = lazy(() => import('@/pages/about'));
 const ContactPage = lazy(() => import('@/pages/contact'));
 const DevelopersPage = lazy(() => import('@/pages/developers'));
+const DevelopersAuthPage = lazy(() => import('@/pages/developers-auth'));
+const DevelopersMcpPage = lazy(() => import('@/pages/developers-mcp'));
 const DashboardsPage = lazy(() => import('@/pages/dashboards'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const TemplatesPage = lazy(() => import('@/pages/templates'));
@@ -165,6 +167,22 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DocPageSkeleton />}>
               <DevelopersPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/developers/auth"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <DevelopersAuthPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/developers/mcp"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <DevelopersMcpPage />
             </Suspense>
           }
         />

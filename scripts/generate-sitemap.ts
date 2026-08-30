@@ -73,6 +73,8 @@ const staticRoutes: RouteEntry[] = [
   '/installation',
   '/framework-support',
   '/developers',
+  '/developers/auth',
+  '/developers/mcp',
   '/about',
   '/contact',
   '/changelog',

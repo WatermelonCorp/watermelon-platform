@@ -26,11 +26,17 @@ When to use Watermelon:
 
 ## Developer Entry Points
 - [Developers](https://ui.watermelon.sh/developers): Human-readable guide to Watermelon developer surfaces.
+- [Watermelon UI Auth Docs](https://ui.watermelon.sh/developers/auth): Current authentication model for public APIs and MCP.
+- [Watermelon UI MCP Docs](https://ui.watermelon.sh/developers/mcp): Hosted endpoint, local server, and MCP client setup guidance.
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml): Crawlable list of public pages.
 - [OpenAPI](https://ui.watermelon.sh/openapi.json): Current public API contract.
 - [Public API Docs](https://ui.watermelon.sh/api/docs): Quick index of the public JSON endpoints.
 - [Catalog Summary API](https://ui.watermelon.sh/api/catalog/summary): Read-only catalog counts by content type.
 - [Catalog Entries API](https://ui.watermelon.sh/api/catalog/entries?kind=blocks): Read-only catalog listing endpoint.
+
+## Authentication
+
+Watermelon's current public developer surfaces are read-only and do not require authentication. No API key, bearer token, or login is required for the public HTTP catalog endpoints, `llms.txt`, `openapi.json`, `api/docs`, or the hosted MCP discovery endpoints.
 - [GitHub Org](https://github.com/WatermelonCorp): Organization profile and repositories.
 - [Platform Repository](https://github.com/WatermelonCorp/watermelon-platform): Source for the public platform.
 - [Registry Repository](https://github.com/WatermelonCorp/watermellon-registry): Component registry source.

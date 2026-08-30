@@ -30,6 +30,8 @@ Watermelon UI is an open-source React UI platform built for developers who want 
 ## Developer resources
 
 - [Developers](https://ui.watermelon.sh/developers)
+- [Watermelon UI Auth Docs](https://ui.watermelon.sh/developers/auth)
+- [Watermelon UI MCP Docs](https://ui.watermelon.sh/developers/mcp)
 - [llms.txt](https://ui.watermelon.sh/llms.txt)
 - [OpenAPI](https://ui.watermelon.sh/openapi.json)
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml)
@@ -55,6 +57,8 @@ This page is the fastest way for an engineer or agent to understand Watermelon U
 
 - [llms.txt](https://ui.watermelon.sh/llms.txt): concise project guidance and when-to-use instructions
 - [OpenAPI](https://ui.watermelon.sh/openapi.json): public HTTP contract for machine-readable endpoints
+- [Watermelon UI Auth Docs](https://ui.watermelon.sh/developers/auth): current authentication model for public APIs and MCP
+- [Watermelon UI MCP Docs](https://ui.watermelon.sh/developers/mcp): hosted endpoint and MCP client setup guidance
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml): crawlable public URL inventory
 - [Public catalog summary](https://ui.watermelon.sh/api/catalog/summary): counts by content type
 - [Public catalog entries](https://ui.watermelon.sh/api/catalog/entries): list catalog entries by kind
@@ -74,6 +78,54 @@ The UI is helpful for browsing, but the repositories are the source of truth for
 - [WatermelonCorp GitHub organization](https://github.com/WatermelonCorp)
 - [watermelon-platform repository](https://github.com/WatermelonCorp/watermelon-platform)
 - [watermellon-registry repository](https://github.com/WatermelonCorp/watermellon-registry)`,
+  },
+  '/developers/auth': {
+    title: 'Watermelon UI Auth Docs',
+    description: 'Authentication model for Watermelon UI public APIs, developer files, and hosted MCP access.',
+    markdown: `# Watermelon UI Auth Docs
+
+Watermelon UI currently exposes public, read-only developer surfaces that do not require authentication. Agents and engineers can access the public docs, catalog endpoints, and hosted MCP discovery routes without bearer tokens, session cookies, or account login flows.
+
+## No-auth surfaces
+
+- [llms.txt](https://ui.watermelon.sh/llms.txt)
+- [Sitemap](https://ui.watermelon.sh/sitemap.xml)
+- [OpenAPI](https://ui.watermelon.sh/openapi.json)
+- [Public API Docs](https://ui.watermelon.sh/api/docs)
+- [Hosted MCP discovery](https://mcp.watermelon.sh/)
+- [Hosted MCP endpoint](https://mcp.watermelon.sh/mcp)
+
+## Public API
+
+The current public HTTP API is read-only. It supports summary, listing, and single-entry lookup endpoints for the Watermelon catalog. Responses include structured JSON errors, versioning headers, deprecation headers on compatibility aliases, and rate-limit headers for self-throttling clients.
+
+## MCP
+
+The hosted Watermelon MCP server is also read-only and currently unauthenticated. It is intended for structured catalog access, not private account actions or repository mutation.`,
+  },
+  '/developers/mcp': {
+    title: 'Watermelon UI MCP Docs',
+    description: 'How to connect to the hosted Watermelon MCP endpoint and when to use the local server instead.',
+    markdown: `# Watermelon UI MCP Docs
+
+Watermelon MCP gives agents structured access to the public Watermelon catalog without scraping the website manually. The hosted endpoint uses Streamable HTTP and the repository also ships a local MCP server for source-aware workflows.
+
+## Hosted endpoints
+
+- [Discovery root](https://mcp.watermelon.sh/)
+- [Health](https://mcp.watermelon.sh/health)
+- [llms.txt](https://mcp.watermelon.sh/llms.txt)
+- [MCP endpoint](https://mcp.watermelon.sh/mcp)
+
+## Available tools
+
+- catalog_summary
+- list_catalog_entries
+- get_catalog_entry
+
+## GPT and Claude compatibility
+
+Watermelon MCP is intended for MCP-compatible clients that support remote Streamable HTTP connections. If your GPT-oriented or Claude-oriented client supports remote MCP, use https://mcp.watermelon.sh/mcp as the server URL. If your client only supports local MCP servers, clone the platform repository and run bun run mcp locally.`,
   },
   '/about': {
     title: 'About Watermelon UI',

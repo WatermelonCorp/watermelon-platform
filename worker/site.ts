@@ -349,12 +349,22 @@ export default {
           compatibilityAliases: true,
           deprecationPolicy:
             'Unversioned /api/* routes are compatibility aliases. When they are retired, Watermelon will signal deprecation with Deprecation and Sunset headers before removal.',
+          auth: {
+            required: false,
+            mode: 'none',
+            docs: 'https://ui.watermelon.sh/developers/auth',
+          },
+          resources: {
+            developers: 'https://ui.watermelon.sh/developers',
+            authDocs: 'https://ui.watermelon.sh/developers/auth',
+            mcpDocs: 'https://ui.watermelon.sh/developers/mcp',
+            mcpServer: 'https://mcp.watermelon.sh/',
+          },
           openapi: 'https://ui.watermelon.sh/openapi.json',
           endpoints: [
             `/api/${canonicalApiVersion}/catalog/summary`,
             `/api/${canonicalApiVersion}/catalog/entries?kind=blocks`,
             `/api/${canonicalApiVersion}/catalog/entries/{kind}/{slug}`,
-            '/api/og?title=Watermelon%20UI',
           ],
         },
         {

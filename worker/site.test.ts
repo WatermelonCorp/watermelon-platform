@@ -38,6 +38,13 @@ describe('agent page content', () => {
     expect(shell).toContain('noscript .agent-preload {');
     expect(shell).not.toContain('#agent-preload[data-agent-path] .agent-preload');
   });
+
+  it('publishes named agent pages for auth and MCP docs', () => {
+    expect(agentPages['/developers/auth']?.title).toBe('Watermelon UI Auth Docs');
+    expect(agentPages['/developers/auth']?.markdown).toContain('do not require authentication');
+    expect(agentPages['/developers/mcp']?.title).toBe('Watermelon UI MCP Docs');
+    expect(agentPages['/developers/mcp']?.markdown).toContain('https://mcp.watermelon.sh/mcp');
+  });
 });
 
 describe('site worker', () => {
@@ -90,6 +97,35 @@ describe('site worker', () => {
     expect(response.status).toBe(200);
     expect(response.headers.get('Deprecation')).toBe('true');
     expect(response.headers.get('Sunset')).toBeTruthy();
+  });
+
+  it('returns typed API docs metadata with auth and MCP resources', async () => {
+    const response = await siteWorker.fetch(
+      new Request('https://ui.watermelon.sh/api/docs'),
+      mockEnv,
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Deprecation')).toBe('true');
+    expect(response.headers.get('RateLimit-Limit')).toBeTruthy();
+
+    const body = await response.json();
+    expect(body.version).toBe('v1');
+    expect(body.auth.required).toBe(false);
+    expect(body.auth.docs).toBe('https://ui.watermelon.sh/developers/auth');
+    expect(body.resources.mcpDocs).toBe('https://ui.watermelon.sh/developers/mcp');
+    expect(body.endpoints).not.toContain('/api/og?title=Watermelon%20UI');
+  });
+
+  it('supports the versioned API docs alias without deprecation headers', async () => {
+    const response = await siteWorker.fetch(
+      new Request('https://ui.watermelon.sh/api/v1/docs'),
+      mockEnv,
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('X-API-Version')).toBe('v1');
+    expect(response.headers.get('Deprecation')).toBeNull();
   });
 
   it('rejects unsupported API versions with a machine-readable error', async () => {

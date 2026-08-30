@@ -3,7 +3,7 @@
   "info": {
     "title": "Watermelon UI Public API",
     "version": "1.0.0",
-    "description": "Public machine-readable endpoints exposed by Watermelon UI for discovery, catalog lookup, and asset generation. Canonical endpoints are versioned under /api/v1/. Unversioned /api/* routes are compatibility aliases and will emit Deprecation and Sunset headers before retirement."
+    "description": "Public machine-readable endpoints exposed by Watermelon UI for discovery and catalog lookup. Canonical endpoints are versioned under /api/v1/. Unversioned /api/* routes are compatibility aliases and will emit Deprecation and Sunset headers before retirement."
   },
   "servers": [
     {
@@ -400,61 +400,35 @@
         "responses": {
           "200": {
             "description": "API docs index returned successfully.",
+            "headers": {
+              "Deprecation": {
+                "schema": { "type": "string" },
+                "description": "Present on compatibility aliases before retirement."
+              },
+              "Sunset": {
+                "schema": { "type": "string" },
+                "description": "RFC 7231 HTTP-date indicating the planned retirement date for the compatibility alias."
+              },
+              "RateLimit-Limit": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Remaining": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Reset": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Policy": {
+                "schema": { "type": "string" }
+              },
+              "X-API-Version": {
+                "schema": { "type": "string" }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApiDocsIndexResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/og": {
-      "get": {
-        "operationId": "generateOgImage",
-        "summary": "Generate an Open Graph image",
-        "description": "Returns a generated Open Graph image for a Watermelon page title, description, and optional category.",
-        "parameters": [
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Primary heading rendered in the image.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "description",
-            "in": "query",
-            "description": "Supporting copy rendered beneath the title.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "category",
-            "in": "query",
-            "description": "Optional category label rendered above the title.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "PNG or image response generated successfully.",
-            "content": {
-              "image/png": {}
-            }
-          },
-          "500": {
-            "description": "Image generation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -584,6 +558,25 @@
           "name": {
             "type": "string"
           },
+          "version": {
+            "type": "string"
+          },
+          "canonicalBase": {
+            "type": "string",
+            "format": "uri"
+          },
+          "compatibilityAliases": {
+            "type": "boolean"
+          },
+          "deprecationPolicy": {
+            "type": "string"
+          },
+          "auth": {
+            "$ref": "#/components/schemas/PublicAuthSummary"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/ApiDocsResources"
+          },
           "openapi": {
             "type": "string",
             "format": "uri"
@@ -597,8 +590,62 @@
         },
         "required": [
           "name",
+          "version",
+          "canonicalBase",
+          "compatibilityAliases",
+          "deprecationPolicy",
+          "auth",
+          "resources",
           "openapi",
           "endpoints"
+        ]
+      },
+      "PublicAuthSummary": {
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["none"]
+          },
+          "docs": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "required",
+          "mode",
+          "docs"
+        ]
+      },
+      "ApiDocsResources": {
+        "type": "object",
+        "properties": {
+          "developers": {
+            "type": "string",
+            "format": "uri"
+          },
+          "authDocs": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mcpDocs": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mcpServer": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "developers",
+          "authDocs",
+          "mcpDocs",
+          "mcpServer"
         ]
       },
       "ErrorResponse": {
