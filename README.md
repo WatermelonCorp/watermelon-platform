@@ -2,6 +2,8 @@
 
 The open-source platform behind [ui.watermelon.sh](https://ui.watermelon.sh).
 
+> Free for the community. Supported by people and teams who want Watermelon to keep getting better.
+
 This repo powers the browsing experience for Watermelon components, animated UI, blocks, dashboards, and templates. It is where discovery, previews, docs, SEO pages, and contributor-facing content all come together.
 
 ## What This Repo Does
@@ -74,8 +76,19 @@ Docs, polish, accessibility fixes, demo improvements, and contributor experience
 
 ## Support The Work
 
-If Watermelon helps your team, you can support the project through the funding links GitHub surfaces for this repo.
+This platform is part of the free public Watermelon ecosystem. If it saves your team time, sponsorship helps us keep improving it for everyone.
 
 - use the GitHub `Sponsor` button when available
 - use the custom funding link configured for the org: [watermelon.sh](https://watermelon.sh)
 - star the repo and share it with other builders
+
+## Where Sponsor Support Goes
+
+Support for this repo helps fund:
+
+- more free public components, dashboards, templates, and docs
+- better previews, discovery, search, and SEO improvements
+- bug fixes, accessibility work, and contributor experience cleanup
+- hosting, deployment, and ongoing maintenance
+
+As of August 29, 2026, GitHub Sponsors for the `WatermelonCorp` org is not fully activated yet, so the funding links are the current support path.
