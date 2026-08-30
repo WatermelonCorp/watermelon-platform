@@ -1,0 +1,45 @@
+name: Deploy Platform Worker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'worker/**'
+      - 'index.html'
+      - 'package.json'
+      - 'bun.lock'
+      - 'tsconfig*.json'
+      - 'vite.config.ts'
+      - 'wrangler.toml'
+      - '.github/workflows/deploy-platform.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build platform
+        run: bun run build
+
+      - name: Deploy platform worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: bunx wrangler deploy --config wrangler.toml --name watermelon-platform
