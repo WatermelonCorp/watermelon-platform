@@ -13,6 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       #agent-preload {
+        display: none;
+      }
+
+      .agent-preload {
         max-width: 72rem;
         margin: 0 auto;
         padding: 2rem 1.25rem 0;
@@ -21,26 +25,21 @@
           ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      #agent-preload h1,
-      #agent-preload h2 {
+      .agent-preload h1,
+      .agent-preload h2 {
         line-height: 1.2;
       }
 
-      #agent-preload p,
-      #agent-preload li {
+      .agent-preload p,
+      .agent-preload li {
         line-height: 1.6;
       }
 
-      #agent-preload a {
+      .agent-preload a {
         color: #0f172a;
       }
 
-      .agent-preload {
-        display: none;
-      }
-
-      noscript .agent-preload,
-      #agent-preload[data-agent-path] .agent-preload {
+      noscript .agent-preload {
         display: block;
       }
     </style>

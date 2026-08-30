@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test';
+import { readFileSync } from 'node:fs';
 import { agentPages, renderMarkdownAsHtml } from './agent-pages';
 import siteWorker from './site';
 
@@ -28,6 +29,14 @@ describe('agent page content', () => {
     expect(html).toContain('<h2>Subtitle</h2>');
     expect(html).toContain('<li>one</li>');
     expect(html).toContain('<li>two</li>');
+  });
+
+  it('keeps injected agent preload content hidden for visual browsers', () => {
+    const shell = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+
+    expect(shell).toContain('#agent-preload {\n        display: none;');
+    expect(shell).toContain('noscript .agent-preload {');
+    expect(shell).not.toContain('#agent-preload[data-agent-path] .agent-preload');
   });
 });
 
