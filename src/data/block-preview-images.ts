@@ -22,6 +22,7 @@ export interface BlockPreviewImageConfig {
 export const blockPreviewImages: Record<string, BlockPreviewImageConfig> = {
   announcement:  { urlPath: 'announce',     filePrefix: 'announcement' },
   auth:          { urlPath: 'auth',         filePrefix: 'auth' },
+  bento:         { urlPath: 'bento',        filePrefix: 'bento' },
   stats:         { urlPath: 'stats',        filePrefix: 'stats' },
   blog:          { urlPath: 'blog',         filePrefix: 'blog' },
   hero:          { urlPath: 'hero',         filePrefix: 'hero' },

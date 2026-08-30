@@ -1,4 +1,5 @@
 import React from "react";
+import { getBlockPreviewImageUrl } from "@/data/block-preview-images";
 
 export interface BlockFile {
   name: string;
@@ -146,13 +147,16 @@ export const blockCategories: BlockCategory[] = (() => {
   return Array.from(map.entries())
     .map(([slug, items]) => {
       const meta = categoryLabels[slug];
+      const previewBlock = items.find((item) => getBlockPreviewImageUrl(slug, item.slug) || item.image);
       return {
         slug,
         label: meta?.label ?? slug.charAt(0).toUpperCase() + slug.slice(1),
         description:
           meta?.description ?? `${slug.charAt(0).toUpperCase() + slug.slice(1)} block variants.`,
         count: items.length,
-        image: items.find((b) => b.image)?.image,
+        image: previewBlock
+          ? getBlockPreviewImageUrl(slug, previewBlock.slug) ?? previewBlock.image
+          : undefined,
       };
     })
     .sort((a, b) => a.label.localeCompare(b.label));
