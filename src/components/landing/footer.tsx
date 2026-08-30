@@ -2,7 +2,6 @@ import {
   ArrowUpRight01Icon,
   NewTwitterIcon,
   GithubIcon,
-  DiscordIcon,
 } from 'hugeicons-react';
 import { cn } from '@/lib/utils';
 import LogoIcon from '@/assets/logo-icon';
@@ -73,6 +72,12 @@ export default function Footer() {
                 Blocks
               </a>
               <a
+                href="/showcases"
+                className="text-sm text-white/50 transition-colors hover:text-white"
+              >
+                Showcases
+              </a>
+              <a
                 href="/dashboards"
                 className="text-sm text-white/50 transition-colors hover:text-white"
               >
@@ -94,10 +99,16 @@ export default function Footer() {
                 <span className="opacity-70">{'//'}</span> COMMUNITY
               </div>
               <a
-                href=""
+                href="/developers"
                 className="text-sm text-white/50 transition-colors hover:text-white"
               >
-                Discord
+                Developers
+              </a>
+              <a
+                href="https://github.com/WatermelonCorp"
+                className="text-sm text-white/50 transition-colors hover:text-white"
+              >
+                GitHub Org
               </a>
               <a
                 href="https://github.com/WatermelonCorp/watermelon-platform"
@@ -117,6 +128,18 @@ export default function Footer() {
               <div className="text-primary mb-2 flex gap-2 font-mono text-xs tracking-widest">
                 <span className="opacity-70">{'//'}</span> COMPANY
               </div>
+              <a
+                href="/about"
+                className="text-sm text-white/50 transition-colors hover:text-white"
+              >
+                About
+              </a>
+              <a
+                href="/contact"
+                className="text-sm text-white/50 transition-colors hover:text-white"
+              >
+                Contact
+              </a>
               <a
                 href="/terms"
                 className="text-sm text-white/50 transition-colors hover:text-white"
@@ -201,10 +224,10 @@ export default function Footer() {
               <span>All rights reserved.</span>
             </div>
             <div className="flex gap-4 md:gap-6">
-              <a href="#" className="transition-colors hover:text-white">
+              <a href="/privacy" className="transition-colors hover:text-white">
                 Privacy Policy
               </a>
-              <a href="#" className="transition-colors hover:text-white">
+              <a href="/terms" className="transition-colors hover:text-white">
                 Terms of Service
               </a>
             </div>
@@ -227,11 +250,8 @@ export default function Footer() {
               >
                 <GithubIcon className="h-4 w-4" />
               </a>
-              <a
-                href="#"
-                className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/2 text-white/50 transition-all hover:border-white/30 hover:text-white"
-              >
-                <DiscordIcon className="h-4 w-4" />
+              <a href="/contact" className="flex h-8 min-w-8 items-center justify-center border border-white/10 bg-white/2 px-3 text-[10px] uppercase tracking-[0.2em] text-white/50 transition-all hover:border-white/30 hover:text-white">
+                Mail
               </a>
             </div>
           </div>

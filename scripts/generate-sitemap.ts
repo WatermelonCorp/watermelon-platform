@@ -14,6 +14,7 @@
  *   - Templates:           /template/:slug
  *   - Blocks:              /block/:slug
  *                          /blocks/:category
+ *   - Showcases:           /showcase/:slug
  *
  * Run via `bun run sitemap` (also runs automatically as part of `bun run build`).
  */
@@ -67,8 +68,12 @@ const staticRoutes: RouteEntry[] = [
   '/dashboards',
   '/templates',
   '/blocks',
+  '/showcases',
   '/installation',
   '/framework-support',
+  '/developers',
+  '/about',
+  '/contact',
   '/changelog',
   '/terms',
   '/privacy',
@@ -132,6 +137,15 @@ const routes: RouteEntry[] = [...staticRoutes];
   }
   for (const category of blockCategories) {
     routes.push({ path: `/blocks/${encodeURIComponent(category)}`, lastmod: today });
+  }
+}
+
+// ── Showcases — contents/showcases/*.mdx ─────────────────────────────────────
+{
+  for (const file of findMdxFiles(path.join(CONTENTS_DIR, 'showcases'))) {
+    const { slug, title } = matter(fs.readFileSync(file, 'utf-8')).data;
+    if (!slug || !title) continue;
+    routes.push({ path: `/showcase/${slug}`, lastmod: fileDate(file) });
   }
 }
 

@@ -26,10 +26,15 @@ const FrameworkSupportPage = lazy(() => import('@/pages/framework-support'));
 const TermsPage = lazy(() => import('@/pages/terms'));
 const PrivacyPage = lazy(() => import('@/pages/privacy'));
 const CopyrightPage = lazy(() => import('@/pages/copyright'));
+const AboutPage = lazy(() => import('@/pages/about'));
+const ContactPage = lazy(() => import('@/pages/contact'));
+const DevelopersPage = lazy(() => import('@/pages/developers'));
 const DashboardsPage = lazy(() => import('@/pages/dashboards'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const TemplatesPage = lazy(() => import('@/pages/templates'));
 const TemplatePage = lazy(() => import('@/pages/template'));
+const ShowcasesPage = lazy(() => import('@/pages/showcases'));
+const ShowcasePage = lazy(() => import('@/pages/showcase'));
 // const BlocksPage = lazy(() => import("@/pages/blocks"));
 // const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
 // const BlockPage = lazy(() => import("@/pages/block"));
@@ -140,6 +145,30 @@ export function AppRoutes() {
         />
 
         <Route
+          path="/about"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <AboutPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <ContactPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/developers"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <DevelopersPage />
+            </Suspense>
+          }
+        />
+        <Route
           path="/changelog"
           element={
             <Suspense fallback={<DocPageSkeleton />}>
@@ -173,6 +202,22 @@ export function AppRoutes() {
         />
 
         {/* Dashboard pages */}
+        <Route
+          path="/showcases"
+          element={
+            <Suspense fallback={<DashboardsPageSkeleton />}>
+              <ShowcasesPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/showcase/:slug"
+          element={
+            <Suspense fallback={<DashboardPageSkeleton />}>
+              <ShowcasePage />
+            </Suspense>
+          }
+        />
         <Route
           path="/dashboards"
           element={
@@ -247,4 +292,3 @@ export function AppRoutes() {
     </PageLayout>
   );
 }
-

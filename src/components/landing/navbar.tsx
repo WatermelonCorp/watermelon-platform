@@ -38,6 +38,14 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
+            <Link to="/showcases" className="transition-colors hover:text-white">
+              Showcases
+            </Link>
+            <Link to="/developers" className="transition-colors hover:text-white">
+              Developers
+            </Link>
+          </div>
           <div className="flex items-center gap-2">
             <a href="https://github.com/WatermelonCorp/watermelon-platform" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 border border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5 transition-colors">
               <GithubIcon className="w-4 h-4" />
@@ -65,6 +73,12 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/50 shadow-lg p-4 flex flex-col gap-4 animate-fade-in-up">
+          <Link to="/showcases" className="text-sm text-foreground/80 hover:text-foreground">
+            Showcases
+          </Link>
+          <Link to="/developers" className="text-sm text-foreground/80 hover:text-foreground">
+            Developers
+          </Link>
 
           <div className="flex items-center justify-center gap-8 p-4 border-t border-border/50 mt-2">
             <a href="https://github.com/WatermelonCorp/watermelon-platform" className="text-muted-foreground hover:text-foreground"><GithubIcon className="w-6 h-6" /></a>

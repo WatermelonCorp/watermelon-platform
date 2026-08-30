@@ -61,9 +61,11 @@ export default function TermsPage() {
             kind. We are not liable for losses resulting from your use of the site or
             code.
           </DocText>
+          <DocText>
+            Watermelon UI is meant to accelerate development, not replace engineering judgment. You are responsible for validating the code, reviewing the dependencies, confirming accessibility, and making sure any borrowed implementation fits your own product, legal, and security requirements. We care about quality, but we want to be direct that reuse still requires thoughtful review on the adopter side.
+          </DocText>
         </DocSection>
       </DocPage>
     </>
   );
 }
-

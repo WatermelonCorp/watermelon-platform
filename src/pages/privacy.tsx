@@ -40,6 +40,9 @@ export default function PrivacyPage() {
             planning, and performance monitoring. We do not collect unnecessary
             sensitive personal data through normal site usage.
           </DocText>
+          <DocText>
+            Watermelon UI is a public browsing and discovery platform, not a personal account system with complex user data storage. That means our normal privacy posture is intentionally simple: gather only the technical and usage signals required to understand whether pages load correctly, whether documentation is helping, and where the product experience still has friction. If we introduce new flows that collect materially different data in the future, this page should be updated to reflect that clearly rather than hidden behind vague legal wording.
+          </DocText>
         </DocSection>
 
         <DocSection title="Contact">
@@ -52,4 +55,3 @@ export default function PrivacyPage() {
     </>
   );
 }
-

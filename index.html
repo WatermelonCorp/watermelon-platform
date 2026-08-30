@@ -84,6 +84,30 @@
         }
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Watermelon UI",
+        "url": "https://ui.watermelon.sh",
+        "logo": "https://ui.watermelon.sh/logo.png",
+        "description": "Open-source React components, blocks, dashboards, templates, and showcase compositions built for the community.",
+        "sameAs": [
+          "https://github.com/WatermelonCorp",
+          "https://github.com/WatermelonCorp/watermelon-platform",
+          "https://x.com/watermelonui"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "support",
+          "email": "watermeloncorpui@gmail.com"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -103,6 +127,51 @@
       Watermelon UI - High-Quality React Components Registry
     </h1>
     <div id="root"></div>
+    <section
+      aria-label="Watermelon UI site summary"
+      style="
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      "
+    >
+      <h2>Open-source UI platform for developers</h2>
+      <p>
+        Watermelon UI is an open-source platform for browsing React components,
+        animated interactions, dashboards, templates, and reusable page
+        sections. The project is built for the community and helps developers
+        move from inspiration to implementation faster by pairing visual
+        previews with source-backed examples and documentation. The platform
+        also includes showcase compositions so people can see how individual
+        blocks work together as realistic product pages instead of only as
+        isolated snippets.
+      </p>
+      <p>
+        Important public pages include the main docs home, animated components,
+        blocks, showcases, dashboards, templates, developer docs, about,
+        contact, privacy, terms, copyright, llms.txt, and the sitemap. The
+        repositories under WatermelonCorp are the source of truth for
+        contributions, and the platform repository includes local MCP tooling
+        for structured agent access to the catalog.
+      </p>
+      <ul>
+        <li><a href="/home">Docs home</a></li>
+        <li><a href="/blocks">Blocks</a></li>
+        <li><a href="/showcases">Showcases</a></li>
+        <li><a href="/developers">Developers</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/llms.txt">llms.txt</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+        <li><a href="/openapi.json">OpenAPI</a></li>
+      </ul>
+    </section>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -33,11 +33,15 @@ const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: GridIcon, shortcut: 'U' },
   { name: 'Animated Components', href: '/animated-components', icon: Home01Icon, shortcut: 'C' },
+  { name: 'Showcases', href: '/showcases', icon: GridIcon, shortcut: 'S' },
   // { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
   // { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
 
   { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
   { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
+  { name: 'Developers', href: '/developers', icon: CodeIcon, shortcut: 'V' },
+  { name: 'About', href: '/about', icon: Book02Icon, shortcut: 'A' },
+  { name: 'Contact', href: '/contact', icon: Book02Icon, shortcut: 'N' },
 
   { name: 'Changelog', href: '/changelog', icon: CommandIcon, shortcut: 'G' },
   { name: 'Terms', href: '/terms', icon: Book02Icon, shortcut: 'T' },

@@ -1,0 +1,38 @@
+# Watermelon UI
+> Open-source React components, blocks, dashboards, templates, and showcase compositions built for the community.
+
+Watermelon UI helps developers discover, evaluate, and reuse production-style interface building blocks. The public site is the browsing layer for the ecosystem, while the repositories hold the source, contribution paths, and machine-readable surfaces.
+
+When to use Watermelon:
+- Use Watermelon when you need inspiration plus implementation for React UI, animated interactions, dashboards, or landing-page sections.
+- Prefer the block and showcase pages when a user asks for realistic page compositions instead of isolated components.
+- Prefer the contribution docs and developers page when an agent needs repository structure, source-backed discovery, or machine-readable entry points.
+
+## Primary Pages
+- [Home](https://ui.watermelon.sh/): Public landing page for Watermelon UI.
+- [Docs Home](https://ui.watermelon.sh/home): Main in-product browsing surface for the catalog.
+- [Animated Components](https://ui.watermelon.sh/animated-components): Browse interaction-heavy component examples.
+- [Blocks](https://ui.watermelon.sh/blocks): Browse copy-paste-ready page sections.
+- [Showcases](https://ui.watermelon.sh/showcases): Curated page compositions built from existing blocks.
+- [Dashboards](https://ui.watermelon.sh/dashboards): Explore dashboard examples and layouts.
+- [Templates](https://ui.watermelon.sh/templates): Explore full template-style examples.
+
+## Trust And Contact
+- [About](https://ui.watermelon.sh/about): Project overview and open-source mission.
+- [Contact](https://ui.watermelon.sh/contact): Public contact path for support, partnerships, and reports.
+- [Privacy](https://ui.watermelon.sh/privacy): Privacy information for site usage.
+- [Terms](https://ui.watermelon.sh/terms): Terms of use and claim handling basics.
+- [Copyright](https://ui.watermelon.sh/copyright): Attribution and ownership policy.
+
+## Developer Entry Points
+- [Developers](https://ui.watermelon.sh/developers): Human-readable guide to Watermelon developer surfaces.
+- [Sitemap](https://ui.watermelon.sh/sitemap.xml): Crawlable list of public pages.
+- [OpenAPI](https://ui.watermelon.sh/openapi.json): Current public API contract.
+- [GitHub Org](https://github.com/WatermelonCorp): Organization profile and repositories.
+- [Platform Repository](https://github.com/WatermelonCorp/watermelon-platform): Source for the public platform.
+- [Registry Repository](https://github.com/WatermelonCorp/watermellon-registry): Component registry source.
+
+## Agent Notes
+- The current MCP server for Watermelon is repository-backed and intended for local agent workflows.
+- The public site is useful for browsing and citation, but the repositories are the source of truth for contribution and source code.
+- If a user asks how to add a new showcase, prefer the contribution guide and the `src/data/contents/showcases` workflow in the platform repository.

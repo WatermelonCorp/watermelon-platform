@@ -1,0 +1,81 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Watermelon UI Public API",
+    "version": "1.0.0",
+    "description": "Public endpoints exposed by Watermelon UI."
+  },
+  "servers": [
+    {
+      "url": "https://ui.watermelon.sh"
+    }
+  ],
+  "paths": {
+    "/api/og": {
+      "get": {
+        "operationId": "generateOgImage",
+        "summary": "Generate an Open Graph image",
+        "description": "Returns a generated Open Graph image for a Watermelon page title, description, and optional category.",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Primary heading rendered in the image.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Supporting copy rendered beneath the title.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Optional category label rendered above the title.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PNG or image response generated successfully.",
+            "content": {
+              "image/png": {}
+            }
+          },
+          "500": {
+            "description": "Image generation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      }
+    }
+  }
+}

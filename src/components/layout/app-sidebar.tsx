@@ -65,6 +65,7 @@ import {
 import { allCategories } from '@/data/animated-components-registry';
 import { uiCategories } from '@/data/components-registry';
 import { blockCategories } from '@/data/blocks';
+import { showcases } from '@/data/showcases';
 
 // ─── Imports: routing ────────────────────────────────────────────────────────
 import { Link, useLocation } from 'react-router-dom';
@@ -331,12 +332,15 @@ export function AppSidebar() {
     { title: 'Installation', url: '/installation', icon: HardDriveDownload },
     // { title: "Basic Usage", url: "/basic-usage", icon: PlayCircleIcon },
     { title: 'Framework Support', url: '/framework-support', icon: CodeIcon },
+    { title: 'Developers', url: '/developers', icon: CodeIcon },
     // { title: "CLI", url: "/cli", icon: ComputerTerminal02Icon },
     { title: 'Changelog', url: '/changelog', icon: Clock01Icon },
   ];
 
   // ── Legal links — shown in a collapsible in the footer ──
   const legalLinks = [
+    { title: 'About', url: '/about' },
+    { title: 'Contact', url: '/contact' },
     { title: 'Terms', url: '/terms' },
     { title: 'Privacy', url: '/privacy' },
     { title: 'Copyright', url: '/copyright' },
@@ -372,6 +376,16 @@ export function AppSidebar() {
         title: cat.label,
         url: `/blocks/${cat.slug}`,
         isActive: location.pathname === `/blocks/${cat.slug}`,
+      })),
+    [location.pathname],
+  );
+
+  const showcaseNavItems = useMemo(
+    () =>
+      showcases.map((showcase) => ({
+        title: showcase.name,
+        url: `/showcase/${showcase.slug}`,
+        isActive: location.pathname === `/showcase/${showcase.slug}`,
       })),
     [location.pathname],
   );
@@ -492,6 +506,16 @@ export function AppSidebar() {
               icon={Component}
               items={uiComponentCategories}
               isAnyChildActive={location.pathname.startsWith('/components')}
+            />
+            <ExploreCollapsibleItem
+              title="Showcases"
+              titleUrl="/showcases"
+              icon={SparklesIcon}
+              items={showcaseNavItems}
+              isAnyChildActive={
+                location.pathname === '/showcases' ||
+                location.pathname.startsWith('/showcase/')
+              }
             />
             {/* Blocks — collapsible, expands to all UI block categories */}
             <ExploreCollapsibleItem

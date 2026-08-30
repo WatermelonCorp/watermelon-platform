@@ -8,6 +8,7 @@ import { CommandPalette } from '@/components/layout/command-palette';
 import { registry } from '@/data/animated-components-registry';
 import { dashboards } from '@/data/dashboards';
 import { blocks, blockCategories } from '@/data/blocks';
+import { showcases } from '@/data/showcases';
 import { motion } from 'motion/react';
 import { GlobalCssInput } from './global-css-input';
 
@@ -19,6 +20,10 @@ const routeConfig: Record<string, { label: string; href?: string }> = {
 
   '/installation': { label: 'Installation' },
   '/framework-support': { label: 'Framework Support' },
+  '/showcases': { label: 'Showcases' },
+  '/developers': { label: 'Developers' },
+  '/about': { label: 'About' },
+  '/contact': { label: 'Contact' },
 
   '/terms': { label: 'Terms' },
   '/privacy': { label: 'Privacy' },
@@ -82,6 +87,14 @@ export const Navbar = () => {
           { label: 'Dashboards', href: '/dashboards' },
           { label: item.name },
         ];
+      }
+    }
+
+    if (path.startsWith('/showcase/')) {
+      const slug = params.slug || path.split('/').pop();
+      const item = showcases.find((showcase) => showcase.slug === slug);
+      if (item) {
+        return [{ label: 'Showcases', href: '/showcases' }, { label: item.name }];
       }
     }
 
