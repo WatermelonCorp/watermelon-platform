@@ -110,8 +110,14 @@ function apiError(
 }
 
 function isAssetPath(pathname: string) {
+  const lastSegment = pathname.split('/').pop() ?? '';
+  const hasFileExtension = /\.[a-z0-9]+$/i.test(lastSegment);
+
   return (
     pathname.startsWith('/assets/') ||
+    pathname.startsWith('/brand/') ||
+    pathname.startsWith('/content/') ||
+    pathname.startsWith('/previews/') ||
     pathname.startsWith('/favicon') ||
     pathname.startsWith('/apple-touch-icon') ||
     pathname.startsWith('/site.webmanifest') ||
@@ -119,7 +125,8 @@ function isAssetPath(pathname: string) {
     pathname === '/sitemap.xml' ||
     pathname === '/llms.txt' ||
     pathname === '/openapi.json' ||
-    pathname === '/404.html'
+    pathname === '/404.html' ||
+    hasFileExtension
   );
 }
 
