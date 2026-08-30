@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ResilientImage } from "@/components/ui/resilient-image";
 
 interface Props {
   imageUrl: string;
@@ -14,10 +15,15 @@ export default function BgFrame({ imageUrl, className, alt = "Image frame" }: Pr
         className
       )}
     >
-      <img
+      <ResilientImage
         src={imageUrl}
         alt={alt}
         className="w-full h-auto object-cover"
+        fallback={
+          <div className="flex min-h-40 w-full items-center justify-center bg-muted text-sm font-medium text-muted-foreground">
+            Preview unavailable
+          </div>
+        }
       />
     </div>
   );

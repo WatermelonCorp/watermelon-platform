@@ -12,6 +12,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@/lib/hugeicons';
 import { trackEvent } from '@/lib/analytics';
 import DashboardFooter from '@/components/layout/dashboard-footer';
+import { ResilientImage } from '@/components/ui/resilient-image';
 
 const ComponentModal = lazy(() => import('@/components/registry/component-modal').then((m) => ({ default: m.ComponentModal })));
 const DashboardModal = lazy(() => import('@/components/registry/dashboard-modal').then((m) => ({ default: m.DashboardModal })));
@@ -26,6 +27,13 @@ export default function HomePage() {
   // In a real app, you might have a "featured" flag.
   const featuredItems = registry.slice(0, 6);
   const featuredBlocks = blockCategories.slice(0, 6);
+
+  const renderBlockFallback = (label: string) => (
+    <div className="text-center space-y-2 p-4">
+      <div className="text-4xl">🧩</div>
+      <p className="text-sm font-medium text-neutral-500">{label}</p>
+    </div>
+  );
 
   const organizationSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -124,18 +132,16 @@ export default function HomePage() {
 
                   <div className="absolute inset-0 flex items-center justify-center bg-white dark:bg-black transition-colors duration-300">
                     {cat.image ? (
-                      <img
+                      <ResilientImage
                         src={cat.image}
                         alt={`${cat.label} preview`}
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fallback={renderBlockFallback(cat.label)}
                       />
                     ) : (
-                      <div className="text-center space-y-2 p-4">
-                        <div className="text-4xl">🧩</div>
-                        <p className="text-sm text-neutral-500 font-medium">{cat.label}</p>
-                      </div>
+                      renderBlockFallback(cat.label)
                     )}
                   </div>
                 </div>

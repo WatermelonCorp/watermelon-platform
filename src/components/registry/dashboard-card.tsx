@@ -2,6 +2,7 @@ import type { DashboardItem } from "@/data/dashboards";
 import type { BlockItem } from "@/data/blocks";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import { ResilientImage } from "@/components/ui/resilient-image";
 
 interface DashboardCardProps {
   item: DashboardItem | BlockItem;
@@ -10,6 +11,7 @@ interface DashboardCardProps {
 }
 
 export function DashboardCard({ item, onClick, trackType = "dashboard" }: DashboardCardProps) {
+  const fallbackIcon = trackType === "block" ? "🧩" : "📊";
 
   const getImageSrcSet = (src: string) => {
     if (!src.startsWith("http")) return undefined;
@@ -101,7 +103,7 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
           )}
         >
           {item.image ? (
-            <img
+            <ResilientImage
               src={item.image}
               srcSet={getImageSrcSet(item.image)}
               sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
@@ -109,13 +111,16 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
               loading="lazy"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
+              fallback={
+                <div className="space-y-2 p-4 text-center">
+                  <div className="text-4xl">{fallbackIcon}</div>
+                  <p className="text-sm font-medium text-neutral-500">{item.name}</p>
+                </div>
+              }
             />
           ) : (
             <div className="text-center space-y-2 p-4">
-              <div className="text-4xl">{trackType === "block" ? "🧩" : "📊"}</div>
+              <div className="text-4xl">{fallbackIcon}</div>
               <p className="text-sm text-neutral-500 font-medium">{item.name}</p>
             </div>
           )}

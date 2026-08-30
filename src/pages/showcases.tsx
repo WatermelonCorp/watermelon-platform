@@ -3,6 +3,7 @@ import { showcases } from '@/data/showcases';
 import { SEOHead } from '@/components/seo-head';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
 import { cn } from '@/lib/utils';
+import { ResilientImage } from '@/components/ui/resilient-image';
 
 export default function ShowcasesPage() {
   return (
@@ -53,12 +54,17 @@ export default function ShowcasesPage() {
                 </div>
 
                 <div className="relative aspect-video overflow-hidden rounded-[20px] border border-neutral-200/50 bg-muted dark:border-white/5">
-                  <img
+                  <ResilientImage
                     src={showcase.image}
                     alt={`${showcase.name} preview`}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
+                    fallback={
+                      <div className="absolute inset-0 flex items-center justify-center bg-white text-sm font-medium text-muted-foreground dark:bg-black">
+                        Showcase preview
+                      </div>
+                    }
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/55 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-2 p-4">
