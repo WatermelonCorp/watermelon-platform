@@ -3,6 +3,7 @@ import { blockCategories } from '@/data/blocks';
 import { SEOHead } from '@/components/seo-head';
 import { cn } from '@/lib/utils';
 import { CatalogPageHeader } from '@/components/layout/catalog-page-header';
+import { ResilientImage } from '@/components/ui/resilient-image';
 
 export default function BlocksPage() {
   return (
@@ -63,12 +64,18 @@ export default function BlocksPage() {
 
                   <div className="absolute inset-0 flex items-center justify-center bg-white dark:bg-black transition-colors duration-300">
                     {cat.image ? (
-                      <img
+                      <ResilientImage
                         src={cat.image}
                         alt={`${cat.label} preview`}
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fallback={
+                          <div className="text-center space-y-2 p-4">
+                            <div className="text-4xl">🧩</div>
+                            <p className="text-sm text-neutral-500 font-medium">{cat.label}</p>
+                          </div>
+                        }
                       />
                     ) : (
                       <div className="text-center space-y-2 p-4">
