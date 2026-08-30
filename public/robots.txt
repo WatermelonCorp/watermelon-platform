@@ -2,4 +2,25 @@ User-agent: *
 Allow: /
 Disallow: /preview/
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: ora-agent
+Allow: /
+
 Sitemap: https://ui.watermelon.sh/sitemap.xml

@@ -54,7 +54,7 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders });
     }
 
-    if (url.pathname === '/health') {
+    if (url.pathname === '/health' || url.pathname === '/mcp/health') {
       return json({
         ok: true,
         service: 'watermelon-mcp',
@@ -105,6 +105,7 @@ export default {
       {
         error: 'not_found',
         message: 'Use /mcp for the MCP endpoint.',
+        hint: 'Try /, /health, /llms.txt, or /mcp depending on whether you need discovery metadata or the Streamable HTTP MCP transport.',
       },
       { status: 404 },
     );

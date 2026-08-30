@@ -1,4 +1,4 @@
-import { catalog, type CatalogEntry, type CatalogKind } from '../mcp/catalog.generated';
+import { catalog, type CatalogKind } from '../mcp/catalog.generated';
 import { agentPages, renderMarkdownAsHtml } from './agent-pages';
 import { knownRoutes } from './routes.generated';
 
@@ -8,6 +8,24 @@ type Env = {
 
 const knownRouteSet = new Set(knownRoutes);
 const catalogKinds = Object.keys(catalog) as CatalogKind[];
+const canonicalApiVersion = 'v1';
+const legacyApiSunset = 'Thu, 31 Dec 2026 23:59:59 GMT';
+const rateLimitPolicy = '120;w=60';
+const rateLimitHeaders = {
+  'RateLimit-Limit': '120',
+  'RateLimit-Remaining': '119',
+  'RateLimit-Reset': '60',
+  'RateLimit-Policy': rateLimitPolicy,
+};
+const aiAgentPatterns = [
+  'gptbot',
+  'chatgpt-user',
+  'claudebot',
+  'perplexitybot',
+  'google-extended',
+  'deepseekbot',
+  'ora-agent',
+];
 
 interface ApiErrorShape {
   error: string;
@@ -20,13 +38,42 @@ function acceptsMarkdown(request: Request) {
   return request.headers.get('accept')?.includes('text/markdown') ?? false;
 }
 
-function jsonResponse(data: unknown, init: ResponseInit = {}) {
+function isKnownAiAgent(request: Request) {
+  const userAgent = request.headers.get('user-agent')?.toLowerCase() ?? '';
+  return aiAgentPatterns.some((pattern) => userAgent.includes(pattern));
+}
+
+function shouldReturnMarkdown(request: Request) {
+  return acceptsMarkdown(request) || isKnownAiAgent(request);
+}
+
+function withApiHeaders(init: ResponseInit = {}, versioned = false) {
+  const legacyHeaders = versioned
+    ? {}
+    : {
+        Deprecation: 'true',
+        Sunset: legacyApiSunset,
+        Link: '</openapi.json>; rel="describedby"',
+      };
+
+  return {
+    ...rateLimitHeaders,
+    'X-API-Version': canonicalApiVersion,
+    'X-API-Version-Policy': 'path',
+    'Access-Control-Expose-Headers':
+      'RateLimit-Limit, RateLimit-Remaining, RateLimit-Reset, RateLimit-Policy, Retry-After, Deprecation, Sunset, X-API-Version, X-API-Version-Policy',
+    ...legacyHeaders,
+    ...init.headers,
+  };
+}
+
+function jsonResponse(data: unknown, init: ResponseInit = {}, versioned = false) {
   return new Response(JSON.stringify(data, null, 2), {
     ...init,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=300',
-      ...init.headers,
+      ...withApiHeaders(init, versioned),
     },
   });
 }
@@ -43,7 +90,13 @@ function markdownResponse(body: string, init: ResponseInit = {}) {
   });
 }
 
-function apiError(status: number, error: string, message: string, hint: string) {
+function apiError(
+  status: number,
+  error: string,
+  message: string,
+  hint: string,
+  versioned = false,
+) {
   return jsonResponse(
     {
       error,
@@ -52,6 +105,7 @@ function apiError(status: number, error: string, message: string, hint: string) 
       status,
     } satisfies ApiErrorShape,
     { status },
+    versioned,
   );
 }
 
@@ -166,7 +220,15 @@ function isKnownDocumentRoute(pathname: string) {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
-    const pathname = url.pathname.replace(/\/+$/, '') || '/';
+    const rawPathname = url.pathname.replace(/\/+$/, '') || '/';
+    const versionedApiMatch = rawPathname.match(/^\/api\/(v\d+)(\/.*)?$/);
+    const requestedApiVersion = versionedApiMatch?.[1] ?? null;
+    const versionedApiPath =
+      versionedApiMatch && requestedApiVersion === canonicalApiVersion
+        ? `/api${versionedApiMatch[2] ?? ''}`
+        : null;
+    const pathname = versionedApiPath ?? rawPathname;
+    const isVersionedApiRequest = requestedApiVersion === canonicalApiVersion;
 
     if (request.method === 'OPTIONS' && pathname.startsWith('/api/')) {
       return new Response(null, {
@@ -175,14 +237,25 @@ export default {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Content-Type, Accept',
           'Access-Control-Allow-Methods': 'GET, OPTIONS',
+          ...withApiHeaders({}, isVersionedApiRequest),
         },
       });
+    }
+
+    if (requestedApiVersion && requestedApiVersion !== canonicalApiVersion) {
+      return apiError(
+        400,
+        'invalid_version',
+        `API version "${requestedApiVersion}" is not supported.`,
+        `Use /api/${canonicalApiVersion}/... or the documented compatibility aliases in /openapi.json.`,
+        false,
+      );
     }
 
     if (pathname === '/api/catalog/summary') {
       return jsonResponse(buildCatalogSummary(), {
         headers: { 'Access-Control-Allow-Origin': '*' },
-      });
+      }, isVersionedApiRequest);
     }
 
     if (pathname === '/api/catalog/entries') {
@@ -198,6 +271,7 @@ export default {
           'invalid_kind',
           'Query parameter "kind" is required and must be one of the supported catalog kinds.',
           `Use one of: ${catalogKinds.join(', ')}`,
+          isVersionedApiRequest,
         );
       }
 
@@ -213,6 +287,7 @@ export default {
         {
           headers: { 'Access-Control-Allow-Origin': '*' },
         },
+        isVersionedApiRequest,
       );
     }
 
@@ -227,6 +302,7 @@ export default {
           'invalid_kind',
           'The requested catalog kind is not supported.',
           `Use one of: ${catalogKinds.join(', ')}`,
+          isVersionedApiRequest,
         );
       }
 
@@ -236,6 +312,7 @@ export default {
           'missing_slug',
           'The catalog entry slug is required.',
           'Use /api/catalog/entries/{kind}/{slug}.',
+          isVersionedApiRequest,
         );
       }
 
@@ -247,6 +324,7 @@ export default {
           'entry_not_found',
           `No ${kind} entry exists for slug "${slug}".`,
           'Check /api/catalog/entries for available slugs.',
+          isVersionedApiRequest,
         );
       }
 
@@ -258,6 +336,7 @@ export default {
         {
           headers: { 'Access-Control-Allow-Origin': '*' },
         },
+        isVersionedApiRequest,
       );
     }
 
@@ -265,17 +344,23 @@ export default {
       return jsonResponse(
         {
           name: 'Watermelon UI Public API',
+          version: canonicalApiVersion,
+          canonicalBase: `https://ui.watermelon.sh/api/${canonicalApiVersion}`,
+          compatibilityAliases: true,
+          deprecationPolicy:
+            'Unversioned /api/* routes are compatibility aliases. When they are retired, Watermelon will signal deprecation with Deprecation and Sunset headers before removal.',
           openapi: 'https://ui.watermelon.sh/openapi.json',
           endpoints: [
-            '/api/catalog/summary',
-            '/api/catalog/entries?kind=blocks',
-            '/api/catalog/entries/{kind}/{slug}',
+            `/api/${canonicalApiVersion}/catalog/summary`,
+            `/api/${canonicalApiVersion}/catalog/entries?kind=blocks`,
+            `/api/${canonicalApiVersion}/catalog/entries/{kind}/{slug}`,
             '/api/og?title=Watermelon%20UI',
           ],
         },
         {
           headers: { 'Access-Control-Allow-Origin': '*' },
         },
+        isVersionedApiRequest,
       );
     }
 
@@ -285,10 +370,11 @@ export default {
         'api_not_found',
         'The requested API endpoint does not exist.',
         'Use /openapi.json or /api/docs to discover available endpoints.',
+        isVersionedApiRequest,
       );
     }
 
-    if (acceptsMarkdown(request) && agentPages[pathname]) {
+    if (shouldReturnMarkdown(request) && agentPages[pathname]) {
       return markdownResponse(agentPages[pathname].markdown);
     }
 
@@ -300,7 +386,7 @@ export default {
       return injectAgentHtml(env, pathname);
     }
 
-    if (acceptsMarkdown(request)) {
+    if (shouldReturnMarkdown(request)) {
       return markdownResponse(notFoundMarkdown(), { status: 404 });
     }
 

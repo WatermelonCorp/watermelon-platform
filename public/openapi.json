@@ -3,22 +3,48 @@
   "info": {
     "title": "Watermelon UI Public API",
     "version": "1.0.0",
-    "description": "Public machine-readable endpoints exposed by Watermelon UI for discovery, catalog lookup, and asset generation."
+    "description": "Public machine-readable endpoints exposed by Watermelon UI for discovery, catalog lookup, and asset generation. Canonical endpoints are versioned under /api/v1/. Unversioned /api/* routes are compatibility aliases and will emit Deprecation and Sunset headers before retirement."
   },
   "servers": [
     {
       "url": "https://ui.watermelon.sh"
+    },
+    {
+      "url": "https://ui.watermelon.sh/api/v1",
+      "description": "Canonical versioned API base"
     }
   ],
   "paths": {
-    "/api/catalog/summary": {
+    "/api/v1/catalog/summary": {
       "get": {
-        "operationId": "getCatalogSummary",
+        "operationId": "getCatalogSummaryV1",
         "summary": "Get Watermelon catalog summary",
-        "description": "Returns top-level counts for animated components, blocks, dashboards, templates, and showcases.",
+        "description": "Canonical v1 endpoint. Returns top-level counts for animated components, blocks, dashboards, templates, and showcases.",
         "responses": {
           "200": {
             "description": "Catalog summary returned successfully.",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": { "type": "string" },
+                "description": "Request quota for the current window."
+              },
+              "RateLimit-Remaining": {
+                "schema": { "type": "string" },
+                "description": "Remaining requests in the current window."
+              },
+              "RateLimit-Reset": {
+                "schema": { "type": "string" },
+                "description": "Seconds until the current quota window resets."
+              },
+              "RateLimit-Policy": {
+                "schema": { "type": "string" },
+                "description": "Applied rate-limit policy, for example 120;w=60."
+              },
+              "X-API-Version": {
+                "schema": { "type": "string" },
+                "description": "Resolved API version."
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -30,11 +56,142 @@
         }
       }
     },
+    "/api/catalog/summary": {
+      "get": {
+        "operationId": "getCatalogSummary",
+        "summary": "Get Watermelon catalog summary",
+        "description": "Compatibility alias for /api/v1/catalog/summary. Returns top-level counts for animated components, blocks, dashboards, templates, and showcases.",
+        "responses": {
+          "200": {
+            "description": "Catalog summary returned successfully.",
+            "headers": {
+              "Deprecation": {
+                "schema": { "type": "string" },
+                "description": "Present on compatibility aliases before retirement."
+              },
+              "Sunset": {
+                "schema": { "type": "string" },
+                "description": "RFC 7231 HTTP-date indicating the planned retirement date for the compatibility alias."
+              },
+              "RateLimit-Limit": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Remaining": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Reset": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Policy": {
+                "schema": { "type": "string" }
+              },
+              "X-API-Version": {
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogSummaryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/entries": {
+      "get": {
+        "operationId": "listCatalogEntriesV1",
+        "summary": "List Watermelon catalog entries",
+        "description": "Canonical v1 endpoint. Lists public Watermelon catalog entries for one content kind, with optional category and query filtering.",
+        "parameters": [
+          {
+            "name": "kind",
+            "in": "query",
+            "required": true,
+            "description": "The catalog kind to query.",
+            "schema": {
+              "$ref": "#/components/schemas/CatalogKind"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Optional category filter for matching entries.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "description": "Optional free-text query matched against title, slug, description, and category.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Catalog entries returned successfully.",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Remaining": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Reset": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Policy": {
+                "schema": { "type": "string" }
+              },
+              "X-API-Version": {
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogEntriesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/catalog/entries": {
       "get": {
         "operationId": "listCatalogEntries",
         "summary": "List Watermelon catalog entries",
-        "description": "Lists public Watermelon catalog entries for one content kind, with optional category and query filtering.",
+        "description": "Compatibility alias for /api/v1/catalog/entries. Lists public Watermelon catalog entries for one content kind, with optional category and query filtering.",
         "parameters": [
           {
             "name": "kind",
@@ -100,11 +257,87 @@
         }
       }
     },
+    "/api/v1/catalog/entries/{kind}/{slug}": {
+      "get": {
+        "operationId": "getCatalogEntryV1",
+        "summary": "Get one Watermelon catalog entry",
+        "description": "Canonical v1 endpoint. Returns one catalog entry by kind and slug.",
+        "parameters": [
+          {
+            "name": "kind",
+            "in": "path",
+            "required": true,
+            "description": "The catalog kind.",
+            "schema": {
+              "$ref": "#/components/schemas/CatalogKind"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "The entry slug.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Catalog entry returned successfully.",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Remaining": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Reset": {
+                "schema": { "type": "string" }
+              },
+              "RateLimit-Policy": {
+                "schema": { "type": "string" }
+              },
+              "X-API-Version": {
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogEntryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid kind or missing slug.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entry not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/catalog/entries/{kind}/{slug}": {
       "get": {
         "operationId": "getCatalogEntry",
         "summary": "Get one Watermelon catalog entry",
-        "description": "Returns one catalog entry by kind and slug.",
+        "description": "Compatibility alias for /api/v1/catalog/entries/{kind}/{slug}. Returns one catalog entry by kind and slug.",
         "parameters": [
           {
             "name": "kind",
@@ -163,7 +396,7 @@
       "get": {
         "operationId": "getApiDocsIndex",
         "summary": "Get API docs index",
-        "description": "Returns a small discovery document with the main Watermelon public API endpoints.",
+        "description": "Returns a small discovery document with the main Watermelon public API endpoints, canonical versioning path, and compatibility policy.",
         "responses": {
           "200": {
             "description": "API docs index returned successfully.",
