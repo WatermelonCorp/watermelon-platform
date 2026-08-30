@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 import { DownloadIcon, FileSpreadsheetIcon, FileTextIcon } from 'lucide-react'
 
 import Papa from 'papaparse'
-import * as XLSX from 'xlsx'
+import writeExcelFile from 'write-excel-file/browser'
 
 import { Badge } from '@/components/base-ui/badge'
 import { Checkbox } from '@/components/base-ui/checkbox'
@@ -160,14 +160,35 @@ const DataTable12 = () => {
     downloadBlob(new Blob([csv], { type: 'text/csv;charset=utf-8;' }), `payments-export-${new Date().toISOString().split('T')[0]}.csv`)
   }
 
-  const exportToExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(exportRows())
-    const workbook = XLSX.utils.book_new()
+  const exportToExcel = async () => {
+    const rows = exportRows()
+    const sheetData = [
+      [
+        { value: 'ID', fontWeight: 'bold' as const },
+        { value: 'Name', fontWeight: 'bold' as const },
+        { value: 'Status', fontWeight: 'bold' as const },
+        { value: 'Email', fontWeight: 'bold' as const },
+        { value: 'Amount', fontWeight: 'bold' as const }
+      ],
+      ...rows.map((payment) => [
+        payment.id,
+        payment.name,
+        payment.status,
+        payment.email,
+        { value: payment.amount, format: '$#,##0.00' }
+      ])
+    ]
 
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Payments')
-    worksheet['!cols'] = [{ wch: 12 }, { wch: 20 }, { wch: 15 }, { wch: 28 }, { wch: 14 }]
-
-    XLSX.writeFile(workbook, `payments-export-${new Date().toISOString().split('T')[0]}.xlsx`)
+    await writeExcelFile(sheetData, {
+      columns: [
+        { width: 14 },
+        { width: 22 },
+        { width: 16 },
+        { width: 30 },
+        { width: 16 }
+      ],
+      sheet: 'Payments'
+    }).toFile(`payments-export-${new Date().toISOString().split('T')[0]}.xlsx`)
   }
 
   const exportToJSON = () => {
