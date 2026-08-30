@@ -23,6 +23,162 @@ export interface ChangelogEntry {
 
 export const changelogData: ChangelogEntry[] = [
   {
+    version: '2.3.0',
+    date: 'August 30, 2026',
+    stats: [
+      {
+        label: 'Animated components',
+        count: 131,
+        href: '/animated-components',
+      },
+      {
+        label: 'Blocks',
+        count: 189,
+        href: '/blocks',
+      },
+      {
+        label: 'Dashboards',
+        count: 11,
+        href: '/dashboards',
+      },
+      {
+        label: 'Showcases',
+        count: 2,
+        href: '/showcases',
+      },
+    ],
+    sections: [
+      {
+        title: 'Showcases And Contribution Flow',
+        items: [
+          {
+            text: 'Added a dedicated showcase system so curated page compositions can be contributed through source-backed MDX files and reviewed cleanly through pull requests.',
+            tags: ['showcases', 'contributing', 'mdx'],
+          },
+          {
+            text: 'Expanded README and contribution guidance so community contributors can understand the platform structure, sponsorship paths, and developer entry points faster.',
+            tags: ['docs', 'community', 'sponsors'],
+          },
+        ],
+      },
+      {
+        title: 'AI And Developer Surfaces',
+        items: [
+          {
+            text: 'Added stronger AI discovery surfaces including `llms.txt`, a richer OpenAPI spec, public API docs, trust pages, and improved sitemap coverage.',
+            tags: ['ai', 'openapi', 'sitemap', 'developers'],
+          },
+          {
+            text: 'Shipped structured catalog APIs and machine-readable JSON error responses so agents can inspect Watermelon content without scraping the interface.',
+            tags: ['api', 'json', 'catalog'],
+          },
+          {
+            text: 'Added Watermelon MCP support for local workflows and a Cloudflare Worker deployment path for hosted MCP.',
+            tags: ['mcp', 'cloudflare', 'workers'],
+          },
+        ],
+      },
+      {
+        title: 'Platform Reliability',
+        items: [
+          {
+            text: 'Hardened dependencies and improved the public site response layer so known routes return better agent-readable content and unknown routes can return a real 404.',
+            tags: ['security', 'dependencies', '404'],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.2.0',
+    date: 'August 20, 2026',
+    stats: [
+      {
+        label: 'Dashboards shipped in August',
+        count: 5,
+        href: '/dashboards',
+      },
+      {
+        label: 'Shared component cleanup',
+        count: 1,
+        href: '/components',
+      },
+    ],
+    sections: [
+      {
+        title: 'New Dashboards',
+        items: [
+          {
+            text: 'Added Agndex, Astrix, Tallie, Bionis, and Medesk to the dashboard collection during the August release cycle.',
+            tags: ['dashboards', 'agndex', 'astrix', 'tallie', 'bionis', 'medesk'],
+          },
+        ],
+      },
+      {
+        title: 'Polish And Cleanup',
+        items: [
+          {
+            text: 'Improved copy interactions, small UI details, and general integration quality as the new dashboard set was finalized.',
+            tags: ['polish', 'copy-button', 'cleanup'],
+          },
+          {
+            text: 'Approved and integrated shared components used across the newer dashboard experiences.',
+            tags: ['shared-components', 'dashboards'],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    version: '2.1.2',
+    date: 'July 29, 2026',
+    stats: [
+      {
+        label: 'Dashboards added in late July',
+        count: 5,
+        href: '/dashboards',
+      },
+      {
+        label: 'CDN migration',
+        count: 1,
+        href: '/home',
+      },
+    ],
+    sections: [
+      {
+        title: 'Dashboard Expansion',
+        items: [
+          {
+            text: 'Added Supademo, DemoStack, Librar, Jobtracker, and Gridline as new dashboard experiences across the July shipping cycle.',
+            tags: ['dashboards', 'supademo', 'demostack', 'librar', 'jobtracker', 'gridline'],
+          },
+        ],
+      },
+      {
+        title: 'Sharing And Delivery',
+        items: [
+          {
+            text: 'Added Open Graph image generation for richer social previews and link sharing.',
+            tags: ['og-image', 'sharing'],
+          },
+          {
+            text: 'Moved static media assets to the CDN to improve asset delivery and simplify platform serving.',
+            tags: ['cdn', 'assets'],
+          },
+        ],
+      },
+      {
+        title: 'Fixes',
+        items: [
+          {
+            text: 'Polished integration details across DemoStack, Librar, Jobtracker, and Gridline, including theme behavior, tooltips, shadows, responsive layout fixes, and mobile sidebar interactions.',
+            tags: ['fixes', 'themes', 'responsive', 'sidebar'],
+          },
+        ],
+      },
+    ],
+  },
+  {
     version: '2.1.1',
     date: 'June 30, 2026',
     stats: [
