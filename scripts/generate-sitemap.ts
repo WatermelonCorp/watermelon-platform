@@ -30,6 +30,10 @@ const WORKER_DIR = path.resolve(process.cwd(), 'worker');
 
 type RouteEntry = { path: string; lastmod: string };
 
+function toCategorySlug(category: string): string {
+  return category.trim().toLowerCase();
+}
+
 /** Recursively collect every .mdx file under a directory. */
 function findMdxFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -127,16 +131,15 @@ const routes: RouteEntry[] = [...staticRoutes];
 }
 
 // ── Blocks — contents/blocks/**/*.mdx ─────────────────────────────────────────
-// Mirrors blocks.tsx: needs slug + title; "bento" blocks are hidden from the
-// site, so they are excluded here too. Category slug === raw category.
+// Mirrors blocks.tsx: needs slug + title. Category pages are published with the
+// same lowercase slugs the app uses in navigation.
 {
   const blockCategories = new Set<string>();
   for (const file of findMdxFiles(path.join(CONTENTS_DIR, 'blocks'))) {
     const { slug, title, category } = matter(fs.readFileSync(file, 'utf-8')).data;
     if (!slug || !title) continue;
-    if (category === 'bento' || String(slug).startsWith('bento')) continue;
     routes.push({ path: `/block/${slug}`, lastmod: fileDate(file) });
-    if (category) blockCategories.add(String(category));
+    if (category) blockCategories.add(toCategorySlug(String(category)));
   }
   for (const category of blockCategories) {
     routes.push({ path: `/blocks/${encodeURIComponent(category)}`, lastmod: today });

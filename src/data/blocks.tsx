@@ -117,6 +117,14 @@ export interface BlockCategory {
   image?: string;
 }
 
+function toCategorySlug(category: string): string {
+  return category.trim().toLowerCase();
+}
+
+function formatCategoryLabel(category: string): string {
+  return category.charAt(0).toUpperCase() + category.slice(1);
+}
+
 /**
  * Display labels & descriptions for known categories.
  * If a category slug isn't listed here it auto-capitalizes from the slug.
@@ -138,9 +146,10 @@ export const blockCategories: BlockCategory[] = (() => {
   const map = new Map<string, BlockItem[]>();
 
   for (const block of blocks) {
-    const cat = block.category || "uncategorized";
-    if (!map.has(cat)) map.set(cat, []);
-    map.get(cat)!.push(block);
+    const rawCategory = block.category || "uncategorized";
+    const categorySlug = toCategorySlug(rawCategory);
+    if (!map.has(categorySlug)) map.set(categorySlug, []);
+    map.get(categorySlug)!.push(block);
   }
 
 
@@ -148,11 +157,12 @@ export const blockCategories: BlockCategory[] = (() => {
     .map(([slug, items]) => {
       const meta = categoryLabels[slug];
       const previewBlock = items.find((item) => getBlockPreviewImageUrl(slug, item.slug) || item.image);
+      const rawCategory = items[0]?.category ?? slug;
       return {
         slug,
-        label: meta?.label ?? slug.charAt(0).toUpperCase() + slug.slice(1),
+        label: meta?.label ?? formatCategoryLabel(rawCategory),
         description:
-          meta?.description ?? `${slug.charAt(0).toUpperCase() + slug.slice(1)} block variants.`,
+          meta?.description ?? `${formatCategoryLabel(rawCategory)} block variants.`,
         count: items.length,
         image: previewBlock
           ? getBlockPreviewImageUrl(slug, previewBlock.slug) ?? previewBlock.image
@@ -164,10 +174,12 @@ export const blockCategories: BlockCategory[] = (() => {
 
 /** Get all blocks for a given category slug */
 export function getBlocksByCategory(category: string): BlockItem[] {
-  return blocks.filter((b) => b.category === category);
+  const normalizedCategory = toCategorySlug(category);
+  return blocks.filter((b) => toCategorySlug(b.category) === normalizedCategory);
 }
 
 /** Check if a block category exists */
 export function hasBlockCategory(category: string): boolean {
-  return blockCategories.some((c) => c.slug === category);
+  const normalizedCategory = toCategorySlug(category);
+  return blockCategories.some((c) => c.slug === normalizedCategory);
 }

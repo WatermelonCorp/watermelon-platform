@@ -111,11 +111,12 @@ export const Navbar = () => {
       const slug = params.slug || path.split('/').pop();
       const item = blocks.find((b) => b.slug === slug);
       if (item) {
-        const catMeta = blockCategories.find((c) => c.slug === item.category);
+        const itemCategorySlug = item.category.toLowerCase();
+        const catMeta = blockCategories.find((c) => c.slug === itemCategorySlug);
         const catLabel = catMeta?.label ?? item.category.charAt(0).toUpperCase() + item.category.slice(1);
         return [
           { label: 'Blocks', href: '/blocks' },
-          { label: catLabel, href: `/blocks/${item.category}` },
+          { label: catLabel, href: `/blocks/${itemCategorySlug}` },
           { label: item.name },
         ];
       }

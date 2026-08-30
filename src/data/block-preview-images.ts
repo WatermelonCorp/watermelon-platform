@@ -11,6 +11,8 @@ export interface BlockPreviewImageConfig {
   urlPath: string;
   /** Filename prefix before the number (e.g. "announcement", "auth") */
   filePrefix: string;
+  /** Optional direct URL for categories that use a repo-owned preview asset */
+  directUrl?: string;
 }
 
 /**
@@ -22,7 +24,7 @@ export interface BlockPreviewImageConfig {
 export const blockPreviewImages: Record<string, BlockPreviewImageConfig> = {
   announcement:  { urlPath: 'announce',     filePrefix: 'announcement' },
   auth:          { urlPath: 'auth',         filePrefix: 'auth' },
-  bento:         { urlPath: 'bento',        filePrefix: 'bento' },
+  bento:         { urlPath: 'bento',        filePrefix: 'bento', directUrl: '/previews/block-categories/bento.svg' },
   stats:         { urlPath: 'stats',        filePrefix: 'stats' },
   blog:          { urlPath: 'blog',         filePrefix: 'blog' },
   hero:          { urlPath: 'hero',         filePrefix: 'hero' },
@@ -69,6 +71,7 @@ export function getBlockPreviewImageUrl(
 ): string | null {
   const config = blockPreviewImages[categorySlug.toLowerCase()];
   if (!config) return null;
+  if (config.directUrl) return config.directUrl;
 
   const num = extractBlockNumber(blockSlug);
   if (num === null) return null;
