@@ -1,0 +1,9 @@
+name = "watermelon-mcp"
+main = "./mcp/worker.ts"
+compatibility_date = "2026-08-30"
+workers_dev = true
+
+[[routes]]
+pattern = "mcp.watermelon.sh"
+zone_name = "watermelon.sh"
+custom_domain = true

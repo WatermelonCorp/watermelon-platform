@@ -43,6 +43,8 @@ Useful commands:
 - `bun run preview`: preview the production build locally
 - `bun run deploy`: build and deploy
 - `bun run mcp`: start the local Watermelon MCP server over stdio
+- `bun run mcp:dev`: run the hosted MCP Worker locally
+- `bun run mcp:deploy`: deploy the hosted MCP Worker to Cloudflare
 
 ## Content Model
 
@@ -78,6 +80,10 @@ Watermelon includes a few machine-readable surfaces to help agents and tooling u
 - `public/openapi.json`
 - `public/sitemap.xml`
 - `mcp/server.ts`
+- `mcp/worker.ts`
+- `wrangler.mcp.toml`
+
+The hosted MCP endpoint is intended to live at `https://mcp.watermelon.sh/mcp`.
 
 ## Repository Health
 

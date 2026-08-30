@@ -1,0 +1,41 @@
+name: Deploy MCP Worker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'mcp/**'
+      - 'scripts/generate-mcp-catalog.ts'
+      - 'src/data/contents/**'
+      - 'package.json'
+      - 'bun.lock'
+      - 'wrangler.mcp.toml'
+      - '.github/workflows/deploy-mcp.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Generate MCP catalog
+        run: bun run generate:mcp-catalog
+
+      - name: Deploy MCP Worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: bunx wrangler deploy --config wrangler.mcp.toml

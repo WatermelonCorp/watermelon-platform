@@ -67,6 +67,8 @@ For larger feature work, please open an issue or discussion first so effort does
 - Update `public/llms.txt` when major discovery paths or contribution workflows change.
 - Update `public/openapi.json` when public HTTP endpoints change.
 - Update `mcp/server.ts` when you add new source-backed content areas agents should query directly.
+- Run `bun run generate:mcp-catalog` when MCP catalog content changes.
+- Use `wrangler.mcp.toml` for the hosted Cloudflare Worker deployment at `https://mcp.watermelon.sh/mcp`.
 
 ## Pull Request Guidelines
 
