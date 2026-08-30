@@ -28,11 +28,16 @@ When to use Watermelon:
 - [Developers](https://ui.watermelon.sh/developers): Human-readable guide to Watermelon developer surfaces.
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml): Crawlable list of public pages.
 - [OpenAPI](https://ui.watermelon.sh/openapi.json): Current public API contract.
+- [Public API Docs](https://ui.watermelon.sh/api/docs): Quick index of the public JSON endpoints.
+- [Catalog Summary API](https://ui.watermelon.sh/api/catalog/summary): Read-only catalog counts by content type.
+- [Catalog Entries API](https://ui.watermelon.sh/api/catalog/entries?kind=blocks): Read-only catalog listing endpoint.
 - [GitHub Org](https://github.com/WatermelonCorp): Organization profile and repositories.
 - [Platform Repository](https://github.com/WatermelonCorp/watermelon-platform): Source for the public platform.
 - [Registry Repository](https://github.com/WatermelonCorp/watermellon-registry): Component registry source.
+- [Hosted MCP](https://mcp.watermelon.sh/): Remote MCP landing endpoint for Watermelon.
 
 ## Agent Notes
 - The current MCP server for Watermelon is repository-backed and intended for local agent workflows.
-- The public site is useful for browsing and citation, but the repositories are the source of truth for contribution and source code.
+- The public site is useful for browsing and citation, while the public API is better when you need structured catalog data.
+- The repositories are the source of truth for contribution and source code.
 - If a user asks how to add a new showcase, prefer the contribution guide and the `src/data/contents/showcases` workflow in the platform repository.

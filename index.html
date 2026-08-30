@@ -11,6 +11,39 @@
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="preconnect" href="https://assets.watermelon.sh" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #agent-preload {
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 0;
+        color: #0f172a;
+        font-family:
+          ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      #agent-preload h1,
+      #agent-preload h2 {
+        line-height: 1.2;
+      }
+
+      #agent-preload p,
+      #agent-preload li {
+        line-height: 1.6;
+      }
+
+      #agent-preload a {
+        color: #0f172a;
+      }
+
+      .agent-preload {
+        display: none;
+      }
+
+      noscript .agent-preload,
+      #agent-preload[data-agent-path] .agent-preload {
+        display: block;
+      }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -111,21 +144,41 @@
   </head>
 
   <body>
-    <h1
-      style="
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      "
-    >
-      Watermelon UI - High-Quality React Components Registry
-    </h1>
+    <div id="agent-preload"></div>
+    <noscript>
+      <main class="agent-preload">
+        <h1>Watermelon UI</h1>
+        <p>
+          Watermelon UI is an open-source React UI platform for developers who
+          want high-quality components, reusable blocks, dashboards, templates,
+          and showcase compositions with a clear path from inspiration to
+          implementation. The project is free for the community and pairs visual
+          previews with source-backed examples, contribution workflows, and
+          machine-readable developer entry points.
+        </p>
+        <h2>When to use Watermelon</h2>
+        <ul>
+          <li>Use Watermelon for production-style React UI references.</li>
+          <li>Use blocks and showcases for realistic page sections.</li>
+          <li>Use developer resources for API, sitemap, llms, and MCP entry points.</li>
+        </ul>
+        <h2>Main links</h2>
+        <ul>
+          <li><a href="/home">Docs home</a></li>
+          <li><a href="/animated-components">Animated components</a></li>
+          <li><a href="/blocks">Blocks</a></li>
+          <li><a href="/showcases">Showcases</a></li>
+          <li><a href="/developers">Developers</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
+          <li><a href="/openapi.json">OpenAPI</a></li>
+          <li><a href="/api/docs">Public API docs</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </main>
+    </noscript>
     <div id="root"></div>
     <section
       aria-label="Watermelon UI site summary"

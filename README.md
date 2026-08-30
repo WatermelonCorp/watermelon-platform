@@ -46,6 +46,14 @@ Useful commands:
 - `bun run mcp:dev`: run the hosted MCP Worker locally
 - `bun run mcp:deploy`: deploy the hosted MCP Worker to Cloudflare
 
+Public machine-readable endpoints:
+
+- `/llms.txt`
+- `/openapi.json`
+- `/api/docs`
+- `/api/catalog/summary`
+- `/api/catalog/entries?kind=blocks`
+
 ## Content Model
 
 Most public content is file-based and lives in `src/data/contents`.
@@ -82,6 +90,7 @@ Watermelon includes a few machine-readable surfaces to help agents and tooling u
 - `mcp/server.ts`
 - `mcp/worker.ts`
 - `wrangler.mcp.toml`
+- `worker/site.ts`
 
 The hosted MCP endpoint is intended to live at `https://mcp.watermelon.sh/mcp`.
 
