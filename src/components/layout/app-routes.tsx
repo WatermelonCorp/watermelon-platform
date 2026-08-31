@@ -10,10 +10,6 @@ import {
   DashboardsPageSkeleton,
   DashboardPageSkeleton,
 } from '@/components/skeletons';
-import BlocksPage from '@/pages/blocks';
-import BlockCategoryPage from '@/pages/block-category';
-import BlockPage from '@/pages/block';
-
 const HomePage = lazy(() => import('@/pages/home'));
 const LandingPage = lazy(() => import('@/pages/landing'));
 const ComponentsPage = lazy(() => import('@/pages/animated-components'));
@@ -31,15 +27,16 @@ const ContactPage = lazy(() => import('@/pages/contact'));
 const DevelopersPage = lazy(() => import('@/pages/developers'));
 const DevelopersAuthPage = lazy(() => import('@/pages/developers-auth'));
 const DevelopersMcpPage = lazy(() => import('@/pages/developers-mcp'));
+const DevelopersStatusPage = lazy(() => import('@/pages/developers-status'));
 const DashboardsPage = lazy(() => import('@/pages/dashboards'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const TemplatesPage = lazy(() => import('@/pages/templates'));
 const TemplatePage = lazy(() => import('@/pages/template'));
 const ShowcasesPage = lazy(() => import('@/pages/showcases'));
 const ShowcasePage = lazy(() => import('@/pages/showcase'));
-// const BlocksPage = lazy(() => import("@/pages/blocks"));
-// const BlockCategoryPage = lazy(() => import("@/pages/block-category"));
-// const BlockPage = lazy(() => import("@/pages/block"));
+const BlocksPage = lazy(() => import('@/pages/blocks'));
+const BlockCategoryPage = lazy(() => import('@/pages/block-category'));
+const BlockPage = lazy(() => import('@/pages/block'));
 const ChangelogPage = lazy(() => import('@/pages/changelog'));
 const NotFoundPage = lazy(() => import('@/pages/not-found'));
 const PreviewPage = lazy(() => import('@/pages/preview'));
@@ -183,6 +180,14 @@ export function AppRoutes() {
           element={
             <Suspense fallback={<DocPageSkeleton />}>
               <DevelopersMcpPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/developers/status"
+          element={
+            <Suspense fallback={<DocPageSkeleton />}>
+              <DevelopersStatusPage />
             </Suspense>
           }
         />

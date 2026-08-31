@@ -7,7 +7,8 @@ export interface AgentPage {
 export const agentPages: Record<string, AgentPage> = {
   '/': {
     title: 'Watermelon UI',
-    description: 'Open-source React components, blocks, dashboards, templates, and showcases built for the community.',
+    description:
+      'Open-source React components, blocks, dashboards, templates, and showcases built for the community.',
     markdown: `# Watermelon UI
 
 Watermelon UI is an open-source React UI platform built for developers who want strong visual references and real implementation paths at the same time. The site brings together animated components, copy-paste blocks, dashboards, templates, and curated showcases so builders can move from inspiration to shipping faster without losing sight of maintainability. Watermelon is free for the community to browse and use, and the project is maintained in public repositories so contributors can improve the experience directly through pull requests.
@@ -32,6 +33,7 @@ Watermelon UI is an open-source React UI platform built for developers who want 
 - [Developers](https://ui.watermelon.sh/developers)
 - [Watermelon UI Auth Docs](https://ui.watermelon.sh/developers/auth)
 - [Watermelon UI MCP Docs](https://ui.watermelon.sh/developers/mcp)
+- [Watermelon UI Status & Integrations](https://ui.watermelon.sh/developers/status)
 - [llms.txt](https://ui.watermelon.sh/llms.txt)
 - [OpenAPI](https://ui.watermelon.sh/openapi.json)
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml)
@@ -48,7 +50,8 @@ Watermelon is built in the open by WatermelonCorp and the public platform source
   },
   '/developers': {
     title: 'Watermelon UI Developers',
-    description: 'Developer-facing entry points for Watermelon UI, including docs, sitemap, OpenAPI, public catalog API, and MCP.',
+    description:
+      'Developer-facing entry points for Watermelon UI, including docs, sitemap, OpenAPI, public catalog API, and MCP.',
     markdown: `# Watermelon UI Developers
 
 This page is the fastest way for an engineer or agent to understand Watermelon UI from the outside in. Watermelon exposes a small but intentional set of public resources so humans and AI systems can discover the project, inspect the public catalog, and understand where source-backed contribution paths live.
@@ -59,6 +62,7 @@ This page is the fastest way for an engineer or agent to understand Watermelon U
 - [OpenAPI](https://ui.watermelon.sh/openapi.json): public HTTP contract for machine-readable endpoints
 - [Watermelon UI Auth Docs](https://ui.watermelon.sh/developers/auth): current authentication model for public APIs and MCP
 - [Watermelon UI MCP Docs](https://ui.watermelon.sh/developers/mcp): hosted endpoint and MCP client setup guidance
+- [Watermelon UI Status & Integrations](https://ui.watermelon.sh/developers/status): build metadata, endpoints, and ops links
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml): crawlable public URL inventory
 - [Public catalog summary](https://ui.watermelon.sh/api/catalog/summary): counts by content type
 - [Public catalog entries](https://ui.watermelon.sh/api/catalog/entries): list catalog entries by kind
@@ -81,7 +85,8 @@ The UI is helpful for browsing, but the repositories are the source of truth for
   },
   '/developers/auth': {
     title: 'Watermelon UI Auth Docs',
-    description: 'Authentication model for Watermelon UI public APIs, developer files, and hosted MCP access.',
+    description:
+      'Authentication model for Watermelon UI public APIs, developer files, and hosted MCP access.',
     markdown: `# Watermelon UI Auth Docs
 
 Watermelon UI currently exposes public, read-only developer surfaces that do not require authentication. Agents and engineers can access the public docs, catalog endpoints, and hosted MCP discovery routes without bearer tokens, session cookies, or account login flows.
@@ -105,7 +110,8 @@ The hosted Watermelon MCP server is also read-only and currently unauthenticated
   },
   '/developers/mcp': {
     title: 'Watermelon UI MCP Docs',
-    description: 'How to connect to the hosted Watermelon MCP endpoint and when to use the local server instead.',
+    description:
+      'How to connect to the hosted Watermelon MCP endpoint and when to use the local server instead.',
     markdown: `# Watermelon UI MCP Docs
 
 Watermelon MCP gives agents structured access to the public Watermelon catalog without scraping the website manually. The hosted endpoint uses Streamable HTTP and the repository also ships a local MCP server for source-aware workflows.
@@ -127,9 +133,33 @@ Watermelon MCP gives agents structured access to the public Watermelon catalog w
 
 Watermelon MCP is intended for MCP-compatible clients that support remote Streamable HTTP connections. If your GPT-oriented or Claude-oriented client supports remote MCP, use https://mcp.watermelon.sh/mcp as the server URL. If your client only supports local MCP servers, clone the platform repository and run bun run mcp locally.`,
   },
+  '/developers/status': {
+    title: 'Watermelon UI Status & Integrations',
+    description:
+      'Operational metadata for Watermelon UI and Watermelon MCP, including endpoints, version details, and connection guidance.',
+    markdown: `# Watermelon UI Status & Integrations
+
+This page is the public ops overview for Watermelon UI. It is meant to help engineers, agents, and maintainers understand which endpoints exist, what build metadata is currently exposed, and where to connect MCP-compatible clients.
+
+## Recommended checks
+
+- [Platform status JSON](https://ui.watermelon.sh/api/v1/status)
+- [Developers page](https://ui.watermelon.sh/developers)
+- [OpenAPI](https://ui.watermelon.sh/openapi.json)
+- [Sitemap](https://ui.watermelon.sh/sitemap.xml)
+- [Hosted MCP discovery](https://mcp.watermelon.sh/)
+- [Hosted MCP health](https://mcp.watermelon.sh/health)
+
+## Connect MCP from ChatGPT or Claude
+
+If your client supports remote MCP over Streamable HTTP, add a new MCP server and use https://mcp.watermelon.sh/mcp as the server URL. After that, use the hosted catalog tools instead of scraping the website manually.
+
+If your client only supports local MCP servers, clone the platform repository and run bun run mcp from the repository root.`,
+  },
   '/about': {
     title: 'About Watermelon UI',
-    description: 'Why Watermelon UI exists, what it covers, and how the open-source community helps shape it.',
+    description:
+      'Why Watermelon UI exists, what it covers, and how the open-source community helps shape it.',
     markdown: `# About Watermelon UI
 
 Watermelon UI is an open-source interface ecosystem focused on practical building blocks for modern React products. The project brings together animated components, reusable blocks, dashboards, templates, documentation, and curated showcases in one place so developers can understand an interface quickly and adapt it confidently. The public site at ui.watermelon.sh is the browsing layer for that ecosystem, while the source repositories hold the implementation details and contribution workflows.
@@ -140,7 +170,8 @@ Watermelon is free for the community to use. Sponsorship support helps fund main
   },
   '/contact': {
     title: 'Contact Watermelon UI',
-    description: 'How to contact Watermelon UI for support, partnerships, sponsorship, and reports.',
+    description:
+      'How to contact Watermelon UI for support, partnerships, sponsorship, and reports.',
     markdown: `# Contact Watermelon UI
 
 For general questions, contributor coordination, partnership inquiries, sponsorship conversations, or feedback about the site, email [watermeloncorpui@gmail.com](mailto:watermeloncorpui@gmail.com). That is the primary public contact path for Watermelon UI today.
@@ -153,7 +184,8 @@ Watermelon is built for the wider builder community, so we try to keep support a
   },
   '/privacy': {
     title: 'Watermelon UI Privacy Policy',
-    description: 'How Watermelon UI handles analytics, basic usage data, and public contact requests.',
+    description:
+      'How Watermelon UI handles analytics, basic usage data, and public contact requests.',
     markdown: `# Watermelon UI Privacy Policy
 
 Watermelon UI is a public browsing and discovery platform, not a personal account system with complex user data storage. We may collect limited technical and usage information such as page views, interaction events, browser or device metadata, and referral information to understand whether the site is working well and where the product experience still has friction.
@@ -166,7 +198,8 @@ For privacy-related questions or requests, contact [watermeloncorpui@gmail.com](
   },
   '/terms': {
     title: 'Watermelon UI Terms of Use',
-    description: 'Rules and conditions for using Watermelon UI, its code examples, and public materials.',
+    description:
+      'Rules and conditions for using Watermelon UI, its code examples, and public materials.',
     markdown: `# Watermelon UI Terms of Use
 
 By accessing or using Watermelon UI, you agree to these terms. You may browse, copy, and use components from the site in line with the relevant repository licenses and terms. You are responsible for making sure your own project complies with your legal, licensing, accessibility, and security requirements.

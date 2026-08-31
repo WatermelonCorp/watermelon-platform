@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getBlocksByCategory, hasBlockCategory, blockCategories } from '@/data/blocks';
+import { getBlocksByCategory, hasBlockCategory } from '@/data/blocks';
+import { blockCategories } from '@/data/block-metadata';
 import { ComponentRenderCard } from '@/components/registry/component-render-card';
 import { BlockImageCard } from '@/components/registry/block-image-card';
 import { SEOHead } from '@/components/seo-head';
@@ -86,12 +87,13 @@ export default function BlockCategoryPage() {
   const meta = blockCategories.find((c) => c.slug === category);
   const allBlocks = useMemo(() => getBlocksByCategory(category), [category]);
 
-  const label = meta?.label ?? category.charAt(0).toUpperCase() + category.slice(1);
+  const label =
+    meta?.label ?? category.charAt(0).toUpperCase() + category.slice(1);
   const description = meta?.description ?? `${label} block variants.`;
 
   const visibleBlocks = useMemo(
     () => allBlocks.slice(0, visibleCount),
-    [allBlocks, visibleCount]
+    [allBlocks, visibleCount],
   );
 
   const hasMore = visibleBlocks.length < allBlocks.length;
@@ -105,9 +107,11 @@ export default function BlockCategoryPage() {
       (entries) => {
         const [entry] = entries;
         if (!entry?.isIntersecting) return;
-        setVisibleCount((prev) => Math.min(prev + ITEMS_PER_PAGE, allBlocks.length));
+        setVisibleCount((prev) =>
+          Math.min(prev + ITEMS_PER_PAGE, allBlocks.length),
+        );
       },
-      { rootMargin: '300px 0px 300px 0px' }
+      { rootMargin: '300px 0px 300px 0px' },
     );
 
     observer.observe(loadMoreRef.current);
@@ -117,12 +121,13 @@ export default function BlockCategoryPage() {
   // ── Scroll to target card after switching from image mode ───────────────────
 
   useEffect(() => {
-    if (viewMode !== 'cards' || !scrollTargetSlug || !containerRef.current) return;
+    if (viewMode !== 'cards' || !scrollTargetSlug || !containerRef.current)
+      return;
 
     // Use requestAnimationFrame to wait for the DOM to update after mode switch
     const rafId = requestAnimationFrame(() => {
       const targetEl = containerRef.current?.querySelector<HTMLElement>(
-        `[data-block-slug="${scrollTargetSlug}"]`
+        `[data-block-slug="${scrollTargetSlug}"]`,
       );
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -135,15 +140,18 @@ export default function BlockCategoryPage() {
 
   // ── Handler: image card clicked → switch to cards + scroll ──────────────────
 
-  const handleImageCardClick = useCallback((blockSlug: string) => {
-    // Ensure enough cards are loaded so the target card is rendered
-    const targetIndex = allBlocks.findIndex((b) => b.slug === blockSlug);
-    if (targetIndex >= 0) {
-      setVisibleCount((prev) => Math.max(prev, targetIndex + 1));
-    }
-    setScrollTargetSlug(blockSlug);
-    setViewMode('cards');
-  }, [allBlocks]);
+  const handleImageCardClick = useCallback(
+    (blockSlug: string) => {
+      // Ensure enough cards are loaded so the target card is rendered
+      const targetIndex = allBlocks.findIndex((b) => b.slug === blockSlug);
+      if (targetIndex >= 0) {
+        setVisibleCount((prev) => Math.max(prev, targetIndex + 1));
+      }
+      setScrollTargetSlug(blockSlug);
+      setViewMode('cards');
+    },
+    [allBlocks],
+  );
 
   // ── Not found state ─────────────────────────────────────────────────────────
 
@@ -151,10 +159,13 @@ export default function BlockCategoryPage() {
     return (
       <div className="flex flex-col items-center justify-center gap-3 py-24 text-center">
         <p className="text-lg font-semibold">Category not found</p>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           "{category}" doesn't exist in the blocks registry yet.
         </p>
-        <Link to="/blocks" className="text-primary text-sm underline underline-offset-4">
+        <Link
+          to="/blocks"
+          className="text-primary text-sm underline underline-offset-4"
+        >
           ← Back to Blocks
         </Link>
       </div>
@@ -176,8 +187,9 @@ export default function BlockCategoryPage() {
             description={
               <>
                 {description}
-                <span className="ml-2 text-xs text-muted-foreground/60">
-                  {allBlocks.length} {allBlocks.length === 1 ? 'block' : 'blocks'}
+                <span className="text-muted-foreground/60 ml-2 text-xs">
+                  {allBlocks.length}{' '}
+                  {allBlocks.length === 1 ? 'block' : 'blocks'}
                 </span>
               </>
             }
@@ -188,7 +200,10 @@ export default function BlockCategoryPage() {
           {viewMode === 'images' && (
             <div className="grid grid-cols-2 gap-3 px-4 sm:grid-cols-3 md:px-6 lg:grid-cols-4 lg:px-8">
               {allBlocks.map((block) => {
-                const imageUrl = getBlockPreviewImageUrl(block.category, block.slug);
+                const imageUrl = getBlockPreviewImageUrl(
+                  block.category,
+                  block.slug,
+                );
                 if (!imageUrl) return null;
                 return (
                   <BlockImageCard
@@ -222,8 +237,11 @@ export default function BlockCategoryPage() {
 
               {/* Infinite scroll sentinel */}
               {hasMore && (
-                <div ref={loadMoreRef} className="h-16 flex items-center justify-center">
-                  <div className="h-5 w-5 border-2 border-muted-foreground/40 border-t-transparent rounded-full animate-spin" />
+                <div
+                  ref={loadMoreRef}
+                  className="flex h-16 items-center justify-center"
+                >
+                  <div className="border-muted-foreground/40 h-5 w-5 animate-spin rounded-full border-2 border-t-transparent" />
                 </div>
               )}
             </>
@@ -231,7 +249,7 @@ export default function BlockCategoryPage() {
 
           {/* Empty State */}
           {allBlocks.length === 0 && (
-            <div className="text-center py-20 text-muted-foreground">
+            <div className="text-muted-foreground py-20 text-center">
               No blocks in this category yet. Check back soon!
             </div>
           )}

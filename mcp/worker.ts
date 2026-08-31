@@ -1,13 +1,15 @@
 import { createMcpHandler } from '@modelcontextprotocol/server';
 import { catalog } from './catalog.generated';
 import { createCatalogServer } from './catalog';
+import { opsMetadata } from '../src/data/ops.generated';
 
 const mcpHandler = createMcpHandler(() => createCatalogServer(catalog), {
   legacy: 'reject',
 });
 
 const corsHeaders = {
-  'Access-Control-Allow-Headers': 'Content-Type, Accept, Mcp-Protocol-Version, Mcp-Session-Id, Last-Event-ID',
+  'Access-Control-Allow-Headers':
+    'Content-Type, Accept, Mcp-Protocol-Version, Mcp-Session-Id, Last-Event-ID',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Origin': '*',
   Vary: 'Origin',
@@ -41,8 +43,22 @@ function getCatalogStats() {
   );
 
   return {
-    totalEntries: Object.values(catalog).reduce((sum, entries) => sum + entries.length, 0),
+    totalEntries: Object.values(catalog).reduce(
+      (sum, entries) => sum + entries.length,
+      0,
+    ),
     counts,
+  };
+}
+
+function getRuntimeMetadata() {
+  return {
+    packageVersion: opsMetadata.packageVersion,
+    branch: opsMetadata.branch,
+    commitSha: opsMetadata.commitSha,
+    shortSha: opsMetadata.shortSha,
+    committedAt: opsMetadata.committedAt,
+    generatedAt: opsMetadata.generatedAt,
   };
 }
 
@@ -59,6 +75,10 @@ export default {
         ok: true,
         service: 'watermelon-mcp',
         endpoint: '/mcp',
+        transport: 'streamable-http',
+        docs: 'https://ui.watermelon.sh/developers/mcp',
+        status: 'https://ui.watermelon.sh/developers/status',
+        build: getRuntimeMetadata(),
         ...getCatalogStats(),
       });
     }
@@ -92,7 +112,9 @@ export default {
         endpoint: '/mcp',
         website: 'https://ui.watermelon.sh',
         developers: 'https://ui.watermelon.sh/developers',
+        status: 'https://ui.watermelon.sh/developers/status',
         source: 'https://github.com/WatermelonCorp/watermelon-platform',
+        build: getRuntimeMetadata(),
         ...getCatalogStats(),
       });
     }

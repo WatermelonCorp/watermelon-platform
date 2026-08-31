@@ -5,10 +5,10 @@ import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
 import { PageHeader } from '@/components/layout/page-header';
 import { CommandPalette } from '@/components/layout/command-palette';
-import { registry } from '@/data/animated-components-registry';
-import { dashboards } from '@/data/dashboards';
-import { blocks, blockCategories } from '@/data/blocks';
-import { showcases } from '@/data/showcases';
+import { animatedComponentMetadata } from '@/data/animated-components-metadata';
+import { dashboardMetadata } from '@/data/dashboard-metadata';
+import { blockMetadata, blockCategories } from '@/data/block-metadata';
+import { showcaseMetadata } from '@/data/showcase-metadata';
 import { motion } from 'motion/react';
 import { GlobalCssInput } from './global-css-input';
 
@@ -48,9 +48,12 @@ export const Navbar = () => {
     }
 
     // Animated Component detail page: /animated-components/:slug
-    if (path.startsWith('/animated-components/') && !path.includes('/category/')) {
+    if (
+      path.startsWith('/animated-components/') &&
+      !path.includes('/category/')
+    ) {
       const slug = params.slug || path.split('/').pop();
-      const item = registry.find((i) => i.slug === slug);
+      const item = animatedComponentMetadata.find((i) => i.slug === slug);
       if (item) {
         return [
           { label: 'Animated Components', href: '/animated-components' },
@@ -68,7 +71,10 @@ export const Navbar = () => {
     if (path.includes('/animated-components/category/')) {
       const category = params.category || path.split('/').pop() || '';
       const title = category.charAt(0).toUpperCase() + category.slice(1);
-      return [{ label: 'Animated Components', href: '/animated-components' }, { label: title }];
+      return [
+        { label: 'Animated Components', href: '/animated-components' },
+        { label: title },
+      ];
     }
 
     // New Component category page / UI Base Components: /components/:category
@@ -81,7 +87,7 @@ export const Navbar = () => {
     // Dashboard detail page: /dashboard/:slug
     if (path.startsWith('/dashboard/')) {
       const slug = params.slug || path.split('/').pop();
-      const item = dashboards.find((d) => d.slug === slug);
+      const item = dashboardMetadata.find((d) => d.slug === slug);
       if (item) {
         return [
           { label: 'Dashboards', href: '/dashboards' },
@@ -92,9 +98,12 @@ export const Navbar = () => {
 
     if (path.startsWith('/showcase/')) {
       const slug = params.slug || path.split('/').pop();
-      const item = showcases.find((showcase) => showcase.slug === slug);
+      const item = showcaseMetadata.find((showcase) => showcase.slug === slug);
       if (item) {
-        return [{ label: 'Showcases', href: '/showcases' }, { label: item.name }];
+        return [
+          { label: 'Showcases', href: '/showcases' },
+          { label: item.name },
+        ];
       }
     }
 
@@ -102,18 +111,23 @@ export const Navbar = () => {
     if (path.startsWith('/blocks/')) {
       const catSlug = params.category || path.split('/').pop() || '';
       const catMeta = blockCategories.find((c) => c.slug === catSlug);
-      const catLabel = catMeta?.label ?? catSlug.charAt(0).toUpperCase() + catSlug.slice(1);
+      const catLabel =
+        catMeta?.label ?? catSlug.charAt(0).toUpperCase() + catSlug.slice(1);
       return [{ label: 'Blocks', href: '/blocks' }, { label: catLabel }];
     }
 
     // Block detail page: /block/:slug
     if (path.startsWith('/block/')) {
       const slug = params.slug || path.split('/').pop();
-      const item = blocks.find((b) => b.slug === slug);
+      const item = blockMetadata.find((b) => b.slug === slug);
       if (item) {
         const itemCategorySlug = item.category.toLowerCase();
-        const catMeta = blockCategories.find((c) => c.slug === itemCategorySlug);
-        const catLabel = catMeta?.label ?? item.category.charAt(0).toUpperCase() + item.category.slice(1);
+        const catMeta = blockCategories.find(
+          (c) => c.slug === itemCategorySlug,
+        );
+        const catLabel =
+          catMeta?.label ??
+          item.category.charAt(0).toUpperCase() + item.category.slice(1);
         return [
           { label: 'Blocks', href: '/blocks' },
           { label: catLabel, href: `/blocks/${itemCategorySlug}` },
@@ -127,17 +141,17 @@ export const Navbar = () => {
   }, [location.pathname, params]);
 
   return (
-    <header className="sticky top-0 z-20 py-0.5 ">
+    <header className="sticky top-0 z-20 py-0.5">
       {/* Progressive blur effect - fades from top (blurry) to bottom (clear) */}
       <ProgressiveBlur
         direction="top"
         blurLayers={8}
         blurIntensity={1.2}
-        className="pointer-events-none absolute inset-0  rounded-t-xl bg-white/90 dark:bg-background/90 "
+        className="dark:bg-background/90 pointer-events-none absolute inset-0 rounded-t-xl bg-white/90"
       />
 
       {/* Navbar content */}
-      <nav className="relative z-10 flex items-center justify-between gap-2 px-4 md:px-6 lg:pl-5 lg:pr-4">
+      <nav className="relative z-10 flex items-center justify-between gap-2 px-4 md:px-6 lg:pr-4 lg:pl-5">
         {/* Left: Sidebar trigger + logo on mobile/collapsed */}
         <div className="flex shrink-0 items-center gap-2">
           {(state === 'collapsed' || isMobile) && (
@@ -150,10 +164,9 @@ export const Navbar = () => {
               }}
               animate={{ opacity: 1, scale: 1, x: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.3 }}
-              className="flex items-center gap-2 "
+              className="flex items-center gap-2"
             >
-              <SidebarTrigger className="bg-gray-100 dark:bg-neutral-800 rounded-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] size-9
-              "  />
+              <SidebarTrigger className="size-9 rounded-xl bg-gray-100 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:bg-neutral-800 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)]" />
             </motion.div>
           )}
         </div>

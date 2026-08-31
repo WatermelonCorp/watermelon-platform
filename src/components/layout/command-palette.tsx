@@ -11,7 +11,10 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from '@/components/ui/command';
-import { registry, allCategories } from '@/data/animated-components-registry';
+import {
+  animatedComponentMetadata,
+  allAnimatedCategories,
+} from '@/data/animated-components-metadata';
 // import { dashboards } from '@/data/dashboards';
 // import { blocks } from '@/data/blocks';
 import { HugeiconsIcon } from '@hugeicons/react';
@@ -32,13 +35,28 @@ import {
 const pages = [
   { name: 'Home', href: '/', icon: Home01Icon, shortcut: 'H' },
   { name: 'Components', href: '/components', icon: GridIcon, shortcut: 'U' },
-  { name: 'Animated Components', href: '/animated-components', icon: Home01Icon, shortcut: 'C' },
+  {
+    name: 'Animated Components',
+    href: '/animated-components',
+    icon: Home01Icon,
+    shortcut: 'C',
+  },
   { name: 'Showcases', href: '/showcases', icon: GridIcon, shortcut: 'S' },
   // { name: 'Dashboards', href: '/dashboards', icon: LayoutIcon, shortcut: 'D' },
   // { name: 'Blocks', href: '/blocks', icon: GridIcon, shortcut: 'B' },
 
-  { name: 'Installation', href: '/installation', icon: Download04Icon, shortcut: 'I' },
-  { name: 'Framework Support', href: '/framework-support', icon: CodeIcon, shortcut: 'F' },
+  {
+    name: 'Installation',
+    href: '/installation',
+    icon: Download04Icon,
+    shortcut: 'I',
+  },
+  {
+    name: 'Framework Support',
+    href: '/framework-support',
+    icon: CodeIcon,
+    shortcut: 'F',
+  },
   { name: 'Developers', href: '/developers', icon: CodeIcon, shortcut: 'V' },
   { name: 'About', href: '/about', icon: Book02Icon, shortcut: 'A' },
   { name: 'Contact', href: '/contact', icon: Book02Icon, shortcut: 'N' },
@@ -81,9 +99,11 @@ export function CommandPalette() {
 
   // Group components by category
   const componentsByCategory = useMemo(() => {
-    const grouped: Record<string, typeof registry> = {};
-    for (const category of allCategories) {
-      grouped[category] = registry.filter((item) => item.category === category);
+    const grouped: Record<string, typeof animatedComponentMetadata> = {};
+    for (const category of allAnimatedCategories) {
+      grouped[category] = animatedComponentMetadata.filter(
+        (item) => item.category === category,
+      );
     }
     return grouped;
   }, []);
@@ -96,13 +116,13 @@ export function CommandPalette() {
           trackEvent('command_palette_open', { source: 'button' });
           setOpen(true);
         }}
-        className="group hidden lg:flex h-9 items-center lg:w-90 justify-between gap-2 rounded-xl bg-gray-100 dark:bg-neutral-800 px-3 text-sm text-muted-foreground transition-all shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] hover:text-foreground"
+        className="group text-muted-foreground hover:text-foreground hidden h-9 items-center justify-between gap-2 rounded-xl bg-gray-100 px-3 text-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_0_0_1px_rgba(0,0,0,0.08),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)] transition-all lg:flex lg:w-90 dark:bg-neutral-800 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.1),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0px_rgba(0,0,0,0.04)]"
       >
         <div className="flex items-center gap-2">
           <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4" />
-          <span className='hidden md:block'>Search components...</span>
+          <span className="hidden md:block">Search components...</span>
         </div>
-        <kbd className="pointer-events-none flex h-5 select-none items-center gap-0.5 rounded-md border border-input/50 bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground leading-none">
+        <kbd className="border-input/50 bg-muted/50 text-muted-foreground pointer-events-none flex h-5 items-center gap-0.5 rounded-md border px-1.5 font-mono text-[10px] leading-none font-medium select-none">
           <HugeiconsIcon icon={CommandIcon} size={13} />K
         </kbd>
       </button>
@@ -112,7 +132,8 @@ export function CommandPalette() {
         <Command
           className="rounded-xl"
           filter={(value, search, keywords = []) => {
-            const extendValue = keywords.length > 0 ? keywords.join(' ') : value;
+            const extendValue =
+              keywords.length > 0 ? keywords.join(' ') : value;
             const a = extendValue.toLowerCase();
             const b = search.toLowerCase();
             if (a === b) return 100;
@@ -134,7 +155,11 @@ export function CommandPalette() {
                   keywords={[page.name, page.shortcut]}
                   onSelect={() => runCommand(() => navigate(page.href))}
                 >
-                  <HugeiconsIcon icon={page.icon} strokeWidth={2} className="size-4" />
+                  <HugeiconsIcon
+                    icon={page.icon}
+                    strokeWidth={2}
+                    className="size-4"
+                  />
                   <span>{page.name}</span>
                   <CommandShortcut>{page.shortcut}</CommandShortcut>
                 </CommandItem>
@@ -144,7 +169,7 @@ export function CommandPalette() {
             <CommandSeparator />
 
             {/* Components by Category */}
-            {allCategories.map((category) => (
+            {allAnimatedCategories.map((category) => (
               <CommandGroup
                 key={category}
                 heading={category.charAt(0).toUpperCase() + category.slice(1)}
@@ -155,10 +180,16 @@ export function CommandPalette() {
                     value={`component-${component.slug}`}
                     keywords={[component.name, category]}
                     onSelect={() =>
-                      runCommand(() => navigate(`/animated-components/${component.slug}`))
+                      runCommand(() =>
+                        navigate(`/animated-components/${component.slug}`),
+                      )
                     }
                   >
-                    <HugeiconsIcon icon={GridIcon} strokeWidth={2} className="size-4" />
+                    <HugeiconsIcon
+                      icon={GridIcon}
+                      strokeWidth={2}
+                      className="size-4"
+                    />
                     <span>{component.name}</span>
                   </CommandItem>
                 ))}

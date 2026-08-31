@@ -32,18 +32,35 @@ describe('agent page content', () => {
   });
 
   it('keeps injected agent preload content hidden for visual browsers', () => {
-    const shell = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+    const shell = readFileSync(
+      new URL('../index.html', import.meta.url),
+      'utf8',
+    );
 
     expect(shell).toContain('#agent-preload {\n        display: none;');
     expect(shell).toContain('noscript .agent-preload {');
-    expect(shell).not.toContain('#agent-preload[data-agent-path] .agent-preload');
+    expect(shell).not.toContain(
+      '#agent-preload[data-agent-path] .agent-preload',
+    );
   });
 
   it('publishes named agent pages for auth and MCP docs', () => {
-    expect(agentPages['/developers/auth']?.title).toBe('Watermelon UI Auth Docs');
-    expect(agentPages['/developers/auth']?.markdown).toContain('do not require authentication');
+    expect(agentPages['/developers/auth']?.title).toBe(
+      'Watermelon UI Auth Docs',
+    );
+    expect(agentPages['/developers/auth']?.markdown).toContain(
+      'do not require authentication',
+    );
     expect(agentPages['/developers/mcp']?.title).toBe('Watermelon UI MCP Docs');
-    expect(agentPages['/developers/mcp']?.markdown).toContain('https://mcp.watermelon.sh/mcp');
+    expect(agentPages['/developers/mcp']?.markdown).toContain(
+      'https://mcp.watermelon.sh/mcp',
+    );
+    expect(agentPages['/developers/status']?.title).toBe(
+      'Watermelon UI Status & Integrations',
+    );
+    expect(agentPages['/developers/status']?.markdown).toContain(
+      '/api/v1/status',
+    );
   });
 });
 
@@ -113,8 +130,32 @@ describe('site worker', () => {
     expect(body.version).toBe('v1');
     expect(body.auth.required).toBe(false);
     expect(body.auth.docs).toBe('https://ui.watermelon.sh/developers/auth');
-    expect(body.resources.mcpDocs).toBe('https://ui.watermelon.sh/developers/mcp');
+    expect(body.resources.mcpDocs).toBe(
+      'https://ui.watermelon.sh/developers/mcp',
+    );
+    expect(body.resources.statusDocs).toBe(
+      'https://ui.watermelon.sh/developers/status',
+    );
     expect(body.endpoints).not.toContain('/api/og?title=Watermelon%20UI');
+  });
+
+  it('returns machine-readable platform status metadata', async () => {
+    const response = await siteWorker.fetch(
+      new Request('https://ui.watermelon.sh/api/v1/status'),
+      mockEnv,
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('X-API-Version')).toBe('v1');
+
+    const body = await response.json();
+    expect(body.product).toBe('Watermelon UI');
+    expect(body.api.version).toBe('v1');
+    expect(body.mcp.endpoint).toBe('https://mcp.watermelon.sh/mcp');
+    expect(body.platformEndpoints.status).toBe(
+      'https://ui.watermelon.sh/developers/status',
+    );
+    expect(body.build.shortSha).toBeTruthy();
   });
 
   it('supports the versioned API docs alias without deprecation headers', async () => {

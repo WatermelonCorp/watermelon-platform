@@ -13,6 +13,8 @@ describe('mcp worker', () => {
     const body = await response.json();
     expect(body.name).toBe('watermelon-mcp');
     expect(body.endpoint).toBe('/mcp');
+    expect(body.status).toBe('https://ui.watermelon.sh/developers/status');
+    expect(body.build.shortSha).toBeTruthy();
   });
 
   it('returns health details from both health endpoints', async () => {
@@ -25,6 +27,8 @@ describe('mcp worker', () => {
     const body = await response.json();
     expect(body.ok).toBe(true);
     expect(body.service).toBe('watermelon-mcp');
+    expect(body.transport).toBe('streamable-http');
+    expect(body.build.generatedAt).toBeTruthy();
   });
 
   it('returns a structured not-found response for unknown routes', async () => {
