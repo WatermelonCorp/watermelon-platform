@@ -1,4 +1,5 @@
 import { catalog, type CatalogKind } from '../mcp/catalog.generated';
+import { opsMetadata } from '../src/data/ops.generated';
 import { agentPages, renderMarkdownAsHtml } from './agent-pages';
 import { knownRoutes } from './routes.generated';
 
@@ -67,7 +68,11 @@ function withApiHeaders(init: ResponseInit = {}, versioned = false) {
   };
 }
 
-function jsonResponse(data: unknown, init: ResponseInit = {}, versioned = false) {
+function jsonResponse(
+  data: unknown,
+  init: ResponseInit = {},
+  versioned = false,
+) {
   return new Response(JSON.stringify(data, null, 2), {
     ...init,
     headers: {
@@ -133,14 +138,69 @@ function isAssetPath(pathname: string) {
 function buildCatalogSummary() {
   return {
     product: 'Watermelon UI',
-    totalEntries: Object.values(catalog).reduce((sum, entries) => sum + entries.length, 0),
+    totalEntries: Object.values(catalog).reduce(
+      (sum, entries) => sum + entries.length,
+      0,
+    ),
     counts: Object.fromEntries(
       catalogKinds.map((kind) => [kind, catalog[kind].length]),
     ),
   };
 }
 
-function filterEntries(kind: CatalogKind, category?: string | null, query?: string | null, limit?: number) {
+function buildStatusPayload() {
+  return {
+    product: 'Watermelon UI',
+    website: 'https://ui.watermelon.sh',
+    developers: 'https://ui.watermelon.sh/developers',
+    build: {
+      packageVersion: opsMetadata.packageVersion,
+      branch: opsMetadata.branch,
+      commitSha: opsMetadata.commitSha,
+      shortSha: opsMetadata.shortSha,
+      committedAt: opsMetadata.committedAt,
+      generatedAt: opsMetadata.generatedAt,
+    },
+    api: {
+      version: canonicalApiVersion,
+      versionPolicy: 'path',
+      docs: 'https://ui.watermelon.sh/api/docs',
+      openapi: 'https://ui.watermelon.sh/openapi.json',
+      rateLimitPolicy,
+      compatibilityAliases: true,
+      deprecationPolicy:
+        'Unversioned /api/* routes are compatibility aliases. Watermelon signals retirement windows with Deprecation and Sunset headers before removal.',
+    },
+    platformEndpoints: {
+      home: 'https://ui.watermelon.sh/home',
+      developers: 'https://ui.watermelon.sh/developers',
+      status: 'https://ui.watermelon.sh/developers/status',
+      llms: 'https://ui.watermelon.sh/llms.txt',
+      sitemap: 'https://ui.watermelon.sh/sitemap.xml',
+    },
+    mcp: {
+      discovery: 'https://mcp.watermelon.sh/',
+      health: 'https://mcp.watermelon.sh/health',
+      llms: 'https://mcp.watermelon.sh/llms.txt',
+      endpoint: 'https://mcp.watermelon.sh/mcp',
+      transport: 'streamable-http',
+      auth: 'public read-only',
+      docs: 'https://ui.watermelon.sh/developers/mcp',
+    },
+    source: {
+      repository: 'https://github.com/WatermelonCorp/watermelon-platform',
+      commit: `https://github.com/WatermelonCorp/watermelon-platform/commit/${opsMetadata.commitSha}`,
+    },
+    catalog: buildCatalogSummary(),
+  };
+}
+
+function filterEntries(
+  kind: CatalogKind,
+  category?: string | null,
+  query?: string | null,
+  limit?: number,
+) {
   const normalizedQuery = query?.trim().toLowerCase();
 
   return catalog[kind]
@@ -260,9 +320,13 @@ export default {
     }
 
     if (pathname === '/api/catalog/summary') {
-      return jsonResponse(buildCatalogSummary(), {
-        headers: { 'Access-Control-Allow-Origin': '*' },
-      }, isVersionedApiRequest);
+      return jsonResponse(
+        buildCatalogSummary(),
+        {
+          headers: { 'Access-Control-Allow-Origin': '*' },
+        },
+        isVersionedApiRequest,
+      );
     }
 
     if (pathname === '/api/catalog/entries') {
@@ -270,7 +334,9 @@ export default {
       const category = url.searchParams.get('category');
       const query = url.searchParams.get('query');
       const limitValue = Number(url.searchParams.get('limit') ?? '20');
-      const limit = Number.isFinite(limitValue) ? Math.min(Math.max(limitValue, 1), 50) : 20;
+      const limit = Number.isFinite(limitValue)
+        ? Math.min(Math.max(limitValue, 1), 50)
+        : 20;
 
       if (!kind || !catalogKinds.includes(kind as CatalogKind)) {
         return apiError(
@@ -288,7 +354,8 @@ export default {
           category,
           query,
           limit,
-          count: filterEntries(kind as CatalogKind, category, query, limit).length,
+          count: filterEntries(kind as CatalogKind, category, query, limit)
+            .length,
           entries: filterEntries(kind as CatalogKind, category, query, limit),
         },
         {
@@ -323,7 +390,9 @@ export default {
         );
       }
 
-      const entry = catalog[kind as CatalogKind].find((item) => item.slug === slug);
+      const entry = catalog[kind as CatalogKind].find(
+        (item) => item.slug === slug,
+      );
 
       if (!entry) {
         return apiError(
@@ -365,15 +434,27 @@ export default {
             developers: 'https://ui.watermelon.sh/developers',
             authDocs: 'https://ui.watermelon.sh/developers/auth',
             mcpDocs: 'https://ui.watermelon.sh/developers/mcp',
+            statusDocs: 'https://ui.watermelon.sh/developers/status',
             mcpServer: 'https://mcp.watermelon.sh/',
           },
           openapi: 'https://ui.watermelon.sh/openapi.json',
           endpoints: [
+            `/api/${canonicalApiVersion}/status`,
             `/api/${canonicalApiVersion}/catalog/summary`,
             `/api/${canonicalApiVersion}/catalog/entries?kind=blocks`,
             `/api/${canonicalApiVersion}/catalog/entries/{kind}/{slug}`,
           ],
         },
+        {
+          headers: { 'Access-Control-Allow-Origin': '*' },
+        },
+        isVersionedApiRequest,
+      );
+    }
+
+    if (pathname === '/api/status') {
+      return jsonResponse(
+        buildStatusPayload(),
         {
           headers: { 'Access-Control-Allow-Origin': '*' },
         },

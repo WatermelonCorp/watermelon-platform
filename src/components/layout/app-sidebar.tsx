@@ -62,10 +62,10 @@ import {
 } from '@hugeicons/core-free-icons';
 
 // ─── Imports: data registries (used to build nav category lists) ──────────────
-import { allCategories } from '@/data/animated-components-registry';
+import { allAnimatedCategories } from '@/data/animated-components-metadata';
 import { uiCategories } from '@/data/components-registry';
-import { blockCategories } from '@/data/blocks';
-import { showcases } from '@/data/showcases';
+import { blockCategories } from '@/data/block-metadata';
+import { showcaseMetadata } from '@/data/showcase-metadata';
 
 // ─── Imports: routing ────────────────────────────────────────────────────────
 import { Link, useLocation } from 'react-router-dom';
@@ -349,7 +349,7 @@ export function AppSidebar() {
   // ── Generate animated-component category sub-items for the Explore collapsible ──
   const componentCategories = useMemo(
     () =>
-      allCategories.map((category) => ({
+      allAnimatedCategories.map((category) => ({
         title: formatCategoryName(category),
         url: `/animated-components/category/${category}`,
         isActive:
@@ -382,7 +382,7 @@ export function AppSidebar() {
 
   const showcaseNavItems = useMemo(
     () =>
-      showcases.map((showcase) => ({
+      showcaseMetadata.map((showcase) => ({
         title: showcase.name,
         url: `/showcase/${showcase.slug}`,
         isActive: location.pathname === `/showcase/${showcase.slug}`,
