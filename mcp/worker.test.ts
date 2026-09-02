@@ -31,6 +31,33 @@ describe('mcp worker', () => {
     expect(body.build.generatedAt).toBeTruthy();
   });
 
+  it('accepts an MCP initialize handshake without a Worker crash', async () => {
+    const response = await mcpWorker.fetch(
+      new Request('https://mcp.watermelon.sh/mcp', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/event-stream',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'initialize',
+          params: {
+            protocolVersion: '2025-03-26',
+            capabilities: {},
+            clientInfo: { name: 'watermelon-test-client', version: '1.0.0' },
+          },
+        }),
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Content-Type')).toContain('text/event-stream');
+    const body = await response.text();
+    expect(body).toContain('"name":"watermelon-mcp"');
+  });
+
   it('returns a structured not-found response for unknown routes', async () => {
     const response = await mcpWorker.fetch(
       new Request('https://mcp.watermelon.sh/nope'),
