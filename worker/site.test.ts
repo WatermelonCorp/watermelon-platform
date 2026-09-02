@@ -93,6 +93,21 @@ describe('site worker', () => {
     expect(response.headers.get('Content-Type')).toContain('text/html');
   });
 
+  it('serves generated embedded preview routes without weakening 404s', async () => {
+    const previewResponse = await siteWorker.fetch(
+      new Request('https://ui.watermelon.sh/preview/dashboard/agndex-dashboard'),
+      mockEnv,
+    );
+    const missingPreviewResponse = await siteWorker.fetch(
+      new Request('https://ui.watermelon.sh/preview/dashboard/does-not-exist'),
+      mockEnv,
+    );
+
+    expect(previewResponse.status).toBe(200);
+    expect(await previewResponse.text()).toContain('agent-preload');
+    expect(missingPreviewResponse.status).toBe(404);
+  });
+
   it('supports versioned catalog routes with rate-limit headers', async () => {
     const response = await siteWorker.fetch(
       new Request('https://ui.watermelon.sh/api/v1/catalog/summary'),
