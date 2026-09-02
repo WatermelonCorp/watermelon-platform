@@ -102,6 +102,10 @@ The hosted MCP endpoint is intended to live at `https://mcp.watermelon.sh/mcp`.
 - [AI Policy](AI_POLICY.md)
 - [License](LICENSE)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=WatermelonCorp/watermelon-platform&type=Date)](https://www.star-history.com/#WatermelonCorp/watermelon-platform&Date)
+
 ## Support The Work
 
 This platform is part of the free public Watermelon ecosystem. If it saves your team time, sponsorship helps us keep improving it for everyone.
