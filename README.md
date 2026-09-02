@@ -104,7 +104,9 @@ The hosted MCP endpoint is intended to live at `https://mcp.watermelon.sh/mcp`.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=WatermelonCorp/watermelon-platform&type=Date)](https://www.star-history.com/#WatermelonCorp/watermelon-platform&Date)
+[![Watermelon Platform star history](https://raw.githubusercontent.com/WatermelonCorp/watermelon-platform/main/public/star-history.svg)](https://github.com/WatermelonCorp/watermelon-platform/stargazers)
+
+The chart is generated from the repository's own stargazer timeline. Maintainers can refresh it with `bun run generate:star-history`.
 
 ## Support The Work
 
