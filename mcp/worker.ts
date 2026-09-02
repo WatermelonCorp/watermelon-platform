@@ -3,9 +3,9 @@ import { catalog } from './catalog.generated';
 import { createCatalogServer } from './catalog';
 import { opsMetadata } from '../src/data/ops.generated';
 
-const mcpHandler = createMcpHandler(() => createCatalogServer(catalog), {
-  legacy: 'reject',
-});
+// Keep the default stateless legacy path so established MCP clients can still
+// negotiate the 2025 protocol revision while newer clients use the current one.
+const mcpHandler = createMcpHandler(() => createCatalogServer(catalog));
 
 const corsHeaders = {
   'Access-Control-Allow-Headers':
@@ -120,7 +120,7 @@ export default {
     }
 
     if (url.pathname === '/mcp') {
-      return mcpHandler(request);
+      return mcpHandler.fetch(request);
     }
 
     return json(
