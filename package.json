@@ -12,6 +12,7 @@
     "deploy": "bun run build && npx wrangler deploy",
     "generate:mcp-catalog": "bun run scripts/generate-mcp-catalog.ts",
     "generate:ops": "bun run scripts/generate-ops-manifest.ts",
+    "generate:star-history": "bun run scripts/generate-star-history.ts",
     "prepare": "husky",
     "mcp": "bun run generate:mcp-catalog && bun run mcp/server.ts",
     "mcp:dev": "bun run generate:mcp-catalog && bunx wrangler dev --config wrangler.mcp.toml",
