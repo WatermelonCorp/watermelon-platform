@@ -89,6 +89,9 @@ const staticRoutes: RouteEntry[] = [
 ].map((p) => ({ path: p, lastmod: today }));
 
 const routes: RouteEntry[] = [...staticRoutes];
+// Preview pages are intentionally excluded from the sitemap, but the Worker
+// needs an exact allowlist so embedded previews are not mistaken for 404s.
+const internalRoutes: string[] = [];
 
 // ── Animated components — contents/registry/*.mdx ─────────────────────────────
 // Mirrors animated-components-registry.tsx: needs slug + title; category drives
@@ -122,6 +125,7 @@ const routes: RouteEntry[] = [...staticRoutes];
     const { slug, title } = matter(fs.readFileSync(file, 'utf-8')).data;
     if (!slug || !title) continue;
     routes.push({ path: `/dashboard/${slug}`, lastmod: fileDate(file) });
+    internalRoutes.push(`/preview/dashboard/${slug}`);
   }
 }
 
@@ -133,6 +137,7 @@ const routes: RouteEntry[] = [...staticRoutes];
     const { slug, title } = matter(fs.readFileSync(file, 'utf-8')).data;
     if (!slug || !title) continue;
     routes.push({ path: `/template/${slug}`, lastmod: fileDate(file) });
+    internalRoutes.push(`/preview/template/${slug}`);
   }
 }
 
@@ -147,6 +152,7 @@ const routes: RouteEntry[] = [...staticRoutes];
     ).data;
     if (!slug || !title) continue;
     routes.push({ path: `/block/${slug}`, lastmod: fileDate(file) });
+    internalRoutes.push(`/preview/block/${slug}`);
     if (category) blockCategories.add(toCategorySlug(String(category)));
   }
   for (const category of blockCategories) {
@@ -197,6 +203,7 @@ const seen = new Set<string>();
 const unique = routes
   .filter((r) => (seen.has(r.path) ? false : (seen.add(r.path), true)))
   .sort((a, b) => a.path.localeCompare(b.path));
+const uniqueInternalRoutes = [...new Set(internalRoutes)].sort();
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -225,6 +232,8 @@ export const knownRoutes = ${JSON.stringify(
     null,
     2,
   )} as const;
+
+export const internalRoutes = ${JSON.stringify(uniqueInternalRoutes, null, 2)} as const;
 `,
 );
 console.log(`Sitemap generated with ${unique.length} routes.`);

@@ -1,13 +1,14 @@
 import { catalog, type CatalogKind } from '../mcp/catalog.generated';
 import { opsMetadata } from '../src/data/ops.generated';
 import { agentPages, renderMarkdownAsHtml } from './agent-pages';
-import { knownRoutes } from './routes.generated';
+import { internalRoutes, knownRoutes } from './routes.generated';
 
 type Env = {
   ASSETS: Fetcher;
 };
 
 const knownRouteSet = new Set(knownRoutes);
+const internalRouteSet = new Set(internalRoutes);
 const catalogKinds = Object.keys(catalog) as CatalogKind[];
 const canonicalApiVersion = 'v1';
 const legacyApiSunset = 'Thu, 31 Dec 2026 23:59:59 GMT';
@@ -281,7 +282,7 @@ function notFoundHtml() {
 }
 
 function isKnownDocumentRoute(pathname: string) {
-  return knownRouteSet.has(pathname);
+  return knownRouteSet.has(pathname) || internalRouteSet.has(pathname);
 }
 
 export default {
