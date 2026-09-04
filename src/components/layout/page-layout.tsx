@@ -49,7 +49,7 @@ export function PageLayout({
       <ScrollProgressContainer
         ref={containerRef}
         onScroll={handleScroll}
-        className="flex-1 overflow-y-auto rounded-xl m-2 bg-white dark:bg-background border md:m-0"
+        className="m-2 min-w-0 flex-1 overflow-x-hidden overflow-y-auto rounded-xl border bg-white md:m-0 dark:bg-background"
       >
         {showNavbar && <Navbar />}
 
