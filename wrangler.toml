@@ -12,3 +12,8 @@ run_worker_first = true
 pattern = "registry.watermelon.sh"
 zone_name = "watermelon.sh"
 custom_domain = true
+
+[[routes]]
+pattern = "ui.watermelon.sh"
+zone_name = "watermelon.sh"
+custom_domain = true
