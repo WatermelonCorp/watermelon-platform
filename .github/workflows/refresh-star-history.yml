@@ -1,0 +1,39 @@
+name: Refresh Star History
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Generate star history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bun run generate:star-history
+
+      - name: Commit refreshed chart
+        run: |
+          if git diff --quiet -- public/star-history.svg; then
+            echo "Star history is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/star-history.svg
+          git commit -m "chore: refresh star history"
+          git push
