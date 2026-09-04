@@ -1,5 +1,12 @@
 import React from "react";
 
+type ComponentModule = {
+  default: React.ComponentType<any>;
+};
+
+type ComponentLoader = () => Promise<ComponentModule>;
+type SourceLoader = () => Promise<string>;
+
 export interface RegistryItem {
   name: string;
   slug: string;
@@ -33,46 +40,59 @@ export interface RegistryItem {
 // Load all MDX files (metadata)
 const mdxFiles = import.meta.glob("./contents/registry/*.mdx", { eager: true });
 
-// Load all Component Demos (eager) - from subfolders
-const demoBaseComponents = import.meta.glob("./contents/animated-components/*/demo-base.tsx", { eager: true });
-const demoOriginalComponents = import.meta.glob("./contents/animated-components/*/demo-original.tsx", { eager: true });
-const demoOldComponents = import.meta.glob("./contents/animated-components/*/demo.tsx", { eager: true });
+// Keep demos and source files out of the initial bundle. They are fetched only
+// when a user opens a component preview or requests its source.
+const demoBaseComponents = import.meta.glob<ComponentModule>(
+  "./contents/animated-components/*/demo-base.tsx",
+);
+const demoOriginalComponents = import.meta.glob<ComponentModule>(
+  "./contents/animated-components/*/demo-original.tsx",
+);
+const demoOldComponents = import.meta.glob<ComponentModule>(
+  "./contents/animated-components/*/demo.tsx",
+);
 
 // Load all Component Source Code (eager) - from subfolders
-const componentBaseSource = import.meta.glob("./contents/animated-components/*/base.tsx", {
+const componentBaseSource = import.meta.glob<string>("./contents/animated-components/*/base.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
 
-const componentOriginalSource = import.meta.glob("./contents/animated-components/*/original.tsx", {
+const componentOriginalSource = import.meta.glob<string>("./contents/animated-components/*/original.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
 
-const componentOldSource = import.meta.glob("./contents/animated-components/*/index.tsx", {
+const componentOldSource = import.meta.glob<string>("./contents/animated-components/*/index.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
 
 // Load all Component Demo Source Code (eager) - from subfolders
-const demoBaseSource = import.meta.glob("./contents/animated-components/*/demo-base.tsx", {
+const demoBaseSource = import.meta.glob<string>("./contents/animated-components/*/demo-base.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
-const demoOriginalSource = import.meta.glob("./contents/animated-components/*/demo-original.tsx", {
+const demoOriginalSource = import.meta.glob<string>("./contents/animated-components/*/demo-original.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
-const demoOldSource = import.meta.glob("./contents/animated-components/*/demo.tsx", {
+const demoOldSource = import.meta.glob<string>("./contents/animated-components/*/demo.tsx", {
   query: "?raw",
   import: "default",
-  eager: true,
 });
+
+const MissingComponent = () => <div>Component preview unavailable</div>;
+
+function lazyComponent(loader?: ComponentLoader) {
+  return React.lazy(
+    loader ?? (async () => ({ default: MissingComponent })),
+  );
+}
+
+function lazySource(loader: SourceLoader | undefined, fallback: string) {
+  return loader ?? (async () => fallback);
+}
 
 export const registry: RegistryItem[] = Object.values(mdxFiles)
   .map((mod: any) => {
@@ -93,8 +113,8 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
     const originalKey = `./contents/animated-components/${slug}/original.tsx`;
     const indexKey = `./contents/animated-components/${slug}/index.tsx`;
 
-    const demoBaseModule = demoBaseComponents[demoBaseKey] || demoOldComponents[demoOldKey];
-    const demoOriginalModule = demoOriginalComponents[demoOriginalKey] || demoOldComponents[demoOldKey];
+    const demoBaseLoader = demoBaseComponents[demoBaseKey] || demoOldComponents[demoOldKey];
+    const demoOriginalLoader = demoOriginalComponents[demoOriginalKey] || demoOldComponents[demoOldKey];
     
     const baseCode = componentBaseSource[baseKey];
     const originalCode = componentOriginalSource[originalKey] || componentOldSource[indexKey];
@@ -106,16 +126,16 @@ export const registry: RegistryItem[] = Object.values(mdxFiles)
       ...frontmatter,
       name: frontmatter.title,
       component: {
-        base: (demoBaseModule as any)?.default || (() => <div>Missing Base Component</div>),
-        original: (demoOriginalModule as any)?.default || (() => <div>Missing Original Component</div>)
+        base: lazyComponent(demoBaseLoader),
+        original: lazyComponent(demoOriginalLoader),
       },
       code: {
-        base: async () => (baseCode as string) || `// Missing base code for ${slug}`,
-        original: async () => (originalCode as string) || `// Missing original code for ${slug}`
+        base: lazySource(baseCode, `// Missing base code for ${slug}`),
+        original: lazySource(originalCode, `// Missing original code for ${slug}`),
       },
       demoCode: {
-        base: async () => (demoCodeBase as string) || `// Missing demo base code for ${slug}`,
-        original: async () => (demoCodeOriginal as string) || `// Missing demo original code for ${slug}`
+        base: lazySource(demoCodeBase, `// Missing demo base code for ${slug}`),
+        original: lazySource(demoCodeOriginal, `// Missing demo original code for ${slug}`),
       },
       category: frontmatter.category || "Uncategorized",
       description: frontmatter.description || "",

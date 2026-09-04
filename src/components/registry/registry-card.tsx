@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, memo } from "react";
 import type { RegistryItem } from "@/data/animated-components-registry";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import { ResilientImage } from "@/components/ui/resilient-image";
 
 interface RegistryCardProps {
   item: RegistryItem;
@@ -28,7 +29,10 @@ interface RegistryCardProps {
 
 export const RegistryCard = memo(function RegistryCard({ item, onClick }: RegistryCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const shouldLoadVideo = Boolean(item.video && (isHovered || isFocused));
 
   // Get the CLI command from item.install (same as component-modal)
   // const cliCommand = item.install?.[0] || `npx shadcn@latest add ${item.slug}`;
@@ -42,14 +46,12 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
     // Safari fix: ensure muted property is set on the DOM element
     video.muted = true;
 
-    if (isHovered) {
+    if (shouldLoadVideo && isVideoReady) {
       video.play().catch(() => { });
     } else {
       video.pause();
-      // Reset to our poster frame mark so it stays seamless when unhovered
-      video.currentTime = 0.001;
     }
-  }, [isHovered]);
+  }, [shouldLoadVideo, isVideoReady]);
 
   // const handleCopy = async (e: React.MouseEvent) => {
   //   e.stopPropagation();
@@ -69,9 +71,8 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
   // };
 
   return (
-    <div
-      role="button"
-      tabIndex={0}
+    <button
+      type="button"
       onClick={() => {
         trackEvent("component_card_click", {
           component_slug: item.slug,
@@ -81,9 +82,17 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
         onClick(item);
       }}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setIsVideoReady(false);
+      }}
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => {
+        setIsFocused(false);
+        setIsVideoReady(false);
+      }}
       className={cn(
-        "group relative cursor-pointer",
+        "group relative w-full cursor-pointer text-left",
         "rounded-4xl p-2",
         // Light mode: subtle gray background with soft border
         "bg-gray-100",
@@ -146,32 +155,41 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
           pointer-events-none z-10"
         />
 
-        {/* Static image (only if no video is available) */}
-        {/* {!item.video && item.image && (
-          <img
+        {item.image ? (
+          <ResilientImage
             src={item.image}
-            srcSet={getImageSrcSet(item.image)}
-            sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 96vw"
             alt={`${item.name} preview`}
-            loading={imagePriority ? "eager" : "lazy"}
-            fetchPriority={imagePriority ? "high" : "auto"}
+            loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            fallback={
+              <div className="text-muted-foreground absolute inset-0 flex items-center justify-center p-6 text-center text-sm">
+                {item.name} preview
+              </div>
+            }
           />
-        )} */}
+        ) : (
+          <div className="text-muted-foreground absolute inset-0 flex items-center justify-center p-6 text-center text-sm">
+            {item.name} preview
+          </div>
+        )}
 
-        {/* Video preview */}
-        {item.video && (
+        {shouldLoadVideo && (
           <video
             ref={videoRef}
-            src={`${item.video}#t=0.001`} // this line is used for play video on specific time and also create the poster
+            src={item.video}
             muted
             loop
             playsInline
             preload="metadata"
+            onLoadedData={() => setIsVideoReady(true)}
+            onError={() => setIsVideoReady(false)}
             aria-hidden="true"
             tabIndex={-1}
-            className="absolute inset-0 h-full w-full object-cover"
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover transition-opacity duration-200",
+              isVideoReady ? "opacity-100" : "opacity-0",
+            )}
           />
         )}
 
@@ -184,6 +202,6 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
           pointer-events-none z-10"
         /> */}
       </div>
-    </div>
+    </button>
   );
 })

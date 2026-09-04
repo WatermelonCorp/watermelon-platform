@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { PostHogProvider } from '@posthog/react'
 import './index.css'
 import App from './App.tsx'
+import { ApplicationErrorBoundary } from './components/application-error-boundary.tsx'
 
 const root = document.getElementById('root')
 if (!root) {
@@ -56,13 +57,15 @@ async function bootstrap() {
 
   createRoot(root!).render(
     <StrictMode>
-      {enablePosthog ? (
-        <PostHogProvider apiKey={posthogKey} options={options}>
+      <ApplicationErrorBoundary>
+        {enablePosthog ? (
+          <PostHogProvider apiKey={posthogKey} options={options}>
+            <App />
+          </PostHogProvider>
+        ) : (
           <App />
-        </PostHogProvider>
-      ) : (
-        <App />
-      )}
+        )}
+      </ApplicationErrorBoundary>
     </StrictMode>
   )
 }
