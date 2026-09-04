@@ -172,6 +172,7 @@ export default {
           privacy: 'Aggregate event counts only. No IP addresses, session IDs, prompts, or tool arguments are stored.',
         },
         build: getRuntimeMetadata(),
+        tools: [...knownToolNames],
         ...getCatalogStats(),
       });
     }
