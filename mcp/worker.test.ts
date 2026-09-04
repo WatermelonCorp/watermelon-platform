@@ -30,6 +30,7 @@ describe('mcp worker', () => {
     expect(body.ok).toBe(true);
     expect(body.service).toBe('watermelon-mcp');
     expect(body.transport).toBe('streamable-http');
+    expect(body.tools).toContain('get_component');
     expect(body.build.generatedAt).toBeTruthy();
   });
 
