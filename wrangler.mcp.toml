@@ -3,6 +3,10 @@ main = "./mcp/worker.ts"
 compatibility_date = "2026-08-30"
 workers_dev = true
 
+[[analytics_engine_datasets]]
+binding = "MCP_ANALYTICS"
+dataset = "watermelon_mcp_events"
+
 [[routes]]
 pattern = "mcp.watermelon.sh"
 zone_name = "watermelon.sh"

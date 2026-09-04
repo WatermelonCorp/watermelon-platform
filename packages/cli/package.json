@@ -1,0 +1,37 @@
+{
+  "name": "@watermelon-ui/cli",
+  "version": "0.1.0",
+  "description": "Install Watermelon UI components with the shadcn CLI.",
+  "type": "module",
+  "bin": {
+    "watermelon-ui": "./bin/watermelon-ui.mjs"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "watermelon",
+    "watermelon-ui",
+    "shadcn",
+    "react",
+    "tailwind"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WatermelonCorp/watermelon-platform.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/WatermelonCorp/watermelon-platform/issues"
+  },
+  "homepage": "https://ui.watermelon.sh/installation",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

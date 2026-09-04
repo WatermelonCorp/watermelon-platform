@@ -45,6 +45,7 @@ Useful commands:
 - `bun run mcp`: start the local Watermelon MCP server over stdio
 - `bun run mcp:dev`: run the hosted MCP Worker locally
 - `bun run mcp:deploy`: deploy the hosted MCP Worker to Cloudflare
+- `bun run generate:shadcn-registry`: generate installable shadcn registry JSON
 
 Public machine-readable endpoints:
 
@@ -67,6 +68,21 @@ Most public content is file-based and lives in `src/data/contents`.
 - `templates/`: template entries and demos
 
 Routes are wired in `src/components/layout/app-routes.tsx`, and the sitemap is generated from the same content model in `scripts/generate-sitemap.ts`.
+
+## Installable Components
+
+Watermelon components are distributed as copy-paste shadcn registry items, so
+the resulting code lives in the consuming project and remains fully editable.
+
+```bash
+npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json
+```
+
+The registry is generated from the maintained animated component source during
+every platform build. A release-ready CLI lives in `packages/cli`; its public
+npm package name is `@watermelon-ui/cli`. Publishing requires an npm
+organization and the `NPM_TOKEN` GitHub repository secret, then runs through
+the manual `Publish Watermelon UI CLI` workflow.
 
 ## Contributing
 
@@ -93,6 +109,10 @@ Watermelon includes a few machine-readable surfaces to help agents and tooling u
 - `worker/site.ts`
 
 The hosted MCP endpoint is intended to live at `https://mcp.watermelon.sh/mcp`.
+
+The hosted Worker records aggregate `initialize` and `tools/call` event counts
+in Cloudflare Analytics Engine. It does not retain IP addresses, session IDs,
+prompts, tool arguments, or client-provided versions.
 
 ## Repository Health
 
