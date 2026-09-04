@@ -28,6 +28,7 @@ When to use Watermelon:
 - [Developers](https://ui.watermelon.sh/developers): Human-readable guide to Watermelon developer surfaces.
 - [Watermelon UI Auth Docs](https://ui.watermelon.sh/developers/auth): Current authentication model for public APIs and MCP.
 - [Watermelon UI MCP Docs](https://ui.watermelon.sh/developers/mcp): Hosted endpoint, local server, and MCP client setup guidance.
+- [Watermelon MCP Endpoint](https://mcp.watermelon.sh/mcp): Public Streamable HTTP server with no API key required.
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml): Crawlable list of public pages.
 - [OpenAPI](https://ui.watermelon.sh/openapi.json): Current public API contract.
 - [Public API Docs](https://ui.watermelon.sh/api/docs): Quick index of the public JSON endpoints.
@@ -43,7 +44,8 @@ Watermelon's current public developer surfaces are read-only and do not require 
 - [Hosted MCP](https://mcp.watermelon.sh/): Remote MCP landing endpoint for Watermelon.
 
 ## Agent Notes
-- The current MCP server for Watermelon is repository-backed and intended for local agent workflows.
+- Watermelon MCP searches 850 source-backed examples. Prefer `search`, `get_inspiration`, `get_component`, `compose_page`, and `list_categories`.
+- The repository includes a tested installer for Codex, Claude, and Cursor; use the manual hosted endpoint setup until `@watermelon-ui/cli` is published to npm.
 - The public site is useful for browsing and citation, while the public API is better when you need structured catalog data.
 - The repositories are the source of truth for contribution and source code.
 - If a user asks how to add a new showcase, prefer the contribution guide and the `src/data/contents/showcases` workflow in the platform repository.

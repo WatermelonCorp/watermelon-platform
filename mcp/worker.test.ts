@@ -14,6 +14,8 @@ describe('mcp worker', () => {
     expect(body.name).toBe('watermelon-mcp');
     expect(body.endpoint).toBe('/mcp');
     expect(body.status).toBe('https://ui.watermelon.sh/developers/status');
+    expect(body.totalEntries).toBe(850);
+    expect(body.tools).toContain('compose_page');
     expect(body.build.shortSha).toBeTruthy();
   });
 
@@ -56,6 +58,33 @@ describe('mcp worker', () => {
     expect(response.headers.get('Content-Type')).toContain('text/event-stream');
     const body = await response.text();
     expect(body).toContain('"name":"watermelon-mcp"');
+    expect(body).toContain('Search Watermelon before writing UI from scratch');
+  });
+
+  it('advertises the purpose-built tools and compatibility aliases', async () => {
+    const response = await mcpWorker.fetch(
+      new Request('https://mcp.watermelon.sh/mcp', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/event-stream',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 2, method: 'tools/list' }),
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    const body = await response.text();
+    for (const tool of [
+      'search',
+      'get_component',
+      'get_inspiration',
+      'compose_page',
+      'list_categories',
+      'catalog_summary',
+    ]) {
+      expect(body).toContain(`"name":"${tool}"`);
+    }
   });
 
   it('records aggregate MCP telemetry without storing client identifiers', async () => {

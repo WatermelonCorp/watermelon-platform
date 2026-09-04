@@ -7,9 +7,13 @@ const REGISTRY_CONTENT_DIRECTORY = path.join(
   ROOT,
   'src/data/contents/registry',
 );
-const COMPONENT_DIRECTORY = path.join(
+const ANIMATED_COMPONENT_DIRECTORY = path.join(
   ROOT,
   'src/data/contents/animated-components',
+);
+const BASE_COMPONENT_DIRECTORY = path.join(
+  ROOT,
+  'src/data/contents/components',
 );
 const OUTPUT_DIRECTORY = path.join(ROOT, 'public/r');
 const REGISTRY_MANIFEST_PATH = path.join(ROOT, 'public/registry.json');
@@ -61,9 +65,58 @@ function dependenciesFromSource(source: string) {
 
 async function readComponentVariant(slug: string, variant: 'original' | 'base') {
   return readFile(
-    path.join(COMPONENT_DIRECTORY, slug, `${variant}.tsx`),
+    path.join(ANIMATED_COMPONENT_DIRECTORY, slug, `${variant}.tsx`),
     'utf8',
   );
+}
+
+function quotedValue(source: string, name: string) {
+  return source.match(new RegExp(`${name}:\\s*['"]([^'"]+)['"]`))?.[1];
+}
+
+function registryDependenciesFromSource(source: string) {
+  return [...source.matchAll(/@\/components\/(?:ui|base-ui)\/([a-z0-9-]+)/g)]
+    .map((match) => match[1])
+    .filter((value, index, values) => values.indexOf(value) === index)
+    .sort();
+}
+
+async function buildBaseComponentItems() {
+  const directories = await readdir(BASE_COMPONENT_DIRECTORY, { withFileTypes: true });
+  const items: RegistryItem[] = [];
+
+  for (const directory of directories.filter((entry) => entry.isDirectory()).sort((left, right) => left.name.localeCompare(right.name))) {
+    const componentDirectory = path.join(BASE_COMPONENT_DIRECTORY, directory.name);
+    const indexSource = await readFile(path.join(componentDirectory, 'index.ts'), 'utf8');
+    const configSource = await readFile(path.join(componentDirectory, 'config.ts'), 'utf8');
+    const categoryDescription = quotedValue(configSource, 'description') ?? `${directory.name} component variants.`;
+    const variantPattern = /id:\s*['"]([^'"]+)['"][\s\S]*?title:\s*['"]([^'"]+)['"][\s\S]*?cli:\s*['"]([^'"]+)['"]/g;
+
+    for (const match of indexSource.matchAll(variantPattern)) {
+      const [, id, title, installCommand] = match;
+      const name = installCommand.match(/\/r\/([^\s]+)\.json/)?.[1] ?? id;
+      const variantNumber = Number(id.match(/(\d+)$/)?.[1]);
+      const source = await readFile(path.join(componentDirectory, `variant-${variantNumber}.tsx`), 'utf8');
+      const registryDependencies = registryDependenciesFromSource(source);
+
+      items.push({
+        $schema: 'https://ui.shadcn.com/schema/registry-item.json',
+        name,
+        type: 'registry:component',
+        title,
+        description: `${title}. ${categoryDescription}`,
+        dependencies: dependenciesFromSource(source),
+        ...(registryDependencies.length ? { registryDependencies } : {}),
+        files: [{
+          path: `components/watermelon/${name}.tsx`,
+          type: 'registry:component',
+          content: source,
+        }],
+      });
+    }
+  }
+
+  return items;
 }
 
 export async function buildRegistryItems() {
@@ -124,7 +177,7 @@ export async function buildRegistryItems() {
     }
   }
 
-  return items;
+  return [...items, ...(await buildBaseComponentItems())];
 }
 
 export async function generateShadcnRegistry(

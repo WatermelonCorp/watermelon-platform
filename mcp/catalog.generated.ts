@@ -4,6 +4,6880 @@
 import type { CatalogData } from './catalog';
 
 export const catalog: CatalogData = {
+  "components": [
+    {
+      "kind": "components",
+      "slug": "accordion-1",
+      "title": "Accordion 1",
+      "description": "Accordion 1. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-2",
+      "title": "Accordion 2",
+      "description": "Accordion 2. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-3",
+      "title": "Accordion 3",
+      "description": "Accordion 3. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-4",
+      "title": "Accordion 4",
+      "description": "Accordion 4. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-5",
+      "title": "Accordion 5",
+      "description": "Accordion 5. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-6",
+      "title": "Accordion 6",
+      "description": "Accordion 6. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-6.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-7",
+      "title": "Accordion 7",
+      "description": "Accordion 7. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-8",
+      "title": "Accordion 8",
+      "description": "Accordion 8. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-8.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-9",
+      "title": "Accordion 9",
+      "description": "Accordion 9. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-9.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-10",
+      "title": "Accordion 10",
+      "description": "Accordion 10. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-10.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-11",
+      "title": "Accordion 11",
+      "description": "Accordion 11. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-11.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-12",
+      "title": "Accordion 12",
+      "description": "Accordion 12. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-12.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-13",
+      "title": "Accordion 13",
+      "description": "Accordion 13. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-13.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-14",
+      "title": "Accordion 14",
+      "description": "Accordion 14. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-14.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-15",
+      "title": "Accordion 15",
+      "description": "Accordion 15. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-15.json",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "accordion-16",
+      "title": "Accordion 16",
+      "description": "Accordion 16. A vertically stacked set of interactive headings that each reveal a section of content.",
+      "category": "accordion",
+      "path": "src/data/contents/components/accordion/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/accordion",
+      "registryUrl": "https://registry.watermelon.sh/r/accordion-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/accordion-16.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-1",
+      "title": "Alert 1",
+      "description": "Alert 1. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-1.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-2",
+      "title": "Alert 2",
+      "description": "Alert 2. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-2.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-3",
+      "title": "Alert 3",
+      "description": "Alert 3. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-3.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-4",
+      "title": "Alert 4",
+      "description": "Alert 4. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-4.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-5",
+      "title": "Alert 5",
+      "description": "Alert 5. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-5.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-6",
+      "title": "Alert 6",
+      "description": "Alert 6. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-6.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-7",
+      "title": "Alert 7",
+      "description": "Alert 7. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-7.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-8",
+      "title": "Alert 8",
+      "description": "Alert 8. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-8.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-9",
+      "title": "Alert 9",
+      "description": "Alert 9. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "alert-10",
+      "title": "Alert 10",
+      "description": "Alert 10. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-10.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-11",
+      "title": "Alert 11",
+      "description": "Alert 11. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-12",
+      "title": "Alert 12",
+      "description": "Alert 12. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-12.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-13",
+      "title": "Alert 13",
+      "description": "Alert 13. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-13.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-14",
+      "title": "Alert 14",
+      "description": "Alert 14. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-15",
+      "title": "Alert 15",
+      "description": "Alert 15. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-15.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-16",
+      "title": "Alert 16",
+      "description": "Alert 16. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "alert-17",
+      "title": "Alert 17",
+      "description": "Alert 17. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-17.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-18",
+      "title": "Alert 18",
+      "description": "Alert 18. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-18.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-19",
+      "title": "Alert 19",
+      "description": "Alert 19. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-19.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-20",
+      "title": "Alert 20",
+      "description": "Alert 20. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-20.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-21",
+      "title": "Alert 21",
+      "description": "Alert 21. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-21.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-22",
+      "title": "Alert 22",
+      "description": "Alert 22. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-22.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-23",
+      "title": "Alert 23",
+      "description": "Alert 23. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-23.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-24",
+      "title": "Alert 24",
+      "description": "Alert 24. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-24.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-24.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-25",
+      "title": "Alert 25",
+      "description": "Alert 25. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-25.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-25.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-26",
+      "title": "Alert 26",
+      "description": "Alert 26. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-26.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-26.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-26.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-27",
+      "title": "Alert 27",
+      "description": "Alert 27. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-27.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-27.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-27.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-28",
+      "title": "Alert 28",
+      "description": "Alert 28. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-28.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-28.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-28.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-29",
+      "title": "Alert 29",
+      "description": "Alert 29. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-29.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-29.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-29.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "alert-30",
+      "title": "Alert 30",
+      "description": "Alert 30. A component used to display important messages, notifications, or feedback to the user.",
+      "category": "alerts",
+      "path": "src/data/contents/components/alerts/variant-30.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/alerts",
+      "registryUrl": "https://registry.watermelon.sh/r/alert-30.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/alert-30.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-1",
+      "title": "Avatar 1",
+      "description": "Avatar 1. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-2",
+      "title": "Avatar 2",
+      "description": "Avatar 2. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-3",
+      "title": "Avatar 3",
+      "description": "Avatar 3. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-4",
+      "title": "Avatar 4",
+      "description": "Avatar 4. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-5",
+      "title": "Avatar 5",
+      "description": "Avatar 5. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-6",
+      "title": "Avatar 6",
+      "description": "Avatar 6. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-7",
+      "title": "Avatar 7",
+      "description": "Avatar 7. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-8",
+      "title": "Avatar 8",
+      "description": "Avatar 8. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-8.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-9",
+      "title": "Avatar 9",
+      "description": "Avatar 9. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-10",
+      "title": "Avatar 10",
+      "description": "Avatar 10. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-10.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-11",
+      "title": "Avatar 11",
+      "description": "Avatar 11. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-11.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-12",
+      "title": "Avatar 12",
+      "description": "Avatar 12. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-12.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-13",
+      "title": "Avatar 13",
+      "description": "Avatar 13. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-14",
+      "title": "Avatar 14",
+      "description": "Avatar 14. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-14.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-15",
+      "title": "Avatar 15",
+      "description": "Avatar 15. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-16",
+      "title": "Avatar 16",
+      "description": "Avatar 16. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-17",
+      "title": "Avatar 17",
+      "description": "Avatar 17. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-17.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-18",
+      "title": "Avatar 18",
+      "description": "Avatar 18. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-19",
+      "title": "Avatar 19",
+      "description": "Avatar 19. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-19.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-20",
+      "title": "Avatar 20",
+      "description": "Avatar 20. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "avatar-21",
+      "title": "Avatar 21",
+      "description": "Avatar 21. Displays images, icons, or text in a circular or rounded shape.",
+      "category": "avatar",
+      "path": "src/data/contents/components/avatar/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/avatar",
+      "registryUrl": "https://registry.watermelon.sh/r/avatar-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/avatar-21.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-1",
+      "title": "Badge 1",
+      "description": "Badge 1. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-2",
+      "title": "Badge 2",
+      "description": "Badge 2. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-3",
+      "title": "Badge 3",
+      "description": "Badge 3. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-4",
+      "title": "Badge 4",
+      "description": "Badge 4. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-5",
+      "title": "Badge 5",
+      "description": "Badge 5. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-6",
+      "title": "Badge 6",
+      "description": "Badge 6. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-7",
+      "title": "Badge 7",
+      "description": "Badge 7. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-8",
+      "title": "Badge 8",
+      "description": "Badge 8. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-9",
+      "title": "Badge 9",
+      "description": "Badge 9. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-10",
+      "title": "Badge 10",
+      "description": "Badge 10. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-10.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-11",
+      "title": "Badge 11",
+      "description": "Badge 11. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-12",
+      "title": "Badge 12",
+      "description": "Badge 12. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-12.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-13",
+      "title": "Badge 13",
+      "description": "Badge 13. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-14",
+      "title": "Badge 14",
+      "description": "Badge 14. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-15",
+      "title": "Badge 15",
+      "description": "Badge 15. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-16",
+      "title": "Badge 16",
+      "description": "Badge 16. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-17",
+      "title": "Badge 17",
+      "description": "Badge 17. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-17.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-18",
+      "title": "Badge 18",
+      "description": "Badge 18. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-18.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-19",
+      "title": "Badge 19",
+      "description": "Badge 19. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-19.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-20",
+      "title": "Badge 20",
+      "description": "Badge 20. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-21",
+      "title": "Badge 21",
+      "description": "Badge 21. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-21.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "badge-22",
+      "title": "Badge 22",
+      "description": "Badge 22. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-22.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-23",
+      "title": "Badge 23",
+      "description": "Badge 23. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-23.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "badge-24",
+      "title": "Badge 24",
+      "description": "Badge 24. A small visual indicator used to highlight status, counts, or labels.",
+      "category": "badge",
+      "path": "src/data/contents/components/badge/variant-24.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/badge",
+      "registryUrl": "https://registry.watermelon.sh/r/badge-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/badge-24.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-1",
+      "title": "Breadcrumb 1",
+      "description": "Breadcrumb 1. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-2",
+      "title": "Breadcrumb 2",
+      "description": "Breadcrumb 2. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-3",
+      "title": "Breadcrumb 3",
+      "description": "Breadcrumb 3. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-4",
+      "title": "Breadcrumb 4",
+      "description": "Breadcrumb 4. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-5",
+      "title": "Breadcrumb 5",
+      "description": "Breadcrumb 5. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-6",
+      "title": "Breadcrumb 6",
+      "description": "Breadcrumb 6. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-7",
+      "title": "Breadcrumb 7",
+      "description": "Breadcrumb 7. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "breadcrumb-8",
+      "title": "Breadcrumb 8",
+      "description": "Breadcrumb 8. Displays the hierarchical structure of a website or application.",
+      "category": "breadcrumb",
+      "path": "src/data/contents/components/breadcrumb/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/breadcrumb",
+      "registryUrl": "https://registry.watermelon.sh/r/breadcrumb-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-8.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-1",
+      "title": "Button 1",
+      "description": "Button 1. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-2",
+      "title": "Button 2",
+      "description": "Button 2. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-2.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-3",
+      "title": "Button 3",
+      "description": "Button 3. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-4",
+      "title": "Button 4",
+      "description": "Button 4. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-4.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-5",
+      "title": "Button 5",
+      "description": "Button 5. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-5.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-6",
+      "title": "Button 6",
+      "description": "Button 6. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-7",
+      "title": "Button 7",
+      "description": "Button 7. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-8",
+      "title": "Button 8",
+      "description": "Button 8. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-9",
+      "title": "Button 9",
+      "description": "Button 9. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-10",
+      "title": "Button 10",
+      "description": "Button 10. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-10.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-11",
+      "title": "Button 11",
+      "description": "Button 11. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-12",
+      "title": "Button 12",
+      "description": "Button 12. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-12.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-13",
+      "title": "Button 13",
+      "description": "Button 13. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-13.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-14",
+      "title": "Button 14",
+      "description": "Button 14. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-15",
+      "title": "Button 15",
+      "description": "Button 15. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-15.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-16",
+      "title": "Button 16",
+      "description": "Button 16. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-16.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-17",
+      "title": "Button 17",
+      "description": "Button 17. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-17.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-18",
+      "title": "Button 18",
+      "description": "Button 18. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-18.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-19",
+      "title": "Button 19",
+      "description": "Button 19. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-19.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-20",
+      "title": "Button 20",
+      "description": "Button 20. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-21",
+      "title": "Button 21",
+      "description": "Button 21. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-21.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-22",
+      "title": "Button 22",
+      "description": "Button 22. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-22.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-23",
+      "title": "Button 23",
+      "description": "Button 23. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-23.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-24",
+      "title": "Button 24",
+      "description": "Button 24. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-24.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-24.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-25",
+      "title": "Button 25",
+      "description": "Button 25. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-25.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-25.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-26",
+      "title": "Button 26",
+      "description": "Button 26. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-26.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-26.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-26.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-27",
+      "title": "Button 27",
+      "description": "Button 27. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-27.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-27.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-27.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-28",
+      "title": "Button 28",
+      "description": "Button 28. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-28.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-28.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-28.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-29",
+      "title": "Button 29",
+      "description": "Button 29. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-29.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-29.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-29.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-30",
+      "title": "Button 30",
+      "description": "Button 30. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-30.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-30.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-30.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-31",
+      "title": "Button 31",
+      "description": "Button 31. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-31.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-31.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-31.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "button-32",
+      "title": "Button 32",
+      "description": "Button 32. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-32.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-32.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-32.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-33",
+      "title": "Button 33",
+      "description": "Button 33. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-33.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-33.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-33.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-34",
+      "title": "Button 34",
+      "description": "Button 34. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-34.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-34.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-34.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-35",
+      "title": "Button 35",
+      "description": "Button 35. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-35.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-35.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-35.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-36",
+      "title": "Button 36",
+      "description": "Button 36. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-36.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-36.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-36.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-37",
+      "title": "Button 37",
+      "description": "Button 37. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-37.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-37.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-37.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-38",
+      "title": "Button 38",
+      "description": "Button 38. An interactive element used to trigger actions, submissions, or navigation.",
+      "category": "button",
+      "path": "src/data/contents/components/button/variant-38.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button",
+      "registryUrl": "https://registry.watermelon.sh/r/button-38.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-38.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-1",
+      "title": "ButtonGroup 1",
+      "description": "ButtonGroup 1. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-1.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-2",
+      "title": "ButtonGroup 2",
+      "description": "ButtonGroup 2. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-3",
+      "title": "ButtonGroup 3",
+      "description": "ButtonGroup 3. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-4",
+      "title": "ButtonGroup 4",
+      "description": "ButtonGroup 4. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-5",
+      "title": "ButtonGroup 5",
+      "description": "ButtonGroup 5. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-6",
+      "title": "ButtonGroup 6",
+      "description": "ButtonGroup 6. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-7",
+      "title": "ButtonGroup 7",
+      "description": "ButtonGroup 7. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-8",
+      "title": "ButtonGroup 8",
+      "description": "ButtonGroup 8. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-8.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-9",
+      "title": "ButtonGroup 9",
+      "description": "ButtonGroup 9. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-10",
+      "title": "ButtonGroup 10",
+      "description": "ButtonGroup 10. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-10.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-11",
+      "title": "ButtonGroup 11",
+      "description": "ButtonGroup 11. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "button-group-12",
+      "title": "ButtonGroup 12",
+      "description": "ButtonGroup 12. A group of buttons that are displayed together.",
+      "category": "button-group",
+      "path": "src/data/contents/components/button-group/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/button-group",
+      "registryUrl": "https://registry.watermelon.sh/r/button-group-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/button-group-12.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-1",
+      "title": "Calendar 1",
+      "description": "Calendar 1. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-2",
+      "title": "Calendar 2",
+      "description": "Calendar 2. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-3",
+      "title": "Calendar 3",
+      "description": "Calendar 3. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-3.json",
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-4",
+      "title": "Calendar 4",
+      "description": "Calendar 4. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-4.json",
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-5",
+      "title": "Calendar 5",
+      "description": "Calendar 5. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-5.json",
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-6",
+      "title": "Calendar 6",
+      "description": "Calendar 6. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-7",
+      "title": "Calendar 7",
+      "description": "Calendar 7. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-7.json",
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-8",
+      "title": "Calendar 8",
+      "description": "Calendar 8. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-8.json",
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-9",
+      "title": "Calendar 9",
+      "description": "Calendar 9. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-10",
+      "title": "Calendar 10",
+      "description": "Calendar 10. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-11",
+      "title": "Calendar 11",
+      "description": "Calendar 11. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-11.json",
+      "dependencies": [
+        "little-date",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-12",
+      "title": "Calendar 12",
+      "description": "Calendar 12. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-12.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-13",
+      "title": "Calendar 13",
+      "description": "Calendar 13. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-14",
+      "title": "Calendar 14",
+      "description": "Calendar 14. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-14.json",
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-15",
+      "title": "Calendar 15",
+      "description": "Calendar 15. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-16",
+      "title": "Calendar 16",
+      "description": "Calendar 16. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-17",
+      "title": "Calendar 17",
+      "description": "Calendar 17. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-17.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-18",
+      "title": "Calendar 18",
+      "description": "Calendar 18. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-19",
+      "title": "Calendar 19",
+      "description": "Calendar 19. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-19.json",
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-20",
+      "title": "Calendar 20",
+      "description": "Calendar 20. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-20.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-21",
+      "title": "Calendar 21",
+      "description": "Calendar 21. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-21.json",
+      "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-22",
+      "title": "Calendar 22",
+      "description": "Calendar 22. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-22.json",
+      "dependencies": [
+        "date-fns"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-23",
+      "title": "Calendar 23",
+      "description": "Calendar 23. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-23.json",
+      "dependencies": [
+        "date-fns",
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-24",
+      "title": "Calendar 24",
+      "description": "Calendar 24. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-24.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-24.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "calendar-25",
+      "title": "Calendar 25",
+      "description": "Calendar 25. A calendar component for displaying and selecting dates.",
+      "category": "calendar",
+      "path": "src/data/contents/components/calendar/variant-25.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-25.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-1",
+      "title": "Card 1",
+      "description": "Card 1. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-2",
+      "title": "Card 2",
+      "description": "Card 2. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-3",
+      "title": "Card 3",
+      "description": "Card 3. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "card-4",
+      "title": "Card 4",
+      "description": "Card 4. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-5",
+      "title": "Card 5",
+      "description": "Card 5. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-6",
+      "title": "Card 6",
+      "description": "Card 6. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-7",
+      "title": "Card 7",
+      "description": "Card 7. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-8",
+      "title": "Card 8",
+      "description": "Card 8. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-9",
+      "title": "Card 9",
+      "description": "Card 9. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-10",
+      "title": "Card 10",
+      "description": "Card 10. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "card-11",
+      "title": "Card 11",
+      "description": "Card 11. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "card-12",
+      "title": "Card 12",
+      "description": "Card 12. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-12.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "card-13",
+      "title": "Card 13",
+      "description": "Card 13. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-13.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "card-14",
+      "title": "Card 14",
+      "description": "Card 14. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "registryUrl": "https://registry.watermelon.sh/r/card-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-14.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "card-15",
+      "title": "Card 15",
+      "description": "Card 15. A card is a container that displays content in a structured and visually appealing way.",
+      "category": "card",
+      "path": "src/data/contents/components/card/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/card",
+      "installCommand": "npx shadcn@latest add Card",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-1",
+      "title": "Checkbox 1",
+      "description": "Checkbox 1. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-2",
+      "title": "Checkbox 2",
+      "description": "Checkbox 2. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-2.json",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-3",
+      "title": "Checkbox 3",
+      "description": "Checkbox 3. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-4",
+      "title": "Checkbox 4",
+      "description": "Checkbox 4. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-5",
+      "title": "Checkbox 5",
+      "description": "Checkbox 5. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-6",
+      "title": "Checkbox 6",
+      "description": "Checkbox 6. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-7",
+      "title": "Checkbox 7",
+      "description": "Checkbox 7. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-8",
+      "title": "Checkbox 8",
+      "description": "Checkbox 8. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-9",
+      "title": "Checkbox 9",
+      "description": "Checkbox 9. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-10",
+      "title": "Checkbox 10",
+      "description": "Checkbox 10. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-11",
+      "title": "Checkbox 11",
+      "description": "Checkbox 11. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-11.json",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-12",
+      "title": "Checkbox 12",
+      "description": "Checkbox 12. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-12.json",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-13",
+      "title": "Checkbox 13",
+      "description": "Checkbox 13. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-14",
+      "title": "Checkbox 14",
+      "description": "Checkbox 14. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-14.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-15",
+      "title": "Checkbox 15",
+      "description": "Checkbox 15. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-15.json",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "checkbox-16",
+      "title": "Checkbox 16",
+      "description": "Checkbox 16. A checkbox component for selecting options.",
+      "category": "checkbox",
+      "path": "src/data/contents/components/checkbox/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/checkbox",
+      "registryUrl": "https://registry.watermelon.sh/r/checkbox-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/checkbox-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-1",
+      "title": "Collapsible 1",
+      "description": "Collapsible 1. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-1.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-2",
+      "title": "Collapsible 2",
+      "description": "Collapsible 2. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-3",
+      "title": "Collapsible 3",
+      "description": "Collapsible 3. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-4",
+      "title": "Collapsible 4",
+      "description": "Collapsible 4. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-5",
+      "title": "Collapsible 5",
+      "description": "Collapsible 5. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-6",
+      "title": "Collapsible 6",
+      "description": "Collapsible 6. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-7",
+      "title": "Collapsible 7",
+      "description": "Collapsible 7. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-8",
+      "title": "Collapsible 8",
+      "description": "Collapsible 8. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-8.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "collapsible-9",
+      "title": "Collapsible 9",
+      "description": "Collapsible 9. A collapsible is a component that allows users to show or hide content.",
+      "category": "collapsible",
+      "path": "src/data/contents/components/collapsible/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/collapsible",
+      "registryUrl": "https://registry.watermelon.sh/r/collapsible-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collapsible-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-1",
+      "title": "Combobox 1",
+      "description": "Combobox 1. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-1.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-2",
+      "title": "Combobox 2",
+      "description": "Combobox 2. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-3",
+      "title": "Combobox 3",
+      "description": "Combobox 3. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-4",
+      "title": "Combobox 4",
+      "description": "Combobox 4. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-5",
+      "title": "Combobox 5",
+      "description": "Combobox 5. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-6",
+      "title": "Combobox 6",
+      "description": "Combobox 6. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-7",
+      "title": "Combobox 7",
+      "description": "Combobox 7. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-8",
+      "title": "Combobox 8",
+      "description": "Combobox 8. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-8.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-9",
+      "title": "Combobox 9",
+      "description": "Combobox 9. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-10",
+      "title": "Combobox 10",
+      "description": "Combobox 10. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-10.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-11",
+      "title": "Combobox 11",
+      "description": "Combobox 11. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "combobox-12",
+      "title": "Combobox 12",
+      "description": "Combobox 12. A combobox component for selecting from a list of options.",
+      "category": "combobox",
+      "path": "src/data/contents/components/combobox/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/combobox",
+      "registryUrl": "https://registry.watermelon.sh/r/combobox-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/combobox-12.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-1",
+      "title": "DataTable 1",
+      "description": "DataTable 1. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-2",
+      "title": "DataTable 2",
+      "description": "DataTable 2. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-3",
+      "title": "DataTable 3",
+      "description": "DataTable 3. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-4",
+      "title": "DataTable 4",
+      "description": "DataTable 4. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-5",
+      "title": "DataTable 5",
+      "description": "DataTable 5. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-6",
+      "title": "DataTable 6",
+      "description": "DataTable 6. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-7",
+      "title": "DataTable 7",
+      "description": "DataTable 7. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-8",
+      "title": "DataTable 8",
+      "description": "DataTable 8. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-8.json",
+      "dependencies": [
+        "@dnd-kit/core",
+        "@dnd-kit/modifiers",
+        "@dnd-kit/sortable",
+        "@dnd-kit/utilities",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-9",
+      "title": "DataTable 9",
+      "description": "DataTable 9. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-10",
+      "title": "DataTable 10",
+      "description": "DataTable 10. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-10.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-11",
+      "title": "DataTable 11",
+      "description": "DataTable 11. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-12",
+      "title": "DataTable 12",
+      "description": "DataTable 12. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-12.json",
+      "dependencies": [
+        "lucide-react",
+        "papaparse",
+        "write-excel-file"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "data-table-13",
+      "title": "DataTable 13",
+      "description": "DataTable 13. A component for displaying and managing tabular data.",
+      "category": "data-table",
+      "path": "src/data/contents/components/data-table/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/data-table",
+      "registryUrl": "https://registry.watermelon.sh/r/data-table-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/data-table-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-1",
+      "title": "DatePicker 1",
+      "description": "DatePicker 1. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-1.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-2",
+      "title": "DatePicker 2",
+      "description": "DatePicker 2. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-2.json",
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-3",
+      "title": "DatePicker 3",
+      "description": "DatePicker 3. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-4",
+      "title": "DatePicker 4",
+      "description": "DatePicker 4. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-5",
+      "title": "DatePicker 5",
+      "description": "DatePicker 5. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-5.json",
+      "dependencies": [
+        "chrono-node",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-6",
+      "title": "DatePicker 6",
+      "description": "DatePicker 6. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-6.json",
+      "dependencies": [
+        "little-date",
+        "lucide-react",
+        "react-day-picker"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-7",
+      "title": "DatePicker 7",
+      "description": "DatePicker 7. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-8",
+      "title": "DatePicker 8",
+      "description": "DatePicker 8. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-9",
+      "title": "DatePicker 9",
+      "description": "DatePicker 9. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-10",
+      "title": "DatePicker 10",
+      "description": "DatePicker 10. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-10.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-11",
+      "title": "DatePicker 11",
+      "description": "DatePicker 11. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-12",
+      "title": "DatePicker 12",
+      "description": "DatePicker 12. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-12.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "date-picker-13",
+      "title": "DatePicker 13",
+      "description": "DatePicker 13. A date picker component for selecting dates.",
+      "category": "date-picker",
+      "path": "src/data/contents/components/date-picker/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/date-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/date-picker-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/date-picker-13.json",
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker",
+        "recharts"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-1",
+      "title": "Dialog 1",
+      "description": "Dialog 1. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-2",
+      "title": "Dialog 2",
+      "description": "Dialog 2. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-3",
+      "title": "Dialog 3",
+      "description": "Dialog 3. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-4",
+      "title": "Dialog 4",
+      "description": "Dialog 4. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-5",
+      "title": "Dialog 5",
+      "description": "Dialog 5. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-6",
+      "title": "Dialog 6",
+      "description": "Dialog 6. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-7",
+      "title": "Dialog 7",
+      "description": "Dialog 7. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-8",
+      "title": "Dialog 8",
+      "description": "Dialog 8. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-9",
+      "title": "Dialog 9",
+      "description": "Dialog 9. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-10",
+      "title": "Dialog 10",
+      "description": "Dialog 10. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-11",
+      "title": "Dialog 11",
+      "description": "Dialog 11. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-12",
+      "title": "Dialog 12",
+      "description": "Dialog 12. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-12.json",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-13",
+      "title": "Dialog 13",
+      "description": "Dialog 13. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-14",
+      "title": "Dialog 14",
+      "description": "Dialog 14. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-14.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-15",
+      "title": "Dialog 15",
+      "description": "Dialog 15. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-15.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-16",
+      "title": "Dialog 16",
+      "description": "Dialog 16. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-17",
+      "title": "Dialog 17",
+      "description": "Dialog 17. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-17.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-18",
+      "title": "Dialog 18",
+      "description": "Dialog 18. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-19",
+      "title": "Dialog 19",
+      "description": "Dialog 19. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-19.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-20",
+      "title": "Dialog 20",
+      "description": "Dialog 20. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-21",
+      "title": "Dialog 21",
+      "description": "Dialog 21. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-21.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-22",
+      "title": "Dialog 22",
+      "description": "Dialog 22. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-22.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dialog-23",
+      "title": "Dialog 23",
+      "description": "Dialog 23. A dialog component for displaying important information or prompts.",
+      "category": "dialog",
+      "path": "src/data/contents/components/dialog/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-23.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-1",
+      "title": "Dropdown Menu 1",
+      "description": "Dropdown Menu 1. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-1.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-2",
+      "title": "Dropdown Menu 2",
+      "description": "Dropdown Menu 2. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-2.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-3",
+      "title": "Dropdown Menu 3",
+      "description": "Dropdown Menu 3. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-3.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-4",
+      "title": "Dropdown Menu 4",
+      "description": "Dropdown Menu 4. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-4.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-5",
+      "title": "Dropdown Menu 5",
+      "description": "Dropdown Menu 5. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-5.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-6",
+      "title": "Dropdown Menu 6",
+      "description": "Dropdown Menu 6. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-7",
+      "title": "Dropdown Menu 7",
+      "description": "Dropdown Menu 7. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-7.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-8",
+      "title": "Dropdown Menu 8",
+      "description": "Dropdown Menu 8. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-8.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-9",
+      "title": "Dropdown Menu 9",
+      "description": "Dropdown Menu 9. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-9.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-10",
+      "title": "Dropdown Menu 10",
+      "description": "Dropdown Menu 10. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-10.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-11",
+      "title": "Dropdown Menu 11",
+      "description": "Dropdown Menu 11. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-12",
+      "title": "Dropdown Menu 12",
+      "description": "Dropdown Menu 12. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-12.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-13",
+      "title": "Dropdown Menu 13",
+      "description": "Dropdown Menu 13. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-13.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "dropdown-menu-14",
+      "title": "Dropdown Menu 14",
+      "description": "Dropdown Menu 14. A menu that displays a list of actions or options when triggered, typically by a button or icon.",
+      "category": "dropdown-menu",
+      "path": "src/data/contents/components/dropdown-menu/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/dropdown-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-menu-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-menu-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-1",
+      "title": "Form 1",
+      "description": "Form 1. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-1.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-2",
+      "title": "Form 2",
+      "description": "Form 2. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-2.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-3",
+      "title": "Form 3",
+      "description": "Form 3. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-3.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "date-fns",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-4",
+      "title": "Form 4",
+      "description": "Form 4. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-4.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-5",
+      "title": "Form 5",
+      "description": "Form 5. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-5.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-6",
+      "title": "Form 6",
+      "description": "Form 6. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-6.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-7",
+      "title": "Form 7",
+      "description": "Form 7. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-7.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-8",
+      "title": "Form 8",
+      "description": "Form 8. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-8.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "lucide-react",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-9",
+      "title": "Form 9",
+      "description": "Form 9. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-9.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "form-10",
+      "title": "Form 10",
+      "description": "Form 10. A collection of input fields, controls, and actions used to capture and submit user data, such as text, selections, and files.",
+      "category": "form",
+      "path": "src/data/contents/components/form/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/form",
+      "registryUrl": "https://registry.watermelon.sh/r/form-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/form-10.json",
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "react-icons",
+        "sonner",
+        "zod"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-mask-1",
+      "title": "Input Mask 1",
+      "description": "Input Mask 1. An input field that enforces a specific format as users type, such as phone numbers, dates, or credit card details, improving data consistency and user experience.",
+      "category": "input-mask",
+      "path": "src/data/contents/components/input-mask/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-mask",
+      "registryUrl": "https://registry.watermelon.sh/r/input-mask-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-mask-1.json",
+      "dependencies": [
+        "react-icons",
+        "use-mask-input"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-mask-2",
+      "title": "Input Mask 2",
+      "description": "Input Mask 2. An input field that enforces a specific format as users type, such as phone numbers, dates, or credit card details, improving data consistency and user experience.",
+      "category": "input-mask",
+      "path": "src/data/contents/components/input-mask/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-mask",
+      "registryUrl": "https://registry.watermelon.sh/r/input-mask-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-mask-2.json",
+      "dependencies": [
+        "react-icons",
+        "react-payment-inputs"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-mask-3",
+      "title": "Input Mask 3",
+      "description": "Input Mask 3. An input field that enforces a specific format as users type, such as phone numbers, dates, or credit card details, improving data consistency and user experience.",
+      "category": "input-mask",
+      "path": "src/data/contents/components/input-mask/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-mask",
+      "registryUrl": "https://registry.watermelon.sh/r/input-mask-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-mask-3.json",
+      "dependencies": [
+        "react-icons",
+        "react-payment-inputs"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-mask-4",
+      "title": "Input Mask 4",
+      "description": "Input Mask 4. An input field that enforces a specific format as users type, such as phone numbers, dates, or credit card details, improving data consistency and user experience.",
+      "category": "input-mask",
+      "path": "src/data/contents/components/input-mask/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-mask",
+      "registryUrl": "https://registry.watermelon.sh/r/input-mask-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-mask-4.json",
+      "dependencies": [
+        "react-icons",
+        "react-payment-inputs"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-mask-5",
+      "title": "Input Mask 5",
+      "description": "Input Mask 5. An input field that enforces a specific format as users type, such as phone numbers, dates, or credit card details, improving data consistency and user experience.",
+      "category": "input-mask",
+      "path": "src/data/contents/components/input-mask/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-mask",
+      "registryUrl": "https://registry.watermelon.sh/r/input-mask-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-mask-5.json",
+      "dependencies": [
+        "react-icons",
+        "react-payment-inputs"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-mask-6",
+      "title": "Input Mask 6",
+      "description": "Input Mask 6. An input field that enforces a specific format as users type, such as phone numbers, dates, or credit card details, improving data consistency and user experience.",
+      "category": "input-mask",
+      "path": "src/data/contents/components/input-mask/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-mask",
+      "registryUrl": "https://registry.watermelon.sh/r/input-mask-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-mask-6.json",
+      "dependencies": [
+        "react-icons",
+        "use-mask-input"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-1",
+      "title": "Input OTP 1",
+      "description": "Input OTP 1. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-1.json",
+      "dependencies": [
+        "input-otp"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-2",
+      "title": "Input OTP 2",
+      "description": "Input OTP 2. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-3",
+      "title": "Input OTP 3",
+      "description": "Input OTP 3. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-3.json",
+      "dependencies": [
+        "input-otp"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-4",
+      "title": "Input OTP 4",
+      "description": "Input OTP 4. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-5",
+      "title": "Input OTP 5",
+      "description": "Input OTP 5. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-6",
+      "title": "Input OTP 6",
+      "description": "Input OTP 6. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-6.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-7",
+      "title": "Input OTP 7",
+      "description": "Input OTP 7. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-8",
+      "title": "Input OTP 8",
+      "description": "Input OTP 8. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-9",
+      "title": "Input OTP 9",
+      "description": "Input OTP 9. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "input-otp-10",
+      "title": "Input OTP 10",
+      "description": "Input OTP 10. A set of input fields designed to capture one-time passwords (OTP) or verification codes, typically split into individual boxes for better UX and security.",
+      "category": "input-otp",
+      "path": "src/data/contents/components/input-otp/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/input-otp",
+      "registryUrl": "https://registry.watermelon.sh/r/input-otp-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/input-otp-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-1",
+      "title": "Pagination 1",
+      "description": "Pagination 1. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-2",
+      "title": "Pagination 2",
+      "description": "Pagination 2. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-2.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-3",
+      "title": "Pagination 3",
+      "description": "Pagination 3. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-4",
+      "title": "Pagination 4",
+      "description": "Pagination 4. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-5",
+      "title": "Pagination 5",
+      "description": "Pagination 5. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-6",
+      "title": "Pagination 6",
+      "description": "Pagination 6. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-7",
+      "title": "Pagination 7",
+      "description": "Pagination 7. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-7.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-8",
+      "title": "Pagination 8",
+      "description": "Pagination 8. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-9",
+      "title": "Pagination 9",
+      "description": "Pagination 9. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-10",
+      "title": "Pagination 10",
+      "description": "Pagination 10. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-11",
+      "title": "Pagination 11",
+      "description": "Pagination 11. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-11.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-12",
+      "title": "Pagination 12",
+      "description": "Pagination 12. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-12.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-13",
+      "title": "Pagination 13",
+      "description": "Pagination 13. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-13.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-14",
+      "title": "Pagination 14",
+      "description": "Pagination 14. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-14.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "pagination-15",
+      "title": "Pagination 15",
+      "description": "Pagination 15. Pagination is used to guide users through a series of related content.",
+      "category": "pagination",
+      "path": "src/data/contents/components/pagination/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination-15.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-1",
+      "title": "Popover 1",
+      "description": "Popover 1. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-1.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-2",
+      "title": "Popover 2",
+      "description": "Popover 2. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-3",
+      "title": "Popover 3",
+      "description": "Popover 3. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-4",
+      "title": "Popover 4",
+      "description": "Popover 4. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-5",
+      "title": "Popover 5",
+      "description": "Popover 5. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-6",
+      "title": "Popover 6",
+      "description": "Popover 6. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-7",
+      "title": "Popover 7",
+      "description": "Popover 7. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-8",
+      "title": "Popover 8",
+      "description": "Popover 8. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-8.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-9",
+      "title": "Popover 9",
+      "description": "Popover 9. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-9.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-10",
+      "title": "Popover 10",
+      "description": "Popover 10. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-10.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-11",
+      "title": "Popover 11",
+      "description": "Popover 11. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-11.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "popover-12",
+      "title": "Popover 12",
+      "description": "Popover 12. Popovers are used to display rich content within an overlay that is triggered by a button click.",
+      "category": "popover",
+      "path": "src/data/contents/components/popover/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/popover",
+      "registryUrl": "https://registry.watermelon.sh/r/popover-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/popover-12.json",
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-1",
+      "title": "Radio Group 1",
+      "description": "Radio Group 1. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-2",
+      "title": "Radio Group 2",
+      "description": "Radio Group 2. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-3",
+      "title": "Radio Group 3",
+      "description": "Radio Group 3. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-3.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-4",
+      "title": "Radio Group 4",
+      "description": "Radio Group 4. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-4.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-5",
+      "title": "Radio Group 5",
+      "description": "Radio Group 5. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-5.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-6",
+      "title": "Radio Group 6",
+      "description": "Radio Group 6. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-7",
+      "title": "Radio Group 7",
+      "description": "Radio Group 7. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-8",
+      "title": "Radio Group 8",
+      "description": "Radio Group 8. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-9",
+      "title": "Radio Group 9",
+      "description": "Radio Group 9. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-10",
+      "title": "Radio Group 10",
+      "description": "Radio Group 10. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-11",
+      "title": "Radio Group 11",
+      "description": "Radio Group 11. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-11.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-12",
+      "title": "Radio Group 12",
+      "description": "Radio Group 12. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-12.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "radio-group-13",
+      "title": "Radio Group 13",
+      "description": "Radio Group 13. A set of mutually exclusive options where only one choice can be selected at a time.",
+      "category": "radio-group",
+      "path": "src/data/contents/components/radiogroup/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/radio-group",
+      "registryUrl": "https://registry.watermelon.sh/r/radio-group-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radio-group-13.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-1",
+      "title": "Select 1",
+      "description": "Select 1. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-2",
+      "title": "Select 2",
+      "description": "Select 2. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-3",
+      "title": "Select 3",
+      "description": "Select 3. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-3.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-4",
+      "title": "Select 4",
+      "description": "Select 4. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-5",
+      "title": "Select 5",
+      "description": "Select 5. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-6",
+      "title": "Select 6",
+      "description": "Select 6. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-7",
+      "title": "Select 7",
+      "description": "Select 7. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-8",
+      "title": "Select 8",
+      "description": "Select 8. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-9",
+      "title": "Select 9",
+      "description": "Select 9. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-10",
+      "title": "Select 10",
+      "description": "Select 10. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-11",
+      "title": "Select 11",
+      "description": "Select 11. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-11.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-12",
+      "title": "Select 12",
+      "description": "Select 12. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-12.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-13",
+      "title": "Select 13",
+      "description": "Select 13. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-14",
+      "title": "Select 14",
+      "description": "Select 14. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-14.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-15",
+      "title": "Select 15",
+      "description": "Select 15. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-16",
+      "title": "Select 16",
+      "description": "Select 16. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-17",
+      "title": "Select 17",
+      "description": "Select 17. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-17.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-18",
+      "title": "Select 18",
+      "description": "Select 18. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-19",
+      "title": "Select 19",
+      "description": "Select 19. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-19.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-20",
+      "title": "Select 20",
+      "description": "Select 20. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-21",
+      "title": "Select 21",
+      "description": "Select 21. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-21.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-22",
+      "title": "Select 22",
+      "description": "Select 22. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-22.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-23",
+      "title": "Select 23",
+      "description": "Select 23. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-23.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-24",
+      "title": "Select 24",
+      "description": "Select 24. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-24.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-24.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-25",
+      "title": "Select 25",
+      "description": "Select 25. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-25.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-25.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-26",
+      "title": "Select 26",
+      "description": "Select 26. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-26.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-26.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-26.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-27",
+      "title": "Select 27",
+      "description": "Select 27. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-27.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-27.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-27.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-28",
+      "title": "Select 28",
+      "description": "Select 28. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-28.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-28.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-28.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-29",
+      "title": "Select 29",
+      "description": "Select 29. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-29.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-29.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-29.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-30",
+      "title": "Select 30",
+      "description": "Select 30. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-30.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-30.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-30.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-31",
+      "title": "Select 31",
+      "description": "Select 31. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-31.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-31.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-31.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-32",
+      "title": "Select 32",
+      "description": "Select 32. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-32.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-32.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-32.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-33",
+      "title": "Select 33",
+      "description": "Select 33. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-33.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-33.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-33.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-34",
+      "title": "Select 34",
+      "description": "Select 34. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-34.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-34.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-34.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "select-35",
+      "title": "Select 35",
+      "description": "Select 35. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-35.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-35.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-35.json",
+      "dependencies": [
+        "react-aria-components"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "select-36",
+      "title": "Select 36",
+      "description": "Select 36. A versatile selection component that provides a sleek, accessible way to choose options from a list.",
+      "category": "select",
+      "path": "src/data/contents/components/select/variant-36.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/select",
+      "registryUrl": "https://registry.watermelon.sh/r/select-36.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-36.json",
+      "dependencies": [
+        "@tabler/icons-react",
+        "react-aria-components"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-1",
+      "title": "Sheet 1",
+      "description": "Sheet 1. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-1.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-2",
+      "title": "Sheet 2",
+      "description": "Sheet 2. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-2.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-3",
+      "title": "Sheet 3",
+      "description": "Sheet 3. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-4",
+      "title": "Sheet 4",
+      "description": "Sheet 4. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-4.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-5",
+      "title": "Sheet 5",
+      "description": "Sheet 5. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-6",
+      "title": "Sheet 6",
+      "description": "Sheet 6. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-6.json",
+      "dependencies": [
+        "react-icons",
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sheet-7",
+      "title": "Sheet 7",
+      "description": "Sheet 7. A panel that slides in from the edge of the screen to display additional content, forms, or actions without navigating away.",
+      "category": "sheet",
+      "path": "src/data/contents/components/sheet/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/sheet-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sheet-7.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-1",
+      "title": "Sonner 1",
+      "description": "Sonner 1. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-1.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-2",
+      "title": "Sonner 2",
+      "description": "Sonner 2. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-2.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-3",
+      "title": "Sonner 3",
+      "description": "Sonner 3. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-3.json",
+      "dependencies": [
+        "lucide-react",
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-4",
+      "title": "Sonner 4",
+      "description": "Sonner 4. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-4.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-5",
+      "title": "Sonner 5",
+      "description": "Sonner 5. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-5.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-6",
+      "title": "Sonner 6",
+      "description": "Sonner 6. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-6.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-7",
+      "title": "Sonner 7",
+      "description": "Sonner 7. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-7.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-8",
+      "title": "Sonner 8",
+      "description": "Sonner 8. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-8.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-9",
+      "title": "Sonner 9",
+      "description": "Sonner 9. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-9.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-10",
+      "title": "Sonner 10",
+      "description": "Sonner 10. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-10.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-11",
+      "title": "Sonner 11",
+      "description": "Sonner 11. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-11.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-12",
+      "title": "Sonner 12",
+      "description": "Sonner 12. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-12.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-13",
+      "title": "Sonner 13",
+      "description": "Sonner 13. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-13.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-14",
+      "title": "Sonner 14",
+      "description": "Sonner 14. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-14.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-15",
+      "title": "Sonner 15",
+      "description": "Sonner 15. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-15.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-16",
+      "title": "Sonner 16",
+      "description": "Sonner 16. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-16.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-17",
+      "title": "Sonner 17",
+      "description": "Sonner 17. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-17.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-18",
+      "title": "Sonner 18",
+      "description": "Sonner 18. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-18.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-19",
+      "title": "Sonner 19",
+      "description": "Sonner 19. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-19.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "sonner-20",
+      "title": "Sonner 20",
+      "description": "Sonner 20. An opinionated toast component for React.",
+      "category": "sonner",
+      "path": "src/data/contents/components/sonner/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/sonner",
+      "registryUrl": "https://registry.watermelon.sh/r/sonner-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/sonner-20.json",
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-1",
+      "title": "Switch 1",
+      "description": "Switch 1. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-2",
+      "title": "Switch 2",
+      "description": "Switch 2. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-3",
+      "title": "Switch 3",
+      "description": "Switch 3. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-4",
+      "title": "Switch 4",
+      "description": "Switch 4. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-5",
+      "title": "Switch 5",
+      "description": "Switch 5. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-6",
+      "title": "Switch 6",
+      "description": "Switch 6. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-7",
+      "title": "Switch 7",
+      "description": "Switch 7. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-8",
+      "title": "Switch 8",
+      "description": "Switch 8. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-8.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-9",
+      "title": "Switch 9",
+      "description": "Switch 9. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-9.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-10",
+      "title": "Switch 10",
+      "description": "Switch 10. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-10.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-11",
+      "title": "Switch 11",
+      "description": "Switch 11. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-12",
+      "title": "Switch 12",
+      "description": "Switch 12. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-12.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-13",
+      "title": "Switch 13",
+      "description": "Switch 13. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-13.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-14",
+      "title": "Switch 14",
+      "description": "Switch 14. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-15",
+      "title": "Switch 15",
+      "description": "Switch 15. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-16",
+      "title": "Switch 16",
+      "description": "Switch 16. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-16.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-17",
+      "title": "Switch 17",
+      "description": "Switch 17. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-17.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "switch-18",
+      "title": "Switch 18",
+      "description": "Switch 18. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-19",
+      "title": "Switch 19",
+      "description": "Switch 19. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-19.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "switch-20",
+      "title": "Switch 20",
+      "description": "Switch 20. A toggle control that allows users to switch between two states, typically on or off.",
+      "category": "switch",
+      "path": "src/data/contents/components/switch/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/switch",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-20.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "table-1",
+      "title": "Table 1",
+      "description": "Table 1. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-1.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "table-2",
+      "title": "Table 2",
+      "description": "Table 2. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-2.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "table-3",
+      "title": "Table 3",
+      "description": "Table 3. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-4",
+      "title": "Table 4",
+      "description": "Table 4. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-5",
+      "title": "Table 5",
+      "description": "Table 5. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-5.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "table-6",
+      "title": "Table 6",
+      "description": "Table 6. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-7",
+      "title": "Table 7",
+      "description": "Table 7. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-7.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-8",
+      "title": "Table 8",
+      "description": "Table 8. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-9",
+      "title": "Table 9",
+      "description": "Table 9. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-10",
+      "title": "Table 10",
+      "description": "Table 10. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-11",
+      "title": "Table 11",
+      "description": "Table 11. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "table-12",
+      "title": "Table 12",
+      "description": "Table 12. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-12.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-13",
+      "title": "Table 13",
+      "description": "Table 13. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-14",
+      "title": "Table 14",
+      "description": "Table 14. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "table-15",
+      "title": "Table 15",
+      "description": "Table 15. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "table-16",
+      "title": "Table 16",
+      "description": "Table 16. A structured layout used to display data in rows and columns, enabling easy comparison, sorting, and organization of information.",
+      "category": "table",
+      "path": "src/data/contents/components/table/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/table",
+      "registryUrl": "https://registry.watermelon.sh/r/table-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/table-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-1",
+      "title": "Tabs 1",
+      "description": "Tabs 1. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-2",
+      "title": "Tabs 2",
+      "description": "Tabs 2. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-3",
+      "title": "Tabs 3",
+      "description": "Tabs 3. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-3.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-4",
+      "title": "Tabs 4",
+      "description": "Tabs 4. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-5",
+      "title": "Tabs 5",
+      "description": "Tabs 5. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-5.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-6",
+      "title": "Tabs 6",
+      "description": "Tabs 6. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-6.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-7",
+      "title": "Tabs 7",
+      "description": "Tabs 7. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-7.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-8",
+      "title": "Tabs 8",
+      "description": "Tabs 8. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-9",
+      "title": "Tabs 9",
+      "description": "Tabs 9. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-10",
+      "title": "Tabs 10",
+      "description": "Tabs 10. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-11",
+      "title": "Tabs 11",
+      "description": "Tabs 11. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-11.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-12",
+      "title": "Tabs 12",
+      "description": "Tabs 12. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-12.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-13",
+      "title": "Tabs 13",
+      "description": "Tabs 13. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-13.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-14",
+      "title": "Tabs 14",
+      "description": "Tabs 14. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-14.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-15",
+      "title": "Tabs 15",
+      "description": "Tabs 15. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-15.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-16",
+      "title": "Tabs 16",
+      "description": "Tabs 16. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-17",
+      "title": "Tabs 17",
+      "description": "Tabs 17. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-17.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-18",
+      "title": "Tabs 18",
+      "description": "Tabs 18. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-19",
+      "title": "Tabs 19",
+      "description": "Tabs 19. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-19.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-20",
+      "title": "Tabs 20",
+      "description": "Tabs 20. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-21",
+      "title": "Tabs 21",
+      "description": "Tabs 21. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-21.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-22",
+      "title": "Tabs 22",
+      "description": "Tabs 22. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-22.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-22.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-23",
+      "title": "Tabs 23",
+      "description": "Tabs 23. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-23.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-23.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-24",
+      "title": "Tabs 24",
+      "description": "Tabs 24. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-24.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-24.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-25",
+      "title": "Tabs 25",
+      "description": "Tabs 25. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-25.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-25.json",
+      "dependencies": [
+        "@tabler/icons-react"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tabs-26",
+      "title": "Tabs 26",
+      "description": "Tabs 26. A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "category": "tabs",
+      "path": "src/data/contents/components/tabs/variant-26.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/tabs-26.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tabs-26.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-1",
+      "title": "Textarea 1",
+      "description": "Textarea 1. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-2",
+      "title": "Textarea 2",
+      "description": "Textarea 2. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-3",
+      "title": "Textarea 3",
+      "description": "Textarea 3. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-4",
+      "title": "Textarea 4",
+      "description": "Textarea 4. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-5",
+      "title": "Textarea 5",
+      "description": "Textarea 5. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-6",
+      "title": "Textarea 6",
+      "description": "Textarea 6. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-6.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-7",
+      "title": "Textarea 7",
+      "description": "Textarea 7. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-7.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-8",
+      "title": "Textarea 8",
+      "description": "Textarea 8. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-8.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-9",
+      "title": "Textarea 9",
+      "description": "Textarea 9. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-10",
+      "title": "Textarea 10",
+      "description": "Textarea 10. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-10.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-11",
+      "title": "Textarea 11",
+      "description": "Textarea 11. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-11.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-12",
+      "title": "Textarea 12",
+      "description": "Textarea 12. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-12.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-13",
+      "title": "Textarea 13",
+      "description": "Textarea 13. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-14",
+      "title": "Textarea 14",
+      "description": "Textarea 14. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-14.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-15",
+      "title": "Textarea 15",
+      "description": "Textarea 15. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-15.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-16",
+      "title": "Textarea 16",
+      "description": "Textarea 16. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-16.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-16.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-17",
+      "title": "Textarea 17",
+      "description": "Textarea 17. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-17.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-17.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-18",
+      "title": "Textarea 18",
+      "description": "Textarea 18. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-18.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-18.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-19",
+      "title": "Textarea 19",
+      "description": "Textarea 19. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-19.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-19.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-20",
+      "title": "Textarea 20",
+      "description": "Textarea 20. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-20.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-20.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "textarea-21",
+      "title": "Textarea 21",
+      "description": "Textarea 21. A multi-line input field that allows users to enter longer blocks of text, such as messages, descriptions, or comments.",
+      "category": "textarea",
+      "path": "src/data/contents/components/textarea/variant-21.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/textarea",
+      "registryUrl": "https://registry.watermelon.sh/r/textarea-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/textarea-21.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-1",
+      "title": "Tooltip 1",
+      "description": "Tooltip 1. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-1.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-1.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-2",
+      "title": "Tooltip 2",
+      "description": "Tooltip 2. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-2.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-2.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-3",
+      "title": "Tooltip 3",
+      "description": "Tooltip 3. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-3.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-3.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-4",
+      "title": "Tooltip 4",
+      "description": "Tooltip 4. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-4.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-4.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-5",
+      "title": "Tooltip 5",
+      "description": "Tooltip 5. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-5.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-5.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-6",
+      "title": "Tooltip 6",
+      "description": "Tooltip 6. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-6.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-6.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-7",
+      "title": "Tooltip 7",
+      "description": "Tooltip 7. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-7.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-7.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-8",
+      "title": "Tooltip 8",
+      "description": "Tooltip 8. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-8.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-8.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-9",
+      "title": "Tooltip 9",
+      "description": "Tooltip 9. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-9.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-9.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-10",
+      "title": "Tooltip 10",
+      "description": "Tooltip 10. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-10.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-10.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-11",
+      "title": "Tooltip 11",
+      "description": "Tooltip 11. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-11.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-11.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-12",
+      "title": "Tooltip 12",
+      "description": "Tooltip 12. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-12.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-12.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-13",
+      "title": "Tooltip 13",
+      "description": "Tooltip 13. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-13.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-13.json",
+      "dependencies": []
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-14",
+      "title": "Tooltip 14",
+      "description": "Tooltip 14. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-14.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-14.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    },
+    {
+      "kind": "components",
+      "slug": "tooltip-15",
+      "title": "Tooltip 15",
+      "description": "Tooltip 15. A small popup that appears when a user hovers over or focuses on an element, providing additional information or context.",
+      "category": "tooltip",
+      "path": "src/data/contents/components/tooltip/variant-15.tsx",
+      "previewUrl": "https://ui.watermelon.sh/components/tooltip",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-15.json",
+      "dependencies": [
+        "react-icons"
+      ]
+    }
+  ],
   "animated-components": [
     {
       "kind": "animated-components",
@@ -12,7 +6886,15 @@ export const catalog: CatalogData = {
       "description": "Interactive cryptocurrency exchange interface with animated number inputs and value calculations.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/aave-swap-component.webp",
-      "path": "src/data/contents/registry/aave-swap-component.mdx"
+      "path": "src/data/contents/registry/aave-swap-component.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/aave-swap-component",
+      "registryUrl": "https://registry.watermelon.sh/r/aave-swap-component.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/aave-swap-component.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -21,7 +6903,15 @@ export const catalog: CatalogData = {
       "description": "An expandable activities card with smooth spring animations and a premium 3D header aesthetic.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/activities-card.webp",
-      "path": "src/data/contents/registry/activities-card.mdx"
+      "path": "src/data/contents/registry/activities-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/activities-card",
+      "registryUrl": "https://registry.watermelon.sh/r/activities-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/activities-card.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -30,7 +6920,14 @@ export const catalog: CatalogData = {
       "description": "A smooth, color-shifting slider with caloric value tracking.",
       "category": "sliders",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/adaptive-slider.webp",
-      "path": "src/data/contents/registry/adaptive-slider.mdx"
+      "path": "src/data/contents/registry/adaptive-slider.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/adaptive-slider",
+      "registryUrl": "https://registry.watermelon.sh/r/adaptive-slider.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/adaptive-slider.json",
+      "dependencies": [
+        "motion/react",
+        "number-flow/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -39,7 +6936,13 @@ export const catalog: CatalogData = {
       "description": "Disclosure panel explaining add-cash details, limits, fees, and confirmation.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/add-cash-disclosure.webp",
-      "path": "src/data/contents/registry/add-cash-disclosure.mdx"
+      "path": "src/data/contents/registry/add-cash-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/add-cash-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/add-cash-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/add-cash-disclosure.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -48,7 +6951,14 @@ export const catalog: CatalogData = {
       "description": "Budget overview card tracking spending, limits, and remaining balance.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/budget-card.webp",
-      "path": "src/data/contents/registry/budget-card.mdx"
+      "path": "src/data/contents/registry/budget-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/budget-card",
+      "registryUrl": "https://registry.watermelon.sh/r/budget-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/budget-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -57,7 +6967,14 @@ export const catalog: CatalogData = {
       "description": "An animated calendar widget featuring progressive blur effects that enhance depth and focus during interaction.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/calendar-widget.webp",
-      "path": "src/data/contents/registry/calendar-widget.mdx"
+      "path": "src/data/contents/registry/calendar-widget.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/calendar-widget",
+      "registryUrl": "https://registry.watermelon.sh/r/calendar-widget.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-widget.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -66,7 +6983,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/card-cue.webp",
-      "path": "src/data/contents/registry/card-cue.mdx"
+      "path": "src/data/contents/registry/card-cue.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/card-cue",
+      "registryUrl": "https://registry.watermelon.sh/r/card-cue.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-cue.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -75,7 +6999,13 @@ export const catalog: CatalogData = {
       "description": "An animated card split accordion that smoothly expands to reveal detailed information.",
       "category": "accordian",
       "image": "https://assets.watermelon.sh/components/card-split-accordian.webp",
-      "path": "src/data/contents/registry/card-split-accordian.mdx"
+      "path": "src/data/contents/registry/card-split-accordian.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/card-split-accordian",
+      "registryUrl": "https://registry.watermelon.sh/r/card-split-accordian.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -84,7 +7014,15 @@ export const catalog: CatalogData = {
       "description": "A tactile, gesture-driven card stack that supports velocity-based swiping and smooth pagination.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/card-swipe.webp",
-      "path": "src/data/contents/registry/card-swipe.mdx"
+      "path": "src/data/contents/registry/card-swipe.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/card-swipe",
+      "registryUrl": "https://registry.watermelon.sh/r/card-swipe.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/card-swipe.json",
+      "dependencies": [
+        "motion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -93,7 +7031,14 @@ export const catalog: CatalogData = {
       "description": "A dynamic carousel navigator with theme-adaptive background transitions and progress-syncing indicators.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/carousel-navigator.webp",
-      "path": "src/data/contents/registry/carousel-navigator.mdx"
+      "path": "src/data/contents/registry/carousel-navigator.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/carousel-navigator",
+      "registryUrl": "https://registry.watermelon.sh/r/carousel-navigator.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/carousel-navigator.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -102,7 +7047,15 @@ export const catalog: CatalogData = {
       "description": "A playful, gesture-driven card carousel with spring-based rotation and smooth scaling.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/carousel-slider.webp",
-      "path": "src/data/contents/registry/carousel-slider.mdx"
+      "path": "src/data/contents/registry/carousel-slider.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/carousel-slider",
+      "registryUrl": "https://registry.watermelon.sh/r/carousel-slider.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/carousel-slider.json",
+      "dependencies": [
+        "motion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -111,7 +7064,14 @@ export const catalog: CatalogData = {
       "description": "A premium interactive pricing selector with animated billing toggle, expandable plan details, and smooth spring-driven transitions for modern SaaS checkout flows.",
       "category": "marketing",
       "image": "https://assets.watermelon.sh/components/changeable-pricing-section.webp",
-      "path": "src/data/contents/registry/changeable-pricing-section.mdx"
+      "path": "src/data/contents/registry/changeable-pricing-section.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/changeable-pricing-section",
+      "registryUrl": "https://registry.watermelon.sh/r/changeable-pricing-section.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/changeable-pricing-section.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -120,7 +7080,15 @@ export const catalog: CatalogData = {
       "description": "An animated collection grid that smoothly expands to reveal additional content on interaction.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/collection-grid-disclosure.webp",
-      "path": "src/data/contents/registry/collection-grid-disclosure.mdx"
+      "path": "src/data/contents/registry/collection-grid-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/collection-grid-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/collection-grid-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/collection-grid-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons",
+        "react-use-measure"
+      ]
     },
     {
       "kind": "animated-components",
@@ -129,7 +7097,15 @@ export const catalog: CatalogData = {
       "description": "A premium command palette with sectioned results, keyboard navigation, and smooth animations.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/command_search.webp",
-      "path": "src/data/contents/registry/command-search.mdx"
+      "path": "src/data/contents/registry/command-search.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/command-search",
+      "registryUrl": "https://registry.watermelon.sh/r/command-search.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/command-search.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -138,7 +7114,14 @@ export const catalog: CatalogData = {
       "description": "Compact card interface for composing emails with recipient, subject, actions.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/compose-email-card.webp",
-      "path": "src/data/contents/registry/compose-email-card.mdx"
+      "path": "src/data/contents/registry/compose-email-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/compose-email-card",
+      "registryUrl": "https://registry.watermelon.sh/r/compose-email-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/compose-email-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -147,7 +7130,15 @@ export const catalog: CatalogData = {
       "description": "A sleek, adaptive action bar that toggles between tool icons and an AI-powered input field with smooth morphing transitions.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contextual-ai-bar.webp",
-      "path": "src/data/contents/registry/contextual-ai-bar.mdx"
+      "path": "src/data/contents/registry/contextual-ai-bar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/contextual-ai-bar",
+      "registryUrl": "https://registry.watermelon.sh/r/contextual-ai-bar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contextual-ai-bar.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -156,7 +7147,14 @@ export const catalog: CatalogData = {
       "description": "A premium, fully responsive pagination component featuring spring animations and a 3D-styled active state with a dynamic shimmer effect.",
       "category": "pagination",
       "image": "https://assets.watermelon.sh/components/continuous_pagination.webp",
-      "path": "src/data/contents/registry/continuous-pagination.mdx"
+      "path": "src/data/contents/registry/continuous-pagination.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/continuous-pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/continuous-pagination.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/continuous-pagination.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -165,7 +7163,13 @@ export const catalog: CatalogData = {
       "description": "Button-like tabs with a smooth sliding background pill.",
       "category": "tabs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/continuous-tabs.webp",
-      "path": "src/data/contents/registry/continuous-tabs.mdx"
+      "path": "src/data/contents/registry/continuous-tabs.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/continuous-tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/continuous-tabs.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/continuous-tabs.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -174,7 +7178,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component for copy confirm.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/copy-confirm.webp",
-      "path": "src/data/contents/registry/copy-confirm.mdx"
+      "path": "src/data/contents/registry/copy-confirm.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/copy-confirm",
+      "registryUrl": "https://registry.watermelon.sh/r/copy-confirm.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/copy-confirm.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -183,7 +7194,14 @@ export const catalog: CatalogData = {
       "description": "Dialog for creating communities with name, description, and settings.",
       "category": "dialog",
       "image": "https://assets.watermelon.sh/components/create-community.webp",
-      "path": "src/data/contents/registry/create-community.mdx"
+      "path": "src/data/contents/registry/create-community.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/create-community",
+      "registryUrl": "https://registry.watermelon.sh/r/create-community.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/create-community.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -192,7 +7210,15 @@ export const catalog: CatalogData = {
       "description": "A stylish \"Create New\" disclosure component that expands from a pill-shaped button into a rich grid of actions.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/create-new-disclosure.webp",
-      "path": "src/data/contents/registry/create-new-disclosure.mdx"
+      "path": "src/data/contents/registry/create-new-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/create-new-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/create-new-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/create-new-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -201,7 +7227,14 @@ export const catalog: CatalogData = {
       "description": "Displays credit consumption progress with clear limits and usage breakdown.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/credit-usage-card.webp",
-      "path": "src/data/contents/registry/credit-usage-card.mdx"
+      "path": "src/data/contents/registry/credit-usage-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/credit-usage-card",
+      "registryUrl": "https://registry.watermelon.sh/r/credit-usage-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/credit-usage-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -210,7 +7243,14 @@ export const catalog: CatalogData = {
       "description": "Deployment card showing environment, progress, logs, duration, and commit details.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/deployment-card.webp",
-      "path": "src/data/contents/registry/deployment-card.mdx"
+      "path": "src/data/contents/registry/deployment-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/deployment-card",
+      "registryUrl": "https://registry.watermelon.sh/r/deployment-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/deployment-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -219,7 +7259,15 @@ export const catalog: CatalogData = {
       "description": "A layered modal component that stacks multiple dialogs with smooth spring-weighted transitions.",
       "category": "dialog",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/dialog-stack.webp",
-      "path": "src/data/contents/registry/dialog-stack.mdx"
+      "path": "src/data/contents/registry/dialog-stack.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/dialog-stack",
+      "registryUrl": "https://registry.watermelon.sh/r/dialog-stack.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-stack.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "@hugeicons/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -228,7 +7276,13 @@ export const catalog: CatalogData = {
       "description": "Animated tabs component with smooth morphing transitions between active states.",
       "category": "tabs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/discrete-tabs.webp",
-      "path": "src/data/contents/registry/discrete-tabs.mdx"
+      "path": "src/data/contents/registry/discrete-tabs.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/discrete-tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/discrete-tabs.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/discrete-tabs.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -237,7 +7291,13 @@ export const catalog: CatalogData = {
       "description": "An animated dock component inspired by the macOS dock with smooth scaling and hover interactions. Icons respond dynamically to cursor movement, creating a lively and responsive feel.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/dock.webp",
-      "path": "src/data/contents/registry/dock.mdx"
+      "path": "src/data/contents/registry/dock.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/dock",
+      "registryUrl": "https://registry.watermelon.sh/r/dock.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dock.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -246,7 +7306,16 @@ export const catalog: CatalogData = {
       "description": "A premium interactive signature component that captures fluid strokes with a custom pen cursor and step-based workflow.",
       "category": "inputs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/draw-signature.webp",
-      "path": "src/data/contents/registry/draw-signature.mdx"
+      "path": "src/data/contents/registry/draw-signature.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/draw-signature",
+      "registryUrl": "https://registry.watermelon.sh/r/draw-signature.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/draw-signature.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "react-icons",
+        "next-themes"
+      ]
     },
     {
       "kind": "animated-components",
@@ -255,7 +7324,17 @@ export const catalog: CatalogData = {
       "description": "A sophisticated dropdown menu with shared layout transitions and spring-driven animations for item selection.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/dropdown-disclosure.webp",
-      "path": "src/data/contents/registry/dropdown-disclosure.mdx"
+      "path": "src/data/contents/registry/dropdown-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/dropdown-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/dropdown-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/dropdown-disclosure.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "react-icons",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -264,7 +7343,15 @@ export const catalog: CatalogData = {
       "description": "A premium interactive badge component with an inline editor for real-time text, icon, and color customization.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/edit-badge.webp",
-      "path": "src/data/contents/registry/edit-badge.mdx"
+      "path": "src/data/contents/registry/edit-badge.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/edit-badge",
+      "registryUrl": "https://registry.watermelon.sh/r/edit-badge.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/edit-badge.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -273,7 +7360,14 @@ export const catalog: CatalogData = {
       "description": "Profile editing dialog with fields, validation, and save actions.",
       "category": "dialog",
       "image": "https://assets.watermelon.sh/components/edit-profile.webp",
-      "path": "src/data/contents/registry/edit-profile.mdx"
+      "path": "src/data/contents/registry/edit-profile.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/edit-profile",
+      "registryUrl": "https://registry.watermelon.sh/r/edit-profile.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/edit-profile.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -282,7 +7376,15 @@ export const catalog: CatalogData = {
       "description": "An interactive editable chip component with smooth animations for editing.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/editable-chip.webp",
-      "path": "src/data/contents/registry/editable-chip.mdx"
+      "path": "src/data/contents/registry/editable-chip.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/editable-chip",
+      "registryUrl": "https://registry.watermelon.sh/r/editable-chip.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/editable-chip.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -291,7 +7393,14 @@ export const catalog: CatalogData = {
       "description": "A playful multi-select component with exploding emoji particles and smooth spring animations.",
       "category": "choice-chips",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/emoji-spree-choice-chips.webp",
-      "path": "src/data/contents/registry/emoji-spree-choice-chips.mdx"
+      "path": "src/data/contents/registry/emoji-spree-choice-chips.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/emoji-spree-choice-chips",
+      "registryUrl": "https://registry.watermelon.sh/r/emoji-spree-choice-chips.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/emoji-spree-choice-chips.json",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -300,7 +7409,15 @@ export const catalog: CatalogData = {
       "description": "Set and manage event reminders with lightweight interactive scheduling controls.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/event-reminders.webp",
-      "path": "src/data/contents/registry/event-reminders.mdx"
+      "path": "src/data/contents/registry/event-reminders.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/event-reminders",
+      "registryUrl": "https://registry.watermelon.sh/r/event-reminders.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/event-reminders.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -309,7 +7426,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component for expanding details.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/expand-details.webp",
-      "path": "src/data/contents/registry/expand-details.mdx"
+      "path": "src/data/contents/registry/expand-details.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/expand-details",
+      "registryUrl": "https://registry.watermelon.sh/r/expand-details.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/expand-details.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -318,7 +7442,13 @@ export const catalog: CatalogData = {
       "description": "A stylish animated card that expands to a full-screen modal, perfect for showcasing events, concerts, or featured destinations.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/card-swipe.webp",
-      "path": "src/data/contents/registry/expandable-event-card.mdx"
+      "path": "src/data/contents/registry/expandable-event-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/expandable-event-card",
+      "registryUrl": "https://registry.watermelon.sh/r/expandable-event-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/expandable-event-card.json",
+      "dependencies": [
+        "motion"
+      ]
     },
     {
       "kind": "animated-components",
@@ -327,7 +7457,13 @@ export const catalog: CatalogData = {
       "description": "An elegant animated card that expands to a detailed side-by-side view, perfect for profile cards.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/card-swipe.webp",
-      "path": "src/data/contents/registry/expandable-profile-card.mdx"
+      "path": "src/data/contents/registry/expandable-profile-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/expandable-profile-card",
+      "registryUrl": "https://registry.watermelon.sh/r/expandable-profile-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/expandable-profile-card.json",
+      "dependencies": [
+        "motion"
+      ]
     },
     {
       "kind": "animated-components",
@@ -336,7 +7472,15 @@ export const catalog: CatalogData = {
       "description": "A responsive extended toolbar component that enhances usability with smooth micro-interactions, contextual actions, and instant visual feedback for quick and confident user interactions.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/extended-toolbar.webp",
-      "path": "src/data/contents/registry/extended-toolbar.mdx"
+      "path": "src/data/contents/registry/extended-toolbar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/extended-toolbar",
+      "registryUrl": "https://registry.watermelon.sh/r/extended-toolbar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/extended-toolbar.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -345,7 +7489,15 @@ export const catalog: CatalogData = {
       "description": "Features a toggle button that transforms into a full confirmation modal with backdrop blur and elegant motion design.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/family-receive-button.webp",
-      "path": "src/data/contents/registry/family-receive-button.mdx"
+      "path": "src/data/contents/registry/family-receive-button.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/family-receive-button",
+      "registryUrl": "https://registry.watermelon.sh/r/family-receive-button.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/family-receive-button.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -354,7 +7506,16 @@ export const catalog: CatalogData = {
       "description": "An animated wallet interface inspired by family account interactions with smooth card transitions.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/family-wallet.webp",
-      "path": "src/data/contents/registry/family-wallet.mdx"
+      "path": "src/data/contents/registry/family-wallet.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/family-wallet",
+      "registryUrl": "https://registry.watermelon.sh/r/family-wallet.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/family-wallet.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons",
+        "react-use-measure",
+        "shadcn"
+      ]
     },
     {
       "kind": "animated-components",
@@ -363,7 +7524,15 @@ export const catalog: CatalogData = {
       "description": "A premium guided tour component with blur animations, shining titles, and intuitive navigation.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/feature-tour.webp",
-      "path": "src/data/contents/registry/feature-tour.mdx"
+      "path": "src/data/contents/registry/feature-tour.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/feature-tour",
+      "registryUrl": "https://registry.watermelon.sh/r/feature-tour.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feature-tour.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -372,7 +7541,15 @@ export const catalog: CatalogData = {
       "description": "Trigger quick user feedback actions through subtle animated interaction buttons.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/feedback-action.webp",
-      "path": "src/data/contents/registry/feedback-action.mdx"
+      "path": "src/data/contents/registry/feedback-action.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/feedback-action",
+      "registryUrl": "https://registry.watermelon.sh/r/feedback-action.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feedback-action.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -381,7 +7558,16 @@ export const catalog: CatalogData = {
       "description": "A premium feedback component with morphing icons, smooth transitions, and a refined dark mode experience.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/feedback.webp",
-      "path": "src/data/contents/registry/feedback.mdx"
+      "path": "src/data/contents/registry/feedback.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/feedback",
+      "registryUrl": "https://registry.watermelon.sh/r/feedback.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feedback.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "react-icons",
+        "@hugeicons/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -390,7 +7576,14 @@ export const catalog: CatalogData = {
       "description": "A smooth expanding filter component with active state indicators.",
       "category": "filters",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/filter-disclosure.webp",
-      "path": "src/data/contents/registry/filter-disclosure.mdx"
+      "path": "src/data/contents/registry/filter-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/filter-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/filter-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/filter-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -399,7 +7592,14 @@ export const catalog: CatalogData = {
       "description": "A compact expandable action menu with animated resizing,  floating close button, and spring-based item reveal.",
       "category": "popover",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/floating-disclosure.webp",
-      "path": "src/data/contents/registry/floating-disclosure.mdx"
+      "path": "src/data/contents/registry/floating-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/floating-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/floating-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/floating-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -408,7 +7608,13 @@ export const catalog: CatalogData = {
       "description": "An input field with floating label animation.",
       "category": "inputs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/floating-input.webp",
-      "path": "src/data/contents/registry/floating-input.mdx"
+      "path": "src/data/contents/registry/floating-input.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/floating-input",
+      "registryUrl": "https://registry.watermelon.sh/r/floating-input.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/floating-input.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -417,7 +7623,14 @@ export const catalog: CatalogData = {
       "description": "A fluid, spring-animated tab component with floating active indicator and icon scaling.",
       "category": "tabs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/fluid-tabs.webp",
-      "path": "src/data/contents/registry/fluid-tabs.mdx"
+      "path": "src/data/contents/registry/fluid-tabs.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/fluid-tabs",
+      "registryUrl": "https://registry.watermelon.sh/r/fluid-tabs.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/fluid-tabs.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -426,7 +7639,14 @@ export const catalog: CatalogData = {
       "description": "A smooth draggable ruler-style picker for selecting numeric values with spring snapping.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/fractional-picker.webp",
-      "path": "src/data/contents/registry/fractional-picker.mdx"
+      "path": "src/data/contents/registry/fractional-picker.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/fractional-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/fractional-picker.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/fractional-picker.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -435,7 +7655,15 @@ export const catalog: CatalogData = {
       "description": "Select recurring time intervals using animated tabs and contextual sub options.",
       "category": "tabs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/frequency-selector.webp",
-      "path": "src/data/contents/registry/frequency-selector.mdx"
+      "path": "src/data/contents/registry/frequency-selector.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/frequency-selector",
+      "registryUrl": "https://registry.watermelon.sh/r/frequency-selector.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/frequency-selector.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -444,7 +7672,14 @@ export const catalog: CatalogData = {
       "description": "An animated fund widget featuring smooth 3D transforms and progressive blur effects.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/fund-widget.webp",
-      "path": "src/data/contents/registry/fund-widget.mdx"
+      "path": "src/data/contents/registry/fund-widget.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/fund-widget",
+      "registryUrl": "https://registry.watermelon.sh/r/fund-widget.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/fund-widget.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -453,7 +7688,15 @@ export const catalog: CatalogData = {
       "description": "An interactive Next.js logo with expandable tooltip that shows framework information.",
       "category": "tooltip",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/gooey-menu.webp",
-      "path": "src/data/contents/registry/gooey-menu.mdx"
+      "path": "src/data/contents/registry/gooey-menu.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/gooey-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/gooey-menu.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/gooey-menu.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -462,7 +7705,14 @@ export const catalog: CatalogData = {
       "description": "Inline actions enabling quick edits without leaving current context view.",
       "category": "action",
       "image": "https://assets.watermelon.sh/components/inline-action.webp",
-      "path": "src/data/contents/registry/inline-action.mdx"
+      "path": "src/data/contents/registry/inline-action.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/inline-action",
+      "registryUrl": "https://registry.watermelon.sh/r/inline-action.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/inline-action.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -471,7 +7721,14 @@ export const catalog: CatalogData = {
       "description": "An animated inline action menu with contextul Options and a two-step delete confirmation flow.",
       "category": "dropdown",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/inline-disclosure-menu.webp",
-      "path": "src/data/contents/registry/Inline-disclosure-menu.mdx"
+      "path": "src/data/contents/registry/Inline-disclosure-menu.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/inline-disclosure-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/inline-disclosure-menu.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/inline-disclosure-menu.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -480,7 +7737,15 @@ export const catalog: CatalogData = {
       "description": "A sleek, interactive editor that transitions seamlessly between display and edit modes using smooth layout animations.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/inline-edit.webp",
-      "path": "src/data/contents/registry/inline-edit.mdx"
+      "path": "src/data/contents/registry/inline-edit.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/inline-edit",
+      "registryUrl": "https://registry.watermelon.sh/r/inline-edit.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/inline-edit.json",
+      "dependencies": [
+        "motion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -489,7 +7754,14 @@ export const catalog: CatalogData = {
       "description": "An interactive inline overflow menu that reveals additional actions with spring animations.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/inline-overflow.webp",
-      "path": "src/data/contents/registry/inline-overflow.mdx"
+      "path": "src/data/contents/registry/inline-overflow.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/inline-overflow",
+      "registryUrl": "https://registry.watermelon.sh/r/inline-overflow.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/inline-overflow.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -498,7 +7770,15 @@ export const catalog: CatalogData = {
       "description": "Inline controls for editing table rows without breaking user focus.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/inline-table-control.webp",
-      "path": "src/data/contents/registry/inline-table-control.mdx"
+      "path": "src/data/contents/registry/inline-table-control.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/inline-table-control",
+      "registryUrl": "https://registry.watermelon.sh/r/inline-table-control.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/inline-table-control.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -507,7 +7787,14 @@ export const catalog: CatalogData = {
       "description": "An animated inline toast that provides instant feedback with a built-in copy action.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/inline-toast.webp",
-      "path": "src/data/contents/registry/inline-toast.mdx"
+      "path": "src/data/contents/registry/inline-toast.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/inline-toast",
+      "registryUrl": "https://registry.watermelon.sh/r/inline-toast.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/inline-toast.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -516,7 +7803,14 @@ export const catalog: CatalogData = {
       "description": "Show connected services with status, actions, and simple integration management.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/integration-card.webp",
-      "path": "src/data/contents/registry/integration-card.mdx"
+      "path": "src/data/contents/registry/integration-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/integration-card",
+      "registryUrl": "https://registry.watermelon.sh/r/integration-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/integration-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -525,7 +7819,14 @@ export const catalog: CatalogData = {
       "description": "A sleek, morphing disclosure component for managing invitations with interactive badge counts and spring animations.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/invite-disclosure.webp",
-      "path": "src/data/contents/registry/invite-disclosure.mdx"
+      "path": "src/data/contents/registry/invite-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/invite-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/invite-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/invite-disclosure.json",
+      "dependencies": [
+        "motion",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -534,7 +7835,15 @@ export const catalog: CatalogData = {
       "description": "Organized journal navigation enabling quick section switching with smooth animated transitions.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/journal-navigation.webp",
-      "path": "src/data/contents/registry/journal-navigation.mdx"
+      "path": "src/data/contents/registry/journal-navigation.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/journal-navigation",
+      "registryUrl": "https://registry.watermelon.sh/r/journal-navigation.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/journal-navigation.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -543,7 +7852,15 @@ export const catalog: CatalogData = {
       "description": "A premium radial dial component with tactile feedback, blur animations, and full theme integration.",
       "category": "sliders",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/knob-slider.webp",
-      "path": "src/data/contents/registry/knob-slider.mdx"
+      "path": "src/data/contents/registry/knob-slider.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/knob-slider",
+      "registryUrl": "https://registry.watermelon.sh/r/knob-slider.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/knob-slider.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "next-themes"
+      ]
     },
     {
       "kind": "animated-components",
@@ -552,7 +7869,14 @@ export const catalog: CatalogData = {
       "description": "An animated progress indicator with dynamic labels that update smoothly.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/labeled-progress-indicator.webp",
-      "path": "src/data/contents/registry/labeled-progress-indicator.mdx"
+      "path": "src/data/contents/registry/labeled-progress-indicator.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/labeled-progress-indicator",
+      "registryUrl": "https://registry.watermelon.sh/r/labeled-progress-indicator.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/labeled-progress-indicator.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -561,7 +7885,15 @@ export const catalog: CatalogData = {
       "description": "A premium layered progressive disclosure panel with animated feature toggles, asymmetric controls, and tabbed micro-interactions for advanced configuration workflows.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/layered-progressive-disclosure.webp",
-      "path": "src/data/contents/registry/layered-progressive-disclosure.mdx"
+      "path": "src/data/contents/registry/layered-progressive-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/layered-progressive-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/layered-progressive-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/layered-progressive-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -570,7 +7902,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component for licence keys.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/license-key.webp",
-      "path": "src/data/contents/registry/licence-key.mdx"
+      "path": "src/data/contents/registry/licence-key.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/licence-key",
+      "registryUrl": "https://registry.watermelon.sh/r/licence-key.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/licence-key.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -579,7 +7918,14 @@ export const catalog: CatalogData = {
       "description": "An animated stacked list that smoothly expands and collapses to reveal or hide items.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/list-stack.webp",
-      "path": "src/data/contents/registry/list-stack.mdx"
+      "path": "src/data/contents/registry/list-stack.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/list-stack",
+      "registryUrl": "https://registry.watermelon.sh/r/list-stack.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/list-stack.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -588,7 +7934,15 @@ export const catalog: CatalogData = {
       "description": "A premium macOS-style collapsible sidebar with smooth spring-driven width transitions, hover morphing, and tactile selection feedback.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/macos-sidebar.webp",
-      "path": "src/data/contents/registry/macos-sidebar.mdx"
+      "path": "src/data/contents/registry/macos-sidebar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/macos-sidebar",
+      "registryUrl": "https://registry.watermelon.sh/r/macos-sidebar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/macos-sidebar.json",
+      "dependencies": [
+        "motion/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -597,7 +7951,14 @@ export const catalog: CatalogData = {
       "description": "Summarize meeting details with time, participants, and quick action controls.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/meeting-card.webp",
-      "path": "src/data/contents/registry/meeting-card.mdx"
+      "path": "src/data/contents/registry/meeting-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/meeting-card",
+      "registryUrl": "https://registry.watermelon.sh/r/meeting-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/meeting-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -606,7 +7967,15 @@ export const catalog: CatalogData = {
       "description": "Interactive wallet interface with expandable cards featuring smooth layout animations and micro-interactions.",
       "category": "carousel",
       "image": "https://assets.watermelon.sh/components/minimal-carousel.webp",
-      "path": "src/data/contents/registry/minimal-carousel.mdx"
+      "path": "src/data/contents/registry/minimal-carousel.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/minimal-carousel",
+      "registryUrl": "https://registry.watermelon.sh/r/minimal-carousel.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/minimal-carousel.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -615,7 +7984,14 @@ export const catalog: CatalogData = {
       "description": "An animated button that smoothly morphs into an expanded interactive state.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/morphing-button.webp",
-      "path": "src/data/contents/registry/morphing-button.mdx"
+      "path": "src/data/contents/registry/morphing-button.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/morphing-button",
+      "registryUrl": "https://registry.watermelon.sh/r/morphing-button.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/morphing-button.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -624,7 +8000,15 @@ export const catalog: CatalogData = {
       "description": "A responsive extended toolbar component that enhances usability with smooth micro-interactions, contextual actions, and instant visual feedback for quick and confident user interactions.",
       "category": "tabs",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/morphing-discovery-bar.webp",
-      "path": "src/data/contents/registry/morphing-discovery-bar.mdx"
+      "path": "src/data/contents/registry/morphing-discovery-bar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/morphing-discovery-bar",
+      "registryUrl": "https://registry.watermelon.sh/r/morphing-discovery-bar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/morphing-discovery-bar.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -633,7 +8017,15 @@ export const catalog: CatalogData = {
       "description": "A premium morphing sidebar control panel with progressive configuration, motion presets, and animated layout transitions for advanced animation workflows.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/morphing-sidebar-controls.webp",
-      "path": "src/data/contents/registry/morphing-sidebar-controls.mdx"
+      "path": "src/data/contents/registry/morphing-sidebar-controls.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/morphing-sidebar-controls",
+      "registryUrl": "https://registry.watermelon.sh/r/morphing-sidebar-controls.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/morphing-sidebar-controls.json",
+      "dependencies": [
+        "motion/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -642,7 +8034,14 @@ export const catalog: CatalogData = {
       "description": "Step-by-step onboarding checklist with progress tracking and completion feedback.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/onboarding-checklist.webp",
-      "path": "src/data/contents/registry/onboarding-checklist.mdx"
+      "path": "src/data/contents/registry/onboarding-checklist.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/onboarding-checklist",
+      "registryUrl": "https://registry.watermelon.sh/r/onboarding-checklist.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/onboarding-checklist.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -651,7 +8050,14 @@ export const catalog: CatalogData = {
       "description": "Clean onboarding screen guiding users through setup with visual steps.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/onboarding-screen.webp",
-      "path": "src/data/contents/registry/onboarding-screen.mdx"
+      "path": "src/data/contents/registry/onboarding-screen.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/onboarding-screen",
+      "registryUrl": "https://registry.watermelon.sh/r/onboarding-screen.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/onboarding-screen.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -660,7 +8066,14 @@ export const catalog: CatalogData = {
       "description": "Onboarding setup card guiding users through initial configuration steps.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/onboarding-setup.webp",
-      "path": "src/data/contents/registry/onboarding-setup.mdx"
+      "path": "src/data/contents/registry/onboarding-setup.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/onboarding-setup",
+      "registryUrl": "https://registry.watermelon.sh/r/onboarding-setup.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/onboarding-setup.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -669,7 +8082,14 @@ export const catalog: CatalogData = {
       "description": "A smooth draggable ruler-style picker for selecting numeric values with spring snapping.",
       "category": "pagination",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pagination.webp",
-      "path": "src/data/contents/registry/pagination.mdx"
+      "path": "src/data/contents/registry/pagination.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/pagination",
+      "registryUrl": "https://registry.watermelon.sh/r/pagination.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pagination.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -678,7 +8098,15 @@ export const catalog: CatalogData = {
       "description": "A sleek list component with shared-layout transitions for pinning items and managing priority views.",
       "category": "lists",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pin-item.webp",
-      "path": "src/data/contents/registry/pin-item.mdx"
+      "path": "src/data/contents/registry/pin-item.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/pin-item",
+      "registryUrl": "https://registry.watermelon.sh/r/pin-item.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pin-item.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -687,7 +8115,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component for pop stepper.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pop-stepper.webp",
-      "path": "src/data/contents/registry/pop-stepper.mdx"
+      "path": "src/data/contents/registry/pop-stepper.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/pop-stepper",
+      "registryUrl": "https://registry.watermelon.sh/r/pop-stepper.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pop-stepper.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -696,7 +8131,15 @@ export const catalog: CatalogData = {
       "description": "Suggests next words in real time while users type naturally.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/predictive-text.webp",
-      "path": "src/data/contents/registry/predictive-text.mdx"
+      "path": "src/data/contents/registry/predictive-text.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/predictive-text",
+      "registryUrl": "https://registry.watermelon.sh/r/predictive-text.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/predictive-text.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -705,7 +8148,15 @@ export const catalog: CatalogData = {
       "description": "An animated pricing widget with smooth transitions and dynamic value updates.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pricing-widget.webp",
-      "path": "src/data/contents/registry/pricing-widget.mdx"
+      "path": "src/data/contents/registry/pricing-widget.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/pricing-widget",
+      "registryUrl": "https://registry.watermelon.sh/r/pricing-widget.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pricing-widget.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "@number-flow/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -714,7 +8165,14 @@ export const catalog: CatalogData = {
       "description": "Compact profile card displaying user details with quick actions.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/profile-card.webp",
-      "path": "src/data/contents/registry/profile-card.mdx"
+      "path": "src/data/contents/registry/profile-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/profile-card",
+      "registryUrl": "https://registry.watermelon.sh/r/profile-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/profile-card.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -723,7 +8181,15 @@ export const catalog: CatalogData = {
       "description": "An animated input stack that progressively layers form fields as users complete each step.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/progressive-input-stack.webp",
-      "path": "src/data/contents/registry/progressive-input-stack.mdx"
+      "path": "src/data/contents/registry/progressive-input-stack.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/progressive-input-stack",
+      "registryUrl": "https://registry.watermelon.sh/r/progressive-input-stack.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/progressive-input-stack.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -732,7 +8198,15 @@ export const catalog: CatalogData = {
       "description": "A responsive feedback component built for instant user responses, using subtle micro-interactions and snappy visual cues to confirm actions in real time.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/quick-feedback.webp",
-      "path": "src/data/contents/registry/quick-feedback.mdx"
+      "path": "src/data/contents/registry/quick-feedback.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/quick-feedback",
+      "registryUrl": "https://registry.watermelon.sh/r/quick-feedback.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/quick-feedback.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -741,7 +8215,15 @@ export const catalog: CatalogData = {
       "description": "A sleek, interactive option picker with smooth roll animations and a premium feel.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/quick-option-picker.webp",
-      "path": "src/data/contents/registry/quick-option-picker.mdx"
+      "path": "src/data/contents/registry/quick-option-picker.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/quick-option-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/quick-option-picker.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/quick-option-picker.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -750,7 +8232,15 @@ export const catalog: CatalogData = {
       "description": "Instantly paste copied content using shortcut-triggered micro interaction panel.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/quick-paste.webp",
-      "path": "src/data/contents/registry/quick-paste.mdx"
+      "path": "src/data/contents/registry/quick-paste.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/quick-paste",
+      "registryUrl": "https://registry.watermelon.sh/r/quick-paste.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/quick-paste.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -759,7 +8249,15 @@ export const catalog: CatalogData = {
       "description": "A premium, dual-mode action bar that enables fast switching between two distinct modes with fluid animations and spring physics.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/quick-switcher.webp",
-      "path": "src/data/contents/registry/quick-switcher.mdx"
+      "path": "src/data/contents/registry/quick-switcher.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/quick-switcher",
+      "registryUrl": "https://registry.watermelon.sh/r/quick-switcher.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/quick-switcher.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -768,7 +8266,14 @@ export const catalog: CatalogData = {
       "description": "A stunning radial carousel component with spring animations, drag-to-rotate interaction, and adaptive layout.",
       "category": "carousel",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/radial-carousel.webp",
-      "path": "src/data/contents/registry/radial-carousel.mdx"
+      "path": "src/data/contents/registry/radial-carousel.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/radial-carousel",
+      "registryUrl": "https://registry.watermelon.sh/r/radial-carousel.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/radial-carousel.json",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -777,7 +8282,16 @@ export const catalog: CatalogData = {
       "description": "A responsive range selection slider widget that allows users to precisely choose values, enhanced with smooth interactions and immediate visual feedback for accurate control.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/range-selection-slider.webp",
-      "path": "src/data/contents/registry/range-selection-slider.mdx"
+      "path": "src/data/contents/registry/range-selection-slider.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/range-selection-slider",
+      "registryUrl": "https://registry.watermelon.sh/r/range-selection-slider.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/range-selection-slider.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons",
+        "number-flow/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -786,7 +8300,16 @@ export const catalog: CatalogData = {
       "description": "A responsive returns calculator card snippet that lets users quickly estimate investment outcomes, featuring clear inputs, smooth interactions, and instant visual feedback for confident decision-making.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/returns-calculator-snippet.webp",
-      "path": "src/data/contents/registry/returns-calculator-snippet.mdx"
+      "path": "src/data/contents/registry/returns-calculator-snippet.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/returns-calculator-snippet",
+      "registryUrl": "https://registry.watermelon.sh/r/returns-calculator-snippet.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/returns-calculator-snippet.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons",
+        "number-flow/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -795,7 +8318,14 @@ export const catalog: CatalogData = {
       "description": "An animated reveal copy component that smoothly uncovers content with interactive motion.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/reveal-copy.webp",
-      "path": "src/data/contents/registry/reveal-copy.mdx"
+      "path": "src/data/contents/registry/reveal-copy.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/reveal-copy",
+      "registryUrl": "https://registry.watermelon.sh/r/reveal-copy.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/reveal-copy.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -804,7 +8334,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component for revealing cards.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/revealing-cards.webp",
-      "path": "src/data/contents/registry/revealing-cards.mdx"
+      "path": "src/data/contents/registry/revealing-cards.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/revealing-cards",
+      "registryUrl": "https://registry.watermelon.sh/r/revealing-cards.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/revealing-cards.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -813,7 +8350,15 @@ export const catalog: CatalogData = {
       "description": "An animated action button that executes a sequence of steps with smooth visual transitions.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/run-action-button.webp",
-      "path": "src/data/contents/registry/run-action-button.mdx"
+      "path": "src/data/contents/registry/run-action-button.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/run-action-button",
+      "registryUrl": "https://registry.watermelon.sh/r/run-action-button.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/run-action-button.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -822,7 +8367,15 @@ export const catalog: CatalogData = {
       "description": "An animated run widget that dynamically displays distance with smooth number transitions",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/run-widget.webp",
-      "path": "src/data/contents/registry/run-widget.mdx"
+      "path": "src/data/contents/registry/run-widget.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/run-widget",
+      "registryUrl": "https://registry.watermelon.sh/r/run-widget.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/run-widget.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "@number-flow/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -831,7 +8384,15 @@ export const catalog: CatalogData = {
       "description": "An animated save toggle button that smoothly transitions between multiple states.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/save-toggle.webp",
-      "path": "src/data/contents/registry/save-toggle.mdx"
+      "path": "src/data/contents/registry/save-toggle.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/save-toggle",
+      "registryUrl": "https://registry.watermelon.sh/r/save-toggle.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/save-toggle.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons",
+        "react-use-measure"
+      ]
     },
     {
       "kind": "animated-components",
@@ -840,7 +8401,16 @@ export const catalog: CatalogData = {
       "description": "A tactile, interactive button for scheduling posts with date and time selection.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/schedule-button.webp",
-      "path": "src/data/contents/registry/schedule-button.mdx"
+      "path": "src/data/contents/registry/schedule-button.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/schedule-button",
+      "registryUrl": "https://registry.watermelon.sh/r/schedule-button.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/schedule-button.json",
+      "dependencies": [
+        "motion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -849,7 +8419,14 @@ export const catalog: CatalogData = {
       "description": "Date scheduling dialog with calendar selection, time picking, and confirmations.",
       "category": "scheduler",
       "image": "https://assets.watermelon.sh/components/schedule-date.webp",
-      "path": "src/data/contents/registry/schedule-date.mdx"
+      "path": "src/data/contents/registry/schedule-date.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/schedule-date",
+      "registryUrl": "https://registry.watermelon.sh/r/schedule-date.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/schedule-date.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -858,7 +8435,14 @@ export const catalog: CatalogData = {
       "description": "Floating scroll island providing progress, actions, and contextual indicators.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/scroll-island.webp",
-      "path": "src/data/contents/registry/scroll-island.mdx"
+      "path": "src/data/contents/registry/scroll-island.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/scroll-island",
+      "registryUrl": "https://registry.watermelon.sh/r/scroll-island.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/scroll-island.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -867,7 +8451,14 @@ export const catalog: CatalogData = {
       "description": "An animated scrub slider that responds smoothly to drag and scrub interactions.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/scrub-slider.webp",
-      "path": "src/data/contents/registry/scrub-slider.mdx"
+      "path": "src/data/contents/registry/scrub-slider.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/scrub-slider",
+      "registryUrl": "https://registry.watermelon.sh/r/scrub-slider.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/scrub-slider.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -876,7 +8467,15 @@ export const catalog: CatalogData = {
       "description": "Choose an AI agent quickly with options and smooth feedback.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/select-ai-agent.webp",
-      "path": "src/data/contents/registry/select-ai-agent.mdx"
+      "path": "src/data/contents/registry/select-ai-agent.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/select-ai-agent",
+      "registryUrl": "https://registry.watermelon.sh/r/select-ai-agent.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/select-ai-agent.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -885,7 +8484,13 @@ export const catalog: CatalogData = {
       "description": "Quick send money interaction with confirmation, status, and feedback states.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/send-money.webp",
-      "path": "src/data/contents/registry/send-money.mdx"
+      "path": "src/data/contents/registry/send-money.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/send-money",
+      "registryUrl": "https://registry.watermelon.sh/r/send-money.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/send-money.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -894,7 +8499,14 @@ export const catalog: CatalogData = {
       "description": "An animated share sheet widget that smoothly expands to reveal a list of users for quick link sharing.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/share-sheet.webp",
-      "path": "src/data/contents/registry/share-sheet.mdx"
+      "path": "src/data/contents/registry/share-sheet.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/share-sheet",
+      "registryUrl": "https://registry.watermelon.sh/r/share-sheet.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/share-sheet.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -903,7 +8515,13 @@ export const catalog: CatalogData = {
       "description": "A button with an animated shimmer effect on hover.",
       "category": "buttons",
       "image": "/content/shimmer-button/shimmer-800.png",
-      "path": "src/data/contents/registry/shimmer-button.mdx"
+      "path": "src/data/contents/registry/shimmer-button.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/shimmer-button",
+      "registryUrl": "https://registry.watermelon.sh/r/shimmer-button.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/shimmer-button.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -912,7 +8530,15 @@ export const catalog: CatalogData = {
       "description": "A widget to show QR code.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/show-qr.webp",
-      "path": "src/data/contents/registry/show-qr.mdx"
+      "path": "src/data/contents/registry/show-qr.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/show-qr",
+      "registryUrl": "https://registry.watermelon.sh/r/show-qr.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/show-qr.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -921,7 +8547,15 @@ export const catalog: CatalogData = {
       "description": "A dynamic list that promotes pinned items to a shuffleable hero header with spring animations and interactive pin toggles.",
       "category": "lists",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/shuffle-pinned-item.webp",
-      "path": "src/data/contents/registry/shuffle-pinned-item.mdx"
+      "path": "src/data/contents/registry/shuffle-pinned-item.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/shuffle-pinned-item",
+      "registryUrl": "https://registry.watermelon.sh/r/shuffle-pinned-item.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/shuffle-pinned-item.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -930,7 +8564,14 @@ export const catalog: CatalogData = {
       "description": "A premium scheduling component for managing time slots with fluid spring animations and tactile toggles.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/slot-picker.webp",
-      "path": "src/data/contents/registry/slot-picker.mdx"
+      "path": "src/data/contents/registry/slot-picker.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/slot-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/slot-picker.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/slot-picker.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -939,7 +8580,14 @@ export const catalog: CatalogData = {
       "description": "Interactive micro-interaction component for split actions.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/split-actions.webp",
-      "path": "src/data/contents/registry/split-actions.mdx"
+      "path": "src/data/contents/registry/split-actions.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/split-actions",
+      "registryUrl": "https://registry.watermelon.sh/r/split-actions.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/split-actions.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -948,7 +8596,15 @@ export const catalog: CatalogData = {
       "description": "A premium split button component with spring-driven layout transitions and tactile expansion behavior for quick multi-action workflows.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/split-button.webp",
-      "path": "src/data/contents/registry/split-button.mdx"
+      "path": "src/data/contents/registry/split-button.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/split-button",
+      "registryUrl": "https://registry.watermelon.sh/r/split-button.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/split-button.json",
+      "dependencies": [
+        "motion/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -957,7 +8613,14 @@ export const catalog: CatalogData = {
       "description": "An animated input field that smoothly splits into editable segments during interaction",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/split-to-edit.webp",
-      "path": "src/data/contents/registry/split-to-edit.mdx"
+      "path": "src/data/contents/registry/split-to-edit.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/split-to-edit",
+      "registryUrl": "https://registry.watermelon.sh/r/split-to-edit.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/split-to-edit.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -966,7 +8629,15 @@ export const catalog: CatalogData = {
       "description": "An animated status picker that smoothly transitions between selectable states.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/status-picker.webp",
-      "path": "src/data/contents/registry/status-picker.mdx"
+      "path": "src/data/contents/registry/status-picker.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/status-picker",
+      "registryUrl": "https://registry.watermelon.sh/r/status-picker.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/status-picker.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -975,7 +8646,15 @@ export const catalog: CatalogData = {
       "description": "An animated step indicator with a tooltip that highlights the current progress stage.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/step-indicator.webp",
-      "path": "src/data/contents/registry/step-indicator.mdx"
+      "path": "src/data/contents/registry/step-indicator.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/step-indicator",
+      "registryUrl": "https://registry.watermelon.sh/r/step-indicator.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/step-indicator.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -984,7 +8663,15 @@ export const catalog: CatalogData = {
       "description": "An animated step pager that visually highlights the current step with smooth icon transitions.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/step-pager.webp",
-      "path": "src/data/contents/registry/step-pager.mdx"
+      "path": "src/data/contents/registry/step-pager.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/step-pager",
+      "registryUrl": "https://registry.watermelon.sh/r/step-pager.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/step-pager.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -993,7 +8680,14 @@ export const catalog: CatalogData = {
       "description": "An animated numeric stepper with plu and minus controls and spring-based roling digit transitions.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/stepper.webp",
-      "path": "src/data/contents/registry/stepper.mdx"
+      "path": "src/data/contents/registry/stepper.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/stepper",
+      "registryUrl": "https://registry.watermelon.sh/r/stepper.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/stepper.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1002,7 +8696,14 @@ export const catalog: CatalogData = {
       "description": "Calendar card showing subscription cycles, renewals, and upcoming billing dates.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/subscription-calendar.webp",
-      "path": "src/data/contents/registry/subscription-calendar.mdx"
+      "path": "src/data/contents/registry/subscription-calendar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/subscription-calendar",
+      "registryUrl": "https://registry.watermelon.sh/r/subscription-calendar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/subscription-calendar.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1011,7 +8712,15 @@ export const catalog: CatalogData = {
       "description": "A responsive interface component designed for instant user sentiment, featuring snappy visual cues that provide immediate confirmation upon interaction.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/swap-currency-card.webp",
-      "path": "src/data/contents/registry/swap-currency-card.mdx"
+      "path": "src/data/contents/registry/swap-currency-card.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/swap-currency-card",
+      "registryUrl": "https://registry.watermelon.sh/r/swap-currency-card.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/swap-currency-card.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1020,7 +8729,14 @@ export const catalog: CatalogData = {
       "description": "A dynamic authentication form that transitions between Sign In and Sign Up modes with elegant blur and scale effects.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/swap-form.webp",
-      "path": "src/data/contents/registry/swap-form.mdx"
+      "path": "src/data/contents/registry/swap-form.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/swap-form",
+      "registryUrl": "https://registry.watermelon.sh/r/swap-form.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/swap-form.json",
+      "dependencies": [
+        "motion",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1029,7 +8745,15 @@ export const catalog: CatalogData = {
       "description": "A premium interactive disclosure component that pairs a primary switch with nested behavioral sub-options.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/switch-disclosure.webp",
-      "path": "src/data/contents/registry/switch-disclosure.mdx"
+      "path": "src/data/contents/registry/switch-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/switch-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1038,7 +8762,14 @@ export const catalog: CatalogData = {
       "description": "A premium, animated theme toggle switch with smooth spring physics and sliding icon states.",
       "category": "toggle",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/switch-mode.webp",
-      "path": "src/data/contents/registry/switch-mode.mdx"
+      "path": "src/data/contents/registry/switch-mode.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/switch-mode",
+      "registryUrl": "https://registry.watermelon.sh/r/switch-mode.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/switch-mode.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1047,7 +8778,14 @@ export const catalog: CatalogData = {
       "description": "A dynamic tag management component with smooth shared-layout transitions and auto-scrolling.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/tags.webp",
-      "path": "src/data/contents/registry/tags.mdx"
+      "path": "src/data/contents/registry/tags.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/tags",
+      "registryUrl": "https://registry.watermelon.sh/r/tags.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tags.json",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1056,7 +8794,16 @@ export const catalog: CatalogData = {
       "description": "An interactive task widget with smooth disclosure animations and detailed progress tracking.",
       "category": "disclosure",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/task-widget-disclosure.webp",
-      "path": "src/data/contents/registry/task-widget-disclosure.mdx"
+      "path": "src/data/contents/registry/task-widget-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/task-widget-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/task-widget-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/task-widget-disclosure.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "@hugeicons/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1065,7 +8812,15 @@ export const catalog: CatalogData = {
       "description": "An animated timed undo button that provides a visual countdown before an action is finalized.",
       "category": "buttons",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/time-undo-action.webp",
-      "path": "src/data/contents/registry/time-undo-action.mdx"
+      "path": "src/data/contents/registry/time-undo-action.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/time-undo-action",
+      "registryUrl": "https://registry.watermelon.sh/r/time-undo-action.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/time-undo-action.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons",
+        "react-use-measure"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1074,7 +8829,15 @@ export const catalog: CatalogData = {
       "description": "Tooltip design recreated with smooth animations and interactive feedback.",
       "category": "tooltip",
       "image": "https://assets.watermelon.sh/components/tooltip-navbar.webp",
-      "path": "src/data/contents/registry/tooltip-navbar.mdx"
+      "path": "src/data/contents/registry/tooltip-navbar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/tooltip-navbar",
+      "registryUrl": "https://registry.watermelon.sh/r/tooltip-navbar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tooltip-navbar.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1083,7 +8846,14 @@ export const catalog: CatalogData = {
       "description": "Concise trade summary card showing positions, performance, and key metrics.",
       "category": "cards",
       "image": "https://assets.watermelon.sh/components/trade-summary.webp",
-      "path": "src/data/contents/registry/trade-summary.mdx"
+      "path": "src/data/contents/registry/trade-summary.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/trade-summary",
+      "registryUrl": "https://registry.watermelon.sh/r/trade-summary.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/trade-summary.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1092,7 +8862,15 @@ export const catalog: CatalogData = {
       "description": "An animated transaction list with smooth expand and collapse transitions for detailed views.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/transaction-list.webp",
-      "path": "src/data/contents/registry/transaction-list.mdx"
+      "path": "src/data/contents/registry/transaction-list.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/transaction-list",
+      "registryUrl": "https://registry.watermelon.sh/r/transaction-list.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/transaction-list.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-use-measure"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1101,7 +8879,14 @@ export const catalog: CatalogData = {
       "description": "A nested tree navigation menu with animated level transitions and breadcrumb navigation.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/tree-menu.webp",
-      "path": "src/data/contents/registry/tree-menu.mdx"
+      "path": "src/data/contents/registry/tree-menu.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/tree-menu",
+      "registryUrl": "https://registry.watermelon.sh/r/tree-menu.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tree-menu.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1110,7 +8895,15 @@ export const catalog: CatalogData = {
       "description": "Interactive wallet interface with expandable cards featuring smooth layout animations and micro-interactions.",
       "category": "dialog",
       "image": "https://assets.watermelon.sh/components/uniswap-dialog.webp",
-      "path": "src/data/contents/registry/uniswap-dialog.mdx"
+      "path": "src/data/contents/registry/uniswap-dialog.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/uniswap-dialog",
+      "registryUrl": "https://registry.watermelon.sh/r/uniswap-dialog.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/uniswap-dialog.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1119,7 +8912,15 @@ export const catalog: CatalogData = {
       "description": "A vertical tooltip menu with smooth clip-path animations that reveal tooltips on hover",
       "category": "tooltip",
       "image": "https://assets.watermelon.sh/components/vertical-tooltip-navbar.webp",
-      "path": "src/data/contents/registry/vertical-tooltip-navbar.mdx"
+      "path": "src/data/contents/registry/vertical-tooltip-navbar.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/vertical-tooltip-navbar",
+      "registryUrl": "https://registry.watermelon.sh/r/vertical-tooltip-navbar.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/vertical-tooltip-navbar.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1128,7 +8929,13 @@ export const catalog: CatalogData = {
       "description": "Map view component displaying locations with zoom, pins, and directions.",
       "category": "map",
       "image": "https://assets.watermelon.sh/components/view-on-map.webp",
-      "path": "src/data/contents/registry/view-on-map.mdx"
+      "path": "src/data/contents/registry/view-on-map.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/view-on-map",
+      "registryUrl": "https://registry.watermelon.sh/r/view-on-map.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/view-on-map.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1137,7 +8944,16 @@ export const catalog: CatalogData = {
       "description": "An interactive, expandable voice chat pill with avatar stacking and animated voice indicators.",
       "category": "interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/voice-chat-disclosure.webp",
-      "path": "src/data/contents/registry/voice-chat-disclosure.mdx"
+      "path": "src/data/contents/registry/voice-chat-disclosure.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/voice-chat-disclosure",
+      "registryUrl": "https://registry.watermelon.sh/r/voice-chat-disclosure.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/voice-chat-disclosure.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1146,7 +8962,14 @@ export const catalog: CatalogData = {
       "description": "Voice note interaction for recording, previewing, and managing audio snippets.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/voice-note.webp",
-      "path": "src/data/contents/registry/voice-note.mdx"
+      "path": "src/data/contents/registry/voice-note.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/voice-note",
+      "registryUrl": "https://registry.watermelon.sh/r/voice-note.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/voice-note.json",
+      "dependencies": [
+        "motion/react",
+        "tailwindcss"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1155,7 +8978,15 @@ export const catalog: CatalogData = {
       "description": "Convert speech into text instantly with smooth, responsive Voice Transcribe.",
       "category": "micro-interaction",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/voice-transcribe.webp",
-      "path": "src/data/contents/registry/voice-transcribe.mdx"
+      "path": "src/data/contents/registry/voice-transcribe.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/voice-transcribe",
+      "registryUrl": "https://registry.watermelon.sh/r/voice-transcribe.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/voice-transcribe.json",
+      "dependencies": [
+        "motion/react",
+        "lucide-react",
+        "react-icons"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1164,7 +8995,13 @@ export const catalog: CatalogData = {
       "description": "Interactive waveform scrubber enabling precise audio navigation and playback control.",
       "category": "media",
       "image": "https://assets.watermelon.sh/components/waveform-scrub.webp",
-      "path": "src/data/contents/registry/waveform-scrub.mdx"
+      "path": "src/data/contents/registry/waveform-scrub.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/waveform-scrub",
+      "registryUrl": "https://registry.watermelon.sh/r/waveform-scrub.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/waveform-scrub.json",
+      "dependencies": [
+        "motion/react"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1173,7 +9010,14 @@ export const catalog: CatalogData = {
       "description": "A tactile, sliding scale component designed for precise weight input with a premium haptic feel.",
       "category": "widgets",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/weight-widget.webp",
-      "path": "src/data/contents/registry/weight-widget.mdx"
+      "path": "src/data/contents/registry/weight-widget.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/weight-widget",
+      "registryUrl": "https://registry.watermelon.sh/r/weight-widget.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/weight-widget.json",
+      "dependencies": [
+        "motion",
+        "next-themes"
+      ]
     },
     {
       "kind": "animated-components",
@@ -1182,7 +9026,14 @@ export const catalog: CatalogData = {
       "description": "An animated card carousel with a playful wiggling effect during navigation.",
       "category": "carousel",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/wiggling-cards.webp",
-      "path": "src/data/contents/registry/wiggling-cards.mdx"
+      "path": "src/data/contents/registry/wiggling-cards.mdx",
+      "previewUrl": "https://ui.watermelon.sh/animated-components/wiggling-cards",
+      "registryUrl": "https://registry.watermelon.sh/r/wiggling-cards.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/wiggling-cards.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     }
   ],
   "blocks": [
@@ -1193,7 +9044,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-1.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-1/announcement-1.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-1/announcement-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-1",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1202,7 +9061,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-2.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-2/announcement-2.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-2/announcement-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-2",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1211,7 +9078,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-3.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-3/announcement-3.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-3/announcement-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-3",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1220,7 +9095,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-4.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-4/announcement-4.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-4/announcement-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-4",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1229,7 +9112,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-5.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-5/announcement-5.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-5/announcement-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-5",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1238,7 +9129,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-6.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-6/announcement-6.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-6/announcement-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-6",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-6.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1247,7 +9146,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-7.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-7/announcement-7.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-7/announcement-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-7",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-7.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1256,7 +9163,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-8.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-8/announcement-8.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-8/announcement-8.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-8",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-8.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1265,7 +9180,15 @@ export const catalog: CatalogData = {
       "description": "Announcement are temporary UI components used to communicate important information to users without interrupting their flow.",
       "category": "Announcement",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/announcement-9.webp",
-      "path": "src/data/contents/blocks/announcement/announcement-9/announcement-9.mdx"
+      "path": "src/data/contents/blocks/announcement/announcement-9/announcement-9.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/announcement-9",
+      "registryUrl": "https://registry.watermelon.sh/r/announcement-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/announcement-9.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1274,7 +9197,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-01.webp",
-      "path": "src/data/contents/blocks/auth/auth-01/auth-01.mdx"
+      "path": "src/data/contents/blocks/auth/auth-01/auth-01.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-01",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-01.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-01.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1283,7 +9214,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-02.webp",
-      "path": "src/data/contents/blocks/auth/auth-02/auth-02.mdx"
+      "path": "src/data/contents/blocks/auth/auth-02/auth-02.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-02",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-02.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-02.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1292,7 +9231,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-03.webp",
-      "path": "src/data/contents/blocks/auth/auth-03/auth-03.mdx"
+      "path": "src/data/contents/blocks/auth/auth-03/auth-03.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-03",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-03.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-03.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1301,7 +9248,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-04.webp",
-      "path": "src/data/contents/blocks/auth/auth-04/auth-04.mdx"
+      "path": "src/data/contents/blocks/auth/auth-04/auth-04.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-04",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-04.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-04.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1310,7 +9265,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-05.webp",
-      "path": "src/data/contents/blocks/auth/auth-05/auth-05.mdx"
+      "path": "src/data/contents/blocks/auth/auth-05/auth-05.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-05",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-05.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-05.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1319,7 +9282,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-06.webp",
-      "path": "src/data/contents/blocks/auth/auth-06/auth-06.mdx"
+      "path": "src/data/contents/blocks/auth/auth-06/auth-06.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-06",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-06.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-06.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1328,7 +9299,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-07.webp",
-      "path": "src/data/contents/blocks/auth/auth-07/auth-07.mdx"
+      "path": "src/data/contents/blocks/auth/auth-07/auth-07.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-07",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-07.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-07.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1337,7 +9316,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-08.webp",
-      "path": "src/data/contents/blocks/auth/auth-08/auth-08.mdx"
+      "path": "src/data/contents/blocks/auth/auth-08/auth-08.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-08",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-08.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-08.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1346,7 +9333,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-09.webp",
-      "path": "src/data/contents/blocks/auth/auth-09/auth-09.mdx"
+      "path": "src/data/contents/blocks/auth/auth-09/auth-09.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-09",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-09.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-09.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1355,7 +9350,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-10.webp",
-      "path": "src/data/contents/blocks/auth/auth-10/auth-10.mdx"
+      "path": "src/data/contents/blocks/auth/auth-10/auth-10.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-10",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-10.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1364,7 +9367,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-11.webp",
-      "path": "src/data/contents/blocks/auth/auth-11/auth-11.mdx"
+      "path": "src/data/contents/blocks/auth/auth-11/auth-11.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-11",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-11.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1373,7 +9384,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-12.webp",
-      "path": "src/data/contents/blocks/auth/auth-12/auth-12.mdx"
+      "path": "src/data/contents/blocks/auth/auth-12/auth-12.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-12",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-12.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1382,7 +9401,15 @@ export const catalog: CatalogData = {
       "description": "Authentication flows are secure UI components designed to verify user identity and manage access to protected areas of an application without disrupting the user experience.",
       "category": "auth",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/auth-13.webp",
-      "path": "src/data/contents/blocks/auth/auth-13/auth-13.mdx"
+      "path": "src/data/contents/blocks/auth/auth-13/auth-13.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/auth-13",
+      "registryUrl": "https://registry.watermelon.sh/r/auth-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/auth-13.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1391,7 +9418,15 @@ export const catalog: CatalogData = {
       "description": "A bento grid layout section to showcase multiple features or items in a structured, engaging format.",
       "category": "Bento",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/bento-01.webp",
-      "path": "src/data/contents/blocks/bento/bento-01/bento-01.mdx"
+      "path": "src/data/contents/blocks/bento/bento-01/bento-01.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/bento-01",
+      "registryUrl": "https://registry.watermelon.sh/r/bento-01.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/bento-01.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1400,7 +9435,15 @@ export const catalog: CatalogData = {
       "description": "A bento grid layout section to showcase multiple features or items in a structured, engaging format.",
       "category": "Bento",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/bento-02.webp",
-      "path": "src/data/contents/blocks/bento/bento-02/bento-02.mdx"
+      "path": "src/data/contents/blocks/bento/bento-02/bento-02.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/bento-02",
+      "registryUrl": "https://registry.watermelon.sh/r/bento-02.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/bento-02.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1409,7 +9452,15 @@ export const catalog: CatalogData = {
       "description": "Blogs are content-driven UI sections used to share insights, updates, tutorials, and stories in a structured and engaging format.",
       "category": "Blog",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/blog-1.webp",
-      "path": "src/data/contents/blocks/blog/blog-1/blog-1.mdx"
+      "path": "src/data/contents/blocks/blog/blog-1/blog-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/blog-1",
+      "registryUrl": "https://registry.watermelon.sh/r/blog-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/blog-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1418,7 +9469,15 @@ export const catalog: CatalogData = {
       "description": "Blogs are content-driven UI sections used to share insights, updates, tutorials, and stories in a structured and engaging format.",
       "category": "Blog",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/blog-2.webp",
-      "path": "src/data/contents/blocks/blog/blog-2/blog-2.mdx"
+      "path": "src/data/contents/blocks/blog/blog-2/blog-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/blog-2",
+      "registryUrl": "https://registry.watermelon.sh/r/blog-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/blog-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1427,7 +9486,15 @@ export const catalog: CatalogData = {
       "description": "Blogs are content-driven UI sections used to share insights, updates, tutorials, and stories in a structured and engaging format.",
       "category": "Blog",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/blog-3.webp",
-      "path": "src/data/contents/blocks/blog/blog-3/blog-3.mdx"
+      "path": "src/data/contents/blocks/blog/blog-3/blog-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/blog-3",
+      "registryUrl": "https://registry.watermelon.sh/r/blog-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/blog-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1436,7 +9503,15 @@ export const catalog: CatalogData = {
       "description": "Blogs are content-driven UI sections used to share insights, updates, tutorials, and stories in a structured and engaging format.",
       "category": "Blog",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/blog-4.webp",
-      "path": "src/data/contents/blocks/blog/blog-4/blog-4.mdx"
+      "path": "src/data/contents/blocks/blog/blog-4/blog-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/blog-4",
+      "registryUrl": "https://registry.watermelon.sh/r/blog-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/blog-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1445,7 +9520,15 @@ export const catalog: CatalogData = {
       "description": "Careers sections are recruitment-focused UI pages designed to showcase open roles, company culture, and growth opportunities in a clear and approachable way.",
       "category": "Career",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/career-1.webp",
-      "path": "src/data/contents/blocks/career/career-1/career-1.mdx"
+      "path": "src/data/contents/blocks/career/career-1/career-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/career-1",
+      "registryUrl": "https://registry.watermelon.sh/r/career-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/career-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1454,7 +9537,15 @@ export const catalog: CatalogData = {
       "description": "Careers sections are recruitment-focused UI pages designed to showcase open roles, company culture, and growth opportunities in a clear and approachable way.",
       "category": "Career",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/career-2.webp",
-      "path": "src/data/contents/blocks/career/career-2/career-2.mdx"
+      "path": "src/data/contents/blocks/career/career-2/career-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/career-2",
+      "registryUrl": "https://registry.watermelon.sh/r/career-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/career-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1463,7 +9554,15 @@ export const catalog: CatalogData = {
       "description": "Careers sections are recruitment-focused UI pages designed to showcase open roles, company culture, and growth opportunities in a clear and approachable way.",
       "category": "Career",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/career-3.webp",
-      "path": "src/data/contents/blocks/career/career-3/career-3.mdx"
+      "path": "src/data/contents/blocks/career/career-3/career-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/career-3",
+      "registryUrl": "https://registry.watermelon.sh/r/career-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/career-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1472,7 +9571,15 @@ export const catalog: CatalogData = {
       "description": "Careers sections are recruitment-focused UI pages designed to showcase open roles, company culture, and growth opportunities in a clear and approachable way.",
       "category": "Career",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/career-4.webp",
-      "path": "src/data/contents/blocks/career/career-4/career-4.mdx"
+      "path": "src/data/contents/blocks/career/career-4/career-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/career-4",
+      "registryUrl": "https://registry.watermelon.sh/r/career-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/career-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1481,7 +9588,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-1.webp",
-      "path": "src/data/contents/blocks/contact/contact-1/contact-1.mdx"
+      "path": "src/data/contents/blocks/contact/contact-1/contact-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-1",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1490,7 +9605,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-2.webp",
-      "path": "src/data/contents/blocks/contact/contact-2/contact-2.mdx"
+      "path": "src/data/contents/blocks/contact/contact-2/contact-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-2",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1499,7 +9622,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-3.webp",
-      "path": "src/data/contents/blocks/contact/contact-3/contact-3.mdx"
+      "path": "src/data/contents/blocks/contact/contact-3/contact-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-3",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1508,7 +9639,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-4.webp",
-      "path": "src/data/contents/blocks/contact/contact-4/contact-4.mdx"
+      "path": "src/data/contents/blocks/contact/contact-4/contact-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-4",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1517,7 +9656,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-5.webp",
-      "path": "src/data/contents/blocks/contact/contact-5/contact-5.mdx"
+      "path": "src/data/contents/blocks/contact/contact-5/contact-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-5",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1526,7 +9673,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-6.webp",
-      "path": "src/data/contents/blocks/contact/contact-6/contact-6.mdx"
+      "path": "src/data/contents/blocks/contact/contact-6/contact-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-6",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-6.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1535,7 +9690,15 @@ export const catalog: CatalogData = {
       "description": "Contact sections are communication-focused UI components designed to help users quickly reach out with questions, feedback, or support requests.",
       "category": "contact",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/contact-7.webp",
-      "path": "src/data/contents/blocks/contact/contact-7/contact-7.mdx"
+      "path": "src/data/contents/blocks/contact/contact-7/contact-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/contact-7",
+      "registryUrl": "https://registry.watermelon.sh/r/contact-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/contact-7.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1544,7 +9707,15 @@ export const catalog: CatalogData = {
       "description": "Call-to-action sections are conversion-focused UI components designed to guide users toward a specific action, such as signing up, starting a trial, or making a purchase.",
       "category": "CTA",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/cta-1.webp",
-      "path": "src/data/contents/blocks/cta/cta-1/cta-1.mdx"
+      "path": "src/data/contents/blocks/cta/cta-1/cta-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/cta-1",
+      "registryUrl": "https://registry.watermelon.sh/r/cta-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/cta-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1553,7 +9724,15 @@ export const catalog: CatalogData = {
       "description": "Call-to-action sections are conversion-focused UI components designed to guide users toward a specific action, such as signing up, starting a trial, or making a purchase.",
       "category": "CTA",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/cta-2.webp",
-      "path": "src/data/contents/blocks/cta/cta-2/cta-2.mdx"
+      "path": "src/data/contents/blocks/cta/cta-2/cta-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/cta-2",
+      "registryUrl": "https://registry.watermelon.sh/r/cta-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/cta-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1562,7 +9741,15 @@ export const catalog: CatalogData = {
       "description": "Call-to-action sections are conversion-focused UI components designed to guide users toward a specific action, such as signing up, starting a trial, or making a purchase.",
       "category": "CTA",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/cta-3.webp",
-      "path": "src/data/contents/blocks/cta/cta-3/cta-3.mdx"
+      "path": "src/data/contents/blocks/cta/cta-3/cta-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/cta-3",
+      "registryUrl": "https://registry.watermelon.sh/r/cta-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/cta-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1571,7 +9758,15 @@ export const catalog: CatalogData = {
       "description": "Call-to-action sections are conversion-focused UI components designed to guide users toward a specific action, such as signing up, starting a trial, or making a purchase.",
       "category": "CTA",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/cta-4.webp",
-      "path": "src/data/contents/blocks/cta/cta-4/cta-4.mdx"
+      "path": "src/data/contents/blocks/cta/cta-4/cta-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/cta-4",
+      "registryUrl": "https://registry.watermelon.sh/r/cta-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/cta-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1580,7 +9775,15 @@ export const catalog: CatalogData = {
       "description": "Call-to-action sections are conversion-focused UI components designed to guide users toward a specific action, such as signing up, starting a trial, or making a purchase.",
       "category": "CTA",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/cta-5.webp",
-      "path": "src/data/contents/blocks/cta/cta-5/cta-5.mdx"
+      "path": "src/data/contents/blocks/cta/cta-5/cta-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/cta-5",
+      "registryUrl": "https://registry.watermelon.sh/r/cta-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/cta-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1589,7 +9792,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-1.webp",
-      "path": "src/data/contents/blocks/error/error-1/error-1.mdx"
+      "path": "src/data/contents/blocks/error/error-1/error-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-1",
+      "registryUrl": "https://registry.watermelon.sh/r/error-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1598,7 +9809,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-2.webp",
-      "path": "src/data/contents/blocks/error/error-2/error-2.mdx"
+      "path": "src/data/contents/blocks/error/error-2/error-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-2",
+      "registryUrl": "https://registry.watermelon.sh/r/error-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1607,7 +9826,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-3.webp",
-      "path": "src/data/contents/blocks/error/error-3/error-3.mdx"
+      "path": "src/data/contents/blocks/error/error-3/error-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-3",
+      "registryUrl": "https://registry.watermelon.sh/r/error-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1616,7 +9843,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-4.webp",
-      "path": "src/data/contents/blocks/error/error-4/error-4.mdx"
+      "path": "src/data/contents/blocks/error/error-4/error-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-4",
+      "registryUrl": "https://registry.watermelon.sh/r/error-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1625,7 +9860,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-5.webp",
-      "path": "src/data/contents/blocks/error/error-5/error-5.mdx"
+      "path": "src/data/contents/blocks/error/error-5/error-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-5",
+      "registryUrl": "https://registry.watermelon.sh/r/error-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1634,7 +9877,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-6.webp",
-      "path": "src/data/contents/blocks/error/error-6/error-6.mdx"
+      "path": "src/data/contents/blocks/error/error-6/error-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-6",
+      "registryUrl": "https://registry.watermelon.sh/r/error-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-6.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1643,7 +9894,15 @@ export const catalog: CatalogData = {
       "description": "Error pages are feedback-oriented UI screens designed to inform users when something goes wrong while helping them recover smoothly.",
       "category": "Error",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/error-7.webp",
-      "path": "src/data/contents/blocks/error/error-7/error-7.mdx"
+      "path": "src/data/contents/blocks/error/error-7/error-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/error-7",
+      "registryUrl": "https://registry.watermelon.sh/r/error-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/error-7.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1652,7 +9911,15 @@ export const catalog: CatalogData = {
       "description": "Frequently Asked Questions sections are content-focused UI components designed to answer common user questions in a clear and organized way.",
       "category": "FAQ",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/faq-1.webp",
-      "path": "src/data/contents/blocks/faq/faq-1/faq-1.mdx"
+      "path": "src/data/contents/blocks/faq/faq-1/faq-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/faq-1",
+      "registryUrl": "https://registry.watermelon.sh/r/faq-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/faq-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1661,7 +9928,15 @@ export const catalog: CatalogData = {
       "description": "Frequently Asked Questions sections are content-focused UI components designed to answer common user questions in a clear and organized way.",
       "category": "FAQ",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/faq-2.webp",
-      "path": "src/data/contents/blocks/faq/faq-2/faq-2.mdx"
+      "path": "src/data/contents/blocks/faq/faq-2/faq-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/faq-2",
+      "registryUrl": "https://registry.watermelon.sh/r/faq-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/faq-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1670,7 +9945,15 @@ export const catalog: CatalogData = {
       "description": "Frequently Asked Questions sections are content-focused UI components designed to answer common user questions in a clear and organized way.",
       "category": "FAQ",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/faq-3.webp",
-      "path": "src/data/contents/blocks/faq/faq-3/faq-3.mdx"
+      "path": "src/data/contents/blocks/faq/faq-3/faq-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/faq-3",
+      "registryUrl": "https://registry.watermelon.sh/r/faq-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/faq-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1679,7 +9962,15 @@ export const catalog: CatalogData = {
       "description": "Frequently Asked Questions sections are content-focused UI components designed to answer common user questions in a clear and organized way.",
       "category": "FAQ",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/faq-4.webp",
-      "path": "src/data/contents/blocks/faq/faq-4/faq-4.mdx"
+      "path": "src/data/contents/blocks/faq/faq-4/faq-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/faq-4",
+      "registryUrl": "https://registry.watermelon.sh/r/faq-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/faq-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1688,7 +9979,15 @@ export const catalog: CatalogData = {
       "description": "Frequently Asked Questions sections are content-focused UI components designed to answer common user questions in a clear and organized way.",
       "category": "FAQ",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/faq-5.webp",
-      "path": "src/data/contents/blocks/faq/faq-5/faq-5.mdx"
+      "path": "src/data/contents/blocks/faq/faq-5/faq-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/faq-5",
+      "registryUrl": "https://registry.watermelon.sh/r/faq-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/faq-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1697,7 +9996,15 @@ export const catalog: CatalogData = {
       "description": "A modern, two-column FAQ section with a grid-like dashed border aesthetic and numbered accordion items.",
       "category": "FAQ",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/faq-6.webp",
-      "path": "src/data/contents/blocks/faq/faq-6/faq-6.mdx"
+      "path": "src/data/contents/blocks/faq/faq-6/faq-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/faq-6",
+      "registryUrl": "https://registry.watermelon.sh/r/faq-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/faq-6.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1706,7 +10013,15 @@ export const catalog: CatalogData = {
       "description": "Features sections are content-focused UI components designed to highlight key features and benefits of a product or service.",
       "category": "Feature",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/features-1.webp",
-      "path": "src/data/contents/blocks/feature/feature-1/feature-1.mdx"
+      "path": "src/data/contents/blocks/feature/feature-1/feature-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/feature-1",
+      "registryUrl": "https://registry.watermelon.sh/r/feature-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feature-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1715,7 +10030,15 @@ export const catalog: CatalogData = {
       "description": "Features sections are content-focused UI components designed to highlight key features and benefits of a product or service.",
       "category": "Feature",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/features-2.webp",
-      "path": "src/data/contents/blocks/feature/feature-2/feature-2.mdx"
+      "path": "src/data/contents/blocks/feature/feature-2/feature-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/feature-2",
+      "registryUrl": "https://registry.watermelon.sh/r/feature-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feature-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1724,7 +10047,15 @@ export const catalog: CatalogData = {
       "description": "Features sections are content-focused UI components designed to highlight key features and benefits of a product or service.",
       "category": "Feature",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/features-3.webp",
-      "path": "src/data/contents/blocks/feature/feature-3/feature-3.mdx"
+      "path": "src/data/contents/blocks/feature/feature-3/feature-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/feature-3",
+      "registryUrl": "https://registry.watermelon.sh/r/feature-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feature-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1733,7 +10064,15 @@ export const catalog: CatalogData = {
       "description": "Features sections are content-focused UI components designed to highlight key features and benefits of a product or service.",
       "category": "Feature",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/features-4.webp",
-      "path": "src/data/contents/blocks/feature/feature-4/feature-5.mdx"
+      "path": "src/data/contents/blocks/feature/feature-4/feature-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/feature-4",
+      "registryUrl": "https://registry.watermelon.sh/r/feature-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feature-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1742,7 +10081,15 @@ export const catalog: CatalogData = {
       "description": "Features sections are content-focused UI components designed to highlight key features and benefits of a product or service.",
       "category": "Feature",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/features-5.webp",
-      "path": "src/data/contents/blocks/feature/feature-5/feature-5.mdx"
+      "path": "src/data/contents/blocks/feature/feature-5/feature-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/feature-5",
+      "registryUrl": "https://registry.watermelon.sh/r/feature-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/feature-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1751,7 +10098,15 @@ export const catalog: CatalogData = {
       "description": "File upload sections are form-oriented UI components designed to help users upload files securely and efficiently.",
       "category": "file-upload",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/file-upload-1.webp",
-      "path": "src/data/contents/blocks/file-upload/file-upload-1/file-upload-1.mdx"
+      "path": "src/data/contents/blocks/file-upload/file-upload-1/file-upload-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/file-upload-1",
+      "registryUrl": "https://registry.watermelon.sh/r/file-upload-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/file-upload-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1760,7 +10115,15 @@ export const catalog: CatalogData = {
       "description": "File upload sections are form-oriented UI components designed to help users upload files securely and efficiently.",
       "category": "file-upload",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/file-upload-2.webp",
-      "path": "src/data/contents/blocks/file-upload/file-upload-2/file-upload-2.mdx"
+      "path": "src/data/contents/blocks/file-upload/file-upload-2/file-upload-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/file-upload-2",
+      "registryUrl": "https://registry.watermelon.sh/r/file-upload-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/file-upload-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1769,7 +10132,15 @@ export const catalog: CatalogData = {
       "description": "File upload sections are form-oriented UI components designed to help users upload files securely and efficiently.",
       "category": "file-upload",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/file-upload-3.webp",
-      "path": "src/data/contents/blocks/file-upload/file-upload-3/file-upload-3.mdx"
+      "path": "src/data/contents/blocks/file-upload/file-upload-3/file-upload-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/file-upload-3",
+      "registryUrl": "https://registry.watermelon.sh/r/file-upload-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/file-upload-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1778,7 +10149,15 @@ export const catalog: CatalogData = {
       "description": "File upload sections are form-oriented UI components designed to help users upload files securely and efficiently.",
       "category": "file-upload",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/file-upload-4.webp",
-      "path": "src/data/contents/blocks/file-upload/file-upload-4/file-upload-4.mdx"
+      "path": "src/data/contents/blocks/file-upload/file-upload-4/file-upload-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/file-upload-4",
+      "registryUrl": "https://registry.watermelon.sh/r/file-upload-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/file-upload-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1787,7 +10166,15 @@ export const catalog: CatalogData = {
       "description": "File upload sections are form-oriented UI components designed to help users upload files securely and efficiently.",
       "category": "file-upload",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/file-upload-5.webp",
-      "path": "src/data/contents/blocks/file-upload/file-upload-5/file-upload-5.mdx"
+      "path": "src/data/contents/blocks/file-upload/file-upload-5/file-upload-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/file-upload-5",
+      "registryUrl": "https://registry.watermelon.sh/r/file-upload-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/file-upload-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1796,7 +10183,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-1.webp",
-      "path": "src/data/contents/blocks/footer/footer-1/footer-1.mdx"
+      "path": "src/data/contents/blocks/footer/footer-1/footer-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-1",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1805,7 +10200,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-10.webp",
-      "path": "src/data/contents/blocks/footer/footer-10/footer-10.mdx"
+      "path": "src/data/contents/blocks/footer/footer-10/footer-10.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-10",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-10.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1814,7 +10217,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-11.webp",
-      "path": "src/data/contents/blocks/footer/footer-11/footer-10.mdx"
+      "path": "src/data/contents/blocks/footer/footer-11/footer-10.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-11",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-11.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1823,7 +10234,14 @@ export const catalog: CatalogData = {
       "description": "A dark editorial footer with newsletter capture, compact link columns, oversized brand lockup, social links, theme control, and language selector.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-12.webp",
-      "path": "src/data/contents/blocks/footer/footer-12/footer-12.mdx"
+      "path": "src/data/contents/blocks/footer/footer-12/footer-12.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-12",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-12.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1832,7 +10250,14 @@ export const catalog: CatalogData = {
       "description": "A dark footer with a cinematic wide landscape image, clean column navigation, and newsletter capture form.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-13.webp",
-      "path": "src/data/contents/blocks/footer/footer-13/footer-13.mdx"
+      "path": "src/data/contents/blocks/footer/footer-13/footer-13.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-13",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-13.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1841,7 +10266,14 @@ export const catalog: CatalogData = {
       "description": "A light footer with clean column navigation, contact form, system status bar, and a bold blue brand hero section with oversized typography.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-14.webp",
-      "path": "src/data/contents/blocks/footer/footer-14/footer-14.mdx"
+      "path": "src/data/contents/blocks/footer/footer-14/footer-14.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-14",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-14.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1850,7 +10282,14 @@ export const catalog: CatalogData = {
       "description": "A dark warm-toned footer with star logo, brand description, pill CTA button, four navigation columns, and oversized outlined brand typography bleeding off the bottom edge.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-15.webp",
-      "path": "src/data/contents/blocks/footer/footer-15/footer-15.mdx"
+      "path": "src/data/contents/blocks/footer/footer-15/footer-15.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-15",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-15.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1859,7 +10298,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-16.webp",
-      "path": "src/data/contents/blocks/footer/footer-16/footer-16.mdx"
+      "path": "src/data/contents/blocks/footer/footer-16/footer-16.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-16",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-16.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1868,7 +10314,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-17.webp",
-      "path": "src/data/contents/blocks/footer/footer-17/footer-17.mdx"
+      "path": "src/data/contents/blocks/footer/footer-17/footer-17.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-17",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-17.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1877,7 +10330,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-18.webp",
-      "path": "src/data/contents/blocks/footer/footer-18/footer-18.mdx"
+      "path": "src/data/contents/blocks/footer/footer-18/footer-18.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-18",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-18.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1886,7 +10346,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-19.webp",
-      "path": "src/data/contents/blocks/footer/footer-19/footer-19.mdx"
+      "path": "src/data/contents/blocks/footer/footer-19/footer-19.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-19",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-19.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1895,7 +10362,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-2.webp",
-      "path": "src/data/contents/blocks/footer/footer-2/footer-2.mdx"
+      "path": "src/data/contents/blocks/footer/footer-2/footer-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-2",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1904,7 +10379,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-20.webp",
-      "path": "src/data/contents/blocks/footer/footer-20/footer-20.mdx"
+      "path": "src/data/contents/blocks/footer/footer-20/footer-20.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-20",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-20.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1913,7 +10395,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-21.webp",
-      "path": "src/data/contents/blocks/footer/footer-21/footer-21.mdx"
+      "path": "src/data/contents/blocks/footer/footer-21/footer-21.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-21",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-21.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1922,7 +10411,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark agency footer with oversized muted brand typography, fabric-like background imagery, compact navigation columns, social links, and staggered viewport animations.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-22.webp",
-      "path": "src/data/contents/blocks/footer/footer-22/footer-22.mdx"
+      "path": "src/data/contents/blocks/footer/footer-22/footer-22.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-22",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-22.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -1931,7 +10427,14 @@ export const catalog: CatalogData = {
       "description": "A massive, content-rich footer featuring a top CTA area, a full-bleed panoramic image, a clean navigation grid with an email capture form, and an enormous, screen-spanning wordmark at the bottom, complemented by utility icons and language selectors.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-23.avif",
-      "path": "src/data/contents/blocks/footer/footer-23/footer-23.mdx"
+      "path": "src/data/contents/blocks/footer/footer-23/footer-23.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-23",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-23.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -1940,7 +10443,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-24.webp",
-      "path": "src/data/contents/blocks/footer/footer-24/footer-24.mdx"
+      "path": "src/data/contents/blocks/footer/footer-24/footer-24.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-24",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-24.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1949,7 +10460,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-25.webp",
-      "path": "src/data/contents/blocks/footer/footer-25/footer-25.mdx"
+      "path": "src/data/contents/blocks/footer/footer-25/footer-25.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-25",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-25.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1958,7 +10477,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-26.webp",
-      "path": "src/data/contents/blocks/footer/footer-26/footer-26.mdx"
+      "path": "src/data/contents/blocks/footer/footer-26/footer-26.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-26",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-26.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-26.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1967,7 +10494,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-27.webp",
-      "path": "src/data/contents/blocks/footer/footer-27/footer-27.mdx"
+      "path": "src/data/contents/blocks/footer/footer-27/footer-27.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-27",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-27.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-27.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1976,7 +10511,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-28.webp",
-      "path": "src/data/contents/blocks/footer/footer-28/footer-28.mdx"
+      "path": "src/data/contents/blocks/footer/footer-28/footer-28.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-28",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-28.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-28.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -1985,7 +10528,12 @@ export const catalog: CatalogData = {
       "description": "A polished footer with an earthy color palette and prominent brand typography.",
       "category": "footer",
       "image": "",
-      "path": "src/data/contents/blocks/footer/footer-29/footer-29.mdx"
+      "path": "src/data/contents/blocks/footer/footer-29/footer-29.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-29",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -1994,7 +10542,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-3.webp",
-      "path": "src/data/contents/blocks/footer/footer-3/footer-3.mdx"
+      "path": "src/data/contents/blocks/footer/footer-3/footer-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-3",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2003,7 +10559,12 @@ export const catalog: CatalogData = {
       "description": "A polished footer with an earthy color palette and prominent brand typography.",
       "category": "footer",
       "image": "",
-      "path": "src/data/contents/blocks/footer/footer-30/footer-30.mdx"
+      "path": "src/data/contents/blocks/footer/footer-30/footer-30.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-30",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2012,7 +10573,12 @@ export const catalog: CatalogData = {
       "description": "A polished footer with an earthy color palette and prominent brand typography.",
       "category": "footer",
       "image": "",
-      "path": "src/data/contents/blocks/footer/footer-31/footer-31.mdx"
+      "path": "src/data/contents/blocks/footer/footer-31/footer-31.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-31",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2021,7 +10587,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-4.webp",
-      "path": "src/data/contents/blocks/footer/footer-4/footer-4.mdx"
+      "path": "src/data/contents/blocks/footer/footer-4/footer-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-4",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2030,7 +10604,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-5.webp",
-      "path": "src/data/contents/blocks/footer/footer-5/footer-5.mdx"
+      "path": "src/data/contents/blocks/footer/footer-5/footer-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-5",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2039,7 +10621,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-6.webp",
-      "path": "src/data/contents/blocks/footer/footer-6/footer-6.mdx"
+      "path": "src/data/contents/blocks/footer/footer-6/footer-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-6",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-6.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2048,7 +10638,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-7.webp",
-      "path": "src/data/contents/blocks/footer/footer-7/footer-7.mdx"
+      "path": "src/data/contents/blocks/footer/footer-7/footer-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-7",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-7.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2057,7 +10655,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-8.webp",
-      "path": "src/data/contents/blocks/footer/footer-8/footer-8.mdx"
+      "path": "src/data/contents/blocks/footer/footer-8/footer-8.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-8",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-8.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2066,7 +10672,15 @@ export const catalog: CatalogData = {
       "description": "Footers are foundational UI components that anchor a website or application by providing consistent navigation, contact information, and legal links across every page.",
       "category": "footer",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/footer-9.webp",
-      "path": "src/data/contents/blocks/footer/footer-9/footer-9.mdx"
+      "path": "src/data/contents/blocks/footer/footer-9/footer-9.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/footer-9",
+      "registryUrl": "https://registry.watermelon.sh/r/footer-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/footer-9.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2075,7 +10689,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-1.webp",
-      "path": "src/data/contents/blocks/hero/hero-1/hero-1.mdx"
+      "path": "src/data/contents/blocks/hero/hero-1/hero-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-1",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2084,7 +10706,14 @@ export const catalog: CatalogData = {
       "description": "A serene mountain therapy hero with editorial serif typography, compact navigation, soft glass badges, and smooth staggered viewport motion.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-10.webp",
-      "path": "src/data/contents/blocks/hero/hero-10/hero-10.mdx"
+      "path": "src/data/contents/blocks/hero/hero-10/hero-10.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-10",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-10.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-10.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -2093,7 +10722,14 @@ export const catalog: CatalogData = {
       "description": "A warm heritage-commerce hero with serif typography, deep teal navigation and buttons, painterly garden imagery, and polished staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-11.webp",
-      "path": "src/data/contents/blocks/hero/hero-11/hero-11.mdx"
+      "path": "src/data/contents/blocks/hero/hero-11/hero-11.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-11",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-11.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-11.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -2102,7 +10738,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-12.avif",
-      "path": "src/data/contents/blocks/hero/hero-12/hero-12.mdx"
+      "path": "src/data/contents/blocks/hero/hero-12/hero-12.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-12",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-12.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-12.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2111,7 +10755,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-13.avif",
-      "path": "src/data/contents/blocks/hero/hero-13/hero-13.mdx"
+      "path": "src/data/contents/blocks/hero/hero-13/hero-13.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-13",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-13.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-13.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2120,7 +10772,14 @@ export const catalog: CatalogData = {
       "description": "A luminous AI creativity hero with grainy horizon gradients, compact navigation, editorial serif typography, partner logos, and smooth staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-14.avif",
-      "path": "src/data/contents/blocks/hero/hero-14/hero-14.mdx"
+      "path": "src/data/contents/blocks/hero/hero-14/hero-14.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-14",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-14.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-14.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2129,7 +10788,14 @@ export const catalog: CatalogData = {
       "description": "A dark creative studio hero with smoky Unsplash imagery, red and blue color glow, editorial typography, paired CTAs, muted brand trust row, and polished staggered viewport motion.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-15.avif",
-      "path": "src/data/contents/blocks/hero/hero-15/hero-15.mdx"
+      "path": "src/data/contents/blocks/hero/hero-15/hero-15.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-15",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-15.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-15.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2138,7 +10804,14 @@ export const catalog: CatalogData = {
       "description": "A horizon-lit AI product hero with dark blue atmosphere, compact navigation, glowing trust badge, large centered typography, paired pill CTAs, and smooth staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-16.avif",
-      "path": "src/data/contents/blocks/hero/hero-16/hero-16.mdx"
+      "path": "src/data/contents/blocks/hero/hero-16/hero-16.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-16",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-16.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-16.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2147,7 +10820,14 @@ export const catalog: CatalogData = {
       "description": "A bright landscape design hero with watercolor sky texture, meadow imagery, teal product accents, compact navigation, paired CTAs, scroll cue, and polished staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-17.avif",
-      "path": "src/data/contents/blocks/hero/hero-17/hero-17.mdx"
+      "path": "src/data/contents/blocks/hero/hero-17/hero-17.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-17",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-17.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-17.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2156,7 +10836,14 @@ export const catalog: CatalogData = {
       "description": "A dark wellness retreat hero with a skylight background image, refined serif logo, clay-toned italic highlight, compact search form, rounded CTA, and smooth staggered viewport animations.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-18.avif",
-      "path": "src/data/contents/blocks/hero/hero-18/hero-18.mdx"
+      "path": "src/data/contents/blocks/hero/hero-18/hero-18.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-18",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-18.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-18.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2165,7 +10852,14 @@ export const catalog: CatalogData = {
       "description": "A bright AI product studio hero with a blue city-sky gradient, skyscraper image, compact navigation, pill CTAs, scroll cue, and polished staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-19.avif",
-      "path": "src/data/contents/blocks/hero/hero-19/hero-19.mdx"
+      "path": "src/data/contents/blocks/hero/hero-19/hero-19.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-19",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-19.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-19.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2174,7 +10868,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-2.avif",
-      "path": "src/data/contents/blocks/hero/hero-2/hero-2.mdx"
+      "path": "src/data/contents/blocks/hero/hero-2/hero-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-2",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2183,7 +10885,14 @@ export const catalog: CatalogData = {
       "description": "A cloud-filled lifestyle product hero with Novu-inspired navigation, bold white headline, pill CTAs, trusted-brand markers, and smooth staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-20.avif",
-      "path": "src/data/contents/blocks/hero/hero-20/hero-20.mdx"
+      "path": "src/data/contents/blocks/hero/hero-20/hero-20.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-20",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-20.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-20.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2192,7 +10901,14 @@ export const catalog: CatalogData = {
       "description": "A warm nature retreat hero with paper-toned overlays, deep green typography, editorial navigation, a landscape preview card, trust copy, and smooth staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-21.avif",
-      "path": "src/data/contents/blocks/hero/hero-21/hero-21.mdx"
+      "path": "src/data/contents/blocks/hero/hero-21/hero-21.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-21",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-21.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-21.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2201,7 +10917,14 @@ export const catalog: CatalogData = {
       "description": "A calm editorial product hero with warm paper texture, deep green typography, italic serif emphasis, architecture-inspired imagery, small CTAs, feature chips, and polished staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-22.avif",
-      "path": "src/data/contents/blocks/hero/hero-22/hero-22.mdx"
+      "path": "src/data/contents/blocks/hero/hero-22/hero-22.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-22",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-22.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-22.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2210,7 +10933,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic private tennis retreat hero with a dark forest background, yellow serif emphasis, restrained navigation, paired CTAs, quote text, scroll cue, and polished staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-23.avif",
-      "path": "src/data/contents/blocks/hero/hero-23/hero-23.mdx"
+      "path": "src/data/contents/blocks/hero/hero-23/hero-23.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-23",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-23.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-23.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2219,7 +10949,14 @@ export const catalog: CatalogData = {
       "description": "A pastoral product hero with a soft countryside background, floating pill navigation, oversized serif headline, dark rounded CTA, play button, and polished staggered viewport animation.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-24.avif",
-      "path": "src/data/contents/blocks/hero/hero-24/hero-24.mdx"
+      "path": "src/data/contents/blocks/hero/hero-24/hero-24.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-24",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-24.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-24.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2228,7 +10965,14 @@ export const catalog: CatalogData = {
       "description": "A full-bleed landscape hero with centered typography, a white pill CTA with an amber arrow badge, and cinematic viewport animations. Features a staggered enter sequence with blur-dissolve heading, social proof in the bottom-left, and a glassmorphic sign-up button.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-25.avif",
-      "path": "src/data/contents/blocks/hero/hero-25/hero-25.mdx"
+      "path": "src/data/contents/blocks/hero/hero-25/hero-25.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-25",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-25.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-25.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2237,7 +10981,14 @@ export const catalog: CatalogData = {
       "description": "A full-bleed illustrated landscape hero with left-aligned bold display heading, five-star social proof badge, outlined nav button, white primary CTA alongside Apple and Android store icons, and a frosted glass bottom feature strip — all choreographed with a cinematic right-to-left background reveal and bold staggered enter animations.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-26.avif",
-      "path": "src/data/contents/blocks/hero/hero-26/hero-26.mdx"
+      "path": "src/data/contents/blocks/hero/hero-26/hero-26.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-26",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-26.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-26.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2246,7 +10997,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-27.webp",
-      "path": "src/data/contents/blocks/hero/hero-27/hero-27.mdx"
+      "path": "src/data/contents/blocks/hero/hero-27/hero-27.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-27",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-27.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-27.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2255,7 +11014,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-28.webp",
-      "path": "src/data/contents/blocks/hero/hero-28/hero-28.mdx"
+      "path": "src/data/contents/blocks/hero/hero-28/hero-28.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-28",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-28.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-28.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2264,7 +11031,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-29.webp",
-      "path": "src/data/contents/blocks/hero/hero-29/hero-29.mdx"
+      "path": "src/data/contents/blocks/hero/hero-29/hero-29.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-29",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-29.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-29.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2273,7 +11048,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-3.webp",
-      "path": "src/data/contents/blocks/hero/hero-3/hero-3.mdx"
+      "path": "src/data/contents/blocks/hero/hero-3/hero-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-3",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2282,7 +11065,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-30.webp",
-      "path": "src/data/contents/blocks/hero/hero-30/hero-30.mdx"
+      "path": "src/data/contents/blocks/hero/hero-30/hero-30.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-30",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-30.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-30.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2291,7 +11082,12 @@ export const catalog: CatalogData = {
       "description": "A dark-themed hero section with a dynamic glowing curtain background effect, optimized typography, and staggered entrance animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-31/hero-31.mdx"
+      "path": "src/data/contents/blocks/hero/hero-31/hero-31.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-31",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2300,7 +11096,12 @@ export const catalog: CatalogData = {
       "description": "A stunning pixel art themed hero section with centered content, elegant typography, and beautifully crafted entry animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-32/hero-32.mdx"
+      "path": "src/data/contents/blocks/hero/hero-32/hero-32.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-32",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2309,7 +11110,12 @@ export const catalog: CatalogData = {
       "description": "A dark themed aviation and travel hero section with a beautiful sunset window background, staggered entry animations, and feature highlights.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-33/hero-33.mdx"
+      "path": "src/data/contents/blocks/hero/hero-33/hero-33.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-33",
+      "dependencies": [
+        "motion/react",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2318,7 +11124,12 @@ export const catalog: CatalogData = {
       "description": "A nature-inspired hero section with staggered entrance animations, optical alignment, and a custom background landscape.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-34/hero-34.mdx"
+      "path": "src/data/contents/blocks/hero/hero-34/hero-34.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-34",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2327,7 +11138,12 @@ export const catalog: CatalogData = {
       "description": "A cinematic, dark-themed hero section with a full-screen magical background, clean typography, and staggered entrance animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-35/hero-35.mdx"
+      "path": "src/data/contents/blocks/hero/hero-35/hero-35.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-35",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2336,7 +11152,11 @@ export const catalog: CatalogData = {
       "description": "A serene wildflower-inspired bouquet studio hero with a full-width meadow background and spring animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-36/hero-36.mdx"
+      "path": "src/data/contents/blocks/hero/hero-36/hero-36.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-36",
+      "dependencies": [
+        "framer-motion"
+      ]
     },
     {
       "kind": "blocks",
@@ -2345,7 +11165,12 @@ export const catalog: CatalogData = {
       "description": "A dramatic dark-themed hero with a glowing red-orange wave background and staggered entrance animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-37/hero-37.mdx"
+      "path": "src/data/contents/blocks/hero/hero-37/hero-37.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-37",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2354,7 +11179,12 @@ export const catalog: CatalogData = {
       "description": "A space-themed dark hero section with centered content, staggered entrance animations, and a polished space background.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-38/hero-38.mdx"
+      "path": "src/data/contents/blocks/hero/hero-38/hero-38.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-38",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2363,7 +11193,12 @@ export const catalog: CatalogData = {
       "description": "A peaceful, nature-themed hero section with a centered search bar, serif typography accents, and staggered entrance animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-39/hero-39.mdx"
+      "path": "src/data/contents/blocks/hero/hero-39/hero-39.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-39",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2372,7 +11207,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-4.webp",
-      "path": "src/data/contents/blocks/hero/hero-4/hero-4.mdx"
+      "path": "src/data/contents/blocks/hero/hero-4/hero-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-4",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2381,7 +11224,12 @@ export const catalog: CatalogData = {
       "description": "A polished dark hero section with a radial orb background and staggered animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-40/hero-40.mdx"
+      "path": "src/data/contents/blocks/hero/hero-40/hero-40.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-40",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2390,7 +11238,12 @@ export const catalog: CatalogData = {
       "description": "A beautiful winter-themed hero section with serif typography and staggered animations.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-41/hero-41.mdx"
+      "path": "src/data/contents/blocks/hero/hero-41/hero-41.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-41",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2399,7 +11252,12 @@ export const catalog: CatalogData = {
       "description": "A stunning dark hero section with a glowing orb background and mixed typography.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-42/hero-42.mdx"
+      "path": "src/data/contents/blocks/hero/hero-42/hero-42.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-42",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2408,7 +11266,12 @@ export const catalog: CatalogData = {
       "description": "A clean hero section with a peaceful landscape and Geist Mono typography.",
       "category": "hero",
       "image": "",
-      "path": "src/data/contents/blocks/hero/hero-43/hero-43.mdx"
+      "path": "src/data/contents/blocks/hero/hero-43/hero-43.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-43",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2417,7 +11280,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-5.webp",
-      "path": "src/data/contents/blocks/hero/hero-5/hero-5.mdx"
+      "path": "src/data/contents/blocks/hero/hero-5/hero-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-5",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2426,7 +11297,14 @@ export const catalog: CatalogData = {
       "description": "A polished full-screen brand hero with cinematic image treatment, centered editorial typography, responsive navigation, and staggered viewport animations.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-6.webp",
-      "path": "src/data/contents/blocks/hero/hero-6/hero-6.mdx"
+      "path": "src/data/contents/blocks/hero/hero-6/hero-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-6",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-6.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -2435,7 +11313,14 @@ export const catalog: CatalogData = {
       "description": "A bright architecture-inspired hero with soft sky color, editorial typography, bottom-rising imagery, and directional staggered motion.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-7.webp",
-      "path": "src/data/contents/blocks/hero/hero-7/hero-7.mdx"
+      "path": "src/data/contents/blocks/hero/hero-7/hero-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-7",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-7.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -2444,7 +11329,14 @@ export const catalog: CatalogData = {
       "description": "A cinematic dark hero with luminous teal image treatment, refined centered typography, glass navigation, and staggered viewport motion.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-8.webp",
-      "path": "src/data/contents/blocks/hero/hero-8/hero-8.mdx"
+      "path": "src/data/contents/blocks/hero/hero-8/hero-8.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-8",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-8.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -2453,7 +11345,14 @@ export const catalog: CatalogData = {
       "description": "A peaceful landscape hero with compact navigation, social-proof avatar pill, centered wellness copy, rounded email form, and staggered viewport animations.",
       "category": "hero",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/hero-9.webp",
-      "path": "src/data/contents/blocks/hero/hero-9/hero-9.mdx"
+      "path": "src/data/contents/blocks/hero/hero-9/hero-9.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/hero-9",
+      "registryUrl": "https://registry.watermelon.sh/r/hero-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/hero-9.json",
+      "dependencies": [
+        "motion/react",
+        "react-icons"
+      ]
     },
     {
       "kind": "blocks",
@@ -2462,7 +11361,15 @@ export const catalog: CatalogData = {
       "description": "Integrations sections highlight third-party tools, platforms, and services that connect with your product, helping users understand compatibility and ecosystem value.",
       "category": "integrations",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/integration-1.webp",
-      "path": "src/data/contents/blocks/integrations/integrations-1/inegrations-1.mdx"
+      "path": "src/data/contents/blocks/integrations/integrations-1/inegrations-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/integrations-1",
+      "registryUrl": "https://registry.watermelon.sh/r/integrations-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/integrations-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2471,7 +11378,15 @@ export const catalog: CatalogData = {
       "description": "Integrations sections highlight third-party tools, platforms, and services that connect with your product, helping users understand compatibility and ecosystem value.",
       "category": "integrations",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/integration-2.webp",
-      "path": "src/data/contents/blocks/integrations/integrations-2/integrations-2.mdx"
+      "path": "src/data/contents/blocks/integrations/integrations-2/integrations-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/integrations-2",
+      "registryUrl": "https://registry.watermelon.sh/r/integrations-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/integrations-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2480,7 +11395,15 @@ export const catalog: CatalogData = {
       "description": "Integrations sections highlight third-party tools, platforms, and services that connect with your product, helping users understand compatibility and ecosystem value.",
       "category": "integrations",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/integration-3.webp",
-      "path": "src/data/contents/blocks/integrations/integrations-3/integrations-3.mdx"
+      "path": "src/data/contents/blocks/integrations/integrations-3/integrations-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/integrations-3",
+      "registryUrl": "https://registry.watermelon.sh/r/integrations-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/integrations-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2489,7 +11412,15 @@ export const catalog: CatalogData = {
       "description": "Integrations sections highlight third-party tools, platforms, and services that connect with your product, helping users understand compatibility and ecosystem value.",
       "category": "integrations",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/integration-4.webp",
-      "path": "src/data/contents/blocks/integrations/integrations-4/integrations-4.mdx"
+      "path": "src/data/contents/blocks/integrations/integrations-4/integrations-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/integrations-4",
+      "registryUrl": "https://registry.watermelon.sh/r/integrations-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/integrations-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2498,7 +11429,15 @@ export const catalog: CatalogData = {
       "description": "Integrations sections highlight third-party tools, platforms, and services that connect with your product, helping users understand compatibility and ecosystem value.",
       "category": "integrations",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/integration-5.webp",
-      "path": "src/data/contents/blocks/integrations/integrations-5/integrations-5.mdx"
+      "path": "src/data/contents/blocks/integrations/integrations-5/integrations-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/integrations-5",
+      "registryUrl": "https://registry.watermelon.sh/r/integrations-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/integrations-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2507,7 +11446,13 @@ export const catalog: CatalogData = {
       "description": "A modern SaaS-style navbar with a hoverable mega menu. Built with clean, minimal UI aesthetics.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-1.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-1/navigation-1.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-1/navigation-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-1",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-1.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2516,7 +11461,13 @@ export const catalog: CatalogData = {
       "description": "A modern SaaS-style navbar with a hoverable mega menu. Built with clean, minimal UI aesthetics.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-2.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-2/navigation-2.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-2/navigation-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-2",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-2.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2525,7 +11476,13 @@ export const catalog: CatalogData = {
       "description": "A modern SaaS-style navbar with a hoverable mega menu. Built with clean, minimal UI aesthetics.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-3.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-3/navigation-3.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-3/navigation-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-3",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-3.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2534,7 +11491,13 @@ export const catalog: CatalogData = {
       "description": "An advanced dashboard-ready navigation bar featuring a central search bar, action buttons, and integrated user profile management.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-4.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-4/navigation-4.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-4/navigation-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-4",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-4.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2543,7 +11506,13 @@ export const catalog: CatalogData = {
       "description": "A floating island-style navbar with a custom three-column mega menu. Premium glassmorphism aesthetics.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-5.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-5/navigation-5.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-5/navigation-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-5",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-5.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2552,7 +11521,13 @@ export const catalog: CatalogData = {
       "description": "A floating island-style navbar with a custom three-column mega menu. Premium glassmorphism aesthetics.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-6.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-6/navigation-6.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-6/navigation-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-6",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-6.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2561,7 +11536,13 @@ export const catalog: CatalogData = {
       "description": "A floating island-style navbar with a custom three-column mega menu. Premium glassmorphism aesthetics.",
       "category": "navigation",
       "image": "https://assets.watermelon.sh/components/navigation-7.webp",
-      "path": "src/data/contents/blocks/navigation/navigation-7/navigation-7.mdx"
+      "path": "src/data/contents/blocks/navigation/navigation-7/navigation-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/navigation-7",
+      "registryUrl": "https://registry.watermelon.sh/r/navigation-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/navigation-7.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "blocks",
@@ -2570,7 +11551,15 @@ export const catalog: CatalogData = {
       "description": "Newsletter signup sections are form-based UI components designed to capture user email addresses for email marketing, content updates, or community engagement.",
       "category": "newsletter",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/newsletter-1.webp",
-      "path": "src/data/contents/blocks/newsletter/newsletter-1/newsletter-1.mdx"
+      "path": "src/data/contents/blocks/newsletter/newsletter-1/newsletter-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/newsletter-1",
+      "registryUrl": "https://registry.watermelon.sh/r/newsletter-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/newsletter-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2579,7 +11568,15 @@ export const catalog: CatalogData = {
       "description": "Newsletter signup sections are form-based UI components designed to capture user email addresses for email marketing, content updates, or community engagement.",
       "category": "newsletter",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/newsletter-2.webp",
-      "path": "src/data/contents/blocks/newsletter/newsletter-2/newsletter-2.mdx"
+      "path": "src/data/contents/blocks/newsletter/newsletter-2/newsletter-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/newsletter-2",
+      "registryUrl": "https://registry.watermelon.sh/r/newsletter-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/newsletter-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2588,7 +11585,15 @@ export const catalog: CatalogData = {
       "description": "Newsletter signup sections are form-based UI components designed to capture user email addresses for email marketing, content updates, or community engagement.",
       "category": "newsletter",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/newsletter-3.webp",
-      "path": "src/data/contents/blocks/newsletter/newsletter-3/newsletter-3.mdx"
+      "path": "src/data/contents/blocks/newsletter/newsletter-3/newsletter-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/newsletter-3",
+      "registryUrl": "https://registry.watermelon.sh/r/newsletter-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/newsletter-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2597,7 +11602,15 @@ export const catalog: CatalogData = {
       "description": "Newsletter signup sections are form-based UI components designed to capture user email addresses for email marketing, content updates, or community engagement.",
       "category": "newsletter",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/newsletter-4.webp",
-      "path": "src/data/contents/blocks/newsletter/newsletter-4/newsletter-4.mdx"
+      "path": "src/data/contents/blocks/newsletter/newsletter-4/newsletter-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/newsletter-4",
+      "registryUrl": "https://registry.watermelon.sh/r/newsletter-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/newsletter-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2606,7 +11619,15 @@ export const catalog: CatalogData = {
       "description": "Newsletter signup sections are form-based UI components designed to capture user email addresses for email marketing, content updates, or community engagement.",
       "category": "newsletter",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/newsletter-5.webp",
-      "path": "src/data/contents/blocks/newsletter/newsletter-5/newsletter-5.mdx"
+      "path": "src/data/contents/blocks/newsletter/newsletter-5/newsletter-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/newsletter-5",
+      "registryUrl": "https://registry.watermelon.sh/r/newsletter-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/newsletter-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2615,7 +11636,15 @@ export const catalog: CatalogData = {
       "description": "Notification sections are UI components used to communicate important information to users without interrupting their flow.",
       "category": "notification",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/notification-1.webp",
-      "path": "src/data/contents/blocks/notification/notification-1/notification-1.mdx"
+      "path": "src/data/contents/blocks/notification/notification-1/notification-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/notification-1",
+      "registryUrl": "https://registry.watermelon.sh/r/notification-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/notification-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2624,7 +11653,15 @@ export const catalog: CatalogData = {
       "description": "Notification sections are UI components used to communicate important information to users without interrupting their flow.",
       "category": "notification",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/notification-2.webp",
-      "path": "src/data/contents/blocks/notification/notification-2/notification-2.mdx"
+      "path": "src/data/contents/blocks/notification/notification-2/notification-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/notification-2",
+      "registryUrl": "https://registry.watermelon.sh/r/notification-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/notification-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2633,7 +11670,15 @@ export const catalog: CatalogData = {
       "description": "Notification sections are UI components used to communicate important information to users without interrupting their flow.",
       "category": "notification",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/notification-3.webp",
-      "path": "src/data/contents/blocks/notification/notification-3/notification-3.mdx"
+      "path": "src/data/contents/blocks/notification/notification-3/notification-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/notification-3",
+      "registryUrl": "https://registry.watermelon.sh/r/notification-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/notification-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2642,7 +11687,15 @@ export const catalog: CatalogData = {
       "description": "Notification sections are UI components used to communicate important information to users without interrupting their flow.",
       "category": "notification",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/notification-4.webp",
-      "path": "src/data/contents/blocks/notification/notification-4/notification-4.mdx"
+      "path": "src/data/contents/blocks/notification/notification-4/notification-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/notification-4",
+      "registryUrl": "https://registry.watermelon.sh/r/notification-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/notification-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2651,7 +11704,15 @@ export const catalog: CatalogData = {
       "description": "Pricing sections are UI components designed to display different pricing plans and tiers for a product or service.",
       "category": "pricing",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pricing-1.webp",
-      "path": "src/data/contents/blocks/pricing/pricing-1/pricing-1.mdx"
+      "path": "src/data/contents/blocks/pricing/pricing-1/pricing-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/pricing-1",
+      "registryUrl": "https://registry.watermelon.sh/r/pricing-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pricing-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2660,7 +11721,15 @@ export const catalog: CatalogData = {
       "description": "Pricing sections are UI components designed to display different pricing plans and tiers for a product or service.",
       "category": "pricing",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pricing-2.webp",
-      "path": "src/data/contents/blocks/pricing/pricing-2/pricing-2.mdx"
+      "path": "src/data/contents/blocks/pricing/pricing-2/pricing-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/pricing-2",
+      "registryUrl": "https://registry.watermelon.sh/r/pricing-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pricing-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2669,7 +11738,15 @@ export const catalog: CatalogData = {
       "description": "Pricing sections are UI components designed to display different pricing plans and tiers for a product or service.",
       "category": "pricing",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pricing-3.webp",
-      "path": "src/data/contents/blocks/pricing/pricing-3/pricing-3.mdx"
+      "path": "src/data/contents/blocks/pricing/pricing-3/pricing-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/pricing-3",
+      "registryUrl": "https://registry.watermelon.sh/r/pricing-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pricing-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2678,7 +11755,15 @@ export const catalog: CatalogData = {
       "description": "Pricing sections are UI components designed to display different pricing plans and tiers for a product or service.",
       "category": "pricing",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pricing-4.webp",
-      "path": "src/data/contents/blocks/pricing/pricing-4/pricing-4.mdx"
+      "path": "src/data/contents/blocks/pricing/pricing-4/pricing-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/pricing-4",
+      "registryUrl": "https://registry.watermelon.sh/r/pricing-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pricing-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2687,7 +11772,15 @@ export const catalog: CatalogData = {
       "description": "Pricing sections are UI components designed to display different pricing plans and tiers for a product or service.",
       "category": "pricing",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/pricing-5.webp",
-      "path": "src/data/contents/blocks/pricing/pricing-5/pricing-5.mdx"
+      "path": "src/data/contents/blocks/pricing/pricing-5/pricing-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/pricing-5",
+      "registryUrl": "https://registry.watermelon.sh/r/pricing-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/pricing-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2696,7 +11789,15 @@ export const catalog: CatalogData = {
       "description": "Statistics sections are data-driven UI components used to display key metrics, KPIs, and business insights in a clear and engaging format.",
       "category": "Stats",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/stats-1.webp",
-      "path": "src/data/contents/blocks/stats/stats-1/stats-1.mdx"
+      "path": "src/data/contents/blocks/stats/stats-1/stats-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/stats-1",
+      "registryUrl": "https://registry.watermelon.sh/r/stats-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/stats-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2705,7 +11806,15 @@ export const catalog: CatalogData = {
       "description": "Statistics sections are data-driven UI components used to display key metrics, KPIs, and business insights in a clear and engaging format.",
       "category": "Stats",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/stats-2.webp",
-      "path": "src/data/contents/blocks/stats/stats-2/stats-2.mdx"
+      "path": "src/data/contents/blocks/stats/stats-2/stats-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/stats-2",
+      "registryUrl": "https://registry.watermelon.sh/r/stats-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/stats-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2714,7 +11823,15 @@ export const catalog: CatalogData = {
       "description": "Statistics sections are data-driven UI components used to display key metrics, KPIs, and business insights in a clear and engaging format.",
       "category": "Stats",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/stats-3.webp",
-      "path": "src/data/contents/blocks/stats/stats-3/stats-3.mdx"
+      "path": "src/data/contents/blocks/stats/stats-3/stats-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/stats-3",
+      "registryUrl": "https://registry.watermelon.sh/r/stats-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/stats-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2723,7 +11840,15 @@ export const catalog: CatalogData = {
       "description": "Statistics sections are data-driven UI components used to display key metrics, KPIs, and business insights in a clear and engaging format.",
       "category": "Stats",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/stats-4.webp",
-      "path": "src/data/contents/blocks/stats/stats-4/stats-4.mdx"
+      "path": "src/data/contents/blocks/stats/stats-4/stats-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/stats-4",
+      "registryUrl": "https://registry.watermelon.sh/r/stats-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/stats-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2732,7 +11857,15 @@ export const catalog: CatalogData = {
       "description": "Team sections are content-focused UI components designed to introduce your team members and highlight their expertise and contributions.",
       "category": "Team",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/team-1.png",
-      "path": "src/data/contents/blocks/team/team-1/team-1.mdx"
+      "path": "src/data/contents/blocks/team/team-1/team-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/team-1",
+      "registryUrl": "https://registry.watermelon.sh/r/team-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/team-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2741,7 +11874,15 @@ export const catalog: CatalogData = {
       "description": "Team sections are content-focused UI components designed to introduce your team members and highlight their expertise and contributions.",
       "category": "Team",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/team-2.png",
-      "path": "src/data/contents/blocks/team/team-2/team-2.mdx"
+      "path": "src/data/contents/blocks/team/team-2/team-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/team-2",
+      "registryUrl": "https://registry.watermelon.sh/r/team-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/team-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2750,7 +11891,15 @@ export const catalog: CatalogData = {
       "description": "Team sections are content-focused UI components designed to introduce your team members and highlight their expertise and contributions.",
       "category": "Team",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/team-3.png",
-      "path": "src/data/contents/blocks/team/team-3/team-3.mdx"
+      "path": "src/data/contents/blocks/team/team-3/team-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/team-3",
+      "registryUrl": "https://registry.watermelon.sh/r/team-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/team-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2759,7 +11908,15 @@ export const catalog: CatalogData = {
       "description": "Team sections are content-focused UI components designed to introduce your team members and highlight their expertise and contributions.",
       "category": "Team",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/team-4.png",
-      "path": "src/data/contents/blocks/team/team-4/team-4.mdx"
+      "path": "src/data/contents/blocks/team/team-4/team-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/team-4",
+      "registryUrl": "https://registry.watermelon.sh/r/team-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/team-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2768,7 +11925,15 @@ export const catalog: CatalogData = {
       "description": "Team sections are content-focused UI components designed to introduce your team members and highlight their expertise and contributions.",
       "category": "Team",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/team-5.png",
-      "path": "src/data/contents/blocks/team/team-5/team-5.mdx"
+      "path": "src/data/contents/blocks/team/team-5/team-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/team-5",
+      "registryUrl": "https://registry.watermelon.sh/r/team-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/team-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2777,7 +11942,15 @@ export const catalog: CatalogData = {
       "description": "Testimonial sections are social proof UI components designed to build trust and credibility by showcasing positive feedback and experiences from real users.",
       "category": "testimonials",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/testimonials-1.png",
-      "path": "src/data/contents/blocks/testimonials/testimonials-1/testimonials-1.mdx"
+      "path": "src/data/contents/blocks/testimonials/testimonials-1/testimonials-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/testimonials-1",
+      "registryUrl": "https://registry.watermelon.sh/r/testimonials-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/testimonials-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2786,7 +11959,15 @@ export const catalog: CatalogData = {
       "description": "Testimonial sections are social proof UI components designed to build trust and credibility by showcasing positive feedback and experiences from real users.",
       "category": "testimonials",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/testimonials-2.png",
-      "path": "src/data/contents/blocks/testimonials/testimonials-2/testimonials-2.mdx"
+      "path": "src/data/contents/blocks/testimonials/testimonials-2/testimonials-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/testimonials-2",
+      "registryUrl": "https://registry.watermelon.sh/r/testimonials-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/testimonials-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2795,7 +11976,15 @@ export const catalog: CatalogData = {
       "description": "Testimonial sections are social proof UI components designed to build trust and credibility by showcasing positive feedback and experiences from real users.",
       "category": "testimonials",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/testimonials-3.png",
-      "path": "src/data/contents/blocks/testimonials/testimonials-3/testimonials-3.mdx"
+      "path": "src/data/contents/blocks/testimonials/testimonials-3/testimonials-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/testimonials-3",
+      "registryUrl": "https://registry.watermelon.sh/r/testimonials-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/testimonials-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2804,7 +11993,15 @@ export const catalog: CatalogData = {
       "description": "Testimonial sections are social proof UI components designed to build trust and credibility by showcasing positive feedback and experiences from real users.",
       "category": "testimonials",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/testimonials-4.png",
-      "path": "src/data/contents/blocks/testimonials/testimonials-4/testimonials-4.mdx"
+      "path": "src/data/contents/blocks/testimonials/testimonials-4/testimonials-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/testimonials-4",
+      "registryUrl": "https://registry.watermelon.sh/r/testimonials-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/testimonials-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2813,7 +12010,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-1.webp",
-      "path": "src/data/contents/blocks/widget/widget-1/widget-1.mdx"
+      "path": "src/data/contents/blocks/widget/widget-1/widget-1.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-1",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-1.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-1.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2822,7 +12027,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-2.webp",
-      "path": "src/data/contents/blocks/widget/widget-2/widget-2.mdx"
+      "path": "src/data/contents/blocks/widget/widget-2/widget-2.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-2",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-2.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-2.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2831,7 +12044,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-3.png",
-      "path": "src/data/contents/blocks/widget/widget-3/widget-3.mdx"
+      "path": "src/data/contents/blocks/widget/widget-3/widget-3.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-3",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-3.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-3.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2840,7 +12061,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-4.webp",
-      "path": "src/data/contents/blocks/widget/widget-4/widget-4.mdx"
+      "path": "src/data/contents/blocks/widget/widget-4/widget-4.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-4",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-4.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-4.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2849,7 +12078,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-5.png",
-      "path": "src/data/contents/blocks/widget/widget-5/widget-5.mdx"
+      "path": "src/data/contents/blocks/widget/widget-5/widget-5.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-5",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-5.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-5.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2858,7 +12095,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-6.webp",
-      "path": "src/data/contents/blocks/widget/widget-6/widget-6.mdx"
+      "path": "src/data/contents/blocks/widget/widget-6/widget-6.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-6",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-6.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-6.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2867,7 +12112,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-7.webp",
-      "path": "src/data/contents/blocks/widget/widget-7/widget-7.mdx"
+      "path": "src/data/contents/blocks/widget/widget-7/widget-7.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-7",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-7.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-7.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2876,7 +12129,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-8.webp",
-      "path": "src/data/contents/blocks/widget/widget-8/widget-8.mdx"
+      "path": "src/data/contents/blocks/widget/widget-8/widget-8.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-8",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-8.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-8.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
       "kind": "blocks",
@@ -2885,7 +12146,15 @@ export const catalog: CatalogData = {
       "description": "Widgets are modular, reusable UI components that encapsulate specific functionalities, data visualizations, or interactive elements to enhance user experience.",
       "category": "widget",
       "image": "https://assets.watermelon.sh/components/watermelonoriginalassets/widget-9.webp",
-      "path": "src/data/contents/blocks/widget/widget-9/widget-9.mdx"
+      "path": "src/data/contents/blocks/widget/widget-9/widget-9.mdx",
+      "previewUrl": "https://ui.watermelon.sh/block/widget-9",
+      "registryUrl": "https://registry.watermelon.sh/r/widget-9.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/widget-9.json",
+      "dependencies": [
+        "react-icons",
+        "clsx",
+        "tailwind-merge"
+      ]
     }
   ],
   "dashboards": [
@@ -2896,7 +12165,13 @@ export const catalog: CatalogData = {
       "description": "A developer portal for managing search indexes, API credentials, billing, and project settings with light and dark themes.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/agndex-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/agndex-dashboard/agndex-dashboard.mdx"
+      "path": "src/data/contents/dashboards/agndex-dashboard/agndex-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/agndex-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/agndex-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/agndex-dashboard.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2905,7 +12180,13 @@ export const catalog: CatalogData = {
       "description": "A trade compliance workspace with AI classification metrics, a live pipeline, HS code stream review, and light and dark themes.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/astrix-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/astrix-dashboard/astrix-dashboard.mdx"
+      "path": "src/data/contents/dashboards/astrix-dashboard/astrix-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/astrix-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/astrix-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/astrix-dashboard.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2914,7 +12195,14 @@ export const catalog: CatalogData = {
       "description": "A personal health and wellness analytics dashboard featuring sleep tracking, recovery scores, activity trends, body vitals, and AI health predictions.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/bionis-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/bionis-dashboard/bionis-dashboard.mdx"
+      "path": "src/data/contents/dashboards/bionis-dashboard/bionis-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/bionis-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/bionis-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/bionis-dashboard.json",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2923,7 +12211,13 @@ export const catalog: CatalogData = {
       "description": "A responsive product-demo workspace with organization switching, resource discovery, team filtering, and light and dark themes.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/demostack-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/demostack-dashboard/demostack-dashboard.mdx"
+      "path": "src/data/contents/dashboards/demostack-dashboard/demostack-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/demostack-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/demostack-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/demostack-dashboard.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2932,7 +12226,13 @@ export const catalog: CatalogData = {
       "description": "A responsive electrical-grid workspace for network modelling, asset flexibility, planning, operations, and stakeholder workflows.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/gridline-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/gridline-dashboard/gridline-dashboard.mdx"
+      "path": "src/data/contents/dashboards/gridline-dashboard/gridline-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/gridline-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/gridline-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/gridline-dashboard.json",
+      "dependencies": [
+        "lucide-react"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2941,7 +12241,18 @@ export const catalog: CatalogData = {
       "description": "A responsive job management workspace with customer records, job pipelines, estimates, drag-and-drop line items, and light and dark themes.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/jobtracker-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/jobtracker-dashboard/jobtracker-dashboard.mdx"
+      "path": "src/data/contents/dashboards/jobtracker-dashboard/jobtracker-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/jobtracker-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/jobtracker-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/jobtracker-dashboard.json",
+      "dependencies": [
+        "@dnd-kit/core",
+        "@dnd-kit/modifiers",
+        "@dnd-kit/sortable",
+        "@dnd-kit/utilities",
+        "lucide-react",
+        "next-themes"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2950,7 +12261,14 @@ export const catalog: CatalogData = {
       "description": "A responsive library management dashboard with collection metrics, circulation charts, branch switching, and intelligence alerts.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/library-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/library-dashboard/library-dashboard.mdx"
+      "path": "src/data/contents/dashboards/library-dashboard/library-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/library-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/library-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/library-dashboard.json",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2959,7 +12277,17 @@ export const catalog: CatalogData = {
       "description": "A healthcare operations dashboard for appointments, staff performance, department load, resources, and patient flow with light and dark themes.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/medesk-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/medesk-dashboard/medesk-dashboard.mdx"
+      "path": "src/data/contents/dashboards/medesk-dashboard/medesk-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/medesk-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/medesk-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/medesk-dashboard.json",
+      "dependencies": [
+        "lucide-react",
+        "recharts",
+        "@fontsource/geist",
+        "@fontsource/geist-mono",
+        "@fontsource/instrument-serif"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2968,7 +12296,14 @@ export const catalog: CatalogData = {
       "description": "A unified task management dashboard interface, displaying tasks sorted by priority and category.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/task-management-dashboard.webp",
-      "path": "src/data/contents/dashboards/portfolio-dashboard/portfolio-dashboard.mdx"
+      "path": "src/data/contents/dashboards/portfolio-dashboard/portfolio-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/portfolio-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/portfolio-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/portfolio-dashboard.json",
+      "dependencies": [
+        "lucide-react",
+        "tabler/icons-react"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2977,7 +12312,16 @@ export const catalog: CatalogData = {
       "description": "An expense audit workspace with live controls, exception tracking, transaction review, and light and dark themes.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/tallie-dashboard-thumbnail.png",
-      "path": "src/data/contents/dashboards/tallie-dashboard/tallie-dashboard.mdx"
+      "path": "src/data/contents/dashboards/tallie-dashboard/tallie-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/tallie-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/tallie-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/tallie-dashboard.json",
+      "dependencies": [
+        "lucide-react",
+        "@fontsource/geist",
+        "@fontsource/geist-mono",
+        "@fontsource/instrument-serif"
+      ]
     },
     {
       "kind": "dashboards",
@@ -2986,7 +12330,14 @@ export const catalog: CatalogData = {
       "description": "A unified task management dashboard interface, displaying tasks sorted by priority and category.",
       "category": "dashboard",
       "image": "https://assets.watermelon.sh/components/task-management-dashboard.webp",
-      "path": "src/data/contents/dashboards/web3-dashboard/web3-dashboard.mdx"
+      "path": "src/data/contents/dashboards/web3-dashboard/web3-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/web3-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/web3-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/web3-dashboard.json",
+      "dependencies": [
+        "lucide-react",
+        "tabler/icons-react"
+      ]
     }
   ],
   "templates": [
@@ -2997,7 +12348,14 @@ export const catalog: CatalogData = {
       "description": "A modern dark-themed landing page with animated hero section, stats, feature showcase, component bento grids, testimonials, and a full footer.",
       "category": "landing",
       "image": "https://assets.watermelon.sh/templates/landing-01.avif",
-      "path": "src/data/contents/templates/landing-01/landing-01.mdx"
+      "path": "src/data/contents/templates/landing-01/landing-01.mdx",
+      "previewUrl": "https://ui.watermelon.sh/template/landing-01",
+      "dependencies": [
+        "motion",
+        "hugeicons-react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ]
     }
   ],
   "showcases": [
@@ -3006,14 +12364,16 @@ export const catalog: CatalogData = {
       "slug": "product-waitlist-funnel",
       "title": "Product Waitlist Funnel",
       "description": "A lean pre-launch page composition focused on waitlist growth, product positioning, proof, and final contact conversion.",
-      "path": "src/data/contents/showcases/product-waitlist-funnel.mdx"
+      "path": "src/data/contents/showcases/product-waitlist-funnel.mdx",
+      "previewUrl": "https://ui.watermelon.sh/showcase/product-waitlist-funnel"
     },
     {
       "kind": "showcases",
       "slug": "saas-launch-stack",
       "title": "SaaS Launch Stack",
       "description": "A polished marketing composition for launching a modern SaaS product, built from existing hero, feature, testimonial, pricing, CTA, and footer blocks.",
-      "path": "src/data/contents/showcases/saas-launch-stack.mdx"
+      "path": "src/data/contents/showcases/saas-launch-stack.mdx",
+      "previewUrl": "https://ui.watermelon.sh/showcase/saas-launch-stack"
     }
   ]
 } as CatalogData;

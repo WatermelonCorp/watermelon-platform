@@ -18,6 +18,8 @@ import Switch15 from './variant-15';
 import Switch16 from './variant-16';
 import Switch17 from './variant-17';
 import Switch18 from './variant-18';
+import Switch19 from './variant-19';
+import Switch20 from './variant-20';
 
 import code1 from './variant-1.tsx?raw';
 import code2 from './variant-2.tsx?raw';
@@ -37,6 +39,8 @@ import code15 from './variant-15.tsx?raw';
 import code16 from './variant-16.tsx?raw';
 import code17 from './variant-17.tsx?raw';
 import code18 from './variant-18.tsx?raw';
+import code19 from './variant-19.tsx?raw';
+import code20 from './variant-20.tsx?raw';
 
 import type { UiVariant } from '@/data/components-registry';
 
@@ -166,6 +170,20 @@ export const variants: UiVariant[] = [
     component: Switch18,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-18.json',
     code: code18,
+  },
+  {
+    id: 'switch-19',
+    title: 'Switch 19',
+    component: Switch19,
+    cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-19.json',
+    code: code19,
+  },
+  {
+    id: 'switch-20',
+    title: 'Switch 20',
+    component: Switch20,
+    cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-20.json',
+    code: code20,
   },
 ];
 

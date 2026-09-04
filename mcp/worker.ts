@@ -7,6 +7,11 @@ import { opsMetadata } from '../src/data/ops.generated';
 // negotiate the 2025 protocol revision while newer clients use the current one.
 const mcpHandler = createMcpHandler(() => createCatalogServer(catalog));
 const knownToolNames = new Set([
+  'search',
+  'get_component',
+  'get_inspiration',
+  'compose_page',
+  'list_categories',
   'catalog_summary',
   'list_catalog_entries',
   'get_catalog_entry',
@@ -179,7 +184,14 @@ export default {
           'Watermelon MCP exposes the public Watermelon catalog to AI clients over Streamable HTTP.',
           'Use the /mcp endpoint to connect.',
           '',
-          'Available tools:',
+          'Preferred tools:',
+          '- search',
+          '- get_component',
+          '- get_inspiration',
+          '- compose_page',
+          '- list_categories',
+          '',
+          'Compatibility tools:',
           '- catalog_summary',
           '- list_catalog_entries',
           '- get_catalog_entry',
@@ -195,7 +207,7 @@ export default {
     if (url.pathname === '/' || url.pathname === '') {
       return json({
         name: 'watermelon-mcp',
-        description: 'Hosted MCP endpoint for the Watermelon public catalog.',
+        description: 'Hosted MCP endpoint for discovering, comparing, composing, and installing source-backed Watermelon UI.',
         transport: 'streamable-http',
         endpoint: '/mcp',
         website: 'https://ui.watermelon.sh',
@@ -203,6 +215,7 @@ export default {
         status: 'https://ui.watermelon.sh/developers/status',
         source: 'https://github.com/WatermelonCorp/watermelon-platform',
         build: getRuntimeMetadata(),
+        tools: [...knownToolNames],
         ...getCatalogStats(),
       });
     }
