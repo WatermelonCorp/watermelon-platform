@@ -17,7 +17,7 @@ describe('generateShadcnRegistry', () => {
       path.join(testDirectory, 'registry.json'),
     );
 
-    expect(items.length).toBeGreaterThan(200);
+    expect(items).toHaveLength(778);
     expect(manifest.name).toBe('watermelon');
 
     const item = JSON.parse(
@@ -36,5 +36,12 @@ describe('generateShadcnRegistry', () => {
       'components/watermelon/card-split-accordian.tsx',
     );
     expect(item.files[0].content).toContain('export const AccordionApp');
+
+    const baseComponent = JSON.parse(
+      await readFile(path.join(testDirectory, 'accordion-1.json'), 'utf8'),
+    );
+    expect(baseComponent.title).toBe('Accordion 1');
+    expect(baseComponent.registryDependencies).toContain('accordion');
+    expect(baseComponent.files[0].content).toContain('Accordion');
   });
 });

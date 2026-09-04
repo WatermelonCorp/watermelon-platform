@@ -1,0 +1,20 @@
+{
+  "name": "watermelon-ui",
+  "interface": {
+    "displayName": "Watermelon UI"
+  },
+  "plugins": [
+    {
+      "name": "watermelon-ui",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Development"
+    }
+  ]
+}

@@ -1,7 +1,11 @@
 name = "watermelon-mcp"
 main = "./mcp/worker.ts"
-compatibility_date = "2026-08-30"
+compatibility_date = "2026-09-04"
 workers_dev = true
+
+[observability]
+enabled = true
+head_sampling_rate = 1
 
 [[analytics_engine_datasets]]
 binding = "MCP_ANALYTICS"

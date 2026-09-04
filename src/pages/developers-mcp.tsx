@@ -55,11 +55,35 @@ export default function DevelopersMcpPage() {
 
         <DocSection title="Available Tools">
           <DocText>
-            The current hosted toolset is intentionally small and read-only:{' '}
-            <code>catalog_summary</code>, <code>list_catalog_entries</code>, and{' '}
-            <code>get_catalog_entry</code>. These are enough for an agent to
-            inspect Watermelon’s public catalog without scraping the website
-            page by page.
+            The hosted server searches all 850 public examples. Use{' '}
+            <code>search</code> for catalog discovery,{' '}
+            <code>get_component</code> for source files and install details,{' '}
+            <code>get_inspiration</code> to compare visual directions,{' '}
+            <code>compose_page</code> to plan compatible page sections, and{' '}
+            <code>list_categories</code> for accurate category counts. The
+            earlier catalog tools remain available as compatibility aliases.
+          </DocText>
+        </DocSection>
+
+        <DocSection title="One-Command Setup">
+          <DocText>
+            The release-ready installer creates a project-scoped configuration
+            and connects to the free hosted server; no Watermelon account or
+            API key is required. These commands become available when{' '}
+            <code>@watermelon-ui/cli</code> is published to npm. Until then,
+            use the manual setup below.
+          </DocText>
+          <DocCard>
+            <pre className="overflow-x-auto text-sm leading-7">
+              <code>{`npx @watermelon-ui/cli init --client codex
+npx @watermelon-ui/cli init --client claude
+npx @watermelon-ui/cli init --client cursor`}</code>
+            </pre>
+          </DocCard>
+          <DocText>
+            Restart the client after setup, then try: “Search Watermelon for an
+            animated pricing section and show me four options.” Follow with
+            “Get the source and install command for the best match.”
           </DocText>
         </DocSection>
 
@@ -95,10 +119,11 @@ export default function DevelopersMcpPage() {
             <code>https://mcp.watermelon.sh/mcp</code>.
           </DocText>
           <DocText>
-            A simple flow is: open MCP or tools settings, create a new remote
-            server, paste <code>https://mcp.watermelon.sh/mcp</code>, save, then
-            ask your model to list catalog entries or fetch a specific
-            Watermelon UI block, template, showcase, or dashboard by slug.
+            For manual setup: open MCP or tools settings, create a Streamable
+            HTTP server named <code>watermelon</code>, paste{' '}
+            <code>https://mcp.watermelon.sh/mcp</code>, save, and restart the
+            client. Codex users can also run{' '}
+            <code>codex mcp add watermelon --url https://mcp.watermelon.sh/mcp</code>.
           </DocText>
           <DocText>
             If your client only supports local MCP servers, use the

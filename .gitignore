@@ -34,3 +34,14 @@ dist-ssr
 /public/registry.json
 
 /skills/
+
+# Publish the Watermelon plugin marketplace and skill while keeping local agent files private.
+!/.agents/
+/.agents/*
+!/.agents/plugins/
+/.agents/plugins/*
+!/.agents/plugins/marketplace.json
+!/skills/
+/skills/*
+!/skills/watermelon-ui/
+!/skills/watermelon-ui/SKILL.md

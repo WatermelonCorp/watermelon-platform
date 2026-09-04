@@ -79,10 +79,18 @@ npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json
 ```
 
 The registry is generated from the maintained animated component source during
-every platform build. A release-ready CLI lives in `packages/cli`; its public
+every platform build and includes the complete base-component collection. A release-ready CLI lives in `packages/cli`; its public
 npm package name is `@watermelon-ui/cli`. Publishing requires an npm
 organization and the `NPM_TOKEN` GitHub repository secret, then runs through
 the manual `Publish Watermelon UI CLI` workflow.
+
+The same CLI can configure the hosted MCP server for supported clients:
+
+```bash
+npx @watermelon-ui/cli init --client codex
+npx @watermelon-ui/cli init --client claude
+npx @watermelon-ui/cli init --client cursor
+```
 
 ## Contributing
 
@@ -107,8 +115,14 @@ Watermelon includes a few machine-readable surfaces to help agents and tooling u
 - `mcp/worker.ts`
 - `wrangler.mcp.toml`
 - `worker/site.ts`
+- `skills/watermelon-ui/SKILL.md`
+- `.codex-plugin/plugin.json`
+- `.claude-plugin/plugin.json`
+- `.cursor-plugin/plugin.json`
 
-The hosted MCP endpoint is intended to live at `https://mcp.watermelon.sh/mcp`.
+The hosted MCP endpoint lives at `https://mcp.watermelon.sh/mcp` and exposes
+850 source-backed examples through search, retrieval, inspiration, category,
+and page-composition tools.
 
 The hosted Worker records aggregate `initialize` and `tools/call` event counts
 in Cloudflare Analytics Engine. It does not retain IP addresses, session IDs,

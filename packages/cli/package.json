@@ -1,7 +1,7 @@
 {
   "name": "@watermelon-ui/cli",
-  "version": "0.1.0",
-  "description": "Install Watermelon UI components with the shadcn CLI.",
+  "version": "0.2.0",
+  "description": "Connect AI clients to Watermelon MCP and install Watermelon UI components.",
   "type": "module",
   "bin": {
     "watermelon-ui": "./bin/watermelon-ui.mjs"

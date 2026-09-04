@@ -1,0 +1,21 @@
+{
+  "name": "watermelon-ui",
+  "version": "1.0.0",
+  "description": "Search, compare, compose, and install free source-backed React UI from Watermelon.",
+  "author": {
+    "name": "WatermelonCorp"
+  },
+  "homepage": "https://ui.watermelon.sh/developers/mcp",
+  "repository": "https://github.com/WatermelonCorp/watermelon-platform",
+  "license": "MIT",
+  "keywords": ["watermelon-ui", "mcp", "react", "tailwind", "shadcn", "ui-components"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Watermelon UI",
+    "shortDescription": "Discover and install free source-backed React UI",
+    "category": "Development",
+    "brandColor": "#83DC16",
+    "composerIcon": "./public/logo.png"
+  }
+}
