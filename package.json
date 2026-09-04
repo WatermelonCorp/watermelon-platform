@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "bun run sitemap && bun run generate:mcp-catalog && bun run generate:ops && tsc -b && vite build && cp dist/index.html dist/404.html",
+    "build": "bun run sitemap && bun run generate:mcp-catalog && bun run generate:ops && bun run generate:shadcn-registry && tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "sitemap": "bun run scripts/generate-sitemap.ts",
@@ -13,6 +13,7 @@
     "generate:mcp-catalog": "bun run scripts/generate-mcp-catalog.ts",
     "generate:ops": "bun run scripts/generate-ops-manifest.ts",
     "generate:star-history": "bun run scripts/generate-star-history.ts",
+    "generate:shadcn-registry": "bun run scripts/generate-shadcn-registry.ts",
     "prepare": "husky",
     "mcp": "bun run generate:mcp-catalog && bun run mcp/server.ts",
     "mcp:dev": "bun run generate:mcp-catalog && bunx wrangler dev --config wrangler.mcp.toml",

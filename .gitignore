@@ -29,4 +29,8 @@ dist-ssr
 .cursorignore
 .wrangler
 
+# Generated shadcn registry payloads are rebuilt during every platform deploy.
+/public/r/
+/public/registry.json
+
 /skills/

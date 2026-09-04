@@ -63,6 +63,28 @@ export default function DevelopersMcpPage() {
           </DocText>
         </DocSection>
 
+        <DocSection title="Usage Analytics And Privacy">
+          <DocText>
+            Watermelon records aggregate MCP handshake and tool-call counts to
+            understand service health and improve the public catalog. The
+            telemetry does not store IP addresses, session IDs, prompts, tool
+            arguments, or client-provided version strings. Client names are
+            reduced to broad categories such as <code>chatgpt</code>,{' '}
+            <code>claude</code>, <code>cursor</code>, <code>codex</code>, or{' '}
+            <code>other</code>.
+          </DocText>
+          <DocText>
+            Check the{' '}
+            <a
+              href="https://mcp.watermelon.sh/health"
+              className="bg-muted rounded-sm px-2 py-px text-black dark:text-white"
+            >
+              MCP health endpoint
+            </a>{' '}
+            for the current public service and analytics configuration.
+          </DocText>
+        </DocSection>
+
         <DocSection title="ChatGPT And Claude">
           <DocText>
             Watermelon MCP is designed for MCP-compatible clients that support

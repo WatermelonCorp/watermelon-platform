@@ -58,6 +58,70 @@ describe('mcp worker', () => {
     expect(body).toContain('"name":"watermelon-mcp"');
   });
 
+  it('records aggregate MCP telemetry without storing client identifiers', async () => {
+    const points: Array<{ blobs: string[]; doubles: number[]; indexes: string[] }> = [];
+    const response = await mcpWorker.fetch(
+      new Request('https://mcp.watermelon.sh/mcp', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/event-stream',
+          'Content-Type': 'application/json',
+          'Content-Length': '160',
+        },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'initialize',
+          params: {
+            protocolVersion: '2025-03-26',
+            capabilities: {},
+            clientInfo: { name: 'ChatGPT Desktop', version: '1.0.0' },
+          },
+        }),
+      }),
+      { MCP_ANALYTICS: { writeDataPoint: (point) => points.push(point) } },
+    );
+
+    expect(response.status).toBe(200);
+    expect(points).toEqual([
+      {
+        blobs: ['initialize', 'chatgpt', 'handshake'],
+        doubles: [1],
+        indexes: ['initialize'],
+      },
+    ]);
+  });
+
+  it('records only allowlisted tool names in aggregate telemetry', async () => {
+    const points: Array<{ blobs: string[]; doubles: number[]; indexes: string[] }> = [];
+    const response = await mcpWorker.fetch(
+      new Request('https://mcp.watermelon.sh/mcp', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/event-stream',
+          'Content-Type': 'application/json',
+          'Content-Length': '100',
+        },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'tools/call',
+          params: { name: 'list_catalog_entries', arguments: {} },
+        }),
+      }),
+      { MCP_ANALYTICS: { writeDataPoint: (point) => points.push(point) } },
+    );
+
+    expect(response.status).toBeGreaterThanOrEqual(200);
+    expect(points).toEqual([
+      {
+        blobs: ['tool_call', 'unknown', 'list_catalog_entries'],
+        doubles: [1],
+        indexes: ['tool_call'],
+      },
+    ]);
+  });
+
   it('returns a structured not-found response for unknown routes', async () => {
     const response = await mcpWorker.fetch(
       new Request('https://mcp.watermelon.sh/nope'),
