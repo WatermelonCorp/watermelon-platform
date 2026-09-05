@@ -173,7 +173,10 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
     useEffect(() => {
         const move = (e: MouseEvent) =>
             dragging && updateFromPointer(e.clientX, e.clientY);
-        const up = () => setDragging(false);
+        const up = () => {
+            setDragging(false);
+            setBlur(0);
+        };
 
         if (dragging) {
             window.addEventListener("mousemove", move);
