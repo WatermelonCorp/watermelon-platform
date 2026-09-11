@@ -367,6 +367,8 @@ export default function DashboardPage() {
       <SEOHead
         title={`${item.name} - Dashboard Template`}
         description={item.description}
+        image={item.image}
+        ogImageAlt={`${item.name} preview`}
       />
 
       {/* ================= MOBILE ================= */}
