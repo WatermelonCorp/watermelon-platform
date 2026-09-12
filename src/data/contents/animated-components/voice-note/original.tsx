@@ -52,12 +52,16 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
     setState(RecorderState.REVIEWING);
   };
 
-  const cancelRecording = () => {
+  const resetRecorder = () => {
     if (timerRef.current) clearInterval(timerRef.current);
     if (playbackTimerRef.current) clearInterval(playbackTimerRef.current);
     setDuration(0);
     setPlaybackTime(0);
     setState(RecorderState.IDLE);
+  };
+
+  const cancelRecording = () => {
+    resetRecorder();
     onCancel?.();
   };
 
@@ -83,7 +87,7 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
 
   const handleSend = () => {
     onSend?.({ duration, blob: null });
-
+    resetRecorder();
   };
 
   const [barHeights, setBarHeights] = useState<number[][]>([]);
@@ -272,6 +276,11 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
                   animate={{ opacity: 1, filter: 'blur(0)', x: 0 }}
                   exit={{ opacity: 0, filter: 'blur(4px)', x: -95 }}
                   className={actionBtnClass}
+                  onClick={
+                    state === RecorderState.RECORDING
+                      ? stopRecording
+                      : handleSend
+                  }
                 >
                   <AnimatePresence mode="popLayout">
                     <motion.div
@@ -286,12 +295,6 @@ export const VoiceNote: React.FC<VoiceNoteRecorderProps> = ({
                       initial={{ opacity: 0, filter: 'blur(4px)', scale: 0.25 }}
                       animate={{ opacity: 1, filter: 'blur(0)', scale: 1 }}
                       exit={{ opacity: 0, filter: 'blur(4px)', scale: 0.25 }}
-                      onClick={
-                        state === RecorderState.RECORDING
-                          ? stopRecording
-                          : state === RecorderState.PLAYING
-                            ? startRecording : handleSend
-                      }
                     >
                       {state === RecorderState.RECORDING && (
                         <FaCheck
