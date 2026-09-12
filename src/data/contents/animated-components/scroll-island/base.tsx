@@ -32,25 +32,25 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
   const [ref, bounds] = useMeasure({ offsetSize: true });
 
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const isScrollIslandPage =
-    typeof window !== 'undefined' &&
-    window.location.pathname === '/components/scroll-island';
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
+  const [islandPosition, setIslandPosition] = useState({
+    left: 0,
+    top: 0,
+    width: 0,
+  });
 
   useEffect(() => {
     requestAnimationFrame(() => setMounted(true));
 
     const el = contentRef.current;
     if (!el) return;
+
+    const updatePosition = () => {
+      const { left, top, width } = el.getBoundingClientRect();
+      setIslandPosition({ left, top, width });
+    };
+    const observer = new ResizeObserver(updatePosition);
+    observer.observe(el);
+    updatePosition();
 
     const handleScroll = () => {
       const scrollTop = el.scrollTop;
@@ -65,7 +65,10 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
     el.addEventListener('scroll', handleScroll);
     handleScroll();
 
-    return () => el.removeEventListener('scroll', handleScroll);
+    return () => {
+      observer.disconnect();
+      el.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleTopicClick = (id: string) => {
@@ -84,11 +87,8 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
         }}
       >
         <div
-          className="theme-injected pointer-events-none fixed top-72 z-9999 flex justify-center pt-6 sm:top-32"
-          style={{
-            left: isMobile ? '0' : isScrollIslandPage ? '28%' : '20%',
-            width: '100%',
-          }}
+          className="theme-injected pointer-events-none fixed z-9999 flex justify-center pt-6"
+          style={islandPosition}
         >
           <motion.div
             className={cn(
@@ -152,7 +152,11 @@ export function ScrollIsland({ topics }: ScrollIslandProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="custom-scrollbar max-h-[60vh] w-full overflow-y-auto pt-2 pb-4"
+                    className="custom-scrollbar w-full overflow-y-auto pt-2 pb-4"
+                    style={{
+                      maxHeight:
+                        `max(0px, min(60dvh, calc(100dvh - ${islandPosition.top + 92}px)))`,
+                    }}
                   >
                     <div className="bg-border mx-2 mb-2 h-px" />
                     {topics.map((topic) => (
