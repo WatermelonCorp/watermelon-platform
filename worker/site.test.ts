@@ -65,6 +65,17 @@ describe('agent page content', () => {
 });
 
 describe('site worker', () => {
+  it('keeps static assets off the billable Worker-first path', () => {
+    const config = readFileSync(
+      new URL('../wrangler.toml', import.meta.url),
+      'utf8',
+    );
+
+    expect(config).not.toContain('run_worker_first = true');
+    expect(config).toContain('"!/assets/*"');
+    expect(config).toContain('"!/*.*"');
+  });
+
   it('returns markdown 404s for known AI agents', async () => {
     const response = await siteWorker.fetch(
       new Request('https://ui.watermelon.sh/does-not-exist', {

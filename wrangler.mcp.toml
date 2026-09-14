@@ -1,7 +1,9 @@
 name = "watermelon-mcp"
 main = "./mcp/worker.ts"
-compatibility_date = "2026-09-04"
-workers_dev = true
+compatibility_date = "2026-09-14"
+# The supported public endpoint is mcp.watermelon.sh. Disabling the duplicate
+# workers.dev route reduces unsolicited scans without affecting MCP clients.
+workers_dev = false
 
 [observability]
 enabled = true

@@ -1,7 +1,17 @@
 import { describe, expect, it } from 'bun:test';
+import { readFileSync } from 'node:fs';
 import mcpWorker from './worker';
 
 describe('mcp worker', () => {
+  it('exposes only the documented custom-domain endpoint', () => {
+    const config = readFileSync(
+      new URL('../wrangler.mcp.toml', import.meta.url),
+      'utf8',
+    );
+
+    expect(config).toContain('workers_dev = false');
+  });
+
   it('returns discovery metadata at the root', async () => {
     const response = await mcpWorker.fetch(
       new Request('https://mcp.watermelon.sh/'),

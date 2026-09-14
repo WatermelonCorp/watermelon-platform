@@ -1,12 +1,22 @@
 name = "watermelon-preview"
 main = "./worker/site.ts"
-compatibility_date = "2026-08-30"
+compatibility_date = "2026-09-14"
 
 [assets]
 directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "404-page"
-run_worker_first = true
+# Keep document and API requests in the Worker so agent-aware HTML, markdown,
+# API responses, and real 404s continue to work. Static files bypass the Worker
+# and use Cloudflare's free, unlimited asset-serving path.
+run_worker_first = [
+  "/*",
+  "!/assets/*",
+  "!/brand/*",
+  "!/content/*",
+  "!/previews/*",
+  "!/*.*",
+]
 
 [[routes]]
 pattern = "registry.watermelon.sh"
