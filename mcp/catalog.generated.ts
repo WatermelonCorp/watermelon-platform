@@ -12206,6 +12206,21 @@ export const catalog: CatalogData = {
     },
     {
       "kind": "dashboards",
+      "slug": "capitalio-dashboard",
+      "title": "Capitalio Dashboard",
+      "description": "A wealth management dashboard with portfolio analytics, allocation insights, holdings, period filters, and responsive navigation.",
+      "category": "dashboard",
+      "image": "https://assets.watermelon.sh/components/capitalio-dashboard-thumbnail.png",
+      "path": "src/data/contents/dashboards/capitalio-dashboard/capitalio-dashboard.mdx",
+      "previewUrl": "https://ui.watermelon.sh/dashboard/capitalio-dashboard",
+      "registryUrl": "https://registry.watermelon.sh/r/capitalio-dashboard.json",
+      "installCommand": "npx shadcn@latest add https://registry.watermelon.sh/r/capitalio-dashboard.json",
+      "dependencies": [
+        "recharts"
+      ]
+    },
+    {
+      "kind": "dashboards",
       "slug": "demostack-dashboard",
       "title": "Demostack Dashboard",
       "description": "A responsive product-demo workspace with organization switching, resource discovery, team filtering, and light and dark themes.",
