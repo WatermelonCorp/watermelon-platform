@@ -123,6 +123,7 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
   size = 320,
 }) => {
   const knobRef = useRef<HTMLDivElement>(null);
+  const draggingRef = useRef(false);
   const [dragging, setDragging] = useState(false);
 
   const tickCount = 72;
@@ -131,7 +132,7 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
   const [prev, setPrev] = useState(value);
   const [blur, setBlur] = useState(0);
   if (prev !== value) {
-    setBlur(Math.min(10, Math.abs(value - prev)));
+    setBlur(dragging ? Math.min(10, Math.abs(value - prev)) : 0);
     setPrev(value);
   }
 
@@ -159,8 +160,9 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
 
   useEffect(() => {
     const move = (e: MouseEvent) =>
-      dragging && updateFromPointer(e.clientX, e.clientY);
+      draggingRef.current && updateFromPointer(e.clientX, e.clientY);
     const up = () => {
+      draggingRef.current = false;
       setDragging(false);
       setBlur(0);
     };
@@ -182,6 +184,7 @@ export const KnobSlider: React.FC<KnobSliderProps> = ({
     <div
       ref={knobRef}
       onMouseDown={(e) => {
+        draggingRef.current = true;
         setDragging(true);
         updateFromPointer(e.clientX, e.clientY);
       }}
