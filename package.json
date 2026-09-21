@@ -32,7 +32,7 @@
     "@fontsource/geist-mono": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
     "@hookform/resolvers": "^5.4.0",
-    "@hugeicons/core-free-icons": "^4.3.3",
+    "@hugeicons/core-free-icons": "^3.3.0",
     "@hugeicons/react": "^1.1.6",
     "@mdx-js/react": "^3.1.1",
     "@number-flow/react": "^0.6.0",
