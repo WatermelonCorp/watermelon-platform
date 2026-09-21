@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, memo } from "react";
+import type { KeyboardEvent } from "react";
 import type { RegistryItem } from "@/data/animated-components-registry";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
@@ -68,18 +69,30 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
   //   }
   // };
 
+  const activate = () => {
+    trackEvent("component_card_click", {
+      component_slug: item.slug,
+      component_name: item.name,
+      category: item.category,
+    });
+    onClick(item);
+  };
+
+  // role="button" does not get Enter/Space activation for free the way a
+  // native <button> does, so the card has to handle it itself.
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    if (event.target !== event.currentTarget) return;
+    event.preventDefault();
+    activate();
+  };
+
   return (
     <div
       role="button"
       tabIndex={0}
-      onClick={() => {
-        trackEvent("component_card_click", {
-          component_slug: item.slug,
-          component_name: item.name,
-          category: item.category,
-        });
-        onClick(item);
-      }}
+      onClick={activate}
+      onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(

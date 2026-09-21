@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from "react";
 import type { DashboardItem } from "@/data/dashboards";
 import type { BlockItem } from "@/data/blocks";
 import { cn } from "@/lib/utils";
@@ -32,22 +33,35 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
     return [mk(320), mk(480), mk(640), mk(960), mk(1280)].join(", ");
   };
 
+  const activate = () => {
+    if (item.comingSoon) return;
+    const eventName = trackType === "block" ? "block_card_click" : "dashboard_card_click";
+    trackEvent(eventName, {
+      slug: item.slug,
+      name: item.name,
+    });
+    if ('preload' in item) {
+      void item.preload?.();
+    }
+    onClick(item);
+  };
+
+  // role="button" does not get Enter/Space activation for free the way a
+  // native <button> does, so the card has to handle it itself.
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    if (event.target !== event.currentTarget) return;
+    event.preventDefault();
+    activate();
+  };
+
   return (
     <div
       role="button"
       tabIndex={0}
-      onClick={() => {
-        if (item.comingSoon) return;
-        const eventName = trackType === "block" ? "block_card_click" : "dashboard_card_click";
-        trackEvent(eventName, {
-          slug: item.slug,
-          name: item.name,
-        });
-        if ('preload' in item) {
-          void item.preload?.();
-        }
-        onClick(item);
-      }}
+      aria-disabled={item.comingSoon ? true : undefined}
+      onClick={activate}
+      onKeyDown={handleKeyDown}
       onMouseEnter={() => {
         if ('preload' in item) {
           void item.preload?.();
