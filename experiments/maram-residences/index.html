@@ -97,6 +97,7 @@
   }
 
   section { padding-block: clamp(3.5rem,9vw,7rem); }
+  section[id] { scroll-margin-top: 4.5rem; }
   .head { display: grid; gap: 1.1rem; max-width: 62ch; }
   .head .label { color: var(--sand); }
   .head p { margin: 0; color: var(--ink-soft); max-width: 56ch; }
@@ -262,6 +263,64 @@
 
   footer { background: var(--night); color: var(--night-soft); border-top: 1px solid var(--night-rule); padding-block: 2rem 2.6rem; }
   .foot__row { display: flex; flex-wrap: wrap; gap: .6rem 2rem; justify-content: space-between; align-items: baseline; }
+
+  /* ---------- sticky bar ---------- */
+  .sticky { position: fixed; top: 0; left: 0; right: 0; z-index: 40; background: color-mix(in srgb, var(--page) 92%, transparent); border-bottom: 1px solid var(--rule); transform: translateY(-101%); transition: transform .35s cubic-bezier(.22,1,.36,1); padding-top: env(safe-area-inset-top, 0px); }
+  .sticky[data-on="true"] { transform: none; }
+  .sticky__in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; }
+  .sticky__name { font-family: "Fraunces", Georgia, serif; font-size: 1.05rem; }
+  .sticky__nav { display: flex; gap: 1.4rem; }
+  .sticky__nav a { text-decoration: none; color: var(--ink-soft); }
+  .sticky__nav a:hover { color: var(--sand); }
+
+  /* ---------- scroll rail ---------- */
+  .srail { position: fixed; left: 1.4rem; top: 50%; transform: translateY(-50%); z-index: 35; display: grid; justify-items: center; gap: .9rem; color: var(--ink-soft); }
+  .srail__t { writing-mode: vertical-rl; font-size: var(--xs); letter-spacing: .3em; text-transform: uppercase; }
+  .srail__track { width: 1px; height: 96px; background: var(--rule); position: relative; }
+  .srail__fill { position: absolute; top: 0; left: 0; width: 1px; height: 0; background: var(--sand); }
+  .srail__n { font-size: var(--xs); font-variant-numeric: tabular-nums; letter-spacing: .1em; }
+  @media (max-width: 1180px) { .srail { display: none; } }
+
+  /* ---------- aerial ---------- */
+  .aerial { position: relative; background: var(--night); color: var(--night-ink); padding: 0; overflow: hidden; }
+  .aerial svg { display: block; width: 100%; height: auto; }
+  .aerial__copy { position: absolute; inset: auto 0 0 0; padding: clamp(1.2rem,4vw,3rem); display: grid; gap: .6rem; }
+  .aerial__copy h2 { color: var(--night-ink); max-width: 16ch; }
+  .aerial__copy p { margin: 0; color: var(--night-soft); max-width: 40ch; font-size: .92rem; }
+  .aerial__copy .label { color: var(--night-sand); }
+
+  /* ---------- building elevation ---------- */
+  .elev { display: block; width: 100%; max-width: 560px; height: auto; margin-inline: auto; }
+  .elev .ground { stroke: var(--night-rule); stroke-width: 2; }
+  .elev .mass { fill: #1C160F; stroke: var(--night-rule); stroke-width: 1.5; }
+  .elev .band { fill: transparent; stroke: var(--night-rule); stroke-width: 1; transition: fill .18s ease; }
+  .elev .lvl { cursor: pointer; }
+  .elev .lvl:hover .band, .elev .lvl:focus-visible .band { fill: rgba(201,161,98,.22); }
+  .elev .lvl[data-on="true"] .band { fill: rgba(201,161,98,.42); stroke: var(--night-sand); }
+  .elev .lvl[data-kind="amenity"] .band { fill: rgba(145,160,126,.18); }
+  .elev .lvl[data-kind="penthouse"] .band { fill: rgba(169,139,166,.2); }
+  .elev .num { fill: var(--night-soft); font-family: "Hanken Grotesk", sans-serif; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .elev .lvl[data-on="true"] .num { fill: var(--night-sand); }
+  .elev .mull { stroke: var(--night-rule); stroke-width: .8; opacity: .55; }
+  .elev .keyl { stroke: var(--night-soft); stroke-width: 1; }
+  .elev .keyt { fill: var(--night-soft); font-family: "Hanken Grotesk", sans-serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+  .elev .palm { stroke: var(--night-rule); stroke-width: 1.6; fill: none; }
+
+  /* ---------- lobby tour ---------- */
+  .tour { position: relative; margin-top: clamp(2.5rem,6vw,4rem); border: 1px solid var(--rule); background: var(--night); overflow: hidden; }
+  .tour svg { display: block; width: 100%; height: auto; }
+  .tour__bar { position: absolute; inset: auto 0 0 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem; padding: clamp(.9rem,3vw,1.6rem); }
+  .tour__cap { color: #F0E9DC; font-family: "Fraunces", Georgia, serif; font-size: var(--s1); }
+  .tour__btn { all: unset; cursor: pointer; color: var(--night-sand); font-size: var(--xs); letter-spacing: .18em; text-transform: uppercase; display: inline-flex; align-items: center; gap: .6rem; }
+  .tour__btn::after { content: ""; width: 26px; height: 1px; background: currentColor; }
+  .tour__btn:hover { color: #F0E9DC; }
+
+  /* ---------- banner ---------- */
+  .banner { position: relative; margin-top: clamp(2.5rem,6vw,4rem); border: 1px solid var(--rule); overflow: hidden; background: var(--night); }
+  .banner svg { display: block; width: 100%; height: auto; }
+  .banner__copy { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: clamp(1.2rem,5vw,3.5rem); color: var(--night-ink); }
+  .banner__copy h2 { font-size: clamp(1.9rem,6vw,4rem); line-height: .98; max-width: 14ch; color: var(--night-ink); }
+  .banner__copy p { margin: .9rem 0 0; max-width: 34ch; color: var(--night-soft); font-size: .92rem; }
 </style>
 
 <!-- ================= LOADER ================= -->
@@ -295,6 +354,21 @@
     </nav>
   </div>
 </header>
+
+<div class="sticky" id="sticky">
+  <div class="wrap sticky__in">
+    <span class="sticky__name">Maram</span>
+    <nav class="sticky__nav label" aria-label="Quick links">
+      <a href="#building">The building</a><a href="#chapters">Chapters</a><a href="#enquire">Enquire &#8599;</a>
+    </nav>
+  </div>
+</div>
+
+<div class="srail" aria-hidden="true">
+  <span class="srail__t">Scroll</span>
+  <span class="srail__track"><span class="srail__fill" id="srailFill"></span></span>
+  <span class="srail__n" id="srailN">00</span>
+</div>
 
 <main>
   <!-- ================= HERO ================= -->
@@ -346,6 +420,16 @@
     </div>
   </section>
 
+  <!-- ================= AERIAL ================= -->
+  <section class="aerial" aria-labelledby="aer-h">
+    <svg id="aerial" viewBox="0 0 1200 520" role="img" aria-label="Plan view of the site: the tower plot sits at the centre of a ring-road community of low villas, with the creek to the west."></svg>
+    <div class="aerial__copy">
+      <p class="label">The site</p>
+      <h2 id="aer-h">2.1 hectares, <em>ringed by low villas.</em></h2>
+      <p>Nothing within 400 metres rises above three storeys, which is why the fourth floor already clears the rooftops.</p>
+    </div>
+  </section>
+
   <!-- ================= INTRO ================= -->
   <section class="wrap" aria-labelledby="intro-h">
     <div class="head">
@@ -372,9 +456,23 @@
 
       <div class="ex">
         <div class="ex__main">
-          <!-- FLOOR VIEW -->
-          <div id="floorView">
+          <!-- BUILDING VIEW -->
+          <div id="buildingView">
             <div class="ex__top">
+              <span class="ex__lvl">The building</span>
+              <span class="ex__mix label">15 levels &bull; 62 residences</span>
+            </div>
+            <p class="ex__shared">Select any level, on the elevation or the rail</p>
+            <div class="plate">
+              <svg class="elev" id="elev" viewBox="0 0 560 620" role="img" aria-label="West elevation of the tower. Each floor is selectable."></svg>
+            </div>
+            <p class="plate__cap">West elevation &bull; floors to scale</p>
+          </div>
+
+          <!-- FLOOR VIEW -->
+          <div id="floorView" hidden>
+            <button class="crumb" type="button" id="backToBuilding">Back to building</button>
+            <div class="ex__top" style="margin-top:1.6rem;">
               <span class="ex__lvl" id="exLevel">Level 04</span>
               <span class="ex__mix label" id="exMix"></span>
             </div>
@@ -469,6 +567,46 @@
         <h3>Dark by design</h3>
         <p>Blackout recessed into the ceiling plane, and a 2.4 m wardrobe run that never touches the window wall.</p>
       </article>
+    </div>
+
+    <div class="tour">
+      <svg id="tourArt" viewBox="0 0 1200 560" role="img" aria-label="Line drawing of the arrival court and the lobby interior."></svg>
+      <div class="tour__bar">
+        <span class="tour__cap" id="tourCap">The arrival court</span>
+        <button class="tour__btn" type="button" id="tourBtn">Step inside</button>
+      </div>
+    </div>
+
+    <div class="banner">
+      <svg viewBox="0 0 1200 460" role="img" aria-label="Illustration of the creek at dusk with the skyline in silhouette and a low sun on the water.">
+        <defs>
+          <linearGradient id="bsky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1B1F2B"></stop><stop offset="55%" stop-color="#6E5237"></stop><stop offset="100%" stop-color="#C08B4C"></stop>
+          </linearGradient>
+          <linearGradient id="bwater" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8C6337"></stop><stop offset="100%" stop-color="#241A11"></stop>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="460" fill="url(#bsky)"></rect>
+        <circle cx="830" cy="300" r="42" fill="#F3CE94" opacity=".9"></circle>
+        <g fill="#241C15" opacity=".92">
+          <rect x="640" y="196" width="34" height="126"></rect><rect x="682" y="150" width="26" height="172"></rect>
+          <path d="M716 322 V128 Q730 108 744 128 V322 Z"></path>
+          <rect x="752" y="176" width="30" height="146"></rect><rect x="790" y="214" width="22" height="108"></rect>
+          <rect x="880" y="200" width="28" height="122"></rect><rect x="916" y="164" width="34" height="158"></rect>
+          <rect x="958" y="222" width="24" height="100"></rect><rect x="990" y="188" width="30" height="134"></rect>
+          <rect x="1028" y="238" width="40" height="84"></rect><rect x="1076" y="206" width="26" height="116"></rect>
+          <rect x="1110" y="244" width="34" height="78"></rect>
+        </g>
+        <rect y="322" width="1200" height="138" fill="url(#bwater)"></rect>
+        <g stroke="#E3B87A" stroke-width="2" opacity=".45">
+          <path d="M792 342 h76 M804 362 h52 M786 382 h88 M812 402 h40 M796 422 h68"></path>
+        </g>
+      </svg>
+      <div class="banner__copy">
+        <h2>Evenings run <em>long</em> here.</h2>
+        <p>The creek faces west. From October to April the terraces hold the last of the light until well past seven.</p>
+      </div>
     </div>
   </section>
 
@@ -841,14 +979,19 @@
   }
 
   /* ---------- unit sheet ---------- */
+  var buildingView = document.getElementById("buildingView");
   var floorView = document.getElementById("floorView");
   var unitView = document.getElementById("unitView");
-  function showFloor() { floorView.hidden = false; unitView.hidden = true; }
+  function setView(v) {
+    buildingView.hidden = v !== "building";
+    floorView.hidden = v !== "floor";
+    unitView.hidden = v !== "unit";
+  }
+  function showFloor() { setView("floor"); }
 
   function openUnit(u) {
     state.unit = u;
-    floorView.hidden = true;
-    unitView.hidden = false;
+    setView("unit");
     document.getElementById("uLevel").textContent = "Level " + String(state.level).padStart(2, "0");
     document.getElementById("uName").textContent = u.name;
     document.getElementById("uType").textContent = u.type + " — unit " + u.label;
@@ -1036,9 +1179,176 @@
       : "This is a demo page, so nothing was actually sent.";
   });
 
+  /* ---------- building elevation ---------- */
+  var elev = document.getElementById("elev");
+  var FH = 32, BASE = 560, TX = 200, TW = 240, PX = 150, PW = 340;
+
+  function drawElev() {
+    while (elev.firstChild) elev.removeChild(elev.firstChild);
+
+    elev.appendChild(el("rect", { class: "mass", x: TX, y: 64, width: TW, height: 16 }));
+
+    LEVELS.forEach(function (lv) {
+      var podium = lv.plate === "podium";
+      var x = podium ? PX : TX, w = podium ? PW : TW;
+      var y = BASE - lv.n * FH;
+      var kind = podium ? "amenity" : (lv.plate === "c" ? "penthouse" : "home");
+
+      var g = el("g", { class: "lvl", "data-level": lv.n, "data-kind": kind, tabindex: "0",
+        role: "button", "aria-label": "Level " + lv.n + ", " + PLATES[lv.plate].name });
+      g.appendChild(el("rect", { class: "band", x: x, y: y, width: w, height: FH }));
+      g.appendChild(el("text", { class: "num", x: 510, y: y + 21 }, String(lv.n).padStart(2, "0")));
+      g.addEventListener("click", function () { goLevel(lv.n); });
+      g.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goLevel(lv.n); }
+      });
+      elev.appendChild(g);
+    });
+
+    for (var mx = TX + 40; mx < TX + TW; mx += 40) {
+      elev.appendChild(el("line", { class: "mull", x1: mx, y1: 80, x2: mx, y2: BASE - 2 * FH }));
+    }
+
+    [["Roof terrace", 15, TX], ["Residences", 8, TX], ["The collection", 1, PX]].forEach(function (k) {
+      var y = BASE - k[1] * FH + FH / 2;
+      elev.appendChild(el("text", { class: "keyt", x: 136, y: y + 4, "text-anchor": "end" }, k[0]));
+      elev.appendChild(el("line", { class: "keyl", x1: 144, y1: y, x2: k[2] - 4, y2: y }));
+    });
+
+    elev.appendChild(el("line", { class: "ground", x1: 60, y1: BASE, x2: 600, y2: BASE }));
+    [100, 560].forEach(function (px) {
+      elev.appendChild(el("path", { class: "palm", d: "M" + px + " " + BASE + " V" + (BASE - 46) +
+        " M" + px + " " + (BASE - 46) + " q-18 -12 -30 -4 M" + px + " " + (BASE - 46) + " q18 -12 30 -4" +
+        " M" + px + " " + (BASE - 46) + " q-9 -20 -24 -24 M" + px + " " + (BASE - 46) + " q9 -20 24 -24" }));
+    });
+    markElev();
+  }
+
+  function markElev() {
+    Array.prototype.forEach.call(elev.querySelectorAll(".lvl"), function (g) {
+      g.setAttribute("data-on", Number(g.getAttribute("data-level")) === state.level ? "true" : "false");
+    });
+  }
+
+  function goLevel(n) {
+    state.level = n;
+    drawPlate(); markRail(); markElev();
+    setView("floor");
+    document.getElementById("backToBuilding").focus();
+  }
+  document.getElementById("backToBuilding").addEventListener("click", function () {
+    setView("building");
+    var b = elev.querySelector('.lvl[data-on="true"]');
+    if (b) b.focus();
+  });
+
+  /* ---------- aerial ---------- */
+  function drawAerial() {
+    var svg = document.getElementById("aerial");
+    svg.appendChild(el("rect", { width: 1200, height: 520, fill: "#17130E" }));
+
+    var water = el("path", { d: "M0 0 h190 q-40 160 10 300 q30 120 -30 220 H0 Z", fill: "rgba(201,161,98,.10)" });
+    svg.appendChild(water);
+    svg.appendChild(el("text", { x: 40, y: 60, fill: "#A2957F", "font-family": "Hanken Grotesk, sans-serif",
+      "font-size": "13", "letter-spacing": "3" }, "THE CREEK"));
+
+    [[470, 205], [355, 152], [240, 104]].forEach(function (r) {
+      svg.appendChild(el("ellipse", { cx: 620, cy: 270, rx: r[0], ry: r[1], fill: "none",
+        stroke: "#3B3225", "stroke-width": 1.5 }));
+    });
+
+    [[455, 198], [340, 146]].forEach(function (r, ri) {
+      for (var a = 0; a < 360; a += 15) {
+        var rad = a * Math.PI / 180;
+        var x = 620 + r[0] * Math.cos(rad), y = 270 + r[1] * Math.sin(rad);
+        if (y > 430) continue;
+        svg.appendChild(el("rect", { x: x - 9, y: y - 6, width: 18, height: 12,
+          fill: ri ? "#241D14" : "#201A12", stroke: "#3B3225", "stroke-width": 1 }));
+      }
+    });
+
+    svg.appendChild(el("line", { x1: 620, y1: 65, x2: 620, y2: 475, stroke: "#3B3225", "stroke-width": 1.5 }));
+    svg.appendChild(el("line", { x1: 150, y1: 270, x2: 1090, y2: 270, stroke: "#3B3225", "stroke-width": 1.5 }));
+
+    svg.appendChild(el("rect", { x: 545, y: 232, width: 150, height: 76, fill: "rgba(201,161,98,.85)" }));
+    svg.appendChild(el("rect", { x: 528, y: 216, width: 184, height: 108, fill: "none",
+      stroke: "#C9A162", "stroke-width": 1.2, "stroke-dasharray": "5 4" }));
+    svg.appendChild(el("text", { x: 620, y: 276, "text-anchor": "middle", fill: "#17130E",
+      "font-family": "Hanken Grotesk, sans-serif", "font-size": "14", "letter-spacing": "2.4" }, "MARAM"));
+    svg.appendChild(el("text", { x: 726, y: 222, fill: "#C9A162", "font-family": "Hanken Grotesk, sans-serif",
+      "font-size": "12", "letter-spacing": "2" }, "PLOT \u2014 2.1 ha"));
+
+    var defs = el("defs");
+    var lg = el("linearGradient", { id: "aerScrim", x1: "0", y1: "0", x2: "0", y2: "1" });
+    lg.appendChild(el("stop", { offset: "0%", "stop-color": "#17130E", "stop-opacity": "0" }));
+    lg.appendChild(el("stop", { offset: "100%", "stop-color": "#17130E", "stop-opacity": "0.96" }));
+    defs.appendChild(lg); svg.appendChild(defs);
+    svg.appendChild(el("rect", { x: 0, y: 300, width: 1200, height: 220, fill: "url(#aerScrim)" }));
+  }
+
+  /* ---------- lobby tour ---------- */
+  var TOUR = {
+    outside: {
+      cap: "The arrival court",
+      btn: "Step inside",
+      d: ["M60 470 h1080", "M240 470 V250 M420 470 V250 M600 470 V250 M780 470 V250",
+          "M240 250 q90 -70 180 0 M420 250 q90 -70 180 0 M600 250 q90 -70 180 0",
+          "M200 190 h620", "M200 190 v-26 h620 v26",
+          "M900 470 V330 M900 330 q-28 -18 -46 -6 M900 330 q28 -18 46 -6 M900 330 q-14 -30 -36 -36 M900 330 q14 -30 36 -36",
+          "M1010 470 V360 M1010 360 q-24 -16 -40 -5 M1010 360 q24 -16 40 -5",
+          "M120 470 V300 h60 v170", "M150 300 v-40"]
+    },
+    inside: {
+      cap: "The lobby",
+      btn: "Back outside",
+      d: ["M60 470 h1080", "M120 470 V130 h330 v340", "M180 190 h210 M180 240 h210 M180 290 h210",
+          "M520 470 V300 h240 v170", "M520 340 h240",
+          "M820 470 V160 h300 v310", "M870 160 V470 M970 160 V470 M1070 160 V470",
+          "M560 300 v-60 h60 v60", "M600 240 v-30",
+          "M840 430 h260 v40 h-260 z", "M660 470 V420 h80 v50"]
+    }
+  };
+  var tourState = "outside";
+  function drawTour() {
+    var svg = document.getElementById("tourArt");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var t = TOUR[tourState];
+    svg.appendChild(el("rect", { width: 1200, height: 560, fill: "#1B150E" }));
+    var g = el("g", { fill: "none", stroke: "#C9A162", "stroke-width": "1.8",
+      "stroke-linejoin": "round", opacity: "0.8" });
+    t.d.forEach(function (d) { g.appendChild(el("path", { d: d })); });
+    svg.appendChild(g);
+    document.getElementById("tourCap").textContent = t.cap;
+    document.getElementById("tourBtn").textContent = t.btn;
+  }
+  document.getElementById("tourBtn").addEventListener("click", function () {
+    tourState = tourState === "outside" ? "inside" : "outside";
+    drawTour();
+  });
+
+  /* ---------- scroll rail + sticky bar ---------- */
+  var fill = document.getElementById("srailFill");
+  var sn = document.getElementById("srailN");
+  var sticky = document.getElementById("sticky");
+  var hero = document.querySelector(".hero");
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pc = h > 0 ? Math.min(100, Math.max(0, Math.round(window.scrollY / h * 100))) : 0;
+    fill.style.height = pc + "%";
+    sn.textContent = String(pc).padStart(2, "0");
+    sticky.setAttribute("data-on", window.scrollY > hero.offsetHeight * 0.8 ? "true" : "false");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+
   /* ---------- boot ---------- */
   drawPlate();
   markRail();
+  drawElev();
+  drawAerial();
+  drawTour();
+  onScroll();
+  setView("building");
   chIndex.querySelector("button").setAttribute("aria-current", "true");
 })();
 </script>
