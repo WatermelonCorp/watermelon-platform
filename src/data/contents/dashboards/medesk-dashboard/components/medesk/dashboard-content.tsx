@@ -14,7 +14,7 @@ import {
   UserRoundIcon,
   XIcon,
 } from 'lucide-react'
-import type { TooltipProps } from 'recharts'
+import type { TooltipContentProps } from 'recharts'
 import {
   Area,
   AreaChart,
@@ -167,7 +167,7 @@ function ChartTooltip({
   active,
   payload,
   label,
-}: TooltipProps<number | string | Array<number | string>, string | number>) {
+}: Partial<TooltipContentProps>) {
   if (!active || !payload?.length) {
     return null
   }
