@@ -205,7 +205,16 @@ export async function generateShadcnRegistry(
     items,
   };
 
-  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  const serialisedManifest = `${JSON.stringify(manifest, null, 2)}\n`;
+
+  // The registry is published as `<origin>/r/{name}.json`, and the shadcn
+  // CLI resolves the catalog by substituting `registry` for `{name}`. The
+  // manifest therefore has to sit beside the items as well as at the root,
+  // or `/r/registry.json` 404s while every item resolves fine.
+  await Promise.all([
+    writeFile(manifestPath, serialisedManifest),
+    writeFile(path.join(outputDirectory, 'registry.json'), serialisedManifest),
+  ]);
 
   return { items, manifest };
 }

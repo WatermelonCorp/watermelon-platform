@@ -44,4 +44,27 @@ describe('generateShadcnRegistry', () => {
     expect(baseComponent.registryDependencies).toContain('accordion');
     expect(baseComponent.files[0].content).toContain('Accordion');
   });
+
+  it('writes the catalog beside the items so /r/registry.json resolves', async () => {
+    await mkdir(testDirectory, { recursive: true });
+    const { manifest } = await generateShadcnRegistry(
+      testDirectory,
+      path.join(testDirectory, 'registry-root.json'),
+    );
+
+    // the shadcn CLI swaps `registry` into the registered `/r/{name}.json`
+    // url, so the catalog has to exist at that path and not only at the root
+    const catalog = JSON.parse(
+      await readFile(path.join(testDirectory, 'registry.json'), 'utf8'),
+    );
+
+    expect(catalog.name).toBe('watermelon');
+    expect(catalog.$schema).toBe('https://ui.shadcn.com/schema/registry.json');
+    expect(catalog.items).toHaveLength(manifest.items.length);
+
+    const root = JSON.parse(
+      await readFile(path.join(testDirectory, 'registry-root.json'), 'utf8'),
+    );
+    expect(root).toEqual(catalog);
+  });
 });
