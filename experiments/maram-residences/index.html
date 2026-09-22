@@ -291,6 +291,13 @@
 
   /* ---------- building elevation ---------- */
   .elev { display: block; width: 100%; max-width: 560px; height: auto; margin-inline: auto; }
+  .grain { position: relative; }
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .28; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-motion: reduce) { .grain::after { opacity: .18; } }
+  .scene { display: block; width: 100%; height: 100%; }
   .elev .ground { stroke: var(--night-rule); stroke-width: 2; }
   .elev .mass { fill: #1C160F; stroke: var(--night-rule); stroke-width: 1.5; }
   .elev .band { fill: transparent; stroke: var(--night-rule); stroke-width: 1; transition: fill .18s ease; }
@@ -375,38 +382,8 @@
   <section class="hero" aria-labelledby="h1">
     <div class="wrap hero__stage">
       <h1 class="wordmark" id="h1">MARAM</h1>
-      <div class="arch" aria-hidden="true">
-        <svg viewBox="0 0 300 500" preserveAspectRatio="xMidYMax slice" role="presentation">
-          <defs>
-            <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2E3A4A"></stop><stop offset="48%" stop-color="#7B5F44"></stop>
-              <stop offset="78%" stop-color="#C08A4E"></stop><stop offset="100%" stop-color="#E0AE6B"></stop>
-            </linearGradient>
-            <linearGradient id="twr" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#EFE6D6"></stop><stop offset="55%" stop-color="#CDBFA8"></stop>
-              <stop offset="100%" stop-color="#8E8270"></stop>
-            </linearGradient>
-            <pattern id="flo" width="10" height="9" patternUnits="userSpaceOnUse">
-              <line x1="0" y1="8" x2="10" y2="8" stroke="#6F6455" stroke-width="1.4" opacity=".55"></line>
-            </pattern>
-          </defs>
-          <rect width="300" height="500" fill="url(#dusk)"></rect>
-          <circle cx="212" cy="352" r="26" fill="#F6D9A6" opacity=".85"></circle>
-          <g opacity=".35" fill="#2A2018">
-            <rect x="0" y="330" width="26" height="90"></rect><rect x="30" y="352" width="18" height="68"></rect>
-            <rect x="255" y="316" width="22" height="104"></rect><rect x="280" y="344" width="20" height="76"></rect>
-          </g>
-          <path d="M112 420 L112 96 Q150 62 188 96 L188 420 Z" fill="url(#twr)"></path>
-          <path d="M112 420 L112 96 Q150 62 188 96 L188 420 Z" fill="url(#flo)"></path>
-          <path d="M150 62 L150 30" stroke="#EFE6D6" stroke-width="2"></path>
-          <rect x="140" y="96" width="20" height="324" fill="#F6EFE2" opacity=".5"></rect>
-          <rect x="70" y="404" width="160" height="16" fill="#3A2C1E"></rect>
-          <g stroke="#2A2018" stroke-width="2.4" fill="none" opacity=".8">
-            <path d="M74 420 V396 M74 396 q-12 -8 -20 -4 M74 396 q12 -8 20 -4 M74 396 q-6 -14 -16 -16 M74 396 q6 -14 16 -16"></path>
-            <path d="M228 420 V392 M228 392 q-12 -8 -20 -4 M228 392 q12 -8 20 -4 M228 392 q-6 -14 -16 -16 M228 392 q6 -14 16 -16"></path>
-          </g>
-          <rect x="0" y="420" width="300" height="80" fill="#241B13"></rect>
-        </svg>
+      <div class="arch grain" aria-hidden="true">
+        <svg id="heroArt" viewBox="0 0 300 500" preserveAspectRatio="xMidYMax slice" role="presentation"></svg>
       </div>
       <p class="hero__say">Fifteen floors above the creek.<em>Not one of them in a hurry.</em></p>
       <div class="hero__cta">
@@ -519,49 +496,24 @@
     </div>
     <div class="rooms">
       <article class="room-c">
-        <div class="room-c__art">
-          <svg viewBox="0 0 300 366" role="img" aria-label="Line drawing of a living room with a low sofa facing a tall window.">
-            <g fill="none" stroke="#96703C" stroke-width="1.6" stroke-linejoin="round">
-              <path d="M52 70 h196 v210 h-196 z" opacity=".35"></path><path d="M150 70 v210" opacity=".35"></path>
-              <path d="M52 280 h196"></path><path d="M70 280 v-44 h160 v44"></path><path d="M70 246 h160"></path>
-              <path d="M84 236 v-16 h132 v16"></path><path d="M104 300 h92 v14 h-92 z"></path>
-              <path d="M240 300 v-58 M228 242 h24"></path><circle cx="240" cy="228" r="14"></circle>
-            </g>
-            <rect x="52" y="70" width="98" height="210" fill="#96703C" opacity=".22"></rect>
-          </svg>
+        <div class="room-c__art grain">
+          <svg class="scene" data-scene="living" viewBox="0 0 300 366" role="img" aria-label="Rendered view of the living room at dusk, looking toward the full-height creek glazing."></svg>
         </div>
         <p class="label">01 &mdash; Living</p>
         <h3>Six metres of glass</h3>
         <p>Floor-to-ceiling on the creek elevation, with a 900 mm reveal so the light lands soft rather than flat.</p>
       </article>
       <article class="room-c">
-        <div class="room-c__art">
-          <svg viewBox="0 0 300 366" role="img" aria-label="Line drawing of a kitchen island with two pendant lights above it.">
-            <g fill="none" stroke="#96703C" stroke-width="1.6" stroke-linejoin="round">
-              <path d="M40 300 h220"></path><path d="M86 300 v-66 h128 v66"></path><path d="M86 234 h128"></path>
-              <path d="M104 234 v66 M196 234 v66" opacity=".4"></path><path d="M120 96 v42 M180 96 v42"></path>
-              <path d="M106 138 h28 l-14 -22 z"></path><path d="M166 138 h28 l-14 -22 z"></path>
-              <path d="M40 96 h220" opacity=".35"></path><path d="M52 216 h34 M52 196 h34" opacity=".5"></path>
-              <circle cx="150" cy="222" r="9"></circle>
-            </g>
-            <rect x="86" y="234" width="128" height="66" fill="#96703C" opacity=".18"></rect>
-          </svg>
+        <div class="room-c__art grain">
+          <svg class="scene" data-scene="kitchen" viewBox="0 0 300 366" role="img" aria-label="Rendered view of the kitchen, island lit by two pendants against the window wall."></svg>
         </div>
         <p class="label">02 &mdash; Kitchen</p>
         <h3>Stone, end to end</h3>
         <p>A single 3.4 m island in honed travertine. Appliances behind panels, because a kitchen should read as a room.</p>
       </article>
       <article class="room-c">
-        <div class="room-c__art">
-          <svg viewBox="0 0 300 366" role="img" aria-label="Line drawing of a bed beside a window with a lamp on a side table.">
-            <g fill="none" stroke="#96703C" stroke-width="1.6" stroke-linejoin="round">
-              <path d="M40 300 h220"></path><path d="M74 300 v-76 h152 v76"></path><path d="M74 252 h152"></path>
-              <path d="M96 224 v-46 h106 v46"></path><path d="M112 252 v-18 h76 v18" opacity=".5"></path>
-              <path d="M240 300 v-40 h30 v40" opacity=".6"></path><path d="M255 260 v-18 M244 242 h22 l-5 -16 h-12 z"></path>
-              <path d="M40 92 h116 v120 h-116 z" opacity=".35"></path>
-            </g>
-            <rect x="40" y="92" width="116" height="120" fill="#96703C" opacity=".2"></rect>
-          </svg>
+        <div class="room-c__art grain">
+          <svg class="scene" data-scene="bedroom" viewBox="0 0 300 366" role="img" aria-label="Rendered view of the principal bedroom with the wardrobe run and evening light from the terrace."></svg>
         </div>
         <p class="label">03 &mdash; Bedroom</p>
         <h3>Dark by design</h3>
@@ -578,31 +530,7 @@
     </div>
 
     <div class="banner">
-      <svg viewBox="0 0 1200 460" role="img" aria-label="Illustration of the creek at dusk with the skyline in silhouette and a low sun on the water.">
-        <defs>
-          <linearGradient id="bsky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#1B1F2B"></stop><stop offset="55%" stop-color="#6E5237"></stop><stop offset="100%" stop-color="#C08B4C"></stop>
-          </linearGradient>
-          <linearGradient id="bwater" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#8C6337"></stop><stop offset="100%" stop-color="#241A11"></stop>
-          </linearGradient>
-        </defs>
-        <rect width="1200" height="460" fill="url(#bsky)"></rect>
-        <circle cx="830" cy="300" r="42" fill="#F3CE94" opacity=".9"></circle>
-        <g fill="#241C15" opacity=".92">
-          <rect x="640" y="196" width="34" height="126"></rect><rect x="682" y="150" width="26" height="172"></rect>
-          <path d="M716 322 V128 Q730 108 744 128 V322 Z"></path>
-          <rect x="752" y="176" width="30" height="146"></rect><rect x="790" y="214" width="22" height="108"></rect>
-          <rect x="880" y="200" width="28" height="122"></rect><rect x="916" y="164" width="34" height="158"></rect>
-          <rect x="958" y="222" width="24" height="100"></rect><rect x="990" y="188" width="30" height="134"></rect>
-          <rect x="1028" y="238" width="40" height="84"></rect><rect x="1076" y="206" width="26" height="116"></rect>
-          <rect x="1110" y="244" width="34" height="78"></rect>
-        </g>
-        <rect y="322" width="1200" height="138" fill="url(#bwater)"></rect>
-        <g stroke="#E3B87A" stroke-width="2" opacity=".45">
-          <path d="M792 342 h76 M804 362 h52 M786 382 h88 M812 402 h40 M796 422 h68"></path>
-        </g>
-      </svg>
+      <svg id="bannerArt" viewBox="0 0 1200 460" role="img" aria-label="Rendered view of the creek at dusk, skyline in silhouette and low sun on the water."></svg>
       <div class="banner__copy">
         <h2>Evenings run <em>long</em> here.</h2>
         <p>The creek faces west. From October to April the terraces hold the last of the light until well past seven.</p>
@@ -1095,6 +1023,309 @@
     if (e.key === "ArrowLeft" && wStep > 0) { wStep--; renderWalk(); }
   });
 
+  /* ---------- render engine ---------- */
+  var UID = 0;
+  function clearSvg(svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+  function defsOf(svg) {
+    var d = svg.querySelector("defs");
+    if (!d) { d = el("defs"); svg.insertBefore(d, svg.firstChild); }
+    return d;
+  }
+  function grad(svg, stops, attrs, radial) {
+    var a = {}; for (var k in (attrs || {})) a[k] = attrs[k];
+    a.id = "gr" + (++UID);
+    var g = el(radial ? "radialGradient" : "linearGradient", a);
+    stops.forEach(function (st) {
+      g.appendChild(el("stop", { offset: st[0], "stop-color": st[1], "stop-opacity": st.length > 2 ? st[2] : 1 }));
+    });
+    defsOf(svg).appendChild(g);
+    return "url(#" + a.id + ")";
+  }
+  var VG = { x1: 0, y1: 0, x2: 0, y2: 1 };
+  var HG = { x1: 0, y1: 0, x2: 1, y2: 0 };
+  function blurF(svg, sd) {
+    var id = "bl" + (++UID);
+    var f = el("filter", { id: id, x: "-60%", y: "-60%", width: "220%", height: "220%" });
+    f.appendChild(el("feGaussianBlur", { stdDeviation: sd }));
+    defsOf(svg).appendChild(f);
+    return "url(#" + id + ")";
+  }
+  function poly(pts) {
+    return pts.map(function (q) { return q[0].toFixed(1) + "," + q[1].toFixed(1); }).join(" ");
+  }
+  function vignette(svg, W, H) {
+    svg.appendChild(el("rect", { width: W, height: H, fill: grad(svg,
+      [[0.55, "#000000", 0], [1, "#000000", 0.45]], { cx: "0.5", cy: "0.45", r: "0.78" }, true) }));
+  }
+
+  /* dusk sky, sun, atmospheric haze and a two-layer skyline */
+  var SKY = [[0, "#0E1826"], [0.30, "#2B3146"], [0.56, "#6B5040"], [0.76, "#B37D49"], [0.90, "#E4AC6E"], [1, "#F7DCA9"]];
+  var FARBLD = [34, 78, 20, 96, 46, 64, 112, 28, 70, 50, 88, 36, 60, 104, 42, 74, 26, 92, 54, 68];
+
+  function skyInto(svg, W, H, hor) {
+    svg.appendChild(el("rect", { width: W, height: H, fill: grad(svg, SKY, VG) }));
+    var sx = W * 0.68, sy = hor - H * 0.09, sr = H * 0.34;
+    svg.appendChild(el("circle", { cx: sx, cy: sy, r: sr,
+      fill: grad(svg, [[0, "#FFE2B4", 0.7], [0.45, "#EFAE6E", 0.26], [1, "#EFAE6E", 0]], {}, true) }));
+    svg.appendChild(el("circle", { cx: sx, cy: sy, r: H * 0.032, fill: "#FFF1D6", opacity: 0.95 }));
+
+    // far skyline, hazed back
+    var g1 = el("g", { opacity: 0.30 });
+    for (var i = 0; i < FARBLD.length; i++) {
+      var w = 10 + (FARBLD[i] % 17), h = FARBLD[i] * (H / 620);
+      g1.appendChild(el("rect", { x: (i / FARBLD.length) * W * 1.04 - 8, y: hor - h, width: w, height: h, fill: "#8D8A96" }));
+    }
+    svg.appendChild(g1);
+    // mid skyline, denser
+    var g2 = el("g", { opacity: 0.62 });
+    for (var j = 0; j < FARBLD.length; j += 2) {
+      var w2 = 14 + (FARBLD[j] % 22), h2 = FARBLD[j] * 1.5 * (H / 620);
+      g2.appendChild(el("rect", { x: ((j + 0.6) / FARBLD.length) * W * 1.02 - 6, y: hor - h2, width: w2, height: h2, fill: "#3A3338" }));
+    }
+    svg.appendChild(g2);
+    // horizon haze
+    svg.appendChild(el("rect", { x: -W * 0.1, y: hor - H * 0.10, width: W * 1.2, height: H * 0.16,
+      fill: grad(svg, [[0, "#E8BA83", 0], [0.5, "#E8BA83", 0.5], [1, "#E8BA83", 0]], VG), filter: blurF(svg, H * 0.02) }));
+  }
+
+  function waterInto(svg, W, H, hor, depth) {
+    svg.appendChild(el("rect", { x: 0, y: hor, width: W, height: depth,
+      fill: grad(svg, [[0, "#B07F4C"], [0, "#A87A4A"], [1, "#1E1710"]], VG) }));
+    var g = el("g", { opacity: 0.42 });
+    for (var i = 0; i < 9; i++) {
+      var y = hor + 6 + i * (depth / 10), w = (W * 0.10) * (1 - i / 14);
+      g.appendChild(el("rect", { x: W * 0.68 - w / 2 + (i % 2 ? 7 : -7), y: y, width: w, height: 2, fill: "#F0C489", rx: 1 }));
+    }
+    svg.appendChild(g);
+  }
+
+  /* ---------- the tower, rendered ---------- */
+  function renderTower(svg) {
+    clearSvg(svg);
+    var W = 300, H = 500, hor = 404;
+    skyInto(svg, W, H, hor);
+    waterInto(svg, W, H, hor, 26);
+
+    var TX = 100, TW = 100, TOP = 188, BASE = 424, FLOORS = 15;
+    var body = "M" + TX + " " + BASE + " L" + TX + " " + (TOP + 26) +
+               " Q150 " + (TOP - 14) + " " + (TX + TW) + " " + (TOP + 26) + " L" + (TX + TW) + " " + BASE + " Z";
+
+    // shadow cast onto the podium
+    svg.appendChild(el("ellipse", { cx: 150, cy: BASE + 4, rx: 78, ry: 9, fill: "#0E0A06", opacity: 0.55, filter: blurF(svg, 5) }));
+
+    svg.appendChild(el("path", { d: body, fill: grad(svg,
+      [[0, "#F1E7D6"], [0.42, "#D3C4AB"], [0.72, "#978975"], [1, "#5E5548"]], HG) }));
+
+    // glazing bands, clipped to the mass
+    var cid = "cl" + (++UID);
+    var cp = el("clipPath", { id: cid });
+    cp.appendChild(el("path", { d: body }));
+    defsOf(svg).appendChild(cp);
+
+    var bands = el("g", { "clip-path": "url(#" + cid + ")" });
+    var step = (BASE - (TOP + 20)) / FLOORS;
+    for (var f = 0; f < FLOORS; f++) {
+      var y = TOP + 20 + f * step;
+      bands.appendChild(el("rect", { x: TX, y: y, width: TW, height: step * 0.62,
+        fill: grad(svg, [[0, "#2C3A46", 0.92], [0.5, "#55606A", 0.7], [1, "#1B242C", 0.95]], HG) }));
+      bands.appendChild(el("rect", { x: TX, y: y + step * 0.62, width: TW, height: step * 0.38,
+        fill: "#E7DCC9", opacity: 0.18 }));
+    }
+    for (var mx = TX + 12; mx < TX + TW; mx += 12) {
+      bands.appendChild(el("line", { x1: mx, y1: TOP + 20, x2: mx, y2: BASE, stroke: "#181410", "stroke-width": 0.8, opacity: 0.4 }));
+    }
+    // warm interior light catching the upper floors
+    bands.appendChild(el("rect", { x: TX, y: TOP + 22, width: TW, height: (BASE - TOP) * 0.5,
+      fill: grad(svg, [[0, "#FFD9A0", 0.22], [1, "#FFD9A0", 0]], VG) }));
+    svg.appendChild(bands);
+
+    // lit edge + crown
+    svg.appendChild(el("rect", { x: TX, y: TOP + 24, width: 2.2, height: BASE - TOP - 24, fill: "#FFF3DC", opacity: 0.75 }));
+    svg.appendChild(el("path", { d: "M" + TX + " " + (TOP + 26) + " Q150 " + (TOP - 14) + " " + (TX + TW) + " " + (TOP + 26),
+      fill: "none", stroke: "#FFF3DC", "stroke-width": 1.4, opacity: 0.6 }));
+    svg.appendChild(el("line", { x1: 150, y1: TOP - 12, x2: 150, y2: TOP - 40, stroke: "#FFF3DC", "stroke-width": 1.2, opacity: 0.5 }));
+
+    // podium and foreground
+    svg.appendChild(el("rect", { x: 66, y: BASE, width: 168, height: 18, fill: grad(svg, [[0, "#3B2E20"], [1, "#241B12"]], VG) }));
+    svg.appendChild(el("rect", { x: 0, y: BASE + 18, width: W, height: H - BASE - 18, fill: "#171009" }));
+    svg.appendChild(el("rect", { x: 0, y: BASE + 18, width: W, height: 2, fill: "#4A3826", opacity: 0.7 }));
+
+    var pg = el("g", { fill: "none", stroke: "#0D0906", "stroke-width": 2.6, "stroke-linecap": "round" });
+    [[52, 442], [248, 436]].forEach(function (pt) {
+      var x = pt[0], b = pt[1];
+      pg.appendChild(el("path", { d: "M" + x + " " + (b + 30) + " V" + b +
+        " M" + x + " " + b + " q-16 -11 -28 -4 M" + x + " " + b + " q16 -11 28 -4" +
+        " M" + x + " " + b + " q-8 -19 -22 -23 M" + x + " " + b + " q8 -19 22 -23" }));
+    });
+    svg.appendChild(pg);
+    vignette(svg, W, H);
+  }
+
+  /* ---------- perspective interiors ---------- */
+  var TONES = {
+    dark:   ["#4A3B2C", "#2E251B"],
+    mid:    ["#8A6F52", "#5C4936"],
+    light:  ["#D9CDB8", "#A4977F"],
+    stone:  ["#C9C0AE", "#8E8675"],
+    accent: ["#B98A4E", "#7E5C33"]
+  };
+
+  function renderRoom(svg, W, H, cfg) {
+    clearSvg(svg);
+    var bx = W * 0.22, by = H * 0.20, bw = W * 0.56, bh = H * 0.44;
+    var backY = by + bh;
+
+    function fp(t, d) {
+      var fx = t * W, fy = H;
+      var kx = bx + t * bw, ky = backY;
+      return [fx + (kx - fx) * d, fy + (ky - fy) * d];
+    }
+
+    // ceiling, side walls, back wall, floor
+    svg.appendChild(el("polygon", { points: poly([[0, 0], [W, 0], [bx + bw, by], [bx, by]]),
+      fill: grad(svg, [[0, "#241C14"], [1, "#3B2F22"]], VG) }));
+    svg.appendChild(el("polygon", { points: poly([[0, 0], [bx, by], [bx, backY], [0, H]]),
+      fill: grad(svg, [[0, "#2A2118"], [1, "#4B3D2C"]], HG) }));
+    svg.appendChild(el("polygon", { points: poly([[W, 0], [bx + bw, by], [bx + bw, backY], [W, H]]),
+      fill: grad(svg, [[0, "#5A4936"], [1, "#31271C"]], HG) }));
+    svg.appendChild(el("rect", { x: bx, y: by, width: bw, height: bh,
+      fill: grad(svg, [[0, "#4E3F2E"], [1, "#6A563E"]], VG) }));
+    svg.appendChild(el("polygon", { points: poly([[0, H], [W, H], [bx + bw, backY], [bx, backY]]),
+      fill: grad(svg, [[0, "#6B5A43"], [0.55, "#4A3D2D"], [1, "#2A2218"]], VG) }));
+
+    // window: the light source
+    var wx = bx + bw * 0.10, ww = bw * 0.80, wy = by + bh * 0.10, wh = bh * 0.74;
+    svg.appendChild(el("rect", { x: wx - 10, y: wy - 10, width: ww + 20, height: wh + 20,
+      fill: "#FFD9A2", opacity: 0.5, filter: blurF(svg, W * 0.05) }));
+    svg.appendChild(el("rect", { x: wx, y: wy, width: ww, height: wh,
+      fill: grad(svg, [[0, "#7E8DA4"], [0.45, "#D7A570"], [1, "#F7D8A4"]], VG) }));
+    var mull = el("g", { stroke: "#1E1811", "stroke-width": 1.6, opacity: 0.8 });
+    for (var m = 1; m < 3; m++) mull.appendChild(el("line", { x1: wx + (ww / 3) * m, y1: wy, x2: wx + (ww / 3) * m, y2: wy + wh }));
+    svg.appendChild(mull);
+
+    // light pool thrown onto the floor
+    var lp = fp(0.5, 0.12);
+    svg.appendChild(el("ellipse", { cx: lp[0], cy: lp[1], rx: W * 0.42, ry: H * 0.13,
+      fill: grad(svg, [[0, "#FFD9A2", 0.42], [1, "#FFD9A2", 0]], {}, true), filter: blurF(svg, W * 0.035) }));
+
+    // ceiling light line
+    svg.appendChild(el("rect", { x: bx + bw * 0.2, y: by * 0.52, width: bw * 0.6, height: 2.4, fill: "#FFE6BE", opacity: 0.5 }));
+
+    (cfg.items || []).forEach(function (it) {
+      var tone = TONES[it.tone] || TONES.mid;
+      var fbl = fp(it.t - it.w / 2, it.d), fbr = fp(it.t + it.w / 2, it.d);
+      var bbl = fp(it.t - it.w / 2, it.d + it.dep), bbr = fp(it.t + it.w / 2, it.d + it.dep);
+      var hf = it.h * (1 - it.d * 0.45), hb = it.h * (1 - (it.d + it.dep) * 0.45);
+
+      svg.appendChild(el("ellipse", { cx: (fbl[0] + fbr[0]) / 2, cy: fbl[1] + 2,
+        rx: Math.abs(fbr[0] - fbl[0]) * 0.62, ry: H * 0.022, fill: "#120D08", opacity: 0.5, filter: blurF(svg, 4) }));
+      svg.appendChild(el("polygon", { points: poly([[fbl[0], fbl[1] - hf], [fbr[0], fbr[1] - hf], [bbr[0], bbr[1] - hb], [bbl[0], bbl[1] - hb]]),
+        fill: tone[0] }));
+      svg.appendChild(el("polygon", { points: poly([fbl, fbr, [fbr[0], fbr[1] - hf], [fbl[0], fbl[1] - hf]]),
+        fill: grad(svg, [[0, tone[1]], [1, tone[0]]], VG) }));
+    });
+
+    (cfg.pendants || []).forEach(function (px) {
+      var a = fp(px, 0.30);
+      svg.appendChild(el("line", { x1: a[0], y1: by * 0.5, x2: a[0], y2: a[1] - H * 0.30, stroke: "#2A2018", "stroke-width": 1.2 }));
+      svg.appendChild(el("circle", { cx: a[0], cy: a[1] - H * 0.28, r: W * 0.028, fill: "#FFE2AE" }));
+      svg.appendChild(el("circle", { cx: a[0], cy: a[1] - H * 0.28, r: W * 0.075,
+        fill: grad(svg, [[0, "#FFD9A2", 0.5], [1, "#FFD9A2", 0]], {}, true) }));
+    });
+
+    vignette(svg, W, H);
+  }
+
+  /* ---------- outdoor scenes ---------- */
+  function renderOutdoor(svg, W, H, kind) {
+    clearSvg(svg);
+    var hor = H * 0.46;
+    skyInto(svg, W, H, hor);
+
+    if (kind === "creek") { waterInto(svg, W, H, hor, H - hor); vignette(svg, W, H); return; }
+
+    svg.appendChild(el("rect", { x: 0, y: hor, width: W, height: H - hor,
+      fill: grad(svg, [[0, "#57452F"], [0.4, "#3B2F20"], [1, "#1C1610"]], VG) }));
+
+    if (kind === "pool") {
+      var py = hor + (H - hor) * 0.26, ph = (H - hor) * 0.46;
+      svg.appendChild(el("polygon", { points: poly([[W * 0.10, py + ph], [W * 0.90, py + ph], [W * 0.78, py], [W * 0.22, py]]),
+        fill: grad(svg, [[0, "#4E7E86"], [0.5, "#356069"], [1, "#16333A"]], VG) }));
+      var rp = el("g", { opacity: 0.4, stroke: "#CFE6E4", "stroke-width": 1.6 });
+      for (var i = 0; i < 6; i++) rp.appendChild(el("line", { x1: W * (0.26 + i * 0.02), y1: py + ph * (0.2 + i * 0.13), x2: W * (0.72 - i * 0.02), y2: py + ph * (0.2 + i * 0.13) }));
+      svg.appendChild(rp);
+      for (var L = 0; L < 3; L++) {
+        var lx = W * (0.14 + L * 0.06);
+        svg.appendChild(el("rect", { x: lx, y: py - H * 0.075, width: W * 0.035, height: H * 0.075, fill: "#2A2018", opacity: 0.85 }));
+      }
+    } else if (kind === "padel") {
+      svg.appendChild(el("polygon", { points: poly([[W * 0.12, H * 0.94], [W * 0.88, H * 0.94], [W * 0.74, hor + 10], [W * 0.26, hor + 10]]),
+        fill: grad(svg, [[0, "#3E5A46"], [1, "#1E2E24"]], VG) }));
+      svg.appendChild(el("line", { x1: W * 0.5, y1: hor + 10, x2: W * 0.5, y2: H * 0.94, stroke: "#CFC7B4", "stroke-width": 1.6, opacity: 0.6 }));
+      svg.appendChild(el("rect", { x: W * 0.24, y: hor - H * 0.12, width: W * 0.52, height: H * 0.13,
+        fill: "none", stroke: "#8E866F", "stroke-width": 1.2, opacity: 0.55 }));
+    } else if (kind === "roof") {
+      svg.appendChild(el("rect", { x: 0, y: H * 0.78, width: W, height: H * 0.06, fill: "#241C14" }));
+      svg.appendChild(el("rect", { x: W * 0.12, y: H * 0.64, width: W * 0.24, height: H * 0.14,
+        fill: grad(svg, [[0, "#6B5941"], [1, "#3A2E21"]], VG) }));
+      svg.appendChild(el("rect", { x: W * 0.62, y: H * 0.66, width: W * 0.22, height: H * 0.12,
+        fill: grad(svg, [[0, "#6B5941"], [1, "#3A2E21"]], VG) }));
+      svg.appendChild(el("ellipse", { cx: W * 0.5, cy: H * 0.90, rx: W * 0.34, ry: H * 0.05,
+        fill: grad(svg, [[0, "#FFD9A2", 0.28], [1, "#FFD9A2", 0]], {}, true), filter: blurF(svg, 10) }));
+    } else if (kind === "court") {
+      var gy = H * 0.82, cap = H * 0.30, colTop = H * 0.40;
+
+      // lit lobby entrance seen through the colonnade
+      svg.appendChild(el("rect", { x: W * 0.33, y: H * 0.44, width: W * 0.34, height: gy - H * 0.44,
+        fill: grad(svg, [[0, "#6E5A3E"], [1, "#2A2117"]], VG) }));
+      svg.appendChild(el("rect", { x: W * 0.37, y: H * 0.50, width: W * 0.26, height: gy - H * 0.50,
+        fill: grad(svg, [[0, "#FFD9A2", 0.55], [1, "#FFD9A2", 0.12]], VG) }));
+      svg.appendChild(el("ellipse", { cx: W * 0.5, cy: gy, rx: W * 0.26, ry: H * 0.07,
+        fill: grad(svg, [[0, "#FFD9A2", 0.4], [1, "#FFD9A2", 0]], {}, true), filter: blurF(svg, H * 0.03) }));
+
+      // canopy, in perspective
+      svg.appendChild(el("polygon", { points: poly([[W * 0.14, cap], [W * 0.86, cap], [W * 0.79, colTop], [W * 0.21, colTop]]),
+        fill: grad(svg, [[0, "#4A3B2A"], [1, "#241C14"]], VG) }));
+      svg.appendChild(el("rect", { x: W * 0.14, y: cap - H * 0.03, width: W * 0.72, height: H * 0.03,
+        fill: grad(svg, [[0, "#6B5941"], [1, "#3A2E21"]], VG) }));
+
+      // columns, standing on the ground plane
+      for (var c = 0; c < 4; c++) {
+        var cx = W * (0.235 + c * 0.176);
+        svg.appendChild(el("ellipse", { cx: cx + W * 0.011, cy: gy + 2, rx: W * 0.028, ry: H * 0.012,
+          fill: "#120D08", opacity: 0.55, filter: blurF(svg, 4) }));
+        svg.appendChild(el("rect", { x: cx, y: colTop, width: W * 0.022, height: gy - colTop,
+          fill: grad(svg, [[0, "#E4D7BE"], [0.5, "#B3A68C"], [1, "#6E6252"]], HG) }));
+      }
+      svg.appendChild(el("rect", { x: 0, y: gy, width: W, height: H - gy,
+        fill: grad(svg, [[0, "#3A2E20"], [1, "#171009"]], VG) }));
+    }
+    vignette(svg, W, H);
+  }
+
+  var ROOMS = {
+    living:  { items: [{ t: .40, d: .34, w: .46, dep: .20, h: 40, tone: "mid" },
+                       { t: .48, d: .13, w: .20, dep: .11, h: 15, tone: "dark" },
+                       { t: .86, d: .44, w: .05, dep: .05, h: 92, tone: "dark" }] },
+    kitchen: { items: [{ t: .50, d: .26, w: .54, dep: .24, h: 44, tone: "stone" }], pendants: [.38, .62] },
+    bedroom: { items: [{ t: .46, d: .28, w: .50, dep: .32, h: 32, tone: "light" },
+                       { t: .82, d: .32, w: .10, dep: .10, h: 26, tone: "dark" }] },
+    library: { items: [{ t: .22, d: .40, w: .16, dep: .30, h: 96, tone: "dark" },
+                       { t: .62, d: .26, w: .22, dep: .18, h: 38, tone: "mid" }] },
+    gym:     { items: [{ t: .34, d: .30, w: .26, dep: .14, h: 24, tone: "dark" },
+                       { t: .74, d: .42, w: .28, dep: .10, h: 82, tone: "dark" }] },
+    spa:     { items: [{ t: .50, d: .30, w: .58, dep: .18, h: 28, tone: "stone" }] },
+    yoga:    { items: [{ t: .50, d: .24, w: .32, dep: .24, h: 5, tone: "accent" }] },
+    table:   { items: [{ t: .50, d: .24, w: .62, dep: .30, h: 30, tone: "dark" }], pendants: [.34, .5, .66] },
+    lobby:   { items: [{ t: .28, d: .30, w: .26, dep: .16, h: 42, tone: "stone" },
+                       { t: .70, d: .26, w: .30, dep: .20, h: 34, tone: "mid" }], pendants: [.5] }
+  };
+
+  function renderScene(svg, kind, W, H) {
+    if (ROOMS[kind]) renderRoom(svg, W, H, ROOMS[kind]);
+    else renderOutdoor(svg, W, H, kind);
+  }
+
   /* ---------- chapters ---------- */
   var CHAPTERS = [
     { t: "The art of pause", s: "Reading room, level 02", art: "library" },
@@ -1108,22 +1339,8 @@
   ];
 
   function chapterArt(kind) {
-    var svg = el("svg", { viewBox: "0 0 520 380", role: "img", "aria-label": "Illustration: " + kind });
-    svg.appendChild(el("rect", { width: 520, height: 380, fill: "#1B150E" }));
-    var g = el("g", { fill: "none", stroke: "#C9A162", "stroke-width": "1.6", "stroke-linejoin": "round", opacity: "0.85" });
-    var d = {
-      library: ["M90 300 h340", "M120 300 v-120 h90 v120", "M130 196 h70 M130 220 h70 M130 244 h70", "M240 300 v-80 h120 v80", "M250 220 v-30 h100 v30", "M380 300 v-60 h40 v60"],
-      yoga: ["M90 300 h340", "M180 300 q70 -40 150 0", "M255 260 v-54", "M255 206 a16 16 0 1 0 .1 0", "M230 236 h50", "M120 300 v-90 M120 210 q-16 -24 0 -44", "M400 300 v-70 h30 v70"],
-      gym: ["M90 300 h340", "M140 240 h240", "M140 216 v48 M380 216 v48", "M120 224 v32 M400 224 v32", "M200 300 v-30 h120 v30", "M110 160 h300"],
-      pool: ["M70 300 h380", "M110 300 v-90 h300 v90", "M130 240 q40 -20 80 0 q40 20 80 0 q40 -20 80 0", "M130 270 q40 -20 80 0 q40 20 80 0 q40 -20 80 0", "M430 300 v-130 M410 170 q20 -30 40 0"],
-      spa: ["M90 300 h340", "M160 300 v-100 h200 v100", "M180 200 v-30 h160 v30", "M210 170 q10 -30 0 -50 M260 170 q10 -30 0 -50 M310 170 q10 -30 0 -50", "M120 300 v-50 h20 v50"],
-      padel: ["M70 300 h380", "M120 300 v-150 h280 v150", "M260 150 v150", "M120 230 h280", "M160 300 v-40 M360 300 v-40", "M430 300 v-80"],
-      table: ["M70 300 h380", "M130 250 h260", "M150 250 v50 M370 250 v50", "M160 230 h40 M230 230 h40 M300 230 h40", "M110 300 v-30 h30 v30", "M380 300 v-30 h30 v30", "M110 140 h300"],
-      roof: ["M70 300 h380", "M110 300 v-60 h120 v60", "M290 300 v-90 h130 v90", "M110 240 h120 M290 210 h130", "M150 180 a30 30 0 0 1 60 0", "M360 160 v40"]
-    }[kind] || [];
-    d.forEach(function (p) { g.appendChild(el("path", { d: p })); });
-    svg.appendChild(g);
-    svg.appendChild(el("rect", { width: 520, height: 380, fill: "#120D08", opacity: ".35" }));
+    var svg = el("svg", { viewBox: "0 0 520 380", role: "img", "aria-label": "Rendered view: " + kind });
+    renderScene(svg, kind, 520, 380);
     return svg;
   }
 
@@ -1309,15 +1526,12 @@
     }
   };
   var tourState = "outside";
+  var TOURSCENE = { outside: "court", inside: "lobby" };
   function drawTour() {
     var svg = document.getElementById("tourArt");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var t = TOUR[tourState];
-    svg.appendChild(el("rect", { width: 1200, height: 560, fill: "#1B150E" }));
-    var g = el("g", { fill: "none", stroke: "#C9A162", "stroke-width": "1.8",
-      "stroke-linejoin": "round", opacity: "0.8" });
-    t.d.forEach(function (d) { g.appendChild(el("path", { d: d })); });
-    svg.appendChild(g);
+    renderScene(svg, TOURSCENE[tourState], 1200, 560);
     document.getElementById("tourCap").textContent = t.cap;
     document.getElementById("tourBtn").textContent = t.btn;
   }
@@ -1347,6 +1561,11 @@
   drawElev();
   drawAerial();
   drawTour();
+  renderTower(document.getElementById("heroArt"));
+  renderOutdoor(document.getElementById("bannerArt"), 1200, 460, "creek");
+  Array.prototype.forEach.call(document.querySelectorAll(".scene"), function (sc) {
+    renderScene(sc, sc.getAttribute("data-scene"), 300, 366);
+  });
   onScroll();
   setView("building");
   chIndex.querySelector("button").setAttribute("aria-current", "true");
