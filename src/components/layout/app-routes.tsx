@@ -8,6 +8,8 @@ import {
   BlocksPageSkeleton,
   BlockPageSkeleton,
   DashboardsPageSkeleton,
+  ShowcasesPageSkeleton,
+  TemplatesPageSkeleton,
   DashboardPageSkeleton,
 } from '@/components/skeletons';
 const HomePage = lazy(() => import('@/pages/home'));
@@ -228,7 +230,7 @@ export function AppRoutes() {
         <Route
           path="/showcases"
           element={
-            <Suspense fallback={<DashboardsPageSkeleton />}>
+            <Suspense fallback={<ShowcasesPageSkeleton />}>
               <ShowcasesPage />
             </Suspense>
           }
@@ -262,7 +264,7 @@ export function AppRoutes() {
         <Route
           path="/templates"
           element={
-            <Suspense fallback={<DashboardsPageSkeleton />}>
+            <Suspense fallback={<TemplatesPageSkeleton />}>
               <TemplatesPage />
             </Suspense>
           }
