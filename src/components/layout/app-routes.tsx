@@ -48,7 +48,9 @@ const UiCategoryPage = lazy(() => import('@/pages/component-category'));
 export function AppRoutes() {
   const isComponentPage = useMatch('/animated-components/:slug');
   const isUiCategoryPage = useMatch('/components/:category');
-  const isPreview = Boolean(useMatch('/preview/*') || useMatch('/preview'));
+  const isPreviewWildcard = useMatch('/preview/*');
+  const isPreviewExact = useMatch('/preview');
+  const isPreview = Boolean(isPreviewWildcard || isPreviewExact);
   const isLanding = useMatch('/');
 
   if (isPreview) {
