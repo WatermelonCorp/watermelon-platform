@@ -89,6 +89,13 @@ export default function HomePage() {
     </div>
   );
 
+  const renderComponentFallback = (label: string) => (
+    <div className="space-y-2 p-4 text-center">
+      <div className="text-4xl">⚛️</div>
+      <p className="text-sm font-medium text-neutral-500">{label}</p>
+    </div>
+  );
+
   const organizationSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -155,32 +162,49 @@ export default function HomePage() {
                 to={`/components/${cat.slug}`}
                 id={`ui-category-${cat.slug}`}
                 className={cn(
-                  'group/card block w-[280px] sm:w-[320px] shrink-0 snap-start no-underline',
-                  'rounded-4xl p-5 bg-gray-100 dark:bg-neutral-800',
-                  'border border-neutral-200/50 dark:border-white/5',
+                  'group relative block cursor-pointer no-underline w-[280px] sm:w-[320px] shrink-0 snap-start',
+                  'rounded-4xl p-2',
+                  'bg-gray-100',
+                  'dark:border-0 dark:bg-neutral-800',
+                  'backdrop-blur-xl backdrop-saturate-150',
                   'shadow-[inset_0_1px_0_0_var(--color-gray-200),inset_0_2px_0_0_rgba(255,255,255,1)]',
                   'dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]',
-                  'transition-all duration-300 hover:scale-[1.01]',
+                  'transition-all duration-300',
+                  'focus-visible:ring-primary focus-visible:ring-2 focus-visible:outline-none',
                 )}
               >
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-base font-semibold text-foreground truncate">
+                <div className="relative z-10 flex items-center justify-between gap-4 px-2 pt-2 pb-3">
+                  <span className="min-w-0 text-foreground truncate text-base leading-tight font-medium">
                     {cat.label}
                   </span>
-                  <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground shrink-0">
+                  <span className="shrink-0 text-muted-foreground text-xs capitalize whitespace-nowrap">
                     {variantCount} {variantCount === 1 ? 'item' : 'items'}
                   </span>
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed min-h-[32px]">
-                  {cat.description}
-                </p>
-                <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between text-xs text-muted-foreground group-hover/card:text-foreground">
-                  <span className="font-medium">Browse components</span>
-                  <HugeiconsIcon
-                    icon={ArrowRight01Icon}
-                    size={14}
-                    className="transition-transform group-hover/card:translate-x-1"
+
+                <div
+                  className={cn(
+                    'relative aspect-4/3 w-full overflow-hidden rounded-[20px]',
+                    'bg-muted',
+                    'border border-neutral-200/50 dark:border-white/5',
+                    'shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.05)]',
+                    'dark:shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.2)]',
+                  )}
+                >
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 z-10 rounded-[20px] ring-1 ring-white/20 ring-inset dark:ring-white/5"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center bg-white transition-colors duration-300 dark:bg-black">
+                    <ResilientImage
+                      src={`/cdn/components/${cat.slug}.png`}
+                      alt={`${cat.label} preview`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      fallback={renderComponentFallback(cat.label)}
+                    />
+                  </div>
                 </div>
               </Link>
             );
@@ -277,10 +301,10 @@ export default function HomePage() {
               )}
             >
               <div className="relative z-10 flex items-center justify-between gap-4 px-2 pt-2 pb-3">
-                <span className="text-foreground truncate text-base leading-tight font-medium">
+                <span className="min-w-0 text-foreground truncate text-base leading-tight font-medium">
                   {cat.label}
                 </span>
-                <span className="text-muted-foreground text-xs capitalize">
+                <span className="shrink-0 text-muted-foreground text-xs capitalize whitespace-nowrap">
                   {cat.count} {cat.count === 1 ? 'block' : 'blocks'}
                 </span>
               </div>

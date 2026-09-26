@@ -84,13 +84,13 @@ export function DashboardCard({ item, onClick, trackType = "dashboard" }: Dashbo
     >
       {/* Header */}
       <div className="relative z-10 flex items-center justify-between pt-2 pb-3 px-2 gap-4">
-        <span className="text-base font-medium text-foreground truncate leading-tight">
+        <span className="min-w-0 text-base font-medium text-foreground truncate leading-tight">
           {item.name}
         </span>
 
         <div className="flex items-center gap-4 shrink-0">
           {item.comingSoon && (
-            <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70">
+            <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-foreground/70 whitespace-nowrap">
               Coming Soon
             </span>
           )}

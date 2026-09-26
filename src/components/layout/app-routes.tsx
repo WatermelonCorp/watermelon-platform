@@ -48,13 +48,16 @@ const UiCategoryPage = lazy(() => import('@/pages/component-category'));
 export function AppRoutes() {
   const isComponentPage = useMatch('/animated-components/:slug');
   const isUiCategoryPage = useMatch('/components/:category');
-  const isPreview = useMatch('/preview/:type/:slug');
+  const isPreview = Boolean(useMatch('/preview/*') || useMatch('/preview'));
   const isLanding = useMatch('/');
 
   if (isPreview) {
     return (
       <Routes>
+        <Route path="/preview/:type/:category/:slug" element={<PreviewPage />} />
         <Route path="/preview/:type/:slug" element={<PreviewPage />} />
+        <Route path="/preview/:type" element={<PreviewPage />} />
+        <Route path="/preview" element={<PreviewPage />} />
       </Routes>
     );
   }
