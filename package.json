@@ -105,7 +105,6 @@
     "globals": "^16.5.0",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
-    "playwright": "^1.63.0",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.7.4",
     "remark-frontmatter": "^5.0.0",
