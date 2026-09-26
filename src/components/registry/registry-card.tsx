@@ -121,11 +121,11 @@ export const RegistryCard = memo(function RegistryCard({ item, onClick }: Regist
       <div className="relative z-10 flex items-center justify-between pt-2 pb-3 px-2 gap-4">
         {/* Left: Title & Category */}
 
-        <span className="text-base font-medium text-foreground truncate leading-tight">
+        <span className="min-w-0 text-base font-medium text-foreground truncate leading-tight">
           {item.name}
         </span>
-        <span className="text-sm text-muted-foreground capitalize">
-          {item.category}
+        <span className="shrink-0 text-sm text-muted-foreground capitalize whitespace-nowrap">
+          {item.category.replace(/-/g, ' ')}
         </span>
 
 
