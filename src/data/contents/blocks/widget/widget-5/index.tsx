@@ -8,7 +8,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  type TooltipProps,
+  type TooltipContentProps,
 } from 'recharts';
 import { Card, CardContent } from '@/components/base-ui/card';
 import { Button } from '@/components/base-ui/button';
@@ -157,7 +157,7 @@ function RevenueTooltip({
   active,
   payload,
   label,
-}: TooltipProps<number, string>) {
+}: Partial<TooltipContentProps<number, string>>) {
   if (!active || !payload?.length) return null;
 
   return (
