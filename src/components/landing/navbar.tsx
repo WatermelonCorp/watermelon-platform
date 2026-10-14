@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GithubIcon, NewTwitterIcon, Menu01Icon, Cancel01Icon } from "hugeicons-react";
 import { cn } from "@/lib/utils";
 import LogoIcon from "@/assets/logo-icon";
+import { ProductsBar } from "@/components/layout/products-bar";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,11 +22,17 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         scrolled 
-          ? "bg-background/80 backdrop-blur-md border-border/50 shadow-sm py-3" 
-          : "bg-transparent border-transparent py-5"
+          ? "bg-background/80 backdrop-blur-md border-border/50 shadow-sm"
+          : "bg-transparent border-transparent"
       )}
     >
-      <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
+      <ProductsBar />
+      <div
+        className={cn(
+          "container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 flex items-center justify-between transition-all duration-300",
+          scrolled ? "py-3" : "py-5"
+        )}
+      >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">

@@ -60,6 +60,7 @@ import {
   AuctionIcon,
   Component,
   ComputerTerminal02Icon,
+  ArrowUpRight01Icon,
 } from '@hugeicons/core-free-icons';
 
 // ─── Imports: data registries (used to build nav category lists) ──────────────
@@ -76,6 +77,7 @@ import { memo, useCallback, useEffect, useMemo } from 'react';
 // ─── Imports: layout components ──────────────────────────────────────────────
 import { Logo } from './logo';
 import { Socials } from './socials';
+import { products } from './products-bar';
 
 // ─── Imports: next-themes for the theme toggle switch ────────────────────────
 import { useTheme } from 'next-themes';
@@ -550,7 +552,46 @@ export function AppSidebar() {
           that use `group` + their own data-state (e.g. data-state="expanded"),
           which silently breaks the selector. Naming the group prevents that.
         */}
-        <Collapsible className="group/legal mt-auto mb-2">
+        {/* ── Our other free apps — pinned above Legal ── */}
+        <div className="border-primary bg-primary/20 shadow-primary/30 mt-auto mb-2 rounded-lg border px-2 pt-1.5 pb-1 shadow-[0_0_18px_-2px]">
+          <span className="text-xs font-semibold text-lime-700 dark:text-primary">
+            Our free apps
+          </span>
+          <div className="mt-1 flex flex-col">
+            {products.map((p) => (
+              <a
+                key={p.name}
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:bg-primary/25 -mx-1 flex items-center gap-2.5 rounded-md px-1 py-1 transition-colors"
+              >
+                <img
+                  src={p.logo}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="size-6 shrink-0 rounded-md"
+                />
+                <span className="flex min-w-0 flex-col">
+                  <span className="text-sidebar-foreground text-[13px] leading-tight font-medium">
+                    {p.name}
+                  </span>
+                  <span className="text-muted-foreground truncate text-[11px] leading-tight">
+                    {p.short}
+                  </span>
+                </span>
+                <HugeiconsIcon
+                  icon={ArrowUpRight01Icon}
+                  size={14}
+                  className="text-muted-foreground/60 ml-auto shrink-0"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <Collapsible className="group/legal mb-2">
           <CollapsibleTrigger asChild>
             {/* Row matches the Figma footer: [shield] Legal  [>] */}
             <button
