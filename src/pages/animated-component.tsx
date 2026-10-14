@@ -363,7 +363,7 @@ export default function AnimatedComponentPage() {
 
       {/* ================= DESKTOP ================= */}
       {!isMobile && (
-        <div className="relative flex h-[calc(100dvh-84px)] w-full overflow-hidden">
+        <div className="relative flex h-[calc(100dvh-84px-var(--products-bar-h,0px))] w-full overflow-hidden">
           {/* LEFT DOCS - Scrollable */}
           <div className="w-[40%] flex-1 shrink-0 overflow-y-auto xl:w-[38%]">
             <ScrollFadeEffect>
@@ -551,7 +551,7 @@ export default function AnimatedComponentPage() {
           </div>
 
           {/* RIGHT PREVIEW - Sticky */}
-          <div className="sticky top-0 h-[calc(100dvh-84px)] flex-1 pr-4 md:pr-6 lg:pr-8">
+          <div className="sticky top-0 h-[calc(100dvh-84px-var(--products-bar-h,0px))] flex-1 pr-4 md:pr-6 lg:pr-8">
             <div className="bg-muted/5 flex h-full flex-col overflow-hidden rounded-2xl border">
               <div className="bg-background/80 flex items-center justify-between gap-2 rounded-t-2xl border-b px-4 py-2 backdrop-blur">
                 {/* Variant toggle */}
