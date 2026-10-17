@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title description">
   <title id="title">Watermelon Platform GitHub star history</title>
-  <desc id="description">A chart showing 45 GitHub stars from Oct 2026 to Oct 2026.</desc>
+  <desc id="description">A chart showing 49 GitHub stars from Oct 2026 to Oct 2026.</desc>
   <rect width="1200" height="480" rx="24" fill="#101614"/>
   <rect x="24" y="24" width="1152" height="432" rx="18" fill="#151e1a" stroke="#2b3931"/>
   <text x="78" y="64" fill="#f4f7f5" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="700">Watermelon Platform Star History</text>
-  <text x="78" y="92" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16">45 GitHub stars · updated 2026-10-16</text>
-  <line x1="78" x2="1136" y1="406" y2="406" stroke="#2b3931" stroke-width="1"/><text x="64" y="411" text-anchor="end" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">0</text><line x1="78" x2="1136" y1="261.8666666666667" y2="261.8666666666667" stroke="#2b3931" stroke-width="1"/><text x="64" y="266.8666666666667" text-anchor="end" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">23</text><line x1="78" x2="1136" y1="124" y2="124" stroke="#2b3931" stroke-width="1"/><text x="64" y="129" text-anchor="end" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">45</text>
-  <polygon points="78,406 78.00,387.20 229.14,349.60 380.29,286.93 531.43,243.07 682.57,186.67 833.71,167.87 984.86,130.27 1136.00,124.00 1136,406" fill="#84cc1624"/>
-  <polyline points="78.00,387.20 229.14,349.60 380.29,286.93 531.43,243.07 682.57,186.67 833.71,167.87 984.86,130.27 1136.00,124.00" fill="none" stroke="#a3e635" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="92" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16">49 GitHub stars · updated 2026-10-17</text>
+  <line x1="78" x2="1136" y1="406" y2="406" stroke="#2b3931" stroke-width="1"/><text x="64" y="411" text-anchor="end" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">0</text><line x1="78" x2="1136" y1="262.1224489795918" y2="262.1224489795918" stroke="#2b3931" stroke-width="1"/><text x="64" y="267.1224489795918" text-anchor="end" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">25</text><line x1="78" x2="1136" y1="124" y2="124" stroke="#2b3931" stroke-width="1"/><text x="64" y="129" text-anchor="end" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">49</text>
+  <polygon points="78,406 78.00,388.73 210.25,354.20 342.50,296.65 474.75,256.37 607.00,204.57 739.25,187.31 871.50,152.78 1003.75,129.76 1136.00,124.00 1136,406" fill="#84cc1624"/>
+  <polyline points="78.00,388.73 210.25,354.20 342.50,296.65 474.75,256.37 607.00,204.57 739.25,187.31 871.50,152.78 1003.75,129.76 1136.00,124.00" fill="none" stroke="#a3e635" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="1136" cy="124" r="6" fill="#a3e635" stroke="#101614" stroke-width="4"/>
-  <text x="78" y="442" text-anchor="middle" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Oct 2026</text><text x="682.5714285714286" y="442" text-anchor="middle" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Oct 2026</text><text x="1136" y="442" text-anchor="middle" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Oct 2026</text>
+  <text x="78" y="442" text-anchor="middle" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Oct 2026</text><text x="607" y="442" text-anchor="middle" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Oct 2026</text><text x="1136" y="442" text-anchor="middle" fill="#9caea4" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">Oct 2026</text>
 </svg>
