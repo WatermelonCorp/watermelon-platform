@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "sitemap": "bun run scripts/generate-sitemap.ts",
-    "deploy": "bun run build && npx wrangler deploy",
+    "deploy": "bun run build && bun run scripts/check-analytics-build.ts && npx wrangler deploy",
     "generate:mcp-catalog": "bun run scripts/generate-mcp-catalog.ts",
     "generate:ops": "bun run scripts/generate-ops-manifest.ts",
     "generate:og": "bun run scripts/generate-og-images.tsx",

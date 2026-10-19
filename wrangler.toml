@@ -1,4 +1,4 @@
-name = "watermelon-preview"
+name = "watermelon-platform"
 main = "./worker/site.ts"
 compatibility_date = "2026-09-14"
 
