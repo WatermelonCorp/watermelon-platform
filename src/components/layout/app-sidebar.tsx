@@ -65,7 +65,7 @@ import {
 
 // ─── Imports: data registries (used to build nav category lists) ──────────────
 import { allAnimatedCategories } from '@/data/animated-components-metadata';
-import { uiCategories } from '@/data/components-registry';
+import { uiCategories } from '@/data/components-categories';
 import { blockCategories } from '@/data/block-metadata';
 
 // ─── Imports: routing ────────────────────────────────────────────────────────

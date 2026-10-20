@@ -5,8 +5,8 @@ export default function AboutPage() {
   return (
     <>
       <SEOHead
-        title="About"
-        description="About Watermelon UI, the open-source component and block ecosystem built for the community."
+        title="About the Open-Source React UI Library"
+        description="Why Watermelon UI exists, what it covers, and how the open-source community helps shape its React components, blocks, dashboards, and templates."
         keywords="about watermelon ui, open source ui, react blocks, community"
       />
 

@@ -7,8 +7,8 @@ export default function ChangelogPage() {
   return (
     <>
       <SEOHead
-        title="Changelog"
-        description="Stay updated with the latest changes and improvements to Watermelon UI."
+        title="Changelog: Releases and Updates"
+        description="Stay updated with the latest changes and improvements to Watermelon UI: new React components, blocks, dashboards, templates, and fixes in each release."
         keywords="changelog, updates, releases, watermelon ui"
       />
 

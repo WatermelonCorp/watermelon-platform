@@ -5,8 +5,8 @@ export default function PrivacyPage() {
   return (
     <>
       <SEOHead
-        title="Privacy Policy"
-        description="Privacy policy for Watermelon UI."
+        title="Privacy Policy for Analytics and Usage Data"
+        description="How Watermelon UI handles analytics, basic usage data, and public contact requests, including which tools we use and how to reach us with privacy questions."
         keywords="privacy policy, data, analytics, watermelon ui"
       />
 

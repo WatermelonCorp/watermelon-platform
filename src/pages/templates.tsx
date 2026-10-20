@@ -38,8 +38,8 @@ export default function TemplatesPage() {
   return (
     <>
       <SEOHead
-        title="Templates"
-        description="Explore our collection of pre-built templates with complete layouts and ready-to-use components."
+        title="React Templates with Ready-Made Layouts"
+        description="Explore our collection of pre-built templates with complete layouts and ready-to-use components, built with React and Tailwind CSS for real product pages."
         category="Templates"
       />
 

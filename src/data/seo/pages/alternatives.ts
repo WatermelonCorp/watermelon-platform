@@ -356,7 +356,7 @@ export const alternativePages: SeoPage[] = [
     slug: 'daisyui',
     title: 'daisyUI Alternative for React with Copy-Paste Components',
     description:
-      'A daisyUI alternative for React developers who want component source, not CSS classes. Watermelon UI offers free Tailwind React components, blocks, and dashboards.',
+      'A daisyUI alternative for React developers who want component source, not CSS classes. Free Tailwind React components, blocks, and dashboards.',
     h1: 'A daisyUI Alternative for React',
     primaryKeyword: 'daisyui alternative react',
     secondaryKeywords: ['daisyui alternative', 'shadcn vs daisyui', 'daisyui react'],

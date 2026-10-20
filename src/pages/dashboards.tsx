@@ -40,7 +40,7 @@ export default function DashboardsPage() {
     <>
       <SEOHead
         title="Dashboard Templates"
-        description="Explore our collection of pre-built dashboard templates with charts, tables, and analytics components."
+        description="Explore our collection of pre-built dashboard templates with charts, tables, and analytics components, built with React and Tailwind CSS and free to use."
         category="Dashboards"
       />
 

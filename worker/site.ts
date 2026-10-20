@@ -21,6 +21,16 @@ const rateLimitHeaders = {
   'RateLimit-Reset': '60',
   'RateLimit-Policy': rateLimitPolicy,
 };
+// HTML documents only. frame-ancestors allows our own subdomains, since the
+// registry host and the main site may embed previews; static files get their
+// headers from public/_headers.
+const documentSecurityHeaders = {
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Content-Security-Policy':
+    "frame-ancestors 'self' https://watermelon.sh https://*.watermelon.sh; base-uri 'self'; object-src 'none'",
+};
 const aiAgentPatterns = [
   'gptbot',
   'chatgpt-user',
@@ -274,9 +284,12 @@ async function injectAgentHtml(env: Env, pathname: string) {
       `$1"${escapeAttribute(title)}"`,
     )
     .replace('</head>', `${schemaTags}</head>`)
+    // The route's crawlable copy replaces the shell's default <noscript> copy,
+    // so the page ships one <main> and one <h1>, and nothing hidden with CSS.
     .replace(
-      '<div id="agent-preload"></div>',
-      `<div id="agent-preload" data-agent-path="${escapeAttribute(pathname)}"><main class="agent-preload">${bodyHtml}</main></div>`,
+      /<main class="agent-preload" id="agent-preload">[\s\S]*?<\/main>/,
+      () =>
+        `<main class="agent-preload" id="agent-preload" data-agent-path="${escapeAttribute(pathname)}">${bodyHtml}</main>`,
     );
 
   return new Response(injected, {
@@ -284,6 +297,7 @@ async function injectAgentHtml(env: Env, pathname: string) {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
       'Cache-Control': 'public, max-age=300',
+      ...documentSecurityHeaders,
     },
   });
 }
@@ -538,6 +552,7 @@ export default {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
         'Cache-Control': 'public, max-age=300',
+        ...documentSecurityHeaders,
       },
     });
   },

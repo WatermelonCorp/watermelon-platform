@@ -5,7 +5,7 @@ export default function DevelopersAuthPage() {
   return (
     <>
       <SEOHead
-        title="Watermelon UI Auth Docs"
+        title="API and MCP Authentication Docs"
         description="Authentication and access model for Watermelon UI public APIs, developer resources, and the hosted Watermelon MCP endpoint."
         keywords="watermelon ui auth docs, watermelon api auth, watermelon mcp auth"
       />

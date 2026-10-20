@@ -12,10 +12,6 @@
     <link rel="preconnect" href="https://assets.watermelon.sh" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" data-seo />
     <style>
-      #agent-preload {
-        display: none;
-      }
-
       .agent-preload {
         max-width: 72rem;
         margin: 0 auto;
@@ -106,6 +102,7 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://ui.watermelon.sh/#website",
         "name": "Watermelon UI",
         "url": "https://ui.watermelon.sh",
         "description": "A collection of high-quality React components, dashboards, and UI blocks.",
@@ -120,6 +117,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://ui.watermelon.sh/#organization",
         "name": "Watermelon UI",
         "url": "https://ui.watermelon.sh",
         "logo": "https://ui.watermelon.sh/logo.png",
@@ -143,9 +141,8 @@
   </head>
 
   <body>
-    <div id="agent-preload"></div>
     <noscript>
-      <main class="agent-preload">
+      <main class="agent-preload" id="agent-preload">
         <h1>Watermelon UI</h1>
         <p>
           Watermelon UI is an open-source React UI platform for developers who
@@ -214,9 +211,18 @@
       <ul>
         <li><a href="/home">Docs home</a></li>
         <li><a href="/blocks">Blocks</a></li>
+        <li><a href="/dashboards">Dashboards</a></li>
+        <li><a href="/templates">Templates</a></li>
+        <li><a href="/free">Free components</a></li>
+        <li><a href="/installation">Installation</a></li>
+        <li><a href="/framework-support">Framework support</a></li>
+        <li><a href="/changelog">Changelog</a></li>
         <li><a href="/developers">Developers</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/copyright">Copyright</a></li>
         <li><a href="/llms.txt">llms.txt</a></li>
         <li><a href="/sitemap.xml">Sitemap</a></li>
         <li><a href="/openapi.json">OpenAPI</a></li>

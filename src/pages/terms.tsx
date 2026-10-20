@@ -5,8 +5,8 @@ export default function TermsPage() {
   return (
     <>
       <SEOHead
-        title="Terms of Use"
-        description="Terms of use for Watermelon UI."
+        title="Terms of Use for Components and Code"
+        description="Rules and conditions for using Watermelon UI, its code examples, and public materials, including licensing, attribution, and how to report a concern."
         keywords="terms, legal, watermelon ui"
       />
 

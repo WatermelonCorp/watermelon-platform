@@ -96,7 +96,7 @@ export default function AnimatedComponentsPage() {
     <>
       <SEOHead
         title="Animated Components"
-        description="Browse all Watermelon UI animated components. High-quality, customizable React components for modern web apps."
+        description="Browse all Watermelon UI animated components. High-quality, customizable React components with motion, built with Tailwind CSS for modern web apps."
         category="Components"
       />
 

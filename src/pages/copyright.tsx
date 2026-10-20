@@ -6,7 +6,7 @@ export default function CopyrightPage() {
     <>
       <SEOHead
         title="Copyright & Attribution Policy"
-        description="Watermelon UI copyright, inspiration, and attribution policy."
+        description="Watermelon UI copyright, inspiration, and attribution policy: how we credit the designs that inspire our work and how to report a concern about a component."
         keywords="copyright, attribution, inspired by, dmca, watermelon ui"
       />
 

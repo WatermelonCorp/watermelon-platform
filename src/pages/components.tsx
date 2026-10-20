@@ -8,8 +8,8 @@ export default function ComponentsPage() {
   return (
     <>
       <SEOHead
-        title="Components"
-        description="Browse all Watermelon UI base components. Live-rendered, copy-paste ready React components."
+        title="Base React Components for Tailwind CSS"
+        description="Browse all Watermelon UI base components. Live-rendered, copy-paste ready React components for Tailwind CSS, installable with the shadcn CLI."
         category="Components"
       />
 

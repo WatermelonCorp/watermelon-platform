@@ -1,8 +1,10 @@
 import { SITE_URL, seoBreadcrumbs, seoPagePath, type SeoIndexPage, type SeoPage } from './index';
 import { stripInline } from './inline';
+import { socialImageFor } from './og';
 
 const publisher = {
   '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
   name: 'Watermelon UI',
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
@@ -38,6 +40,9 @@ export function seoPageSchemas(page: SeoPage): object[] {
     publisher,
     about: page.primaryKeyword,
   };
+  if (page.kind !== 'free') {
+    main.image = `${SITE_URL}${socialImageFor(seoPagePath(page))}`;
+  }
   if (page.kind !== 'free') {
     main.author = publisher;
     main.datePublished = page.updated;

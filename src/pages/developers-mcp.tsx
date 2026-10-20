@@ -11,7 +11,7 @@ export default function DevelopersMcpPage() {
   return (
     <>
       <SEOHead
-        title="Watermelon UI MCP Docs"
+        title="MCP Server Setup for AI Coding Agents"
         description="How to connect to the hosted Watermelon MCP server, inspect the catalog, and use it from ChatGPT- or Claude-compatible MCP clients."
         keywords="watermelon ui mcp docs, watermelon mcp, chatgpt mcp, claude mcp"
       />

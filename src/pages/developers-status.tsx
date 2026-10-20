@@ -68,7 +68,7 @@ export default function DevelopersStatusPage() {
   return (
     <>
       <SEOHead
-        title="Watermelon UI Status & Integrations"
+        title="Status, Endpoints and Integrations"
         description="Operational overview for Watermelon UI and Watermelon MCP, including version metadata, public endpoints, and ChatGPT/Claude connection guidance."
         keywords="watermelon ui status, watermelon ui mcp, chatgpt mcp, claude mcp, watermelon api status"
       />

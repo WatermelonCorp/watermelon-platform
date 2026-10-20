@@ -39,6 +39,7 @@ export const buildPath = (
 export const generateOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${siteConfig.url}/#organization`,
   name: siteConfig.name,
   url: siteConfig.url,
   logo: `${siteConfig.url}/logo.png`,
