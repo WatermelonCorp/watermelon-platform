@@ -5,8 +5,8 @@ export default function ContactPage() {
   return (
     <>
       <SEOHead
-        title="Contact"
-        description="How to contact the Watermelon UI team for support, partnerships, security, and contributor questions."
+        title="Contact Us for Support and Partnerships"
+        description="How to contact the Watermelon UI team for support, partnerships, sponsorship, security reports, and contributor questions, and what details to include."
         keywords="contact watermelon ui, support, sponsorship, security"
       />
 

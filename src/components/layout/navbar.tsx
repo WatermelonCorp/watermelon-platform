@@ -8,7 +8,7 @@ import { CommandPalette } from '@/components/layout/command-palette';
 import { animatedComponentMetadata } from '@/data/animated-components-metadata';
 import { dashboardMetadata } from '@/data/dashboard-metadata';
 import { blockMetadata, blockCategories } from '@/data/block-metadata';
-import { uiCategories } from '@/data/components-registry';
+import { uiCategories } from '@/data/components-categories';
 import { motion } from 'motion/react';
 import { GlobalCssInput } from './global-css-input';
 

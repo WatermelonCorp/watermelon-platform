@@ -92,6 +92,7 @@ export default function HomePage() {
   const organizationSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://ui.watermelon.sh/#organization',
     name: 'Watermelon UI',
     url: 'https://ui.watermelon.sh',
     logo: 'https://ui.watermelon.sh/logo.png',
@@ -113,7 +114,7 @@ export default function HomePage() {
     <>
       <SEOHead
         title="React Components, Dashboards & Blocks"
-        description="Explore our collection of high-quality, customizable React components built with modularity and performance in mind."
+        description="Explore our collection of high-quality, customizable React components, blocks, and dashboards, built with modularity and performance in mind."
         schema={organizationSchema}
         image="/og-image.avif"
       />

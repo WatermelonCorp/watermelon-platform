@@ -10,7 +10,7 @@ export default function BlocksPage() {
     <>
       <SEOHead
         title="UI Blocks - Pre-built Sections"
-        description="Browse our collection of pre-built UI blocks. Copy and paste beautiful hero sections, features, pricing, and more."
+        description="Browse our collection of pre-built UI blocks. Copy and paste beautiful hero sections, features, pricing, footers, and more, built with React and Tailwind."
         category="UI Blocks"
       />
 

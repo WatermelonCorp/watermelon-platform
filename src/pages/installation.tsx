@@ -244,8 +244,8 @@ export default function InstallationPage() {
   return (
     <>
       <SEOHead
-        title="Installation"
-        description="Get started with Watermelon UI. Build modern, responsive projects with shadcn and Watermelon components."
+        title="Installation Guide for the shadcn CLI"
+        description="Get started with Watermelon UI. Build modern, responsive projects with shadcn and Watermelon components, each installed through the shadcn CLI."
         keywords="install, setup, npm, nextjs, vite, tailwind, react components, shadcn cli"
       />
 

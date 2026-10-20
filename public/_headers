@@ -1,0 +1,6 @@
+# Static files skip the Worker, so they get their headers here. HTML documents
+# get theirs from worker/site.ts.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

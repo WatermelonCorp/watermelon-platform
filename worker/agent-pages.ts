@@ -48,9 +48,9 @@ Watermelon UI is an open-source React UI platform built for developers who want 
 Watermelon is built in the open by WatermelonCorp and the public platform source lives at [github.com/WatermelonCorp/watermelon-platform](https://github.com/WatermelonCorp/watermelon-platform).`,
   },
   '/developers': {
-    title: 'Watermelon UI Developers',
+    title: 'Developer Docs, API, llms.txt and MCP | Watermelon UI',
     description:
-      'Developer-facing entry points for Watermelon UI, including docs, sitemap, OpenAPI, public catalog API, and MCP.',
+      'Developer entry points for Watermelon UI: docs, sitemap, llms.txt, OpenAPI, the public catalog API, and the hosted MCP server for AI coding agents.',
     markdown: `# Watermelon UI Developers
 
 This page is the fastest way for an engineer or agent to understand Watermelon UI from the outside in. Watermelon exposes a small but intentional set of public resources so humans and AI systems can discover the project, inspect the public catalog, and understand where source-backed contribution paths live.
@@ -64,7 +64,7 @@ This page is the fastest way for an engineer or agent to understand Watermelon U
 - [Watermelon UI Status & Integrations](https://ui.watermelon.sh/developers/status): build metadata, endpoints, and ops links
 - [Sitemap](https://ui.watermelon.sh/sitemap.xml): crawlable public URL inventory
 - [Public catalog summary](https://ui.watermelon.sh/api/catalog/summary): counts by content type
-- [Public catalog entries](https://ui.watermelon.sh/api/catalog/entries): list catalog entries by kind
+- [Public catalog entries](https://ui.watermelon.sh/api/catalog/entries?kind=blocks): list catalog entries by kind
 
 ## Public API
 
@@ -83,9 +83,9 @@ The UI is helpful for browsing, but the repositories are the source of truth for
 - [watermellon-registry repository](https://github.com/WatermelonCorp/watermellon-registry)`,
   },
   '/developers/auth': {
-    title: 'Watermelon UI Auth Docs',
+    title: 'API and MCP Authentication Docs | Watermelon UI',
     description:
-      'Authentication model for Watermelon UI public APIs, developer files, and hosted MCP access.',
+      'Authentication and access model for Watermelon UI public APIs, developer resources, and the hosted Watermelon MCP endpoint.',
     markdown: `# Watermelon UI Auth Docs
 
 Watermelon UI currently exposes public, read-only developer surfaces that do not require authentication. Agents and engineers can access the public docs, catalog endpoints, and hosted MCP discovery routes without bearer tokens, session cookies, or account login flows.
@@ -108,9 +108,9 @@ The current public HTTP API is read-only. It supports summary, listing, and sing
 The hosted Watermelon MCP server is also read-only and currently unauthenticated. It is intended for structured catalog access, not private account actions or repository mutation.`,
   },
   '/developers/mcp': {
-    title: 'Watermelon UI MCP Docs',
+    title: 'MCP Server Setup for AI Coding Agents | Watermelon UI',
     description:
-      'How to connect to the hosted Watermelon MCP endpoint and when to use the local server instead.',
+      'How to connect to the hosted Watermelon MCP server, inspect the catalog, and use it from ChatGPT- or Claude-compatible MCP clients.',
     markdown: `# Watermelon UI MCP Docs
 
 Watermelon MCP gives agents structured access to the public Watermelon catalog without scraping the website manually. The hosted endpoint uses Streamable HTTP and the repository also ships a local MCP server for source-aware workflows.
@@ -119,7 +119,7 @@ Watermelon MCP gives agents structured access to the public Watermelon catalog w
 
 - [Discovery root](https://mcp.watermelon.sh/)
 - [Health](https://mcp.watermelon.sh/health)
-- [llms.txt](https://mcp.watermelon.sh/llms.txt)
+- [MCP llms.txt](https://mcp.watermelon.sh/llms.txt)
 - [MCP endpoint](https://mcp.watermelon.sh/mcp)
 
 ## Available tools
@@ -133,9 +133,9 @@ Watermelon MCP gives agents structured access to the public Watermelon catalog w
 Watermelon MCP is intended for MCP-compatible clients that support remote Streamable HTTP connections. If your GPT-oriented or Claude-oriented client supports remote MCP, use https://mcp.watermelon.sh/mcp as the server URL. If your client only supports local MCP servers, clone the platform repository and run bun run mcp locally.`,
   },
   '/developers/status': {
-    title: 'Watermelon UI Status & Integrations',
+    title: 'Status, Endpoints and Integrations | Watermelon UI',
     description:
-      'Operational metadata for Watermelon UI and Watermelon MCP, including endpoints, version details, and connection guidance.',
+      'Operational overview for Watermelon UI and Watermelon MCP, including version metadata, public endpoints, and ChatGPT/Claude connection guidance.',
     markdown: `# Watermelon UI Status & Integrations
 
 This page is the public ops overview for Watermelon UI. It is meant to help engineers, agents, and maintainers understand which endpoints exist, what build metadata is currently exposed, and where to connect MCP-compatible clients.
@@ -156,9 +156,9 @@ If your client supports remote MCP over Streamable HTTP, add a new MCP server an
 If your client only supports local MCP servers, clone the platform repository and run bun run mcp from the repository root.`,
   },
   '/about': {
-    title: 'About Watermelon UI',
+    title: 'About the Open-Source React UI Library | Watermelon UI',
     description:
-      'Why Watermelon UI exists, what it covers, and how the open-source community helps shape it.',
+      'Why Watermelon UI exists, what it covers, and how the open-source community helps shape its React components, blocks, dashboards, and templates.',
     markdown: `# About Watermelon UI
 
 Watermelon UI is an open-source interface ecosystem focused on practical building blocks for modern React products. The project brings together animated components, reusable blocks, dashboards, templates, documentation in one place so developers can understand an interface quickly and adapt it confidently. The public site at ui.watermelon.sh is the browsing layer for that ecosystem, while the source repositories hold the implementation details and contribution workflows.
@@ -168,9 +168,9 @@ We are building Watermelon to be useful for solo builders, startups, and product
 Watermelon is free for the community to use. Sponsorship support helps fund maintenance, hosting, accessibility improvements, contributor experience, design iteration, and ongoing quality work across the ecosystem. Contributions are welcome across docs, code, SEO, AI discoverability, and new component ideas.`,
   },
   '/contact': {
-    title: 'Contact Watermelon UI',
+    title: 'Contact Us for Support and Partnerships | Watermelon UI',
     description:
-      'How to contact Watermelon UI for support, partnerships, sponsorship, and reports.',
+      'How to contact the Watermelon UI team for support, partnerships, sponsorship, security reports, and contributor questions, and what details to include.',
     markdown: `# Contact Watermelon UI
 
 For general questions, contributor coordination, partnership inquiries, sponsorship conversations, or feedback about the site, email [watermeloncorpui@gmail.com](mailto:watermeloncorpui@gmail.com). That is the primary public contact path for Watermelon UI today.
@@ -182,9 +182,9 @@ For security issues, licensing concerns, attribution corrections, or content rep
 Watermelon is built for the wider builder community, so we try to keep support and collaboration straightforward. If your message is about sponsoring the work or helping expand the open-source ecosystem, say that directly and we can route the conversation appropriately.`,
   },
   '/privacy': {
-    title: 'Watermelon UI Privacy Policy',
+    title: 'Privacy Policy for Analytics and Usage Data | Watermelon UI',
     description:
-      'How Watermelon UI handles analytics, basic usage data, and public contact requests.',
+      'How Watermelon UI handles analytics, basic usage data, and public contact requests, including which tools we use and how to reach us with privacy questions.',
     markdown: `# Watermelon UI Privacy Policy
 
 Watermelon UI is a public browsing and discovery platform, not a personal account system with complex user data storage. We may collect limited technical and usage information such as page views, interaction events, browser or device metadata, and referral information to understand whether the site is working well and where the product experience still has friction.
@@ -196,9 +196,9 @@ We use collected information for troubleshooting, performance monitoring, featur
 For privacy-related questions or requests, contact [watermeloncorpui@gmail.com](mailto:watermeloncorpui@gmail.com).`,
   },
   '/terms': {
-    title: 'Watermelon UI Terms of Use',
+    title: 'Terms of Use for Components and Code | Watermelon UI',
     description:
-      'Rules and conditions for using Watermelon UI, its code examples, and public materials.',
+      'Rules and conditions for using Watermelon UI, its code examples, and public materials, including licensing, attribution, and how to report a concern.',
     markdown: `# Watermelon UI Terms of Use
 
 By accessing or using Watermelon UI, you agree to these terms. You may browse, copy, and use components from the site in line with the relevant repository licenses and terms. You are responsible for making sure your own project complies with your legal, licensing, accessibility, and security requirements.
@@ -241,8 +241,16 @@ export function renderMarkdownAsHtml(markdown: string) {
 function linkifyInline(input: string) {
   return input.replace(
     /\[([^\]]+)\]\((https?:\/\/[^)]+|mailto:[^)]+)\)/g,
-    '<a href="$2">$1</a>',
+    (_match, text: string, href: string) => `<a href="${sameSitePath(href)}">${text}</a>`,
   );
+}
+
+// Same-site links render as paths, matching the shell's own links, so one link
+// text never points at two spellings of the same URL.
+function sameSitePath(href: string) {
+  const origin = 'https://ui.watermelon.sh';
+  if (href === origin) return '/';
+  return href.startsWith(`${origin}/`) ? href.slice(origin.length) : href;
 }
 
 function escapeHtml(input: string) {

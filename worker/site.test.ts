@@ -8,7 +8,7 @@ const mockEnv = {
     fetch(_request: Request | string) {
       return Promise.resolve(
         new Response(
-          '<!doctype html><html><head><title>Watermelon UI — Premium React Components, Dashboards & Blocks</title><meta name="description" content="Base description" /></head><body><div id="agent-preload"></div></body></html>',
+          '<!doctype html><html><head><title>Watermelon UI — Premium React Components, Dashboards & Blocks</title><meta name="description" content="Base description" /></head><body><noscript><main class="agent-preload" id="agent-preload"><h1>Default</h1></main></noscript></body></html>',
           {
             headers: { 'Content-Type': 'text/html; charset=utf-8' },
           },
@@ -31,32 +31,34 @@ describe('agent page content', () => {
     expect(html).toContain('<li>two</li>');
   });
 
-  it('keeps injected agent preload content hidden for visual browsers', () => {
+  it('keeps agent preload content in noscript, not hidden with CSS', () => {
     const shell = readFileSync(
       new URL('../index.html', import.meta.url),
       'utf8',
     );
 
-    expect(shell).toContain('#agent-preload {\n        display: none;');
-    expect(shell).toContain('noscript .agent-preload {');
-    expect(shell).not.toContain(
-      '#agent-preload[data-agent-path] .agent-preload',
+    expect(shell).toContain(
+      '<noscript>\n      <main class="agent-preload" id="agent-preload">',
     );
+    expect(shell).not.toContain('display: none');
+    expect(shell.match(/<main\b/g)).toHaveLength(1);
   });
 
   it('publishes named agent pages for auth and MCP docs', () => {
     expect(agentPages['/developers/auth']?.title).toBe(
-      'Watermelon UI Auth Docs',
+      'API and MCP Authentication Docs | Watermelon UI',
     );
     expect(agentPages['/developers/auth']?.markdown).toContain(
       'do not require authentication',
     );
-    expect(agentPages['/developers/mcp']?.title).toBe('Watermelon UI MCP Docs');
+    expect(agentPages['/developers/mcp']?.title).toBe(
+      'MCP Server Setup for AI Coding Agents | Watermelon UI',
+    );
     expect(agentPages['/developers/mcp']?.markdown).toContain(
       'https://mcp.watermelon.sh/mcp',
     );
     expect(agentPages['/developers/status']?.title).toBe(
-      'Watermelon UI Status & Integrations',
+      'Status, Endpoints and Integrations | Watermelon UI',
     );
     expect(agentPages['/developers/status']?.markdown).toContain(
       '/api/v1/status',

@@ -126,6 +126,7 @@ function seoPageHtml(page: SeoPage) {
     related.length
       ? `<h2>Related</h2>${list(related.map((r) => ({ title: r.h1, href: seoPagePath(r) })))}`
       : '',
+    `<p>Last reviewed <time datetime="${escapeHtml(page.updated)}">${escapeHtml(page.updated)}</time>.</p>`,
   ].join('\n');
 }
 
@@ -338,39 +339,39 @@ const staticPages: Record<string, { title: string; description: string; kind?: C
   '/home': {
     title: 'React Components, Dashboards & Blocks',
     description:
-      'Explore our collection of high-quality, customizable React components built with modularity and performance in mind.',
+      'Explore our collection of high-quality, customizable React components, blocks, and dashboards, built with modularity and performance in mind.',
   },
   '/components': {
-    title: 'Components',
-    description: 'Browse all Watermelon UI base components. Live-rendered, copy-paste ready React components.',
+    title: 'Base React Components for Tailwind CSS',
+    description: 'Browse all Watermelon UI base components. Live-rendered, copy-paste ready React components for Tailwind CSS, installable with the shadcn CLI.',
     kind: 'components',
   },
   '/animated-components': {
     title: 'Animated Components',
     description:
-      'Browse all Watermelon UI animated components. High-quality, customizable React components for modern web apps.',
+      'Browse all Watermelon UI animated components. High-quality, customizable React components with motion, built with Tailwind CSS for modern web apps.',
     kind: 'animated-components',
   },
   '/blocks': {
     title: 'UI Blocks - Pre-built Sections',
     description:
-      'Browse our collection of pre-built UI blocks. Copy and paste beautiful hero sections, features, pricing, and more.',
+      'Browse our collection of pre-built UI blocks. Copy and paste beautiful hero sections, features, pricing, footers, and more, built with React and Tailwind.',
     kind: 'blocks',
   },
   '/dashboards': {
     title: 'Dashboard Templates',
     description:
-      'Explore our collection of pre-built dashboard templates with charts, tables, and analytics components.',
+      'Explore our collection of pre-built dashboard templates with charts, tables, and analytics components, built with React and Tailwind CSS and free to use.',
     kind: 'dashboards',
   },
   '/templates': {
-    title: 'Templates',
-    description: 'Explore our collection of pre-built templates with complete layouts and ready-to-use components.',
+    title: 'React Templates with Ready-Made Layouts',
+    description: 'Explore our collection of pre-built templates with complete layouts and ready-to-use components, built with React and Tailwind CSS for real product pages.',
     kind: 'templates',
   },
   '/installation': {
-    title: 'Installation',
-    description: 'Get started with Watermelon UI. Build modern, responsive projects with shadcn and Watermelon components.',
+    title: 'Installation Guide for the shadcn CLI',
+    description: 'Get started with Watermelon UI. Build modern, responsive projects with shadcn and Watermelon components, each installed through the shadcn CLI.',
   },
   '/framework-support': {
     title: 'Framework Support',
@@ -378,12 +379,12 @@ const staticPages: Record<string, { title: string; description: string; kind?: C
       'Watermelon UI works with all major React frameworks including Next.js, Vite, Remix, and Astro. Check compatibility and setup guides.',
   },
   '/changelog': {
-    title: 'Changelog',
-    description: 'Stay updated with the latest changes and improvements to Watermelon UI.',
+    title: 'Changelog: Releases and Updates',
+    description: 'Stay updated with the latest changes and improvements to Watermelon UI: new React components, blocks, dashboards, templates, and fixes in each release.',
   },
   '/copyright': {
     title: 'Copyright & Attribution Policy',
-    description: 'Watermelon UI copyright, inspiration, and attribution policy.',
+    description: 'Watermelon UI copyright, inspiration, and attribution policy: how we credit the designs that inspire our work and how to report a concern about a component.',
   },
 };
 

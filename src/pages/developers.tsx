@@ -11,8 +11,8 @@ export default function DevelopersPage() {
   return (
     <>
       <SEOHead
-        title="Watermelon UI Developers"
-        description="Developer-facing entry points for Watermelon UI, including docs, sitemap, llms.txt, OpenAPI, and the Watermelon MCP server."
+        title="Developer Docs, API, llms.txt and MCP"
+        description="Developer entry points for Watermelon UI: docs, sitemap, llms.txt, OpenAPI, the public catalog API, and the hosted MCP server for AI coding agents."
         keywords="watermelon ui developers, llms.txt, openapi, mcp, api docs"
       />
 

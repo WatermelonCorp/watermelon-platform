@@ -31,7 +31,7 @@ const shell = `<!doctype html><html><head>
   name="twitter:image"
   content="https://ui.watermelon.sh/og-image.avif"
 />
-</head><body><div id="agent-preload"></div></body></html>`;
+</head><body><noscript><main class="agent-preload" id="agent-preload"><h1>Default</h1></main></noscript></body></html>`;
 
 const mockEnv = {
   ASSETS: {
@@ -265,7 +265,7 @@ describe('route SEO in the Worker', () => {
   it('keeps hand-written agent pages but gives them their own canonical', async () => {
     const response = await siteWorker.fetch(new Request('https://ui.watermelon.sh/about'), mockEnv);
     const html = await response.text();
-    expect(html).toContain('<title>About Watermelon UI</title>');
+    expect(html).toContain('<title>About the Open-Source React UI Library | Watermelon UI</title>');
     expect(html).toContain('<link rel="canonical" href="https://ui.watermelon.sh/about" />');
   });
 
