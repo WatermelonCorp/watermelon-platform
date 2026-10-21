@@ -78,10 +78,21 @@ describe('site worker', () => {
     expect(config).toContain('"!/*.*"');
   });
 
-  it('returns markdown 404s for known AI agents', async () => {
+  it('serves AI crawlers the same HTML as browsers unless they ask for markdown', async () => {
+    const response = await siteWorker.fetch(
+      new Request('https://ui.watermelon.sh/about', {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GPTBot/1.2)' },
+      }),
+      mockEnv,
+    );
+
+    expect(response.headers.get('Content-Type')).toContain('text/html');
+  });
+
+  it('returns markdown 404s to clients that ask for markdown', async () => {
     const response = await siteWorker.fetch(
       new Request('https://ui.watermelon.sh/does-not-exist', {
-        headers: { 'User-Agent': 'ChatGPT-User' },
+        headers: { Accept: 'text/markdown' },
       }),
       mockEnv,
     );
