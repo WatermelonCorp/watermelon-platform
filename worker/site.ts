@@ -49,15 +49,6 @@ const documentSecurityHeaders = {
   // The build's commit time: HTML only changes when a new build deploys.
   'Last-Modified': new Date(opsMetadata.committedAt).toUTCString(),
 };
-const aiAgentPatterns = [
-  'gptbot',
-  'chatgpt-user',
-  'claudebot',
-  'perplexitybot',
-  'google-extended',
-  'deepseekbot',
-  'ora-agent',
-];
 
 interface ApiErrorShape {
   error: string;
@@ -70,13 +61,11 @@ function acceptsMarkdown(request: Request) {
   return request.headers.get('accept')?.includes('text/markdown') ?? false;
 }
 
-function isKnownAiAgent(request: Request) {
-  const userAgent = request.headers.get('user-agent')?.toLowerCase() ?? '';
-  return aiAgentPatterns.some((pattern) => userAgent.includes(pattern));
-}
-
+// Markdown only when the client asks for it. Choosing by user agent served
+// AI crawlers a page a fraction of the browser's size, which reads as a soft
+// block; the HTML already carries each page's full crawlable copy.
 function shouldReturnMarkdown(request: Request) {
-  return acceptsMarkdown(request) || isKnownAiAgent(request);
+  return acceptsMarkdown(request);
 }
 
 function withApiHeaders(init: ResponseInit = {}, versioned = false) {
