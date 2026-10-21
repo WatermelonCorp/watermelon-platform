@@ -1,4 +1,5 @@
 import React from "react";
+import "@/styles/catalog.css";
 
 export interface DashboardFile {
   name: string;

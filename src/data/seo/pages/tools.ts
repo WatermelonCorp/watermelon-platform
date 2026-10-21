@@ -80,7 +80,7 @@ export const toolPages: SeoPage[] = [
   {
     kind: 'guide',
     slug: 'shadcn-registry',
-    title: 'shadcn Registry Guide: Install From Any Registry, Plus a List',
+    title: 'shadcn Registry Guide: Install From Any Registry',
     description:
       'What a shadcn registry is, how to install from a registry URL or @namespace, how the registry directory works, and a list of popular registries including Watermelon.',
     h1: 'shadcn Registries: How They Work, and Which to Use',

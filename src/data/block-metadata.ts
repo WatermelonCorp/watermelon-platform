@@ -17,6 +17,10 @@ type BlockMetadata = {
 
 const mdxFiles = import.meta.glob('./contents/blocks/**/*.mdx', {
   eager: true,
+  // Frontmatter only (see mdxFrontmatter in vite.config.ts), so the compiled
+  // MDX bodies stay out of the main bundle.
+  query: '?frontmatter=title,slug,category,image',
+  import: 'frontmatter',
 });
 
 function toCategorySlug(category: string) {
@@ -39,9 +43,7 @@ const categoryLabels: Record<string, { label: string; description: string }> = {
 };
 
 export const blockMetadata: BlockMetadata[] = Object.values(mdxFiles)
-  .map<BlockMetadata | null>((mod: any) => {
-    const frontmatter = mod.frontmatter;
-
+  .map<BlockMetadata | null>((frontmatter: any) => {
     if (!frontmatter?.slug || !frontmatter?.title) {
       return null;
     }

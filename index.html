@@ -44,15 +44,8 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-S58LTWMLE9"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-S58LTWMLE9', { send_page_view: false });
-    </script>
+    <!-- gtag setup and Microsoft Clarity (same-origin file, see public/analytics.js) -->
+    <script src="/analytics.js" defer></script>
     <link rel="canonical" href="https://ui.watermelon.sh/" data-seo />
     <title data-seo>Watermelon UI — Premium React Components, Dashboards & Blocks</title>
     <meta
@@ -209,23 +202,24 @@
         for structured agent access to the catalog.
       </p>
       <ul>
-        <li><a href="/home">Docs home</a></li>
-        <li><a href="/blocks">Blocks</a></li>
-        <li><a href="/dashboards">Dashboards</a></li>
-        <li><a href="/templates">Templates</a></li>
-        <li><a href="/free">Free components</a></li>
-        <li><a href="/installation">Installation</a></li>
+        <li><a href="/home">Watermelon UI docs home</a></li>
+        <li><a href="/blocks">Browse all UI blocks</a></li>
+        <li><a href="/dashboards">Browse all dashboard templates</a></li>
+        <li><a href="/templates">Browse all page templates</a></li>
+        <li><a href="/free">Free components hub</a></li>
+        <li><a href="/installation">Installation guide</a></li>
         <li><a href="/framework-support">Framework support</a></li>
-        <li><a href="/changelog">Changelog</a></li>
-        <li><a href="/developers">Developers</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/privacy">Privacy</a></li>
-        <li><a href="/terms">Terms</a></li>
-        <li><a href="/copyright">Copyright</a></li>
-        <li><a href="/llms.txt">llms.txt</a></li>
-        <li><a href="/sitemap.xml">Sitemap</a></li>
-        <li><a href="/openapi.json">OpenAPI</a></li>
+        <li><a href="/changelog">Watermelon UI changelog</a></li>
+        <li><a href="/developers">Developer resources</a></li>
+        <li><a href="/about">About Watermelon UI</a></li>
+        <li><a href="/contact">Contact the Watermelon UI team</a></li>
+        <li><a href="/privacy">Privacy policy</a></li>
+        <li><a href="/privacy#subprocessors">Sub-processors list</a></li>
+        <li><a href="/terms">Terms of use</a></li>
+        <li><a href="/copyright">Copyright and attribution policy</a></li>
+        <li><a href="/llms.txt">Site guide for AI (llms.txt)</a></li>
+        <li><a href="/sitemap.xml">XML sitemap</a></li>
+        <li><a href="/openapi.json">OpenAPI specification</a></li>
       </ul>
     </section>
     <script type="module" src="/src/main.tsx"></script>

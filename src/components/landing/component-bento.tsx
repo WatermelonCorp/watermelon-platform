@@ -5,6 +5,7 @@ import Checkbox16 from "@/data/contents/components/checkbox/variant-16";
 import Switch3 from "@/data/contents/components/switch/variant-3";
 import Tabs7 from "@/data/contents/components/tabs/variant-7";
 import Breadcrumb7 from "@/data/contents/components/breadcrumb/variant-7";
+import "@/styles/catalog.css";
 
 export default function ComponentsBento() {
   const containerVariants: Variants = {

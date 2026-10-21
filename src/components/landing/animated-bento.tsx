@@ -13,6 +13,7 @@ import {
   ClaudeIcon,
   GoogleGeminiIcon,
 } from '@hugeicons/core-free-icons';
+import "@/styles/catalog.css";
 
 const slides = [
     { id: 1, img: "https://prourls.link/ORXBVr" },

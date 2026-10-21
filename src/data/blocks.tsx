@@ -1,5 +1,6 @@
 import React from 'react';
 import { blockCategories } from '@/data/block-metadata';
+import "@/styles/catalog.css";
 
 export interface BlockFile {
   name: string;

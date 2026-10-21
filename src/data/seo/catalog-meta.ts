@@ -17,6 +17,8 @@ export interface CategorySeo {
   h1: string;
 }
 
+import { fitTitle } from './fit';
+
 type CategoryTerms = { noun: string; plural: string; blurb: string };
 
 const componentTerms: Record<string, CategoryTerms> = {
@@ -67,7 +69,7 @@ const blockTerms: Record<string, CategoryTerms> = {
   team: { noun: 'Team Section', plural: 'team sections', blurb: 'people grids and about pages' },
   contact: { noun: 'Contact Form', plural: 'contact sections', blurb: 'contact forms, support pages, and office info' },
   newsletter: { noun: 'Newsletter Section', plural: 'newsletter sign up sections', blurb: 'email capture and waitlists' },
-  error: { noun: '404 Page', plural: '404 and error pages', blurb: 'not found, server error, and maintenance screens' },
+  error: { noun: 'Error Page', plural: '404 and error pages', blurb: 'not found, server error, and maintenance screens' },
   blog: { noun: 'Blog Section', plural: 'blog sections', blurb: 'post grids, article lists, and featured posts' },
   career: { noun: 'Careers Section', plural: 'careers sections', blurb: 'job listings and hiring pages' },
   announcement: { noun: 'Announcement Bar', plural: 'announcement bars', blurb: 'launch banners and promo strips' },
@@ -86,7 +88,11 @@ export function componentCategorySeo(slug: string, variants?: number): CategoryS
   const t = componentTerms[slug];
   if (!t) return null;
   return {
-    title: `React ${t.noun} Component, Free shadcn ${t.noun}`,
+    title: fitTitle(
+      `React ${t.noun} Component, Free shadcn ${t.noun}`,
+      `React ${t.noun} Component for shadcn`,
+      `React ${t.noun} Components`,
+    ),
     h1: `React ${t.noun} Components`,
     description: `${freeCount(variants)} React ${t.plural} built with Tailwind CSS and shadcn/ui conventions. Copy the code or install with the shadcn CLI. Great for ${t.blurb}.`,
   };
@@ -118,7 +124,12 @@ export function blockDetailSeo(block: {
     ? `${name} is a free React ${t.noun.toLowerCase()} block built with Tailwind CSS. Preview it live, copy the code, or install it with the shadcn CLI. Made for ${t.blurb}.`
     : block.description;
   return {
-    title: `${name}: Free React & Tailwind ${t.noun} Block`,
+    title: fitTitle(
+      `${name}: Free React & Tailwind ${t.noun} Block`,
+      `${name}: Free React ${t.noun} Block`,
+      `${name}: Free React Tailwind Block`,
+      `${name}: Free React Block`,
+    ),
     h1: name,
     description,
   };
@@ -158,27 +169,35 @@ export function animatedCategorySeo(category: string, items?: number): CategoryS
   const t = animatedTerms[category.toLowerCase()];
   const noun = t?.noun ?? category.charAt(0).toUpperCase() + category.slice(1);
   return {
-    title: `React Animated ${noun} Components (Motion + Tailwind)`,
+    title: fitTitle(
+      `React Animated ${noun} Components (Motion + Tailwind)`,
+      `Animated React ${noun} Components (Motion)`,
+      `Animated React ${noun} Components`,
+    ),
     h1: `Animated ${noun} Components`,
     description: `${freeCount(items)} animated React ${noun.toLowerCase()} components built with Motion and Tailwind CSS${t ? `, for ${t.blurb}` : ''}. Copy the code or install with the shadcn CLI.`,
   };
 }
 
 export function animatedDetailSeo(component: { title: string }): Pick<CategorySeo, 'title'> {
-  return { title: `${component.title}: Animated React Component` };
+  return {
+    title: fitTitle(`${component.title}: Animated React Component`, `${component.title}: React Component`, component.title),
+  };
 }
 
 export function dashboardDetailSeo(dashboard: { title: string }): Pick<CategorySeo, 'title'> {
   const base = dashboard.title.replace(/\s+dashboard$/i, '');
   const name = base.charAt(0).toUpperCase() + base.slice(1);
-  return { title: `${name} Dashboard: Free React Dashboard Template` };
+  return {
+    title: fitTitle(`${name} Dashboard: Free React Dashboard Template`, `${name} Dashboard: React Template`, `${name} Dashboard`),
+  };
 }
 
 export function blockCategorySeo(slug: string, blocks?: number): CategorySeo | null {
   const t = blockTerms[slug];
   if (!t) return null;
   return {
-    title: `Free React ${t.noun} Blocks, Tailwind & shadcn`,
+    title: fitTitle(`Free React ${t.noun} Blocks, Tailwind & shadcn`, `Free React ${t.noun} Blocks`),
     h1: `React ${t.noun} Blocks`,
     description: `${freeCount(blocks)} React ${t.plural} built with Tailwind CSS, ready to copy or install with the shadcn CLI. Made for ${t.blurb}.`,
   };

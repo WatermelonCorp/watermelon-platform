@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { fitDescription } from '../src/data/seo/fit';
 import { describe, expect, it } from 'bun:test';
 import {
   seoIndexPages,
@@ -225,7 +226,7 @@ describe('route SEO in the Worker', () => {
   it('uses its own PNG card and a specific title on block pages', async () => {
     const response = await siteWorker.fetch(new Request('https://ui.watermelon.sh/block/hero-3'), mockEnv);
     const html = await response.text();
-    expect(html).toContain('<title>Hero Section 3: Free React &amp; Tailwind Hero Section Block | Watermelon UI</title>');
+    expect(html).toContain('<title>Hero Section 3: Free React Tailwind Block | Watermelon UI</title>');
     expect(html).not.toContain('Widgets are modular');
     expect(html).toContain('property="og:image" content="https://ui.watermelon.sh/og/block-hero-3.png"');
   });
@@ -237,7 +238,7 @@ describe('route SEO in the Worker', () => {
     );
     const html = await response.text();
     expect(html).toContain('<link rel="canonical" href="https://ui.watermelon.sh/components/accordion" />');
-    expect(html).toContain('<title>React Accordion Component, Free shadcn Accordion | Watermelon UI</title>');
+    expect(html).toContain('<title>React Accordion Component for shadcn | Watermelon UI</title>');
     expect(html).not.toContain('href="https://ui.watermelon.sh/" />');
   });
 
@@ -251,7 +252,7 @@ describe('route SEO in the Worker', () => {
     expect(html).toContain('<link rel="canonical" href="https://ui.watermelon.sh/components/tabs" data-seo />');
     expect(html).toContain('<meta property="og:url" content="https://ui.watermelon.sh/components/tabs" data-seo />');
     expect(html).toContain(`<title data-seo>${seo.title}</title>`);
-    expect(html).toContain(`content="${seo.description}" data-seo />`);
+    expect(html).toContain(`content="${fitDescription(seo.description)}" data-seo />`);
     expect(html).not.toContain('Premium React Components, Dashboards');
     // Social cards: X and others read these from the raw HTML.
     expect(html).toMatch(/name="twitter:card"\s+content="summary_large_image"/);

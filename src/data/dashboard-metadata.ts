@@ -6,12 +6,14 @@ type DashboardMetadata = {
 
 const mdxFiles = import.meta.glob('./contents/dashboards/*/*.mdx', {
   eager: true,
+  // Frontmatter only (see mdxFrontmatter in vite.config.ts), so the compiled
+  // MDX bodies stay out of the main bundle.
+  query: '?frontmatter=title,slug,category',
+  import: 'frontmatter',
 });
 
 export const dashboardMetadata: DashboardMetadata[] = Object.values(mdxFiles)
-  .map((mod: any) => {
-    const frontmatter = mod.frontmatter;
-
+  .map((frontmatter: any) => {
     if (!frontmatter?.slug || !frontmatter?.title) {
       return null;
     }

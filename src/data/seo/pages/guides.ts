@@ -253,7 +253,7 @@ export const guidePages: SeoPage[] = [
       {
         heading: 'Using v0 output',
         paragraphs: [
-          'v0 generates shadcn-based React code, so anything it produces sits next to Watermelon components without conflicts. Many people generate a rough layout in v0, then replace sections with polished [blocks](/free/tailwind-blocks).',
+          'v0 generates shadcn-based React code, so anything it produces sits next to Watermelon components without conflicts. Many people generate a rough layout in v0, then replace sections with polished [free Tailwind blocks](/free/tailwind-blocks).',
         ],
       },
     ],
