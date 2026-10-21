@@ -1,0 +1,16 @@
+/*
+ * Utilities for the whole app plus catalog content (src/data/contents).
+ * Imported by the registries and landing bentos, so it loads with the lazy
+ * catalog chunks instead of in the CSS every page blocks on.
+ *
+ * It is a superset of index.css on purpose: it always loads after it, so for
+ * any element its rules arrive in Tailwind's own order. A sheet holding only
+ * the catalog's utilities could re-declare a base utility (px-4) after
+ * index.css's responsive one (sm:px-6) and flip which one wins.
+ */
+@reference "tailwindcss";
+@reference "tw-animate-css";
+@reference "./vendor/shadcn-tailwind.css";
+@reference "./theme.css";
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../";

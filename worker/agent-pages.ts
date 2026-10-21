@@ -105,7 +105,13 @@ The current public HTTP API is read-only. It supports summary, listing, and sing
 
 ## MCP
 
-The hosted Watermelon MCP server is also read-only and currently unauthenticated. It is intended for structured catalog access, not private account actions or repository mutation.`,
+The hosted Watermelon MCP server is also read-only and currently unauthenticated. It is intended for structured catalog access, not private account actions or repository mutation.
+
+## Related developer pages
+
+- [Developers overview](https://ui.watermelon.sh/developers): every public entry point, from llms.txt and the sitemap to the catalog API and MCP
+- [MCP docs](https://ui.watermelon.sh/developers/mcp): how to connect a remote MCP client, which tools it exposes, and when to run the local server
+- [Status and integrations](https://ui.watermelon.sh/developers/status): build metadata, public endpoints, and connection notes for ChatGPT and Claude clients`,
   },
   '/developers/mcp': {
     title: 'MCP Server Setup for AI Coding Agents | Watermelon UI',
@@ -130,7 +136,13 @@ Watermelon MCP gives agents structured access to the public Watermelon catalog w
 
 ## GPT and Claude compatibility
 
-Watermelon MCP is intended for MCP-compatible clients that support remote Streamable HTTP connections. If your GPT-oriented or Claude-oriented client supports remote MCP, use https://mcp.watermelon.sh/mcp as the server URL. If your client only supports local MCP servers, clone the platform repository and run bun run mcp locally.`,
+Watermelon MCP is intended for MCP-compatible clients that support remote Streamable HTTP connections. If your GPT-oriented or Claude-oriented client supports remote MCP, use https://mcp.watermelon.sh/mcp as the server URL. If your client only supports local MCP servers, clone the platform repository and run bun run mcp locally.
+
+## Related developer pages
+
+- [Developers overview](https://ui.watermelon.sh/developers): every public entry point, from llms.txt and the sitemap to the catalog API and MCP
+- [Auth docs](https://ui.watermelon.sh/developers/auth): why the public API and hosted MCP server need no key, and what that means for clients
+- [Status and integrations](https://ui.watermelon.sh/developers/status): build metadata, public endpoints, and connection notes for ChatGPT and Claude clients`,
   },
   '/developers/status': {
     title: 'Status, Endpoints and Integrations | Watermelon UI',
@@ -153,7 +165,13 @@ This page is the public ops overview for Watermelon UI. It is meant to help engi
 
 If your client supports remote MCP over Streamable HTTP, add a new MCP server and use https://mcp.watermelon.sh/mcp as the server URL. After that, use the hosted catalog tools instead of scraping the website manually.
 
-If your client only supports local MCP servers, clone the platform repository and run bun run mcp from the repository root.`,
+If your client only supports local MCP servers, clone the platform repository and run bun run mcp from the repository root.
+
+## Related developer pages
+
+- [Developers overview](https://ui.watermelon.sh/developers): every public entry point, from llms.txt and the sitemap to the catalog API and MCP
+- [Auth docs](https://ui.watermelon.sh/developers/auth): why the public API and hosted MCP server need no key, and what that means for clients
+- [MCP docs](https://ui.watermelon.sh/developers/mcp): how to connect a remote MCP client, which tools it exposes, and when to run the local server`,
   },
   '/about': {
     title: 'About the Open-Source React UI Library | Watermelon UI',
@@ -189,7 +207,18 @@ Watermelon is built for the wider builder community, so we try to keep support a
 
 Watermelon UI is a public browsing and discovery platform, not a personal account system with complex user data storage. We may collect limited technical and usage information such as page views, interaction events, browser or device metadata, and referral information to understand whether the site is working well and where the product experience still has friction.
 
-We use analytics tools such as GA4 and PostHog to understand traffic and product usage patterns. If your browser or network blocks those scripts, some analytics may not run. We do not intentionally collect unnecessary sensitive personal data through normal site usage.
+We use analytics tools such as GA4, PostHog, and Microsoft Clarity to understand traffic and product usage patterns. If your browser or network blocks those scripts, some analytics may not run. We do not intentionally collect unnecessary sensitive personal data through normal site usage.
+
+## Sub-processors
+
+These third parties process data on our behalf to run and measure the site:
+
+- Cloudflare: hosting, content delivery, security, and Cloudflare Web Analytics
+- Google Analytics (GA4): aggregate traffic and page-view analytics
+- PostHog: product analytics and interaction events
+- Microsoft Clarity: session recordings and heatmaps that show how pages are used
+
+Each provider processes data under its own privacy terms. We do not sell personal data, and we do not use these tools to build advertising profiles. Blocking scripts in your browser or with an extension stops most of this collection.
 
 We use collected information for troubleshooting, performance monitoring, feature planning, contributor experience improvements, and product quality work. If we introduce new flows that collect materially different data in the future, this policy should be updated clearly rather than hidden behind vague wording.
 
@@ -220,7 +249,9 @@ export function renderMarkdownAsHtml(markdown: string) {
       }
 
       if (block.startsWith('## ')) {
-        return `<h2>${escapeHtml(block.slice(3))}</h2>`;
+        const heading = block.slice(3);
+        const id = heading.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim().replace(/ +/g, '-');
+        return `<h2 id="${id}">${escapeHtml(heading)}</h2>`;
       }
 
       if (block.startsWith('- ')) {

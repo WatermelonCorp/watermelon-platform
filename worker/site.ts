@@ -4,6 +4,7 @@ import { agentPages, renderMarkdownAsHtml } from './agent-pages';
 import { internalRoutes, knownRoutes } from './routes.generated';
 import { resolveRouteSeo } from './seo-html';
 import { ogImageForPath } from '../src/data/seo/og';
+import { fitDescription } from '../src/data/seo/fit';
 
 type Env = {
   ASSETS: Fetcher;
@@ -23,13 +24,30 @@ const rateLimitHeaders = {
 };
 // HTML documents only. frame-ancestors allows our own subdomains, since the
 // registry host and the main site may embed previews; static files get their
-// headers from public/_headers.
+// headers from public/_headers. Scripts: our own bundle and public/analytics.js,
+// plus the analytics hosts they load (GA4, Clarity, PostHog, and the Cloudflare
+// Web Analytics beacon Cloudflare injects). No inline scripts run on the site.
+const scriptSources = [
+  "'self'",
+  'https://*.googletagmanager.com',
+  'https://*.google-analytics.com',
+  'https://*.clarity.ms',
+  'https://*.posthog.com',
+  'https://static.cloudflareinsights.com',
+];
 const documentSecurityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Content-Security-Policy':
-    "frame-ancestors 'self' https://watermelon.sh https://*.watermelon.sh; base-uri 'self'; object-src 'none'",
+  'Content-Security-Policy': [
+    `script-src ${scriptSources.join(' ')}`,
+    "worker-src 'self' blob:",
+    "frame-ancestors 'self' https://watermelon.sh https://*.watermelon.sh",
+    "base-uri 'self'",
+    "object-src 'none'",
+  ].join('; '),
+  // The build's commit time: HTML only changes when a new build deploys.
+  'Last-Modified': new Date(opsMetadata.committedAt).toUTCString(),
 };
 const aiAgentPatterns = [
   'gptbot',
@@ -235,7 +253,7 @@ async function injectAgentHtml(env: Env, pathname: string) {
   // Route-specific metadata, so no URL ships the homepage title or canonical.
   const routeSeo = agentPages[pathname] ? null : resolveRouteSeo(pathname);
   const title = routeSeo?.title ?? agentPage.title;
-  const description = routeSeo?.description ?? agentPage.description;
+  const description = fitDescription(routeSeo?.description ?? agentPage.description);
   const canonical =
     routeSeo?.canonical ??
     `https://ui.watermelon.sh${pathname === '/' ? '/' : pathname}`;

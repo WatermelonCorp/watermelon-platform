@@ -15,6 +15,7 @@ import {
 import { catalogLinks } from '@/data/seo/catalog-links.generated';
 import { parseInline } from '@/data/seo/inline';
 import { seoIndexSchemas, seoPageSchemas } from '@/data/seo/schema';
+import { seoPageReferences } from '@/data/seo/references';
 import NotFoundPage from '@/pages/not-found';
 
 // ─── Inline text: [links](/path) and `code` ──────────────────────────────────
@@ -47,10 +48,11 @@ function Inline({ text }: { text: string }) {
 
 // ─── Section pieces ──────────────────────────────────────────────────────────
 
-function SectionTable({ table }: { table: NonNullable<SeoSection['table']> }) {
+function SectionTable({ table, caption }: { table: NonNullable<SeoSection['table']>; caption: string }) {
   return (
     <div className="border-border overflow-x-auto rounded-xl border">
       <table className="w-full text-left text-sm">
+        <caption className="sr-only">{caption}</caption>
         <thead className="bg-muted/50">
           <tr>
             {table.columns.map((column, i) => (
@@ -120,7 +122,7 @@ function Section({ section }: { section: SeoSection }) {
           ))}
         </ul>
       )}
-      {section.table && <SectionTable table={section.table} />}
+      {section.table && <SectionTable table={section.table} caption={section.heading} />}
       {section.catalog && <CatalogList spec={section.catalog} />}
     </DocSection>
   );
@@ -208,6 +210,19 @@ function SeoArticle({ page }: { page: SeoPage }) {
                 </DocText>
               </div>
             ))}
+          </DocSection>
+        )}
+        {page.kind !== 'free' && (
+          <DocSection title="References">
+            <ul className="text-muted-foreground list-disc space-y-1 pl-5 text-sm">
+              {seoPageReferences(page).map((ref) => (
+                <li key={ref.href}>
+                  <a href={ref.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+                    {ref.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </DocSection>
         )}
         {related.length > 0 && <PageLinks heading="Related" pages={related} />}

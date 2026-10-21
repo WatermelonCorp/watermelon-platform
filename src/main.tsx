@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { PostHogProvider } from '@posthog/react'
 import './index.css'
 import App from './App.tsx'
+import { setPosthogClient } from './lib/analytics'
 
 const root = document.getElementById('root')
 if (!root) {
@@ -39,32 +39,46 @@ async function canReachPosthog(host: string) {
   }
 }
 
-async function bootstrap() {
-  let enablePosthog = false
+// In production the main stylesheet ships as a preload so it does not block
+// first paint (see nonBlockingCss in vite.config.ts). Attach it and wait, so
+// the first render is styled. In dev, Vite injects styles itself.
+function loadMainStylesheet() {
+  const preload = document.querySelector<HTMLLinkElement>('link[data-main-css]')
+  if (!preload) return Promise.resolve()
+  return new Promise<void>((resolve) => {
+    const sheet = document.createElement('link')
+    sheet.rel = 'stylesheet'
+    sheet.href = preload.href
+    sheet.crossOrigin = preload.crossOrigin
+    sheet.onload = sheet.onerror = () => resolve()
+    preload.after(sheet)
+  })
+}
 
-  if (posthogKey) {
-    const blockedByClient = window.localStorage.getItem(POSTHOG_BLOCKED_KEY) === '1'
-    if (!blockedByClient) {
-      const reachable = await canReachPosthog(posthogHost)
-      if (reachable) {
-        enablePosthog = true
-      } else {
-        window.localStorage.setItem(POSTHOG_BLOCKED_KEY, '1')
-      }
-    }
+// Nothing reads PostHog through React context, so it loads after the first
+// render instead of delaying it or adding ~280 KB to the main bundle.
+async function loadPosthog() {
+  if (!posthogKey) return
+  if (window.localStorage.getItem(POSTHOG_BLOCKED_KEY) === '1') return
+  if (!(await canReachPosthog(posthogHost))) {
+    window.localStorage.setItem(POSTHOG_BLOCKED_KEY, '1')
+    return
   }
+  const { default: posthog } = await import('posthog-js')
+  posthog.init(posthogKey, options)
+  setPosthogClient(posthog)
+}
+
+async function bootstrap() {
+  await loadMainStylesheet()
 
   createRoot(root!).render(
     <StrictMode>
-      {enablePosthog ? (
-        <PostHogProvider apiKey={posthogKey} options={options}>
-          <App />
-        </PostHogProvider>
-      ) : (
-        <App />
-      )}
+      <App />
     </StrictMode>
   )
+
+  await loadPosthog()
 }
 
 void bootstrap()

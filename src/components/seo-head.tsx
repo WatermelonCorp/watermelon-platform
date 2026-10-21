@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { socialImageFor } from '@/data/seo/og';
 import { SITE_URL } from '@/data/seo/site';
+import { fitDescription } from '@/data/seo/fit';
 
 interface SEOHeadProps {
   title: string;
@@ -20,7 +21,7 @@ interface SEOHeadProps {
 
 export function SEOHead({
   title,
-  description,
+  description: rawDescription,
   keywords,
   canonical,
   image,
@@ -30,6 +31,8 @@ export function SEOHead({
   noindex = false,
 }: SEOHeadProps) {
   const fullTitle = title.includes('Watermelon UI') ? title : `${title} | Watermelon UI`;
+  // Same fitting as the Worker, so the app and raw HTML ship one description.
+  const description = fitDescription(rawDescription);
   // Always the production domain. A VITE_SITE_URL set in a build environment
   // (Cloudflare Workers Builds had the workers.dev URL) must never leak into
   // canonical, og:url, or share image URLs.

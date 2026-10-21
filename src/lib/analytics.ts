@@ -1,4 +1,16 @@
-import posthog from "posthog-js";
+import type { PostHog } from "posthog-js";
+
+// PostHog loads after first render (see main.tsx), so it stays out of the
+// main bundle. Until then, PostHog calls are no-ops.
+let posthog: PostHog | null = null;
+
+export function setPosthogClient(client: PostHog) {
+  posthog = client;
+  // The first route change happened before the client existed.
+  trackPosthogPageView(
+    `${window.location.pathname}${window.location.search}${window.location.hash}`,
+  );
+}
 
 type GtagFn = (...args: any[]) => void;
 
@@ -35,8 +47,8 @@ function hasGtag() {
 }
 
 function isPosthogLoaded() {
-  const client = posthog as unknown as { __loaded?: boolean };
-  return client.__loaded === true;
+  const client = posthog as unknown as { __loaded?: boolean } | null;
+  return client?.__loaded === true;
 }
 
 export function loadGtag() {
@@ -72,7 +84,7 @@ export function trackPosthogPageView(path: string) {
   if (!POSTHOG_KEY) return;
   if (!isPosthogLoaded()) return;
   const pageLocation = new URL(path, window.location.origin).toString();
-  posthog.capture("$pageview", { $current_url: pageLocation });
+  posthog?.capture("$pageview", { $current_url: pageLocation });
 }
 
 export function trackEvent(name: string, props: Record<string, unknown> = {}) {
@@ -92,6 +104,6 @@ export function trackEvent(name: string, props: Record<string, unknown> = {}) {
 
   if (POSTHOG_KEY) {
     if (!isPosthogLoaded()) return;
-    posthog.capture(mapEventNameForPosthog(name), enrichedProps);
+    posthog?.capture(mapEventNameForPosthog(name), enrichedProps);
   }
 }

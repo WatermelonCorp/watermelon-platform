@@ -50,7 +50,7 @@ export const comparePages: SeoPage[] = [
   {
     kind: 'compare',
     slug: 'aceternity-ui-vs-magic-ui',
-    title: 'Aceternity UI vs Magic UI: Animated Component Libraries Compared',
+    title: 'Aceternity UI vs Magic UI: Animated Libraries',
     description:
       'Aceternity UI vs Magic UI: two popular animated React component libraries compared on licensing, pricing, install method, and style, plus a free MIT alternative.',
     h1: 'Aceternity UI vs Magic UI',

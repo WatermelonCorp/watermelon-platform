@@ -30,6 +30,7 @@ import { catalogLinks, sharedBlockDescriptionSlugs } from '../src/data/seo/catal
 import { parseInline } from '../src/data/seo/inline';
 import { socialImageFor } from '../src/data/seo/og';
 import { breadcrumbSchema, seoIndexSchemas, seoPageSchemas } from '../src/data/seo/schema';
+import { seoPageReferences } from '../src/data/seo/references';
 
 export interface RouteSeo {
   /** Full document title, including the site suffix. */
@@ -74,15 +75,28 @@ function inline(text: string) {
     .join('');
 }
 
-function list(items: { title: string; href: string }[]) {
+type ListItem = { title: string; href?: string; description?: string };
+
+/** Links (or plain names) with an optional one-line description each. */
+function list(items: ListItem[]) {
   return `<ul>${items
-    .map((item) => `<li><a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a></li>`)
+    .map((item) => {
+      const name = item.href
+        ? `<a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a>`
+        : `<strong>${escapeHtml(item.title)}</strong>`;
+      return `<li>${name}${item.description ? `: ${escapeHtml(item.description)}` : ''}</li>`;
+    })
     .join('')}</ul>`;
 }
 
+// The last crumb is the current page: plain text, not a link to itself.
 function breadcrumbHtml(items: { name: string; path: string }[]) {
   return `<nav aria-label="Breadcrumb"><ol>${items
-    .map((item) => `<li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a></li>`)
+    .map((item, i) =>
+      i === items.length - 1
+        ? `<li><span aria-current="page">${escapeHtml(item.name)}</span></li>`
+        : `<li><a href="${escapeHtml(item.path)}">${escapeHtml(item.name)}</a></li>`,
+    )
     .join('')}</ol></nav>`;
 }
 
@@ -99,7 +113,7 @@ function sectionHtml(section: SeoSection) {
     const rows = section.table.rows
       .map((row) => `<tr>${row.map((cell) => `<td>${inline(cell)}</td>`).join('')}</tr>`)
       .join('');
-    parts.push(`<table><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`);
+    parts.push(`<table><caption>${escapeHtml(section.heading)}</caption><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`);
   }
   if (section.catalog) {
     const spec = section.catalog;
@@ -123,8 +137,9 @@ function seoPageHtml(page: SeoPage) {
           .map((f) => `<h3>${escapeHtml(f.question)}</h3><p>${inline(f.answer)}</p>`)
           .join('')}`
       : '',
+    page.kind !== 'free' ? `<h2>References</h2>${list(seoPageReferences(page))}` : '',
     related.length
-      ? `<h2>Related</h2>${list(related.map((r) => ({ title: r.h1, href: seoPagePath(r) })))}`
+      ? `<h2>Related</h2>${list(related.map((r) => ({ title: r.h1, href: seoPagePath(r), description: r.description })))}`
       : '',
     `<p>Last reviewed <time datetime="${escapeHtml(page.updated)}">${escapeHtml(page.updated)}</time>.</p>`,
   ].join('\n');
@@ -151,7 +166,7 @@ function seoRoute(pathname: string): RouteSeo | null {
         ...index.groups.map(
           (group) =>
             `<h2>${escapeHtml(group.heading)}</h2>${list(
-              seoPagesOfKind(group.kind).map((p) => ({ title: p.h1, href: seoPagePath(p) })),
+              seoPagesOfKind(group.kind).map((p) => ({ title: p.h1, href: seoPagePath(p), description: p.description })),
             )}`,
         ),
       ].join('\n'),
@@ -196,6 +211,49 @@ function titleCase(slug: string) {
     .join(' ');
 }
 
+/**
+ * An entry's description as its own page shows it. Many blocks reuse one
+ * category-wide description (some the wrong category's), so blocks get the
+ * specific one from blockDetailSeo instead.
+ */
+function entryDescription(entry: CatalogEntry) {
+  if (entry.kind !== 'blocks') return entry.description;
+  return blockDetailSeo({
+    slug: entry.slug,
+    title: entry.title,
+    category: entry.category ?? '',
+    description: entry.description,
+    sharedDescription: sharedBlockDescriptionSlugs.includes(entry.slug),
+  }).description;
+}
+
+/** Catalog entries as list items linking to their own pages. */
+function entryItems(entries: CatalogEntry[]): ListItem[] {
+  return entries.map((entry) => ({
+    title: entry.title,
+    href: entry.previewUrl.replace(SITE_URL, ''),
+    description: entryDescription(entry),
+  }));
+}
+
+function usageHtml(name: string, install?: string, dependencies?: string[]) {
+  const deps = dependencies?.filter(Boolean) ?? [];
+  return [
+    `<h2>How to use ${escapeHtml(name)}</h2>`,
+    '<ol>',
+    '<li>Start from a React project with Tailwind CSS and shadcn/ui set up. Next.js, Vite, Remix, and Astro all work.</li>',
+    install
+      ? `<li>Run <code>${escapeHtml(install)}</code> to add the source files to your project.</li>`
+      : '<li>Install it with the shadcn CLI, or copy the source from the preview page.</li>',
+    '<li>Import it where you need it, then edit the Tailwind classes and design tokens to match your product.</li>',
+    '</ol>',
+    deps.length
+      ? `<p>Dependencies installed with it: ${deps.map((d) => `<code>${escapeHtml(d)}</code>`).join(', ')}.</p>`
+      : '',
+    '<p>The code is yours: it lives in your repository, so there is no runtime package to keep updated. Watermelon UI is free and open source under the MIT license.</p>',
+  ].join('');
+}
+
 function catalogPage(options: {
   pathname: string;
   kind: CatalogKind;
@@ -203,8 +261,13 @@ function catalogPage(options: {
   h1: string;
   description: string;
   crumbs: { name: string; path: string }[];
-  entries?: { title: string; href: string }[];
+  entries?: ListItem[];
   install?: string;
+  dependencies?: string[];
+  /** Other entries to link, with their descriptions. */
+  related?: { heading: string; items: ListItem[] };
+  /** Neighbours in the whole section, so every entry has at least two inbound links. */
+  pager?: { prev: CatalogEntry; next: CatalogEntry };
   image?: string | null;
 }): RouteSeo {
   const hub = hubFor[options.kind];
@@ -212,8 +275,14 @@ function catalogPage(options: {
     breadcrumbHtml(options.crumbs),
     `<h1>${escapeHtml(options.h1)}</h1>`,
     `<p>${escapeHtml(options.description)}</p>`,
-    options.install ? `<p>Install: <code>${escapeHtml(options.install)}</code></p>` : '',
     options.entries?.length ? list(options.entries) : '',
+    usageHtml(options.h1, options.install, options.dependencies),
+    options.related?.items.length
+      ? `<h2>${escapeHtml(options.related.heading)}</h2>${list(options.related.items)}`
+      : '',
+    options.pager
+      ? `<nav aria-label="Previous and next"><a rel="prev" href="${escapeHtml(entryItems([options.pager.prev])[0].href!)}">Previous: ${escapeHtml(options.pager.prev.title)}</a> · <a rel="next" href="${escapeHtml(entryItems([options.pager.next])[0].href!)}">Next: ${escapeHtml(options.pager.next.title)}</a></nav>`
+      : '',
     `<p>More: <a href="${hub.href}">${escapeHtml(hub.title)}</a>, <a href="/alternatives">UI library alternatives</a>, <a href="/guides">guides</a>.</p>`,
   ];
   return {
@@ -224,6 +293,29 @@ function catalogPage(options: {
     ogImage: shareImage(options.pathname, options.image),
     schemas: [breadcrumbSchema(options.crumbs)],
     bodyHtml: body.join('\n'),
+  };
+}
+
+// Each catalog page's own description, keyed by its path.
+const descriptionByPath = new Map(
+  Object.values(catalog)
+    .flat()
+    .map((entry) => [entry.previewUrl.replace(SITE_URL, ''), entryDescription(entry)] as const),
+);
+
+function withDescriptions(items: ListItem[]): ListItem[] {
+  return items.map((item) => ({
+    ...item,
+    description: item.description ?? (item.href ? descriptionByPath.get(item.href) : undefined),
+  }));
+}
+
+function neighbours(entries: CatalogEntry[], entry: CatalogEntry) {
+  const at = entries.findIndex((other) => other.slug === entry.slug);
+  if (at < 0 || entries.length < 2) return undefined;
+  return {
+    prev: entries[(at - 1 + entries.length) % entries.length],
+    next: entries[(at + 1) % entries.length],
   };
 }
 
@@ -249,7 +341,9 @@ function catalogRoute(pathname: string): RouteSeo | null {
       h1: seo?.h1 ?? label,
       description: seo?.description ?? `${label} component variants for React and Tailwind CSS.`,
       crumbs: [home, listing.components, { name: label, path: pathname }],
+      entries: variants.map((v) => ({ title: v.title, description: v.description })),
       install: variants[0].installCommand,
+      dependencies: [...new Set(variants.flatMap((v) => v.dependencies ?? []))],
     });
   }
 
@@ -267,7 +361,7 @@ function catalogRoute(pathname: string): RouteSeo | null {
       h1: seo?.h1 ?? label,
       description: seo?.description ?? `${label} blocks for React and Tailwind CSS.`,
       crumbs: [home, listing.blocks, { name: label, path: pathname }],
-      entries: blocks,
+      entries: withDescriptions(blocks),
     });
   }
 
@@ -285,7 +379,7 @@ function catalogRoute(pathname: string): RouteSeo | null {
       h1: seo.h1,
       description: seo.description,
       crumbs: [home, listing['animated-components'], { name: label, path: pathname }],
-      entries: items,
+      entries: withDescriptions(items),
     });
   }
 
@@ -304,6 +398,12 @@ function catalogRoute(pathname: string): RouteSeo | null {
     if (match.kind === 'blocks' && entry.category) {
       crumbs.push({ name: titleCase(entry.category), path: `/blocks/${entry.category.toLowerCase()}` });
     }
+    if (match.kind === 'animated-components' && entry.category) {
+      crumbs.push({
+        name: animatedCategorySeo(entry.category).h1,
+        path: `/animated-components/category/${encodeURIComponent(entry.category)}`,
+      });
+    }
     const seo =
       match.kind === 'blocks'
         ? blockDetailSeo({
@@ -319,6 +419,18 @@ function catalogRoute(pathname: string): RouteSeo | null {
             ? { ...dashboardDetailSeo(entry), h1: entry.title, description: entry.description }
             : { title: `${entry.title}${match.suffix}`, h1: entry.title, description: entry.description };
     crumbs.push({ name: seo.h1, path: pathname });
+    // The next entries in the same category, wrapping around, so every entry
+    // is linked from several siblings rather than all pages linking the first few.
+    // Small categories are topped up from the rest of the section.
+    const rotate = (list: CatalogEntry[]) => {
+      const at = list.findIndex((other) => other.slug === entry.slug);
+      return [...list.slice(at + 1), ...list.slice(0, Math.max(at, 0))];
+    };
+    const sameCategory = rotate(
+      catalog[match.kind].filter((other) => !entry.category || other.category === entry.category),
+    );
+    const restOfKind = rotate(catalog[match.kind]).filter((other) => !sameCategory.includes(other));
+    const siblings = [...sameCategory, ...restOfKind].filter((other) => other.slug !== entry.slug);
     return catalogPage({
       pathname,
       kind: match.kind,
@@ -327,6 +439,9 @@ function catalogRoute(pathname: string): RouteSeo | null {
       description: seo.description || `${entry.title} for React and Tailwind CSS.`,
       crumbs,
       install: entry.installCommand,
+      dependencies: entry.dependencies,
+      related: { heading: `More like ${seo.h1}`, items: entryItems(siblings.slice(0, 8)) },
+      pager: neighbours(catalog[match.kind], entry),
       image: entry.image,
     });
   }
@@ -412,12 +527,14 @@ function staticRoute(pathname: string): RouteSeo | null {
     kind === 'blocks'
       ? [...new Set(catalogLinks.blocks.map((b) => b.category).filter(Boolean) as string[])]
           .sort()
-          .map((c) => ({ title: blockCategorySeo(c)?.h1 ?? titleCase(c), href: `/blocks/${c}` }))
+          .map((c) => ({ title: blockCategorySeo(c)?.h1 ?? titleCase(c), href: `/blocks/${c}`, description: blockCategorySeo(c)?.description }))
       : kind === 'animated-components'
         ? [...new Set(catalogLinks['animated-components'].map((a) => a.category).filter(Boolean) as string[])]
             .sort()
-            .map((c) => ({ title: animatedCategorySeo(c).h1, href: `/animated-components/category/${encodeURIComponent(c)}` }))
-        : catalogLinks[kind];
+            .map((c) => ({ title: animatedCategorySeo(c).h1, href: `/animated-components/category/${encodeURIComponent(c)}`, description: animatedCategorySeo(c).description }))
+        : kind === 'components'
+          ? catalogLinks.components.map((c) => ({ ...c, description: componentCategorySeo(c.href.split('/').pop() ?? '')?.description }))
+          : withDescriptions(catalogLinks[kind]);
   return catalogPage({
     pathname,
     kind,

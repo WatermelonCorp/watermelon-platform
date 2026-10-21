@@ -27,11 +27,29 @@ export default function PrivacyPage() {
         <DocSection title="Analytics Tools">
           <DocCard>
             <DocText>
-              We use analytics providers (such as GA4 and PostHog) to understand
-              traffic and product usage patterns. If your browser blocks analytics
-              scripts, some tracking may not run.
+              We use analytics providers (such as GA4, PostHog, and Microsoft
+              Clarity) to understand traffic and product usage patterns. If your
+              browser blocks analytics scripts, some tracking may not run.
             </DocText>
           </DocCard>
+        </DocSection>
+
+        <DocSection id="subprocessors" title="Sub-processors">
+          <DocText>
+            These third parties process data on our behalf to run and measure the site:
+          </DocText>
+          <ul className="text-muted-foreground list-disc space-y-1 pl-5 text-sm">
+            <li>Cloudflare: hosting, content delivery, security, and Cloudflare Web Analytics</li>
+            <li>Google Analytics (GA4): aggregate traffic and page-view analytics</li>
+            <li>PostHog: product analytics and interaction events</li>
+            <li>Microsoft Clarity: session recordings and heatmaps that show how pages are used</li>
+          </ul>
+          <DocText>
+            Each provider processes data under its own privacy terms. We do not sell
+            personal data, and we do not use these tools to build advertising
+            profiles. Blocking scripts in your browser or with an extension stops
+            most of this collection.
+          </DocText>
         </DocSection>
 
         <DocSection title="How We Use Data">
