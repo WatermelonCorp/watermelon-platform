@@ -5,7 +5,7 @@ const Button5 = () => {
   return (
     <Button disabled>
       <FaBan className="size-4" />
-      Disabed
+      Disabled
     </Button>
   );
 };

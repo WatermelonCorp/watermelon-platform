@@ -130,9 +130,12 @@ Watermelon MCP gives agents structured access to the public Watermelon catalog w
 
 ## Available tools
 
-- catalog_summary
-- list_catalog_entries
-- get_catalog_entry
+- search: find components, blocks, dashboards, and templates across the full catalog
+- get_component: source files, dependencies, and the install command for one entry
+- get_inspiration: compare visual directions for a section or page
+- compose_page: plan compatible sections for a multi-section page
+- list_categories: accurate category names and counts
+- catalog_summary, list_catalog_entries, get_catalog_entry: earlier catalog tools, kept as compatibility aliases
 
 ## GPT and Claude compatibility
 

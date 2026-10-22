@@ -185,7 +185,35 @@ export function animatedDetailSeo(component: { title: string }): Pick<CategorySe
   };
 }
 
-export function dashboardDetailSeo(dashboard: { title: string }): Pick<CategorySeo, 'title'> {
+/**
+ * What each dashboard does, in the words people search. The product names
+ * ("Medesk", "Tallie") are invented, so nobody types them; the job is what
+ * people look for ("hospital dashboard template react"). Each matches the
+ * dashboard's own MDX description.
+ */
+const dashboardJobs: Record<string, string> = {
+  'portfolio-dashboard': 'Insurance Policy',
+  'library-dashboard': 'Library Management',
+  'web3-dashboard': 'Web3 DeFi',
+  'medesk-dashboard': 'Hospital Operations',
+  'capitalio-dashboard': 'Wealth Management',
+  'bionis-dashboard': 'Health and Sleep Tracker',
+  'tallie-dashboard': 'Expense Audit',
+  'agndex-dashboard': 'Developer Portal and API Keys',
+  'astrix-dashboard': 'Trade Compliance',
+  'jobtracker-dashboard': 'Field Service Job Management',
+  'gridline-dashboard': 'Electrical Grid Planning',
+  'demostack-dashboard': 'Product Demo Workspace',
+};
+
+export function dashboardDetailSeo(dashboard: { title: string; slug?: string }): Pick<CategorySeo, 'title'> {
+  const job = dashboard.slug ? dashboardJobs[dashboard.slug] : undefined;
+  if (job) {
+    // Keep the searched words ("template", "free") over the brand suffix:
+    // withSiteSuffix drops the suffix when the full title would not fit.
+    const candidates = [`${job} Dashboard Template for React, Free`, `${job} Dashboard Template, React`];
+    return { title: candidates.find((t) => t.length <= 60) ?? candidates[1] };
+  }
   const base = dashboard.title.replace(/\s+dashboard$/i, '');
   const name = base.charAt(0).toUpperCase() + base.slice(1);
   return {
