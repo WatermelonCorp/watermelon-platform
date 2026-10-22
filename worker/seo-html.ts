@@ -28,6 +28,7 @@ import {
 } from '../src/data/seo/catalog-meta';
 import { catalogLinks, sharedBlockDescriptionSlugs } from '../src/data/seo/catalog-links.generated';
 import { changelogData } from '../src/data/changelog';
+import { componentGuides, guideFaqSchema, type CategoryGuide } from '../src/data/seo/category-guides';
 import { frameworks, requirements } from '../src/data/framework-support';
 import { withSiteSuffix } from '../src/data/seo/fit';
 import { parseInline } from '../src/data/seo/inline';
@@ -275,6 +276,24 @@ function usageHtml(name: string, install?: string, dependencies?: string[]) {
   ].join('');
 }
 
+function guideHtml(guide: CategoryGuide, name: string) {
+  const sibling = (slug: string) =>
+    catalogLinks.components.find((c) => c.href === `/components/${slug}`)?.title ?? titleCase(slug);
+  return [
+    `<h2>About ${escapeHtml(name)}</h2>`,
+    `<p>${escapeHtml(guide.answer)}</p>`,
+    '<h2>When to use it</h2>',
+    `<ul>${guide.useWhen.map((u) => `<li>${escapeHtml(u)}</li>`).join('')}</ul>`,
+    guide.instead.length
+      ? `<h2>When to use something else</h2><ul>${guide.instead
+          .map((i) => `<li>Use <a href="/components/${escapeHtml(i.slug)}">${escapeHtml(sibling(i.slug))}</a> when ${escapeHtml(i.when)}.</li>`)
+          .join('')}</ul>`
+      : '',
+    '<h2>Frequently asked questions</h2>',
+    guide.faq.map((f) => `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p>`).join(''),
+  ].join('');
+}
+
 function catalogPage(options: {
   pathname: string;
   kind: CatalogKind;
@@ -290,6 +309,9 @@ function catalogPage(options: {
   /** Neighbours in the whole section, so every entry has at least two inbound links. */
   pager?: { prev: CatalogEntry; next: CatalogEntry };
   image?: string | null;
+  /** Extra crawlable sections placed after the entries list. */
+  extraHtml?: string;
+  extraSchemas?: object[];
 }): RouteSeo {
   const hub = hubFor[options.kind];
   const body = [
@@ -297,6 +319,7 @@ function catalogPage(options: {
     `<h1>${escapeHtml(options.h1)}</h1>`,
     `<p>${escapeHtml(options.description)}</p>`,
     options.entries?.length ? list(options.entries) : '',
+    options.extraHtml ?? '',
     usageHtml(options.h1, options.install, options.dependencies),
     options.related?.items.length
       ? `<h2>${escapeHtml(options.related.heading)}</h2>${list(options.related.items)}`
@@ -312,7 +335,7 @@ function catalogPage(options: {
     canonical: `${SITE_URL}${options.pathname}`,
     ogType: 'website',
     ogImage: shareImage(options.pathname, options.image),
-    schemas: [breadcrumbSchema(options.crumbs)],
+    schemas: [breadcrumbSchema(options.crumbs), ...(options.extraSchemas ?? [])],
     bodyHtml: body.join('\n'),
   };
 }
@@ -355,6 +378,7 @@ function catalogRoute(pathname: string): RouteSeo | null {
     if (!variants.length) return null;
     const label = catalogLinks.components.find((c) => c.href === pathname)?.title ?? titleCase(category);
     const seo = componentCategorySeo(category, variants.length);
+    const guide = componentGuides[category];
     return catalogPage({
       pathname,
       kind: 'components',
@@ -365,6 +389,8 @@ function catalogRoute(pathname: string): RouteSeo | null {
       entries: variants.map((v) => ({ title: v.title, description: v.description })),
       install: variants[0].installCommand,
       dependencies: [...new Set(variants.flatMap((v) => v.dependencies ?? []))],
+      extraHtml: guide ? guideHtml(guide, seo?.h1 ?? label) : undefined,
+      extraSchemas: guide ? [guideFaqSchema(guide)] : undefined,
     });
   }
 

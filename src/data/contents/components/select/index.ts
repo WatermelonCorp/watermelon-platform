@@ -80,6 +80,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-01',
     title: 'Select 1',
+    description: "Native HTML select with a label and rounded border for picking an account role.",
     component: Select1,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-1.json',
     code: code1,
@@ -87,6 +88,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-02',
     title: 'Select 2',
+    description: "Native select that opens on a disabled placeholder option until a choice is made.",
     component: Select2,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-2.json',
     code: code2,
@@ -94,6 +96,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-03',
     title: 'Select 3',
+    description: "Native select with a database icon placed inside the field on the left.",
     component: Select3,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-3.json',
     code: code3,
@@ -101,6 +104,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-04',
     title: 'Select 4',
+    description: "Native select with a muted helper text line below explaining the choice.",
     component: Select4,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-4.json',
     code: code4,
@@ -108,6 +112,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-05',
     title: 'Select 5',
+    description: "Native select in an invalid state with a red border and red error message.",
     component: Select5,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-5.json',
     code: code5,
@@ -115,6 +120,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-06',
     title: 'Select 6',
+    description: "Required native select with a red asterisk next to its label.",
     component: Select6,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-6.json',
     code: code6,
@@ -122,6 +128,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-07',
     title: 'Select 7',
+    description: "Native select with options split into labelled optgroup sections.",
     component: Select7,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-7.json',
     code: code7,
@@ -129,6 +136,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-08',
     title: 'Select 8',
+    description: "Native select with a floating label that sits on the top border and darkens on focus.",
     component: Select8,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-8.json',
     code: code8,
@@ -136,6 +144,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-09',
     title: 'Select 9',
+    description: "Native select inside a bordered box with a small uppercase label above the value.",
     component: Select9,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-9.json',
     code: code9,
@@ -143,6 +152,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-10',
     title: 'Select 10',
+    description: "Custom dropdown select with a preselected value and a labelled group heading in the menu.",
     component: Select10,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-10.json',
     code: code10,
@@ -150,6 +160,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-11',
     title: 'Select 11',
+    description: "Custom dropdown that shows placeholder text until a grouped option is picked.",
     component: Select11,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-11.json',
     code: code11,
@@ -157,6 +168,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-12',
     title: 'Select 12',
+    description: "Custom dropdown with a desktop icon shown before the selected value in the trigger.",
     component: Select12,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-12.json',
     code: code12,
@@ -164,6 +176,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-13',
     title: 'Select 13',
+    description: "Custom dropdown select with a muted description line underneath the field.",
     component: Select13,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-13.json',
     code: code13,
@@ -171,6 +184,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-14',
     title: 'Select 14',
+    description: "Custom dropdown in an amber warning state with a matching border and alert message.",
     component: Select14,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-14.json',
     code: code14,
@@ -178,6 +192,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-15',
     title: 'Select 15',
+    description: "Three stacked dropdowns showing small, default and large trigger sizes.",
     component: Select15,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-15.json',
     code: code15,
@@ -185,6 +200,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-16',
     title: 'Select 16',
+    description: "Custom dropdown for picking a P1 to P4 priority level with a soft focus ring.",
     component: Select16,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-16.json',
     code: code16,
@@ -192,6 +208,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-17',
     title: 'Select 17',
+    description: "Filled dropdown with a light gray background and no shadow instead of a white field.",
     component: Select17,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-17.json',
     code: code17,
@@ -199,6 +216,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-18',
     title: 'Select 18',
+    description: "Borderless ghost dropdown with a transparent trigger that only tints on hover.",
     component: Select18,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-18.json',
     code: code18,
@@ -206,6 +224,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-19',
     title: 'Select 19',
+    description: "Disabled dropdown that is faded and locked to its preselected value.",
     component: Select19,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-19.json',
     code: code19,
@@ -213,6 +232,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-20',
     title: 'Select 20',
+    description: "Dropdown where some options are disabled and greyed out as full or offline.",
     component: Select20,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-20.json',
     code: code20,
@@ -220,6 +240,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-21',
     title: 'Select 21',
+    description: "Required custom dropdown with a red asterisk beside the label.",
     component: Select21,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-21.json',
     code: code21,
@@ -227,6 +248,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-22',
     title: 'Select 22',
+    description: "Dropdown menu with options organised under two labelled groups.",
     component: Select22,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-22.json',
     code: code22,
@@ -234,6 +256,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-23',
     title: 'Select 23',
+    description: "Grouped dropdown menu with a divider line separating the two option groups.",
     component: Select23,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-23.json',
     code: code23,
@@ -241,6 +264,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-24',
     title: 'Select 24',
+    description: "Custom dropdown with a floating label resting on the top border of the trigger.",
     component: Select24,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-24.json',
     code: code24,
@@ -248,6 +272,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-25',
     title: 'Select 25',
+    description: "Dropdown nested in a bordered card with an uppercase label and borderless trigger.",
     component: Select25,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-25.json',
     code: code25,
@@ -255,6 +280,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-26',
     title: 'Select 26',
+    description: "Dropdown with read and write permission groups for choosing an API access scope.",
     component: Select26,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-26.json',
     code: code26,
@@ -262,6 +288,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-27',
     title: 'Select 27',
+    description: "Dropdown where each option shows a small icon before its label.",
     component: Select27,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-27.json',
     code: code27,
@@ -269,6 +296,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-28',
     title: 'Select 28',
+    description: "Dropdown whose trigger shows a fixed prefix label before the selected value.",
     component: Select28,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-28.json',
     code: code28,
@@ -276,6 +304,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-29',
     title: 'Select 29',
+    description: "Dropdown with colored status dots for draft, live, archived and legacy states.",
     component: Select29,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-29.json',
     code: code29,
@@ -283,6 +312,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-30',
     title: 'Select 30',
+    description: "Dropdown listing regions with country flag images beside each option.",
     component: Select30,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-30.json',
     code: code30,
@@ -290,6 +320,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-31',
     title: 'Select 31',
+    description: "Dropdown for assigning a team member with an avatar beside each name.",
     component: Select31,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-31.json',
     code: code31,
@@ -297,6 +328,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-32',
     title: 'Select 32',
+    description: "Multi-select popover with checkmarks that shows a count once several items are chosen.",
     component: Select32,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-32.json',
     code: code32,
@@ -304,6 +336,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-33',
     title: 'Select 33',
+    description: "Multi-select popover for notification channels with a helper note under the field.",
     component: Select33,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-33.json',
     code: code33,
@@ -311,6 +344,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-34',
     title: 'Select 34',
+    description: "Native multiple select showing all options in a tall list box with a Cmd or Ctrl hint.",
     component: Select34,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-34.json',
     code: code34,
@@ -318,6 +352,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-35',
     title: 'Select 35',
+    description: "Always-visible single-select list box with a description under each option and a disabled item.",
     component: Select35,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-35.json',
     code: code35,
@@ -325,6 +360,7 @@ export const variants: UiVariant[] = [
   {
     id: 'select-36',
     title: 'Select 36',
+    description: "Always-visible multi-select list box with two headed sections, a divider and checkmarks.",
     component: Select36,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/select-36.json',
     code: code36,

@@ -50,6 +50,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-01',
     title: 'Textarea 1',
+    description: "Plain textarea with no label, a soft primary focus ring and slightly rounded corners.",
     component: Textarea1,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-1.json',
     code: code1,
@@ -57,6 +58,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-02',
     title: 'Textarea 2',
+    description: "Basic textarea with a visible label above it and a soft primary focus ring.",
     component: Textarea2,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-2.json',
     code: code2,
@@ -64,6 +66,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-03',
     title: 'Textarea 3',
+    description: "Labelled textarea with a small right-aligned helper note shown underneath the field.",
     component: Textarea3,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-3.json',
     code: code3,
@@ -71,6 +74,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-04',
     title: 'Textarea 4',
+    description: "Required textarea with a red asterisk on the label for mandatory issue descriptions.",
     component: Textarea4,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-4.json',
     code: code4,
@@ -78,6 +82,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-05',
     title: 'Textarea 5',
+    description: "Labelled textarea that shows an emerald green border and ring when focused.",
     component: Textarea5,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-5.json',
     code: code5,
@@ -85,6 +90,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-06',
     title: 'Textarea 6',
+    description: "Note textarea with a pen icon placed inside the field at the top left.",
     component: Textarea6,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-6.json',
     code: code6,
@@ -92,6 +98,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-07',
     title: 'Textarea 7',
+    description: "Idea textarea with a lightbulb icon placed inside the field at the top right.",
     component: Textarea7,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-7.json',
     code: code7,
@@ -99,6 +106,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-08',
     title: 'Textarea 8',
+    description: "Textarea in an error state with a red border and an inline validation message below.",
     component: Textarea8,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-8.json',
     code: code8,
@@ -106,6 +114,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-09',
     title: 'Textarea 9',
+    description: "Labelled textarea with an Optional tag aligned to the right of the label.",
     component: Textarea9,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-9.json',
     code: code9,
@@ -113,6 +122,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-10',
     title: 'Textarea 10',
+    description: "Textarea with its label sitting on the top border line, like an outlined field.",
     component: Textarea10,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-10.json',
     code: code10,
@@ -120,6 +130,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-11',
     title: 'Textarea 11',
+    description: "Textarea with a floating label that moves up onto the border on focus or input.",
     component: Textarea11,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-11.json',
     code: code11,
@@ -127,6 +138,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-12',
     title: 'Textarea 12',
+    description: "Disabled textarea with dimmed styling and a not-allowed cursor for auto-generated content.",
     component: Textarea12,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-12.json',
     code: code12,
@@ -134,6 +146,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-13',
     title: 'Textarea 13',
+    description: "Read-only textarea with a muted background showing pre-filled output that cannot be edited.",
     component: Textarea13,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-13.json',
     code: code13,
@@ -141,6 +154,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-14',
     title: 'Textarea 14',
+    description: "Auto-growing textarea that expands with its content up to a set maximum height.",
     component: Textarea14,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-14.json',
     code: code14,
@@ -148,6 +162,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-15',
     title: 'Textarea 15',
+    description: "Fixed-size textarea with the resize handle turned off so users cannot drag it.",
     component: Textarea15,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-15.json',
     code: code15,
@@ -155,6 +170,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-16',
     title: 'Textarea 16',
+    description: "Textarea with the label placed inside the same bordered box, above the text area.",
     component: Textarea16,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-16.json',
     code: code16,
@@ -162,6 +178,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-17',
     title: 'Textarea 17',
+    description: "Reply textarea with a small Post Reply button underneath, suited to comment threads.",
     component: Textarea17,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-17.json',
     code: code17,
@@ -169,6 +186,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-18',
     title: 'Textarea 18',
+    description: "Textarea with a 200 character limit and a live counter of characters remaining.",
     component: Textarea18,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-18.json',
     code: code18,
@@ -176,6 +194,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-19',
     title: 'Textarea 19',
+    description: "Three stacked textareas showing compact, standard and expanded height sizes.",
     component: Textarea19,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-19.json',
     code: code19,
@@ -183,6 +202,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-20',
     title: 'Textarea 20',
+    description: "Project details textarea with left-aligned hint text below suggesting what to include.",
     component: Textarea20,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-20.json',
     code: code20,
@@ -190,6 +210,7 @@ export const variants: UiVariant[] = [
   {
     id: 'textarea-21',
     title: 'Textarea 21',
+    description: "Filled textarea with a muted background and no visible border until focused.",
     component: Textarea21,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/textarea-21.json',
     code: code21,

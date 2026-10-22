@@ -106,10 +106,12 @@ function buildComponentEntries(): CatalogEntry[] {
       const categoryDescription = quotedValue(configSource, 'description')
         ?? `${category} component variants.`;
       const entries: CatalogEntry[] = [];
-      const variantPattern = /id:\s*['"]([^'"]+)['"][\s\S]*?title:\s*['"]([^'"]+)['"][\s\S]*?cli:\s*['"]([^'"]+)['"]/g;
+      const variantPattern = /id:\s*['"]([^'"]+)['"]([\s\S]*?)cli:\s*['"]([^'"]+)['"]/g;
 
       for (const match of indexSource.matchAll(variantPattern)) {
-        const [, id, title, installCommand] = match;
+        const [, id, fields, installCommand] = match;
+        const title = quotedValue(fields, 'title') ?? id;
+        const variantDescription = fields.match(/description:\s*"((?:[^"\\]|\\.)*)"/)?.[1];
         const registryUrl = installCommand.match(/https:\/\/registry\.watermelon\.sh\/r\/([^\s]+\.json)/)?.[0];
         const registrySlug = registryUrl?.split('/').at(-1)?.replace(/\.json$/, '') ?? id;
         const variantNumber = Number(id.match(/(\d+)$/)?.[1]);
@@ -120,7 +122,7 @@ function buildComponentEntries(): CatalogEntry[] {
           kind: 'components',
           slug: registrySlug,
           title,
-          description: `${title}. ${categoryDescription}`,
+          description: variantDescription ?? `${title}. ${categoryDescription}`,
           category,
           path: path.relative(REPO_ROOT, sourcePath).replaceAll(path.sep, '/'),
           previewUrl: `${SITE_URL}/components/${category}`,

@@ -55,6 +55,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-01",
     title: "Calendar 1",
+    description: "Basic single-month date picker that preselects today and lets you choose one day.",
     component: Calendar1,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-1.json",
     code: code1,
@@ -62,6 +63,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-02",
     title: "Calendar 2",
+    description: "Two months shown side by side for picking a single date across a month boundary.",
     component: Calendar2,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-2.json",
     code: code2,
@@ -69,6 +71,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-03",
     title: "Calendar 3",
+    description: "Single-month calendar for selecting a start and end date range.",
     component: Calendar3,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-3.json",
     code: code3,
@@ -76,6 +79,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-04",
     title: "Calendar 4",
+    description: "Two-month range picker showing a longer date span across adjacent months.",
     component: Calendar4,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-4.json",
     code: code4,
@@ -83,6 +87,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-05",
     title: "Calendar 5",
+    description: "Range calendar that enforces a minimum span of five days between start and end.",
     component: Calendar5,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-5.json",
     code: code5,
@@ -90,6 +95,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-06",
     title: "Calendar 6",
+    description: "Single-date calendar that disables every day before a set minimum date.",
     component: Calendar6,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-6.json",
     code: code6,
@@ -97,6 +103,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-07",
     title: "Calendar 7",
+    description: "Range calendar with Saturdays and Sundays disabled and excluded from the selection.",
     component: Calendar7,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-7.json",
     code: code7,
@@ -104,6 +111,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-08",
     title: "Calendar 8",
+    description: "Range picker in a card with a language select that switches between English and Hindi numerals.",
     component: Calendar8,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-8.json",
     code: code8,
@@ -111,6 +119,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-09",
     title: "Calendar 9",
+    description: "Single-date calendar with month and year dropdowns in the header for fast jumping.",
     component: Calendar9,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-9.json",
     code: code9,
@@ -118,6 +127,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-10",
     title: "Calendar 10",
+    description: "Calendar with large day cells that scale with the width of their container.",
     component: Calendar10,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-10.json",
     code: code10,
@@ -125,6 +135,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-11",
     title: "Calendar 11",
+    description: "Calendar card with an agenda list of color-coded events and an add event button below.",
     component: Calendar11,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-11.json",
     code: code11,
@@ -132,6 +143,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-12",
     title: "Calendar 12",
+    description: "Multi-date calendar that lets you pick up to five separate days.",
     component: Calendar12,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-12.json",
     code: code12,
@@ -139,6 +151,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-13",
     title: "Calendar 13",
+    description: "Single-date calendar with circular day cells and an orange selected day.",
     component: Calendar13,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-13.json",
     code: code13,
@@ -146,6 +159,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-14",
     title: "Calendar 14",
+    description: "Range calendar with orange round start and end caps joined by a soft orange band.",
     component: Calendar14,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-14.json",
     code: code14,
@@ -153,6 +167,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-15",
     title: "Calendar 15",
+    description: "Calendar with the month title on the left and navigation arrows aligned right.",
     component: Calendar15,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-15.json",
     code: code15,
@@ -160,6 +175,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-16",
     title: "Calendar 16",
+    description: "Calendar with navigation arrows on the left and the month title aligned right.",
     component: Calendar16,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-16.json",
     code: code16,
@@ -167,6 +183,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-17",
     title: "Calendar 17",
+    description: "Single-date calendar that shows ISO week numbers in a column beside each row.",
     component: Calendar17,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-17.json",
     code: code17,
@@ -174,6 +191,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-18",
     title: "Calendar 18",
+    description: "Booking card calendar with a Today button that jumps back to the current date.",
     component: Calendar18,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-18.json",
     code: code18,
@@ -181,6 +199,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-19",
     title: "Calendar 19",
+    description: "Calendar card with a date input above that stays in sync with the selected day.",
     component: Calendar19,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-19.json",
     code: code19,
@@ -188,6 +207,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-20",
     title: "Calendar 20",
+    description: "Calendar card paired with a time input with a clock icon for date and time entry.",
     component: Calendar20,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-20.json",
     code: code20,
@@ -195,6 +215,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-21",
     title: "Calendar 21",
+    description: "Calendar whose month title opens a scrollable year and month grid from 1980 to 2030.",
     component: Calendar21,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-21.json",
     code: code21,
@@ -202,6 +223,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-22",
     title: "Calendar 22",
+    description: "Single-date calendar with quick preset buttons such as Today, Tomorrow and In a week.",
     component: Calendar22,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-22.json",
     code: code22,
@@ -209,6 +231,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-23",
     title: "Calendar 23",
+    description: "Range calendar with preset buttons like Last 7 days, Month to date and Last year.",
     component: Calendar23,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-23.json",
     code: code23,
@@ -216,6 +239,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-24",
     title: "Calendar 24",
+    description: "Appointment booking card with booked days struck through and a scrolling list of time slots.",
     component: Calendar24,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-24.json",
     code: code24,
@@ -223,6 +247,7 @@ export const variants: UiVariant[] = [
   {
     id: "calendar-25",
     title: "Calendar 25",
+    description: "Calendar that shows a price under each day, highlighting cheaper days in green.",
     component: Calendar25,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/calendar-25.json",
     code: code25,

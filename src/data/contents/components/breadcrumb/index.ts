@@ -21,6 +21,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-01",
     title: "Breadcrumb 1",
+    description: "Breadcrumb trail centred inside a rounded bordered bar with default chevron separators.",
     component: Breadcrumb1,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-1.json",
     code: code1,
@@ -28,6 +29,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-02",
     title: "Breadcrumb 2",
+    description: "Breadcrumb with a grid icon on the first link, slash separators and an underlined current page.",
     component: Breadcrumb2,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-2.json",
     code: code2,
@@ -35,6 +37,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-03",
     title: "Breadcrumb 3",
+    description: "Breadcrumb with an icon before every item, such as home, folder and file, and chevron separators.",
     component: Breadcrumb3,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-3.json",
     code: code3,
@@ -42,6 +45,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-04",
     title: "Breadcrumb 4",
+    description: "Breadcrumb with dot separators and a softly shaded highlight behind the current page.",
     component: Breadcrumb4,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-4.json",
     code: code4,
@@ -49,6 +53,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-05",
     title: "Breadcrumb 5",
+    description: "Breadcrumb where each step is an outline badge, joined by arrow separators.",
     component: Breadcrumb5,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-5.json",
     code: code5,
@@ -56,6 +61,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-06",
     title: "Breadcrumb 6",
+    description: "Badge-style breadcrumb whose last item is a dropdown for switching between sibling pages.",
     component: Breadcrumb6,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-6.json",
     code: code6,
@@ -63,6 +69,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-07",
     title: "Breadcrumb 7",
+    description: "Breadcrumb with an icon-only home link and a folder icon that opens a menu of hidden sections.",
     component: Breadcrumb7,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-7.json",
     code: code7,
@@ -70,6 +77,7 @@ export const variants: UiVariant[] = [
   {
     id: "breadcrumb-08",
     title: "Breadcrumb 8",
+    description: "Compact pill-shaped breadcrumb with a home icon and slash separators.",
     component: Breadcrumb8,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/breadcrumb-8.json",
     code: code8,

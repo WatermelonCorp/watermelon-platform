@@ -48,6 +48,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-01',
     title: 'Switch 1',
+    description: "Basic toggle switch with a clickable Enable Notifications label beside it.",
     component: Switch1,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-1.json',
     code: code1,
@@ -55,6 +56,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-02',
     title: 'Switch 2',
+    description: "Square-cornered switch with a square thumb instead of the usual pill shape.",
     component: Switch2,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-2.json',
     code: code2,
@@ -62,6 +64,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-03',
     title: 'Switch 3',
+    description: "Four solid colour switches in red, teal, blue and amber for destructive, success, info and warning.",
     component: Switch3,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-3.json',
     code: code3,
@@ -69,6 +72,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-04',
     title: 'Switch 4',
+    description: "Gradient switch whose track goes from yellow when off to blue and indigo when on.",
     component: Switch4,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-4.json',
     code: code4,
@@ -76,6 +80,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-05',
     title: 'Switch 5',
+    description: "Outline switches in red, teal, blue and yellow with a tinted track and coloured thumb when on.",
     component: Switch5,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-5.json',
     code: code5,
@@ -83,6 +88,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-06',
     title: 'Switch 6',
+    description: "Mini switch with a thin three pixel track and an oversized bordered thumb.",
     component: Switch6,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-6.json',
     code: code6,
@@ -90,6 +96,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-07',
     title: 'Switch 7',
+    description: "Three switches side by side in small, medium and large sizes.",
     component: Switch7,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-7.json',
     code: code7,
@@ -97,6 +104,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-08',
     title: 'Switch 8',
+    description: "Switch with check and X icons beside it that highlight to match the current state.",
     component: Switch8,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-8.json',
     code: code8,
@@ -104,6 +112,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-09',
     title: 'Switch 9',
+    description: "Wide switch with check and X icons inside the track and a thumb that slides over them.",
     component: Switch9,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-9.json',
     code: code9,
@@ -111,6 +120,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-10',
     title: 'Switch 10',
+    description: "Rounded-square theme switch with moon and sun icons inside and a half-width sliding thumb.",
     component: Switch10,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-10.json',
     code: code10,
@@ -118,6 +128,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-11',
     title: 'Switch 11',
+    description: "Bordered settings card for Auto Sync with a description and a sync icon that rotates when on.",
     component: Switch11,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-11.json',
     code: code11,
@@ -125,6 +136,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-12',
     title: 'Switch 12',
+    description: "Preference list of three switches for privacy, notifications and dark theme, each with an icon.",
     component: Switch12,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-12.json',
     code: code12,
@@ -132,6 +144,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-13',
     title: 'Switch 13',
+    description: "Email updates settings card that gets a primary border and glow ring when switched on.",
     component: Switch13,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-13.json',
     code: code13,
@@ -139,6 +152,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-14',
     title: 'Switch 14',
+    description: "Cloud backup card on a grey background that gains a dark ring and raised shadow when on.",
     component: Switch14,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-14.json',
     code: code14,
@@ -146,6 +160,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-15',
     title: 'Switch 15',
+    description: "Switch whose label text changes between Notifications On and Notifications Off.",
     component: Switch15,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-15.json',
     code: code15,
@@ -153,6 +168,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-16',
     title: 'Switch 16',
+    description: "Light and dark mode switch with clickable sun and moon icons on either side.",
     component: Switch16,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-16.json',
     code: code16,
@@ -160,6 +176,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-17',
     title: 'Switch 17',
+    description: "Switch with a single label icon that swaps between a moon and a sun as it toggles.",
     component: Switch17,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-17.json',
     code: code17,
@@ -167,6 +184,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-18',
     title: 'Switch 18',
+    description: "Yes or No switch with clickable text labels on both sides that dim when inactive.",
     component: Switch18,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-18.json',
     code: code18,
@@ -174,6 +192,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-19',
     title: 'Switch 19',
+    description: "Auto sync row on a muted panel with helper text that changes with the switch state.",
     component: Switch19,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-19.json',
     code: code19,
@@ -181,6 +200,7 @@ export const variants: UiVariant[] = [
   {
     id: 'switch-20',
     title: 'Switch 20',
+    description: "Pill-shaped alerts toggle with a bell icon that swaps to a muted bell and text when paused.",
     component: Switch20,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/switch-20.json',
     code: code20,

@@ -68,6 +68,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-01',
     title: 'Alert 1',
+    description: "Single-line bordered alert with an info icon and a short message title.",
     component: Alert1,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-1.json',
     code: code1,
@@ -75,6 +76,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-02',
     title: 'Alert 2',
+    description: "Message notification with a sender avatar, a reply title and an unread count line.",
     component: Alert2,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-2.json',
     code: code2,
@@ -82,6 +84,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-03',
     title: 'Alert 3',
+    description: "Dismissible alert with a title, description and a close button that hides it.",
     component: Alert3,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-3.json',
     code: code3,
@@ -89,6 +92,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-04',
     title: 'Alert 4',
+    description: "Teal bordered single-line alert with an inline link that has a sliding arrow.",
     component: Alert4,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-4.json',
     code: code4,
@@ -96,6 +100,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-05',
     title: 'Alert 5',
+    description: "Square-cornered file warning with a red icon block attached to the left edge.",
     component: Alert5,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-5.json',
     code: code5,
@@ -103,6 +108,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-06',
     title: 'Alert 6',
+    description: "File warning with the alert icon inside a red rounded square avatar tile.",
     component: Alert6,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-6.json',
     code: code6,
@@ -110,6 +116,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-07',
     title: 'Alert 7',
+    description: "File upload alert with a cyan progress bar, Cancel and Upload another actions, and close button.",
     component: Alert7,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-7.json',
     code: code7,
@@ -117,6 +124,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-08',
     title: 'Alert 8',
+    description: "Dark primary filled update prompt with Later and Update now buttons and a close button.",
     component: Alert8,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-8.json',
     code: code8,
@@ -124,6 +132,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-09',
     title: 'Alert 9',
+    description: "Task assignment alert with an assigner avatar, task details and a yellow progress bar.",
     component: Alert9,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-9.json',
     code: code9,
@@ -131,6 +140,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-10',
     title: 'Alert 10',
+    description: "Dismissible email verification notice with a soft accent gradient fading top to bottom.",
     component: Alert10,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-10.json',
     code: code10,
@@ -138,6 +148,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-11',
     title: 'Alert 11',
+    description: "Green success alert with a thick left border accent and a user check icon.",
     component: Alert11,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-11.json',
     code: code11,
@@ -145,6 +156,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-12',
     title: 'Alert 12',
+    description: "Square red declined notice with a thick left border and a user remove icon.",
     component: Alert12,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-12.json',
     code: code12,
@@ -152,6 +164,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-13',
     title: 'Alert 13',
+    description: "Single-line message alert with a ghost Open button aligned to the right.",
     component: Alert13,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-13.json',
     code: code13,
@@ -159,6 +172,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-14',
     title: 'Alert 14',
+    description: "Error message using the built-in destructive alert variant with a warning icon.",
     component: Alert14,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-14.json',
     code: code14,
@@ -166,6 +180,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-15',
     title: 'Alert 15',
+    description: "Payment failure error with a red border and faint red background tint.",
     component: Alert15,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-15.json',
     code: code15,
@@ -173,6 +188,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-16',
     title: 'Alert 16',
+    description: "Minimal text-only alert on an accent background with no icon.",
     component: Alert16,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-16.json',
     code: code16,
@@ -180,6 +196,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-17',
     title: 'Alert 17',
+    description: "Default bordered alert with an icon, a bold title and a supporting description.",
     component: Alert17,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-17.json',
     code: code17,
@@ -187,6 +204,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-18',
     title: 'Alert 18',
+    description: "Sky blue info alert with a matching border, tinted background and description.",
     component: Alert18,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-18.json',
     code: code18,
@@ -194,6 +212,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-19',
     title: 'Alert 19',
+    description: "Green success alert with a check circle icon for confirming a placed order.",
     component: Alert19,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-19.json',
     code: code19,
@@ -201,6 +220,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-20',
     title: 'Alert 20',
+    description: "Yellow warning alert with border and tint for unstable connection messages.",
     component: Alert20,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-20.json',
     code: code20,
@@ -208,6 +228,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-21',
     title: 'Alert 21',
+    description: "Borderless alert on a faint primary tint listing supported upload file formats.",
     component: Alert21,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-21.json',
     code: code21,
@@ -215,6 +236,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-22',
     title: 'Alert 22',
+    description: "Borderless sky blue info callout giving upload format and size guidelines.",
     component: Alert22,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-22.json',
     code: code22,
@@ -222,6 +244,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-23',
     title: 'Alert 23',
+    description: "Borderless soft green success callout with a check icon for completed uploads.",
     component: Alert23,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-23.json',
     code: code23,
@@ -229,6 +252,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-24',
     title: 'Alert 24',
+    description: "Borderless soft yellow warning callout with an alert icon for large file uploads.",
     component: Alert24,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-24.json',
     code: code24,
@@ -236,6 +260,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-25',
     title: 'Alert 25',
+    description: "Borderless soft red error callout for a request that could not be completed.",
     component: Alert25,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-25.json',
     code: code25,
@@ -243,6 +268,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-26',
     title: 'Alert 26',
+    description: "Solid primary filled alert with inverted text for an unsaved settings reminder.",
     component: Alert26,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-26.json',
     code: code26,
@@ -250,6 +276,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-27',
     title: 'Alert 27',
+    description: "Solid green filled alert with white text confirming saved preferences.",
     component: Alert27,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-27.json',
     code: code27,
@@ -257,6 +284,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-28',
     title: 'Alert 28',
+    description: "Solid yellow filled alert with white text and a warning icon for incomplete setup.",
     component: Alert28,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-28.json',
     code: code28,
@@ -264,6 +292,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-29',
     title: 'Alert 29',
+    description: "Solid blue filled alert with white text announcing a profile visibility change.",
     component: Alert29,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-29.json',
     code: code29,
@@ -271,6 +300,7 @@ export const variants: UiVariant[] = [
   {
     id: 'alerts-30',
     title: 'Alert 30',
+    description: "Solid red filled alert with white text reporting a failed update.",
     component: Alert30,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/alert-30.json',
     code: code30,
