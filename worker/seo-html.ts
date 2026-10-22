@@ -27,6 +27,9 @@ import {
   dashboardDetailSeo,
 } from '../src/data/seo/catalog-meta';
 import { catalogLinks, sharedBlockDescriptionSlugs } from '../src/data/seo/catalog-links.generated';
+import { changelogData } from '../src/data/changelog';
+import { frameworks, requirements } from '../src/data/framework-support';
+import { withSiteSuffix } from '../src/data/seo/fit';
 import { parseInline } from '../src/data/seo/inline';
 import { socialImageFor } from '../src/data/seo/og';
 import { breadcrumbSchema, seoIndexSchemas, seoPageSchemas } from '../src/data/seo/schema';
@@ -45,16 +48,12 @@ export interface RouteSeo {
   bodyHtml: string | null;
 }
 
-const SUFFIX = ' | Watermelon UI';
-
 function shareImage(pathname: string, image?: string | null) {
   const src = socialImageFor(pathname, image);
   return src.startsWith('http') ? src : `${SITE_URL}${src}`;
 }
 
-function fullTitle(title: string) {
-  return title.includes('Watermelon UI') ? title : `${title}${SUFFIX}`;
-}
+const fullTitle = withSiteSuffix;
 
 export function escapeHtml(input: string) {
   return input
@@ -77,9 +76,31 @@ function inline(text: string) {
 
 type ListItem = { title: string; href?: string; description?: string };
 
+const sentences = (text: string) =>
+  text.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter(Boolean);
+
+/**
+ * Keeps only what is specific to each item. A sentence shared by two or more
+ * items (a category blurb, a "Preview it live…" tail) or one that just repeats
+ * the item's own name says nothing new, and repeated across a list it makes
+ * the page read as one template stamped many times.
+ */
+export function distinctDescriptions(items: ListItem[]): ListItem[] {
+  const seen = new Map<string, number>();
+  for (const item of items) {
+    for (const s of new Set(sentences(item.description ?? ''))) seen.set(s, (seen.get(s) ?? 0) + 1);
+  }
+  return items.map((item) => {
+    const own = sentences(item.description ?? '').filter(
+      (s) => (seen.get(s) ?? 0) < 2 && s.replace(/[.!?]$/, '') !== item.title,
+    );
+    return { ...item, description: own.length ? own.join(' ') : undefined };
+  });
+}
+
 /** Links (or plain names) with an optional one-line description each. */
 function list(items: ListItem[]) {
-  return `<ul>${items
+  return `<ul>${distinctDescriptions(items)
     .map((item) => {
       const name = item.href
         ? `<a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a>`
@@ -503,6 +524,96 @@ const staticPages: Record<string, { title: string; description: string; kind?: C
   },
 };
 
+const installStep = (cmd: string) => `<pre><code>${escapeHtml(cmd)}</code></pre>`;
+
+// Crawlable copy for listing pages without a catalog kind. Each mirrors what
+// its React page shows; without it they all shipped the homepage's copy.
+const staticBodies: Record<string, (h1: string, description: string) => string> = {
+  '/home': (h1, description) =>
+    [
+      `<h1>${escapeHtml(h1)}</h1>`,
+      `<p>${escapeHtml(description)}</p>`,
+      '<h2>Browse the catalog</h2>',
+      list(
+        (['components', 'animated-components', 'blocks', 'dashboards', 'templates'] as const).map((kind) => {
+          const path = `/${kind}`;
+          return {
+            title: `${staticPages[path].title} (${catalog[kind].length})`,
+            href: path,
+            description: staticPages[path].description,
+          };
+        }),
+      ),
+      '<h2>Get started</h2>',
+      list([
+        { title: 'Installation', href: '/installation', description: staticPages['/installation'].description },
+        { title: 'Framework support', href: '/framework-support', description: 'Next.js and Vite are fully supported; any React 18+ project with Tailwind CSS v4 works.' },
+        { title: 'Guides', href: '/guides', description: 'How-tos for building interfaces with Watermelon UI and shadcn/ui.' },
+        { title: 'Changelog', href: '/changelog', description: 'New components, blocks, and fixes in each release.' },
+      ]),
+    ].join(''),
+  '/installation': (h1, description) =>
+    [
+      `<h1>${escapeHtml(h1)}</h1>`,
+      `<p>${escapeHtml(description)}</p>`,
+      '<h2>Start a new project</h2>',
+      '<p>Initialize a new project with the shadcn CLI, choosing the Next.js or Vite template, then add Watermelon components.</p>',
+      installStep('npx shadcn@latest init --template next'),
+      installStep('npx shadcn@latest init --template vite'),
+      '<h2>Add a Watermelon component</h2>',
+      '<p>Use the CLI to pull any component straight into your project from the Watermelon registry:</p>',
+      installStep('npx shadcn@latest add https://registry.watermelon.sh/r/card-split-accordian.json'),
+      '<p>pnpm, yarn, and bun work too: <code>pnpm dlx</code>, <code>yarn dlx</code>, or <code>bunx --bun</code> in place of <code>npx</code>.</p>',
+      '<h2>Add to an existing project</h2>',
+      '<p>Make sure shadcn/ui is initialized in the project, then add any component with the same command. Once installed, import and use it like any other shadcn component.</p>',
+      '<h2>Manual installation</h2>',
+      '<ol><li>Install the dependencies the component lists, for example <code>npm install motion</code>.</li><li>Paste the component source into your <code>components/ui</code> directory.</li></ol>',
+      '<p>See <a href="/framework-support">framework support</a> for requirements, then browse <a href="/components">components</a>, <a href="/animated-components">animated components</a>, and <a href="/blocks">blocks</a>.</p>',
+    ].join(''),
+  '/framework-support': (h1) =>
+    [
+      `<h1>${escapeHtml(h1)}</h1>`,
+      '<p>Watermelon UI components work with any React-based framework that supports Tailwind CSS v4.</p>',
+      '<h2>Supported frameworks</h2>',
+      `<table><thead><tr><th>Framework</th><th>Version</th><th>Status</th><th>Notes</th></tr></thead><tbody>${frameworks
+        .map(
+          (f) =>
+            `<tr><td>${escapeHtml(f.name)}</td><td>${escapeHtml(f.version)}</td><td>${f.status === 'full' ? 'Full support' : f.status === 'partial' ? 'Partial' : 'Coming soon'}</td><td>${escapeHtml(f.notes)}</td></tr>`,
+        )
+        .join('')}</tbody></table>`,
+      '<h2>Requirements</h2>',
+      `<ul>${requirements.map((r) => `<li><strong>${escapeHtml(r.label)}</strong>: ${escapeHtml(r.value)}. ${escapeHtml(r.desc)}.</li>`).join('')}</ul>`,
+      '<p>All components are client-side React components and work with any React 18+ project. If your framework uses SSR, wrap animation-heavy components in a <code>&lt;ClientOnly&gt;</code> boundary or use dynamic imports with <code>ssr: false</code>.</p>',
+      '<p>Next: <a href="/installation">installation guide</a>.</p>',
+    ].join(''),
+  '/changelog': (h1, description) =>
+    [
+      `<h1>${escapeHtml(h1)}</h1>`,
+      `<p>${escapeHtml(description)}</p>`,
+      ...changelogData.slice(0, 6).map((release) =>
+        [
+          `<h2>${escapeHtml(release.version)}${release.title ? `: ${escapeHtml(release.title)}` : ''} (${escapeHtml(release.date)})</h2>`,
+          ...release.sections.map(
+            (section) =>
+              `<h3>${escapeHtml(section.title)}</h3><ul>${section.items.map((item) => `<li>${escapeHtml(item.text)}</li>`).join('')}</ul>`,
+          ),
+        ].join(''),
+      ),
+    ].join(''),
+  '/copyright': (h1) =>
+    [
+      `<h1>${escapeHtml(h1)}</h1>`,
+      '<p>Our policy for inspiration, credit, and ownership claims.</p>',
+      '<h2>Our policy</h2>',
+      '<p>We do not intentionally take proprietary source code from other creators. We may reference visuals as inspiration and implement from scratch.</p>',
+      '<p>When a source is known, we add explicit credit under “Inspired By”.</p>',
+      '<h2>If you own a design featured here</h2>',
+      '<p>If you believe a design shown on this site is yours and is used without proper permission or attribution, email us at <a href="mailto:watermeloncorpui@gmail.com">watermeloncorpui@gmail.com</a> with proof. Please include direct source links, publication dates, repository or file history, and any other evidence that helps verify ownership.</p>',
+      '<h2>Review timeline</h2>',
+      '<p>We aim to resolve valid reports within 7-15 days. Actions may include adding credit, updating implementation, or removing content.</p>',
+    ].join(''),
+};
+
 function staticRoute(pathname: string): RouteSeo | null {
   const page = staticPages[pathname];
   if (!page) return null;
@@ -518,7 +629,9 @@ function staticRoute(pathname: string): RouteSeo | null {
       ogType: 'website',
       ogImage: shareImage(pathname),
       schemas: [breadcrumbSchema(crumbs)],
-      bodyHtml: null,
+      bodyHtml: staticBodies[pathname]
+        ? breadcrumbHtml(crumbs) + staticBodies[pathname](page.title, page.description)
+        : null,
     };
   }
   // Listing pages link to every category or item so crawlers can reach them.
