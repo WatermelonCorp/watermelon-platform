@@ -1,8 +1,10 @@
 /**
  * Permanent redirects for URLs Google still crawls after content moved:
  * animated components that lived under /components, capitalised block
- * categories, and removed block or showcase pages. Search Console listed these
- * as 106 soft 404s. Keys are exact paths without a trailing slash.
+ * categories, removed block or showcase pages, and the older /categories,
+ * /docs and /dashboards/<name> URL schemes. Search Console listed these as
+ * soft 404s and "Excluded by noindex". Keys are exact paths without a
+ * trailing slash.
  */
 export const movedPaths: Record<string, string> = {
   '/block/auth-4': '/blocks/auth',
@@ -13,10 +15,41 @@ export const movedPaths: Record<string, string> = {
   '/blocks/Blog': '/blocks/blog',
   '/blocks/CTA': '/blocks/cta',
   '/blocks/Career': '/blocks/career',
+  '/blocks/Error': '/blocks/error',
   '/blocks/FAQ': '/blocks/faq',
   '/blocks/Feature': '/blocks/feature',
   '/blocks/Stats': '/blocks/stats',
   '/blocks/Team': '/blocks/team',
+  '/blocks/ai-input-001': '/blocks',
+  '/blocks/ai-input-002': '/blocks',
+  '/blocks/ai-input-003': '/blocks',
+  '/blocks/ai-input-004': '/blocks',
+  '/blocks/ai-input-005': '/blocks',
+  '/categories/action': '/animated-components/category/action',
+  '/categories/buttons': '/animated-components/category/buttons',
+  '/categories/cards': '/animated-components/category/cards',
+  '/categories/carousel': '/animated-components/category/carousel',
+  '/categories/choice-chips': '/animated-components/category/choice-chips',
+  '/categories/corousel': '/animated-components/category/carousel',
+  '/categories/dialog': '/animated-components/category/dialog',
+  '/categories/disclosure': '/animated-components/category/disclosure',
+  '/categories/dropdown': '/animated-components/category/dropdown',
+  '/categories/filters': '/animated-components/category/filters',
+  '/categories/hooks': '/animated-components',
+  '/categories/inputs': '/animated-components/category/inputs',
+  '/categories/map': '/animated-components/category/map',
+  '/categories/media': '/animated-components/category/media',
+  '/categories/micro-interaction': '/animated-components/category/micro-interaction',
+  '/categories/navigation': '/animated-components/category/navigation',
+  '/categories/pagination': '/animated-components/category/pagination',
+  '/categories/popover': '/animated-components/category/popover',
+  '/categories/scheduler': '/animated-components/category/scheduler',
+  '/categories/sliders': '/animated-components/category/sliders',
+  '/categories/tabs': '/animated-components/category/tabs',
+  '/categories/toggle': '/animated-components/category/toggle',
+  '/categories/tooltip': '/animated-components/category/tooltip',
+  '/categories/video-player': '/animated-components',
+  '/categories/widgets': '/animated-components/category/widgets',
   '/components/aave-swap-component': '/animated-components/aave-swap-component',
   '/components/calendar-widget': '/animated-components/calendar-widget',
   '/components/card-split-accordian': '/animated-components/card-split-accordian',
@@ -103,6 +136,16 @@ export const movedPaths: Record<string, string> = {
   '/components/waveform-scrub': '/animated-components/waveform-scrub',
   '/components/weight-widget': '/animated-components/weight-widget',
   '/dashboard': '/dashboards',
+  '/dashboards/business-management-dashboard': '/dashboards',
+  '/dashboards/e-commerce-dashboard': '/dashboards',
+  '/dashboards/incident-management-dashboard': '/dashboards',
+  '/dashboards/lead-dashboard': '/dashboards',
+  '/dashboards/sales-dashboard': '/dashboards',
+  '/dashboards/tasks-dashboard': '/dashboards',
+  '/docs/components/accordion-13': '/components/accordion',
+  '/docs/components/accordion-6': '/components/accordion',
+  '/docs/components/alert-04': '/components/alerts',
+  '/docs/installation': '/installation',
 };
 
 /** Showcases were removed (#222); templates are the closest replacement. */
