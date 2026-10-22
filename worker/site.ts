@@ -5,6 +5,7 @@ import { internalRoutes, knownRoutes } from './routes.generated';
 import { resolveRouteSeo } from './seo-html';
 import { ogImageForPath } from '../src/data/seo/og';
 import { fitDescription } from '../src/data/seo/fit';
+import { redirectFor } from './redirects';
 
 type Env = {
   ASSETS: Fetcher;
@@ -360,6 +361,8 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
     const rawPathname = url.pathname.replace(/\/+$/, '') || '/';
+    const movedTo = redirectFor(rawPathname);
+    if (movedTo) return Response.redirect(`${url.origin}${movedTo}${url.search}`, 301);
     const versionedApiMatch = rawPathname.match(/^\/api\/(v\d+)(\/.*)?$/);
     const requestedApiVersion = versionedApiMatch?.[1] ?? null;
     const versionedApiPath =
