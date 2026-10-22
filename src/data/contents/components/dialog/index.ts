@@ -51,6 +51,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-01",
     title: "Dialog 1",
+    description: "Confirmation alert dialog on a frosted blurred panel with a grey Cancel and a pill-shaped Continue button.",
     component: Dialog1,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-1.json",
     code: code1,
@@ -58,6 +59,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-02",
     title: "Dialog 2",
+    description: "Informational alert dialog with a blue info icon, a support email link and a blue OK button.",
     component: Dialog2,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-2.json",
     code: code2,
@@ -65,6 +67,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-03",
     title: "Dialog 3",
+    description: "Destructive alert dialog with a red warning icon, an acknowledgement checkbox and a red Delete button.",
     component: Dialog3,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-3.json",
     code: code3,
@@ -72,6 +75,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-04",
     title: "Dialog 4",
+    description: "Scrollable dialog for long release notes, with a fixed title and Back and Read More footer buttons.",
     component: Dialog4,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-4.json",
     code: code4,
@@ -79,6 +83,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-05",
     title: "Dialog 5",
+    description: "Dialog with a bordered sticky header above scrolling terms text, ending in Decline and I Agree buttons.",
     component: Dialog5,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-5.json",
     code: code5,
@@ -86,6 +91,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-06",
     title: "Dialog 6",
+    description: "Dialog whose footer stays pinned while the header and a long audit report scroll above it.",
     component: Dialog6,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-6.json",
     code: code6,
@@ -93,6 +99,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-07",
     title: "Dialog 7",
+    description: "Fullscreen dialog filling the viewport with scrollable product details, testimonials and a footer action bar.",
     component: Dialog7,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-7.json",
     code: code7,
@@ -100,6 +107,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-08",
     title: "Dialog 8",
+    description: "Terms and conditions dialog with numbered legal sections, a tinted header and Cancel and I Agree buttons.",
     component: Dialog8,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-8.json",
     code: code8,
@@ -107,6 +115,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-09",
     title: "Dialog 9",
+    description: "Newsletter subscribe dialog with an email field and a Join Now button placed inline beside it.",
     component: Dialog9,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-9.json",
     code: code9,
@@ -114,6 +123,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-10",
     title: "Dialog 10",
+    description: "Refer-a-friend dialog with an email input, consent checkbox and an overlapping avatar stack with a +10 count.",
     component: Dialog10,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-10.json",
     code: code10,
@@ -121,6 +131,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-11",
     title: "Dialog 11",
+    description: "Feedback dialog with a five-face emoji rating scale, a comments textarea and a consent checkbox.",
     component: Dialog11,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-11.json",
     code: code11,
@@ -128,6 +139,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-12",
     title: "Dialog 12",
+    description: "OTP verification dialog with a five-digit code input that checks on completion and shows a success state.",
     component: Dialog12,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-12.json",
     code: code12,
@@ -135,6 +147,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-13",
     title: "Dialog 13",
+    description: "Sign-up dialog with first and last name fields, password, a terms checkbox and a Continue with Google button.",
     component: Dialog13,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-13.json",
     code: code13,
@@ -142,6 +155,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-14",
     title: "Dialog 14",
+    description: "Sign-in dialog with a centred login icon, email and password fields and four social login buttons.",
     component: Dialog14,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-14.json",
     code: code14,
@@ -149,6 +163,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-15",
     title: "Dialog 15",
+    description: "Team invite dialog with a name and email form plus a list of contacts, each with an Invite button.",
     component: Dialog15,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-15.json",
     code: code15,
@@ -156,6 +171,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-16",
     title: "Dialog 16",
+    description: "Profile settings dialog anchored to the top-left corner of the screen on larger viewports.",
     component: Dialog16,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-16.json",
     code: code16,
@@ -163,6 +179,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-17",
     title: "Dialog 17",
+    description: "Profile settings dialog pinned to the top centre of the screen instead of the middle.",
     component: Dialog17,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-17.json",
     code: code17,
@@ -170,6 +187,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-18",
     title: "Dialog 18",
+    description: "Profile settings dialog anchored to the top-right corner of the screen on larger viewports.",
     component: Dialog18,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-18.json",
     code: code18,
@@ -177,6 +195,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-19",
     title: "Dialog 19",
+    description: "Profile settings dialog docked to the left edge and vertically centred on larger viewports.",
     component: Dialog19,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-19.json",
     code: code19,
@@ -184,6 +203,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-20",
     title: "Dialog 20",
+    description: "Profile settings dialog docked to the right edge and vertically centred on larger viewports.",
     component: Dialog20,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-20.json",
     code: code20,
@@ -191,6 +211,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-21",
     title: "Dialog 21",
+    description: "Profile settings dialog anchored to the bottom-left corner of the screen on larger viewports.",
     component: Dialog21,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-21.json",
     code: code21,
@@ -198,6 +219,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-22",
     title: "Dialog 22",
+    description: "Profile settings dialog pinned to the bottom centre of the screen instead of the middle.",
     component: Dialog22,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-22.json",
     code: code22,
@@ -205,6 +227,7 @@ export const variants: UiVariant[] = [
   {
     id: "dialog-23",
     title: "Dialog 23",
+    description: "Profile settings dialog anchored to the bottom-right corner of the screen on larger viewports.",
     component: Dialog23,
     cli: "npx shadcn@latest add https://registry.watermelon.sh/r/dialog-23.json",
     code: code23,

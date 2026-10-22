@@ -48,6 +48,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-01',
     title: 'Sonner 1',
+    description: "Success toast for a deployment with a description and a green left border accent.",
     component: Sonner1,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-1.json',
     code: code1,
@@ -55,6 +56,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-02',
     title: 'Sonner 2',
+    description: "Plain event reminder toast with a meeting time description and a sky blue left border.",
     component: Sonner2,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-2.json',
     code: code2,
@@ -62,6 +64,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-03',
     title: 'Sonner 3',
+    description: "Custom delivery toast with a truck icon in an orange tile beside a title and subtitle.",
     component: Sonner3,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-3.json',
     code: code3,
@@ -69,6 +72,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-04',
     title: 'Sonner 4',
+    description: "Profile update toast with a user avatar on the left of the title and message.",
     component: Sonner4,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-4.json',
     code: code4,
@@ -76,6 +80,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-05',
     title: 'Sonner 5',
+    description: "Dismissible toast with a close button that can also auto-close on its own.",
     component: Sonner5,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-5.json',
     code: code5,
@@ -83,6 +88,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-06',
     title: 'Sonner 6',
+    description: "Archive notification toast with an Undo action button to reverse the change.",
     component: Sonner6,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-6.json',
     code: code6,
@@ -90,6 +96,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-07',
     title: 'Sonner 7',
+    description: "Promise toast that shows a loading message, then a success or error result after syncing.",
     component: Sonner7,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-7.json',
     code: code7,
@@ -97,6 +104,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-08',
     title: 'Sonner 8',
+    description: "Grid of six buttons that open a toast in each screen position, from top left to bottom right.",
     component: Sonner8,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-8.json',
     code: code8,
@@ -104,6 +112,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-09',
     title: 'Sonner 9',
+    description: "Soft info toast with a pale sky blue tint, blue text and a blue border.",
     component: Sonner9,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-9.json',
     code: code9,
@@ -111,6 +120,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-10',
     title: 'Sonner 10',
+    description: "Soft success toast with a pale green tint for a completed file upload.",
     component: Sonner10,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-10.json',
     code: code10,
@@ -118,6 +128,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-11',
     title: 'Sonner 11',
+    description: "Soft warning toast with a pale amber tint for a low storage alert.",
     component: Sonner11,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-11.json',
     code: code11,
@@ -125,6 +136,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-12',
     title: 'Sonner 12',
+    description: "Soft destructive toast with a pale red tint for a permanent deletion warning.",
     component: Sonner12,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-12.json',
     code: code12,
@@ -132,6 +144,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-13',
     title: 'Sonner 13',
+    description: "Outline info toast on the normal background with a sky blue border and text.",
     component: Sonner13,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-13.json',
     code: code13,
@@ -139,6 +152,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-14',
     title: 'Sonner 14',
+    description: "Outline success toast on the normal background with a green border for a received payment.",
     component: Sonner14,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-14.json',
     code: code14,
@@ -146,6 +160,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-15',
     title: 'Sonner 15',
+    description: "Outline warning toast with an amber border and text for an unrecognised login attempt.",
     component: Sonner15,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-15.json',
     code: code15,
@@ -153,6 +168,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-16',
     title: 'Sonner 16',
+    description: "Outline error toast with a red border and text for revoked account access.",
     component: Sonner16,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-16.json',
     code: code16,
@@ -160,6 +176,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-17',
     title: 'Sonner 17',
+    description: "Solid info toast with a filled sky blue background and white text.",
     component: Sonner17,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-17.json',
     code: code17,
@@ -167,6 +184,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-18',
     title: 'Sonner 18',
+    description: "Solid success toast with a filled green background and white text for a finished backup.",
     component: Sonner18,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-18.json',
     code: code18,
@@ -174,6 +192,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-19',
     title: 'Sonner 19',
+    description: "Solid warning toast with a filled amber background and white text for unusual activity.",
     component: Sonner19,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-19.json',
     code: code19,
@@ -181,6 +200,7 @@ export const variants: UiVariant[] = [
   {
     id: 'sonner-20',
     title: 'Sonner 20',
+    description: "Solid error toast with a filled red background and white text for a critical failure.",
     component: Sonner20,
     cli: 'npx shadcn@latest add https://registry.watermelon.sh/r/sonner-20.json',
     code: code20,
