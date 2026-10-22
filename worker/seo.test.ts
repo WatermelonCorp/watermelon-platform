@@ -13,6 +13,7 @@ import { seoPageSchemas } from '../src/data/seo/schema';
 import { ogImageRoutes } from '../src/data/seo/og-images.generated';
 import { ogImageForPath, socialImageFor } from '../src/data/seo/og';
 import { knownRoutes } from './routes.generated';
+import { movedPaths } from './redirects';
 import { distinctDescriptions, resolveRouteSeo } from './seo-html';
 import siteWorker from './site';
 
@@ -342,5 +343,30 @@ describe('http requests', () => {
     const response = await siteWorker.fetch(new Request('http://ui.watermelon.sh/components?x=1'), mockEnv);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe('https://ui.watermelon.sh/components?x=1');
+  });
+});
+
+describe('moved URLs', () => {
+  it('301s old paths Google still crawls to their new home, keeping the query', async () => {
+    const cases: [string, string][] = [
+      ['/components/dock', '/animated-components/dock'],
+      ['/blocks/FAQ', '/blocks/faq'],
+      ['/block/auth-4', '/blocks/auth'],
+      ['/showcases', '/templates'],
+      ['/showcase/saas-launch-stack', '/templates'],
+    ];
+    for (const [from, to] of cases) {
+      const response = await siteWorker.fetch(new Request(`https://ui.watermelon.sh${from}?ref=x`), mockEnv);
+      expect(response.status).toBe(301);
+      expect(response.headers.get('Location')).toBe(`https://ui.watermelon.sh${to}?ref=x`);
+    }
+  });
+
+  it('only redirects to routes that exist', () => {
+    for (const target of Object.values(movedPaths)) expect(knownRoutes).toContain(target);
+  });
+
+  it('never redirects a live route', () => {
+    for (const from of Object.keys(movedPaths)) expect(knownRoutes).not.toContain(from);
   });
 });
