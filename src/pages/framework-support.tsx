@@ -7,44 +7,11 @@ import {
   DocSection,
   DocTable,
 } from '@/components/docs';
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type Status = 'full' | 'partial' | 'coming';
-
-interface Framework {
-  name: string;
-  version: string;
-  status: Status;
-  notes: string;
-}
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const frameworks: Framework[] = [
-  {
-    name: 'Next.js',
-    version: '14+',
-    status: 'full',
-    notes: 'Full support including App Router and Server Components.',
-  },
-  {
-    name: 'Vite + React',
-    version: '5+',
-    status: 'full',
-    notes: 'Recommended setup — this is what Watermelon UI is built with.',
-  },
-];
-
-const requirements = [
-  { label: 'React', value: '18 or 19', desc: 'Hooks & Suspense required' },
-  { label: 'Tailwind CSS', value: 'v4', desc: 'CSS-first config via @import' },
-  { label: 'shadcn/ui', value: 'Latest', desc: 'Component primitives layer' },
-];
+import { frameworks, requirements, type FrameworkStatus } from '@/data/framework-support';
 
 // ─── Status Badge ─────────────────────────────────────────────────────────────
 
-function StatusBadge({ status }: { status: Status }) {
+function StatusBadge({ status }: { status: FrameworkStatus }) {
   if (status === 'partial') {
     return (
       <span className="inline-flex h-fit w-fit items-center gap-1 rounded-md bg-amber-500/10 px-2.5 py-1 text-[11px] font-medium text-amber-600 dark:text-amber-400 ring-1 ring-amber-500/20">

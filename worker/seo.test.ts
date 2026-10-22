@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { fitDescription } from '../src/data/seo/fit';
+import { fitDescription, TITLE_MAX, withSiteSuffix } from '../src/data/seo/fit';
 import { describe, expect, it } from 'bun:test';
 import {
   seoIndexPages,
@@ -13,7 +13,7 @@ import { seoPageSchemas } from '../src/data/seo/schema';
 import { ogImageRoutes } from '../src/data/seo/og-images.generated';
 import { ogImageForPath, socialImageFor } from '../src/data/seo/og';
 import { knownRoutes } from './routes.generated';
-import { resolveRouteSeo } from './seo-html';
+import { distinctDescriptions, resolveRouteSeo } from './seo-html';
 import siteWorker from './site';
 
 const shell = `<!doctype html><html><head>
@@ -211,7 +211,7 @@ describe('route SEO in the Worker', () => {
     expect(response.status).toBe(200);
     const html = await response.text();
     const page = seoPagesByPath['/alternatives/shadcn-ui'];
-    expect(html).toContain(`<title>${page.title} | Watermelon UI</title>`);
+    expect(html).toContain(`<title>${withSiteSuffix(page.title)}</title>`);
     expect(html).toContain('<link rel="canonical" href="https://ui.watermelon.sh/alternatives/shadcn-ui" />');
     expect(html).toContain('<meta property="og:url" content="https://ui.watermelon.sh/alternatives/shadcn-ui" />');
     expect(html).toContain('<meta property="og:type" content="article" />');
@@ -276,5 +276,71 @@ describe('route SEO in the Worker', () => {
       expect(response.status).toBe(200);
       expect(await response.text()).toContain(`<h1>${index.h1}</h1>`);
     }
+  });
+});
+
+describe('pages with their own crawlable copy', () => {
+  const homepageCopy = resolveRouteSeo('/')?.bodyHtml ?? null;
+
+  it('gives every non-catalog listing page its own body, not the homepage copy', () => {
+    for (const path of ['/home', '/installation', '/framework-support', '/changelog', '/copyright']) {
+      const seo = resolveRouteSeo(path)!;
+      expect(seo.bodyHtml).not.toBeNull();
+      expect(seo.bodyHtml).not.toBe(homepageCopy);
+      expect(seo.bodyHtml!.match(/<h1>/g)).toHaveLength(1);
+    }
+    expect(resolveRouteSeo('/home')!.bodyHtml).toContain('href="/animated-components"');
+    expect(resolveRouteSeo('/installation')!.bodyHtml).toContain('registry.watermelon.sh/r/');
+    expect(resolveRouteSeo('/framework-support')!.bodyHtml).toContain('Next.js');
+  });
+
+  it('serves them through the worker', async () => {
+    const response = await siteWorker.fetch(new Request('https://ui.watermelon.sh/installation'), mockEnv);
+    expect(await response.text()).toContain('<h2>Add a Watermelon component</h2>');
+  });
+});
+
+describe('list descriptions', () => {
+  it('drops sentences shared across items and ones that repeat the name', () => {
+    const shared = 'A vertically stacked set of interactive headings.';
+    const items = distinctDescriptions([
+      { title: 'Accordion 1', description: `Accordion 1. ${shared}` },
+      { title: 'Accordion 2', description: `Accordion 2. ${shared} Opens one item at a time.` },
+    ]);
+    expect(items[0].description).toBeUndefined();
+    expect(items[1].description).toBe('Opens one item at a time.');
+  });
+
+  it('never repeats one sentence across a component category page', () => {
+    const body = resolveRouteSeo('/components/button')!.bodyHtml!;
+    const text = body.replace(/<[^>]+>/g, ' ');
+    const sentences = text.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter((s) => s.split(' ').length > 4);
+    const counts = new Map<string, number>();
+    for (const s of sentences) counts.set(s, (counts.get(s) ?? 0) + 1);
+    expect(Math.max(...counts.values())).toBeLessThanOrEqual(2);
+  });
+});
+
+describe('titles', () => {
+  it('drops the brand suffix rather than exceed 60 characters', () => {
+    expect(withSiteSuffix('Short title')).toBe('Short title | Watermelon UI');
+    const long = 'Free React Pricing Table Blocks with Annual Toggle';
+    expect(withSiteSuffix(long)).toBe(long);
+  });
+
+  it('keeps worker titles within the limit unless the bare title is already longer', () => {
+    for (const path of knownRoutes) {
+      const seo = resolveRouteSeo(path);
+      if (!seo || seo.title.includes('Watermelon UI') === false) continue;
+      expect(seo.title.length).toBeLessThanOrEqual(TITLE_MAX);
+    }
+  });
+});
+
+describe('http requests', () => {
+  it('redirects plain http to https permanently', async () => {
+    const response = await siteWorker.fetch(new Request('http://ui.watermelon.sh/components?x=1'), mockEnv);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe('https://ui.watermelon.sh/components?x=1');
   });
 });

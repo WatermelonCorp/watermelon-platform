@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { socialImageFor } from '@/data/seo/og';
 import { SITE_URL } from '@/data/seo/site';
-import { fitDescription } from '@/data/seo/fit';
+import { fitDescription, withSiteSuffix } from '@/data/seo/fit';
 
 interface SEOHeadProps {
   title: string;
@@ -30,7 +30,7 @@ export function SEOHead({
   ogImageAlt,
   noindex = false,
 }: SEOHeadProps) {
-  const fullTitle = title.includes('Watermelon UI') ? title : `${title} | Watermelon UI`;
+  const fullTitle = withSiteSuffix(title);
   // Same fitting as the Worker, so the app and raw HTML ship one description.
   const description = fitDescription(rawDescription);
   // Always the production domain. A VITE_SITE_URL set in a build environment

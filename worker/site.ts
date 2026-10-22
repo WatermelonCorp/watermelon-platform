@@ -353,6 +353,12 @@ function isKnownDocumentRoute(pathname: string) {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+    // One scheme per page: plain-HTTP requests otherwise get a 200 copy of
+    // every route. Local dev servers stay on http.
+    if (url.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(url.hostname)) {
+      url.protocol = 'https:';
+      return Response.redirect(url.toString(), 301);
+    }
     const rawPathname = url.pathname.replace(/\/+$/, '') || '/';
     const versionedApiMatch = rawPathname.match(/^\/api\/(v\d+)(\/.*)?$/);
     const requestedApiVersion = versionedApiMatch?.[1] ?? null;

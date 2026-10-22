@@ -9,14 +9,20 @@ export const DESCRIPTION_MAX = 160;
 
 const SUFFIX = ' | Watermelon UI';
 
+/**
+ * Adds the brand suffix only while the full title still fits. A long title
+ * keeps its query words visible instead of being truncated mid-phrase.
+ */
 export function withSiteSuffix(title: string) {
-  return title.includes('Watermelon UI') ? title : `${title}${SUFFIX}`;
+  if (title.includes('Watermelon UI')) return title;
+  const suffixed = `${title}${SUFFIX}`;
+  return suffixed.length <= TITLE_MAX ? suffixed : title;
 }
 
 /** The first title whose full form fits, else the shortest one. */
 export function fitTitle(...candidates: string[]): string {
   return (
-    candidates.find((title) => withSiteSuffix(title).length <= TITLE_MAX) ??
+    candidates.find((title) => `${title}${SUFFIX}`.length <= TITLE_MAX) ??
     candidates.reduce((a, b) => (b.length < a.length ? b : a))
   );
 }
