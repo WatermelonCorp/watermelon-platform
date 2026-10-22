@@ -366,7 +366,7 @@ export default function DashboardPage() {
   return (
     <>
       <SEOHead
-        title={dashboardDetailSeo({ title: item.name }).title}
+        title={dashboardDetailSeo({ title: item.name, slug: item.slug }).title}
         description={item.description}
         image={item.image}
         ogImageAlt={`${item.name} preview`}

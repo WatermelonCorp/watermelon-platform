@@ -93,7 +93,7 @@ export const toolPages: SeoPage[] = [
       'shadcn registry namespace',
     ],
     intro: [
-      'A shadcn registry is a set of JSON files that describe components, so the shadcn CLI can install them into your project. You install from a registry either by URL (`npx shadcn@latest add https://.../hero.json`) or by namespace (`npx shadcn@latest add @watermelon/hero-3`) after adding the registry to `components.json`.',
+      'A shadcn registry is a set of JSON files that describe components, so the shadcn CLI can install them into your project. You install from a registry either by URL (`npx shadcn@latest add https://.../hero.json`) or by namespace (`npx shadcn@latest add @watermelon/hero-3`). Registries listed in the official shadcn directory, Watermelon UI included, need no setup for the namespace to work.',
     ],
     sections: [
       {
@@ -113,7 +113,7 @@ export const toolPages: SeoPage[] = [
       {
         heading: 'Install by namespace',
         paragraphs: [
-          'Add the registry to the `registries` field in `components.json`, using `{name}` as the placeholder for the item name:',
+          'Registries in the official shadcn directory, including `@watermelon`, work with no setup: the CLI looks the namespace up and configures it. To pin a registry yourself (or use one that is not listed), add it to the `registries` field in `components.json`, using `{name}` as the placeholder for the item name:',
           '`"registries": { "@watermelon": "https://registry.watermelon.sh/r/{name}.json" }`',
           'Then install with `npx shadcn@latest add @watermelon/hero-3`, or search with `npx shadcn@latest search @watermelon --query hero`. Private registries can add auth headers in the same config, with tokens read from environment variables.',
         ],
@@ -129,7 +129,7 @@ export const toolPages: SeoPage[] = [
         table: {
           columns: ['Registry', 'Namespace', 'Best for'],
           rows: [
-            ['Watermelon UI', '`@watermelon` (add to components.json)', 'Free blocks, dashboards, and 130+ animated components'],
+            ['Watermelon UI', '`@watermelon`', 'Free blocks, dashboards, and 130+ animated components'],
             ['Magic UI', '`@magicui`', 'Animated landing page components'],
             ['Aceternity UI', '`@aceternity`', 'Animated visual effects'],
             ['Kibo UI', '`@kibo-ui`', 'Advanced app components'],
