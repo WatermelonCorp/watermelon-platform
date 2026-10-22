@@ -43,12 +43,12 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Yes. Set type="multiple" on the Accordion root; type="single" keeps only one item open, and collapsible lets the open one close again.',
       },
       {
-        q: 'Is the accordion accessible?',
-        a: 'Yes. It uses Radix UI, which handles the button and region roles, aria-expanded, and arrow, Home, and End key navigation between headers.',
+        q: 'Why is my shadcn accordion animation not working?',
+        a: 'Check that your global CSS has @import "tw-animate-css" after @import "tailwindcss", because the animate-accordion-down and animate-accordion-up classes come from it. Its keyframes animate to --radix-accordion-content-height, which Radix measures for each panel.',
       },
       {
-        q: 'Does it work with Next.js?',
-        a: 'Yes. The accordion is a client component, so it works in the Next.js App Router inside any file marked "use client", and in Vite, Remix, and Astro React islands.',
+        q: 'How do I change the shadcn accordion trigger icon?',
+        a: 'Edit AccordionTrigger in your accordion file and swap the icons it renders after its children. It shows a down chevron when closed and an up chevron when open using group-aria-expanded classes, so replace both, or keep one icon and add group-aria-expanded/accordion-trigger:rotate-180.',
       },
     ],
   },
@@ -142,8 +142,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Yes. Place a small icon before or after the text inside the Badge, and the built-in classes size and space it. Keep icons decorative or give them an aria-label.',
       },
       {
-        q: 'What is the difference between a badge and a chip?',
-        a: 'A badge is usually a read-only label, while a chip is often interactive, for example removable or selectable. You can build a chip from a badge by adding a close button inside it.',
+        q: 'How do I change the size of a shadcn badge?',
+        a: 'Pass Tailwind classes through className, for example className="h-6 px-3 text-sm", because the badge has a fixed h-5 height and no size prop. For sizes you reuse, add a size key to badgeVariants next to variant.',
       },
     ],
   },
@@ -174,8 +174,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Replace the middle items with BreadcrumbEllipsis, optionally inside a dropdown menu that lists the hidden levels. This keeps the first and last levels visible on small screens.',
       },
       {
-        q: 'Do breadcrumbs help SEO?',
-        a: 'Breadcrumbs help users and give search engines clear internal links. To show them in Google results, also add BreadcrumbList structured data to the page.',
+        q: 'How do I build shadcn breadcrumbs from the current URL?',
+        a: 'Split the pathname into segments, for example from usePathname in Next.js, and map each one to a BreadcrumbItem whose link points to the path up to that segment. Render the last segment as BreadcrumbPage and put a BreadcrumbSeparator between items inside a keyed Fragment.',
       },
     ],
   },
@@ -238,8 +238,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Keep the selected value in state and switch that button’s variant or add an active class. Add aria-pressed to toggle buttons so assistive tech knows the state.',
       },
       {
-        q: 'Should a button group have a role?',
-        a: 'Yes. Put role="group" and an aria-label on the container so screen readers announce the buttons as a related set.',
+        q: 'How do I make a shadcn button group full width?',
+        a: 'Pass className="w-full" to ButtonGroup, which is w-fit by default, and add flex-1 to each Button. The group is a flex row, so the buttons then share the width evenly.',
       },
     ],
   },
@@ -301,8 +301,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Use a CSS grid for the row and give each card h-full. Put the footer last with mt-auto so buttons line up across cards.',
       },
       {
-        q: 'Do shadcn cards need a client component?',
-        a: 'No. The card has no state or effects, so it works as a React Server Component in the Next.js App Router.',
+        q: 'How do I remove the border or add a shadow to a shadcn card?',
+        a: 'Pass className="ring-0", because the card draws its outline with ring-1 ring-foreground/10 rather than a border. It ships without a shadow, so add a class like shadow-md if you want one.',
       },
     ],
   },
@@ -333,8 +333,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Render it inside a Controller and map field.value to checked and field.onChange to onCheckedChange. A plain register call does not work because the Radix checkbox is a button, not a native input.',
       },
       {
-        q: 'How do I connect a label to a checkbox?',
-        a: 'Give the Checkbox an id and set htmlFor on the Label to the same value. Clicking the label then toggles the checkbox.',
+        q: 'Why does onChange not work on a shadcn checkbox?',
+        a: 'The Radix checkbox is a button, so use onCheckedChange instead of onChange. It receives true, false, or "indeterminate", so store checked === true if your state is a plain boolean.',
       },
     ],
   },
@@ -393,8 +393,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'cmdk filters on each CommandItem value, so set value to the text people will type, such as the label. Keep your ID in a separate field for the saved selection.',
       },
       {
-        q: 'How do I load combobox options from an API?',
-        a: 'Set shouldFilter={false} on Command, fetch results as the CommandInput value changes, and render them as CommandItems. That stops cmdk from filtering results your server already filtered.',
+        q: 'Why does my shadcn combobox not scroll inside a dialog?',
+        a: 'Set modal on the Popover root, as in <Popover modal>. The dialog blocks scrolling outside its own content, and the popover list is portaled outside it, so the wheel does nothing until the popover is modal too.',
       },
       {
         q: 'How do I make the popover the same width as the trigger?',
@@ -484,8 +484,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Call event.preventDefault() in onInteractOutside on DialogContent. Use onEscapeKeyDown the same way if Escape should not close it either.',
       },
       {
-        q: 'How do I open a dialog from code?',
-        a: 'Control it with open and onOpenChange on the Dialog root and set open from your state. Keep the DialogTrigger only if a button should also open it.',
+        q: 'How do I change the width of a shadcn dialog?',
+        a: 'Pass a max width at the sm breakpoint to DialogContent, for example className="sm:max-w-2xl". The content ships with sm:max-w-sm, so a plain max-w-2xl class still loses to it on larger screens.',
       },
       {
         q: 'How do I close the dialog after a form submits?',
@@ -587,8 +587,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Usually the field value includes the mask characters, like spaces or slashes. Strip them before saving if your backend expects digits only.',
       },
       {
-        q: 'Is a masked input accessible?',
-        a: 'It can be, as long as the field has a visible label and the expected format is written out, for example in a description. Do not rely on the placeholder alone, because it disappears as users type.',
+        q: 'How do I add a date mask to an input?',
+        a: 'Pass the datetime alias to withMask with an inputFormat, for example withMask("datetime", { inputFormat: "dd/mm/yyyy" }). The same alias handles times with a format like HH:MM:ss, where MM means minutes.',
       },
     ],
   },
@@ -614,8 +614,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Use the onComplete callback, which fires once every slot is filled. Call your verify function from there instead of waiting for a button.',
       },
       {
-        q: 'How do I change the number of digits?',
-        a: 'Set maxLength on InputOTP and render the same number of InputOTPSlot elements with index values from 0 up. Group them with InputOTPGroup and InputOTPSeparator.',
+        q: 'How do I use the shadcn OTP input with react-hook-form?',
+        a: 'Render InputOTP inside a Controller and pass field.value to value and field.onChange to onChange. input-otp calls onChange with the whole code as a string, so a zod rule like z.string().length(6) validates it.',
       },
       {
         q: 'Does the OTP input support paste and SMS autofill?',
@@ -638,8 +638,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
     ],
     faq: [
       {
-        q: 'Does shadcn pagination handle page state?',
-        a: 'No. The components only render links and styles, so you calculate the current page, total pages, and which numbers to show. Store the current page in the URL or React state.',
+        q: 'How do I disable the previous button on the first page?',
+        a: 'PaginationPrevious renders a link, so it has no disabled prop; add aria-disabled and className="pointer-events-none opacity-50" on the first page, or leave it out. Do the same for PaginationNext on the last page.',
       },
       {
         q: 'How do I mark the current page?',
@@ -670,8 +670,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
     ],
     faq: [
       {
-        q: 'What is the difference between a popover and a tooltip?',
-        a: 'A popover opens on click and can hold interactive content, while a tooltip appears on hover or focus and shows a short text hint. Do not put buttons or links inside a tooltip.',
+        q: 'How do I open a shadcn popover on hover?',
+        a: 'Use HoverCard instead, because the Radix popover opens on click or from controlled state, not on hover. HoverCard takes openDelay and closeDelay, and is meant for previews, so keep forms and key actions in a click-opened popover.',
       },
       {
         q: 'How do I close a popover programmatically?',
@@ -746,8 +746,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Wrap related items in SelectGroup with a SelectLabel heading, and use SelectSeparator between groups. Screen readers announce the group label.',
       },
       {
-        q: 'Should I use the Radix select or a native select?',
-        a: 'Use the Radix select when you need custom item content like icons or descriptions. Use a native select when you want the platform picker on mobile and the simplest form behavior.',
+        q: 'How do I add search to a shadcn select?',
+        a: 'Use a combobox built from Popover and Command instead, because the Radix select has no search field and only jumps to items as you type their first letters. cmdk filters the list as the user types.',
       },
     ],
   },
@@ -805,8 +805,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'Use toast.promise(promise, { loading, success, error }). The same toast moves from the loading message to success or error when the promise settles.',
       },
       {
-        q: 'How do I change the toast position?',
-        a: 'Pass position to Toaster, for example position="top-center". The options are top or bottom combined with left, center, or right.',
+        q: 'How do I change the colors of a sonner toast?',
+        a: 'Pass richColors to Toaster for colored success, error, warning, and info toasts, or style them with toastOptions.classNames. The default toast reads your popover, popover-foreground, and border theme tokens, so changing those restyles it too.',
       },
       {
         q: 'How do I add an undo button to a toast?',
@@ -829,8 +829,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
     ],
     faq: [
       {
-        q: 'What is the difference between a switch and a checkbox?',
-        a: 'A switch applies its change immediately, while a checkbox is usually saved when the form is submitted. Use a checkbox for consent and multi-select lists.',
+        q: 'How do I use a shadcn switch as a dark mode toggle?',
+        a: 'Read resolvedTheme and setTheme from useTheme in next-themes, pass checked={resolvedTheme === "dark"}, and call setTheme(checked ? "dark" : "light") in onCheckedChange. Render it after mount, since the theme is unknown on the server.',
       },
       {
         q: 'How do I control a shadcn switch?',
@@ -842,7 +842,7 @@ export const componentGuides: Record<string, CategoryGuide> = {
       },
       {
         q: 'How do I change the switch size or color?',
-        a: 'Pass Tailwind classes to the Switch root and style the checked state with data-[state=checked]. Resize the thumb in your switch file so it still fits the track.',
+        a: 'Pass size="sm" for the smaller built-in size, or className with checked-state classes such as data-checked:bg-emerald-500 for a custom color. Going larger than default means editing the track and thumb sizes in your switch file so they still line up.',
       },
     ],
   },
@@ -869,11 +869,11 @@ export const componentGuides: Record<string, CategoryGuide> = {
       },
       {
         q: 'How do I add a sticky header?',
-        a: 'Give the scroll container a max height and add sticky top-0 with a background color to TableHeader or each TableHead. The background stops rows from showing through.',
+        a: 'Table renders its own overflow-x-auto wrapper, so that div is the scroll container: give it a max height in your local table file, then add sticky top-0 with a background color to TableHeader. The background stops rows from showing through.',
       },
       {
-        q: 'Does the table need a client component?',
-        a: 'No. The table has no state, so it renders as a React Server Component in the Next.js App Router.',
+        q: 'How do I make a shadcn table scrollable?',
+        a: 'Horizontal scroll is built in, because Table wraps the table in a div with overflow-x-auto. For vertical scroll, wrap Table in a div with a fixed height, such as h-96 overflow-y-auto.',
       },
     ],
   },
@@ -927,8 +927,8 @@ export const componentGuides: Record<string, CategoryGuide> = {
         a: 'The textarea uses the CSS field-sizing: content property, so it grows with its text in browsers that support it. For older browsers, set the height from scrollHeight in an onChange handler.',
       },
       {
-        q: 'How do I add a character counter?',
-        a: 'Control the value in state, set maxLength, and show value.length out of the limit below the field. Link the counter with aria-describedby so screen readers announce it.',
+        q: 'Why does rows not work on a shadcn textarea?',
+        a: 'The textarea uses field-sizing-content, which sizes it to its text and ignores rows in browsers that support it. Add field-sizing-fixed to its className to make rows work again, or set a height class like min-h-32.',
       },
       {
         q: 'How do I stop the user from resizing the textarea?',
