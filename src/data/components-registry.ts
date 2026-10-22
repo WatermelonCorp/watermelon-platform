@@ -8,6 +8,11 @@ export interface UiVariant {
   id: string;
   /** Display title shown above the preview */
   title: string;
+  /**
+   * One line on what sets this variant apart, read from its code. Shown under
+   * the title and used as its catalog description. Double quotes only.
+   */
+  description?: string;
   /** Live React component to render */
   component: React.ComponentType;
   /** Base shadcn CLI command (package-manager prefix added at runtime) */

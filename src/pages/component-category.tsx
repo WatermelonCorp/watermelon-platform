@@ -8,6 +8,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { SourceCodeIcon } from "@/lib/hugeicons";
 import { CatalogPageHeader } from "@/components/layout/catalog-page-header";
 import { componentCategorySeo } from "@/data/seo/catalog-meta";
+import { componentGuides, guideFaqSchema, type CategoryGuide } from "@/data/seo/category-guides";
 import { RelatedResources } from "@/components/seo/related-resources";
 
 // ─── Loading fallback ─────────────────────────────────────────────────────────
@@ -32,8 +33,13 @@ function VariantCard({
   return (
     <div className="flex flex-col gap-3 px-4 h-full">
       {/* Title row */}
-      <div className="flex items-center justify-between border-b py-3">
-        <span className="text-sm font-medium text-foreground">{variant.title}</span>
+      <div className="flex items-center justify-between gap-3 border-b py-3">
+        <div className="min-w-0">
+          <h2 className="text-sm font-medium text-foreground">{variant.title}</h2>
+          {variant.description && (
+            <p className="mt-0.5 text-xs text-muted-foreground">{variant.description}</p>
+          )}
+        </div>
         <button
           id={`code-btn-${variant.id}`}
           onClick={() => onCodeClick(variant)}
@@ -61,6 +67,51 @@ function VariantCard({
   );
 }
 
+// ─── Guide ────────────────────────────────────────────────────────────────────
+
+function CategoryGuideSection({ guide, name }: { guide: CategoryGuide; name: string }) {
+  const sibling = (slug: string) => uiCategories.find((c) => c.slug === slug)?.label ?? slug;
+  return (
+    <section className="mx-auto w-full max-w-3xl space-y-8 text-sm leading-relaxed text-muted-foreground">
+      <div className="space-y-2">
+        <h2 className="text-lg font-semibold text-foreground">About {name}</h2>
+        <p>{guide.answer}</p>
+      </div>
+      <div className="space-y-2">
+        <h2 className="text-lg font-semibold text-foreground">When to use it</h2>
+        <ul className="list-disc space-y-1 pl-5">
+          {guide.useWhen.map((u) => <li key={u}>{u}</li>)}
+        </ul>
+      </div>
+      {guide.instead.length > 0 && (
+        <div className="space-y-2">
+          <h2 className="text-lg font-semibold text-foreground">When to use something else</h2>
+          <ul className="list-disc space-y-1 pl-5">
+            {guide.instead.map((i) => (
+              <li key={i.slug}>
+                Use{" "}
+                <Link to={`/components/${i.slug}`} className="text-foreground underline underline-offset-4">
+                  {sibling(i.slug)}
+                </Link>{" "}
+                when {i.when}.
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div className="space-y-4">
+        <h2 className="text-lg font-semibold text-foreground">Frequently asked questions</h2>
+        {guide.faq.map((f) => (
+          <div key={f.q} className="space-y-1">
+            <h3 className="font-medium text-foreground">{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ComponentCategoryPage() {
@@ -74,6 +125,7 @@ export default function ComponentCategoryPage() {
   const label = meta?.label ?? (category.charAt(0).toUpperCase() + category.slice(1));
   const description = meta?.description ?? `${label} component variants.`;
   const seo = componentCategorySeo(category, variants.length);
+  const guide = componentGuides[category];
 
   if (!exists) {
     return (
@@ -95,6 +147,7 @@ export default function ComponentCategoryPage() {
         title={seo?.title ?? label}
         description={seo?.description ?? description}
         category="Components"
+        schema={guide ? JSON.stringify(guideFaqSchema(guide)) : undefined}
       />
 
       <CatalogPageHeader title={seo?.h1 ?? label} description={description} />
@@ -140,6 +193,8 @@ export default function ComponentCategoryPage() {
             ))}
           </div>
         </div>
+
+        {guide && <CategoryGuideSection guide={guide} name={seo?.h1 ?? label} />}
 
         <RelatedResources kind="components" />
       </div>
